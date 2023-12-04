@@ -1,0 +1,178 @@
+// Export pages
+export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
+export '/pages/set_pin_code_page/set_pin_code_page_widget.dart'
+    show SetPinCodePageWidget;
+export '/pages/pin_code_page/pin_code_page_widget.dart' show PinCodePageWidget;
+export '/pages/super_app/super_app_page/super_app_page_widget.dart'
+    show SuperAppPageWidget;
+export '/pages/super_app/notification_detail_page/notification_detail_page_widget.dart'
+    show NotificationDetailPageWidget;
+export '/pages/profile_page_folder/my_profile_page/my_profile_page_widget.dart'
+    show MyProfilePageWidget;
+export '/pages/introdution_page/introdution_page_widget.dart'
+    show IntrodutionPageWidget;
+export '/pages/insurance/check_insurance_page/check_insurance_page_widget.dart'
+    show CheckInsurancePageWidget;
+export '/pages/insurance/check_1_insurance_page/check1_insurance_page_widget.dart'
+    show Check1InsurancePageWidget;
+export '/pages/insurance/list_insuranc_page/list_insuranc_page_widget.dart'
+    show ListInsurancPageWidget;
+export '/pages/insurance/detail_insurance_page/detail_insurance_page_widget.dart'
+    show DetailInsurancePageWidget;
+export '/pages/html_page/html_page_widget.dart' show HtmlPageWidget;
+export '/pages/welfare_k_p_i_c_e_o_page/welfare_k_p_i_c_e_o_page_widget.dart'
+    show WelfareKPICEOPageWidget;
+export '/pages/profile_page_folder/life_insurance_license_card_page/life_insurance_license_card_page_widget.dart'
+    show LifeInsuranceLicenseCardPageWidget;
+export '/sawad_chat/chat_search_page/chat_search_page_widget.dart'
+    show ChatSearchPageWidget;
+export '/sawad_chat/chat_home_page/chat_home_page_widget.dart'
+    show ChatHomePageWidget;
+export '/sawad_chat/chatting_page/chatting_page_widget.dart'
+    show ChattingPageWidget;
+export '/pages/insurance_agent/insurance_request_insurer_page/insurance_request_insurer_page_widget.dart'
+    show InsuranceRequestInsurerPageWidget;
+export '/pages/insurance_agent/insurance_request_image_page/insurance_request_image_page_widget.dart'
+    show InsuranceRequestImagePageWidget;
+export '/pages/insurance_agent/insurance_request_basic_page/insurance_request_basic_page_widget.dart'
+    show InsuranceRequestBasicPageWidget;
+export '/pages/insurance_request_list_page/insurance_request_list_page_widget.dart'
+    show InsuranceRequestListPageWidget;
+export '/pages/insurance_agent/insurance_request_dashboard_page/insurance_request_dashboard_page_widget.dart'
+    show InsuranceRequestDashboardPageWidget;
+export '/pages/inbox_email/inbox_email_widget.dart' show InboxEmailWidget;
+export '/search_package/search_insurance_page/search_insurance_page_widget.dart'
+    show SearchInsurancePageWidget;
+export '/about_company/about_us_page/about_us_page_widget.dart'
+    show AboutUsPageWidget;
+export '/about_company/contact_us_page/contact_us_page_widget.dart'
+    show ContactUsPageWidget;
+export '/pages/insurance_request_list_page_copy/insurance_request_list_page_copy_widget.dart'
+    show InsuranceRequestListPageCopyWidget;
+export '/none_package_insurance/select_reason_page/select_reason_page_widget.dart'
+    show SelectReasonPageWidget;
+export '/pages/insurance_agent/select_insurer/select_insurer_widget.dart'
+    show SelectInsurerWidget;
+export '/pages/vehicle_type/vehicle_type_widget.dart' show VehicleTypeWidget;
+export '/pages/profile_page_folder/my_account_page/my_account_page_widget.dart'
+    show MyAccountPageWidget;
+export '/search_package/searchable_list_page/searchable_list_page_widget.dart'
+    show SearchableListPageWidget;
+export '/search_package/compare_insurance_page/compare_insurance_page_widget.dart'
+    show CompareInsurancePageWidget;
+export '/pages/super_app/insurance_list_page/insurance_list_page_widget.dart'
+    show InsuranceListPageWidget;
+export '/in_package_insurance/insurance_info_page2/insurance_info_page2_widget.dart'
+    show InsuranceInfoPage2Widget;
+export '/in_package_insurance/insurance_info_page1/insurance_info_page1_widget.dart'
+    show InsuranceInfoPage1Widget;
+export '/in_package_insurance/insurance_info_page3/insurance_info_page3_widget.dart'
+    show InsuranceInfoPage3Widget;
+export '/search_package/insurer_list_page/insurer_list_page_widget.dart'
+    show InsurerListPageWidget;
+export '/search_package/details_insurance_page/details_insurance_page_widget.dart'
+    show DetailsInsurancePageWidget;
+export '/none_package_insurance/none_package_edit_page1/none_package_edit_page1_widget.dart'
+    show NonePackageEditPage1Widget;
+export '/none_package_insurance/none_package_edit_page2/none_package_edit_page2_widget.dart'
+    show NonePackageEditPage2Widget;
+export '/none_package_insurance/none_package_edit_page3/none_package_edit_page3_widget.dart'
+    show NonePackageEditPage3Widget;
+export '/search_package/insurance_success_page/insurance_success_page_widget.dart'
+    show InsuranceSuccessPageWidget;
+export '/none_package_insurance/none_package_edit_detail_page/none_package_edit_detail_page_widget.dart'
+    show NonePackageEditDetailPageWidget;
+export '/in_package_insurance/insurance_info_page4/insurance_info_page4_widget.dart'
+    show InsuranceInfoPage4Widget;
+export '/in_package_insurance/insurance_info_page5/insurance_info_page5_widget.dart'
+    show InsuranceInfoPage5Widget;
+export '/homepage_follow_up11/homepage_follow_up11_widget.dart'
+    show HomepageFollowUp11Widget;
+export '/homepage_follow_up12/homepage_follow_up12_widget.dart'
+    show HomepageFollowUp12Widget;
+export '/success_page/success_page_widget.dart' show SuccessPageWidget;
+export '/in_package_insurance/add_address/add_address_widget.dart'
+    show AddAddressWidget;
+export '/pages/super_app/lead_follow_up_page/lead_follow_up_page_widget.dart'
+    show LeadFollowUpPageWidget;
+export '/search_address_page/search_address_page_widget.dart'
+    show SearchAddressPageWidget;
+export '/in_package_insurance/homepage_request_2_1/homepage_request21_widget.dart'
+    show HomepageRequest21Widget;
+export '/in_package_insurance/homepage_request_2_2/homepage_request22_widget.dart'
+    show HomepageRequest22Widget;
+export '/in_package_insurance/homepage_request_2_3/homepage_request23_widget.dart'
+    show HomepageRequest23Widget;
+export '/in_package_insurance/homepage_request_4_1/homepage_request41_widget.dart'
+    show HomepageRequest41Widget;
+export '/homepage_request_5_4_1/homepage_request541_widget.dart'
+    show HomepageRequest541Widget;
+export '/homepage_request_5_4_2/homepage_request542_widget.dart'
+    show HomepageRequest542Widget;
+export '/in_package_insurance/paywith_q_rcode/paywith_q_rcode_widget.dart'
+    show PaywithQRcodeWidget;
+export '/in_package_insurance/insurance_info_page5_show_policy/insurance_info_page5_show_policy_widget.dart'
+    show InsuranceInfoPage5ShowPolicyWidget;
+export '/homepage_request_5_2_3/homepage_request523_widget.dart'
+    show HomepageRequest523Widget;
+export '/pages/insurance_agent/list_out_1/list_out1_widget.dart'
+    show ListOut1Widget;
+export '/none_package_insurance/outofrange_3/outofrange3_widget.dart'
+    show Outofrange3Widget;
+export '/search_package/quotation/quotation_widget.dart' show QuotationWidget;
+export '/compare_prices/compare_prices_widget.dart' show ComparePricesWidget;
+export '/none_package_insurance/none_package_renew_page/none_package_renew_page_widget.dart'
+    show NonePackageRenewPageWidget;
+export '/none_package_insurance/search_7_renew_1/search7_renew1_widget.dart'
+    show Search7Renew1Widget;
+export '/none_package_insurance/sample_i_dcard/sample_i_dcard_widget.dart'
+    show SampleIDcardWidget;
+export '/none_package_insurance/none_package_basic_page/none_package_basic_page_widget.dart'
+    show NonePackageBasicPageWidget;
+export '/email_1/email1_widget.dart' show Email1Widget;
+export '/search_package/package_filter_page/package_filter_page_widget.dart'
+    show PackageFilterPageWidget;
+export '/search_package/insurance_work_select_page/insurance_work_select_page_widget.dart'
+    show InsuranceWorkSelectPageWidget;
+export '/pages/super_app/make_insurance_list_page/make_insurance_list_page_widget.dart'
+    show MakeInsuranceListPageWidget;
+export '/search_package/add_customer_name/add_customer_name_widget.dart'
+    show AddCustomerNameWidget;
+export '/none_package_insurance/none_package_selected_insurer_page/none_package_selected_insurer_page_widget.dart'
+    show NonePackageSelectedInsurerPageWidget;
+export '/in_package_insurance/paywith_barcode/paywith_barcode_widget.dart'
+    show PaywithBarcodeWidget;
+export '/pages/super_app/add_leads_page/add_leads_page_widget.dart'
+    show AddLeadsPageWidget;
+export '/pages/login_screen_1/login_screen1_widget.dart'
+    show LoginScreen1Widget;
+export '/none_package_insurance/none_package_insurer_page/none_package_insurer_page_widget.dart'
+    show NonePackageInsurerPageWidget;
+export '/in_package_insurance/insurance_info_page5_cancel/insurance_info_page5_cancel_widget.dart'
+    show InsuranceInfoPage5CancelWidget;
+export '/in_package_insurance/insurance_info_page4_2/insurance_info_page42_widget.dart'
+    show InsuranceInfoPage42Widget;
+export '/in_package_insurance/insurance_info_page4_installments/insurance_info_page4_installments_widget.dart'
+    show InsuranceInfoPage4InstallmentsWidget;
+export '/in_package_insurance/upload_img_page/upload_img_page_widget.dart'
+    show UploadImgPageWidget;
+export '/pages/insurance_agent/list_out_1_e_d_i_t1_copy/list_out1_e_d_i_t1_copy_widget.dart'
+    show ListOut1EDIT1CopyWidget;
+export '/none_package_insurance/none_package_edit_page2_copy/none_package_edit_page2_copy_widget.dart'
+    show NonePackageEditPage2CopyWidget;
+export '/pages/reload_app/reload_app_widget.dart' show ReloadAppWidget;
+export '/none_package_insurance/none_package_basic_image1_page/none_package_basic_image1_page_widget.dart'
+    show NonePackageBasicImage1PageWidget;
+export '/none_package_insurance/none_package_basic_image2_page/none_package_basic_image2_page_widget.dart'
+    show NonePackageBasicImage2PageWidget;
+export '/in_package_insurance/insurance_info_page3_1/insurance_info_page31_widget.dart'
+    show InsuranceInfoPage31Widget;
+export '/in_package_insurance/search_branch_page/search_branch_page_widget.dart'
+    show SearchBranchPageWidget;
+export '/search_package/insurance_un_success_page/insurance_un_success_page_widget.dart'
+    show InsuranceUnSuccessPageWidget;
+export '/search_package/quotation_copy/quotation_copy_widget.dart'
+    show QuotationCopyWidget;
+export '/insurer_infomation_page/insurer_infomation_page_widget.dart'
+    show InsurerInfomationPageWidget;
+export '/web_view_page/web_view_page_widget.dart' show WebViewPageWidget;

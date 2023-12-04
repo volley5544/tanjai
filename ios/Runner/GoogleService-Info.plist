@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>556125230802-fkmllp1mi0scbmeohekhlh5sm1r3fl3m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.556125230802-fkmllp1mi0scbmeohekhlh5sm1r3fl3m</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>556125230802-i5219qodlg4c9r2nbpj1s4c8ncvimg81.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3d1vNeemj8bWba4Be3gJ0y6pZSr5qsMw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>556125230802</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.srisawad.ibsmobileapp</string>
+	<key>PROJECT_ID</key>
+	<string>sawad-new-ibs</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sawad-new-ibs.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:556125230802:ios:853b0bd58d9a5744753f0b</string>
+</dict>
+</plist>
