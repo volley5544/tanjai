@@ -410,10 +410,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         highlightColor:
                                                                             Colors.transparent,
                                                                         onTap:
-                                                                            () async {
-                                                                          context
-                                                                              .pushNamed('webViewPage');
-                                                                        },
+                                                                            () async {},
                                                                         child:
                                                                             Text(
                                                                           'เข้าสู่ระบบ',

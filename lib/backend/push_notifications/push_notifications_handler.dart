@@ -459,7 +459,7 @@ final parametersBuilderMap =
         allParams: {},
       ),
   'InsurerInfomationPage': ParameterData.none(),
-  'webViewPage': ParameterData.none(),
+  'webViewPromotionPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
