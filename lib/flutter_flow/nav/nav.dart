@@ -949,9 +949,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => InsurerInfomationPageWidget(),
             ),
             FFRoute(
-              name: 'webViewPage',
-              path: 'webViewPage',
-              builder: (context, params) => WebViewPageWidget(),
+              name: 'webViewPromotionPage',
+              path: 'webViewPromotionPage',
+              builder: (context, params) => WebViewPromotionPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

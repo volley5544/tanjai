@@ -175,4 +175,5 @@ export '/search_package/quotation_copy/quotation_copy_widget.dart'
     show QuotationCopyWidget;
 export '/insurer_infomation_page/insurer_infomation_page_widget.dart'
     show InsurerInfomationPageWidget;
-export '/web_view_page/web_view_page_widget.dart' show WebViewPageWidget;
+export '/web_view_promotion_page/web_view_promotion_page_widget.dart'
+    show WebViewPromotionPageWidget;
