@@ -124,8 +124,6 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
       });
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

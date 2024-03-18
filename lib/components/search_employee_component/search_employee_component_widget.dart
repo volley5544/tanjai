@@ -46,8 +46,6 @@ class _SearchEmployeeComponentWidgetState
 
     _model.employeeKeywordInputController ??= TextEditingController();
     _model.employeeKeywordInputFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

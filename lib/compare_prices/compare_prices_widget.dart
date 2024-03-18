@@ -27,7 +27,6 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ComparePrices'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

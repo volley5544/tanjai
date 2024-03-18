@@ -154,8 +154,6 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
             ? FFAppState().AddCustomerPageCarRegistration
             : '');
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

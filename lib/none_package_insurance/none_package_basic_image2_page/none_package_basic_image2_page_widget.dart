@@ -37,7 +37,6 @@ class _NonePackageBasicImage2PageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageBasicImage2Page'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

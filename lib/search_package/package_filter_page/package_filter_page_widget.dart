@@ -88,8 +88,6 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
       });
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

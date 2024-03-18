@@ -41,8 +41,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
         FFAppState().isLoadedInsuranceData = false;
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

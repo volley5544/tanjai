@@ -32,7 +32,6 @@ class _NonePackageEditPage2CopyWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageEditPage2Copy'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

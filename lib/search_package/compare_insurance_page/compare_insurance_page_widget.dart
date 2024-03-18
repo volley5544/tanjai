@@ -125,7 +125,6 @@ class _CompareInsurancePageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'compareInsurancePage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

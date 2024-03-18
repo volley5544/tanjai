@@ -75,8 +75,6 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
 
     _model.searchFirstnameController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

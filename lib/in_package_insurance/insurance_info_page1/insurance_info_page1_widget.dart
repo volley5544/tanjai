@@ -12,7 +12,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -1498,8 +1497,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
     _model.licenseCodeController ??= TextEditingController(
         text: FFAppState().insuranceInfoLicenseEmployeeId);
     _model.licenseCodeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -3875,61 +3872,31 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                if (kIsWeb) {
-                                                  final _datePickedDate =
-                                                      await showDatePicker(
-                                                    context: context,
-                                                    initialDate: (functions
-                                                            .currentDate18YearsAgo(
-                                                                getCurrentTimestamp) ??
-                                                        DateTime.now()),
-                                                    firstDate: DateTime(1900),
-                                                    lastDate: (functions
-                                                            .currentDate18YearsAgo(
-                                                                getCurrentTimestamp) ??
-                                                        DateTime.now()),
-                                                  );
-
-                                                  if (_datePickedDate != null) {
+                                                await DatePicker.showDatePicker(
+                                                  context,
+                                                  showTitleActions: true,
+                                                  onConfirm: (date) {
                                                     safeSetState(() {
-                                                      _model.datePicked =
-                                                          DateTime(
-                                                        _datePickedDate.year,
-                                                        _datePickedDate.month,
-                                                        _datePickedDate.day,
-                                                      );
+                                                      _model.datePicked = date;
                                                     });
-                                                  }
-                                                } else {
-                                                  await DatePicker
-                                                      .showDatePicker(
-                                                    context,
-                                                    showTitleActions: true,
-                                                    onConfirm: (date) {
-                                                      safeSetState(() {
-                                                        _model.datePicked =
-                                                            date;
-                                                      });
-                                                    },
-                                                    currentTime: functions
-                                                        .currentDate18YearsAgo(
-                                                            getCurrentTimestamp)!,
-                                                    minTime: DateTime(0, 0, 0),
-                                                    maxTime: functions
-                                                        .currentDate18YearsAgo(
-                                                            getCurrentTimestamp)!,
-                                                    locale: LocaleType.values
-                                                        .firstWhere(
-                                                      (l) =>
-                                                          l.name ==
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .languageCode,
-                                                      orElse: () =>
-                                                          LocaleType.en,
-                                                    ),
-                                                  );
-                                                }
+                                                  },
+                                                  currentTime: functions
+                                                      .currentDate18YearsAgo(
+                                                          getCurrentTimestamp)!,
+                                                  minTime: DateTime(0, 0, 0),
+                                                  maxTime: functions
+                                                      .currentDate18YearsAgo(
+                                                          getCurrentTimestamp)!,
+                                                  locale: LocaleType.values
+                                                      .firstWhere(
+                                                    (l) =>
+                                                        l.name ==
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                    orElse: () => LocaleType.en,
+                                                  ),
+                                                );
 
                                                 setState(() {
                                                   _model.ageTextFieldController

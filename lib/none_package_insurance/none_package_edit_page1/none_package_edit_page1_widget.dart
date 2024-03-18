@@ -50,8 +50,6 @@ class _NonePackageEditPage1WidgetState
             ? ''
             : FFAppState().nonePackageCusFullname);
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -29,8 +29,6 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InsuranceTypeColorModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

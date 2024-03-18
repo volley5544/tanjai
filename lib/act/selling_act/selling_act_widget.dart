@@ -25,7 +25,6 @@ class _SellingActWidgetState extends State<SellingActWidget> {
     _model = createModel(context, () => SellingActModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'SellingAct'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

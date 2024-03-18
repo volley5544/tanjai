@@ -36,8 +36,6 @@ class _CheckActWidgetState extends State<CheckActWidget> {
 
     _model.searchFirstnameController2 ??= TextEditingController();
     _model.searchFirstnameFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

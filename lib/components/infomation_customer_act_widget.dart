@@ -32,8 +32,6 @@ class _InfomationCustomerActWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InfomationCustomerActModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -38,8 +38,6 @@ class _ShowImageListComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowImageListComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

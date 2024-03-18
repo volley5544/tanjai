@@ -32,7 +32,6 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NotificationIBS'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

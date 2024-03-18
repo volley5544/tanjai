@@ -25,7 +25,6 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
     _model = createModel(context, () => AboutUsPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'AboutUsPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

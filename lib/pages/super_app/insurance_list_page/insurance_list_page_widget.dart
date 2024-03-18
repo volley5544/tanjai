@@ -227,8 +227,6 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
 
     _model.searchFirstnameController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

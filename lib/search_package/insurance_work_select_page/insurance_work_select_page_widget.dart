@@ -32,7 +32,6 @@ class _InsuranceWorkSelectPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsuranceWorkSelectPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

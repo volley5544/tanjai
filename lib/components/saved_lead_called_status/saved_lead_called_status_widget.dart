@@ -54,8 +54,6 @@ class _SavedLeadCalledStatusWidgetState
 
     _model.calledRemarkTextFieldController ??= TextEditingController();
     _model.calledRemarkTextFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

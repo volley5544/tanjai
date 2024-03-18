@@ -45,8 +45,6 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
         await actions.allowScreenRecordIOS();
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

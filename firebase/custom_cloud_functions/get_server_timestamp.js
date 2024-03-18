@@ -4,9 +4,12 @@ const admin = require("firebase-admin");
 
 exports.getServerTimestamp = functions
   .region("asia-southeast1")
+  .runWith({
+    memory: "256MB",
+  })
   .https.onCall((data, context) => {
     // Write your code below!
 
     // Write your code above!
-    return admin.firestore.Timestamp.now().toString();
+    return "";
   });

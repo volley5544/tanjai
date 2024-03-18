@@ -38,7 +38,6 @@ class _NonePackageEditPage3WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageEditPage3'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

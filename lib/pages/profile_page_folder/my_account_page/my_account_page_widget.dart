@@ -60,8 +60,6 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
       _model.getBuildVersion = await actions.getBuildVersion1();
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

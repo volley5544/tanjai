@@ -123,8 +123,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MyProfilePage'});
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

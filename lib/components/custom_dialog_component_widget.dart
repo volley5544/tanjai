@@ -29,8 +29,6 @@ class _CustomDialogComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CustomDialogComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

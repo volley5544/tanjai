@@ -29,7 +29,6 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ContactUsPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

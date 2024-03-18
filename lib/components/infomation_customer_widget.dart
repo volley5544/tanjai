@@ -32,8 +32,6 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => InfomationCustomerModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

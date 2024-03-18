@@ -34,7 +34,6 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'insuranceInfoPage4'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

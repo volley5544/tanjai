@@ -38,8 +38,6 @@ class _PdfPageViewComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PdfPageViewComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

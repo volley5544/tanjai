@@ -38,8 +38,6 @@ class _MakeInsuranceTypeColorWidgetState
         FFAppState().searchQuotationStatus = '';
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

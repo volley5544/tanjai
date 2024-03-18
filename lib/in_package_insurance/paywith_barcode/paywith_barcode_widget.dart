@@ -31,8 +31,6 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
         parameters: {'screen_name': 'PaywithBarcode'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

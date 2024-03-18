@@ -70,8 +70,6 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
       });
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

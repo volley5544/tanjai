@@ -196,8 +196,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

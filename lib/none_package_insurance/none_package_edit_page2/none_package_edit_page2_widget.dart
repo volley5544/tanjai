@@ -35,7 +35,6 @@ class _NonePackageEditPage2WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageEditPage2'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

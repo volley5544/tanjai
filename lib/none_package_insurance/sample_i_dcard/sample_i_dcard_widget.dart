@@ -27,7 +27,6 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SampleIDcard'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
