@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,6 +11,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,8 +30,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? getAndroidImei;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? getIosImei;
-  // Stores action output result for [Custom Action - getFirebaseServerTime] action in Text widget.
-  String? getFirebaseServerTime;
+  // Stores action output result for [Cloud Function - getServerTimestamp] action in Text widget.
+  GetServerTimestampCloudFunctionCallResponse? getFirebaseServerTime;
   // State field(s) for UsernameTextField widget.
   FocusNode? usernameTextFieldFocusNode;
   TextEditingController? usernameTextFieldController;
