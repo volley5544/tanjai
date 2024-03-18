@@ -13,7 +13,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,13 +27,17 @@ class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   String? getBuildVersion;
   // Stores action output result for [Firestore Query - Query a collection] action in LeadFollowUpPage widget.
   BuildVersionRecord? buildVersionQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in LeadFollowUpPage widget.
+  AuthorizationRecord? adminVersionQuery;
   // Stores action output result for [Backend Call - API (insuranceRequestListAPI)] action in LeadFollowUpPage widget.
   ApiCallResponse? getRequestList;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

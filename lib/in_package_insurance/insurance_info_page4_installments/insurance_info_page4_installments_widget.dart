@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'insurance_info_page4_installments_model.dart';
@@ -10,7 +9,7 @@ export 'insurance_info_page4_installments_model.dart';
 
 class InsuranceInfoPage4InstallmentsWidget extends StatefulWidget {
   const InsuranceInfoPage4InstallmentsWidget({
-    Key? key,
+    super.key,
     String? titleText,
     required this.searchLabel,
     required this.dataList,
@@ -20,8 +19,7 @@ class InsuranceInfoPage4InstallmentsWidget extends StatefulWidget {
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0,
-        this.fromPage = fromPage ?? '-',
-        super(key: key);
+        this.fromPage = fromPage ?? '-';
 
   final String titleText;
   final String? searchLabel;
@@ -31,7 +29,7 @@ class InsuranceInfoPage4InstallmentsWidget extends StatefulWidget {
   final String fromPage;
 
   @override
-  _InsuranceInfoPage4InstallmentsWidgetState createState() =>
+  State<InsuranceInfoPage4InstallmentsWidget> createState() =>
       _InsuranceInfoPage4InstallmentsWidgetState();
 }
 
@@ -60,15 +58,6 @@ class _InsuranceInfoPage4InstallmentsWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(

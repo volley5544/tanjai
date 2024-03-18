@@ -45,8 +45,9 @@ class LeadDetailStruct extends FFFirebaseStruct {
         wwffddd: data['wwffddd'] as String?,
       );
 
-  static LeadDetailStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? LeadDetailStruct.fromMap(data) : null;
+  static LeadDetailStruct? maybeFromMap(dynamic data) => data is Map
+      ? LeadDetailStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'sdf': _sdf,

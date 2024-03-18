@@ -52,3 +52,4 @@ export 'create_firebase.dart' show createFirebase;
 export 'delete_acc_firebase.dart' show deleteAccFirebase;
 export 'get_build_version1.dart' show getBuildVersion1;
 export 'hide_keyboard_action.dart' show hideKeyboardAction;
+export 'get_firebase_server_time.dart' show getFirebaseServerTime;

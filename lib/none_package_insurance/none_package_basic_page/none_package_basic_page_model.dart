@@ -30,6 +30,12 @@ class NonePackageBasicPageModel
   ApiCallResponse? getProvince;
   // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in NonePackageBasicPage widget.
   ApiCallResponse? getVehicleUsedTypeAPI;
+  // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in NonePackageBasicPage widget.
+  ApiCallResponse? getBrandAPI;
+  // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in NonePackageBasicPage widget.
+  ApiCallResponse? getModelAPI;
+  // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in NonePackageBasicPage widget.
+  ApiCallResponse? getCoverTypeAPI;
   // State field(s) for CarryPurposeTextField widget.
   FocusNode? carryPurposeTextFieldFocusNode;
   TextEditingController? carryPurposeTextFieldController;
@@ -113,8 +119,10 @@ class NonePackageBasicPageModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     carryPurposeTextFieldFocusNode?.dispose();

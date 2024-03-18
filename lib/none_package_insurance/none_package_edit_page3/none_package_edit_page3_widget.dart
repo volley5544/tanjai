@@ -11,7 +11,6 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -19,10 +18,10 @@ import 'none_package_edit_page3_model.dart';
 export 'none_package_edit_page3_model.dart';
 
 class NonePackageEditPage3Widget extends StatefulWidget {
-  const NonePackageEditPage3Widget({Key? key}) : super(key: key);
+  const NonePackageEditPage3Widget({super.key});
 
   @override
-  _NonePackageEditPage3WidgetState createState() =>
+  State<NonePackageEditPage3Widget> createState() =>
       _NonePackageEditPage3WidgetState();
 }
 
@@ -51,15 +50,6 @@ class _NonePackageEditPage3WidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -142,18 +132,7 @@ class _NonePackageEditPage3WidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           if (FFAppState().nonePackageFlagRenew &&
-                              ((FFAppState().nonePackageImageOldVmi[
-                                          FFAppState()
-                                              .nonePackageInsurerOutputIndex] !=
-                                      '') ||
-                                  (FFAppState().nonePackageImageIdCard[
-                                          FFAppState()
-                                              .nonePackageInsurerOutputIndex] !=
-                                      '') ||
-                                  (FFAppState().nonePackageImageCompanyBook[
-                                          FFAppState()
-                                              .nonePackageInsurerOutputIndex] !=
-                                      '')))
+                              FFAppState().nonePackageOldVmiFlag)
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
@@ -208,54 +187,6 @@ class _NonePackageEditPage3WidgetState
                                                           fontSize: 12.0,
                                                         ),
                                               ),
-                                            ),
-                                            Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12.0, 16.0,
-                                                          12.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        '1. หน้าเล่มรถ รายการจดทะเบียนล่าสุด',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    5.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          'บังคับถ่ายรูป',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFFC0D0D),
-                                                                fontSize: 13.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
                                             ),
                                           ],
                                         ),
@@ -317,7 +248,7 @@ class _NonePackageEditPage3WidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
@@ -329,7 +260,7 @@ class _NonePackageEditPage3WidgetState
                                                             BoxDecoration(),
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -481,11 +412,8 @@ class _NonePackageEditPage3WidgetState
                                                                     0.35,
                                                                 height: 40.0,
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             0.0),
                                                                 iconPadding:
                                                                     EdgeInsetsDirectional
@@ -589,37 +517,38 @@ class _NonePackageEditPage3WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageOldVmi[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -775,7 +704,7 @@ class _NonePackageEditPage3WidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
@@ -787,7 +716,7 @@ class _NonePackageEditPage3WidgetState
                                                             BoxDecoration(),
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Row(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -939,11 +868,8 @@ class _NonePackageEditPage3WidgetState
                                                                     0.35,
                                                                 height: 40.0,
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             0.0),
                                                                 iconPadding:
                                                                     EdgeInsetsDirectional
@@ -1047,37 +973,38 @@ class _NonePackageEditPage3WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageIdCard[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -1191,7 +1118,7 @@ class _NonePackageEditPage3WidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1203,7 +1130,7 @@ class _NonePackageEditPage3WidgetState
                                                               BoxDecoration(),
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -1351,12 +1278,10 @@ class _NonePackageEditPage3WidgetState
                                                                           .width *
                                                                       0.35,
                                                                   height: 40.0,
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              0.0),
                                                                   iconPadding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
@@ -1481,188 +1406,186 @@ class _NonePackageEditPage3WidgetState
                                 ),
                               ),
                             ),
-                          if ((FFAppState().nonePackageImageOldVmi[FFAppState()
-                                      .nonePackageInsurerOutputIndex] ==
-                                  '') &&
-                              (FFAppState().nonePackageImageCompanyBook[
-                                      FFAppState()
-                                          .nonePackageInsurerOutputIndex] ==
-                                  ''))
-                            Expanded(
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFAFAFA),
-                                ),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 12.0, 12.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'ถ่ายรูปเอกสารเพิ่มเติม',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFF002D5E),
-                                                    fontSize: 16.0,
-                                                    fontWeight: FontWeight.w600,
-                                                  ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Column(
+                          Expanded(
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFAFAFA),
+                              ),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 12.0, 12.0, 0.0),
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 12.0, 12.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    final selectedMedia =
-                                                        await selectMediaWithSourceBottomSheet(
-                                                      context: context,
-                                                      imageQuality: 30,
-                                                      allowPhoto: true,
-                                                    );
-                                                    if (selectedMedia != null &&
-                                                        selectedMedia.every((m) =>
-                                                            validateFileFormat(
-                                                                m.storagePath,
-                                                                context))) {
-                                                      setState(() => _model
-                                                              .isDataUploading4 =
-                                                          true);
-                                                      var selectedUploadedFiles =
-                                                          <FFUploadedFile>[];
+                                          Text(
+                                            'ถ่ายรูปเอกสารเพิ่มเติม',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFF002D5E),
+                                                  fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 16.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                '1. หน้าเล่มรถ รายการจดทะเบียนล่าสุด',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'บังคับถ่ายรูป',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFC0D0D),
+                                                        fontSize: 13.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  final selectedMedia =
+                                                      await selectMediaWithSourceBottomSheet(
+                                                    context: context,
+                                                    imageQuality: 30,
+                                                    allowPhoto: true,
+                                                  );
+                                                  if (selectedMedia != null &&
+                                                      selectedMedia.every((m) =>
+                                                          validateFileFormat(
+                                                              m.storagePath,
+                                                              context))) {
+                                                    setState(() => _model
+                                                            .isDataUploading4 =
+                                                        true);
+                                                    var selectedUploadedFiles =
+                                                        <FFUploadedFile>[];
 
-                                                      var downloadUrls =
-                                                          <String>[];
-                                                      try {
-                                                        selectedUploadedFiles =
-                                                            selectedMedia
-                                                                .map((m) =>
-                                                                    FFUploadedFile(
-                                                                      name: m
-                                                                          .storagePath
-                                                                          .split(
-                                                                              '/')
-                                                                          .last,
-                                                                      bytes: m
-                                                                          .bytes,
-                                                                      height: m
-                                                                          .dimensions
-                                                                          ?.height,
-                                                                      width: m
-                                                                          .dimensions
-                                                                          ?.width,
-                                                                      blurHash:
-                                                                          m.blurHash,
-                                                                    ))
-                                                                .toList();
+                                                    var downloadUrls =
+                                                        <String>[];
+                                                    try {
+                                                      selectedUploadedFiles =
+                                                          selectedMedia
+                                                              .map((m) =>
+                                                                  FFUploadedFile(
+                                                                    name: m
+                                                                        .storagePath
+                                                                        .split(
+                                                                            '/')
+                                                                        .last,
+                                                                    bytes:
+                                                                        m.bytes,
+                                                                    height: m
+                                                                        .dimensions
+                                                                        ?.height,
+                                                                    width: m
+                                                                        .dimensions
+                                                                        ?.width,
+                                                                    blurHash: m
+                                                                        .blurHash,
+                                                                  ))
+                                                              .toList();
 
-                                                        downloadUrls =
-                                                            (await Future.wait(
-                                                          selectedMedia.map(
-                                                            (m) async =>
-                                                                await uploadData(
-                                                                    m.storagePath,
-                                                                    m.bytes),
-                                                          ),
-                                                        ))
-                                                                .where((u) =>
-                                                                    u != null)
-                                                                .map((u) => u!)
-                                                                .toList();
-                                                      } finally {
-                                                        _model.isDataUploading4 =
-                                                            false;
-                                                      }
-                                                      if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedMedia
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedMedia
-                                                                  .length) {
-                                                        setState(() {
-                                                          _model.uploadedLocalFile4 =
-                                                              selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl4 =
-                                                              downloadUrls
-                                                                  .first;
-                                                        });
-                                                      } else {
-                                                        setState(() {});
-                                                        return;
-                                                      }
-                                                    }
-
-                                                    if (!(_model.uploadedFileUrl4 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl4 !=
-                                                            '')) {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  3000),
-                                                          backgroundColor:
-                                                              Color(0xB2000000),
+                                                      downloadUrls =
+                                                          (await Future.wait(
+                                                        selectedMedia.map(
+                                                          (m) async =>
+                                                              await uploadData(
+                                                                  m.storagePath,
+                                                                  m.bytes),
                                                         ),
-                                                      );
+                                                      ))
+                                                              .where((u) =>
+                                                                  u != null)
+                                                              .map((u) => u!)
+                                                              .toList();
+                                                    } finally {
+                                                      _model.isDataUploading4 =
+                                                          false;
+                                                    }
+                                                    if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedMedia
+                                                                .length &&
+                                                        downloadUrls.length ==
+                                                            selectedMedia
+                                                                .length) {
+                                                      setState(() {
+                                                        _model.uploadedLocalFile4 =
+                                                            selectedUploadedFiles
+                                                                .first;
+                                                        _model.uploadedFileUrl4 =
+                                                            downloadUrls.first;
+                                                      });
+                                                    } else {
+                                                      setState(() {});
                                                       return;
                                                     }
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .nonePackageImageBlueBookUploaded =
-                                                          _model
-                                                              .uploadedFileUrl4;
-                                                    });
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .clearSnackBars();
+                                                  }
+
+                                                  if (!(_model.uploadedFileUrl4 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl4 !=
+                                                          '')) {
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
                                                       SnackBar(
                                                         content: Text(
-                                                          'อัพโหลดรูปภาพสำเร็จ',
+                                                          'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
                                                           style: TextStyle(
                                                             color: Colors.white,
                                                           ),
@@ -1673,83 +1596,106 @@ class _NonePackageEditPage3WidgetState
                                                             Color(0xB2000000),
                                                       ),
                                                     );
-                                                  },
-                                                  child: Container(
-                                                    width: 125.0,
-                                                    height: 45.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFFCEFE4),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Text(
-                                                          'ถ่ายรูป',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFDB771A),
-                                                                fontSize: 15.0,
-                                                              ),
+                                                    return;
+                                                  }
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .nonePackageImageBlueBookUploaded =
+                                                        _model.uploadedFileUrl4;
+                                                  });
+                                                  ScaffoldMessenger.of(context)
+                                                      .clearSnackBars();
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'อัพโหลดรูปภาพสำเร็จ',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
                                                         ),
-                                                      ],
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 3000),
+                                                      backgroundColor:
+                                                          Color(0xB2000000),
                                                     ),
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width: 125.0,
+                                                  height: 45.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFCEFE4),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'ถ่ายรูป',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFDB771A),
+                                                              fontSize: 15.0,
+                                                            ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          12.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    _model.uploadedFileUrl4 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl4 !=
-                                                                ''
-                                                        ? 'สถานะ : อัพโหลดแล้ว'
-                                                        : 'สถานะ : ยังไม่อัพโหลด',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  _model.uploadedFileUrl4 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl4 !=
+                                                              ''
+                                                      ? 'สถานะ : อัพโหลดแล้ว'
+                                                      : 'สถานะ : ยังไม่อัพโหลด',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
                                                 ),
-                                                if (FFAppState().nonePackageImageBlueBook[
-                                                            FFAppState()
-                                                                .nonePackageInsurerOutputIndex] !=
-                                                        ''
-                                                    ? true
-                                                    : false)
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Color(0xB3000000),
-                                                        enableDrag: false,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
+                                              ),
+                                              if (FFAppState().nonePackageImageBlueBook[
+                                                          FFAppState()
+                                                              .nonePackageInsurerOutputIndex] !=
+                                                      ''
+                                                  ? true
+                                                  : false)
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Color(0xB3000000),
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                          child:
+                                                              GestureDetector(
                                                             onTap: () => _model
                                                                     .unfocusNode
                                                                     .canRequestFocus
@@ -1781,229 +1727,195 @@ class _NonePackageEditPage3WidgetState
                                                                 ),
                                                               ),
                                                             ),
-                                                          ));
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
-                                                    child: Icon(
-                                                      Icons
-                                                          .content_paste_search_rounded,
-                                                      color: Color(0xFF354052),
-                                                      size: 24.0,
-                                                    ),
-                                                  ),
-                                                if (_model.uploadedFileUrl4 !=
-                                                        null &&
-                                                    _model.uploadedFileUrl4 !=
-                                                        '')
-                                                  Icon(
-                                                    Icons.check,
-                                                    color: Color(0xFF2EDD78),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  },
+                                                  child: Icon(
+                                                    Icons
+                                                        .content_paste_search_rounded,
+                                                    color: Color(0xFF354052),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl4 ==
-                                                        null ||
-                                                    _model.uploadedFileUrl4 ==
-                                                        '')
-                                                  Icon(
-                                                    Icons.close,
-                                                    color: Color(0xFFFC0A0A),
-                                                    size: 24.0,
-                                                  ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 16.0, 12.0, 0.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Text(
-                                                  '2.สำเนาบัตรประชาชนผู้เอาประกัน',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium,
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'บังคับถ่ายรูป',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFC0D0D),
-                                                          fontSize: 13.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                                  ),
+                                              if (_model.uploadedFileUrl4 !=
+                                                      null &&
+                                                  _model.uploadedFileUrl4 != '')
+                                                Icon(
+                                                  Icons.check,
+                                                  color: Color(0xFF2EDD78),
+                                                  size: 24.0,
                                                 ),
-                                              ],
-                                            ),
+                                              if (_model.uploadedFileUrl4 ==
+                                                      null ||
+                                                  _model.uploadedFileUrl4 == '')
+                                                Icon(
+                                                  Icons.close,
+                                                  color: Color(0xFFFC0A0A),
+                                                  size: 24.0,
+                                                ),
+                                            ],
                                           ),
-                                          Column(
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 16.0, 12.0, 0.0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
+                                              Text(
+                                                '2.สำเนาบัตรประชาชนผู้เอาประกัน',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        12.0, 12.0, 12.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        final selectedMedia =
-                                                            await selectMediaWithSourceBottomSheet(
-                                                          context: context,
-                                                          imageQuality: 30,
-                                                          allowPhoto: true,
-                                                        );
-                                                        if (selectedMedia !=
-                                                                null &&
-                                                            selectedMedia.every((m) =>
-                                                                validateFileFormat(
-                                                                    m.storagePath,
-                                                                    context))) {
-                                                          setState(() => _model
-                                                                  .isDataUploading5 =
-                                                              true);
-                                                          var selectedUploadedFiles =
-                                                              <FFUploadedFile>[];
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'บังคับถ่ายรูป',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFC0D0D),
+                                                        fontSize: 13.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      final selectedMedia =
+                                                          await selectMediaWithSourceBottomSheet(
+                                                        context: context,
+                                                        imageQuality: 30,
+                                                        allowPhoto: true,
+                                                      );
+                                                      if (selectedMedia !=
+                                                              null &&
+                                                          selectedMedia.every((m) =>
+                                                              validateFileFormat(
+                                                                  m.storagePath,
+                                                                  context))) {
+                                                        setState(() => _model
+                                                                .isDataUploading5 =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
 
-                                                          var downloadUrls =
-                                                              <String>[];
-                                                          try {
-                                                            selectedUploadedFiles =
-                                                                selectedMedia
-                                                                    .map((m) =>
-                                                                        FFUploadedFile(
-                                                                          name: m
-                                                                              .storagePath
-                                                                              .split('/')
-                                                                              .last,
-                                                                          bytes:
-                                                                              m.bytes,
-                                                                          height: m
-                                                                              .dimensions
-                                                                              ?.height,
-                                                                          width: m
-                                                                              .dimensions
-                                                                              ?.width,
-                                                                          blurHash:
-                                                                              m.blurHash,
-                                                                        ))
-                                                                    .toList();
+                                                        var downloadUrls =
+                                                            <String>[];
+                                                        try {
+                                                          selectedUploadedFiles =
+                                                              selectedMedia
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        height: m
+                                                                            .dimensions
+                                                                            ?.height,
+                                                                        width: m
+                                                                            .dimensions
+                                                                            ?.width,
+                                                                        blurHash:
+                                                                            m.blurHash,
+                                                                      ))
+                                                                  .toList();
 
-                                                            downloadUrls =
-                                                                (await Future
-                                                                        .wait(
-                                                              selectedMedia.map(
-                                                                (m) async =>
-                                                                    await uploadData(
-                                                                        m.storagePath,
-                                                                        m.bytes),
-                                                              ),
-                                                            ))
-                                                                    .where((u) =>
-                                                                        u !=
-                                                                        null)
-                                                                    .map((u) =>
-                                                                        u!)
-                                                                    .toList();
-                                                          } finally {
-                                                            _model.isDataUploading5 =
-                                                                false;
-                                                          }
-                                                          if (selectedUploadedFiles
-                                                                      .length ==
-                                                                  selectedMedia
-                                                                      .length &&
-                                                              downloadUrls
-                                                                      .length ==
-                                                                  selectedMedia
-                                                                      .length) {
-                                                            setState(() {
-                                                              _model.uploadedLocalFile5 =
-                                                                  selectedUploadedFiles
-                                                                      .first;
-                                                              _model.uploadedFileUrl5 =
-                                                                  downloadUrls
-                                                                      .first;
-                                                            });
-                                                          } else {
-                                                            setState(() {});
-                                                            return;
-                                                          }
-                                                        }
-
-                                                        if (!(_model.uploadedFileUrl5 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl5 !=
-                                                                '')) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      3000),
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xB2000000),
+                                                          downloadUrls =
+                                                              (await Future
+                                                                      .wait(
+                                                            selectedMedia.map(
+                                                              (m) async =>
+                                                                  await uploadData(
+                                                                      m.storagePath,
+                                                                      m.bytes),
                                                             ),
-                                                          );
+                                                          ))
+                                                                  .where((u) =>
+                                                                      u != null)
+                                                                  .map(
+                                                                      (u) => u!)
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading5 =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length &&
+                                                            downloadUrls
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length) {
+                                                          setState(() {
+                                                            _model.uploadedLocalFile5 =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                            _model.uploadedFileUrl5 =
+                                                                downloadUrls
+                                                                    .first;
+                                                          });
+                                                        } else {
+                                                          setState(() {});
                                                           return;
                                                         }
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .nonePackageIdCardImageUrl =
-                                                              _model
-                                                                  .uploadedFileUrl5;
-                                                        });
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .clearSnackBars();
+                                                      }
+
+                                                      if (!(_model.uploadedFileUrl5 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl5 !=
+                                                              '')) {
                                                         ScaffoldMessenger.of(
                                                                 context)
                                                             .showSnackBar(
                                                           SnackBar(
                                                             content: Text(
-                                                              'อัพโหลดรูปภาพสำเร็จ',
+                                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
                                                               style: TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -2017,93 +1929,116 @@ class _NonePackageEditPage3WidgetState
                                                                     0xB2000000),
                                                           ),
                                                         );
-                                                      },
-                                                      child: Container(
-                                                        width: 125.0,
-                                                        height: 45.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFFFCEFE4),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      12.0),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          children: [
-                                                            Text(
-                                                              'ถ่ายรูป',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: Color(
-                                                                        0xFFDB771A),
-                                                                    fontSize:
-                                                                        15.0,
-                                                                  ),
+                                                        return;
+                                                      }
+                                                      setState(() {
+                                                        FFAppState()
+                                                                .nonePackageIdCardImageUrl =
+                                                            _model
+                                                                .uploadedFileUrl5;
+                                                      });
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .clearSnackBars();
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'อัพโหลดรูปภาพสำเร็จ',
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
                                                             ),
-                                                          ],
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  3000),
+                                                          backgroundColor:
+                                                              Color(0xB2000000),
                                                         ),
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: 125.0,
+                                                      height: 45.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xFFFCEFE4),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            'ถ่ายรูป',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFDB771A),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        _model.uploadedFileUrl5 !=
-                                                                    null &&
-                                                                _model.uploadedFileUrl5 !=
-                                                                    ''
-                                                            ? 'สถานะ : อัพโหลดแล้ว'
-                                                            : 'สถานะ : ยังไม่อัพโหลด',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
-                                                      ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(12.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      _model.uploadedFileUrl5 !=
+                                                                  null &&
+                                                              _model.uploadedFileUrl5 !=
+                                                                  ''
+                                                          ? 'สถานะ : อัพโหลดแล้ว'
+                                                          : 'สถานะ : ยังไม่อัพโหลด',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
                                                     ),
-                                                    if (FFAppState().nonePackageImageIdCard[
-                                                                FFAppState()
-                                                                    .nonePackageInsurerOutputIndex] !=
-                                                            ''
-                                                        ? true
-                                                        : false)
-                                                      InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB3000000),
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                  child:
-                                                                      GestureDetector(
+                                                  ),
+                                                  if (FFAppState().nonePackageImageIdCard[
+                                                              FFAppState()
+                                                                  .nonePackageInsurerOutputIndex] !=
+                                                          ''
+                                                      ? true
+                                                      : false)
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Color(0xB3000000),
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
                                                                 onTap: () => _model
                                                                         .unfocusNode
                                                                         .canRequestFocus
@@ -2132,61 +2067,113 @@ class _NonePackageEditPage3WidgetState
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        },
-                                                        child: Icon(
-                                                          Icons
-                                                              .content_paste_search_rounded,
-                                                          color:
-                                                              Color(0xFF354052),
-                                                          size: 24.0,
-                                                        ),
-                                                      ),
-                                                    if (_model.uploadedFileUrl5 !=
-                                                            null &&
-                                                        _model.uploadedFileUrl5 !=
-                                                            '')
-                                                      Icon(
-                                                        Icons.check,
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Icon(
+                                                        Icons
+                                                            .content_paste_search_rounded,
                                                         color:
-                                                            Color(0xFF2EDD78),
+                                                            Color(0xFF354052),
                                                         size: 24.0,
                                                       ),
-                                                    if (_model.uploadedFileUrl5 ==
-                                                            null ||
-                                                        _model.uploadedFileUrl5 ==
-                                                            '')
-                                                      Icon(
-                                                        Icons.close,
+                                                    ),
+                                                  if (_model.uploadedFileUrl5 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl5 !=
+                                                          '')
+                                                    Icon(
+                                                      Icons.check,
+                                                      color: Color(0xFF2EDD78),
+                                                      size: 24.0,
+                                                    ),
+                                                  if (_model.uploadedFileUrl5 ==
+                                                          null ||
+                                                      _model.uploadedFileUrl5 ==
+                                                          '')
+                                                    Icon(
+                                                      Icons.close,
+                                                      color: Color(0xFFFC0A0A),
+                                                      size: 24.0,
+                                                    ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 16.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                '3. เอกสารอื่นๆ เช่น เล่มรถหางพ่วง',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '(ถ่ายได้ไม่เกิน 5 รูป)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
                                                         color:
-                                                            Color(0xFFFC0A0A),
-                                                        size: 24.0,
+                                                            Color(0xFF101213),
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                       ),
-                                                  ],
                                                 ),
                                               ),
                                             ],
                                           ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
+                                        ),
+                                        if (FFAppState()
+                                                    .nonePackageInsurerDisplayName
+                                                    .length >
+                                                1
+                                            ? (functions
+                                                    .returnListInList(
+                                                        FFAppState()
+                                                            .nonePackageImageOther
+                                                            .toList(),
+                                                        FFAppState()
+                                                            .nonePackageInsurerOutputIndex)
+                                                    .length >
+                                                0)
+                                            : (FFAppState()
+                                                    .nonePackageImageOther
+                                                    .length >
+                                                0))
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 16.0, 12.0, 0.0),
+                                            padding: EdgeInsets.all(12.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  '3. เอกสารอื่นๆ เช่น เล่มรถหางพ่วง',
+                                                  'รูปภาพอื่นๆที่เคยอัพโหลดแล้ว',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium,
@@ -2194,84 +2181,28 @@ class _NonePackageEditPage3WidgetState
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(ถ่ายได้ไม่เกิน 5 รูป)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF101213),
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          if (FFAppState()
-                                                      .nonePackageInsurerDisplayName
-                                                      .length >
-                                                  1
-                                              ? (functions
-                                                      .returnListInList(
-                                                          FFAppState()
-                                                              .nonePackageImageOther
-                                                              .toList(),
-                                                          FFAppState()
-                                                              .nonePackageInsurerOutputIndex)
-                                                      .length >
-                                                  0)
-                                              : (FFAppState()
-                                                      .nonePackageImageOther
-                                                      .length >
-                                                  0))
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 12.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'รูปภาพอื่นๆที่เคยอัพโหลดแล้ว',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(24.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Color(0xB3000000),
-                                                          enableDrag: false,
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
+                                                          24.0, 0.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Color(0xB3000000),
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
                                                               onTap: () => _model
                                                                       .unfocusNode
                                                                       .canRequestFocus
@@ -2309,29 +2240,238 @@ class _NonePackageEditPage3WidgetState
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                      child: Icon(
-                                                        Icons
-                                                            .content_paste_search_rounded,
-                                                        color:
-                                                            Color(0xFF354052),
-                                                        size: 24.0,
-                                                      ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Icon(
+                                                      Icons
+                                                          .content_paste_search_rounded,
+                                                      color: Color(0xFF354052),
+                                                      size: 24.0,
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
-                                        ],
-                                      ),
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
+                                          ),
+                                      ],
+                                    ),
+                                    Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 12.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  final selectedMedia =
+                                                      await selectMediaWithSourceBottomSheet(
+                                                    context: context,
+                                                    imageQuality: 30,
+                                                    allowPhoto: true,
+                                                  );
+                                                  if (selectedMedia != null &&
+                                                      selectedMedia.every((m) =>
+                                                          validateFileFormat(
+                                                              m.storagePath,
+                                                              context))) {
+                                                    setState(() => _model
+                                                            .isDataUploading6 =
+                                                        true);
+                                                    var selectedUploadedFiles =
+                                                        <FFUploadedFile>[];
+
+                                                    var downloadUrls =
+                                                        <String>[];
+                                                    try {
+                                                      selectedUploadedFiles =
+                                                          selectedMedia
+                                                              .map((m) =>
+                                                                  FFUploadedFile(
+                                                                    name: m
+                                                                        .storagePath
+                                                                        .split(
+                                                                            '/')
+                                                                        .last,
+                                                                    bytes:
+                                                                        m.bytes,
+                                                                    height: m
+                                                                        .dimensions
+                                                                        ?.height,
+                                                                    width: m
+                                                                        .dimensions
+                                                                        ?.width,
+                                                                    blurHash: m
+                                                                        .blurHash,
+                                                                  ))
+                                                              .toList();
+
+                                                      downloadUrls =
+                                                          (await Future.wait(
+                                                        selectedMedia.map(
+                                                          (m) async =>
+                                                              await uploadData(
+                                                                  m.storagePath,
+                                                                  m.bytes),
+                                                        ),
+                                                      ))
+                                                              .where((u) =>
+                                                                  u != null)
+                                                              .map((u) => u!)
+                                                              .toList();
+                                                    } finally {
+                                                      _model.isDataUploading6 =
+                                                          false;
+                                                    }
+                                                    if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedMedia
+                                                                .length &&
+                                                        downloadUrls.length ==
+                                                            selectedMedia
+                                                                .length) {
+                                                      setState(() {
+                                                        _model.uploadedLocalFile6 =
+                                                            selectedUploadedFiles
+                                                                .first;
+                                                        _model.uploadedFileUrl6 =
+                                                            downloadUrls.first;
+                                                      });
+                                                    } else {
+                                                      setState(() {});
+                                                      return;
+                                                    }
+                                                  }
+
+                                                  if (!(_model.uploadedFileUrl6 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl6 !=
+                                                          '')) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 3000),
+                                                        backgroundColor:
+                                                            Color(0xB2000000),
+                                                      ),
+                                                    );
+                                                    return;
+                                                  }
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .nonePackageImageOther1 =
+                                                        _model.uploadedFileUrl6;
+                                                  });
+                                                  ScaffoldMessenger.of(context)
+                                                      .clearSnackBars();
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        'อัพโหลดรูปภาพสำเร็จ',
+                                                        style: TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                      duration: Duration(
+                                                          milliseconds: 3000),
+                                                      backgroundColor:
+                                                          Color(0xB2000000),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width: 125.0,
+                                                  height: 45.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFFCEFE4),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12.0),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        'ถ่ายรูป',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFDB771A),
+                                                              fontSize: 15.0,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  _model.uploadedFileUrl6 !=
+                                                              null &&
+                                                          _model.uploadedFileUrl6 !=
+                                                              ''
+                                                      ? 'สถานะ : อัพโหลดแล้ว'
+                                                      : 'สถานะ : ยังไม่อัพโหลด',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
+                                              if (_model.uploadedFileUrl6 !=
+                                                      null &&
+                                                  _model.uploadedFileUrl6 != '')
+                                                Icon(
+                                                  Icons.check,
+                                                  color: Color(0xFF2EDD78),
+                                                  size: 24.0,
+                                                ),
+                                              if (_model.uploadedFileUrl6 ==
+                                                      null ||
+                                                  _model.uploadedFileUrl6 == '')
+                                                Icon(
+                                                  Icons.close,
+                                                  color: Color(0xFFFC0A0A),
+                                                  size: 24.0,
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                        if (_model.uploadedFileUrl6 != null &&
+                                            _model.uploadedFileUrl6 != '')
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -2363,7 +2503,7 @@ class _NonePackageEditPage3WidgetState
                                                                 m.storagePath,
                                                                 context))) {
                                                       setState(() => _model
-                                                              .isDataUploading6 =
+                                                              .isDataUploading7 =
                                                           true);
                                                       var selectedUploadedFiles =
                                                           <FFUploadedFile>[];
@@ -2407,7 +2547,7 @@ class _NonePackageEditPage3WidgetState
                                                                 .map((u) => u!)
                                                                 .toList();
                                                       } finally {
-                                                        _model.isDataUploading6 =
+                                                        _model.isDataUploading7 =
                                                             false;
                                                       }
                                                       if (selectedUploadedFiles
@@ -2418,10 +2558,10 @@ class _NonePackageEditPage3WidgetState
                                                               selectedMedia
                                                                   .length) {
                                                         setState(() {
-                                                          _model.uploadedLocalFile6 =
+                                                          _model.uploadedLocalFile7 =
                                                               selectedUploadedFiles
                                                                   .first;
-                                                          _model.uploadedFileUrl6 =
+                                                          _model.uploadedFileUrl7 =
                                                               downloadUrls
                                                                   .first;
                                                         });
@@ -2431,9 +2571,9 @@ class _NonePackageEditPage3WidgetState
                                                       }
                                                     }
 
-                                                    if (!(_model.uploadedFileUrl6 !=
+                                                    if (!(_model.uploadedFileUrl7 !=
                                                             null &&
-                                                        _model.uploadedFileUrl6 !=
+                                                        _model.uploadedFileUrl7 !=
                                                             '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -2457,9 +2597,9 @@ class _NonePackageEditPage3WidgetState
                                                     }
                                                     setState(() {
                                                       FFAppState()
-                                                              .nonePackageImageOther1 =
+                                                              .nonePackageImageOther2 =
                                                           _model
-                                                              .uploadedFileUrl6;
+                                                              .uploadedFileUrl7;
                                                     });
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -2519,9 +2659,9 @@ class _NonePackageEditPage3WidgetState
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    _model.uploadedFileUrl6 !=
+                                                    _model.uploadedFileUrl7 !=
                                                                 null &&
-                                                            _model.uploadedFileUrl6 !=
+                                                            _model.uploadedFileUrl7 !=
                                                                 ''
                                                         ? 'สถานะ : อัพโหลดแล้ว'
                                                         : 'สถานะ : ยังไม่อัพโหลด',
@@ -2530,18 +2670,18 @@ class _NonePackageEditPage3WidgetState
                                                         .bodyMedium,
                                                   ),
                                                 ),
-                                                if (_model.uploadedFileUrl6 !=
+                                                if (_model.uploadedFileUrl7 !=
                                                         null &&
-                                                    _model.uploadedFileUrl6 !=
+                                                    _model.uploadedFileUrl7 !=
                                                         '')
                                                   Icon(
                                                     Icons.check,
                                                     color: Color(0xFF2EDD78),
                                                     size: 24.0,
                                                   ),
-                                                if (_model.uploadedFileUrl6 ==
+                                                if (_model.uploadedFileUrl7 ==
                                                         null ||
-                                                    _model.uploadedFileUrl6 ==
+                                                    _model.uploadedFileUrl7 ==
                                                         '')
                                                   Icon(
                                                     Icons.close,
@@ -2551,151 +2691,117 @@ class _NonePackageEditPage3WidgetState
                                               ],
                                             ),
                                           ),
-                                          if (_model.uploadedFileUrl6 != null &&
-                                              _model.uploadedFileUrl6 != '')
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      final selectedMedia =
-                                                          await selectMediaWithSourceBottomSheet(
-                                                        context: context,
-                                                        imageQuality: 30,
-                                                        allowPhoto: true,
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        setState(() => _model
-                                                                .isDataUploading7 =
-                                                            true);
-                                                        var selectedUploadedFiles =
-                                                            <FFUploadedFile>[];
+                                        if (_model.uploadedFileUrl7 != null &&
+                                            _model.uploadedFileUrl7 != '')
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 12.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final selectedMedia =
+                                                        await selectMediaWithSourceBottomSheet(
+                                                      context: context,
+                                                      imageQuality: 30,
+                                                      allowPhoto: true,
+                                                    );
+                                                    if (selectedMedia != null &&
+                                                        selectedMedia.every((m) =>
+                                                            validateFileFormat(
+                                                                m.storagePath,
+                                                                context))) {
+                                                      setState(() => _model
+                                                              .isDataUploading8 =
+                                                          true);
+                                                      var selectedUploadedFiles =
+                                                          <FFUploadedFile>[];
 
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          selectedUploadedFiles =
-                                                              selectedMedia
-                                                                  .map((m) =>
-                                                                      FFUploadedFile(
-                                                                        name: m
-                                                                            .storagePath
-                                                                            .split('/')
-                                                                            .last,
-                                                                        bytes: m
-                                                                            .bytes,
-                                                                        height: m
-                                                                            .dimensions
-                                                                            ?.height,
-                                                                        width: m
-                                                                            .dimensions
-                                                                            ?.width,
-                                                                        blurHash:
-                                                                            m.blurHash,
-                                                                      ))
-                                                                  .toList();
+                                                      var downloadUrls =
+                                                          <String>[];
+                                                      try {
+                                                        selectedUploadedFiles =
+                                                            selectedMedia
+                                                                .map((m) =>
+                                                                    FFUploadedFile(
+                                                                      name: m
+                                                                          .storagePath
+                                                                          .split(
+                                                                              '/')
+                                                                          .last,
+                                                                      bytes: m
+                                                                          .bytes,
+                                                                      height: m
+                                                                          .dimensions
+                                                                          ?.height,
+                                                                      width: m
+                                                                          .dimensions
+                                                                          ?.width,
+                                                                      blurHash:
+                                                                          m.blurHash,
+                                                                    ))
+                                                                .toList();
 
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          _model.isDataUploading7 =
-                                                              false;
-                                                        }
-                                                        if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
-                                                          setState(() {
-                                                            _model.uploadedLocalFile7 =
-                                                                selectedUploadedFiles
-                                                                    .first;
-                                                            _model.uploadedFileUrl7 =
-                                                                downloadUrls
-                                                                    .first;
-                                                          });
-                                                        } else {
-                                                          setState(() {});
-                                                          return;
-                                                        }
-                                                      }
-
-                                                      if (!(_model.uploadedFileUrl7 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl7 !=
-                                                              '')) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB2000000),
+                                                        downloadUrls =
+                                                            (await Future.wait(
+                                                          selectedMedia.map(
+                                                            (m) async =>
+                                                                await uploadData(
+                                                                    m.storagePath,
+                                                                    m.bytes),
                                                           ),
-                                                        );
+                                                        ))
+                                                                .where((u) =>
+                                                                    u != null)
+                                                                .map((u) => u!)
+                                                                .toList();
+                                                      } finally {
+                                                        _model.isDataUploading8 =
+                                                            false;
+                                                      }
+                                                      if (selectedUploadedFiles
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length &&
+                                                          downloadUrls.length ==
+                                                              selectedMedia
+                                                                  .length) {
+                                                        setState(() {
+                                                          _model.uploadedLocalFile8 =
+                                                              selectedUploadedFiles
+                                                                  .first;
+                                                          _model.uploadedFileUrl8 =
+                                                              downloadUrls
+                                                                  .first;
+                                                        });
+                                                      } else {
+                                                        setState(() {});
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageImageOther2 =
-                                                            _model
-                                                                .uploadedFileUrl7;
-                                                      });
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .clearSnackBars();
+                                                    }
+
+                                                    if (!(_model.uploadedFileUrl8 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl8 !=
+                                                            '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
                                                         SnackBar(
                                                           content: Text(
-                                                            'อัพโหลดรูปภาพสำเร็จ',
+                                                            'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
                                                             style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -2708,226 +2814,215 @@ class _NonePackageEditPage3WidgetState
                                                               Color(0xB2000000),
                                                         ),
                                                       );
-                                                    },
-                                                    child: Container(
-                                                      width: 125.0,
-                                                      height: 45.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFCEFE4),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'ถ่ายรูป',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
+                                                      return;
+                                                    }
+                                                    setState(() {
+                                                      FFAppState()
+                                                              .nonePackageImageOther3 =
+                                                          _model
+                                                              .uploadedFileUrl8;
+                                                    });
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .clearSnackBars();
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'อัพโหลดรูปภาพสำเร็จ',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
                                                           ),
-                                                        ],
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 3000),
+                                                        backgroundColor:
+                                                            Color(0xB2000000),
                                                       ),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 125.0,
+                                                    height: 45.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFCEFE4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      _model.uploadedFileUrl7 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl7 !=
-                                                                  ''
-                                                          ? 'สถานะ : อัพโหลดแล้ว'
-                                                          : 'สถานะ : ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                  if (_model.uploadedFileUrl7 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl7 !=
-                                                          '')
-                                                    Icon(
-                                                      Icons.check,
-                                                      color: Color(0xFF2EDD78),
-                                                      size: 24.0,
-                                                    ),
-                                                  if (_model.uploadedFileUrl7 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl7 ==
-                                                          '')
-                                                    Icon(
-                                                      Icons.close,
-                                                      color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                          if (_model.uploadedFileUrl7 != null &&
-                                              _model.uploadedFileUrl7 != '')
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      final selectedMedia =
-                                                          await selectMediaWithSourceBottomSheet(
-                                                        context: context,
-                                                        imageQuality: 30,
-                                                        allowPhoto: true,
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        setState(() => _model
-                                                                .isDataUploading8 =
-                                                            true);
-                                                        var selectedUploadedFiles =
-                                                            <FFUploadedFile>[];
-
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          selectedUploadedFiles =
-                                                              selectedMedia
-                                                                  .map((m) =>
-                                                                      FFUploadedFile(
-                                                                        name: m
-                                                                            .storagePath
-                                                                            .split('/')
-                                                                            .last,
-                                                                        bytes: m
-                                                                            .bytes,
-                                                                        height: m
-                                                                            .dimensions
-                                                                            ?.height,
-                                                                        width: m
-                                                                            .dimensions
-                                                                            ?.width,
-                                                                        blurHash:
-                                                                            m.blurHash,
-                                                                      ))
-                                                                  .toList();
-
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          _model.isDataUploading8 =
-                                                              false;
-                                                        }
-                                                        if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
-                                                          setState(() {
-                                                            _model.uploadedLocalFile8 =
-                                                                selectedUploadedFiles
-                                                                    .first;
-                                                            _model.uploadedFileUrl8 =
-                                                                downloadUrls
-                                                                    .first;
-                                                          });
-                                                        } else {
-                                                          setState(() {});
-                                                          return;
-                                                        }
-                                                      }
-
-                                                      if (!(_model.uploadedFileUrl8 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl8 !=
-                                                              '')) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'ถ่ายรูป',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFDB771A),
+                                                                fontSize: 15.0,
                                                               ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB2000000),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    _model.uploadedFileUrl8 !=
+                                                                null &&
+                                                            _model.uploadedFileUrl8 !=
+                                                                ''
+                                                        ? 'สถานะ : อัพโหลดแล้ว'
+                                                        : 'สถานะ : ยังไม่อัพโหลด',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                                if (_model.uploadedFileUrl8 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl8 !=
+                                                        '')
+                                                  Icon(
+                                                    Icons.check,
+                                                    color: Color(0xFF2EDD78),
+                                                    size: 24.0,
+                                                  ),
+                                                if (_model.uploadedFileUrl8 ==
+                                                        null ||
+                                                    _model.uploadedFileUrl8 ==
+                                                        '')
+                                                  Icon(
+                                                    Icons.close,
+                                                    color: Color(0xFFFC0A0A),
+                                                    size: 24.0,
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        if (_model.uploadedFileUrl8 != null &&
+                                            _model.uploadedFileUrl8 != '')
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 12.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final selectedMedia =
+                                                        await selectMediaWithSourceBottomSheet(
+                                                      context: context,
+                                                      imageQuality: 30,
+                                                      allowPhoto: true,
+                                                    );
+                                                    if (selectedMedia != null &&
+                                                        selectedMedia.every((m) =>
+                                                            validateFileFormat(
+                                                                m.storagePath,
+                                                                context))) {
+                                                      setState(() => _model
+                                                              .isDataUploading9 =
+                                                          true);
+                                                      var selectedUploadedFiles =
+                                                          <FFUploadedFile>[];
+
+                                                      var downloadUrls =
+                                                          <String>[];
+                                                      try {
+                                                        selectedUploadedFiles =
+                                                            selectedMedia
+                                                                .map((m) =>
+                                                                    FFUploadedFile(
+                                                                      name: m
+                                                                          .storagePath
+                                                                          .split(
+                                                                              '/')
+                                                                          .last,
+                                                                      bytes: m
+                                                                          .bytes,
+                                                                      height: m
+                                                                          .dimensions
+                                                                          ?.height,
+                                                                      width: m
+                                                                          .dimensions
+                                                                          ?.width,
+                                                                      blurHash:
+                                                                          m.blurHash,
+                                                                    ))
+                                                                .toList();
+
+                                                        downloadUrls =
+                                                            (await Future.wait(
+                                                          selectedMedia.map(
+                                                            (m) async =>
+                                                                await uploadData(
+                                                                    m.storagePath,
+                                                                    m.bytes),
                                                           ),
-                                                        );
+                                                        ))
+                                                                .where((u) =>
+                                                                    u != null)
+                                                                .map((u) => u!)
+                                                                .toList();
+                                                      } finally {
+                                                        _model.isDataUploading9 =
+                                                            false;
+                                                      }
+                                                      if (selectedUploadedFiles
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length &&
+                                                          downloadUrls.length ==
+                                                              selectedMedia
+                                                                  .length) {
+                                                        setState(() {
+                                                          _model.uploadedLocalFile9 =
+                                                              selectedUploadedFiles
+                                                                  .first;
+                                                          _model.uploadedFileUrl9 =
+                                                              downloadUrls
+                                                                  .first;
+                                                        });
+                                                      } else {
+                                                        setState(() {});
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageImageOther3 =
-                                                            _model
-                                                                .uploadedFileUrl8;
-                                                      });
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .clearSnackBars();
+                                                    }
+
+                                                    if (!(_model.uploadedFileUrl9 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl9 !=
+                                                            '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
                                                         SnackBar(
                                                           content: Text(
-                                                            'อัพโหลดรูปภาพสำเร็จ',
+                                                            'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
                                                             style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -2940,226 +3035,215 @@ class _NonePackageEditPage3WidgetState
                                                               Color(0xB2000000),
                                                         ),
                                                       );
-                                                    },
-                                                    child: Container(
-                                                      width: 125.0,
-                                                      height: 45.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFCEFE4),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'ถ่ายรูป',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
+                                                      return;
+                                                    }
+                                                    setState(() {
+                                                      FFAppState()
+                                                              .nonePackageImageOther4 =
+                                                          _model
+                                                              .uploadedFileUrl9;
+                                                    });
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .clearSnackBars();
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'อัพโหลดรูปภาพสำเร็จ',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
                                                           ),
-                                                        ],
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 3000),
+                                                        backgroundColor:
+                                                            Color(0xB2000000),
                                                       ),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 125.0,
+                                                    height: 45.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFCEFE4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
                                                     ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      _model.uploadedFileUrl8 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl8 !=
-                                                                  ''
-                                                          ? 'สถานะ : อัพโหลดแล้ว'
-                                                          : 'สถานะ : ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                  if (_model.uploadedFileUrl8 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl8 !=
-                                                          '')
-                                                    Icon(
-                                                      Icons.check,
-                                                      color: Color(0xFF2EDD78),
-                                                      size: 24.0,
-                                                    ),
-                                                  if (_model.uploadedFileUrl8 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl8 ==
-                                                          '')
-                                                    Icon(
-                                                      Icons.close,
-                                                      color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                          if (_model.uploadedFileUrl8 != null &&
-                                              _model.uploadedFileUrl8 != '')
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      final selectedMedia =
-                                                          await selectMediaWithSourceBottomSheet(
-                                                        context: context,
-                                                        imageQuality: 30,
-                                                        allowPhoto: true,
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        setState(() => _model
-                                                                .isDataUploading9 =
-                                                            true);
-                                                        var selectedUploadedFiles =
-                                                            <FFUploadedFile>[];
-
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          selectedUploadedFiles =
-                                                              selectedMedia
-                                                                  .map((m) =>
-                                                                      FFUploadedFile(
-                                                                        name: m
-                                                                            .storagePath
-                                                                            .split('/')
-                                                                            .last,
-                                                                        bytes: m
-                                                                            .bytes,
-                                                                        height: m
-                                                                            .dimensions
-                                                                            ?.height,
-                                                                        width: m
-                                                                            .dimensions
-                                                                            ?.width,
-                                                                        blurHash:
-                                                                            m.blurHash,
-                                                                      ))
-                                                                  .toList();
-
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          _model.isDataUploading9 =
-                                                              false;
-                                                        }
-                                                        if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
-                                                          setState(() {
-                                                            _model.uploadedLocalFile9 =
-                                                                selectedUploadedFiles
-                                                                    .first;
-                                                            _model.uploadedFileUrl9 =
-                                                                downloadUrls
-                                                                    .first;
-                                                          });
-                                                        } else {
-                                                          setState(() {});
-                                                          return;
-                                                        }
-                                                      }
-
-                                                      if (!(_model.uploadedFileUrl9 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl9 !=
-                                                              '')) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'ถ่ายรูป',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFDB771A),
+                                                                fontSize: 15.0,
                                                               ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB2000000),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    _model.uploadedFileUrl9 !=
+                                                                null &&
+                                                            _model.uploadedFileUrl9 !=
+                                                                ''
+                                                        ? 'สถานะ : อัพโหลดแล้ว'
+                                                        : 'สถานะ : ยังไม่อัพโหลด',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                                if (_model.uploadedFileUrl9 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl9 !=
+                                                        '')
+                                                  Icon(
+                                                    Icons.check,
+                                                    color: Color(0xFF2EDD78),
+                                                    size: 24.0,
+                                                  ),
+                                                if (_model.uploadedFileUrl9 ==
+                                                        null ||
+                                                    _model.uploadedFileUrl9 ==
+                                                        '')
+                                                  Icon(
+                                                    Icons.close,
+                                                    color: Color(0xFFFC0A0A),
+                                                    size: 24.0,
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        if (_model.uploadedFileUrl9 != null &&
+                                            _model.uploadedFileUrl9 != '')
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 12.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    final selectedMedia =
+                                                        await selectMediaWithSourceBottomSheet(
+                                                      context: context,
+                                                      imageQuality: 30,
+                                                      allowPhoto: true,
+                                                    );
+                                                    if (selectedMedia != null &&
+                                                        selectedMedia.every((m) =>
+                                                            validateFileFormat(
+                                                                m.storagePath,
+                                                                context))) {
+                                                      setState(() => _model
+                                                              .isDataUploading10 =
+                                                          true);
+                                                      var selectedUploadedFiles =
+                                                          <FFUploadedFile>[];
+
+                                                      var downloadUrls =
+                                                          <String>[];
+                                                      try {
+                                                        selectedUploadedFiles =
+                                                            selectedMedia
+                                                                .map((m) =>
+                                                                    FFUploadedFile(
+                                                                      name: m
+                                                                          .storagePath
+                                                                          .split(
+                                                                              '/')
+                                                                          .last,
+                                                                      bytes: m
+                                                                          .bytes,
+                                                                      height: m
+                                                                          .dimensions
+                                                                          ?.height,
+                                                                      width: m
+                                                                          .dimensions
+                                                                          ?.width,
+                                                                      blurHash:
+                                                                          m.blurHash,
+                                                                    ))
+                                                                .toList();
+
+                                                        downloadUrls =
+                                                            (await Future.wait(
+                                                          selectedMedia.map(
+                                                            (m) async =>
+                                                                await uploadData(
+                                                                    m.storagePath,
+                                                                    m.bytes),
                                                           ),
-                                                        );
+                                                        ))
+                                                                .where((u) =>
+                                                                    u != null)
+                                                                .map((u) => u!)
+                                                                .toList();
+                                                      } finally {
+                                                        _model.isDataUploading10 =
+                                                            false;
+                                                      }
+                                                      if (selectedUploadedFiles
+                                                                  .length ==
+                                                              selectedMedia
+                                                                  .length &&
+                                                          downloadUrls.length ==
+                                                              selectedMedia
+                                                                  .length) {
+                                                        setState(() {
+                                                          _model.uploadedLocalFile10 =
+                                                              selectedUploadedFiles
+                                                                  .first;
+                                                          _model.uploadedFileUrl10 =
+                                                              downloadUrls
+                                                                  .first;
+                                                        });
+                                                      } else {
+                                                        setState(() {});
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageImageOther4 =
-                                                            _model
-                                                                .uploadedFileUrl9;
-                                                      });
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .clearSnackBars();
+                                                    }
+
+                                                    if (!(_model.uploadedFileUrl10 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl10 !=
+                                                            '')) {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
                                                         SnackBar(
                                                           content: Text(
-                                                            'อัพโหลดรูปภาพสำเร็จ',
+                                                            'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
                                                             style: TextStyle(
                                                               color:
                                                                   Colors.white,
@@ -3172,327 +3256,118 @@ class _NonePackageEditPage3WidgetState
                                                               Color(0xB2000000),
                                                         ),
                                                       );
-                                                    },
-                                                    child: Container(
-                                                      width: 125.0,
-                                                      height: 45.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFCEFE4),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'ถ่ายรูป',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
+                                                      return;
+                                                    }
+                                                    setState(() {
+                                                      FFAppState()
+                                                              .nonePackageImageOther5 =
+                                                          _model
+                                                              .uploadedFileUrl10;
+                                                    });
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .clearSnackBars();
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'อัพโหลดรูปภาพสำเร็จ',
+                                                          style: TextStyle(
+                                                            color: Colors.white,
                                                           ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      _model.uploadedFileUrl9 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl9 !=
-                                                                  ''
-                                                          ? 'สถานะ : อัพโหลดแล้ว'
-                                                          : 'สถานะ : ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                  if (_model.uploadedFileUrl9 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl9 !=
-                                                          '')
-                                                    Icon(
-                                                      Icons.check,
-                                                      color: Color(0xFF2EDD78),
-                                                      size: 24.0,
-                                                    ),
-                                                  if (_model.uploadedFileUrl9 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl9 ==
-                                                          '')
-                                                    Icon(
-                                                      Icons.close,
-                                                      color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
-                                                    ),
-                                                ],
-                                              ),
-                                            ),
-                                          if (_model.uploadedFileUrl9 != null &&
-                                              _model.uploadedFileUrl9 != '')
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 12.0, 12.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      final selectedMedia =
-                                                          await selectMediaWithSourceBottomSheet(
-                                                        context: context,
-                                                        imageQuality: 30,
-                                                        allowPhoto: true,
-                                                      );
-                                                      if (selectedMedia !=
-                                                              null &&
-                                                          selectedMedia.every((m) =>
-                                                              validateFileFormat(
-                                                                  m.storagePath,
-                                                                  context))) {
-                                                        setState(() => _model
-                                                                .isDataUploading10 =
-                                                            true);
-                                                        var selectedUploadedFiles =
-                                                            <FFUploadedFile>[];
-
-                                                        var downloadUrls =
-                                                            <String>[];
-                                                        try {
-                                                          selectedUploadedFiles =
-                                                              selectedMedia
-                                                                  .map((m) =>
-                                                                      FFUploadedFile(
-                                                                        name: m
-                                                                            .storagePath
-                                                                            .split('/')
-                                                                            .last,
-                                                                        bytes: m
-                                                                            .bytes,
-                                                                        height: m
-                                                                            .dimensions
-                                                                            ?.height,
-                                                                        width: m
-                                                                            .dimensions
-                                                                            ?.width,
-                                                                        blurHash:
-                                                                            m.blurHash,
-                                                                      ))
-                                                                  .toList();
-
-                                                          downloadUrls =
-                                                              (await Future
-                                                                      .wait(
-                                                            selectedMedia.map(
-                                                              (m) async =>
-                                                                  await uploadData(
-                                                                      m.storagePath,
-                                                                      m.bytes),
-                                                            ),
-                                                          ))
-                                                                  .where((u) =>
-                                                                      u != null)
-                                                                  .map(
-                                                                      (u) => u!)
-                                                                  .toList();
-                                                        } finally {
-                                                          _model.isDataUploading10 =
-                                                              false;
-                                                        }
-                                                        if (selectedUploadedFiles
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length &&
-                                                            downloadUrls
-                                                                    .length ==
-                                                                selectedMedia
-                                                                    .length) {
-                                                          setState(() {
-                                                            _model.uploadedLocalFile10 =
-                                                                selectedUploadedFiles
-                                                                    .first;
-                                                            _model.uploadedFileUrl10 =
-                                                                downloadUrls
-                                                                    .first;
-                                                          });
-                                                        } else {
-                                                          setState(() {});
-                                                          return;
-                                                        }
-                                                      }
-
-                                                      if (!(_model.uploadedFileUrl10 !=
-                                                              null &&
-                                                          _model.uploadedFileUrl10 !=
-                                                              '')) {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .showSnackBar(
-                                                          SnackBar(
-                                                            content: Text(
-                                                              'อัพโหลดรูปภาพล้มเหลว กรุณาลองอีกครั้ง',
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                            ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3000),
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xB2000000),
-                                                          ),
-                                                        );
-                                                        return;
-                                                      }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageImageOther5 =
-                                                            _model
-                                                                .uploadedFileUrl10;
-                                                      });
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .clearSnackBars();
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'อัพโหลดรูปภาพสำเร็จ',
-                                                            style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
-                                                            ),
-                                                          ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  3000),
-                                                          backgroundColor:
-                                                              Color(0xB2000000),
                                                         ),
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 125.0,
-                                                      height: 45.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0xFFFCEFE4),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(12.0),
+                                                        duration: Duration(
+                                                            milliseconds: 3000),
+                                                        backgroundColor:
+                                                            Color(0xB2000000),
                                                       ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Text(
-                                                            'ถ่ายรูป',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFDB771A),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ],
-                                                      ),
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 125.0,
+                                                    height: 45.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xFFFCEFE4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          'ถ่ายรูป',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFDB771A),
+                                                                fontSize: 15.0,
+                                                              ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      _model.uploadedFileUrl10 !=
-                                                                  null &&
-                                                              _model.uploadedFileUrl10 !=
-                                                                  ''
-                                                          ? 'สถานะ : อัพโหลดแล้ว'
-                                                          : 'สถานะ : ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    _model.uploadedFileUrl10 !=
+                                                                null &&
+                                                            _model.uploadedFileUrl10 !=
+                                                                ''
+                                                        ? 'สถานะ : อัพโหลดแล้ว'
+                                                        : 'สถานะ : ยังไม่อัพโหลด',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
                                                   ),
-                                                  if (_model.uploadedFileUrl10 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl10 !=
-                                                          '')
-                                                    Icon(
-                                                      Icons.check,
-                                                      color: Color(0xFF2EDD78),
-                                                      size: 24.0,
-                                                    ),
-                                                  if (_model.uploadedFileUrl10 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl10 ==
-                                                          '')
-                                                    Icon(
-                                                      Icons.close,
-                                                      color: Color(0xFFFC0A0A),
-                                                      size: 24.0,
-                                                    ),
-                                                ],
-                                              ),
+                                                ),
+                                                if (_model.uploadedFileUrl10 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl10 !=
+                                                        '')
+                                                  Icon(
+                                                    Icons.check,
+                                                    color: Color(0xFF2EDD78),
+                                                    size: 24.0,
+                                                  ),
+                                                if (_model.uploadedFileUrl10 ==
+                                                        null ||
+                                                    _model.uploadedFileUrl10 ==
+                                                        '')
+                                                  Icon(
+                                                    Icons.close,
+                                                    color: Color(0xFFFC0A0A),
+                                                    size: 24.0,
+                                                  ),
+                                              ],
                                             ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                          ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
+                          ),
                         ],
                       ),
                     ),
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.75),
+                        alignment: AlignmentDirectional(0.0, 0.75),
                         child: Container(
                           width: double.infinity,
                           height: 100.0,
@@ -3598,17 +3473,19 @@ class _NonePackageEditPage3WidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาดConnection (${(_model.insuranceEditOutput?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาดConnection (${(_model.insuranceEditOutput?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -3635,22 +3512,24 @@ class _NonePackageEditPage3WidgetState
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${InsuranceRequestEditAPICall.statusLayer2(
-                                                (_model.insuranceEditOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    InsuranceRequestEditAPICall
+                                                        .messageLayer2(
+                                                  (_model.insuranceEditOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                ).toString()),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                         if (_shouldSetState) setState(() {});
@@ -3664,22 +3543,23 @@ class _NonePackageEditPage3WidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              InsuranceRequestEditAPICall
-                                                  .messageLayer2(
-                                            (_model.insuranceEditOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ).toString()),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                InsuranceRequestEditAPICall
+                                                    .messageLayer2(
+                                              (_model.insuranceEditOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ).toString()),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     setState(() {

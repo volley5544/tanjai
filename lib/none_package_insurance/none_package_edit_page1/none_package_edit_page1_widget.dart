@@ -7,7 +7,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -15,10 +14,10 @@ import 'none_package_edit_page1_model.dart';
 export 'none_package_edit_page1_model.dart';
 
 class NonePackageEditPage1Widget extends StatefulWidget {
-  const NonePackageEditPage1Widget({Key? key}) : super(key: key);
+  const NonePackageEditPage1Widget({super.key});
 
   @override
-  _NonePackageEditPage1WidgetState createState() =>
+  State<NonePackageEditPage1Widget> createState() =>
       _NonePackageEditPage1WidgetState();
 }
 
@@ -64,15 +63,6 @@ class _NonePackageEditPage1WidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -231,8 +221,7 @@ class _NonePackageEditPage1WidgetState
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: ListTile(
                                         title: Text(
                                           (FFAppState().nonePackageBranchCode !=
@@ -670,8 +659,8 @@ class _NonePackageEditPage1WidgetState
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons.check,
                                                                   color: Colors
@@ -696,7 +685,7 @@ class _NonePackageEditPage1WidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 1.00),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 69.0,
@@ -728,7 +717,7 @@ class _NonePackageEditPage1WidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -744,7 +733,7 @@ class _NonePackageEditPage1WidgetState
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.edit_document,
                                                 color: Color(0xFF7A848E),
@@ -789,7 +778,7 @@ class _NonePackageEditPage1WidgetState
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 1.00),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 12.0, 50.0),
@@ -814,18 +803,19 @@ class _NonePackageEditPage1WidgetState
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาเลือกสาขาที่จะลงผลงาน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               return;
@@ -840,18 +830,19 @@ class _NonePackageEditPage1WidgetState
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาเลือกบริษัทประกันอย่างน้อย 1 บริษัท'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณาเลือกบริษัทประกันอย่างน้อย 1 บริษัท'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             return;

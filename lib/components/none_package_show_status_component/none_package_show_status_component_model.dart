@@ -6,7 +6,6 @@ import 'none_package_show_status_component_widget.dart'
     show NonePackageShowStatusComponentWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -19,8 +18,10 @@ class NonePackageShowStatusComponentModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     expandableController.dispose();
   }

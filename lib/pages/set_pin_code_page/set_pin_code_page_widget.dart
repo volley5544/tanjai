@@ -16,10 +16,10 @@ import 'set_pin_code_page_model.dart';
 export 'set_pin_code_page_model.dart';
 
 class SetPinCodePageWidget extends StatefulWidget {
-  const SetPinCodePageWidget({Key? key}) : super(key: key);
+  const SetPinCodePageWidget({super.key});
 
   @override
-  _SetPinCodePageWidgetState createState() => _SetPinCodePageWidgetState();
+  State<SetPinCodePageWidget> createState() => _SetPinCodePageWidgetState();
 }
 
 class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
@@ -54,15 +54,6 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -194,8 +185,12 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                           fieldHeight: 55.0,
                                           fieldWidth: 50.0,
                                           borderWidth: 2.0,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
+                                          borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(12.0),
+                                            bottomRight: Radius.circular(12.0),
+                                            topLeft: Radius.circular(12.0),
+                                            topRight: Radius.circular(12.0),
+                                          ),
                                           shape: PinCodeFieldShape.box,
                                           activeColor: Colors.white,
                                           inactiveColor: Color(0xFFF6F6F6),
@@ -288,17 +283,18 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return WebViewAware(
-                                    child: AlertDialog(
-                                  content:
-                                      Text('กรุณาใส่รหัสพิน6หลัก (ตัวเลข)'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                ));
+                                  child: AlertDialog(
+                                    content:
+                                        Text('กรุณาใส่รหัสพิน6หลัก (ตัวเลข)'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               },
                             );
                             if (_shouldSetState) setState(() {});
@@ -363,17 +359,18 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    content: Text(
-                                        'แอพพลิเคชั่นนี้ ให้ใช้ได้แค่ใน Android หรือ Ios เท่านั้น'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      content: Text(
+                                          'แอพพลิเคชั่นนี้ ให้ใช้ได้แค่ใน Android หรือ Ios เท่านั้น'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                               if (_shouldSetState) setState(() {});

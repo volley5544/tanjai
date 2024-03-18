@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +13,10 @@ import 'none_package_edit_detail_page_model.dart';
 export 'none_package_edit_detail_page_model.dart';
 
 class NonePackageEditDetailPageWidget extends StatefulWidget {
-  const NonePackageEditDetailPageWidget({Key? key}) : super(key: key);
+  const NonePackageEditDetailPageWidget({super.key});
 
   @override
-  _NonePackageEditDetailPageWidgetState createState() =>
+  State<NonePackageEditDetailPageWidget> createState() =>
       _NonePackageEditDetailPageWidgetState();
 }
 
@@ -49,15 +48,6 @@ class _NonePackageEditDetailPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -162,9 +152,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
+                                              padding: EdgeInsets.all(10.0),
                                               child: Material(
                                                 color: Colors.transparent,
                                                 elevation: 1.0,
@@ -195,7 +183,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Container(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -215,8 +203,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons
                                                                     .person_2_sharp,
@@ -253,9 +240,7 @@ class _NonePackageEditDetailPageWidgetState
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
+                                              padding: EdgeInsets.all(10.0),
                                               child: Container(
                                                 width: 100.0,
                                                 height: 120.0,
@@ -280,7 +265,7 @@ class _NonePackageEditDetailPageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width: 50.0,
                                                           height: 50.0,
@@ -299,7 +284,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: FaIcon(
                                                               FontAwesomeIcons
                                                                   .solidBuilding,
@@ -1007,8 +992,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Icon(
                                                                     Icons.check,
                                                                     color: Colors
@@ -1165,8 +1150,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Icon(
                                                                     Icons.check,
                                                                     color: Colors
@@ -3009,8 +2994,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Icon(
                                                                             Icons.check,
@@ -3054,7 +3039,7 @@ class _NonePackageEditDetailPageWidgetState
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),

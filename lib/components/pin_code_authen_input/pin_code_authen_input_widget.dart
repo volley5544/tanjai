@@ -2,17 +2,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'pin_code_authen_input_model.dart';
 export 'pin_code_authen_input_model.dart';
 
 class PinCodeAuthenInputWidget extends StatefulWidget {
-  const PinCodeAuthenInputWidget({Key? key}) : super(key: key);
+  const PinCodeAuthenInputWidget({super.key});
 
   @override
-  _PinCodeAuthenInputWidgetState createState() =>
+  State<PinCodeAuthenInputWidget> createState() =>
       _PinCodeAuthenInputWidgetState();
 }
 
@@ -42,8 +41,6 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return PinCodeTextField(
       autoDisposeControllers: false,
       appContext: context,
@@ -65,7 +62,12 @@ class _PinCodeAuthenInputWidgetState extends State<PinCodeAuthenInputWidget> {
         fieldHeight: 60.0,
         fieldWidth: 60.0,
         borderWidth: 2.0,
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(12.0),
+          bottomRight: Radius.circular(12.0),
+          topLeft: Radius.circular(12.0),
+          topRight: Radius.circular(12.0),
+        ),
         shape: PinCodeFieldShape.box,
         activeColor: FlutterFlowTheme.of(context).secondary,
         inactiveColor: FlutterFlowTheme.of(context).primaryBackground,

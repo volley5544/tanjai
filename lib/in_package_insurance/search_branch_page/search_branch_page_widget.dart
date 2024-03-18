@@ -4,7 +4,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +16,14 @@ export 'search_branch_page_model.dart';
 
 class SearchBranchPageWidget extends StatefulWidget {
   const SearchBranchPageWidget({
-    Key? key,
+    super.key,
     required this.fromPage,
-  }) : super(key: key);
+  });
 
   final String? fromPage;
 
   @override
-  _SearchBranchPageWidgetState createState() => _SearchBranchPageWidgetState();
+  State<SearchBranchPageWidget> createState() => _SearchBranchPageWidgetState();
 }
 
 class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
@@ -36,6 +38,104 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SearchBranchPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
+      _model.getBranchSearched = await GetlocationAPICall.call(
+        token: FFAppState().accessToken,
+        apiUrl: FFAppState().apiURLLocalState,
+      );
+      if (((_model.getBranchSearched?.statusCode ?? 200) == 200) &&
+          (GetlocationAPICall.statusLayer2(
+                (_model.getBranchSearched?.jsonBody ?? ''),
+              ) ==
+              200)) {
+      } else {
+        if ((_model.getBranchSearched?.statusCode ?? 200) == 200) {
+          if (GetlocationAPICall.statusLayer2(
+                (_model.getBranchSearched?.jsonBody ?? ''),
+              ) ==
+              404) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('ไม่พบข้อมูลสาขา'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาดLayer2 (${GetlocationAPICall.statusLayer2(
+                      (_model.getBranchSearched2?.jsonBody ?? ''),
+                    )?.toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          }
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getBranchSearched2?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+        }
+      }
+
+      Navigator.pop(context);
+    });
+
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
@@ -51,15 +151,6 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -144,6 +235,12 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                             controller: _model.textController,
                                             focusNode:
                                                 _model.textFieldFocusNode,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              '_model.textController',
+                                              Duration(milliseconds: 100),
+                                              () => setState(() {}),
+                                            ),
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle:
@@ -175,105 +272,20 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                   ),
                                 ),
                               ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  var _shouldSetState = false;
-                                  HapticFeedback.mediumImpact();
-                                  if (!(_model.textController.text != null &&
-                                      _model.textController.text != '')) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
+                              if (false)
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    var _shouldSetState = false;
+                                    HapticFeedback.mediumImpact();
+                                    if (!(_model.textController.text != null &&
+                                        _model.textController.text != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
                                             child: AlertDialog(
-                                          content: Text(
-                                              'กรุณากรอกรหัสสาขา/ชื่อสาขา ที่ต้องการจะค้นหา'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
-                                      },
-                                    );
-                                    if (_shouldSetState) setState(() {});
-                                    return;
-                                  }
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    barrierColor: Color(0x00000000),
-                                    enableDrag: false,
-                                    context: context,
-                                    builder: (context) {
-                                      return WebViewAware(
-                                          child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: double.infinity,
-                                            child: LoadingSceneWidget(),
-                                          ),
-                                        ),
-                                      ));
-                                    },
-                                  ).then((value) => safeSetState(() {}));
-
-                                  _model.getBranchSearched =
-                                      await GetlocationAPICall.call(
-                                    token: FFAppState().accessToken,
-                                    branch: _model.textController.text,
-                                    apiUrl: FFAppState().apiURLLocalState,
-                                  );
-                                  _shouldSetState = true;
-                                  if (((_model.getBranchSearched?.statusCode ??
-                                              200) ==
-                                          200) &&
-                                      (GetlocationAPICall.statusLayer2(
-                                            (_model.getBranchSearched
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ) ==
-                                          200)) {
-                                    setState(() {
-                                      FFAppState()
-                                              .searchableListComponentSelectedList =
-                                          functions
-                                              .createFalseListByItemNumber(
-                                                  false,
-                                                  GetlocationAPICall.branchCode(
-                                                    (_model.getBranchSearched
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ).length)!
-                                              .toList()
-                                              .cast<bool>();
-                                    });
-                                  } else {
-                                    if ((_model.getBranchSearched?.statusCode ??
-                                            200) ==
-                                        200) {
-                                      if (GetlocationAPICall.statusLayer2(
-                                            (_model.getBranchSearched
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ) ==
-                                          404) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text('ไม่พบข้อมูลสาขา'),
+                                              content: Text(
+                                                  'กรุณากรอกรหัสสาขา/ชื่อสาขา ที่ต้องการจะค้นหา'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -282,80 +294,178 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                   child: Text('Ok'),
                                                 ),
                                               ],
-                                            ));
-                                          },
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      if (_shouldSetState) setState(() {});
+                                      return;
+                                    }
+                                    showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      barrierColor: Color(0x00000000),
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: double.infinity,
+                                                child: LoadingSceneWidget(),
+                                              ),
+                                            ),
+                                          ),
                                         );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+
+                                    _model.getBranchSearched2 =
+                                        await GetlocationAPICall.call(
+                                      token: FFAppState().accessToken,
+                                      branch: _model.textController.text,
+                                      apiUrl: FFAppState().apiURLLocalState,
+                                    );
+                                    _shouldSetState = true;
+                                    if (((_model.getBranchSearched2
+                                                    ?.statusCode ??
+                                                200) ==
+                                            200) &&
+                                        (GetlocationAPICall.statusLayer2(
+                                              (_model.getBranchSearched2
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) ==
+                                            200)) {
+                                      setState(() {
+                                        FFAppState()
+                                                .searchableListComponentSelectedList =
+                                            functions
+                                                .createFalseListByItemNumber(
+                                                    false,
+                                                    GetlocationAPICall
+                                                        .branchCode(
+                                                      (_model.getBranchSearched2
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )?.length)!
+                                                .toList()
+                                                .cast<bool>();
+                                      });
+                                    } else {
+                                      if ((_model.getBranchSearched2
+                                                  ?.statusCode ??
+                                              200) ==
+                                          200) {
+                                        if (GetlocationAPICall.statusLayer2(
+                                              (_model.getBranchSearched2
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) ==
+                                            404) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content:
+                                                      Text('ไม่พบข้อมูลสาขา'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        } else {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาดLayer2 (${GetlocationAPICall.statusLayer2(
+                                                    (_model.getBranchSearched2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?.toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        }
                                       } else {
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาดLayer2 (${GetlocationAPICall.statusLayer2(
-                                                (_model.getBranchSearched
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'พบข้อผิดพลาดConnection (${(_model.getBranchSearched2?.statusCode ?? 200).toString()})'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                       }
-                                    } else {
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาดConnection (${(_model.getBranchSearched?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
-                                        },
-                                      );
                                     }
-                                  }
 
-                                  Navigator.pop(context);
-                                  if (_shouldSetState) setState(() {});
-                                },
-                                text: 'ค้นหา',
-                                options: FFButtonOptions(
-                                  width: 110.0,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFFDB771B),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Colors.white,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    Navigator.pop(context);
+                                    if (_shouldSetState) setState(() {});
+                                  },
+                                  text: 'ค้นหา',
+                                  options: FFButtonOptions(
+                                    width: 110.0,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFFDB771B),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Colors.white,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
-                              ),
                             ].divide(SizedBox(width: 12.0)),
                           ),
                         ),
@@ -375,14 +485,11 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                               child: Builder(
                                 builder: (context) {
                                   final branchListItem =
-                                      (GetlocationAPICall.branchCode(
+                                      GetlocationAPICall.branchCode(
                                             (_model.getBranchSearched
                                                     ?.jsonBody ??
                                                 ''),
-                                          ) as List)
-                                              .map<String>((s) => s.toString())
-                                              .toList()
-                                              ?.toList() ??
+                                          )?.toList() ??
                                           [];
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
@@ -393,124 +500,158 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                         (context, branchListItemIndex) {
                                       final branchListItemItem =
                                           branchListItem[branchListItemIndex];
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          if (widget.fromPage ==
-                                              'NonePackage') {
+                                      return Visibility(
+                                        visible: _model.textController.text !=
+                                                    null &&
+                                                _model.textController.text != ''
+                                            ? (functions.containWordinStringUrl(
+                                                    _model.textController.text
+                                                        .toUpperCase(),
+                                                    GetlocationAPICall
+                                                        .branchCode(
+                                                      (_model.getBranchSearched
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )?[branchListItemIndex])! ||
+                                                functions
+                                                    .containWordinStringUrl(
+                                                        _model
+                                                            .textController.text
+                                                            .toUpperCase(),
+                                                        GetlocationAPICall
+                                                            .branchName(
+                                                          (_model.getBranchSearched
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?[branchListItemIndex])!)
+                                            : true,
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            if (widget.fromPage ==
+                                                'RenewBasic') {
+                                              setState(() {
+                                                FFAppState().renewBranchCode =
+                                                    GetlocationAPICall
+                                                            .branchCode(
+                                                  (_model.getBranchSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )![branchListItemIndex]
+                                                        .toUpperCase();
+                                                FFAppState().renewBranchName =
+                                                    GetlocationAPICall
+                                                        .branchName(
+                                                  (_model.getBranchSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )![branchListItemIndex];
+                                              });
+                                              context.safePop();
+                                              return;
+                                            }
+                                            if (widget.fromPage ==
+                                                'NonePackage') {
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageBranchCode =
+                                                    GetlocationAPICall
+                                                            .branchCode(
+                                                  (_model.getBranchSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )![branchListItemIndex]
+                                                        .toUpperCase();
+                                                FFAppState()
+                                                        .nonePackageBranchName =
+                                                    GetlocationAPICall
+                                                        .branchName(
+                                                  (_model.getBranchSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )![branchListItemIndex];
+                                              });
+                                              context.safePop();
+                                              return;
+                                            }
                                             setState(() {
                                               FFAppState()
-                                                      .nonePackageBranchCode =
-                                                  (GetlocationAPICall
-                                                              .branchCode(
+                                                      .insuranceInfoBranchCode =
+                                                  GetlocationAPICall.branchCode(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
                                                     ''),
-                                              ) as List)
-                                                          .map<String>((s) =>
-                                                              s.toString())
-                                                          .toList()[
-                                                      branchListItemIndex];
+                                              )![branchListItemIndex]
+                                                      .toUpperCase();
                                               FFAppState()
-                                                      .nonePackageBranchName =
-                                                  (GetlocationAPICall
-                                                              .branchName(
+                                                      .insuranceInfoBranchNameOutput =
+                                                  GetlocationAPICall.branchName(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
                                                     ''),
-                                              ) as List)
-                                                          .map<String>((s) =>
-                                                              s.toString())
-                                                          .toList()[
-                                                      branchListItemIndex];
+                                              )![branchListItemIndex];
                                             });
                                             context.safePop();
-                                            return;
-                                          }
-                                          setState(() {
-                                            FFAppState()
-                                                    .insuranceInfoBranchCode =
-                                                (GetlocationAPICall.branchCode(
-                                              (_model.getBranchSearched
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()[
-                                                    branchListItemIndex];
-                                            FFAppState()
-                                                    .insuranceInfoBranchNameOutput =
-                                                (GetlocationAPICall.branchName(
-                                              (_model.getBranchSearched
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()[
-                                                    branchListItemIndex];
-                                          });
-                                          context.safePop();
-                                        },
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width: double.infinity,
-                                                height: 50.0,
-                                                decoration: BoxDecoration(),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        '(${(GetlocationAPICall.branchCode(
-                                                          (_model.getBranchSearched
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) as List).map<String>((s) => s.toString()).toList()[branchListItemIndex]}) ${(GetlocationAPICall.branchName(
-                                                          (_model.getBranchSearched
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) as List).map<String>((s) => s.toString()).toList()[branchListItemIndex]}',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium,
+                                          },
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Container(
+                                                  width: double.infinity,
+                                                  height: 50.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    12.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          '(${GetlocationAPICall.branchCode(
+                                                            (_model.getBranchSearched
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?[branchListItemIndex]}) ${GetlocationAPICall.branchName(
+                                                            (_model.getBranchSearched
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?[branchListItemIndex]}',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium,
+                                                        ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                              Divider(
-                                                thickness: 1.0,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent4,
-                                              ),
-                                            ],
+                                                Divider(
+                                                  thickness: 1.0,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent4,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       );

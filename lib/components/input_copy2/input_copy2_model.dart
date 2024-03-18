@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'input_copy2_widget.dart' show InputCopy2Widget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +17,10 @@ class InputCopy2Model extends FlutterFlowModel<InputCopy2Widget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     reasonCancelFocusNode?.dispose();
     reasonCancelController?.dispose();

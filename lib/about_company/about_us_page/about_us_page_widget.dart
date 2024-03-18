@@ -2,17 +2,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'about_us_page_model.dart';
 export 'about_us_page_model.dart';
 
 class AboutUsPageWidget extends StatefulWidget {
-  const AboutUsPageWidget({Key? key}) : super(key: key);
+  const AboutUsPageWidget({super.key});
 
   @override
-  _AboutUsPageWidgetState createState() => _AboutUsPageWidgetState();
+  State<AboutUsPageWidget> createState() => _AboutUsPageWidgetState();
 }
 
 class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
@@ -38,17 +37,6 @@ class _AboutUsPageWidgetState extends State<AboutUsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

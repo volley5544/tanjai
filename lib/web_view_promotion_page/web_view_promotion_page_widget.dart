@@ -6,17 +6,16 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'web_view_promotion_page_model.dart';
 export 'web_view_promotion_page_model.dart';
 
 class WebViewPromotionPageWidget extends StatefulWidget {
-  const WebViewPromotionPageWidget({Key? key}) : super(key: key);
+  const WebViewPromotionPageWidget({super.key});
 
   @override
-  _WebViewPromotionPageWidgetState createState() =>
+  State<WebViewPromotionPageWidget> createState() =>
       _WebViewPromotionPageWidgetState();
 }
 
@@ -50,15 +49,6 @@ class _WebViewPromotionPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(

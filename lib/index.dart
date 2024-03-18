@@ -1,45 +1,14 @@
 // Export pages
 export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/pages/set_pin_code_page/set_pin_code_page_widget.dart'
-    show SetPinCodePageWidget;
-export '/pages/pin_code_page/pin_code_page_widget.dart' show PinCodePageWidget;
-export '/pages/super_app/super_app_page/super_app_page_widget.dart'
+export '/pages/super_app_page/super_app_page_widget.dart'
     show SuperAppPageWidget;
-export '/pages/super_app/notification_detail_page/notification_detail_page_widget.dart'
-    show NotificationDetailPageWidget;
 export '/pages/profile_page_folder/my_profile_page/my_profile_page_widget.dart'
     show MyProfilePageWidget;
-export '/pages/introdution_page/introdution_page_widget.dart'
-    show IntrodutionPageWidget;
-export '/pages/insurance/check_insurance_page/check_insurance_page_widget.dart'
-    show CheckInsurancePageWidget;
-export '/pages/insurance/check_1_insurance_page/check1_insurance_page_widget.dart'
-    show Check1InsurancePageWidget;
-export '/pages/insurance/list_insuranc_page/list_insuranc_page_widget.dart'
-    show ListInsurancPageWidget;
-export '/pages/insurance/detail_insurance_page/detail_insurance_page_widget.dart'
-    show DetailInsurancePageWidget;
-export '/pages/html_page/html_page_widget.dart' show HtmlPageWidget;
-export '/pages/welfare_k_p_i_c_e_o_page/welfare_k_p_i_c_e_o_page_widget.dart'
-    show WelfareKPICEOPageWidget;
+export '/pages/pin_code_page/pin_code_page_widget.dart' show PinCodePageWidget;
+export '/pages/set_pin_code_page/set_pin_code_page_widget.dart'
+    show SetPinCodePageWidget;
 export '/pages/profile_page_folder/life_insurance_license_card_page/life_insurance_license_card_page_widget.dart'
     show LifeInsuranceLicenseCardPageWidget;
-export '/sawad_chat/chat_search_page/chat_search_page_widget.dart'
-    show ChatSearchPageWidget;
-export '/sawad_chat/chat_home_page/chat_home_page_widget.dart'
-    show ChatHomePageWidget;
-export '/sawad_chat/chatting_page/chatting_page_widget.dart'
-    show ChattingPageWidget;
-export '/pages/insurance_agent/insurance_request_insurer_page/insurance_request_insurer_page_widget.dart'
-    show InsuranceRequestInsurerPageWidget;
-export '/pages/insurance_agent/insurance_request_image_page/insurance_request_image_page_widget.dart'
-    show InsuranceRequestImagePageWidget;
-export '/pages/insurance_agent/insurance_request_basic_page/insurance_request_basic_page_widget.dart'
-    show InsuranceRequestBasicPageWidget;
-export '/pages/insurance_request_list_page/insurance_request_list_page_widget.dart'
-    show InsuranceRequestListPageWidget;
-export '/pages/insurance_agent/insurance_request_dashboard_page/insurance_request_dashboard_page_widget.dart'
-    show InsuranceRequestDashboardPageWidget;
 export '/pages/inbox_email/inbox_email_widget.dart' show InboxEmailWidget;
 export '/search_package/search_insurance_page/search_insurance_page_widget.dart'
     show SearchInsurancePageWidget;
@@ -47,13 +16,8 @@ export '/about_company/about_us_page/about_us_page_widget.dart'
     show AboutUsPageWidget;
 export '/about_company/contact_us_page/contact_us_page_widget.dart'
     show ContactUsPageWidget;
-export '/pages/insurance_request_list_page_copy/insurance_request_list_page_copy_widget.dart'
-    show InsuranceRequestListPageCopyWidget;
 export '/none_package_insurance/select_reason_page/select_reason_page_widget.dart'
     show SelectReasonPageWidget;
-export '/pages/insurance_agent/select_insurer/select_insurer_widget.dart'
-    show SelectInsurerWidget;
-export '/pages/vehicle_type/vehicle_type_widget.dart' show VehicleTypeWidget;
 export '/pages/profile_page_folder/my_account_page/my_account_page_widget.dart'
     show MyAccountPageWidget;
 export '/search_package/searchable_list_page/searchable_list_page_widget.dart'
@@ -86,10 +50,6 @@ export '/in_package_insurance/insurance_info_page4/insurance_info_page4_widget.d
     show InsuranceInfoPage4Widget;
 export '/in_package_insurance/insurance_info_page5/insurance_info_page5_widget.dart'
     show InsuranceInfoPage5Widget;
-export '/homepage_follow_up11/homepage_follow_up11_widget.dart'
-    show HomepageFollowUp11Widget;
-export '/homepage_follow_up12/homepage_follow_up12_widget.dart'
-    show HomepageFollowUp12Widget;
 export '/success_page/success_page_widget.dart' show SuccessPageWidget;
 export '/in_package_insurance/add_address/add_address_widget.dart'
     show AddAddressWidget;
@@ -113,10 +73,6 @@ export '/in_package_insurance/paywith_q_rcode/paywith_q_rcode_widget.dart'
     show PaywithQRcodeWidget;
 export '/in_package_insurance/insurance_info_page5_show_policy/insurance_info_page5_show_policy_widget.dart'
     show InsuranceInfoPage5ShowPolicyWidget;
-export '/homepage_request_5_2_3/homepage_request523_widget.dart'
-    show HomepageRequest523Widget;
-export '/pages/insurance_agent/list_out_1/list_out1_widget.dart'
-    show ListOut1Widget;
 export '/none_package_insurance/outofrange_3/outofrange3_widget.dart'
     show Outofrange3Widget;
 export '/search_package/quotation/quotation_widget.dart' show QuotationWidget;
@@ -156,11 +112,8 @@ export '/in_package_insurance/insurance_info_page4_installments/insurance_info_p
     show InsuranceInfoPage4InstallmentsWidget;
 export '/in_package_insurance/upload_img_page/upload_img_page_widget.dart'
     show UploadImgPageWidget;
-export '/pages/insurance_agent/list_out_1_e_d_i_t1_copy/list_out1_e_d_i_t1_copy_widget.dart'
-    show ListOut1EDIT1CopyWidget;
 export '/none_package_insurance/none_package_edit_page2_copy/none_package_edit_page2_copy_widget.dart'
     show NonePackageEditPage2CopyWidget;
-export '/pages/reload_app/reload_app_widget.dart' show ReloadAppWidget;
 export '/none_package_insurance/none_package_basic_image1_page/none_package_basic_image1_page_widget.dart'
     show NonePackageBasicImage1PageWidget;
 export '/none_package_insurance/none_package_basic_image2_page/none_package_basic_image2_page_widget.dart'
@@ -177,3 +130,28 @@ export '/insurer_infomation_page/insurer_infomation_page_widget.dart'
     show InsurerInfomationPageWidget;
 export '/web_view_promotion_page/web_view_promotion_page_widget.dart'
     show WebViewPromotionPageWidget;
+export '/notification_i_b_s/notification_i_b_s_widget.dart'
+    show NotificationIBSWidget;
+export '/search_package/searchable_car_list_page/searchable_car_list_page_widget.dart'
+    show SearchableCarListPageWidget;
+export '/search_package/searchable_pick_up_list_page/searchable_pick_up_list_page_widget.dart'
+    show SearchablePickUpListPageWidget;
+export '/renew/renew_history/renew_history_widget.dart' show RenewHistoryWidget;
+export '/pages/super_app/make_insurance_list_page_search/make_insurance_list_page_search_widget.dart'
+    show MakeInsuranceListPageSearchWidget;
+export '/renew/renew_detail_page/renew_detail_page_widget.dart'
+    show RenewDetailPageWidget;
+export '/renew/renew_basic_info_page/renew_basic_info_page_widget.dart'
+    show RenewBasicInfoPageWidget;
+export '/renew/renew_search_all_pool_page/renew_search_all_pool_page_widget.dart'
+    show RenewSearchAllPoolPageWidget;
+export '/renew/renew_save_history/renew_save_history_widget.dart'
+    show RenewSaveHistoryWidget;
+export '/act/selling_act/selling_act_widget.dart' show SellingActWidget;
+export '/act/information_act/information_act_widget.dart'
+    show InformationActWidget;
+export '/act/information_customer/information_customer_widget.dart'
+    show InformationCustomerWidget;
+export '/act/information_customer2/information_customer2_widget.dart'
+    show InformationCustomer2Widget;
+export '/web_view_policy/web_view_policy_widget.dart' show WebViewPolicyWidget;

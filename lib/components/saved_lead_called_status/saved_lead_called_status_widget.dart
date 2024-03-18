@@ -17,15 +17,14 @@ export 'saved_lead_called_status_model.dart';
 
 class SavedLeadCalledStatusWidget extends StatefulWidget {
   const SavedLeadCalledStatusWidget({
-    Key? key,
+    super.key,
     String? leadChannel,
     String? leadId,
     this.callStatusId,
     this.callStatussName,
     this.leadIndex,
   })  : this.leadChannel = leadChannel ?? '-',
-        this.leadId = leadId ?? '-',
-        super(key: key);
+        this.leadId = leadId ?? '-';
 
   final String leadChannel;
   final String leadId;
@@ -34,7 +33,7 @@ class SavedLeadCalledStatusWidget extends StatefulWidget {
   final int? leadIndex;
 
   @override
-  _SavedLeadCalledStatusWidgetState createState() =>
+  State<SavedLeadCalledStatusWidget> createState() =>
       _SavedLeadCalledStatusWidgetState();
 }
 
@@ -198,14 +197,15 @@ class _SavedLeadCalledStatusWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: Container(
-                                          height: double.infinity,
-                                          child: LoadingSceneWidget(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: Container(
+                                            height: double.infinity,
+                                            child: LoadingSceneWidget(),
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
 
@@ -266,19 +266,13 @@ class _SavedLeadCalledStatusWidgetState
                                     _model.reasonDropDownValue ??= '',
                                   ),
                                   options: List<String>.from(
-                                      (GetLeadReasonCallDropdownAPICall
-                                              .reasonId(
+                                      GetLeadReasonCallDropdownAPICall.reasonId(
                                     (_model.getReasonCall?.jsonBody ?? ''),
-                                  ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!),
-                                  optionLabels:
-                                      (GetLeadReasonCallDropdownAPICall
-                                              .reasonName(
+                                  )!),
+                                  optionLabels: GetLeadReasonCallDropdownAPICall
+                                      .reasonName(
                                     (_model.getReasonCall?.jsonBody ?? ''),
-                                  ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!,
+                                  )!,
                                   onChanged: (val) async {
                                     setState(
                                         () => _model.reasonDropDownValue = val);
@@ -391,16 +385,17 @@ class _SavedLeadCalledStatusWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                content: Text('กรุณาเลือก สถานะการโทร'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  content: Text('กรุณาเลือก สถานะการโทร'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           if (_shouldSetState) setState(() {});
@@ -412,16 +407,17 @@ class _SavedLeadCalledStatusWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                content: Text('กรุณาเลือก เหตุผล'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  content: Text('กรุณาเลือก เหตุผล'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           if (_shouldSetState) setState(() {});
@@ -443,17 +439,18 @@ class _SavedLeadCalledStatusWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                content: Text(
-                                    'พบข้อผิดพลาดConnection (${(_model.saveCallOutput?.statusCode ?? 200).toString()})'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  content: Text(
+                                      'พบข้อผิดพลาดConnection (${(_model.saveCallOutput?.statusCode ?? 200).toString()})'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           if (_shouldSetState) setState(() {});
@@ -467,19 +464,20 @@ class _SavedLeadCalledStatusWidgetState
                             context: context,
                             builder: (alertDialogContext) {
                               return WebViewAware(
-                                  child: AlertDialog(
-                                content: Text(
-                                    'พบข้อผิดพลาดLayer2 (${SaveCallStatusAPICall.statusLayer2(
-                                  (_model.saveCallOutput?.jsonBody ?? ''),
-                                ).toString()})'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(alertDialogContext),
-                                    child: Text('Ok'),
-                                  ),
-                                ],
-                              ));
+                                child: AlertDialog(
+                                  content: Text(
+                                      'พบข้อผิดพลาดLayer2 (${SaveCallStatusAPICall.statusLayer2(
+                                    (_model.saveCallOutput?.jsonBody ?? ''),
+                                  )?.toString()})'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                           );
                           if (_shouldSetState) setState(() {});
@@ -489,18 +487,19 @@ class _SavedLeadCalledStatusWidgetState
                           context: context,
                           builder: (alertDialogContext) {
                             return WebViewAware(
-                                child: AlertDialog(
-                              content: Text(SaveCallStatusAPICall.info(
-                                (_model.saveCallOutput?.jsonBody ?? ''),
-                              ).toString()),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
-                                ),
-                              ],
-                            ));
+                              child: AlertDialog(
+                                content: Text(SaveCallStatusAPICall.info(
+                                  (_model.saveCallOutput?.jsonBody ?? ''),
+                                )!),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Ok'),
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         );
                         setState(() {
@@ -510,7 +509,7 @@ class _SavedLeadCalledStatusWidgetState
                                   widget.leadIndex,
                                   SaveCallStatusAPICall.callStatusReason(
                                     (_model.saveCallOutput?.jsonBody ?? ''),
-                                  ).toString())!
+                                  ))!
                               .toList()
                               .cast<String>();
                           FFAppState().leadCallStatus = functions
@@ -519,7 +518,7 @@ class _SavedLeadCalledStatusWidgetState
                                   widget.leadIndex,
                                   SaveCallStatusAPICall.callStatus(
                                     (_model.saveCallOutput?.jsonBody ?? ''),
-                                  ).toString())!
+                                  ))!
                               .toList()
                               .cast<String>();
                         });

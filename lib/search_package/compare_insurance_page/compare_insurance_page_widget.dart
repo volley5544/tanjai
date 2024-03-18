@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -14,7 +13,7 @@ export 'compare_insurance_page_model.dart';
 
 class CompareInsurancePageWidget extends StatefulWidget {
   const CompareInsurancePageWidget({
-    Key? key,
+    super.key,
     required this.insurerFullName,
     String? currentDate,
     String? brandId,
@@ -56,12 +55,13 @@ class CompareInsurancePageWidget extends StatefulWidget {
     required this.insurerMaxName,
     required this.tppd,
     required this.contractProcessstate,
+    this.insurerCondition,
+    required this.cc,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
         this.modelCode = modelCode ?? '-',
-        this.modelName = modelName ?? '-',
-        super(key: key);
+        this.modelName = modelName ?? '-';
 
   final List<String>? insurerFullName;
   final String currentDate;
@@ -104,9 +104,11 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? insurerMaxName;
   final List<String>? tppd;
   final List<String>? contractProcessstate;
+  final List<String>? insurerCondition;
+  final List<String>? cc;
 
   @override
-  _CompareInsurancePageWidgetState createState() =>
+  State<CompareInsurancePageWidget> createState() =>
       _CompareInsurancePageWidgetState();
 }
 
@@ -135,15 +137,6 @@ class _CompareInsurancePageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -173,7 +166,9 @@ class _CompareInsurancePageWidgetState
               ),
             ),
             title: Text(
-              'รายละเอียดประกันรถยนต์',
+              FFAppState().searchPackageSubProduct == 'MC'
+                  ? 'รายละเอียดประกันมอเตอร์ไซค์'
+                  : 'รายละเอียดประกันรถยนต์',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF002D5E),
@@ -212,6 +207,10 @@ class _CompareInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
+                // Return an empty Container when the item does not exist.
+                if (snapshot.data!.isEmpty) {
+                  return Container();
+                }
                 final columnHideInAppContentRecord =
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first
@@ -281,8 +280,7 @@ class _CompareInsurancePageWidgetState
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(0.0),
@@ -554,6 +552,73 @@ class _CompareInsurancePageWidgetState
                                 ),
                               ],
                             ),
+                            if (valueOrDefault<String>(
+                                  widget.insurerCondition?[
+                                      _model.indexDataCompare!],
+                                  '-',
+                                ) !=
+                                '')
+                              Divider(
+                                thickness: 1.0,
+                                color: Color(0xFFB9B9B9),
+                              ),
+                            if (valueOrDefault<String>(
+                                  widget.insurerCondition?[
+                                      _model.indexDataCompare!],
+                                  '-',
+                                ) !=
+                                '')
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 10.0, 20.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 18.0,
+                                          child: VerticalDivider(
+                                            thickness: 3.0,
+                                            color: Color(0xFFEDBB8D),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'เงื่อนไขบริษัทประกัน',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFF002D5E),
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        30.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      widget.insurerCondition![
+                                          _model.indexDataCompare!],
+                                      textAlign: TextAlign.start,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             Divider(
                               thickness: 1.0,
                               color: Color(0xFFB9B9B9),
@@ -710,7 +775,8 @@ class _CompareInsurancePageWidgetState
                                                       widget.year) ==
                                                   '-'
                                               ? '-'
-                                              : (int.parse(widget.year!) + 543)
+                                              : (int.parse((widget.year!)) +
+                                                      543)
                                                   .toString(),
                                           '-',
                                         ),
@@ -882,6 +948,62 @@ class _CompareInsurancePageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF222424),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Divider(
+                              thickness: 1.0,
+                              color: Color(0xFFB9B9B9),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 10.0, 20.0, 10.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'ค่าเสียหายส่วนเเรก',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF646464),
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                      Text(
+                                        functions.checkNullValueAndReturn(
+                                                    valueOrDefault<String>(
+                                                  functions.showNumberWithComma(
+                                                      widget.deductible?[_model
+                                                          .indexDataCompare!]),
+                                                  '-',
+                                                )) ==
+                                                '-'
+                                            ? '-'
+                                            : valueOrDefault<String>(
+                                                functions.showNumberWithComma(
+                                                    widget.deductible?[_model
+                                                        .indexDataCompare!]),
+                                                '-',
+                                              ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -1182,8 +1304,7 @@ class _CompareInsurancePageWidgetState
                                       color: Color(0xFFB9B9B9),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          20.0, 20.0, 20.0, 20.0),
+                                      padding: EdgeInsets.all(20.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -1481,6 +1602,18 @@ class _CompareInsurancePageWidgetState
                                                                   .indexDataCompare,
                                                               ParamType.int,
                                                             ),
+                                                            'oldVMIExpDate':
+                                                                serializeParam(
+                                                              FFAppState()
+                                                                  .insuranceBasicOldVmiExpDate,
+                                                              ParamType.String,
+                                                            ),
+                                                            'cc':
+                                                                serializeParam(
+                                                              widget.cc,
+                                                              ParamType.String,
+                                                              true,
+                                                            ),
                                                           }.withoutNulls,
                                                         );
                                                       },
@@ -1630,7 +1763,7 @@ class _CompareInsurancePageWidgetState
                                                         (_model.getServerDateTime
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString())!) {
+                                                      ))!) {
                                                         if ((functions.checkNullValueAndReturn(
                                                                         valueOrDefault<
                                                                             String>(
@@ -1654,20 +1787,21 @@ class _CompareInsurancePageWidgetState
                                                             builder:
                                                                 (alertDialogContext) {
                                                               return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                content: Text(
-                                                                    'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ));
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
                                                             },
                                                           );
                                                           if (_shouldSetState)
@@ -1681,24 +1815,24 @@ class _CompareInsurancePageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                              (_model.getServerDateTime
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ).toString()})get date'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
+                                                                (_model.getServerDateTime
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toString()})get date'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       );
                                                     }
@@ -1958,6 +2092,17 @@ class _CompareInsurancePageWidgetState
                                                           serializeParam(
                                                         _model.indexDataCompare,
                                                         ParamType.int,
+                                                      ),
+                                                      'oldVMIExpDate':
+                                                          serializeParam(
+                                                        FFAppState()
+                                                            .insuranceBasicOldVmiExpDate,
+                                                        ParamType.String,
+                                                      ),
+                                                      'cc': serializeParam(
+                                                        widget.cc,
+                                                        ParamType.String,
+                                                        true,
                                                       ),
                                                     }.withoutNulls,
                                                   );

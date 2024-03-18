@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'homepage_request541_model.dart';
 export 'homepage_request541_model.dart';
 
 class HomepageRequest541Widget extends StatefulWidget {
-  const HomepageRequest541Widget({Key? key}) : super(key: key);
+  const HomepageRequest541Widget({super.key});
 
   @override
-  _HomepageRequest541WidgetState createState() =>
+  State<HomepageRequest541Widget> createState() =>
       _HomepageRequest541WidgetState();
 }
 
@@ -41,17 +40,6 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

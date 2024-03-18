@@ -11,10 +11,11 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'search_insurance_page_widget.dart' show SearchInsurancePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -28,6 +29,18 @@ class SearchInsurancePageModel
   String? getBuildVersion;
   // Stores action output result for [Firestore Query - Query a collection] action in SearchInsurancePage widget.
   BuildVersionRecord? buildVersionQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in SearchInsurancePage widget.
+  AuthorizationRecord? adminVersionQuery;
+  // Stores action output result for [Backend Call - API (teleGetBrandMCAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getBrandMCAPI;
+  // Stores action output result for [Backend Call - API (teleGetModelMCAPI )] action in SearchInsurancePage widget.
+  ApiCallResponse? getModelMCAPI;
+  // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getCoverTypeMCAPI;
+  // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getVehicleUsedTypeMCAPI;
+  // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getProvinceMC;
   // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getBrandAPI;
   // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in SearchInsurancePage widget.
@@ -36,11 +49,16 @@ class SearchInsurancePageModel
   ApiCallResponse? getCoverTypeAPI;
   // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getVehicleUsedTypeAPI;
+  // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getProvince;
+  DateTime? datePicked;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

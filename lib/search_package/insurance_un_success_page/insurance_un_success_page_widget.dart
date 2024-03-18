@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +9,10 @@ import 'insurance_un_success_page_model.dart';
 export 'insurance_un_success_page_model.dart';
 
 class InsuranceUnSuccessPageWidget extends StatefulWidget {
-  const InsuranceUnSuccessPageWidget({Key? key}) : super(key: key);
+  const InsuranceUnSuccessPageWidget({super.key});
 
   @override
-  _InsuranceUnSuccessPageWidgetState createState() =>
+  State<InsuranceUnSuccessPageWidget> createState() =>
       _InsuranceUnSuccessPageWidgetState();
 }
 
@@ -42,17 +41,6 @@ class _InsuranceUnSuccessPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -148,7 +136,7 @@ class _InsuranceUnSuccessPageWidgetState
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),

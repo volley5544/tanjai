@@ -7,17 +7,16 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'life_insurance_license_card_page_model.dart';
 export 'life_insurance_license_card_page_model.dart';
 
 class LifeInsuranceLicenseCardPageWidget extends StatefulWidget {
-  const LifeInsuranceLicenseCardPageWidget({Key? key}) : super(key: key);
+  const LifeInsuranceLicenseCardPageWidget({super.key});
 
   @override
-  _LifeInsuranceLicenseCardPageWidgetState createState() =>
+  State<LifeInsuranceLicenseCardPageWidget> createState() =>
       _LifeInsuranceLicenseCardPageWidgetState();
 }
 
@@ -56,15 +55,6 @@ class _LifeInsuranceLicenseCardPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -130,7 +120,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
@@ -201,8 +191,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                -0.20, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(-0.2, 0.0),
                                             child: Text(
                                               'ประเภท การจัดการประกันวินาศภัยโดยตรง',
                                               style:

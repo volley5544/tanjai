@@ -21,337 +21,199 @@ Future<String> capQrCode(BuildContext context, String? suffix, String? ref1,
     String? ref2, String? amount, String? taxId) async {
   // Add your function code here!
   //var status = await Permission.manageExternalStorage.request();
-
-  ScreenshotController screenshotController = ScreenshotController();
-  await screenshotController
-      .captureFromWidget(
-          Container(
-            color: Colors.white,
-            child: Expanded(
+  try {
+    ScreenshotController screenshotController = ScreenshotController();
+    await screenshotController
+        .captureFromWidget(
+            Container(
+              color: Colors.white,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Row(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                  child: Container(
+                    margin:
+                        EdgeInsetsDirectional.only(top: 50, start: 12, end: 12),
+                    child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Expanded(
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
                             child: Container(
-                              width: 100.0,
-                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              margin:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                              width: MediaQuery.sizeOf(context).width * 0.5,
+                              height: 50,
                               decoration: BoxDecoration(
-                                color: Color(0xFFFFFFFF),
+                                color: Color(0xFF204A77),
+                                borderRadius: BorderRadius.circular(35),
                               ),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Stack(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 12.0, 0.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Expanded(
-                                                flex: 1,
-                                                child: Stack(
-                                                  children: [
-                                                    if (false)
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                1.00, 0.00),
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.5,
-                                                          height: 50.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0xFFE6E6E6),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .only(
-                                                              bottomLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              bottomRight:
-                                                                  Radius
-                                                                      .circular(
-                                                                          35.0),
-                                                              topLeft: Radius
-                                                                  .circular(
-                                                                      0.0),
-                                                              topRight: Radius
-                                                                  .circular(
-                                                                      35.0),
-                                                            ),
-                                                          ),
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.00, 0.00),
-                                                            child: Text(
-                                                              'บาร์โค้ด',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: Color(
-                                                                        0xFF1D4774),
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.5,
-                                                        height: 50.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFF204A77),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      35.0),
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.00, 0.00),
-                                                          child: Text(
-                                                            'คิวอาร์โค้ด',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, -1.00),
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.7,
-                                              height: 230.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: BarcodeWidget(
-                                                data:
-                                                    functions.genQRCodePayment(
-                                                        'test',
-                                                        '123',
-                                                        '321',
-                                                        '4231',
-                                                        '332112332')!,
-                                                barcode: Barcode.qrCode(),
-                                                width: 300.0,
-                                                height: 90.0,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                errorBuilder:
-                                                    (_context, _error) =>
-                                                        SizedBox(
-                                                  width: 300.0,
-                                                  height: 90.0,
-                                                ),
-                                                drawText: false,
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: Text(
-                                                '฿ ${functions.showNumberWithComma('123')}',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Text(
-                                                'R1: ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              'R2: ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Text(
-                                              'คุณ ${FFAppState().insuranceInfoFirstName} ${FFAppState().insuranceInfoLastName}',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: AutoSizeText(
-                                              'คุณสามารถสแกนชำระค่าเบี้ยประกันผ่านโมบายแบงค์กิ้งของทุกธนาคาร',
-                                              textAlign: TextAlign.center,
-                                              maxLines: 1,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
+                              child: Align(
+                                alignment: AlignmentDirectional(0, 0),
+                                child: Text(
+                                  'คิวอาร์โค้ด',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        fontSize: 15,
                                       ),
-                                    ),
-                                  ],
                                 ),
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ].addToStart(SizedBox(height: 40.0)),
-                ),
-              ),
+                          Align(
+                            alignment: AlignmentDirectional(0, -1),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 0.7,
+                              height: 230,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: BarcodeWidget(
+                                data: functions.genQRCodePayment(
+                                    suffix!, ref1!, ref2!, amount!, taxId!)!,
+                                barcode: Barcode.qrCode(),
+                                width: 300,
+                                height: 90,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                backgroundColor: Colors.transparent,
+                                errorBuilder: (_context, _error) => SizedBox(
+                                  width: 300,
+                                  height: 90,
+                                ),
+                                drawText: false,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              child: Text(
+                                '฿ ${functions.showNumberWithComma(amount!)}',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: FlutterFlowTheme.of(context).error,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                              child: Text(
+                                'R1: ${ref1!}',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: Text(
+                              'R2: ${ref2!}',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: Text(
+                              'คุณ ${FFAppState().insuranceInfoFirstName} ${FFAppState().insuranceInfoLastName}',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: AutoSizeText(
+                              'คุณสามารถสแกนชำระค่าเบี้ยประกันผ่านโมบายแบงค์กิ้งของทุกธนาคาร',
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: AutoSizeText(
+                              'ใช้สำหรับชำระประกันครั้งแรกเท่านั้น',
+                              textAlign: TextAlign.center,
+                              maxLines: 1,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFFCC0000),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                            child: AutoSizeText(
+                              '***กรณีวันหยุด เสาร์-อาทิตย์ และนักขัตฤกษ์\nจะออกกรมธรรม์ในวันทำการถัดไป',
+                              textAlign: TextAlign.center,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFFCC0000),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                            ),
+                          ),
+                        ]),
+                  )),
             ),
-          ),
-          delay: Duration(seconds: 4))
-      .then((capImage) async {
-    final result1 = await ImageGallerySaver.saveImage(
-        Uint8List.fromList(capImage),
-        quality: 100,
-        name: "ArunSawad Screenshot");
-    print(result1);
-  });
-  return 'eiei';
+            delay: Duration(seconds: 1))
+        .then((capImage) async {
+      DateTime currentDateTime = DateTime.now();
+      final result1 = await ImageGallerySaver.saveImage(
+          Uint8List.fromList(capImage),
+          quality: 100,
+          name: "${currentDateTime}");
+    });
+    return 'บันทึกภาพ QR Code ลง Gallery สำเร็จ';
+  } catch (e) {
+    return e.toString();
+  }
 }

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,16 +12,16 @@ export 'insurance_info_page5_cancel_model.dart';
 
 class InsuranceInfoPage5CancelWidget extends StatefulWidget {
   const InsuranceInfoPage5CancelWidget({
-    Key? key,
+    super.key,
     required this.quotationId,
     required this.leadDtlId,
-  }) : super(key: key);
+  });
 
   final String? quotationId;
   final int? leadDtlId;
 
   @override
-  _InsuranceInfoPage5CancelWidgetState createState() =>
+  State<InsuranceInfoPage5CancelWidget> createState() =>
       _InsuranceInfoPage5CancelWidgetState();
 }
 
@@ -54,15 +53,6 @@ class _InsuranceInfoPage5CancelWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -223,16 +213,17 @@ class _InsuranceInfoPage5CancelWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text('กรุณากรอกเหตุผล'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text('กรุณากรอกเหตุผล'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -256,17 +247,18 @@ class _InsuranceInfoPage5CancelWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'พบข้อผิดพลาดConnection (${(_model.cancelPolicyApi?.statusCode ?? 200).toString()})'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาดConnection (${(_model.cancelPolicyApi?.statusCode ?? 200).toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -281,20 +273,22 @@ class _InsuranceInfoPage5CancelWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'พบข้อผิดพลาด (${CancelInsurancePolicyApiCall.statuslayer1(
-                                            (_model.cancelPolicyApi?.jsonBody ??
-                                                ''),
-                                          ).toString()})'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาด (${CancelInsurancePolicyApiCall.statuslayer1(
+                                              (_model.cancelPolicyApi
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -304,16 +298,18 @@ class _InsuranceInfoPage5CancelWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('ยกเลิกทำประกันสำเร็จ!'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('ยกเลิกทำประกันสำเร็จ!'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
 

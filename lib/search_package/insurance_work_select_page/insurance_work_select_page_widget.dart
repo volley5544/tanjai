@@ -1,12 +1,9 @@
-import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,10 +12,10 @@ import 'insurance_work_select_page_model.dart';
 export 'insurance_work_select_page_model.dart';
 
 class InsuranceWorkSelectPageWidget extends StatefulWidget {
-  const InsuranceWorkSelectPageWidget({Key? key}) : super(key: key);
+  const InsuranceWorkSelectPageWidget({super.key});
 
   @override
-  _InsuranceWorkSelectPageWidgetState createState() =>
+  State<InsuranceWorkSelectPageWidget> createState() =>
       _InsuranceWorkSelectPageWidgetState();
 }
 
@@ -47,15 +44,6 @@ class _InsuranceWorkSelectPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -81,7 +69,15 @@ class _InsuranceWorkSelectPageWidgetState
                 size: 30.0,
               ),
               onPressed: () async {
-                context.goNamed('SearchInsurancePage');
+                context.goNamed(
+                  'SearchInsurancePage',
+                  queryParameters: {
+                    'fromIcon': serializeParam(
+                      'moto',
+                      ParamType.String,
+                    ),
+                  }.withoutNulls,
+                );
               },
             ),
             title: InkWell(
@@ -94,147 +90,158 @@ class _InsuranceWorkSelectPageWidgetState
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState().filterInsurerList.first),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState().filterInsurerList.first),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState().filterCoverTypeList.first),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState().filterCoverTypeList.first),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState().filterGarageTypeList.first),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState().filterGarageTypeList.first),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(
-                          FFAppState().filterInsurerList.length.toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(
+                            FFAppState().filterInsurerList.length.toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(
-                          FFAppState().filterCoverTypeList.length.toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(
+                            FFAppState().filterCoverTypeList.length.toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(
-                          FFAppState().filterGarageTypeList.length.toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState()
+                            .filterGarageTypeList
+                            .length
+                            .toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState()
-                          .filterInsurerList
-                          .contains(FFAppState().searchSerialName[1])
-                          .toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState()
+                            .filterInsurerList
+                            .contains(FFAppState().searchSerialName[1])
+                            .toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState()
-                          .filterCoverTypeList
-                          .contains(FFAppState().searchCoverType[1])
-                          .toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState()
+                            .filterCoverTypeList
+                            .contains(FFAppState().searchCoverType[1])
+                            .toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
                 await showDialog(
                   context: context,
                   builder: (alertDialogContext) {
                     return WebViewAware(
-                        child: AlertDialog(
-                      content: Text(FFAppState()
-                          .filterGarageTypeList
-                          .contains(FFAppState().searchGarageType[1])
-                          .toString()),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(alertDialogContext),
-                          child: Text('Ok'),
-                        ),
-                      ],
-                    ));
+                      child: AlertDialog(
+                        content: Text(FFAppState()
+                            .filterGarageTypeList
+                            .contains(FFAppState().searchGarageType[1])
+                            .toString()),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(alertDialogContext),
+                            child: Text('Ok'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 );
               },
@@ -287,534 +294,505 @@ class _InsuranceWorkSelectPageWidgetState
                 return Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 4.0,
-                              color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                    if (false)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 12.0, 20.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 60.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                        ),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.carSide,
+                                          color: Color(0xB0FF9936),
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 4,
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiary,
-                                      ),
-                                    ),
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: FaIcon(
-                                        FontAwesomeIcons.carSide,
-                                        color: Color(0xB0FF9936),
-                                        size: 24.0,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 4,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    45.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'งานต่ออายุ',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        fontSize: 16.0,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 12.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    var _shouldSetState = false;
-                                    if (columnHideInAppContentRecord!
-                                        .isShowContent) {
-                                      _model.getServerDateTime =
-                                          await GetDateTimeAPICall.call(
-                                        apiUrl: FFAppState().apiURLLocalState,
-                                        token: FFAppState().accessToken,
-                                      );
-                                      _shouldSetState = true;
-                                      if (((_model.getServerDateTime
-                                                      ?.statusCode ??
-                                                  200) ==
-                                              200) &&
-                                          (GetDateTimeAPICall.statusLayer1(
-                                                (_model.getServerDateTime
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              200)) {
-                                        if (functions.checkWeekendDate(
-                                            GetDateTimeAPICall.currentDateYMD(
-                                          (_model.getServerDateTime?.jsonBody ??
-                                              ''),
-                                        ).toString())!) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                  child: AlertDialog(
-                                                content: Text(
-                                                    'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
-                                            },
-                                          );
-                                          if (_shouldSetState) setState(() {});
-                                          return;
-                                        }
-                                      } else {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                (_model.getServerDateTime
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})get date'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
-                                          },
-                                        );
-                                      }
-                                    }
-                                    setState(() {
-                                      FFAppState().nonePackageFlagCarrier =
-                                          false;
-                                      FFAppState().nonePackageVehicleType =
-                                          'กรุณาเลือกประเภทรถ';
-                                      FFAppState().nonePackageBrandName =
-                                          'กรุณาเลือกยี่ห้อรถ';
-                                      FFAppState().nonePackageBrandId = '';
-                                      FFAppState().nonePackageModelName =
-                                          'กรุณากรอกรุ่นรถ';
-                                      FFAppState().nonePackageModelCode = '';
-                                      FFAppState().nonePackageYear =
-                                          'กรุณาเลือกปีจดทะเบียน';
-                                      FFAppState().nonePackageUsedTypeId = '';
-                                      FFAppState().nonePackageSearchModelList =
-                                          [];
-                                      FFAppState().nonePackageUsedTypeCode = '';
-                                      FFAppState().nonePackageUsedTypeName =
-                                          'กรุณาเลือกลักษณะการใช้รถ';
-                                      FFAppState().nonePackageCusFullname =
-                                          'กรุณากรอกชื่อ';
-                                      FFAppState().nonePackageCusPhone =
-                                          'กรุณากรอกเบอร์โทรศัพท์';
-                                      FFAppState().nonePackagePlate = '';
-                                      FFAppState().nonePackageProvince =
-                                          'กรุณาเลือกจังหวัดจดทะเบียน';
-                                      FFAppState().nonePackageProvinceId = '';
-                                      FFAppState().nonePackageSumInsured =
-                                          'กรุณากรอกทุนประกัน';
-                                      FFAppState().nonePackageFlagAct = true;
-                                      FFAppState().nonePackageIsBrandSelect =
-                                          false;
-                                      FFAppState()
-                                          .nonePackageSearchModelIdList = [];
-                                      FFAppState().nonePackageCarrierType =
-                                          'กรุณาเลือกประเภทตู้เหล็ก';
-                                      FFAppState().nonePackageFlagCoop = false;
-                                      FFAppState().nonePackageTruckPart =
-                                          'กรุณาเลือกส่วนของรถบรรทุก';
-                                      FFAppState().nonePackageCusMembership =
-                                          'กรุณาเลือกประเภทลูกค้า';
-                                      FFAppState()
-                                              .nonePackageTruckCurrentPrice =
-                                          'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                      FFAppState().nonePackagePlateAdditional =
-                                          'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                      FFAppState()
-                                              .nonePackageTruckCarryPurpose =
-                                          'กรุณากรอกรถใช้บรรทุกอะไร';
-                                      FFAppState()
-                                              .nonePackageTrailerSumInsured =
-                                          'กรุณากรอกทุนประกันหางพ่วง';
-                                      FFAppState().nonePackageCarrierPrice = '';
-                                      FFAppState().nonePackageInsurerIdList =
-                                          [];
-                                      FFAppState().nonePackageInsurerCodeList =
-                                          [];
-                                      FFAppState()
-                                          .nonePackageInsurerShortNameList = [];
-                                      FFAppState().nonePackageInsurerNameList =
-                                          [];
-                                      FFAppState()
-                                          .nonePackageInsurerDisplayName = [];
-                                      FFAppState()
-                                          .nonePackageInsurerIdOutputList = [];
-                                      FFAppState()
-                                          .nonePackageInsurerCodeOutputList = [];
-                                      FFAppState()
-                                          .nonePackageInsurerShortNameOutputList = [];
-                                      FFAppState()
-                                          .nonePackageInsurerNameOutputList = [];
-                                      FFAppState().nonePackageReason = [];
-                                      FFAppState()
-                                          .nonePackageInsurerSelectedList = [];
-                                      FFAppState().nonePackageCoverTypeId = '';
-                                      FFAppState().nonePackageCoverTypeCode =
-                                          '';
-                                      FFAppState().nonePackageCoverTypeName =
-                                          'กรุณาเลือกประเภทชั้นประกัน';
-                                      FFAppState().nonePackageGarageTypeId = '';
-                                      FFAppState().nonePackageGarageTypeName =
-                                          'กรุณาเลือกประเภทการซ่อม';
-                                      FFAppState().nonePackageGarageTypeCode =
-                                          '';
-                                      FFAppState().nonePackageFlagRenew = false;
-                                      FFAppState().nonePackageOldVmiExpDate =
-                                          'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                      FFAppState().nonePackageOldVmi = '';
-                                      FFAppState().nonePackageOldVmiImageUrl =
-                                          '';
-                                      FFAppState().nonePackageIdCardImageUrl =
-                                          '';
-                                      FFAppState()
-                                          .nonePackageRenewImageUrlList = [];
-                                      FFAppState()
-                                          .nonePackageRenewImageCheckList = [];
-                                      FFAppState()
-                                              .nonePackageOldVmiImageUploadedCheck =
-                                          false;
-                                      FFAppState()
-                                              .nonePackageIdCardWatermarkUploadedCheck =
-                                          false;
-                                      FFAppState().buttonOrdinary = false;
-                                      FFAppState().buttonCorporation = false;
-                                      FFAppState().nonePackageCustomerType = '';
-                                      FFAppState()
-                                          .nonePackageInsurerDisplayNameOutput = '';
-                                      FFAppState().nonePackageImageOther = [];
-                                      FFAppState().nonePackageImageFront = [];
-                                      FFAppState().nonePackageImageRightFront =
-                                          [];
-                                      FFAppState().nonePackageImageRight = [];
-                                      FFAppState().nonePackageImageRightRear =
-                                          [];
-                                      FFAppState().nonePackageImageRear = [];
-                                      FFAppState().nonePackageImageLeftRear =
-                                          [];
-                                      FFAppState().nonePackageImageLeft = [];
-                                      FFAppState().nonePackageImageLeftFront =
-                                          [];
-                                      FFAppState().nonePackageImageRoof = [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageFront = [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightFront = [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageRight = [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightRear = [];
-                                      FFAppState().nonePackageTrailerImageRear =
-                                          [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftRear = [];
-                                      FFAppState().nonePackageTrailerImageLeft =
-                                          [];
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftFront = [];
-                                      FFAppState()
-                                          .nonePackageInsurerOutputIndex = 0;
-                                      FFAppState().nonePackageLeadId = '';
-                                      FFAppState().nonePackageLeadNo = '';
-                                      FFAppState()
-                                          .nonePackageCarImageUploadedList = [];
-                                      FFAppState().nonePackageImageOldVmi = [];
-                                      FFAppState().nonePackageImageCompanyBook =
-                                          [];
-                                      FFAppState().nonePackageImageIdCard = [];
-                                      FFAppState().nonePackageImageBlueBook =
-                                          [];
-                                      FFAppState()
-                                              .nonePackageCompanyBookImageUploadedCheck =
-                                          false;
-                                      FFAppState()
-                                          .nonePackageCompanyBookImageUrl = '';
-                                      FFAppState()
-                                          .nonePackageImageFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRoofUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageBlueBookUploaded = '';
-                                      FFAppState().nonePackageImageOther1 = '';
-                                      FFAppState().nonePackageImageOther2 = '';
-                                      FFAppState().nonePackageImageOther3 = '';
-                                      FFAppState().nonePackageImageOther4 = '';
-                                      FFAppState().nonePackageImageOther5 = '';
-                                      FFAppState()
-                                          .nonePackageImageOtherNameList = [];
-                                      FFAppState()
-                                          .nonePackageSelectedInsurerShortName = '';
-                                      FFAppState()
-                                          .nonePackageSelectedInsurerName = '';
-                                      FFAppState()
-                                          .nonePackageSelectedInsurerShortNameList = [];
-                                      FFAppState()
-                                          .nonePackageSelectedInsurerNameList = [];
-                                      FFAppState().nonePackageFlagOldVmi = '';
-                                      FFAppState().nonePackageWorkType = '';
-                                      FFAppState().nonePackageRemark = '';
-                                      FFAppState().nonePackageBranchCode = '';
-                                      FFAppState().nonePackageBranchName = '';
-                                      FFAppState()
-                                          .nonePackageInsurerShortNameDupList = [];
-                                    });
-                                    setState(() {
-                                      FFAppState().nonePackageFlagRenew = true;
-                                      FFAppState()
-                                              .nonePackageOldVmiImageUploadedCheck =
-                                          false;
-                                      FFAppState()
-                                              .nonePackageIdCardWatermarkUploadedCheck =
-                                          false;
-                                    });
-                                    setState(() {
-                                      FFAppState()
-                                          .nonePackageVehicleType = FFAppState()
-                                              .searchPackageCheckFilled
-                                              .first
-                                          ? FFAppState()
-                                              .insuranceVehicleTypeDropDown
-                                          : FFAppState().nonePackageVehicleType;
-                                      FFAppState()
-                                          .nonePackageBrandName = FFAppState()
-                                              .searchPackageCheckFilled[1]
-                                          ? FFAppState().insuranceBasicBrandName
-                                          : FFAppState().nonePackageBrandName;
-                                      FFAppState()
-                                          .nonePackageBrandId = FFAppState()
-                                              .searchPackageCheckFilled[1]
-                                          ? FFAppState().insuranceBasicBrandId
-                                          : FFAppState().nonePackageBrandId;
-                                      FFAppState()
-                                          .nonePackageModelName = FFAppState()
-                                              .searchPackageCheckFilled[2]
-                                          ? FFAppState().insuranceBasicModelName
-                                          : FFAppState().nonePackageModelName;
-                                      FFAppState()
-                                          .nonePackageModelCode = FFAppState()
-                                              .searchPackageCheckFilled[2]
-                                          ? FFAppState().insuranceBasicModelId
-                                          : FFAppState().nonePackageModelCode;
-                                      FFAppState().nonePackageYear =
-                                          FFAppState()
-                                                  .searchPackageCheckFilled[3]
-                                              ? FFAppState().insuranceBasicYear
-                                              : FFAppState().nonePackageYear;
-                                      FFAppState()
-                                          .nonePackageUsedTypeId = FFAppState()
-                                              .searchPackageCheckFilled[4]
-                                          ? FFAppState()
-                                              .insuranceBasicVehicleUsedTypeId
-                                          : FFAppState().nonePackageUsedTypeId;
-                                      FFAppState()
-                                          .nonePackageUsedTypeCode = FFAppState()
-                                              .searchPackageCheckFilled[4]
-                                          ? FFAppState()
-                                              .insuranceBasicVehicleUsedTypeCode
-                                          : FFAppState()
-                                              .nonePackageUsedTypeCode;
-                                      FFAppState()
-                                          .nonePackageUsedTypeName = FFAppState()
-                                              .searchPackageCheckFilled[4]
-                                          ? FFAppState()
-                                              .insuranceBasicVehicleUsedTypeName
-                                          : FFAppState()
-                                              .nonePackageUsedTypeName;
-                                      FFAppState().nonePackageIsBrandSelect =
-                                          FFAppState()
-                                              .searchPackageCheckFilled[1];
-                                      FFAppState().nonePackageSearchModelList =
-                                          FFAppState()
-                                                  .searchPackageCheckFilled[1]
-                                              ? FFAppState()
-                                                  .insuranceBasicModelNameList
-                                              : FFAppState()
-                                                  .nonePackageSearchModelList
-                                                  .toList()
-                                                  .cast<String>();
-                                      FFAppState()
-                                              .nonePackageSearchModelIdList =
-                                          FFAppState()
-                                                  .searchPackageCheckFilled[1]
-                                              ? FFAppState()
-                                                  .insuranceBasicModelIdList
-                                              : FFAppState()
-                                                  .nonePackageSearchModelIdList
-                                                  .toList()
-                                                  .cast<String>();
-                                    });
-                                    setState(() {
-                                      FFAppState()
-                                          .nonePackageImageFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRightRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageLeftFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageRoofUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRightRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftRearUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftUploaded = '';
-                                      FFAppState()
-                                          .nonePackageTrailerImageLeftFrontUploaded = '';
-                                      FFAppState()
-                                          .nonePackageImageBlueBookUploaded = '';
-                                      FFAppState().nonePackageImageOther1 = '';
-                                      FFAppState().nonePackageImageOther2 = '';
-                                      FFAppState().nonePackageImageOther3 = '';
-                                      FFAppState().nonePackageImageOther4 = '';
-                                      FFAppState().nonePackageImageOther5 = '';
-                                      FFAppState().nonePackageIdCardImageUrl =
-                                          '';
-                                      FFAppState().nonePackageOldVmiImageUrl =
-                                          '';
-                                      FFAppState()
-                                          .nonePackageCompanyBookImageUrl = '';
-                                    });
-
-                                    context.pushNamed('NonePackageRenewPage');
-
-                                    if (_shouldSetState) setState(() {});
-                                  },
-                                  text: 'ต่ออายุ',
-                                  options: FFButtonOptions(
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFFEFE2D8),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
+                                      45.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'งานต่ออายุ',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          color: Color(0xFFDB771A),
+                                          fontSize: 16.0,
                                         ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              Expanded(
+                                flex: 3,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      if (columnHideInAppContentRecord!
+                                          .isShowContent) {}
+                                      setState(() {
+                                        FFAppState().nonePackageFlagCarrier =
+                                            false;
+                                        FFAppState().nonePackageVehicleType =
+                                            'กรุณาเลือกประเภทรถ';
+                                        FFAppState().nonePackageBrandName =
+                                            'กรุณาเลือกยี่ห้อรถ';
+                                        FFAppState().nonePackageBrandId = '';
+                                        FFAppState().nonePackageModelName =
+                                            'กรุณากรอกรุ่นรถ';
+                                        FFAppState().nonePackageModelCode = '';
+                                        FFAppState().nonePackageYear =
+                                            'กรุณาเลือกปีจดทะเบียน';
+                                        FFAppState().nonePackageUsedTypeId = '';
+                                        FFAppState()
+                                            .nonePackageSearchModelList = [];
+                                        FFAppState().nonePackageUsedTypeCode =
+                                            '';
+                                        FFAppState().nonePackageUsedTypeName =
+                                            'กรุณาเลือกลักษณะการใช้รถ';
+                                        FFAppState().nonePackageCusFullname =
+                                            'กรุณากรอกชื่อ';
+                                        FFAppState().nonePackageCusPhone =
+                                            'กรุณากรอกเบอร์โทรศัพท์';
+                                        FFAppState().nonePackagePlate = '';
+                                        FFAppState().nonePackageProvince =
+                                            'กรุณาเลือกจังหวัดจดทะเบียน';
+                                        FFAppState().nonePackageProvinceId = '';
+                                        FFAppState().nonePackageSumInsured =
+                                            'กรุณากรอกทุนประกัน';
+                                        FFAppState().nonePackageFlagAct = true;
+                                        FFAppState().nonePackageIsBrandSelect =
+                                            false;
+                                        FFAppState()
+                                            .nonePackageSearchModelIdList = [];
+                                        FFAppState().nonePackageCarrierType =
+                                            'กรุณาเลือกประเภทตู้เหล็ก';
+                                        FFAppState().nonePackageFlagCoop =
+                                            false;
+                                        FFAppState().nonePackageTruckPart =
+                                            'กรุณาเลือกส่วนของรถบรรทุก';
+                                        FFAppState().nonePackageCusMembership =
+                                            'กรุณาเลือกประเภทลูกค้า';
+                                        FFAppState()
+                                                .nonePackageTruckCurrentPrice =
+                                            'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                        FFAppState()
+                                                .nonePackagePlateAdditional =
+                                            'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                        FFAppState()
+                                                .nonePackageTruckCarryPurpose =
+                                            'กรุณากรอกรถใช้บรรทุกอะไร';
+                                        FFAppState()
+                                                .nonePackageTrailerSumInsured =
+                                            'กรุณากรอกทุนประกันหางพ่วง';
+                                        FFAppState().nonePackageCarrierPrice =
+                                            '';
+                                        FFAppState().nonePackageInsurerIdList =
+                                            [];
+                                        FFAppState()
+                                            .nonePackageInsurerCodeList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerShortNameList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerNameList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerDisplayName = [];
+                                        FFAppState()
+                                            .nonePackageInsurerIdOutputList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerCodeOutputList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerShortNameOutputList = [];
+                                        FFAppState()
+                                            .nonePackageInsurerNameOutputList = [];
+                                        FFAppState().nonePackageReason = [];
+                                        FFAppState()
+                                            .nonePackageInsurerSelectedList = [];
+                                        FFAppState().nonePackageCoverTypeId =
+                                            '';
+                                        FFAppState().nonePackageCoverTypeCode =
+                                            '';
+                                        FFAppState().nonePackageCoverTypeName =
+                                            'กรุณาเลือกประเภทชั้นประกัน';
+                                        FFAppState().nonePackageGarageTypeId =
+                                            '';
+                                        FFAppState().nonePackageGarageTypeName =
+                                            'กรุณาเลือกประเภทการซ่อม';
+                                        FFAppState().nonePackageGarageTypeCode =
+                                            '';
+                                        FFAppState().nonePackageFlagRenew =
+                                            false;
+                                        FFAppState().nonePackageOldVmiExpDate =
+                                            'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                        FFAppState().nonePackageOldVmi = '';
+                                        FFAppState().nonePackageOldVmiImageUrl =
+                                            '';
+                                        FFAppState().nonePackageIdCardImageUrl =
+                                            '';
+                                        FFAppState()
+                                            .nonePackageRenewImageUrlList = [];
+                                        FFAppState()
+                                            .nonePackageRenewImageCheckList = [];
+                                        FFAppState()
+                                                .nonePackageOldVmiImageUploadedCheck =
+                                            false;
+                                        FFAppState()
+                                                .nonePackageIdCardWatermarkUploadedCheck =
+                                            false;
+                                        FFAppState().buttonOrdinary = false;
+                                        FFAppState().buttonCorporation = false;
+                                        FFAppState().nonePackageCustomerType =
+                                            '';
+                                        FFAppState()
+                                            .nonePackageInsurerDisplayNameOutput = '';
+                                        FFAppState().nonePackageImageOther = [];
+                                        FFAppState().nonePackageImageFront = [];
+                                        FFAppState()
+                                            .nonePackageImageRightFront = [];
+                                        FFAppState().nonePackageImageRight = [];
+                                        FFAppState().nonePackageImageRightRear =
+                                            [];
+                                        FFAppState().nonePackageImageRear = [];
+                                        FFAppState().nonePackageImageLeftRear =
+                                            [];
+                                        FFAppState().nonePackageImageLeft = [];
+                                        FFAppState().nonePackageImageLeftFront =
+                                            [];
+                                        FFAppState().nonePackageImageRoof = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageFront = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightFront = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageRight = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightRear = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageRear = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftRear = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeft = [];
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftFront = [];
+                                        FFAppState()
+                                            .nonePackageInsurerOutputIndex = 0;
+                                        FFAppState().nonePackageLeadId = '';
+                                        FFAppState().nonePackageLeadNo = '';
+                                        FFAppState()
+                                            .nonePackageCarImageUploadedList = [];
+                                        FFAppState().nonePackageImageOldVmi =
+                                            [];
+                                        FFAppState()
+                                            .nonePackageImageCompanyBook = [];
+                                        FFAppState().nonePackageImageIdCard =
+                                            [];
+                                        FFAppState().nonePackageImageBlueBook =
+                                            [];
+                                        FFAppState()
+                                                .nonePackageCompanyBookImageUploadedCheck =
+                                            false;
+                                        FFAppState()
+                                            .nonePackageCompanyBookImageUrl = '';
+                                        FFAppState()
+                                            .nonePackageImageFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRoofUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageBlueBookUploaded = '';
+                                        FFAppState().nonePackageImageOther1 =
+                                            '';
+                                        FFAppState().nonePackageImageOther2 =
+                                            '';
+                                        FFAppState().nonePackageImageOther3 =
+                                            '';
+                                        FFAppState().nonePackageImageOther4 =
+                                            '';
+                                        FFAppState().nonePackageImageOther5 =
+                                            '';
+                                        FFAppState()
+                                            .nonePackageImageOtherNameList = [];
+                                        FFAppState()
+                                            .nonePackageSelectedInsurerShortName = '';
+                                        FFAppState()
+                                            .nonePackageSelectedInsurerName = '';
+                                        FFAppState()
+                                            .nonePackageSelectedInsurerShortNameList = [];
+                                        FFAppState()
+                                            .nonePackageSelectedInsurerNameList = [];
+                                        FFAppState().nonePackageFlagOldVmi = '';
+                                        FFAppState().nonePackageWorkType = '';
+                                        FFAppState().nonePackageRemark = '';
+                                        FFAppState().nonePackageBranchCode = '';
+                                        FFAppState().nonePackageBranchName = '';
+                                        FFAppState()
+                                            .nonePackageInsurerShortNameDupList = [];
+                                      });
+                                      setState(() {
+                                        FFAppState().nonePackageFlagRenew =
+                                            true;
+                                        FFAppState()
+                                                .nonePackageOldVmiImageUploadedCheck =
+                                            false;
+                                        FFAppState()
+                                                .nonePackageIdCardWatermarkUploadedCheck =
+                                            false;
+                                      });
+                                      setState(() {
+                                        FFAppState().nonePackageVehicleType =
+                                            FFAppState()
+                                                    .searchPackageCheckFilled
+                                                    .first
+                                                ? FFAppState()
+                                                    .insuranceVehicleTypeDropDown
+                                                : FFAppState()
+                                                    .nonePackageVehicleType;
+                                        FFAppState()
+                                            .nonePackageBrandName = FFAppState()
+                                                .searchPackageCheckFilled[1]
+                                            ? FFAppState()
+                                                .insuranceBasicBrandName
+                                            : FFAppState().nonePackageBrandName;
+                                        FFAppState()
+                                            .nonePackageBrandId = FFAppState()
+                                                .searchPackageCheckFilled[1]
+                                            ? FFAppState().insuranceBasicBrandId
+                                            : FFAppState().nonePackageBrandId;
+                                        FFAppState()
+                                            .nonePackageModelName = FFAppState()
+                                                .searchPackageCheckFilled[2]
+                                            ? FFAppState()
+                                                .insuranceBasicModelName
+                                            : FFAppState().nonePackageModelName;
+                                        FFAppState()
+                                            .nonePackageModelCode = FFAppState()
+                                                .searchPackageCheckFilled[2]
+                                            ? FFAppState().insuranceBasicModelId
+                                            : FFAppState().nonePackageModelCode;
+                                        FFAppState()
+                                            .nonePackageYear = FFAppState()
+                                                .searchPackageCheckFilled[3]
+                                            ? FFAppState().insuranceBasicYear
+                                            : FFAppState().nonePackageYear;
+                                        FFAppState()
+                                            .nonePackageUsedTypeId = FFAppState()
+                                                .searchPackageCheckFilled[4]
+                                            ? FFAppState()
+                                                .insuranceBasicVehicleUsedTypeId
+                                            : FFAppState()
+                                                .nonePackageUsedTypeId;
+                                        FFAppState()
+                                            .nonePackageUsedTypeCode = FFAppState()
+                                                .searchPackageCheckFilled[4]
+                                            ? FFAppState()
+                                                .insuranceBasicVehicleUsedTypeCode
+                                            : FFAppState()
+                                                .nonePackageUsedTypeCode;
+                                        FFAppState()
+                                            .nonePackageUsedTypeName = FFAppState()
+                                                .searchPackageCheckFilled[4]
+                                            ? FFAppState()
+                                                .insuranceBasicVehicleUsedTypeName
+                                            : FFAppState()
+                                                .nonePackageUsedTypeName;
+                                        FFAppState().nonePackageIsBrandSelect =
+                                            FFAppState()
+                                                .searchPackageCheckFilled[1];
+                                        FFAppState()
+                                                .nonePackageSearchModelList =
+                                            FFAppState()
+                                                    .searchPackageCheckFilled[1]
+                                                ? FFAppState()
+                                                    .insuranceBasicModelNameList
+                                                : FFAppState()
+                                                    .nonePackageSearchModelList
+                                                    .toList()
+                                                    .cast<String>();
+                                        FFAppState()
+                                                .nonePackageSearchModelIdList =
+                                            FFAppState()
+                                                    .searchPackageCheckFilled[1]
+                                                ? FFAppState()
+                                                    .insuranceBasicModelIdList
+                                                : FFAppState()
+                                                    .nonePackageSearchModelIdList
+                                                    .toList()
+                                                    .cast<String>();
+                                      });
+                                      setState(() {
+                                        FFAppState().nonePackageOldVmiExpDate =
+                                            FFAppState()
+                                                .insuranceBasicOldVmiExpDate;
+                                      });
+                                      setState(() {
+                                        FFAppState()
+                                            .nonePackageImageFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRightRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageLeftFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageRoofUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRightRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftRearUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftUploaded = '';
+                                        FFAppState()
+                                            .nonePackageTrailerImageLeftFrontUploaded = '';
+                                        FFAppState()
+                                            .nonePackageImageBlueBookUploaded = '';
+                                        FFAppState().nonePackageImageOther1 =
+                                            '';
+                                        FFAppState().nonePackageImageOther2 =
+                                            '';
+                                        FFAppState().nonePackageImageOther3 =
+                                            '';
+                                        FFAppState().nonePackageImageOther4 =
+                                            '';
+                                        FFAppState().nonePackageImageOther5 =
+                                            '';
+                                        FFAppState().nonePackageIdCardImageUrl =
+                                            '';
+                                        FFAppState().nonePackageOldVmiImageUrl =
+                                            '';
+                                        FFAppState()
+                                            .nonePackageCompanyBookImageUrl = '';
+                                      });
+
+                                      context.pushNamed(
+                                        'NonePackageRenewPage',
+                                        queryParameters: {
+                                          'workType': serializeParam(
+                                            'renew',
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    text: 'ต่ออายุ',
+                                    options: FFButtonOptions(
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Color(0xFFEFE2D8),
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFFDB771A),
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
@@ -843,7 +821,7 @@ class _InsuranceWorkSelectPageWidgetState
                             Expanded(
                               flex: 2,
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
@@ -858,8 +836,7 @@ class _InsuranceWorkSelectPageWidgetState
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.carSide,
                                         color: Color(0xFF7A848E),
@@ -893,77 +870,8 @@ class _InsuranceWorkSelectPageWidgetState
                                     0.0, 0.0, 12.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    var _shouldSetState = false;
                                     if (columnHideInAppContentRecord!
-                                        .isShowContent) {
-                                      _model.getServerDateTimeNonePackage =
-                                          await GetDateTimeAPICall.call(
-                                        apiUrl: FFAppState().apiURLLocalState,
-                                        token: FFAppState().accessToken,
-                                      );
-                                      _shouldSetState = true;
-                                      if (((_model.getServerDateTimeNonePackage
-                                                      ?.statusCode ??
-                                                  200) ==
-                                              200) &&
-                                          (GetDateTimeAPICall.statusLayer1(
-                                                (_model.getServerDateTimeNonePackage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ) ==
-                                              200)) {
-                                        if (functions.checkWeekendDate(
-                                            GetDateTimeAPICall.currentDateYMD(
-                                          (_model.getServerDateTimeNonePackage
-                                                  ?.jsonBody ??
-                                              ''),
-                                        ).toString())!) {
-                                          await showDialog(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return WebViewAware(
-                                                  child: AlertDialog(
-                                                content: Text(
-                                                    'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
-                                            },
-                                          );
-                                          if (_shouldSetState) setState(() {});
-                                          return;
-                                        }
-                                      } else {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${(_model.getServerDateTimeNonePackage?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                (_model.getServerDateTimeNonePackage
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})get date'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
-                                          },
-                                        );
-                                      }
-                                    }
+                                        .isShowContent) {}
                                     setState(() {
                                       FFAppState().nonePackageFlagCarrier =
                                           false;
@@ -1255,6 +1163,11 @@ class _InsuranceWorkSelectPageWidgetState
                                                   .nonePackageSearchModelIdList
                                                   .toList()
                                                   .cast<String>();
+                                    });
+                                    setState(() {
+                                      FFAppState().nonePackageOldVmiExpDate =
+                                          FFAppState()
+                                              .insuranceBasicOldVmiExpDate;
                                     });
                                     setState(() {
                                       FFAppState()
@@ -1307,8 +1220,6 @@ class _InsuranceWorkSelectPageWidgetState
                                     });
 
                                     context.pushNamed('SelectReasonPage');
-
-                                    if (_shouldSetState) setState(() {});
                                   },
                                   text: 'นอกเรท',
                                   options: FFButtonOptions(

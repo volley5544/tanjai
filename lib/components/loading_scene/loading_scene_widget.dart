@@ -1,17 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'loading_scene_model.dart';
 export 'loading_scene_model.dart';
 
 class LoadingSceneWidget extends StatefulWidget {
-  const LoadingSceneWidget({Key? key}) : super(key: key);
+  const LoadingSceneWidget({super.key});
 
   @override
-  _LoadingSceneWidgetState createState() => _LoadingSceneWidgetState();
+  State<LoadingSceneWidget> createState() => _LoadingSceneWidgetState();
 }
 
 class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
@@ -40,8 +39,6 @@ class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -51,7 +48,7 @@ class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
       child: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Spin-1s-200px_(1).gif',
               width: 120.0,
@@ -60,7 +57,7 @@ class _LoadingSceneWidgetState extends State<LoadingSceneWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Image.asset(
               'assets/images/Load-54x54-02.gif',
               width: 50.0,

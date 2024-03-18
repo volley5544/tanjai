@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -14,10 +13,15 @@ import 'none_package_basic_image1_page_model.dart';
 export 'none_package_basic_image1_page_model.dart';
 
 class NonePackageBasicImage1PageWidget extends StatefulWidget {
-  const NonePackageBasicImage1PageWidget({Key? key}) : super(key: key);
+  const NonePackageBasicImage1PageWidget({
+    super.key,
+    required this.workType,
+  });
+
+  final String? workType;
 
   @override
-  _NonePackageBasicImage1PageWidgetState createState() =>
+  State<NonePackageBasicImage1PageWidget> createState() =>
       _NonePackageBasicImage1PageWidgetState();
 }
 
@@ -46,15 +50,6 @@ class _NonePackageBasicImage1PageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -116,7 +111,15 @@ class _NonePackageBasicImage1PageWidgetState
                   },
                 ),
                 title: Text(
-                  'งานนอกเรท',
+                  () {
+                    if (widget.workType == 'transfer') {
+                      return 'งานโอนโค้ด';
+                    } else if (widget.workType == 'renew') {
+                      return 'งานต่ออายุ';
+                    } else {
+                      return 'งานนอกเรท';
+                    }
+                  }(),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
@@ -263,27 +266,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -451,27 +455,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -622,7 +627,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, -0.80),
+                                                    0.0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -639,27 +644,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -827,27 +833,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1015,27 +1022,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1186,7 +1194,7 @@ class _NonePackageBasicImage1PageWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.87, 1.00),
+                                                    0.87, 1.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1203,27 +1211,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1391,27 +1400,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1579,27 +1589,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1754,7 +1765,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1773,27 +1784,28 @@ class _NonePackageBasicImage1PageWidgetState
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            false),
-                                                                        child: Text(
-                                                                            'ไม่'),
-                                                                      ),
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            true),
-                                                                        child: Text(
-                                                                            'ใช่'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              false),
+                                                                          child:
+                                                                              Text('ไม่'),
+                                                                        ),
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              true),
+                                                                          child:
+                                                                              Text('ใช่'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               ) ??
                                                               false;
@@ -2086,7 +2098,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2106,7 +2118,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2185,7 +2197,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2205,7 +2217,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2284,7 +2296,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2304,7 +2316,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2383,7 +2395,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2403,7 +2415,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2482,7 +2494,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2502,7 +2514,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2581,7 +2593,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2601,7 +2613,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2680,7 +2692,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2700,7 +2712,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2779,7 +2791,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2799,7 +2811,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2882,7 +2894,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -2902,7 +2914,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -2965,29 +2977,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3136,29 +3148,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3294,7 +3306,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, -0.80),
+                                              AlignmentDirectional(0.0, -0.8),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3307,29 +3319,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3465,7 +3477,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.80, -0.62),
+                                              AlignmentDirectional(0.8, -0.62),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3478,29 +3490,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3636,7 +3648,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(1.00, 0.06),
+                                              AlignmentDirectional(1.0, 0.06),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3649,29 +3661,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3820,29 +3832,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3978,7 +3990,7 @@ class _NonePackageBasicImage1PageWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-0.00, 1.03),
+                                              AlignmentDirectional(0.0, 1.03),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -3991,29 +4003,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4162,29 +4174,29 @@ class _NonePackageBasicImage1PageWidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4457,7 +4469,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4477,7 +4489,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -4558,7 +4570,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4578,7 +4590,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -4659,7 +4671,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4679,7 +4691,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -4760,7 +4772,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4780,7 +4792,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -4861,7 +4873,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4881,7 +4893,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -4962,7 +4974,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -4982,7 +4994,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5063,7 +5075,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5083,7 +5095,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5164,7 +5176,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5184,7 +5196,7 @@ class _NonePackageBasicImage1PageWidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5216,7 +5228,7 @@ class _NonePackageBasicImage1PageWidgetState
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
@@ -5271,20 +5283,21 @@ class _NonePackageBasicImage1PageWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(FFAppState()
-                                                    .nonePackageVehicleType ==
-                                                'รถบรรทุก หัวลาก หางพ่วง'
-                                            ? 'กรุณาอัพโหลดรูปรถทั้ง 8 รูป'
-                                            : 'กรุณาอัพโหลดรูปรถทั้ง 9 รูป'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(FFAppState()
+                                                      .nonePackageVehicleType ==
+                                                  'รถบรรทุก หัวลาก หางพ่วง'
+                                              ? 'กรุณาอัพโหลดรูปรถทั้ง 8 รูป'
+                                              : 'กรุณาอัพโหลดรูปรถทั้ง 9 รูป'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   return;
@@ -5345,17 +5358,19 @@ class _NonePackageBasicImage1PageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาอัพโหลดรูปหางพ่วงทั้ง 8 รูป'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดรูปหางพ่วงทั้ง 8 รูป'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       return;
@@ -5363,7 +5378,15 @@ class _NonePackageBasicImage1PageWidgetState
                                   }
                                 }
 
-                                context.pushNamed('NonePackageBasicImage2Page');
+                                context.pushNamed(
+                                  'NonePackageBasicImage2Page',
+                                  queryParameters: {
+                                    'workType': serializeParam(
+                                      widget.workType,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               text: 'ถัดไป',
                               options: FFButtonOptions(

@@ -6,10 +6,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/permissions_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -18,17 +18,16 @@ export 'login_page_model.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({
-    Key? key,
+    super.key,
     this.apiURL,
     String? token,
-  })  : this.token = token ?? '[token]',
-        super(key: key);
+  }) : this.token = token ?? '[token]';
 
   final DocumentReference? apiURL;
   final String token;
 
   @override
-  _LoginPageWidgetState createState() => _LoginPageWidgetState();
+  State<LoginPageWidget> createState() => _LoginPageWidgetState();
 }
 
 class _LoginPageWidgetState extends State<LoginPageWidget> {
@@ -57,6 +56,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       } else {
         _model.getIosImei = await actions.a4();
       }
+
+      if (await getPermissionStatus(notificationsPermission)) {
+        return;
+      }
+      await requestPermission(notificationsPermission);
     });
 
     _model.usernameTextFieldController ??= TextEditingController();
@@ -77,15 +81,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<BuildVersionRecord>>(
@@ -298,7 +293,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
+                                                                          0.0,
                                                                           -0.65),
                                                                   child:
                                                                       ClipRRect(
@@ -327,7 +322,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -336,7 +331,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.20),
+                                                            0.0, 0.2),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -410,7 +405,31 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         highlightColor:
                                                                             Colors.transparent,
                                                                         onTap:
-                                                                            () async {},
+                                                                            () async {
+                                                                          _model.getFirebaseServerTime =
+                                                                              await actions.getFirebaseServerTime();
+                                                                          await showDialog(
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (alertDialogContext) {
+                                                                              return WebViewAware(
+                                                                                child: AlertDialog(
+                                                                                  content: Text(_model.getFirebaseServerTime!),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          );
+
+                                                                          setState(
+                                                                              () {});
+                                                                        },
                                                                         child:
                                                                             Text(
                                                                           'เข้าสู่ระบบ',
@@ -783,6 +802,50 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      await launchURL(
+                                                                          'https://www.sawad.co.th/pragantanjai-policy/');
+                                                                    },
+                                                                    child: Text(
+                                                                      'นโยบายความเป็นส่วนตัว',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Noto Sans Thai',
+                                                                            color:
+                                                                                Color(0xFF5D78FF),
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            decoration:
+                                                                                TextDecoration.underline,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          10.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
                                                                       context.goNamed(
                                                                           'LoginScreen_1');
                                                                     },
@@ -881,55 +944,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             (_model.usernameTextFieldController.text ==
                                                                                 '36270') ||
                                                                             (_model.usernameTextFieldController.text ==
-                                                                                '32758'))) {
-                                                                          if (isAndroid) {
-                                                                            if (_model.getBuildVersion !=
-                                                                                loginPageBuildVersionRecord?.appVersion) {
-                                                                              await showDialog(
-                                                                                context: context,
-                                                                                builder: (alertDialogContext) {
-                                                                                  return WebViewAware(
-                                                                                      child: AlertDialog(
-                                                                                    content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ));
-                                                                                },
-                                                                              );
-                                                                              await actions.terminateAppAction();
-                                                                              if (_shouldSetState)
-                                                                                setState(() {});
-                                                                              return;
-                                                                            }
-                                                                          } else {
-                                                                            if (_model.getBuildVersion !=
-                                                                                loginPageBuildVersionRecord?.appVersionIos) {
-                                                                              await showDialog(
-                                                                                context: context,
-                                                                                builder: (alertDialogContext) {
-                                                                                  return WebViewAware(
-                                                                                      child: AlertDialog(
-                                                                                    content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ));
-                                                                                },
-                                                                              );
-                                                                              await actions.terminateAppAction();
-                                                                              if (_shouldSetState)
-                                                                                setState(() {});
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                        }
+                                                                                '32758'))) {}
                                                                         setState(
                                                                             () {
                                                                           FFAppState().apiURLLocalState =
@@ -980,6 +995,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             setState(() {});
                                                                           return;
                                                                         }
+                                                                        if (!(await getPermissionStatus(
+                                                                            notificationsPermission))) {
+                                                                          await requestPermission(
+                                                                              notificationsPermission);
+                                                                        }
                                                                         _model.authernApiOutput =
                                                                             await AuthenAPICall.call(
                                                                           username: _model
@@ -1010,7 +1030,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                                 content: Text(
                                                                                   AuthenAPICall.message(
                                                                                     (_model.authernApiOutput?.jsonBody ?? ''),
-                                                                                  ).toString(),
+                                                                                  )!,
                                                                                   style: TextStyle(
                                                                                     color: Colors.white,
                                                                                   ),
@@ -1029,15 +1049,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             builder:
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('พบข้อผิดพลาดConnection (${(_model.authernApiOutput?.statusCode ?? 200).toString()})'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
+                                                                                child: AlertDialog(
+                                                                                  content: Text('พบข้อผิดพลาดConnection (${(_model.authernApiOutput?.statusCode ?? 200).toString()})'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
@@ -1054,17 +1075,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             builder:
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('พบข้อผิดพลาด (${AuthenAPICall.status(
-                                                                                  (_model.authernApiOutput?.jsonBody ?? ''),
-                                                                                ).toString()})'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
+                                                                                child: AlertDialog(
+                                                                                  content: Text('พบข้อผิดพลาด (${AuthenAPICall.status(
+                                                                                    (_model.authernApiOutput?.jsonBody ?? ''),
+                                                                                  )?.toString()})'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
@@ -1074,21 +1096,23 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().accessToken =
-                                                                              AuthenAPICall.token(
+                                                                              '${AuthenAPICall.token(
                                                                             (_model.authernApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
-                                                                          FFAppState().employeeID = _model
-                                                                              .usernameTextFieldController
-                                                                              .text;
+                                                                          )}';
+                                                                          FFAppState().employeeID =
+                                                                              '${AuthenAPICall.employeeID(
+                                                                            (_model.authernApiOutput?.jsonBody ??
+                                                                                ''),
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().branchCode =
-                                                                              AuthenAPICall.branchCode(
+                                                                              '${AuthenAPICall.branchCode(
                                                                             (_model.authernApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         _model.getUserProfileApiOutput =
                                                                             await GetUserProfileAPICall.call(
@@ -1108,15 +1132,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             builder:
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('พบข้อผิดพลาดConnection (${(_model.getUserProfileApiOutput?.statusCode ?? 200).toString()})'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
+                                                                                child: AlertDialog(
+                                                                                  content: Text('พบข้อผิดพลาดConnection (${(_model.getUserProfileApiOutput?.statusCode ?? 200).toString()})'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
@@ -1133,17 +1158,18 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             builder:
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('พบข้อผิดพลาด (${GetUserProfileAPICall.statusLayer1(
-                                                                                  (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                                ).toString()})'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
+                                                                                child: AlertDialog(
+                                                                                  content: Text('พบข้อผิดพลาด (${GetUserProfileAPICall.statusLayer1(
+                                                                                    (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                                  )?.toString()})'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
@@ -1153,120 +1179,112 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().userNickname =
-                                                                              GetUserProfileAPICall.profileNickName(
+                                                                              '${GetUserProfileAPICall.profileNickName(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                           FFAppState().profileFullName =
-                                                                              GetUserProfileAPICall.profileFullName(
+                                                                              '${GetUserProfileAPICall.profileFullName(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().profileBirthDate =
-                                                                              GetUserProfileAPICall.profileBirthDate(
+                                                                              '${GetUserProfileAPICall.profileBirthDate(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                           FFAppState().profileUnitCodeName =
-                                                                              GetUserProfileAPICall.profileBranchName(
+                                                                              '${GetUserProfileAPICall.profileBranchName(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().profileParentUnit =
-                                                                              GetUserProfileAPICall.profileArea(
+                                                                              '${GetUserProfileAPICall.profileArea(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                           FFAppState().profileRegion =
-                                                                              GetUserProfileAPICall.profileRegion(
+                                                                              '${GetUserProfileAPICall.profileRegion(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().profileHiredDate =
-                                                                              GetUserProfileAPICall.profileHiredDate(
+                                                                              '${GetUserProfileAPICall.profileHiredDate(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
-                                                                          FFAppState().profileServiceDuration = functions.profileServiceDuration(
-                                                                              GetUserProfileAPICall.profileServiceDurationYY(
+                                                                          )}';
+                                                                          FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString(),
-                                                                              GetUserProfileAPICall.profileServiceDurationMM(
+                                                                              )}', '${GetUserProfileAPICall.profileServiceDurationMM(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString(),
-                                                                              GetUserProfileAPICall.profileServiceDurationDD(
+                                                                              )}', '${GetUserProfileAPICall.profileServiceDurationDD(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString());
+                                                                              )}')}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
-                                                                          FFAppState().profilePositionAge = functions.positionAgeText(
-                                                                              GetUserProfileAPICall.profilePositionAgeYY(
+                                                                          FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString(),
-                                                                              GetUserProfileAPICall.profilePositionAgeMM(
+                                                                              )}', '${GetUserProfileAPICall.profilePositionAgeMM(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString(),
-                                                                              GetUserProfileAPICall.profilePositionAgeDD(
+                                                                              )}', '${GetUserProfileAPICall.profilePositionAgeDD(
                                                                                 (_model.getUserProfileApiOutput?.jsonBody ?? ''),
-                                                                              ).toString());
+                                                                              )}')}';
                                                                           FFAppState().profilePositionAgeCheck =
-                                                                              GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                              '${GetUserProfileAPICall.profilePositionAgeCheck(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().profilePositionName =
-                                                                              GetUserProfileAPICall.profliePositionName(
+                                                                              '${GetUserProfileAPICall.profliePositionName(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         FFAppState()
                                                                             .update(() {
                                                                           FFAppState().ProfilePhoneNumber =
-                                                                              GetUserProfileAPICall.profilePhoneNumber(
+                                                                              '${GetUserProfileAPICall.profilePhoneNumber(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                           FFAppState().profileLevel =
-                                                                              GetUserProfileAPICall.profileLevel(
+                                                                              '${GetUserProfileAPICall.profileLevel(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                           FFAppState().profileBranch =
-                                                                              GetUserProfileAPICall.profileBranch(
+                                                                              '${GetUserProfileAPICall.profileBranch(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         setState(
                                                                             () {
-                                                                          FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(
-                                                                              FFAppState().profileFullName,
-                                                                              'first_name')!;
-                                                                          FFAppState().profileLastName = functions.getFirstLastNameFromFullName(
-                                                                              FFAppState().profileFullName,
-                                                                              'last_name')!;
+                                                                          FFAppState().profileFirstName =
+                                                                              '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                          FFAppState().profileLastName =
+                                                                              '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
                                                                         });
                                                                         setState(
                                                                             () {
                                                                           FFAppState().departmentProfile =
-                                                                              GetUserProfileAPICall.department(
+                                                                              '${GetUserProfileAPICall.department(
                                                                             (_model.getUserProfileApiOutput?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString();
+                                                                          )}';
                                                                         });
                                                                         _model.getUserInsuranceLicense =
                                                                             await GetUserInsuranceLicenseCall.call(
@@ -1286,41 +1304,41 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                     ) ==
                                                                                     200
-                                                                                ? GetUserInsuranceLicenseCall.fullName(
+                                                                                ? '${GetUserInsuranceLicenseCall.fullName(
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                  ).toString()
+                                                                                  )}'
                                                                                 : FFAppState().profileInsuranceLicenseFullName;
                                                                             FFAppState().profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                     ) ==
                                                                                     200
-                                                                                ? GetUserInsuranceLicenseCall.idCard(
+                                                                                ? '${GetUserInsuranceLicenseCall.idCard(
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                  ).toString()
+                                                                                  )}'
                                                                                 : FFAppState().profileInsuranceLicenseIdCard;
                                                                             FFAppState().profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                     ) ==
                                                                                     200
-                                                                                ? GetUserInsuranceLicenseCall.licenseNo(
+                                                                                ? '${GetUserInsuranceLicenseCall.licenseNo(
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                  ).toString()
+                                                                                  )}'
                                                                                 : FFAppState().profileInsuranceLicenseLicenseNo;
                                                                             FFAppState().profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                     ) ==
                                                                                     200
-                                                                                ? GetUserInsuranceLicenseCall.startDate(
+                                                                                ? '${GetUserInsuranceLicenseCall.startDate(
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                  ).toString()
+                                                                                  )}'
                                                                                 : FFAppState().profileInsuranceLicenseStartDate;
                                                                             FFAppState().profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
                                                                                     ) ==
                                                                                     200
-                                                                                ? GetUserInsuranceLicenseCall.expireDate(
+                                                                                ? '${GetUserInsuranceLicenseCall.expireDate(
                                                                                     (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                  ).toString()
+                                                                                  )}'
                                                                                 : FFAppState().profileInsuranceLicenseExpireDate;
                                                                             FFAppState().profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                       (_model.getUserInsuranceLicense?.jsonBody ?? ''),
@@ -1337,9 +1355,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         });
                                                                         _model.customFirebaseAuthen =
                                                                             await actions.a13(
-                                                                          functions.generateStuffFirebaseEmail(_model
+                                                                          functions.generateStuffFirebaseEmail(functions.toUpperCase(_model
                                                                               .usernameTextFieldController
-                                                                              .text),
+                                                                              .text)),
                                                                         );
                                                                         _shouldSetState =
                                                                             true;
@@ -1394,11 +1412,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             .infinity,
                                                                         height:
                                                                             70.0,
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(0.0),
                                                                         iconPadding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,

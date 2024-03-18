@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +9,10 @@ import 'qr_code_show_component_model.dart';
 export 'qr_code_show_component_model.dart';
 
 class QrCodeShowComponentWidget extends StatefulWidget {
-  const QrCodeShowComponentWidget({Key? key}) : super(key: key);
+  const QrCodeShowComponentWidget({super.key});
 
   @override
-  _QrCodeShowComponentWidgetState createState() =>
+  State<QrCodeShowComponentWidget> createState() =>
       _QrCodeShowComponentWidgetState();
 }
 
@@ -43,8 +42,6 @@ class _QrCodeShowComponentWidgetState extends State<QrCodeShowComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,

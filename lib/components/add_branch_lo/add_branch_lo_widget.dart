@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,12 +12,12 @@ export 'add_branch_lo_model.dart';
 
 class AddBranchLoWidget extends StatefulWidget {
   const AddBranchLoWidget({
-    Key? key,
+    super.key,
     required this.branchCode,
     required this.lat,
     required this.lng,
     required this.apiUrl,
-  }) : super(key: key);
+  });
 
   final String? branchCode;
   final String? lat;
@@ -26,7 +25,7 @@ class AddBranchLoWidget extends StatefulWidget {
   final String? apiUrl;
 
   @override
-  _AddBranchLoWidgetState createState() => _AddBranchLoWidgetState();
+  State<AddBranchLoWidget> createState() => _AddBranchLoWidgetState();
 }
 
 class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
@@ -150,7 +149,7 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-0.15, 0.00),
+                            alignment: AlignmentDirectional(-0.15, 0.0),
                             child: Text(
                               'เพิ่มสาขา',
                               textAlign: TextAlign.center,
@@ -710,16 +709,17 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                 context: context,
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
-                                      child: AlertDialog(
-                                    content: Text('กรุณากรอกข้อมูลให้ครบ'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () =>
-                                            Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
-                                      ),
-                                    ],
-                                  ));
+                                    child: AlertDialog(
+                                      content: Text('กรุณากรอกข้อมูลให้ครบ'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(alertDialogContext),
+                                          child: Text('Ok'),
+                                        ),
+                                      ],
+                                    ),
+                                  );
                                 },
                               );
                               if (_shouldSetState) setState(() {});
@@ -729,22 +729,23 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content:
-                                          Text('ต้องการเพิ่มสาขาใช่หรือไม่'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext, false),
-                                          child: Text('ยกเลิก'),
-                                        ),
-                                        TextButton(
-                                          onPressed: () => Navigator.pop(
-                                              alertDialogContext, true),
-                                          child: Text('ยืนยัน'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content:
+                                            Text('ต้องการเพิ่มสาขาใช่หรือไม่'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext, false),
+                                            child: Text('ยกเลิก'),
+                                          ),
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext, true),
+                                            child: Text('ยืนยัน'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 ) ??
                                 false;
@@ -773,16 +774,18 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('เพิ่มสาขาเรียบร้อยแล้ว'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('เพิ่มสาขาเรียบร้อยแล้ว'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                 } else {
@@ -790,20 +793,21 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'พบข้อผิดพลาด (${InsertLocationAPICall.statusMessage(
-                                          (_model.insertAPIOutput?.jsonBody ??
-                                              ''),
-                                        ).toString()})'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${InsertLocationAPICall.statusMessage(
+                                            (_model.insertAPIOutput?.jsonBody ??
+                                                ''),
+                                          )})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -816,17 +820,18 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text(
-                                          'พบข้อผิดพลาด (${(_model.insertAPIOutput?.statusCode ?? 200).toString()})'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'พบข้อผิดพลาด (${(_model.insertAPIOutput?.statusCode ?? 200).toString()})'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 if (_shouldSetState) setState(() {});

@@ -1163,7 +1163,7 @@ class FFAppState extends ChangeNotifier {
     _currentDate = _value;
   }
 
-  double _currentRadius = 0;
+  double _currentRadius = 0.0;
   double get currentRadius => _currentRadius;
   set currentRadius(double _value) {
     _currentRadius = _value;
@@ -2272,7 +2272,7 @@ class FFAppState extends ChangeNotifier {
     _searchSerialName.insert(_index, _value);
   }
 
-  double _sumInsuredChoosenDouble = 0;
+  double _sumInsuredChoosenDouble = 0.0;
   double get sumInsuredChoosenDouble => _sumInsuredChoosenDouble;
   set sumInsuredChoosenDouble(double _value) {
     _sumInsuredChoosenDouble = _value;
@@ -3685,7 +3685,7 @@ class FFAppState extends ChangeNotifier {
     _welfareKpiStatusTextColorList.insert(_index, _value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool _value) {
     _isProduction = _value;
@@ -3773,13 +3773,13 @@ class FFAppState extends ChangeNotifier {
     _leadCountCalled.insert(_index, _value);
   }
 
-  double _branchLatDouble = 0;
+  double _branchLatDouble = 0.0;
   double get branchLatDouble => _branchLatDouble;
   set branchLatDouble(double _value) {
     _branchLatDouble = _value;
   }
 
-  double _branchLngDouble = 0;
+  double _branchLngDouble = 0.0;
   double get branchLngDouble => _branchLngDouble;
   set branchLngDouble(double _value) {
     _branchLngDouble = _value;
@@ -12665,16 +12665,461 @@ class FFAppState extends ChangeNotifier {
   set lengthListPdfQuotation(int _value) {
     _lengthListPdfQuotation = _value;
   }
-}
 
-LatLng? _latLngFromString(String? val) {
-  if (val == null) {
-    return null;
+  String _insuranceCarTypeDetailSelected = '';
+  String get insuranceCarTypeDetailSelected => _insuranceCarTypeDetailSelected;
+  set insuranceCarTypeDetailSelected(String _value) {
+    _insuranceCarTypeDetailSelected = _value;
   }
-  final split = val.split(',');
-  final lat = double.parse(split.first);
-  final lng = double.parse(split.last);
-  return LatLng(lat, lng);
+
+  String _insuranceBasicOldVmiExpDate = '';
+  String get insuranceBasicOldVmiExpDate => _insuranceBasicOldVmiExpDate;
+  set insuranceBasicOldVmiExpDate(String _value) {
+    _insuranceBasicOldVmiExpDate = _value;
+  }
+
+  String _nonepackagevehicletypeDetail = '';
+  String get nonepackagevehicletypeDetail => _nonepackagevehicletypeDetail;
+  set nonepackagevehicletypeDetail(String _value) {
+    _nonepackagevehicletypeDetail = _value;
+  }
+
+  String _insuranceInfoCarTypeDetail = '';
+  String get insuranceInfoCarTypeDetail => _insuranceInfoCarTypeDetail;
+  set insuranceInfoCarTypeDetail(String _value) {
+    _insuranceInfoCarTypeDetail = _value;
+  }
+
+  List<String> _insuranceBasicVehicleGroupList = [];
+  List<String> get insuranceBasicVehicleGroupList =>
+      _insuranceBasicVehicleGroupList;
+  set insuranceBasicVehicleGroupList(List<String> _value) {
+    _insuranceBasicVehicleGroupList = _value;
+  }
+
+  void addToInsuranceBasicVehicleGroupList(String _value) {
+    _insuranceBasicVehicleGroupList.add(_value);
+  }
+
+  void removeFromInsuranceBasicVehicleGroupList(String _value) {
+    _insuranceBasicVehicleGroupList.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicVehicleGroupList(int _index) {
+    _insuranceBasicVehicleGroupList.removeAt(_index);
+  }
+
+  void updateInsuranceBasicVehicleGroupListAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicVehicleGroupList[_index] =
+        updateFn(_insuranceBasicVehicleGroupList[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicVehicleGroupList(
+      int _index, String _value) {
+    _insuranceBasicVehicleGroupList.insert(_index, _value);
+  }
+
+  String _insuranceBasicVehicleGroup = '';
+  String get insuranceBasicVehicleGroup => _insuranceBasicVehicleGroup;
+  set insuranceBasicVehicleGroup(String _value) {
+    _insuranceBasicVehicleGroup = _value;
+  }
+
+  List<String> _searchInsurerCondition = [];
+  List<String> get searchInsurerCondition => _searchInsurerCondition;
+  set searchInsurerCondition(List<String> _value) {
+    _searchInsurerCondition = _value;
+  }
+
+  void addToSearchInsurerCondition(String _value) {
+    _searchInsurerCondition.add(_value);
+  }
+
+  void removeFromSearchInsurerCondition(String _value) {
+    _searchInsurerCondition.remove(_value);
+  }
+
+  void removeAtIndexFromSearchInsurerCondition(int _index) {
+    _searchInsurerCondition.removeAt(_index);
+  }
+
+  void updateSearchInsurerConditionAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _searchInsurerCondition[_index] = updateFn(_searchInsurerCondition[_index]);
+  }
+
+  void insertAtIndexInSearchInsurerCondition(int _index, String _value) {
+    _searchInsurerCondition.insert(_index, _value);
+  }
+
+  List<String> _insuranceBasicBrandNameListOriginal = [];
+  List<String> get insuranceBasicBrandNameListOriginal =>
+      _insuranceBasicBrandNameListOriginal;
+  set insuranceBasicBrandNameListOriginal(List<String> _value) {
+    _insuranceBasicBrandNameListOriginal = _value;
+  }
+
+  void addToInsuranceBasicBrandNameListOriginal(String _value) {
+    _insuranceBasicBrandNameListOriginal.add(_value);
+  }
+
+  void removeFromInsuranceBasicBrandNameListOriginal(String _value) {
+    _insuranceBasicBrandNameListOriginal.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicBrandNameListOriginal(int _index) {
+    _insuranceBasicBrandNameListOriginal.removeAt(_index);
+  }
+
+  void updateInsuranceBasicBrandNameListOriginalAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicBrandNameListOriginal[_index] =
+        updateFn(_insuranceBasicBrandNameListOriginal[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicBrandNameListOriginal(
+      int _index, String _value) {
+    _insuranceBasicBrandNameListOriginal.insert(_index, _value);
+  }
+
+  List<String> _insuranceBasicBrandIdListOriginal = [];
+  List<String> get insuranceBasicBrandIdListOriginal =>
+      _insuranceBasicBrandIdListOriginal;
+  set insuranceBasicBrandIdListOriginal(List<String> _value) {
+    _insuranceBasicBrandIdListOriginal = _value;
+  }
+
+  void addToInsuranceBasicBrandIdListOriginal(String _value) {
+    _insuranceBasicBrandIdListOriginal.add(_value);
+  }
+
+  void removeFromInsuranceBasicBrandIdListOriginal(String _value) {
+    _insuranceBasicBrandIdListOriginal.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicBrandIdListOriginal(int _index) {
+    _insuranceBasicBrandIdListOriginal.removeAt(_index);
+  }
+
+  void updateInsuranceBasicBrandIdListOriginalAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicBrandIdListOriginal[_index] =
+        updateFn(_insuranceBasicBrandIdListOriginal[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicBrandIdListOriginal(
+      int _index, String _value) {
+    _insuranceBasicBrandIdListOriginal.insert(_index, _value);
+  }
+
+  List<String> _insuranceBasicVehicleGroupBrandList = [];
+  List<String> get insuranceBasicVehicleGroupBrandList =>
+      _insuranceBasicVehicleGroupBrandList;
+  set insuranceBasicVehicleGroupBrandList(List<String> _value) {
+    _insuranceBasicVehicleGroupBrandList = _value;
+  }
+
+  void addToInsuranceBasicVehicleGroupBrandList(String _value) {
+    _insuranceBasicVehicleGroupBrandList.add(_value);
+  }
+
+  void removeFromInsuranceBasicVehicleGroupBrandList(String _value) {
+    _insuranceBasicVehicleGroupBrandList.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicVehicleGroupBrandList(int _index) {
+    _insuranceBasicVehicleGroupBrandList.removeAt(_index);
+  }
+
+  void updateInsuranceBasicVehicleGroupBrandListAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicVehicleGroupBrandList[_index] =
+        updateFn(_insuranceBasicVehicleGroupBrandList[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicVehicleGroupBrandList(
+      int _index, String _value) {
+    _insuranceBasicVehicleGroupBrandList.insert(_index, _value);
+  }
+
+  String _insuranceInfoPage5QuotationType = '';
+  String get insuranceInfoPage5QuotationType =>
+      _insuranceInfoPage5QuotationType;
+  set insuranceInfoPage5QuotationType(String _value) {
+    _insuranceInfoPage5QuotationType = _value;
+  }
+
+  String _insuranceBasicCarTypeContain = '';
+  String get insuranceBasicCarTypeContain => _insuranceBasicCarTypeContain;
+  set insuranceBasicCarTypeContain(String _value) {
+    _insuranceBasicCarTypeContain = _value;
+  }
+
+  List<String> _insuranceBasicCarGroupDetail = [];
+  List<String> get insuranceBasicCarGroupDetail =>
+      _insuranceBasicCarGroupDetail;
+  set insuranceBasicCarGroupDetail(List<String> _value) {
+    _insuranceBasicCarGroupDetail = _value;
+  }
+
+  void addToInsuranceBasicCarGroupDetail(String _value) {
+    _insuranceBasicCarGroupDetail.add(_value);
+  }
+
+  void removeFromInsuranceBasicCarGroupDetail(String _value) {
+    _insuranceBasicCarGroupDetail.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicCarGroupDetail(int _index) {
+    _insuranceBasicCarGroupDetail.removeAt(_index);
+  }
+
+  void updateInsuranceBasicCarGroupDetailAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicCarGroupDetail[_index] =
+        updateFn(_insuranceBasicCarGroupDetail[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicCarGroupDetail(int _index, String _value) {
+    _insuranceBasicCarGroupDetail.insert(_index, _value);
+  }
+
+  List<String> _insuranceBasicCarDoorList = [];
+  List<String> get insuranceBasicCarDoorList => _insuranceBasicCarDoorList;
+  set insuranceBasicCarDoorList(List<String> _value) {
+    _insuranceBasicCarDoorList = _value;
+  }
+
+  void addToInsuranceBasicCarDoorList(String _value) {
+    _insuranceBasicCarDoorList.add(_value);
+  }
+
+  void removeFromInsuranceBasicCarDoorList(String _value) {
+    _insuranceBasicCarDoorList.remove(_value);
+  }
+
+  void removeAtIndexFromInsuranceBasicCarDoorList(int _index) {
+    _insuranceBasicCarDoorList.removeAt(_index);
+  }
+
+  void updateInsuranceBasicCarDoorListAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _insuranceBasicCarDoorList[_index] =
+        updateFn(_insuranceBasicCarDoorList[_index]);
+  }
+
+  void insertAtIndexInInsuranceBasicCarDoorList(int _index, String _value) {
+    _insuranceBasicCarDoorList.insert(_index, _value);
+  }
+
+  String _insuranceBasicCarTypeDoors = '';
+  String get insuranceBasicCarTypeDoors => _insuranceBasicCarTypeDoors;
+  set insuranceBasicCarTypeDoors(String _value) {
+    _insuranceBasicCarTypeDoors = _value;
+  }
+
+  dynamic _jsonTemp;
+  dynamic get jsonTemp => _jsonTemp;
+  set jsonTemp(dynamic _value) {
+    _jsonTemp = _value;
+  }
+
+  bool _isProcessing = false;
+  bool get isProcessing => _isProcessing;
+  set isProcessing(bool _value) {
+    _isProcessing = _value;
+  }
+
+  bool _homeMenuIsExpanded = true;
+  bool get homeMenuIsExpanded => _homeMenuIsExpanded;
+  set homeMenuIsExpanded(bool _value) {
+    _homeMenuIsExpanded = _value;
+  }
+
+  bool _viewVmiButtonIsOldVmi = false;
+  bool get viewVmiButtonIsOldVmi => _viewVmiButtonIsOldVmi;
+  set viewVmiButtonIsOldVmi(bool _value) {
+    _viewVmiButtonIsOldVmi = _value;
+  }
+
+  bool _isTouchVmiButton = false;
+  bool get isTouchVmiButton => _isTouchVmiButton;
+  set isTouchVmiButton(bool _value) {
+    _isTouchVmiButton = _value;
+  }
+
+  String _renewPaymentType = '';
+  String get renewPaymentType => _renewPaymentType;
+  set renewPaymentType(String _value) {
+    _renewPaymentType = _value;
+  }
+
+  String _renewBranchCode = '';
+  String get renewBranchCode => _renewBranchCode;
+  set renewBranchCode(String _value) {
+    _renewBranchCode = _value;
+  }
+
+  String _renewBranchName = '';
+  String get renewBranchName => _renewBranchName;
+  set renewBranchName(String _value) {
+    _renewBranchName = _value;
+  }
+
+  dynamic _jsonDataRenew;
+  dynamic get jsonDataRenew => _jsonDataRenew;
+  set jsonDataRenew(dynamic _value) {
+    _jsonDataRenew = _value;
+  }
+
+  String _flagRenew = '';
+  String get flagRenew => _flagRenew;
+  set flagRenew(String _value) {
+    _flagRenew = _value;
+  }
+
+  bool _nonePackageOldVmiFlag = false;
+  bool get nonePackageOldVmiFlag => _nonePackageOldVmiFlag;
+  set nonePackageOldVmiFlag(bool _value) {
+    _nonePackageOldVmiFlag = _value;
+  }
+
+  String _insuranceinfoActType = 'NONECMI';
+  String get insuranceinfoActType => _insuranceinfoActType;
+  set insuranceinfoActType(String _value) {
+    _insuranceinfoActType = _value;
+  }
+
+  String _actCarType = '';
+  String get actCarType => _actCarType;
+  set actCarType(String _value) {
+    _actCarType = _value;
+  }
+
+  String _actCoverType = '';
+  String get actCoverType => _actCoverType;
+  set actCoverType(String _value) {
+    _actCoverType = _value;
+  }
+
+  String _actActAmount = '';
+  String get actActAmount => _actActAmount;
+  set actActAmount(String _value) {
+    _actActAmount = _value;
+  }
+
+  String _actCoverTypeName = '';
+  String get actCoverTypeName => _actCoverTypeName;
+  set actCoverTypeName(String _value) {
+    _actCoverTypeName = _value;
+  }
+
+  bool _actSelected = false;
+  bool get actSelected => _actSelected;
+  set actSelected(bool _value) {
+    _actSelected = _value;
+  }
+
+  String _insuranceinfoActAmountNet = '';
+  String get insuranceinfoActAmountNet => _insuranceinfoActAmountNet;
+  set insuranceinfoActAmountNet(String _value) {
+    _insuranceinfoActAmountNet = _value;
+  }
+
+  bool _insuranceRequestIsLoadDataMc = false;
+  bool get insuranceRequestIsLoadDataMc => _insuranceRequestIsLoadDataMc;
+  set insuranceRequestIsLoadDataMc(bool _value) {
+    _insuranceRequestIsLoadDataMc = _value;
+  }
+
+  String _searchPackageSubProduct = '';
+  String get searchPackageSubProduct => _searchPackageSubProduct;
+  set searchPackageSubProduct(String _value) {
+    _searchPackageSubProduct = _value;
+  }
+
+  String _apiUrlCmiAppState = 'api_url_cmi';
+  String get apiUrlCmiAppState => _apiUrlCmiAppState;
+  set apiUrlCmiAppState(String _value) {
+    _apiUrlCmiAppState = _value;
+  }
+
+  DocumentReference? _generaliContentDocRef =
+      FirebaseFirestore.instance.doc('/hideInAppContent/n7wRJ5Xq8tuMSZYbfdfs');
+  DocumentReference? get generaliContentDocRef => _generaliContentDocRef;
+  set generaliContentDocRef(DocumentReference? _value) {
+    _generaliContentDocRef = _value;
+  }
+
+  DocumentReference? _cmiContentDocRef =
+      FirebaseFirestore.instance.doc('/hideInAppContent/dqncRBs7SdkCP4UetgIZ');
+  DocumentReference? get cmiContentDocRef => _cmiContentDocRef;
+  set cmiContentDocRef(DocumentReference? _value) {
+    _cmiContentDocRef = _value;
+  }
+
+  List<String> _searchcc = [];
+  List<String> get searchcc => _searchcc;
+  set searchcc(List<String> _value) {
+    _searchcc = _value;
+  }
+
+  void addToSearchcc(String _value) {
+    _searchcc.add(_value);
+  }
+
+  void removeFromSearchcc(String _value) {
+    _searchcc.remove(_value);
+  }
+
+  void removeAtIndexFromSearchcc(int _index) {
+    _searchcc.removeAt(_index);
+  }
+
+  void updateSearchccAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _searchcc[_index] = updateFn(_searchcc[_index]);
+  }
+
+  void insertAtIndexInSearchcc(int _index, String _value) {
+    _searchcc.insert(_index, _value);
+  }
+
+  String _insuranceinfoQuotationTypeName = '';
+  String get insuranceinfoQuotationTypeName => _insuranceinfoQuotationTypeName;
+  set insuranceinfoQuotationTypeName(String _value) {
+    _insuranceinfoQuotationTypeName = _value;
+  }
+
+  String _insuranceinfoQuotationTypeBakName = '';
+  String get insuranceinfoQuotationTypeBakName =>
+      _insuranceinfoQuotationTypeBakName;
+  set insuranceinfoQuotationTypeBakName(String _value) {
+    _insuranceinfoQuotationTypeBakName = _value;
+  }
+
+  String _insuranceinfoSubProductName = '';
+  String get insuranceinfoSubProductName => _insuranceinfoSubProductName;
+  set insuranceinfoSubProductName(String _value) {
+    _insuranceinfoSubProductName = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

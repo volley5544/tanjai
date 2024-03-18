@@ -12,7 +12,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,10 +21,10 @@ import 'my_profile_page_model.dart';
 export 'my_profile_page_model.dart';
 
 class MyProfilePageWidget extends StatefulWidget {
-  const MyProfilePageWidget({Key? key}) : super(key: key);
+  const MyProfilePageWidget({super.key});
 
   @override
-  _MyProfilePageWidgetState createState() => _MyProfilePageWidgetState();
+  State<MyProfilePageWidget> createState() => _MyProfilePageWidgetState();
 }
 
 class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
@@ -137,15 +136,6 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -205,7 +195,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 10.0),
@@ -220,8 +210,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2.0, 2.0, 2.0, 2.0),
+                                  padding: EdgeInsets.all(2.0),
                                   child: StreamBuilder<UserCustomRecord>(
                                     stream: UserCustomRecord.getDocument(
                                         FFAppState().userRef!),
@@ -406,7 +395,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 10.0),
@@ -421,8 +410,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      2.0, 2.0, 2.0, 2.0),
+                                  padding: EdgeInsets.all(2.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(60.0),
                                     child: Image.network(
@@ -437,7 +425,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.10, 0.79),
+                            alignment: AlignmentDirectional(0.1, 0.79),
                             child: Container(
                               width: 40.0,
                               height: 40.0,
@@ -644,11 +632,13 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      valueOrDefault<String>(
-                                        functions.showDateBE(
-                                            FFAppState().profileBirthDate),
-                                        'birth_date',
-                                      ),
+                                      FFAppState().profileBirthDate == '-'
+                                          ? '-'
+                                          : valueOrDefault<String>(
+                                              functions.showDateBE(FFAppState()
+                                                  .profileBirthDate),
+                                              'birth_date',
+                                            ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
@@ -706,8 +696,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -905,8 +894,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1050,7 +1038,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                     0.0, 5.0, 2.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                context.pushNamed(
+                                                context.goNamed(
                                                     'LifeInsuranceLicenseCardPage');
                                               },
                                               text: 'ดูบัตร',

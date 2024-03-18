@@ -1,5 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,7 +15,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,16 +27,16 @@ export 'insurance_info_page1_model.dart';
 
 class InsuranceInfoPage1Widget extends StatefulWidget {
   const InsuranceInfoPage1Widget({
-    Key? key,
+    super.key,
     this.quotationId,
     this.leadDtailId,
-  }) : super(key: key);
+  });
 
   final String? quotationId;
   final int? leadDtailId;
 
   @override
-  _InsuranceInfoPage1WidgetState createState() =>
+  State<InsuranceInfoPage1Widget> createState() =>
       _InsuranceInfoPage1WidgetState();
 }
 
@@ -61,15 +62,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -91,16 +93,42 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+          return;
+        }
+        if (InsuranceRequestGetInsurerAPICall.statusLayer1(
+              (_model.getInsurer?.jsonBody ?? ''),
+            ) !=
+            200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(InsuranceRequestGetInsurerAPICall.messageLayer1(
+                    (_model.getInsurer?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           Navigator.pop(context);
@@ -108,41 +136,39 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         }
         setState(() {
           FFAppState().insuranceInfoImgUrlInsurerList =
-              (InsuranceRequestGetInsurerAPICall.insurerLogo(
+              InsuranceRequestGetInsurerAPICall.insurerLogo(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().insuranceInfoCompanyIdList =
-              (InsuranceRequestGetInsurerAPICall.companyShortName(
+              InsuranceRequestGetInsurerAPICall.companyShortName(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
         });
       }
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+        flagGet: '1',
       );
       if ((_model.getLicenseAPIOutoutCopy?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.getLicenseAPIOutoutCopy?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.getLicenseAPIOutoutCopy?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -156,17 +182,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text('พบข้อผิดพลาด (${GetLicenseListCall.statusLayer1(
-                (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(GetLicenseListCall.messageLayer1(
+                  (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -174,64 +201,46 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       }
       setState(() {
         FFAppState().addAddressLicenseEmployeeId =
-            (GetLicenseListCall.employeeid(
+            GetLicenseListCall.employeeid(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
-        FFAppState().addAddressLicenseTitle = (GetLicenseListCall.title(
+        FFAppState().addAddressLicenseTitle = GetLicenseListCall.title(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
+        )!
             .toList()
             .cast<String>();
-        FFAppState().addAddressLicenseFirstName = (GetLicenseListCall.firstname(
+        FFAppState().addAddressLicenseFirstName = GetLicenseListCall.firstname(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
+        )!
             .toList()
             .cast<String>();
-        FFAppState().addAddressLicenseLastName = (GetLicenseListCall.lastName(
+        FFAppState().addAddressLicenseLastName = GetLicenseListCall.lastName(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
+        )!
             .toList()
             .cast<String>();
-        FFAppState().addAddressLicenseLicenseId = (GetLicenseListCall.licenseid(
+        FFAppState().addAddressLicenseLicenseId = GetLicenseListCall.licenseid(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
+        )!
             .toList()
             .cast<String>();
         FFAppState().addAddressLicenseExpiredDate =
-            (GetLicenseListCall.expireddate(
+            GetLicenseListCall.expireddate(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().addAddressLicenseMobilePhone =
-            (GetLicenseListCall.mobilephone(
+            GetLicenseListCall.mobilephone(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
-        FFAppState().addaddresslicensenBranch = (GetLicenseListCall.branchcode(
+        FFAppState().addaddresslicensenBranch = GetLicenseListCall.branchcode(
           (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .map((e) => e.toString())
-            .toList()
+        )!
             .toList()
             .cast<String>();
       });
@@ -243,16 +252,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (Get Occupation ${(_model.getOccuAPIOutput?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (Get Occupation ${(_model.getOccuAPIOutput?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -266,18 +276,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (Get Occupation ${GetOccupationCall.statuslayer1(
-                (_model.getOccuAPIOutput?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(GetOccupationCall.messageLayer1(
+                  (_model.getOccuAPIOutput?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -285,43 +295,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       }
       setState(() {
         FFAppState().insuranceInfoOccupationCode =
-            (GetOccupationCall.occupationcode(
+            GetOccupationCall.occupationcode(
           (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .map((e) => e.toString())
-                .toList()
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().insuranceInfoOccupationName =
-            (GetOccupationCall.occupationname(
+            GetOccupationCall.occupationname(
           (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .map((e) => e.toString())
-                .toList()
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().insuranceInfoOccupationSubCode =
-            (GetOccupationCall.occupationsubcode(
+            GetOccupationCall.occupationsubcode(
           (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .map((e) => e.toString())
-                .toList()
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().insuranceInfoOccupationSubName =
-            (GetOccupationCall.occupationsubname(
+            GetOccupationCall.occupationsubname(
           (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .map((e) => e.toString())
-                .toList()
+        )!
                 .toList()
                 .cast<String>();
       });
@@ -335,16 +329,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.detailAPIOutput?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.detailAPIOutput?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -358,1132 +353,914 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content:
-                  Text('พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(IbsApplicationsDetailCall.messageLayer1(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
         return;
       }
       setState(() {
-        FFAppState().insuranceInfoCardType = IbsApplicationsDetailCall.idtypeid(
+        FFAppState().insuranceInfoCardType =
+            '${IbsApplicationsDetailCall.idtypeid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoGender = IbsApplicationsDetailCall.gender(
+        )}';
+        FFAppState().insuranceInfoGender = '${IbsApplicationsDetailCall.gender(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoTitle = IbsApplicationsDetailCall.titleth(
+        )}';
+        FFAppState().insuranceInfoTitle = '${IbsApplicationsDetailCall.titleth(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoOccupationGroup =
-            IbsApplicationsDetailCall.occupationname(
+            '${IbsApplicationsDetailCall.occupationname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoIdCard =
-            IbsApplicationsDetailCall.nationalthaiid(
+            '${IbsApplicationsDetailCall.nationalthaiid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoFirstName =
-            IbsApplicationsDetailCall.quotationtype(
+            '${IbsApplicationsDetailCall.quotationtype(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == 'auto' ? (IbsApplicationsDetailCall.firstnameth(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.firstnameth(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.firstname(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )) : () {
+                if (IbsApplicationsDetailCall.firstnameth(
                       (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    'auto'
-                ? (IbsApplicationsDetailCall.firstnameth(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        ''
-                    ? IbsApplicationsDetailCall.firstnameth(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString()
-                    : IbsApplicationsDetailCall.firstname(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString())
-                : () {
-                    if (IbsApplicationsDetailCall.firstnameth(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        '') {
-                      return IbsApplicationsDetailCall.firstnameth(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString();
-                    } else if (IbsApplicationsDetailCall.firstname(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        '') {
-                      return IbsApplicationsDetailCall.firstname(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString();
-                    } else {
-                      return IbsApplicationsDetailCall.manualFirstName(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString();
-                    }
-                  }();
+                    ) !=
+                    '') {
+                  return IbsApplicationsDetailCall.firstnameth(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  );
+                } else if (IbsApplicationsDetailCall.firstname(
+                      (_model.detailAPIOutput?.jsonBody ?? ''),
+                    ) !=
+                    '') {
+                  return IbsApplicationsDetailCall.firstname(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  );
+                } else {
+                  return IbsApplicationsDetailCall.manualFirstName(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  );
+                }
+              }()}';
         FFAppState().insuranceInfoLastName =
-            IbsApplicationsDetailCall.quotationtype(
+            '${IbsApplicationsDetailCall.quotationtype(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == 'auto' ? (IbsApplicationsDetailCall.lastnameth(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.lastnameth(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.lastname(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )) : () {
+                if (IbsApplicationsDetailCall.lastnameth(
                       (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    'auto'
-                ? (IbsApplicationsDetailCall.lastnameth(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        ''
-                    ? IbsApplicationsDetailCall.lastnameth(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString()
-                    : IbsApplicationsDetailCall.lastname(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString())
-                : () {
-                    if (IbsApplicationsDetailCall.lastnameth(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        '') {
-                      return IbsApplicationsDetailCall.lastnameth(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString();
-                    } else if (IbsApplicationsDetailCall.lastname(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        '') {
-                      return IbsApplicationsDetailCall.lastname(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString();
-                    } else {
-                      return (IbsApplicationsDetailCall.manualLastName(
-                                (_model.detailAPIOutput?.jsonBody ?? ''),
-                              ).toString() ==
-                              ''
-                          ? ''
-                          : IbsApplicationsDetailCall.manualLastName(
-                              (_model.detailAPIOutput?.jsonBody ?? ''),
-                            ).toString());
-                    }
-                  }();
-        FFAppState().insuranceInfoBirthDate =
-            IbsApplicationsDetailCall.birthday(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoOccupation =
-            IbsApplicationsDetailCall.occupationname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoPhonenumber =
-            IbsApplicationsDetailCall.quotationtype(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    'auto'
-                ? IbsApplicationsDetailCall.phonenumber(
+                    ) !=
+                    '') {
+                  return IbsApplicationsDetailCall.lastnameth(
                     (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : (IbsApplicationsDetailCall.mobile1(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        ''
-                    ? IbsApplicationsDetailCall.mobile1(
-                        (_model.detailAPIOutput?.jsonBody ?? ''),
-                      ).toString()
-                    : (IbsApplicationsDetailCall.manualPhoneNumber(
-                              (_model.detailAPIOutput?.jsonBody ?? ''),
-                            ).toString() ==
-                            ''
-                        ? ''
-                        : IbsApplicationsDetailCall.manualPhoneNumber(
+                  );
+                } else if (IbsApplicationsDetailCall.lastname(
+                      (_model.detailAPIOutput?.jsonBody ?? ''),
+                    ) !=
+                    '') {
+                  return IbsApplicationsDetailCall.lastname(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  );
+                } else {
+                  return (IbsApplicationsDetailCall.manualLastName(
                             (_model.detailAPIOutput?.jsonBody ?? ''),
-                          ).toString()));
+                          ) ==
+                          ''
+                      ? ''
+                      : IbsApplicationsDetailCall.manualLastName(
+                          (_model.detailAPIOutput?.jsonBody ?? ''),
+                        ));
+                }
+              }()}';
+        FFAppState().insuranceInfoBirthDate =
+            '${IbsApplicationsDetailCall.birthday(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoOccupation =
+            '${IbsApplicationsDetailCall.occupationname(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoPhonenumber =
+            '${IbsApplicationsDetailCall.quotationtype(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == 'auto' ? (IbsApplicationsDetailCall.mobile1(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.mobile1(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.phonenumber(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )) : (IbsApplicationsDetailCall.mobile1(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.mobile1(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : (IbsApplicationsDetailCall.manualPhoneNumber(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.manualPhoneNumber(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )))}';
         FFAppState().insuranceInfoOtherPhone =
-            IbsApplicationsDetailCall.mobile2(
+            '${IbsApplicationsDetailCall.mobile2(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoEmail = IbsApplicationsDetailCall.email1(
+        )}';
+        FFAppState().insuranceInfoEmail = '${IbsApplicationsDetailCall.email1(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoAge = IbsApplicationsDetailCall.age(
+        )}';
+        FFAppState().insuranceInfoAge = '${IbsApplicationsDetailCall.age(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoGarageType =
-            (IbsApplicationsDetailCall.garagetypename(
+            '${IbsApplicationsDetailCall.garagetypename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
         FFAppState().insuranceInfocoverType =
-            (IbsApplicationsDetailCall.covertypename(
+            '${IbsApplicationsDetailCall.covertypename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
         FFAppState().insuranceInfoGrossTotal =
-            (IbsApplicationsDetailCall.grosstotalnetList(
+            '${IbsApplicationsDetailCall.grosstotalnetList(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
         FFAppState().insuranceInfoVehicleType =
-            IbsApplicationsDetailCall.quotationtype(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    'auto'
-                ? IbsApplicationsDetailCall.cartype(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.manualCarType(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.quotationtype(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == 'auto' ? IbsApplicationsDetailCall.cartype(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.manualCarType(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoBrandName =
-            IbsApplicationsDetailCall.carbrandname(
+            '${IbsApplicationsDetailCall.carbrandname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoModelName =
-            IbsApplicationsDetailCall.carmodelname(
+            '${IbsApplicationsDetailCall.carmodelname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoRegisYear =
-            IbsApplicationsDetailCall.carregistrationyear(
+            '${IbsApplicationsDetailCall.carregistrationyear(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoProductYear =
-            IbsApplicationsDetailCall.makeYear(
+            '${IbsApplicationsDetailCall.makeYear(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoVehicleUsage =
             '${IbsApplicationsDetailCall.vehiclecode(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString()} ${IbsApplicationsDetailCall.vehiclename(
+        )} ${IbsApplicationsDetailCall.vehiclename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString()}';
+        )}';
         FFAppState().insuranceInfoCarRegis =
-            IbsApplicationsDetailCall.carregistrationData(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        null &&
-                    IbsApplicationsDetailCall.carregistrationData(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() !=
-                        ''
-                ? IbsApplicationsDetailCall.carregistrationData(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.carregistration(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.carregistrationData(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != null && IbsApplicationsDetailCall.carregistrationData(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.carregistrationData(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.carregistration(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoBodyNumber =
-            IbsApplicationsDetailCall.bodynumber(
+            '${IbsApplicationsDetailCall.bodynumber(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoEngineNumber =
-            IbsApplicationsDetailCall.enginenumber(
+            '${IbsApplicationsDetailCall.enginenumber(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoCarSeat = IbsApplicationsDetailCall.seat(
+        )}';
+        FFAppState().insuranceInfoCarSeat = '${IbsApplicationsDetailCall.seat(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoSizeCar = IbsApplicationsDetailCall.cc(
+        )}';
+        FFAppState().insuranceInfoSizeCar = '${IbsApplicationsDetailCall.cc(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) != '' ? IbsApplicationsDetailCall.cc(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) : (IbsApplicationsDetailCall.leaddetailcc(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+              r'''$.results.data.leads_detail[:].lead_dtl_id''',
+              true,
+            )).toList(), widget.leadDtailId)])}';
+        FFAppState().insuranceInfoWeightCar =
+            '${IbsApplicationsDetailCall.weight(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoWeightCar = IbsApplicationsDetailCall.weight(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoActAmount =
-            IbsApplicationsDetailCall.acttotal(
+            '${IbsApplicationsDetailCall.acttotal(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoAccessoryProtect = () {
+        )}';
+        FFAppState().insuranceInfoAccessoryProtect = '${() {
           if (IbsApplicationsDetailCall.accessoryflg(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString() ==
+              ) ==
               '1') {
             return 'คุ้มครองอุปกรณ์เสริม';
           } else if (IbsApplicationsDetailCall.accessoryflg(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString() ==
+              ) ==
               '0') {
             return 'ไม่คุ้มครองอุปกรณ์เสริม';
           } else {
             return '';
           }
-        }();
-        FFAppState().addAddressAtIdCard = (IbsApplicationsDetailCall.keyword(
+        }()}';
+        FFAppState().addAddressAtIdCard = '${IbsApplicationsDetailCall.keyword(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()
-            .first;
+        )?.last}';
         FFAppState().addAddressAtIdCard2 =
-            (IbsApplicationsDetailCall.addressline1(
+            '${IbsApplicationsDetailCall.addressline1(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressAtIdCard3 =
-            (IbsApplicationsDetailCall.addressline2(
+            '${IbsApplicationsDetailCall.addressline2(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
-        FFAppState().addAddressForDoc = (IbsApplicationsDetailCall.keyword(
+        )?.last}';
+        FFAppState().addAddressForDoc = '${IbsApplicationsDetailCall.keyword(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()
-            .last;
+        )?.first}';
         FFAppState().addAddressForDoc2 =
-            (IbsApplicationsDetailCall.addressline1(
+            '${IbsApplicationsDetailCall.addressline1(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressForDoc3 =
-            (IbsApplicationsDetailCall.addressline2(
+            '${IbsApplicationsDetailCall.addressline2(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectProvinceId =
-            (IbsApplicationsDetailCall.provinceid(
+            '${IbsApplicationsDetailCall.provinceid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectProvinceName =
-            (IbsApplicationsDetailCall.provincename(
+            '${IbsApplicationsDetailCall.provincename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectDistrictId =
-            (IbsApplicationsDetailCall.districtid(
+            '${IbsApplicationsDetailCall.districtid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectDistrictName =
-            (IbsApplicationsDetailCall.districtname(
+            '${IbsApplicationsDetailCall.districtname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectSubdistrictId =
-            (IbsApplicationsDetailCall.subdistrictid(
+            '${IbsApplicationsDetailCall.subdistrictid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectSubdistrictName =
-            (IbsApplicationsDetailCall.subdistrictname(
+            '${IbsApplicationsDetailCall.subdistrictname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectZipCode =
-            (IbsApplicationsDetailCall.zipcode(
+            '${IbsApplicationsDetailCall.zipcode(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
+        )?.last}';
         FFAppState().addAddressSelectKeyWord =
-            (IbsApplicationsDetailCall.keyword(
+            '${IbsApplicationsDetailCall.keyword(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .first;
-        FFAppState().insuranceInfoActOflLegislation = () {
+        )?.last}';
+        FFAppState().insuranceInfoActOflLegislation = '${() {
           if (IbsApplicationsDetailCall.actflg(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString() ==
+              ) ==
               '1') {
             return 'ราคารวม พ.ร.บ';
           } else if (IbsApplicationsDetailCall.actflg(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString() ==
+              ) ==
               '0') {
             return 'ราคาไม่รวม พ.ร.บ';
           } else {
             return '';
           }
-        }();
+        }()}';
         FFAppState().addAdressSelectDocProvinceId =
-            (IbsApplicationsDetailCall.provinceid(
+            '${IbsApplicationsDetailCall.provinceid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAdressSelectDocProvinceName =
-            (IbsApplicationsDetailCall.provincename(
+            '${IbsApplicationsDetailCall.provincename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAdressSelectDocDistrictName =
-            (IbsApplicationsDetailCall.districtname(
+            '${IbsApplicationsDetailCall.districtname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectDocDistrictId =
-            (IbsApplicationsDetailCall.districtid(
+            '${IbsApplicationsDetailCall.districtid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectDocSubdistrictId =
-            (IbsApplicationsDetailCall.subdistrictid(
+            '${IbsApplicationsDetailCall.subdistrictid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectDocSubdistrictName =
-            (IbsApplicationsDetailCall.subdistrictname(
+            '${IbsApplicationsDetailCall.subdistrictname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectDocZipCode =
-            (IbsApplicationsDetailCall.zipcode(
+            '${IbsApplicationsDetailCall.zipcode(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().addAddressSelectDocKeyWord =
-            (IbsApplicationsDetailCall.keyword(
+            '${IbsApplicationsDetailCall.keyword(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()
-                .last;
+        )?.first}';
         FFAppState().insuranceInfoBeneficiaryName =
-            IbsApplicationsDetailCall.beneficiaryname(
+            '${IbsApplicationsDetailCall.beneficiaryname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoSelectOccupationName =
-            IbsApplicationsDetailCall.occupationname(
+            '${IbsApplicationsDetailCall.occupationname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoCompayId =
-            (IbsApplicationsDetailCall.insurershortname(
+            '${IbsApplicationsDetailCall.insurershortname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
         FFAppState().insuranceInfoLeadDetailId =
-            (IbsApplicationsDetailCall.leaddtlid(
+            '${(IbsApplicationsDetailCall.leaddtlid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                    functions
-                        .convertDynamicListToIntList(getJsonField(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                          true,
-                        ))
-                        .toList(),
-                    widget.leadDtailId)]
-                .toString();
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)])?.toString()}';
         FFAppState().insuranceInfoSelectOccupationSubNameChoose =
-            IbsApplicationsDetailCall.occupationsubname(
+            '${IbsApplicationsDetailCall.occupationsubname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLicenseFirstName =
-            IbsApplicationsDetailCall.employeefirstnamelicense(
+            '${IbsApplicationsDetailCall.employeefirstnamelicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLicenseLastName =
-            IbsApplicationsDetailCall.employeelastnamelicense(
+            '${IbsApplicationsDetailCall.employeelastnamelicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLicenseMobilePhone =
-            IbsApplicationsDetailCall.employeephonenumberlicense(
+            '${IbsApplicationsDetailCall.employeephonenumberlicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
-        FFAppState().insuranceInfoQuotationId =
-            IbsApplicationsDetailCall.quotationId(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString().toString();
+        )}';
+        FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
         FFAppState().insuranceInfoLicenseEmployeeId =
-            IbsApplicationsDetailCall.employeecodelicense(
+            '${IbsApplicationsDetailCall.employeecodelicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoRegistrationCodeSelect =
-            IbsApplicationsDetailCall.registrationcode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+            '${IbsApplicationsDetailCall.registrationcode(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != null && IbsApplicationsDetailCall.registrationcode(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.registrationcode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.carprovincecode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoRegistrationProvinceSelect =
-            IbsApplicationsDetailCall.registrationprovince(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+            '${IbsApplicationsDetailCall.registrationprovince(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != null && IbsApplicationsDetailCall.registrationprovince(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '' ? IbsApplicationsDetailCall.registrationprovince(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.carprovincename(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoLicenseImg =
-            IbsApplicationsDetailCall.employeelicenseimglicense(
+            '${IbsApplicationsDetailCall.employeelicenseimglicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLicenseExpiredDate =
-            IbsApplicationsDetailCall.employeelicenseexplicense(
+            '${IbsApplicationsDetailCall.employeelicenseexplicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLicenseLicenseId =
-            IbsApplicationsDetailCall.employeelicenseidlicense(
+            '${IbsApplicationsDetailCall.employeelicenseidlicense(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoAccessory =
-            (IbsApplicationsDetailCall.accessorytotal(
+            '${IbsApplicationsDetailCall.accessorytotal(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
         FFAppState().insuranceInfoApplicationType =
-            IbsApplicationsDetailCall.quotationtype(
+            '${IbsApplicationsDetailCall.quotationtypebak(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoVehicleId =
-            IbsApplicationsDetailCall.vehicleid(
+            '${IbsApplicationsDetailCall.vehicleid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString().toString();
+        )}';
         FFAppState().insuranceInfoVehicleCode =
-            IbsApplicationsDetailCall.vehiclecode(
+            '${IbsApplicationsDetailCall.vehiclecode(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoVehicleName =
-            IbsApplicationsDetailCall.vehiclename(
+            '${IbsApplicationsDetailCall.vehiclename(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoBrandId =
-            IbsApplicationsDetailCall.carbrandid(
+            '${IbsApplicationsDetailCall.carbrandid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuarnceInfoModelId =
-            IbsApplicationsDetailCall.carmodelid(
+            '${IbsApplicationsDetailCall.carmodelid(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoSelectOccupationCode =
-            IbsApplicationsDetailCall.occupationCode(
+            '${IbsApplicationsDetailCall.occupationCode(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4NetPremiumTotal =
-            (IbsApplicationsDetailCall.netpremium(
+            '${IbsApplicationsDetailCall.netpremiumtotal(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDtailId)];
-        FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
+        )}';
+        FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoGrosstotalNet =
-            IbsApplicationsDetailCall.grosstotalnet(
+            '${IbsApplicationsDetailCall.grosstotalnet(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoEffectiveDateAct =
-            IbsApplicationsDetailCall.effectiveDateAct(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.effectiveDateAct(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.effectiveDateAct(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateAct(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoEffectiveDateInsure =
-            IbsApplicationsDetailCall.effectiveDateInsure(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.effectiveDateInsure(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.effectiveDateInsure(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateInsure(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoInsuranceLogo =
-            (IbsApplicationsDetailCall.insurerlogo(
+            '${IbsApplicationsDetailCall.insurerlogo(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                    functions
-                        .convertDynamicListToIntList(getJsonField(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                          true,
-                        ))
-                        .toList(),
-                    widget.leadDtailId)]
-                .toString();
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}';
+        FFAppState().insuranceInfoCarTypeDetail =
+            '${IbsApplicationsDetailCall.cartypedetail(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().flagRenew = '${IbsApplicationsDetailCall.flgrenew(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoActType =
+            '${IbsApplicationsDetailCall.subProduct(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoQuotationTypeName =
+            '${IbsApplicationsDetailCall.quotationtypename(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoQuotationTypeBakName =
+            '${IbsApplicationsDetailCall.quotationtypebakname(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoSubProductName =
+            '${IbsApplicationsDetailCall.subproductname(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )}';
       });
       setState(() {
         FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
-            IbsApplicationsDetailCall.imgfileloanapplicationregister(
+            '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4ImageApplication =
-            IbsApplicationsDetailCall.imageapplication(
+            '${IbsApplicationsDetailCall.imageapplication(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageIdCard =
-            IbsApplicationsDetailCall.imageidcard(
+            '${IbsApplicationsDetailCall.imageidcard(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageBluebook =
-            IbsApplicationsDetailCall.imagebluebook(
+            '${IbsApplicationsDetailCall.imagebluebook(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageExamination =
-            IbsApplicationsDetailCall.imageexamination(
+            '${IbsApplicationsDetailCall.imageexamination(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageFront =
-            IbsApplicationsDetailCall.imagefront(
+            '${IbsApplicationsDetailCall.imagefront(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPageImageRear =
-            IbsApplicationsDetailCall.imagerear(
+            '${IbsApplicationsDetailCall.imagerear(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageLeft =
-            IbsApplicationsDetailCall.imageleft(
+            '${IbsApplicationsDetailCall.imageleft(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageRight =
-            IbsApplicationsDetailCall.imageright(
+            '${IbsApplicationsDetailCall.imageright(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageRightFront =
-            IbsApplicationsDetailCall.imagerightfront(
+            '${IbsApplicationsDetailCall.imagerightfront(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageRightRear =
-            IbsApplicationsDetailCall.imagerightrear(
+            '${IbsApplicationsDetailCall.imagerightrear(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageLeftFront =
-            IbsApplicationsDetailCall.imageleftfront(
+            '${IbsApplicationsDetailCall.imageleftfront(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageLeftRear =
-            IbsApplicationsDetailCall.imageleftrear(
+            '${IbsApplicationsDetailCall.imageleftrear(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageRoof =
-            IbsApplicationsDetailCall.imageroof(
+            '${IbsApplicationsDetailCall.imageroof(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage3ImageOther =
-            IbsApplicationsDetailCall.imageother(
+            '${IbsApplicationsDetailCall.imageother(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
       });
       setState(() {
         FFAppState().insuranceInfoPage3ImageWound = functions
             .addImgUrlToList(
                 IbsApplicationsDetailCall.imagewound1(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imagewound2(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imagewound3(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imagewound4(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imagewound5(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imagewound6(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString())!
+                ))!
             .toList()
             .cast<String>();
         FFAppState().insuranceInfoPage3ImageAccessories = functions
             .addImgUrlToList(
                 IbsApplicationsDetailCall.imageaccessories1(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imageaccessories2(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imageaccessories3(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imageaccessories4(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imageaccessories5(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString(),
+                ),
                 IbsApplicationsDetailCall.imageaccessories6(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString())!
+                ))!
             .toList()
             .cast<String>();
       });
       setState(() {
         FFAppState().nonePackageImageFrontUploaded =
-            IbsApplicationsDetailCall.imagefront(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imagefront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imagefront(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imagefront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageRightFrontUploaded =
-            IbsApplicationsDetailCall.imagerightfront(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageRightFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imagerightfront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imagerightfront(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imagerightfront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageRightUploaded =
-            IbsApplicationsDetailCall.imageright(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageRight(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageright(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageright(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRight(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageright(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageRightRearUploaded =
-            IbsApplicationsDetailCall.imagerightrear(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageRightRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imagerightrear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imagerightrear(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imagerightrear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageRearUploaded =
-            IbsApplicationsDetailCall.imagerear(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imagerear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imagerear(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imagerear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageLeftRearUploaded =
-            IbsApplicationsDetailCall.imageleftrear(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageLeftRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageleftrear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageleftrear(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageleftrear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageLeftUploaded =
-            IbsApplicationsDetailCall.imageleft(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageLeft(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageleft(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageleft(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeft(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageleft(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageLeftFrontUploaded =
-            IbsApplicationsDetailCall.imageleftfront(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageLeftFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageleftfront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageleftfront(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageleftfront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageRoofUploaded =
-            IbsApplicationsDetailCall.imageroof(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageRoof(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageroof(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageroof(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRoof(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageroof(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
       });
       setState(() {
         FFAppState().nonePackageTrailerImageFrontUploaded =
-            IbsApplicationsDetailCall.imageFrontTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageFrontTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageFrontTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageRightFrontUploaded =
-            IbsApplicationsDetailCall.imageRightFrontTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageRightFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageRightFrontTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageRightFrontTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageRightFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageRightUploaded =
-            IbsApplicationsDetailCall.imageRightTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageRight(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageRightTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageRightTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRight(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageRightTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageRightRearUploaded =
-            IbsApplicationsDetailCall.imageRightRearTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageRightRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageRightRearTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageRightRearTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageRightRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageRearUploaded =
-            IbsApplicationsDetailCall.imageRearTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageRearTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageRearTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageLeftRearUploaded =
-            IbsApplicationsDetailCall.imageLeftRearTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftRear(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageLeftRearTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageLeftRearTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftRear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageLeftRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageLeftUploaded =
-            IbsApplicationsDetailCall.imageLeftTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageLeft(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageLeftTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageLeftTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeft(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageLeftTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTrailerImageLeftFrontUploaded =
-            IbsApplicationsDetailCall.imageLeftFrontTrailer(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftFront(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageLeftFrontTrailer(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageLeftFrontTrailer(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftFront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageLeftFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
       });
       setState(() {
         FFAppState().nonePackageIdCardImageUrl =
-            IbsApplicationsDetailCall.imageidcard(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageIdCard(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageidcard(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageidcard(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageIdCard(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageidcard(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageBlueBookUploaded =
-            IbsApplicationsDetailCall.imagebluebook(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageBlueBook(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imagebluebook(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imagebluebook(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageBlueBook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imagebluebook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageOldVmiImageUrl =
-            IbsApplicationsDetailCall.imageOldVmi(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageOldVmi(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageOldVmi(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageOldVmi(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageCompanyBookImageUrl =
-            IbsApplicationsDetailCall.imageCompanyBook(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? IbsApplicationsDetailCall.nonePackageImageCompanyBook(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString()
-                : IbsApplicationsDetailCall.imageCompanyBook(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.imageCompanyBook(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? IbsApplicationsDetailCall.nonePackageImageCompanyBook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : IbsApplicationsDetailCall.imageCompanyBook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageImageQuotationPdfUploaded =
-            IbsApplicationsDetailCall.imageQuotationInsurer(
+            '${IbsApplicationsDetailCall.imageQuotationInsurer(
           (_model.detailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
       });
       setState(() {
         FFAppState().nonePackageFlagCarrier =
             IbsApplicationsDetailCall.flagCarrier(
                       (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
+                    ) ==
                     '1'
                 ? true
                 : false;
         FFAppState().nonePackageFlagCoop = IbsApplicationsDetailCall.flagCoop(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString() ==
+                ) ==
                 '1'
             ? true
             : false;
         FFAppState().nonePackageCarrierType =
-            IbsApplicationsDetailCall.carrierType(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.carrierType(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
-        FFAppState().nonePackageCarrierPrice =
-            IbsApplicationsDetailCall.carrierPrice(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.carrierPrice(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
-        FFAppState().nonePackageTruckPart = IbsApplicationsDetailCall.truckPart(
+            '${IbsApplicationsDetailCall.carrierType(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString() ==
-                ''
-            ? ''
-            : (IbsApplicationsDetailCall.truckPart(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    '1'
-                ? 'หัวลาก + หางพ่วง'
-                : 'เฉพาะหัวลาก');
+                ) == '' ? '' : IbsApplicationsDetailCall.carrierType(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
+        FFAppState().nonePackageCarrierPrice =
+            '${IbsApplicationsDetailCall.carrierPrice(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.carrierPrice(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
+        FFAppState().nonePackageTruckPart =
+            '${IbsApplicationsDetailCall.truckPart(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : (IbsApplicationsDetailCall.truckPart(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '1' ? 'หัวลาก + หางพ่วง' : 'เฉพาะหัวลาก')}';
         FFAppState().nonePackageCusMembership =
-            IbsApplicationsDetailCall.customerMemberchip(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : (IbsApplicationsDetailCall.customerMemberchip(
-                          (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ).toString() ==
-                        '1'
-                    ? 'ลูกค้าสินเชื่อ'
-                    : 'ลูกค้านอก');
+            '${IbsApplicationsDetailCall.customerMemberchip(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : (IbsApplicationsDetailCall.customerMemberchip(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '1' ? 'ลูกค้าสินเชื่อ' : 'ลูกค้านอก')}';
         FFAppState().nonePackageTruckCarryPurpose =
-            IbsApplicationsDetailCall.truckCarryPurpose(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.truckCarryPurpose(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.truckCarryPurpose(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.truckCarryPurpose(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageTruckCurrentPrice =
-            IbsApplicationsDetailCall.truckCurrentPrice(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.truckCurrentPrice(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.truckCurrentPrice(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.truckCurrentPrice(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackagePlateAdditional =
-            IbsApplicationsDetailCall.plateAdditional(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.plateAdditional(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.plateAdditional(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.plateAdditional(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageOldVmi =
-            IbsApplicationsDetailCall.nonePackageOldVmi(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.nonePackageOldVmi(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.nonePackageOldVmi(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageOldVmiExpDate =
-            IbsApplicationsDetailCall.nonePackageVmiExpDate(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.nonePackageVmiExpDate(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.nonePackageVmiExpDate(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageVmiExpDate(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().nonePackageFlagRenew =
             IbsApplicationsDetailCall.nonePackageFlagRenew(
                       (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
+                    ) ==
                     '1'
                 ? true
                 : false;
         FFAppState().nonePackageCustomerType =
-            IbsApplicationsDetailCall.nonePackageCustomerType(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.nonePackageCustomerType(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
-        FFAppState().nonePackageFlagOldVmi =
-            IbsApplicationsDetailCall.nonePackageFlagOldVmi(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.nonePackageFlagOldVmi(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
-        FFAppState().nonePackageWorkType = IbsApplicationsDetailCall.workType(
+            '${IbsApplicationsDetailCall.nonePackageCustomerType(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ).toString() ==
-                ''
-            ? ''
-            : IbsApplicationsDetailCall.workType(
+                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageCustomerType(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ).toString();
+              )}';
+        FFAppState().nonePackageFlagOldVmi =
+            '${IbsApplicationsDetailCall.nonePackageFlagOldVmi(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageFlagOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
+        FFAppState().nonePackageWorkType =
+            '${IbsApplicationsDetailCall.workType(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.workType(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
       });
       setState(() {
         FFAppState().insuranceInfoBranchCode =
-            IbsApplicationsDetailCall.incentiveBranchCode(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.incentiveBranchCode(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.incentiveBranchCode(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchCode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
         FFAppState().insuranceInfoBranchNameOutput =
-            IbsApplicationsDetailCall.incentiveBranchName(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ).toString() ==
-                    ''
-                ? ''
-                : IbsApplicationsDetailCall.incentiveBranchName(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  ).toString();
+            '${IbsApplicationsDetailCall.incentiveBranchName(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchName(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )}';
       });
       setState(() {
         _model.idCardTextFieldController1?.text =
@@ -1544,30 +1321,139 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             (functions.checkNullValueAndReturn(
                     FFAppState().insuranceInfoPage4NetPremiumTotal) !=
                 ''))) {
-          if (!((functions.stringToDouble(
-                      FFAppState().insuranceInfoPage4NetPremiumTotal) >
-                  0.0) &&
+          if ((functions.checkNullValueAndReturn(
+                      FFAppState().insuranceInfoPage4NetPremiumTotal) !=
+                  '-') &&
               (functions.checkNullValueAndReturn(
                       FFAppState().insuranceInfoPage4NetPremiumTotal) !=
-                  '-'))) {
-            await showDialog(
-              context: context,
-              builder: (alertDialogContext) {
-                return WebViewAware(
+                  '')) {
+            if (functions.stringToDouble(
+                    FFAppState().insuranceInfoPage4NetPremiumTotal) <=
+                0.0) {
+              await showDialog(
+                context: context,
+                builder: (alertDialogContext) {
+                  return WebViewAware(
                     child: AlertDialog(
-                  content: Text('กรุณากรอกราคาเบี้ยรวม'),
+                      content: Text('กรุณากรอกราคาเบี้ยรวม'),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(alertDialogContext),
+                          child: Text('Ok'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+              context.safePop();
+            }
+          }
+        }
+      }
+      if (FFAppState()
+          .addAddressLicenseEmployeeId
+          .contains(FFAppState().employeeID)) {
+        setState(() {
+          FFAppState().insuranceInfoHaveLicenseBool = true;
+        });
+        showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return WebViewAware(
+              child: GestureDetector(
+                onTap: () => _model.unfocusNode.canRequestFocus
+                    ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                    : FocusScope.of(context).unfocus(),
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            );
+          },
+        ).then((value) => safeSetState(() {}));
+
+        _model.profileImgOutputPage = await GetProfileImageCall.call(
+          employeeCode: FFAppState().employeeID,
+          insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+        if ((_model.profileImgOutputPage?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.profileImgOutputPage?.statusCode ?? 200).toString()})'),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(alertDialogContext),
                       child: Text('Ok'),
                     ),
                   ],
-                ));
-              },
-            );
-            context.safePop();
-          }
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+          return;
         }
+        if (GetProfileImageCall.statusLayer1(
+              (_model.profileImgOutputPage?.jsonBody ?? ''),
+            ) !=
+            200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(GetProfileImageCall.messageLayer1(
+                    (_model.profileImgOutputPage?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+          return;
+        }
+        setState(() {
+          FFAppState().insuranceInfoLicenseEmployeeId =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseTitle =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseFirstName =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseLastName =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseLicenseId =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseExpiredDate =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseMobilePhone =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
+          FFAppState().insuranceInfoLicenseImg =
+              '${GetProfileImageCall.imgProfile(
+            (_model.profileImgOutputPage?.jsonBody ?? ''),
+          )}';
+          FFAppState().insuranceInfoLicenseBranch =
+              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
+        });
+        setState(() {
+          _model.licenseCodeController?.text =
+              FFAppState().insuranceInfoLicenseEmployeeId;
+        });
+        Navigator.pop(context);
       }
     });
 
@@ -1625,15 +1511,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -1714,765 +1591,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Material(
-                              color: Colors.transparent,
-                              elevation: 1.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              wrapWithModel(
+                                model: _model.infomationCustomerModel,
+                                updateCallback: () => setState(() {}),
+                                child: InfomationCustomerWidget(),
                               ),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: Color(0xFFE6E6E6),
-                                  ),
-                                ),
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.65,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ใบเสนอราคา',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoQuotationId,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ชื่อลูกค้า',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'เบอร์โทร',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoPhonenumber,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'การซ่อม',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoGarageType,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ประกัน',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfocoverType,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ราคาเบี้ย',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState().insuranceInfoApplicationType ==
-                                                                  'auto'
-                                                              ? '${functions.showNumberWithComma(FFAppState().insuranceInfoGrossTotal)} บาท'
-                                                              : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  if (FFAppState()
-                                                          .insuranceInfoActFlag ==
-                                                      '1')
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคา พ.ร.บ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${functions.showNumberWithComma(FFAppState().insuranceInfoActAmount)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  if (FFAppState()
-                                                          .insuranceInfoActFlag ==
-                                                      '1')
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคารวม',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ประเภทงาน',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              FFAppState().insuranceInfoApplicationType ==
-                                                                      'auto'
-                                                                  ? 'งานในเรท'
-                                                                  : 'งานนอกเรท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          if (FFAppState()
-                                                                  .nonePackageWorkType !=
-                                                              '')
-                                                            Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                              child: Text(
-                                                                '(${FFAppState().nonePackageWorkType})',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Sans Thai',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontSize:
-                                                                          15.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.00, 0.00),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      height: 75.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            functions.stringToImgPath(FFAppState()
-                                                                        .insuranceInfoInsuranceLogo !=
-                                                                    ''
-                                                                ? FFAppState()
-                                                                    .insuranceInfoInsuranceLogo
-                                                                : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                                            'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                          ),
-                                                          width: 300.0,
-                                                          height: 200.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            if (FFAppState().insuranceinfoActType == 'CMI')
+                              wrapWithModel(
+                                model: _model.infomationCustomerActModel,
+                                updateCallback: () => setState(() {}),
+                                child: InfomationCustomerActWidget(),
                               ),
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
@@ -2494,7 +1624,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                       color: Color(0xFFE6E6E6),
                                     ),
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 5.0, 0.0),
@@ -2506,8 +1636,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -2523,7 +1653,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '1',
                                                 style:
@@ -2577,8 +1707,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '2',
                                               style:
@@ -2634,8 +1764,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '3',
                                               style:
@@ -2690,8 +1820,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '4',
                                               style:
@@ -2747,8 +1877,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 color: Color(0xFFB3B3B3),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '5',
                                               style:
@@ -2875,8 +2005,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -3012,7 +2142,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -3044,7 +2174,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                          -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -3185,7 +2315,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -3282,7 +2412,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             (_model.checkBlackListOutput
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString() ==
+                                                          ) ==
                                                           'N'))
                                                     Padding(
                                                       padding:
@@ -3317,7 +2447,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             (_model.checkBlackListOutput
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString() ==
+                                                          ) ==
                                                           'N'))
                                                     Padding(
                                                       padding:
@@ -3359,18 +2489,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'กรุณากรอกเลขบัตร 13 หลัก'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณากรอกเลขบัตร 13 หลัก'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     if (_shouldSetState)
@@ -3386,18 +2518,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'กรุณากรอกเลขบัตรให้ถูกต้อง'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณากรอกเลขบัตรให้ถูกต้อง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     if (_shouldSetState)
@@ -3416,26 +2550,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              LoadingSceneWidget(),
+                                                        child: GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                LoadingSceneWidget(),
+                                                          ),
                                                         ),
-                                                      ));
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -3470,18 +2605,58 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'พบข้อผิดพลาด (${(_model.checkBlackListOutput?.statusCode ?? 200).toString()})'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'พบข้อผิดพลาด (${(_model.checkBlackListOutput?.statusCode ?? 200).toString()})'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    Navigator.pop(context);
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                  if (CheckBlackListCall
+                                                          .statuslayer1(
+                                                        (_model.checkBlackListOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      200) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                CheckBlackListCall
+                                                                    .messageLayer1(
+                                                              (_model.checkBlackListOutput
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     Navigator.pop(context);
@@ -3508,7 +2683,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -3653,7 +2828,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -3743,7 +2918,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             (_model.checkBlackListOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString() !=
+                                                          ) !=
                                                           'N'))
                                                     Padding(
                                                       padding:
@@ -3778,7 +2953,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             (_model.checkBlackListOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString() ==
+                                                          ) ==
                                                           'N'))
                                                     Padding(
                                                       padding:
@@ -3821,26 +2996,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              LoadingSceneWidget(),
+                                                        child: GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                LoadingSceneWidget(),
+                                                          ),
                                                         ),
-                                                      ));
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -3875,18 +3051,58 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'พบข้อผิดพลาด (${(_model.checkBlackListOutput2?.statusCode ?? 200).toString()})'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'พบข้อผิดพลาด (${(_model.checkBlackListOutput2?.statusCode ?? 200).toString()})'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    Navigator.pop(context);
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                  if (CheckBlackListCall
+                                                          .statuslayer1(
+                                                        (_model.checkBlackListOutput2
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) !=
+                                                      200) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                CheckBlackListCall
+                                                                    .messageLayer1(
+                                                              (_model.checkBlackListOutput2
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     Navigator.pop(context);
@@ -3913,7 +3129,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -4077,8 +3293,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -4266,7 +3482,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -4391,7 +3607,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -4523,7 +3739,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -4590,243 +3806,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'วัน/เดือน/ปี เกิด',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '(บังคับเลือก)',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFFB0606),
-                                                        fontSize: 12.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              if (kIsWeb) {
-                                                final _datePickedDate =
-                                                    await showDatePicker(
-                                                  context: context,
-                                                  initialDate: (functions
-                                                          .currentDate18YearsAgo(
-                                                              getCurrentTimestamp) ??
-                                                      DateTime.now()),
-                                                  firstDate: DateTime(1900),
-                                                  lastDate: (functions
-                                                          .currentDate18YearsAgo(
-                                                              getCurrentTimestamp) ??
-                                                      DateTime.now()),
-                                                );
-
-                                                if (_datePickedDate != null) {
-                                                  safeSetState(() {
-                                                    _model.datePicked =
-                                                        DateTime(
-                                                      _datePickedDate.year,
-                                                      _datePickedDate.month,
-                                                      _datePickedDate.day,
-                                                    );
-                                                  });
-                                                }
-                                              } else {
-                                                await DatePicker.showDatePicker(
-                                                  context,
-                                                  showTitleActions: true,
-                                                  onConfirm: (date) {
-                                                    safeSetState(() {
-                                                      _model.datePicked = date;
-                                                    });
-                                                  },
-                                                  currentTime: functions
-                                                      .currentDate18YearsAgo(
-                                                          getCurrentTimestamp)!,
-                                                  minTime: DateTime(0, 0, 0),
-                                                  maxTime: functions
-                                                      .currentDate18YearsAgo(
-                                                          getCurrentTimestamp)!,
-                                                  locale: LocaleType.values
-                                                      .firstWhere(
-                                                    (l) =>
-                                                        l.name ==
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .languageCode,
-                                                    orElse: () => LocaleType.en,
-                                                  ),
-                                                );
-                                              }
-
-                                              setState(() {
-                                                _model.ageTextFieldController
-                                                        ?.text =
-                                                    functions
-                                                        .calculateAgeFromDatetime(
-                                                            _model.datePicked)!
-                                                        .toString();
-                                              });
-                                              await actions.hideKeyboardAction(
-                                                context,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.55,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        () {
-                                                          if (_model
-                                                                  .datePicked !=
-                                                              null) {
-                                                            return functions
-                                                                .showDateBE(_model
-                                                                    .datePicked
-                                                                    ?.toString());
-                                                          } else if ((FFAppState()
-                                                                          .insuranceInfoBirthDate !=
-                                                                      null &&
-                                                                  FFAppState()
-                                                                          .insuranceInfoBirthDate !=
-                                                                      '') &&
-                                                              (FFAppState()
-                                                                      .insuranceInfoBirthDate !=
-                                                                  '') &&
-                                                              (FFAppState()
-                                                                      .insuranceInfoBirthDate !=
-                                                                  '')) {
-                                                            return functions
-                                                                .showDateBE(
-                                                                    FFAppState()
-                                                                        .insuranceInfoBirthDate);
-                                                          } else {
-                                                            return 'กรุณาเลือก วัน/เดือน/ปี เกิด';
-                                                          }
-                                                        }(),
-                                                        'กรุณาเลือก วัน/เดือน/ปี เกิด',
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: _model
-                                                                            .datePicked !=
-                                                                        null
-                                                                    ? FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText
-                                                                    : Color(
-                                                                        0xFF9F9F9F),
-                                                              ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: Icon(
-                                                      Icons
-                                                          .edit_calendar_outlined,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      size: 24.0,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Column(
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
@@ -4838,7 +3831,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'อายุ',
+                                                  'วัน/เดือน/ปี เกิด',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -4855,7 +3848,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .fromSTEB(
                                                           10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    '(อายุมากกว่า 18 ปี)',
+                                                    '(บังคับเลือก)',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -4871,20 +3864,97 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               ],
                                             ),
                                           ),
-                                          Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (kIsWeb) {
+                                                  final _datePickedDate =
+                                                      await showDatePicker(
+                                                    context: context,
+                                                    initialDate: (functions
+                                                            .currentDate18YearsAgo(
+                                                                getCurrentTimestamp) ??
+                                                        DateTime.now()),
+                                                    firstDate: DateTime(1900),
+                                                    lastDate: (functions
+                                                            .currentDate18YearsAgo(
+                                                                getCurrentTimestamp) ??
+                                                        DateTime.now()),
+                                                  );
+
+                                                  if (_datePickedDate != null) {
+                                                    safeSetState(() {
+                                                      _model.datePicked =
+                                                          DateTime(
+                                                        _datePickedDate.year,
+                                                        _datePickedDate.month,
+                                                        _datePickedDate.day,
+                                                      );
+                                                    });
+                                                  }
+                                                } else {
+                                                  await DatePicker
+                                                      .showDatePicker(
+                                                    context,
+                                                    showTitleActions: true,
+                                                    onConfirm: (date) {
+                                                      safeSetState(() {
+                                                        _model.datePicked =
+                                                            date;
+                                                      });
+                                                    },
+                                                    currentTime: functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp)!,
+                                                    minTime: DateTime(0, 0, 0),
+                                                    maxTime: functions
+                                                        .currentDate18YearsAgo(
+                                                            getCurrentTimestamp)!,
+                                                    locale: LocaleType.values
+                                                        .firstWhere(
+                                                      (l) =>
+                                                          l.name ==
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                      orElse: () =>
+                                                          LocaleType.en,
+                                                    ),
+                                                  );
+                                                }
+
+                                                setState(() {
+                                                  _model.ageTextFieldController
+                                                          ?.text =
+                                                      functions
+                                                          .calculateAgeFromDatetime(
+                                                              _model
+                                                                  .datePicked)!
+                                                          .toString();
+                                                });
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                              },
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
-                                                        0.37,
+                                                        0.55,
                                                 height: 60.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFFF6F6F6),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -4892,57 +3962,131 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     color: Color(0xFFB3B3B3),
                                                   ),
                                                 ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Padding(
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          () {
+                                                            if (_model
+                                                                    .datePicked !=
+                                                                null) {
+                                                              return functions
+                                                                  .showDateBE(_model
+                                                                      .datePicked
+                                                                      ?.toString());
+                                                            } else if ((FFAppState().insuranceInfoBirthDate !=
+                                                                        null &&
+                                                                    FFAppState().insuranceInfoBirthDate !=
+                                                                        '') &&
+                                                                (FFAppState()
+                                                                        .insuranceInfoBirthDate !=
+                                                                    '') &&
+                                                                (FFAppState()
+                                                                        .insuranceInfoBirthDate !=
+                                                                    '')) {
+                                                              return functions
+                                                                  .showDateBE(
+                                                                      FFAppState()
+                                                                          .insuranceInfoBirthDate);
+                                                            } else {
+                                                              return 'กรุณาเลือก วัน/เดือน/ปี เกิด';
+                                                            }
+                                                          }(),
+                                                          'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: _model
+                                                                              .datePicked !=
+                                                                          null
+                                                                      ? FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText
+                                                                      : Color(
+                                                                          0xFF9F9F9F),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons
+                                                            .edit_calendar_outlined,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'อายุ',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                  Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: TextFormField(
-                                                      controller: _model
-                                                          .ageTextFieldController,
-                                                      focusNode: _model
-                                                          .ageTextFieldFocusNode,
-                                                      readOnly: true,
-                                                      obscureText: false,
-                                                      decoration:
-                                                          InputDecoration(
-                                                        labelStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                        hintText:
-                                                            'กรุณากรอกอายุ',
-                                                        hintStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFB3B3B3),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                        enabledBorder:
-                                                            InputBorder.none,
-                                                        focusedBorder:
-                                                            InputBorder.none,
-                                                        errorBorder:
-                                                            InputBorder.none,
-                                                        focusedErrorBorder:
-                                                            InputBorder.none,
-                                                      ),
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(อายุมากกว่า 18 ปี)',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -4950,29 +4094,124 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
                                                               ),
-                                                      keyboardType:
-                                                          TextInputType.number,
-                                                      validator: _model
-                                                          .ageTextFieldControllerValidator
-                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 5.0, 0.0, 0.0),
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.37,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xFFF6F6F6),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: TextFormField(
+                                                        controller: _model
+                                                            .ageTextFieldController,
+                                                        focusNode: _model
+                                                            .ageTextFieldFocusNode,
+                                                        readOnly: true,
+                                                        obscureText: false,
+                                                        decoration:
+                                                            InputDecoration(
+                                                          labelStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    fontSize:
+                                                                        15.0,
+                                                                  ),
+                                                          hintText:
+                                                              'กรุณากรอกอายุ',
+                                                          hintStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFFB3B3B3),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                  ),
+                                                          enabledBorder:
+                                                              InputBorder.none,
+                                                          focusedBorder:
+                                                              InputBorder.none,
+                                                          errorBorder:
+                                                              InputBorder.none,
+                                                          focusedErrorBorder:
+                                                              InputBorder.none,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .black600,
+                                                                  fontSize:
+                                                                      15.0,
+                                                                ),
+                                                        keyboardType:
+                                                            TextInputType
+                                                                .number,
+                                                        validator: _model
+                                                            .ageTextFieldControllerValidator
+                                                            .asValidator(
+                                                                context),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 5.0, 0.0, 0.0),
@@ -5081,8 +4320,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
@@ -5259,7 +4498,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -5395,8 +4634,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -5524,7 +4763,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -5644,7 +4883,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -5758,7 +4997,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -5879,7 +5118,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -5899,7 +5138,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.home_outlined,
                                                         color:
@@ -5913,7 +5152,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 ),
                                               ),
                                               if (FFAppState()
-                                                      .addAddressAtIdCard ==
+                                                      .addAddressForDoc ==
                                                   'กรุณากรอกที่อยู่')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5936,7 +5175,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   ),
                                                 ),
                                               if (FFAppState()
-                                                      .addAddressAtIdCard ==
+                                                      .addAddressForDoc ==
                                                   'กรุณากรอกที่อยู่')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5957,20 +5196,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   ),
                                                 ),
                                               if (FFAppState()
-                                                      .addAddressAtIdCard !=
+                                                      .addAddressForDoc !=
                                                   'กรุณากรอกที่อยู่')
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           10.0, 0.0, 0.0, 0.0),
                                                   child: AutoSizeText(
-                                                    FFAppState().addAddressAtIdCard !=
+                                                    FFAppState().addAddressForDoc !=
                                                                 null &&
                                                             FFAppState()
-                                                                    .addAddressAtIdCard !=
+                                                                    .addAddressForDoc !=
                                                                 ''
                                                         ? FFAppState()
-                                                            .addAddressAtIdCard
+                                                            .addAddressForDoc
                                                         : 'กรุณาเพิ่มที่อยู่',
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -5988,7 +5227,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -6001,7 +5240,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     Icons.navigate_next,
                                                     color: FlutterFlowTheme.of(
@@ -6020,902 +5259,858 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                 ),
                               ),
                             ),
-                            Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'กรอกรหัสพนักงานผู้มีบัตรนายหน้า ฯ',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '(บังคับกรอก)',
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 15.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'กรอกรหัสพนักงานผู้มีบัตรนายหน้า ฯ',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFFB0606),
-                                                        fontSize: 12.0,
+                                                        fontSize: 15.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
                                                       ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.55,
-                                                height: 60.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Color(0xFFB3B3B3),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับกรอก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                        ),
                                                   ),
                                                 ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    Expanded(
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.00, 0.00),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                .licenseCodeController,
-                                                            focusNode: _model
-                                                                .licenseCodeFocusNode,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        fontSize:
-                                                                            15.0,
-                                                                      ),
-                                                              hintText:
-                                                                  'กรุณากรอกรหัสพนักงาน',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFFB3B3B3),
-                                                                        fontSize:
-                                                                            15.0,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              errorBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedErrorBorder:
-                                                                  InputBorder
-                                                                      .none,
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.55,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        8.0,
+                                                                        0.0),
+                                                            child:
+                                                                TextFormField(
+                                                              controller: _model
+                                                                  .licenseCodeController,
+                                                              focusNode: _model
+                                                                  .licenseCodeFocusNode,
+                                                              obscureText:
+                                                                  false,
+                                                              decoration:
+                                                                  InputDecoration(
+                                                                labelStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                                hintText:
+                                                                    'กรุณากรอกรหัสพนักงาน',
+                                                                hintStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: Color(
+                                                                          0xFFB3B3B3),
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                                enabledBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                errorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                                focusedErrorBorder:
+                                                                    InputBorder
+                                                                        .none,
+                                                              ),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        15.0,
+                                                                  ),
+                                                              keyboardType:
+                                                                  TextInputType
+                                                                      .number,
+                                                              validator: _model
+                                                                  .licenseCodeControllerValidator
+                                                                  .asValidator(
+                                                                      context),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                            keyboardType:
-                                                                TextInputType
-                                                                    .number,
-                                                            validator: _model
-                                                                .licenseCodeControllerValidator
-                                                                .asValidator(
-                                                                    context),
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    var _shouldSetState = false;
-                                                    await actions
-                                                        .hideKeyboardAction(
-                                                      context,
-                                                    );
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .insuranceInfoHaveLicenseBool =
-                                                          false;
-                                                    });
-                                                    showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
+                                                if (!FFAppState()
+                                                    .addAddressLicenseEmployeeId
+                                                    .contains(FFAppState()
+                                                        .employeeID))
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
                                                           Colors.transparent,
-                                                      enableDrag: false,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                LoadingSceneWidget(),
-                                                          ),
-                                                        ));
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
-
-                                                    if (!(_model.licenseCodeController
-                                                                .text !=
-                                                            null &&
-                                                        _model.licenseCodeController
-                                                                .text !=
-                                                            '')) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'กรุณากรอกรหัสพนักงาน'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
-                                                        },
-                                                      );
-                                                      Navigator.pop(context);
-                                                      if (_shouldSetState)
-                                                        setState(() {});
-                                                      return;
-                                                    }
-                                                    if (FFAppState()
-                                                        .addAddressLicenseEmployeeId
-                                                        .contains(_model
-                                                            .licenseCodeController
-                                                            .text)) {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoHaveLicenseBool =
-                                                            true;
-                                                      });
-                                                    } else {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'เลขพนักงานนี้ไม่มีบัตรนายหน้าประกัน'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
-                                                        },
-                                                      );
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoHaveLicenseBool =
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        var _shouldSetState =
                                                             false;
-                                                      });
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseEmployeeId = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseTitle = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseFirstName = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseLastName = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseLicenseId = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseExpiredDate = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseMobilePhone = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseImg = '';
-                                                        FFAppState()
-                                                            .insuranceInfoLicenseBranch = '';
-                                                      });
-                                                      Navigator.pop(context);
-                                                      if (_shouldSetState)
-                                                        setState(() {});
-                                                      return;
-                                                    }
-
-                                                    _model.profileImgOutput =
-                                                        await GetProfileImageCall
-                                                            .call(
-                                                      employeeCode: _model
-                                                          .licenseCodeController
-                                                          .text,
-                                                      insuranceUrl: FFAppState()
-                                                          .apiUrlInsuranceAppState,
-                                                    );
-                                                    _shouldSetState = true;
-                                                    if ((_model.profileImgOutput
-                                                                ?.statusCode ??
-                                                            200) !=
-                                                        200) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
+                                                        await actions
+                                                            .hideKeyboardAction(
+                                                          context,
+                                                        );
+                                                        setState(() {
+                                                          FFAppState()
+                                                                  .insuranceInfoHaveLicenseBool =
+                                                              false;
+                                                        });
+                                                        showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          enableDrag: false,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
                                                               child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาด (${(_model.profileImgOutput?.statusCode ?? 200).toString()})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      LoadingSceneWidget(),
+                                                                ),
                                                               ),
-                                                            ],
-                                                          ));
-                                                        },
-                                                      );
-                                                      Navigator.pop(context);
-                                                      if (_shouldSetState)
-                                                        setState(() {});
-                                                      return;
-                                                    }
-                                                    if (GetProfileImageCall
-                                                            .statusLayer1(
-                                                          (_model.profileImgOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        200) {
-                                                      await showDialog(
-                                                        context: context,
-                                                        builder:
-                                                            (alertDialogContext) {
-                                                          return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาด (${GetProfileImageCall.statusLayer1(
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+
+                                                        if (!(_model.licenseCodeController
+                                                                    .text !=
+                                                                null &&
+                                                            _model.licenseCodeController
+                                                                    .text !=
+                                                                '')) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'กรุณากรอกรหัสพนักงาน'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          Navigator.pop(
+                                                              context);
+                                                          if (_shouldSetState)
+                                                            setState(() {});
+                                                          return;
+                                                        }
+                                                        if (FFAppState()
+                                                            .addAddressLicenseEmployeeId
+                                                            .contains(_model
+                                                                .licenseCodeController
+                                                                .text)) {
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .insuranceInfoHaveLicenseBool =
+                                                                true;
+                                                          });
+                                                        } else {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'เลขพนักงานนี้ไม่มีบัตรนายหน้าประกัน'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          setState(() {
+                                                            FFAppState()
+                                                                    .insuranceInfoHaveLicenseBool =
+                                                                false;
+                                                          });
+                                                          setState(() {
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseEmployeeId = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseTitle = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseFirstName = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseLastName = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseLicenseId = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseExpiredDate = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseMobilePhone = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseImg = '';
+                                                            FFAppState()
+                                                                .insuranceInfoLicenseBranch = '';
+                                                          });
+                                                          Navigator.pop(
+                                                              context);
+                                                          if (_shouldSetState)
+                                                            setState(() {});
+                                                          return;
+                                                        }
+
+                                                        _model.profileImgOutput =
+                                                            await GetProfileImageCall
+                                                                .call(
+                                                          employeeCode: _model
+                                                              .licenseCodeController
+                                                              .text,
+                                                          insuranceUrl: FFAppState()
+                                                              .apiUrlInsuranceAppState,
+                                                        );
+                                                        _shouldSetState = true;
+                                                        if ((_model.profileImgOutput
+                                                                    ?.statusCode ??
+                                                                200) !=
+                                                            200) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'พบข้อผิดพลาด (${(_model.profileImgOutput?.statusCode ?? 200).toString()})'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          Navigator.pop(
+                                                              context);
+                                                          if (_shouldSetState)
+                                                            setState(() {});
+                                                          return;
+                                                        }
+                                                        if (GetProfileImageCall
+                                                                .statusLayer1(
                                                               (_model.profileImgOutput
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString()})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
+                                                            ) !=
+                                                            200) {
+                                                          await showDialog(
+                                                            context: context,
+                                                            builder:
+                                                                (alertDialogContext) {
+                                                              return WebViewAware(
                                                                 child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
-                                                        },
-                                                      );
-                                                      Navigator.pop(context);
-                                                      if (_shouldSetState)
-                                                        setState(() {});
-                                                      return;
-                                                    }
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseEmployeeId =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseTitle =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseTitle
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseFirstName =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseFirstName
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseLastName =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseLastName
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseLicenseId =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseLicenseId
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseExpiredDate =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseExpiredDate
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseMobilePhone =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addAddressLicenseMobilePhone
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseImg =
-                                                          GetProfileImageCall
-                                                              .imgProfile(
-                                                        (_model.profileImgOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString();
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseBranch =
-                                                          functions.findIndexOfList(
-                                                              FFAppState()
-                                                                  .addAddressLicenseEmployeeId
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .addaddresslicensenBranch
-                                                                  .toList(),
-                                                              _model
-                                                                  .licenseCodeController
-                                                                  .text)!;
-                                                    });
-                                                    Navigator.pop(context);
-                                                    if (_shouldSetState)
-                                                      setState(() {});
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.37,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFFCEFE4),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              16.0),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Icon(
-                                                              Icons.search,
-                                                              color: Color(
-                                                                  0xFFD9761A),
-                                                              size: 20.0,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      GetProfileImageCall
+                                                                          .messageLayer1(
+                                                                    (_model.profileImgOutput
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )!),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+                                                            },
+                                                          );
+                                                          Navigator.pop(
+                                                              context);
+                                                          if (_shouldSetState)
+                                                            setState(() {});
+                                                          return;
+                                                        }
+                                                        setState(() {
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseEmployeeId =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseTitle =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseFirstName =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseLastName =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseLicenseId =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseExpiredDate =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseMobilePhone =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeController.text)}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseImg =
+                                                              '${GetProfileImageCall.imgProfile(
+                                                            (_model.profileImgOutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}';
+                                                          FFAppState()
+                                                                  .insuranceInfoLicenseBranch =
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeController.text)}';
+                                                        });
+                                                        Navigator.pop(context);
+                                                        if (_shouldSetState)
+                                                          setState(() {});
+                                                      },
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.37,
+                                                        height: 60.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              Color(0xFFFCEFE4),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  -1.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Icon(
+                                                                  Icons.search,
+                                                                  color: Color(
+                                                                      0xFFD9761A),
+                                                                  size: 20.0,
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              child: Text(
-                                                                'ค้นหา',
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .start,
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Sans Thai',
-                                                                      color: Color(
-                                                                          0xFFD9761A),
-                                                                      fontSize:
-                                                                          14.0,
-                                                                    ),
-                                                              ),
+                                                                  child: Text(
+                                                                    'ค้นหา',
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFFD9761A),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                          ],
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                if (FFAppState().insuranceInfoHaveLicenseBool ||
-                                    ((FFAppState().insuranceInfoLicenseEmployeeId !=
-                                                null &&
-                                            FFAppState()
-                                                    .insuranceInfoLicenseEmployeeId !=
-                                                '') &&
-                                        (FFAppState()
-                                                .insuranceInfoLicenseEmployeeId !=
-                                            '')))
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 15.0, 0.0, 15.0),
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      elevation: 1.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                  if (FFAppState()
+                                          .insuranceInfoHaveLicenseBool ||
+                                      ((FFAppState().insuranceInfoLicenseEmployeeId !=
+                                                  null &&
+                                              FFAppState()
+                                                      .insuranceInfoLicenseEmployeeId !=
+                                                  '') &&
+                                          (FFAppState()
+                                                  .insuranceInfoLicenseEmployeeId !=
+                                              '')))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 15.0),
+                                      child: Material(
+                                        color: Colors.transparent,
+                                        elevation: 1.0,
+                                        shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFE6E6E6),
-                                          ),
                                         ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 10.0, 20.0, 10.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.064,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFE6E6E6),
                                             ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 15.0, 15.0, 15.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Container(
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          0.6,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            'ชื่อผู้ถือบัตร',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            '${FFAppState().insuranceInfoLicenseTitle}${FFAppState().insuranceInfoLicenseFirstName} ${FFAppState().insuranceInfoLicenseLastName}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w800,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            'หมายเลขบัตรประกันวินาศภัย',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                ),
-                                                          ),
-                                                          Text(
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseLicenseId,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFF1D4774),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w800,
-                                                                ),
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.25,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  'วันหมดอายุ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFF1D4774),
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  FFAppState()
-                                                                      .insuranceInfoLicenseExpiredDate,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFF1D4774),
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w800,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Container(
-                                                                width: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .width *
-                                                                    0.25,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  'เบอร์โทร',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFF1D4774),
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                              Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  FFAppState()
-                                                                      .insuranceInfoLicenseMobilePhone,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFF1D4774),
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w800,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Flexible(
-                                                      child: Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.00, -1.00),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 10.0, 20.0, 10.0),
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.064,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(15.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.6,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                        ),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
                                                           children: [
-                                                            Container(
-                                                              height: 60.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            0.0),
-                                                              ),
-                                                              child: Container(
-                                                                width: 120.0,
-                                                                height: 120.0,
-                                                                clipBehavior: Clip
-                                                                    .antiAlias,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
+                                                            Text(
+                                                              'ชื่อผู้ถือบัตร',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFF1D4774),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              '${FFAppState().insuranceInfoLicenseTitle}${FFAppState().insuranceInfoLicenseFirstName} ${FFAppState().insuranceInfoLicenseLastName}',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFF1D4774),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              'หมายเลขบัตรประกันวินาศภัย',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFF1D4774),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                  ),
+                                                            ),
+                                                            Text(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseLicenseId,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: Color(
+                                                                        0xFF1D4774),
+                                                                    fontSize:
+                                                                        15.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w800,
+                                                                  ),
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Container(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.25,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  child: Text(
+                                                                    'วันหมดอายุ',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF1D4774),
+                                                                          fontSize:
+                                                                              15.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
                                                                 ),
-                                                                child: Image
-                                                                    .network(
-                                                                  'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
-                                                                  fit: BoxFit
-                                                                      .cover,
+                                                                Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  child: Text(
+                                                                    FFAppState()
+                                                                        .insuranceInfoLicenseExpiredDate,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF1D4774),
+                                                                          fontSize:
+                                                                              15.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w800,
+                                                                        ),
+                                                                  ),
                                                                 ),
-                                                              ),
+                                                              ],
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Container(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      0.25,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  child: Text(
+                                                                    'เบอร์โทร',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF1D4774),
+                                                                          fontWeight:
+                                                                              FontWeight.w500,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondaryBackground,
+                                                                  ),
+                                                                  child: Text(
+                                                                    FFAppState()
+                                                                        .insuranceInfoLicenseMobilePhone,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF1D4774),
+                                                                          fontSize:
+                                                                              15.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w800,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ],
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                      Flexible(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              Container(
+                                                                height: 60.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              0.0),
+                                                                ),
+                                                                child:
+                                                                    Container(
+                                                                  width: 120.0,
+                                                                  height: 120.0,
+                                                                  clipBehavior:
+                                                                      Clip.antiAlias,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Image
+                                                                      .network(
+                                                                    'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74&_gl=1*ualx7r*_ga*OTc3MzI3NDY5LjE2NzU2NzMwNDE.*_ga_CW55HF8NVT*MTY5NjMyNzI4MS4yMzguMS4xNjk2MzI3MzEyLjI5LjAuMA..',
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -6923,9 +6118,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                         ),
                                       ),
                                     ),
-                                  ),
-                              ],
-                            ),
+                                ],
+                              ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
@@ -6947,501 +6141,989 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                           FFButtonWidget(
                                             onPressed: () async {
                                               var _shouldSetState = false;
-                                              await actions.hideKeyboardAction(
-                                                context,
-                                              );
                                               if (FFAppState()
-                                                      .insuranceInfoSelectOccupationCode ==
-                                                  'JB999') {
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoSelectOccupationSubNameChoose =
-                                                      _model
-                                                          .cusOcputationTextFieldController
-                                                          .text;
-                                                });
-                                              }
-                                              if (!((FFAppState()
-                                                              .insuranceInfoLicenseLicenseId !=
-                                                          null &&
-                                                      FFAppState()
-                                                              .insuranceInfoLicenseLicenseId !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoLicenseLicenseId !=
-                                                      '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoLicenseLicenseId !=
-                                                      '') &&
-                                                  (_model.licenseCodeController
-                                                              .text !=
-                                                          null &&
-                                                      _model.licenseCodeController
-                                                              .text !=
-                                                          ''))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกเลขผู้มีบัตรนายหน้าประกัน'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
+                                                      .insuranceinfoActType !=
+                                                  'CMI') {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
                                                 );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((FFAppState()
-                                                              .insuranceInfoCardType !=
-                                                          null &&
-                                                      FFAppState()
-                                                              .insuranceInfoCardType !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoCardType !=
-                                                      '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoCardType !=
-                                                      'เลือกประเภทบัตร'))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับเลือกประเภทบัตร'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((_model.idCardTextFieldController1
-                                                              .text !=
-                                                          null &&
-                                                      _model.idCardTextFieldController1
-                                                              .text !=
-                                                          '') ||
-                                                  (_model.idCardTextFieldController2
-                                                              .text !=
-                                                          null &&
-                                                      _model.idCardTextFieldController2
-                                                              .text !=
-                                                          ''))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกเลขบัตร'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((FFAppState()
-                                                              .insuranceInfoGender !=
-                                                          null &&
-                                                      FFAppState()
-                                                              .insuranceInfoGender !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoGender !=
-                                                      '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoGender !=
-                                                      'เลือกเพศ'))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับเลือกเพศ'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((FFAppState()
-                                                              .insuranceInfoTitle !=
-                                                          null &&
-                                                      FFAppState()
-                                                              .insuranceInfoTitle !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoTitle !=
-                                                      '') &&
-                                                  !functions.containWordinStringUrl(
-                                                      'เลือก',
-                                                      FFAppState()
-                                                          .insuranceInfoTitle)!)) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับเลือกคำนำหน้า'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((FFAppState()
-                                                              .insuranceInfoOccupationGroup !=
-                                                          null &&
-                                                      FFAppState()
-                                                              .insuranceInfoOccupationGroup !=
-                                                          '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoOccupationGroup !=
-                                                      '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoOccupationGroup !=
-                                                      'เลือกกลุ่มอาชีพ'))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับเลือกกลุ่มอาชีพ'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(_model.cusNameTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.cusNameTextFieldController
-                                                          .text !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกชื่อ'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(_model.cusLastnameTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.cusLastnameTextFieldController
-                                                          .text !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกนามสกุล'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(FFAppState()
-                                                          .insuranceInfoSelectOccupationSubNameChoose !=
-                                                      null &&
-                                                  FFAppState()
-                                                          .insuranceInfoSelectOccupationSubNameChoose !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกอาชีพ'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(_model.cusPhoneTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.cusPhoneTextFieldController
-                                                          .text !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกเบอร์โทรศัพท์'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(_model.ageTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.ageTextFieldController
-                                                          .text !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอก วัน/เดือน/ปี เกิด'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(FFAppState()
-                                                          .addAddressAtIdCard !=
-                                                      null &&
-                                                  FFAppState()
-                                                          .addAddressAtIdCard !=
-                                                      '')) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับเลือกที่อยู่'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!(functions.checkIdCardInput(
-                                                      functions
-                                                          .removeCommaFromNumText(
-                                                              _model
-                                                                  .idCardTextFieldController1
-                                                                  .text)) ||
-                                                  ((FFAppState()
-                                                              .insuranceInfoCardType !=
-                                                          'บัตรประชาชน') ||
-                                                      (FFAppState()
-                                                              .insuranceInfoCardType !=
-                                                          '1')))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'กรุณากรอกเลขบัตร 13 หลัก'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (!((CheckBlackListCall
-                                                          .blacklistflag(
-                                                        (_model.checkBlackListOutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString() ==
-                                                      'N') ||
-                                                  (CheckBlackListCall
-                                                          .blacklistflag(
-                                                        (_model.checkBlackListOutput2
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString() ==
-                                                      'N'))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'กรุณากดตรวจสอบรายชื่อบัตร'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (_model.emailTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.emailTextFieldController
-                                                          .text !=
-                                                      '') {
-                                                if (!functions.validateEmail(
-                                                    _model
-                                                        .emailTextFieldController
-                                                        .text)!) {
+                                                if (FFAppState()
+                                                        .insuranceInfoSelectOccupationCode ==
+                                                    'JB999') {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose =
+                                                        _model
+                                                            .cusOcputationTextFieldController
+                                                            .text;
+                                                  });
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoLicenseLicenseId !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseLicenseId !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoLicenseLicenseId !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoLicenseLicenseId !=
+                                                        '') &&
+                                                    (_model.licenseCodeController
+                                                                .text !=
+                                                            null &&
+                                                        _model.licenseCodeController
+                                                                .text !=
+                                                            ''))) {
                                                   await showDialog(
                                                     context: context,
                                                     builder:
                                                         (alertDialogContext) {
                                                       return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขผู้มีบัตรนายหน้าประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoCardType !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoCardType !=
+                                                        'เลือกประเภทบัตร'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกประเภทบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((_model.idCardTextFieldController1
+                                                                .text !=
+                                                            null &&
+                                                        _model.idCardTextFieldController1
+                                                                .text !=
+                                                            '') ||
+                                                    (_model.idCardTextFieldController2
+                                                                .text !=
+                                                            null &&
+                                                        _model.idCardTextFieldController2
+                                                                .text !=
+                                                            ''))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoGender !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoGender !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoGender !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoGender !=
+                                                        'เลือกเพศ'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกเพศ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoTitle !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoTitle !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoTitle !=
+                                                        '') &&
+                                                    !functions
+                                                        .containWordinStringUrl(
+                                                            'เลือก',
+                                                            FFAppState()
+                                                                .insuranceInfoTitle)!)) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกคำนำหน้า'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoOccupationGroup !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoOccupationGroup !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoOccupationGroup !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoOccupationGroup !=
+                                                        'เลือกกลุ่มอาชีพ'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกกลุ่มอาชีพ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusNameTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusNameTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกชื่อ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusLastnameTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusLastnameTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกนามสกุล'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกอาชีพ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusPhoneTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusPhoneTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเบอร์โทรศัพท์'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.ageTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.ageTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอก วัน/เดือน/ปี เกิด'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .addAddressAtIdCard !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .addAddressAtIdCard !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกที่อยู่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .addAddressForDoc !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .addAddressForDoc !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกที่อยู่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(functions.checkIdCardInput(
+                                                        functions
+                                                            .removeCommaFromNumText(
+                                                                _model
+                                                                    .idCardTextFieldController1
+                                                                    .text)) ||
+                                                    ((FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            'บัตรประชาชน') ||
+                                                        (FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            '1')))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณากรอกเลขบัตร 13 หลัก'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((CheckBlackListCall
+                                                            .blacklistflag(
+                                                          (_model.checkBlackListOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) ==
+                                                        'N') ||
+                                                    (CheckBlackListCall
+                                                            .blacklistflag(
+                                                          (_model.checkBlackListOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) ==
+                                                        'N'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณากดตรวจสอบเลขบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (_model.emailTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.emailTextFieldController
+                                                            .text !=
+                                                        '') {
+                                                  if (!functions.validateEmail(
+                                                      _model
+                                                          .emailTextFieldController
+                                                          .text)!) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
                                                           child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณากรอกอีเมลให้ถูกต้อง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              LoadingSceneWidget(),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+
+                                                setState(() {
+                                                  FFAppState()
+                                                      .insuranceInfoIdCard = (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'บัตรประชาชน') ||
+                                                          (FFAppState().insuranceInfoCardType ==
+                                                              '1')
+                                                      ? _model
+                                                          .idCardTextFieldController1
+                                                          .text
+                                                      : _model
+                                                          .idCardTextFieldController2
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoFirstName =
+                                                      _model
+                                                          .cusNameTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoLastName =
+                                                      _model
+                                                          .cusLastnameTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoBirthDate =
+                                                      valueOrDefault<String>(
+                                                    () {
+                                                      if (_model.datePicked !=
+                                                          null) {
+                                                        return dateTimeFormat(
+                                                          'y-MM-dd',
+                                                          _model.datePicked,
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        );
+                                                      } else if (FFAppState()
+                                                                  .insuranceInfoBirthDate !=
+                                                              null &&
+                                                          FFAppState()
+                                                                  .insuranceInfoBirthDate !=
+                                                              '') {
+                                                        return FFAppState()
+                                                            .insuranceInfoBirthDate;
+                                                      } else {
+                                                        return '';
+                                                      }
+                                                    }(),
+                                                    'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                  );
+                                                  FFAppState()
+                                                          .insuranceInfoPhonenumber =
+                                                      _model
+                                                          .cusPhoneTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoOtherPhone =
+                                                      _model
+                                                          .cusPhoneOtherTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoEmail =
+                                                      _model
+                                                          .emailTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoAge =
+                                                      _model
+                                                          .ageTextFieldController
+                                                          .text;
+                                                });
+                                                _model.ibsAppSaveAPIoutput =
+                                                    await IbsApplicationsSaveCall
+                                                        .call(
+                                                  action: 'save_draft',
+                                                  quotationId: FFAppState()
+                                                      .insuranceInfoQuotationId,
+                                                  leadDtlId: FFAppState()
+                                                      .insuranceInfoLeadDetailId,
+                                                  idTypeId: (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'บัตรประชาชน') ||
+                                                          (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              '1')
+                                                      ? '1'
+                                                      : '2',
+                                                  nationalThaiId: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoIdCard),
+                                                  gender: FFAppState()
+                                                              .insuranceInfoGender ==
+                                                          'ชาย'
+                                                      ? 'MALE'
+                                                      : 'FEMALE',
+                                                  titleThId: '',
+                                                  titleTh: FFAppState()
+                                                      .insuranceInfoTitle,
+                                                  firstNameTh: FFAppState()
+                                                      .insuranceInfoFirstName,
+                                                  lastNameTh: FFAppState()
+                                                      .insuranceInfoLastName,
+                                                  birthDay: FFAppState()
+                                                      .insuranceInfoBirthDate,
+                                                  occupationId: '',
+                                                  occupationCode: FFAppState()
+                                                      .insuranceInfoSelectOccupationCode,
+                                                  occupationName: FFAppState()
+                                                      .insuranceInfoOccupationGroup,
+                                                  occupationSubcode: '',
+                                                  occupationSubname: FFAppState()
+                                                      .insuranceInfoSelectOccupationSubNameChoose,
+                                                  mobile1: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoPhonenumber),
+                                                  mobile2: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoOtherPhone),
+                                                  email1: FFAppState()
+                                                      .insuranceInfoEmail,
+                                                  addressJson: getJsonField(
+                                                    FFAppState()
+                                                            .addAddressAtIdCardBool
+                                                        ? getJsonField(
+                                                            functions.sendJsonDataAddress(
+                                                                FFAppState()
+                                                                    .insuranceInfoAddressType
+                                                                    .toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2,
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode,
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard,
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard)
+                                                                    ?.toList()),
+                                                            r'''$''',
+                                                          )
+                                                        : getJsonField(
+                                                            functions.sendJsonDataAddress(
+                                                                FFAppState()
+                                                                    .insuranceInfoAddressType
+                                                                    .toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2,
+                                                                        FFAppState()
+                                                                            .addAddressForDoc2)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocSubdistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocSubdistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocDistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocDistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocProvinceId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocProvinceName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocZipCode)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard,
+                                                                        FFAppState()
+                                                                            .addAddressForDoc)
+                                                                    ?.toList()),
+                                                            r'''$''',
+                                                          ),
+                                                    r'''$''',
+                                                  ),
+                                                  insuranceUrl: FFAppState()
+                                                      .apiUrlInsuranceAppState,
+                                                  step: '1',
+                                                  employeeCodeLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseEmployeeId),
+                                                  employeeFirstnameLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseFirstName),
+                                                  employeeLastnameLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLastName),
+                                                  employeeBranchLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseBranch),
+                                                  employeeLicenseIDLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLicenseId),
+                                                  employeeLicenseImgLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseImg),
+                                                  employeeLicenseExpLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseExpiredDate),
+                                                  employeePhoneNumberLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseMobilePhone),
+                                                  token:
+                                                      FFAppState().accessToken,
+                                                  quotationType: FFAppState()
+                                                      .insuranceInfoApplicationType,
+                                                  subProduct: FFAppState()
+                                                      .insuranceinfoActType,
+                                                );
+                                                _shouldSetState = true;
+                                                if ((_model.ibsAppSaveAPIoutput
+                                                            ?.statusCode ??
+                                                        200) !=
+                                                    200) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'พบข้อผิดพลาด (${(_model.ibsAppSaveAPIoutput?.statusCode ?? 200).toString()})'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  Navigator.pop(context);
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (IbsApplicationsSaveCall
+                                                        .statuslayer1(
+                                                      (_model.ibsAppSaveAPIoutput
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) !=
+                                                    200) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              IbsApplicationsSaveCall
+                                                                  .messageLayer1(
+                                                            (_model.ibsAppSaveAPIoutput
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  Navigator.pop(context);
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
                                                         content: Text(
-                                                            'กรุณากรอกอีเมลให้ถูกต้อง'),
+                                                            'บันทึกเตรียมข้อมูลขั้นตอนที่ 1 สำเร็จ'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () =>
@@ -7450,428 +7132,944 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             child: Text('Ok'),
                                                           ),
                                                         ],
-                                                      ));
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                setState(() {
+                                                  FFAppState()
+                                                          .insuranceInfoPage1SaveDataCheckBool =
+                                                      true;
+                                                });
+                                                Navigator.pop(context);
+                                              } else {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                                if (FFAppState()
+                                                        .insuranceInfoSelectOccupationCode ==
+                                                    'JB999') {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose =
+                                                        _model
+                                                            .cusOcputationTextFieldController
+                                                            .text;
+                                                  });
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoCardType !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoCardType !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoCardType !=
+                                                        'เลือกประเภทบัตร'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกประเภทบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
                                                     },
                                                   );
                                                   if (_shouldSetState)
                                                     setState(() {});
                                                   return;
                                                 }
-                                              }
-                                              showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                      child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          LoadingSceneWidget(),
-                                                    ),
-                                                  ));
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-
-                                              setState(() {
-                                                FFAppState()
-                                                    .insuranceInfoIdCard = (FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            'บัตรประชาชน') ||
-                                                        (FFAppState().insuranceInfoCardType ==
-                                                            '1')
-                                                    ? _model
-                                                        .idCardTextFieldController1
-                                                        .text
-                                                    : _model
-                                                        .idCardTextFieldController2
-                                                        .text;
-                                                FFAppState()
-                                                        .insuranceInfoFirstName =
-                                                    _model
-                                                        .cusNameTextFieldController
-                                                        .text;
-                                                FFAppState()
-                                                        .insuranceInfoLastName =
-                                                    _model
-                                                        .cusLastnameTextFieldController
-                                                        .text;
-                                                FFAppState()
-                                                        .insuranceInfoBirthDate =
-                                                    valueOrDefault<String>(
-                                                  () {
-                                                    if (_model.datePicked !=
-                                                        null) {
-                                                      return dateTimeFormat(
-                                                        'y-MM-dd',
-                                                        _model.datePicked,
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .languageCode,
+                                                if (!((_model.idCardTextFieldController1
+                                                                .text !=
+                                                            null &&
+                                                        _model.idCardTextFieldController1
+                                                                .text !=
+                                                            '') ||
+                                                    (_model.idCardTextFieldController2
+                                                                .text !=
+                                                            null &&
+                                                        _model.idCardTextFieldController2
+                                                                .text !=
+                                                            ''))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       );
-                                                    } else if (FFAppState()
-                                                                .insuranceInfoBirthDate !=
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoGender !=
                                                             null &&
                                                         FFAppState()
-                                                                .insuranceInfoBirthDate !=
-                                                            '') {
-                                                      return FFAppState()
-                                                          .insuranceInfoBirthDate;
-                                                    } else {
-                                                      return '';
-                                                    }
-                                                  }(),
-                                                  'กรุณาเลือก วัน/เดือน/ปี เกิด',
-                                                );
-                                                FFAppState()
-                                                        .insuranceInfoPhonenumber =
-                                                    _model
-                                                        .cusPhoneTextFieldController
-                                                        .text;
-                                                FFAppState()
-                                                        .insuranceInfoOtherPhone =
-                                                    _model
-                                                        .cusPhoneOtherTextFieldController
-                                                        .text;
-                                                FFAppState()
-                                                        .insuranceInfoEmail =
-                                                    _model
-                                                        .emailTextFieldController
-                                                        .text;
-                                                FFAppState().insuranceInfoAge =
-                                                    _model
-                                                        .ageTextFieldController
-                                                        .text;
-                                              });
-                                              _model.ibsAppSaveAPIoutput =
-                                                  await IbsApplicationsSaveCall
-                                                      .call(
-                                                action: 'save_draft',
-                                                quotationId: FFAppState()
-                                                    .insuranceInfoQuotationId,
-                                                leadDtlId: FFAppState()
-                                                    .insuranceInfoLeadDetailId,
-                                                idTypeId: (FFAppState()
-                                                                .insuranceInfoCardType ==
+                                                                .insuranceInfoGender !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoGender !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoGender !=
+                                                        'เลือกเพศ'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกเพศ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoTitle !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoTitle !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoTitle !=
+                                                        '') &&
+                                                    !functions
+                                                        .containWordinStringUrl(
+                                                            'เลือก',
+                                                            FFAppState()
+                                                                .insuranceInfoTitle)!)) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกคำนำหน้า'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((FFAppState()
+                                                                .insuranceInfoOccupationGroup !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoOccupationGroup !=
+                                                            '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoOccupationGroup !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoOccupationGroup !=
+                                                        'เลือกกลุ่มอาชีพ'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกกลุ่มอาชีพ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusNameTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusNameTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกชื่อ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusLastnameTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusLastnameTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกนามสกุล'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกอาชีพ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.cusPhoneTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.cusPhoneTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเบอร์โทรศัพท์'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .addAddressAtIdCard !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .addAddressAtIdCard !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกที่อยู่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .addAddressForDoc !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .addAddressForDoc !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกที่อยู่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(functions.checkIdCardInput(
+                                                        functions
+                                                            .removeCommaFromNumText(
+                                                                _model
+                                                                    .idCardTextFieldController1
+                                                                    .text)) ||
+                                                    ((FFAppState()
+                                                                .insuranceInfoCardType !=
                                                             'บัตรประชาชน') ||
                                                         (FFAppState()
-                                                                .insuranceInfoCardType ==
-                                                            '1')
-                                                    ? '1'
-                                                    : '2',
-                                                nationalThaiId: functions
-                                                    .removeCommaFromNumText(
-                                                        FFAppState()
-                                                            .insuranceInfoIdCard),
-                                                gender: FFAppState()
-                                                            .insuranceInfoGender ==
-                                                        'ชาย'
-                                                    ? 'MALE'
-                                                    : 'FEMALE',
-                                                titleThId: '',
-                                                titleTh: FFAppState()
-                                                    .insuranceInfoTitle,
-                                                firstNameTh: FFAppState()
-                                                    .insuranceInfoFirstName,
-                                                lastNameTh: FFAppState()
-                                                    .insuranceInfoLastName,
-                                                birthDay: FFAppState()
-                                                    .insuranceInfoBirthDate,
-                                                occupationId: '',
-                                                occupationCode: FFAppState()
-                                                    .insuranceInfoSelectOccupationCode,
-                                                occupationName: FFAppState()
-                                                    .insuranceInfoOccupationGroup,
-                                                occupationSubcode: '',
-                                                occupationSubname: FFAppState()
-                                                    .insuranceInfoSelectOccupationSubNameChoose,
-                                                mobile1: functions
-                                                    .removeCommaFromNumText(
-                                                        FFAppState()
-                                                            .insuranceInfoPhonenumber),
-                                                mobile2: functions
-                                                    .removeCommaFromNumText(
-                                                        FFAppState()
-                                                            .insuranceInfoOtherPhone),
-                                                email1: FFAppState()
-                                                    .insuranceInfoEmail,
-                                                addressJson: getJsonField(
-                                                  FFAppState()
-                                                          .addAddressAtIdCardBool
-                                                      ? getJsonField(
-                                                          functions.sendJsonDataAddress(
-                                                              FFAppState()
-                                                                  .insuranceInfoAddressType
-                                                                  .toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard2,
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard2)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictId,
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictName,
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictId,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictName,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceId,
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceName,
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectZipCode,
-                                                                      FFAppState()
-                                                                          .addAddressSelectZipCode)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard,
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard)
-                                                                  ?.toList()),
-                                                          r'''$''',
-                                                        )
-                                                      : getJsonField(
-                                                          functions.sendJsonDataAddress(
-                                                              FFAppState()
-                                                                  .insuranceInfoAddressType
-                                                                  .toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard2,
-                                                                      FFAppState()
-                                                                          .addAddressForDoc2)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictId,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDocSubdistrictId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectSubdistrictName,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDocSubdistrictName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictId,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDocDistrictId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectDistrictName,
-                                                                      FFAppState()
-                                                                          .addAdressSelectDocDistrictName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceId,
-                                                                      FFAppState()
-                                                                          .addAdressSelectDocProvinceId)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectProvinceName,
-                                                                      FFAppState()
-                                                                          .addAdressSelectDocProvinceName)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressSelectZipCode,
-                                                                      FFAppState()
-                                                                          .addAddressSelectDocZipCode)
-                                                                  ?.toList(),
-                                                              functions
-                                                                  .addStringToList2Index(
-                                                                      FFAppState()
-                                                                          .addAddressAtIdCard,
-                                                                      FFAppState()
-                                                                          .addAddressForDoc)
-                                                                  ?.toList()),
-                                                          r'''$''',
-                                                        ),
-                                                  r'''$''',
-                                                ),
-                                                insuranceUrl: FFAppState()
-                                                    .apiUrlInsuranceAppState,
-                                                step: '1',
-                                                employeeCodeLicense: FFAppState()
-                                                    .insuranceInfoLicenseEmployeeId,
-                                                employeeFirstnameLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseFirstName,
-                                                employeeLastnameLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseLastName,
-                                                employeeBranchLicense: FFAppState()
-                                                    .insuranceInfoLicenseBranch,
-                                                employeeLicenseIDLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseLicenseId,
-                                                employeeLicenseImgLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseImg,
-                                                employeeLicenseExpLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseExpiredDate,
-                                                employeePhoneNumberLicense:
-                                                    FFAppState()
-                                                        .insuranceInfoLicenseMobilePhone,
-                                                token: FFAppState().accessToken,
-                                                quotationType: FFAppState()
-                                                    .insuranceInfoApplicationType,
-                                              );
-                                              _shouldSetState = true;
-                                              if ((_model.ibsAppSaveAPIoutput
-                                                          ?.statusCode ??
-                                                      200) !=
-                                                  200) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
+                                                                .insuranceInfoCardType !=
+                                                            '1')))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
                                                         child: AlertDialog(
-                                                      content: Text(
-                                                          'พบข้อผิดพลาด (${(_model.ibsAppSaveAPIoutput?.statusCode ?? 200).toString()})'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
+                                                          content: Text(
+                                                              'กรุณากรอกเลขบัตร 13 หลัก'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                Navigator.pop(context);
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              if (IbsApplicationsSaveCall
-                                                      .statuslayer1(
-                                                    (_model.ibsAppSaveAPIoutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ) !=
-                                                  200) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!((CheckBlackListCall
+                                                            .blacklistflag(
+                                                          (_model.checkBlackListOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) ==
+                                                        'N') ||
+                                                    (CheckBlackListCall
+                                                            .blacklistflag(
+                                                          (_model.checkBlackListOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) ==
+                                                        'N'))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
                                                         child: AlertDialog(
-                                                      content: Text(
-                                                          'พบข้อผิดพลาด (${IbsApplicationsSaveCall.statuslayer1(
-                                                        (_model.ibsAppSaveAPIoutput
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString()})'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
+                                                          content: Text(
+                                                              'กรุณากดตรวจสอบเลขบัตร'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                Navigator.pop(context);
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บันทึกเตรียมข้อมูลขั้นตอนที่ 1 สำเร็จ'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (_model.emailTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.emailTextFieldController
+                                                            .text !=
+                                                        '') {
+                                                  if (!functions.validateEmail(
+                                                      _model
+                                                          .emailTextFieldController
+                                                          .text)!) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณากรอกอีเมลให้ถูกต้อง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              LoadingSceneWidget(),
+                                                        ),
                                                       ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              setState(() {
-                                                FFAppState()
-                                                        .insuranceInfoPage1SaveDataCheckBool =
-                                                    true;
-                                              });
-                                              Navigator.pop(context);
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+
+                                                setState(() {
+                                                  FFAppState()
+                                                      .insuranceInfoIdCard = (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'บัตรประชาชน') ||
+                                                          (FFAppState().insuranceInfoCardType ==
+                                                              '1')
+                                                      ? _model
+                                                          .idCardTextFieldController1
+                                                          .text
+                                                      : _model
+                                                          .idCardTextFieldController2
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoFirstName =
+                                                      _model
+                                                          .cusNameTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoLastName =
+                                                      _model
+                                                          .cusLastnameTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoBirthDate =
+                                                      valueOrDefault<String>(
+                                                    () {
+                                                      if (_model.datePicked !=
+                                                          null) {
+                                                        return dateTimeFormat(
+                                                          'y-MM-dd',
+                                                          _model.datePicked,
+                                                          locale:
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .languageCode,
+                                                        );
+                                                      } else if (FFAppState()
+                                                                  .insuranceInfoBirthDate !=
+                                                              null &&
+                                                          FFAppState()
+                                                                  .insuranceInfoBirthDate !=
+                                                              '') {
+                                                        return FFAppState()
+                                                            .insuranceInfoBirthDate;
+                                                      } else {
+                                                        return '';
+                                                      }
+                                                    }(),
+                                                    'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                  );
+                                                  FFAppState()
+                                                          .insuranceInfoPhonenumber =
+                                                      _model
+                                                          .cusPhoneTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoOtherPhone =
+                                                      _model
+                                                          .cusPhoneOtherTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoEmail =
+                                                      _model
+                                                          .emailTextFieldController
+                                                          .text;
+                                                  FFAppState()
+                                                          .insuranceInfoAge =
+                                                      _model
+                                                          .ageTextFieldController
+                                                          .text;
+                                                });
+                                                _model.ibsAppSaveAPIoutputCMI =
+                                                    await IbsApplicationsSaveCall
+                                                        .call(
+                                                  action: 'save_draft',
+                                                  quotationId: FFAppState()
+                                                      .insuranceInfoQuotationId,
+                                                  leadDtlId: FFAppState()
+                                                      .insuranceInfoLeadDetailId,
+                                                  idTypeId: (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              'บัตรประชาชน') ||
+                                                          (FFAppState()
+                                                                  .insuranceInfoCardType ==
+                                                              '1')
+                                                      ? '1'
+                                                      : '2',
+                                                  nationalThaiId: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoIdCard),
+                                                  gender: FFAppState()
+                                                              .insuranceInfoGender ==
+                                                          'ชาย'
+                                                      ? 'MALE'
+                                                      : 'FEMALE',
+                                                  titleThId: '',
+                                                  titleTh: FFAppState()
+                                                      .insuranceInfoTitle,
+                                                  firstNameTh: FFAppState()
+                                                      .insuranceInfoFirstName,
+                                                  lastNameTh: FFAppState()
+                                                      .insuranceInfoLastName,
+                                                  birthDay: '',
+                                                  occupationId: '',
+                                                  occupationCode: FFAppState()
+                                                      .insuranceInfoSelectOccupationCode,
+                                                  occupationName: FFAppState()
+                                                      .insuranceInfoOccupationGroup,
+                                                  occupationSubcode: '',
+                                                  occupationSubname: FFAppState()
+                                                      .insuranceInfoSelectOccupationSubNameChoose,
+                                                  mobile1: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoPhonenumber),
+                                                  mobile2: functions
+                                                      .removeCommaFromNumText(
+                                                          FFAppState()
+                                                              .insuranceInfoOtherPhone),
+                                                  email1: FFAppState()
+                                                      .insuranceInfoEmail,
+                                                  addressJson: getJsonField(
+                                                    FFAppState()
+                                                            .addAddressAtIdCardBool
+                                                        ? getJsonField(
+                                                            functions.sendJsonDataAddress(
+                                                                FFAppState()
+                                                                    .insuranceInfoAddressType
+                                                                    .toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2,
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode,
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard,
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard)
+                                                                    ?.toList()),
+                                                            r'''$''',
+                                                          )
+                                                        : getJsonField(
+                                                            functions.sendJsonDataAddress(
+                                                                FFAppState()
+                                                                    .insuranceInfoAddressType
+                                                                    .toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard2,
+                                                                        FFAppState()
+                                                                            .addAddressForDoc2)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocSubdistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectSubdistrictName,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocSubdistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictId,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocDistrictId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectDistrictName,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocDistrictName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceId,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocProvinceId)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectProvinceName,
+                                                                        FFAppState()
+                                                                            .addAdressSelectDocProvinceName)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressSelectZipCode,
+                                                                        FFAppState()
+                                                                            .addAddressSelectDocZipCode)
+                                                                    ?.toList(),
+                                                                functions
+                                                                    .addStringToList2Index(
+                                                                        FFAppState()
+                                                                            .addAddressAtIdCard,
+                                                                        FFAppState()
+                                                                            .addAddressForDoc)
+                                                                    ?.toList()),
+                                                            r'''$''',
+                                                          ),
+                                                    r'''$''',
+                                                  ),
+                                                  insuranceUrl: FFAppState()
+                                                      .apiUrlInsuranceAppState,
+                                                  step: '1',
+                                                  employeeCodeLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseEmployeeId),
+                                                  employeeFirstnameLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseFirstName),
+                                                  employeeLastnameLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLastName),
+                                                  employeeBranchLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseBranch),
+                                                  employeeLicenseIDLicense: functions
+                                                      .replaceAllTabAndSpace(
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLicenseId),
+                                                  employeeLicenseImgLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseImg),
+                                                  employeeLicenseExpLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseExpiredDate),
+                                                  employeePhoneNumberLicense:
+                                                      functions
+                                                          .replaceAllTabAndSpace(
+                                                              FFAppState()
+                                                                  .insuranceInfoLicenseMobilePhone),
+                                                  token:
+                                                      FFAppState().accessToken,
+                                                  quotationType: FFAppState()
+                                                      .insuranceInfoApplicationType,
+                                                  subProduct: FFAppState()
+                                                      .insuranceinfoActType,
+                                                );
+                                                _shouldSetState = true;
+                                                if ((_model.ibsAppSaveAPIoutputCMI
+                                                            ?.statusCode ??
+                                                        200) !=
+                                                    200) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'พบข้อผิดพลาด (${(_model.ibsAppSaveAPIoutputCMI?.statusCode ?? 200).toString()})'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  Navigator.pop(context);
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (IbsApplicationsSaveCall
+                                                        .statuslayer1(
+                                                      (_model.ibsAppSaveAPIoutputCMI
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    ) !=
+                                                    200) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              IbsApplicationsSaveCall
+                                                                  .messageLayer1(
+                                                            (_model.ibsAppSaveAPIoutputCMI
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  Navigator.pop(context);
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'บันทึกเตรียมข้อมูลขั้นตอนที่ 1 สำเร็จ'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                setState(() {
+                                                  FFAppState()
+                                                          .insuranceInfoPage1SaveDataCheckBool =
+                                                      true;
+                                                });
+                                                Navigator.pop(context);
+                                              }
+
                                               if (_shouldSetState)
                                                 setState(() {});
                                             },
@@ -7934,18 +8132,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเลือกประเภทบัตร'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเลือกประเภทบัตร'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -7967,18 +8167,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับกรอกเลขบัตร'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกเลขบัตร'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8000,18 +8202,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเลือกเพศ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเลือกเพศ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8033,18 +8237,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเลือกคำนำหน้า'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเลือกคำนำหน้า'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8066,18 +8272,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเลือกกลุ่มอาชีพ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเลือกกลุ่มอาชีพ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8093,18 +8301,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับกรอกชื่อ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกชื่อ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8120,45 +8330,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับกรอกนามสกุล'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
-                                                      },
-                                                    );
-                                                    return;
-                                                  }
-                                                  if (!(_model.ageTextFieldController
-                                                              .text !=
-                                                          null &&
-                                                      _model.ageTextFieldController
-                                                              .text !=
-                                                          '')) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับเลือก วัน/เดือน/ปี เกิด'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกนามสกุล'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8174,18 +8359,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับกรอกอาชีพ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกอาชีพ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;
@@ -8201,18 +8388,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'บังคับกรอกเบอร์โทรศัพท์'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกเบอร์โทรศัพท์'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     return;

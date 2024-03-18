@@ -4,7 +4,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'call_history_model.dart';
@@ -12,7 +11,7 @@ export 'call_history_model.dart';
 
 class CallHistoryWidget extends StatefulWidget {
   const CallHistoryWidget({
-    Key? key,
+    super.key,
     this.leadCreatedTime,
     this.callStatusList,
     this.historyStatusList,
@@ -21,7 +20,7 @@ class CallHistoryWidget extends StatefulWidget {
     this.reasonNameList,
     this.note,
     this.apiStatusCode,
-  }) : super(key: key);
+  });
 
   final DateTime? leadCreatedTime;
   final List<String>? callStatusList;
@@ -33,7 +32,7 @@ class CallHistoryWidget extends StatefulWidget {
   final int? apiStatusCode;
 
   @override
-  _CallHistoryWidgetState createState() => _CallHistoryWidgetState();
+  State<CallHistoryWidget> createState() => _CallHistoryWidgetState();
 }
 
 class _CallHistoryWidgetState extends State<CallHistoryWidget> {
@@ -63,8 +62,6 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,

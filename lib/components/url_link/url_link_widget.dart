@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -15,14 +14,14 @@ export 'url_link_model.dart';
 
 class UrlLinkWidget extends StatefulWidget {
   const UrlLinkWidget({
-    Key? key,
+    super.key,
     required this.leaveDoc,
-  }) : super(key: key);
+  });
 
   final List<String>? leaveDoc;
 
   @override
-  _UrlLinkWidgetState createState() => _UrlLinkWidgetState();
+  State<UrlLinkWidget> createState() => _UrlLinkWidgetState();
 }
 
 class _UrlLinkWidgetState extends State<UrlLinkWidget>
@@ -57,10 +56,8 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+      padding: EdgeInsets.all(16.0),
       child: Container(
         width: 430.0,
         height: 461.0,
@@ -147,6 +144,9 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                           ),
                         ],
                         controller: _model.tabBarController,
+                        onTap: (i) async {
+                          [() async {}][i]();
+                        },
                       ),
                     ),
                     Expanded(
@@ -213,25 +213,25 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: PDFViewerWidget(
-                                                      pdfUrl: valueOrDefault<
-                                                          String>(
-                                                        functions.showMatNameInList(
-                                                            functions
-                                                                .imgPathToString(
-                                                                    widget
-                                                                        .leaveDoc
-                                                                        ?.toList())
-                                                                .toList(),
-                                                            leavedocIndex),
-                                                        '[leave_name]',
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: PDFViewerWidget(
+                                                        pdfUrl: valueOrDefault<
+                                                            String>(
+                                                          functions.showMatNameInList(
+                                                              functions
+                                                                  .imgPathToString(widget
+                                                                      .leaveDoc
+                                                                      ?.toList())
+                                                                  .toList(),
+                                                              leavedocIndex),
+                                                          '[leave_name]',
+                                                        ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
@@ -244,19 +244,20 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: Container(
-                                                      height: double.infinity,
-                                                      child: ShowimgurlWidget(
-                                                        imgPath:
-                                                            widget.leaveDoc![
-                                                                leavedocIndex],
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: Container(
+                                                        height: double.infinity,
+                                                        child: ShowimgurlWidget(
+                                                          imgPath: widget
+                                                                  .leaveDoc![
+                                                              leavedocIndex],
+                                                        ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));

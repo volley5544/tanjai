@@ -1,7 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/effective_date_picker_component_widget.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,8 +11,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_info_page42_widget.dart' show InsuranceInfoPage42Widget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -29,6 +28,10 @@ class InsuranceInfoPage42Model
   ApiCallResponse? calInstallmentAPIOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Column widget.
   ApiCallResponse? ibsDetailAPIOutputCopy;
+  // Model for infomationCustomer component.
+  late InfomationCustomerModel infomationCustomerModel;
+  // Model for infomationCustomerAct component.
+  late InfomationCustomerActModel infomationCustomerActModel;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Icon widget.
   ApiCallResponse? ibsDetailAPIOutputCopyRefresh;
   // State field(s) for paymentType widget.
@@ -68,10 +71,19 @@ class InsuranceInfoPage42Model
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  @override
+  void initState(BuildContext context) {
+    infomationCustomerModel =
+        createModel(context, () => InfomationCustomerModel());
+    infomationCustomerActModel =
+        createModel(context, () => InfomationCustomerActModel());
+  }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
+    infomationCustomerModel.dispose();
+    infomationCustomerActModel.dispose();
     paymentTypeFocusNode?.dispose();
     paymentTypeController?.dispose();
 

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +13,14 @@ export 'pdf_page_view_component_model.dart';
 
 class PdfPageViewComponentWidget extends StatefulWidget {
   const PdfPageViewComponentWidget({
-    Key? key,
+    super.key,
     required this.pdfUrlList,
-  }) : super(key: key);
+  });
 
   final BannerDataStruct? pdfUrlList;
 
   @override
-  _PdfPageViewComponentWidgetState createState() =>
+  State<PdfPageViewComponentWidget> createState() =>
       _PdfPageViewComponentWidgetState();
 }
 
@@ -52,8 +51,6 @@ class _PdfPageViewComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
@@ -66,7 +63,7 @@ class _PdfPageViewComponentWidgetState
               children: [
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(-0.90, -0.85),
+                    alignment: AlignmentDirectional(-0.9, -0.85),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
@@ -136,7 +133,7 @@ class _PdfPageViewComponentWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 1.00),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 16.0),

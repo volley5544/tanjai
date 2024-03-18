@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'insurance_info_page5_show_policy_model.dart';
@@ -14,14 +13,14 @@ export 'insurance_info_page5_show_policy_model.dart';
 
 class InsuranceInfoPage5ShowPolicyWidget extends StatefulWidget {
   const InsuranceInfoPage5ShowPolicyWidget({
-    Key? key,
+    super.key,
     required this.vmiDocumentUrl,
-  }) : super(key: key);
+  });
 
   final String? vmiDocumentUrl;
 
   @override
-  _InsuranceInfoPage5ShowPolicyWidgetState createState() =>
+  State<InsuranceInfoPage5ShowPolicyWidget> createState() =>
       _InsuranceInfoPage5ShowPolicyWidgetState();
 }
 
@@ -59,17 +58,6 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

@@ -5,7 +5,6 @@ import '/flutter_flow/random_data_util.dart' as random_data;
 import 'call_history_widget.dart' show CallHistoryWidget;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +16,10 @@ class CallHistoryModel extends FlutterFlowModel<CallHistoryWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     expandableController.dispose();
   }

@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'search7_renew1_model.dart';
 export 'search7_renew1_model.dart';
 
 class Search7Renew1Widget extends StatefulWidget {
-  const Search7Renew1Widget({Key? key}) : super(key: key);
+  const Search7Renew1Widget({super.key});
 
   @override
-  _Search7Renew1WidgetState createState() => _Search7Renew1WidgetState();
+  State<Search7Renew1Widget> createState() => _Search7Renew1WidgetState();
 }
 
 class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
@@ -52,15 +51,6 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -1475,15 +1465,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
                                             height: 100.0,
                                             decoration: BoxDecoration(),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1499,9 +1489,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         0.35,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                        EdgeInsets.all(0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
@@ -1651,15 +1639,15 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
                                             height: 100.0,
                                             decoration: BoxDecoration(),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1675,9 +1663,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         0.35,
                                                     height: 40.0,
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
+                                                        EdgeInsets.all(0.0),
                                                     iconPadding:
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,

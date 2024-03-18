@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'input_give_point_page_model.dart';
@@ -11,14 +10,14 @@ export 'input_give_point_page_model.dart';
 
 class InputGivePointPageWidget extends StatefulWidget {
   const InputGivePointPageWidget({
-    Key? key,
+    super.key,
     this.index,
-  }) : super(key: key);
+  });
 
   final int? index;
 
   @override
-  _InputGivePointPageWidgetState createState() =>
+  State<InputGivePointPageWidget> createState() =>
       _InputGivePointPageWidgetState();
 }
 
@@ -51,14 +50,12 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Align(
-          alignment: AlignmentDirectional(0.00, 0.00),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(50.0, 20.0, 50.0, 20.0),
             child: TextFormField(
@@ -136,7 +133,7 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
           ),
         ),
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+          padding: EdgeInsets.all(20.0),
           child: FFButtonWidget(
             onPressed: () {
               print('Button pressed ...');

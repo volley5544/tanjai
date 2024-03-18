@@ -16,7 +16,6 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +31,8 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   String? getBuildVersion;
   // Stores action output result for [Firestore Query - Query a collection] action in insuranceListPage widget.
   BuildVersionRecord? buildVersionQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in insuranceListPage widget.
+  AuthorizationRecord? adminVersionQuery;
   // Stores action output result for [Backend Call - API (insuranceRequestListAPI)] action in insuranceListPage widget.
   ApiCallResponse? getRequestList;
   // State field(s) for searchFirstname widget.
@@ -47,8 +48,10 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();

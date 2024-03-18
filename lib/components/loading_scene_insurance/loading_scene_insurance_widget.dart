@@ -1,17 +1,16 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'loading_scene_insurance_model.dart';
 export 'loading_scene_insurance_model.dart';
 
 class LoadingSceneInsuranceWidget extends StatefulWidget {
-  const LoadingSceneInsuranceWidget({Key? key}) : super(key: key);
+  const LoadingSceneInsuranceWidget({super.key});
 
   @override
-  _LoadingSceneInsuranceWidgetState createState() =>
+  State<LoadingSceneInsuranceWidget> createState() =>
       _LoadingSceneInsuranceWidgetState();
 }
 
@@ -42,8 +41,6 @@ class _LoadingSceneInsuranceWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -56,13 +53,13 @@ class _LoadingSceneInsuranceWidgetState
         children: [
           Expanded(
             child: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Image.asset(
                         'assets/images/Spin-1s-200px_(1).gif',
                         width: 120.0,
@@ -71,7 +68,7 @@ class _LoadingSceneInsuranceWidgetState
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Image.asset(
                         'assets/images/Load-54x54-02.gif',
                         width: 50.0,
@@ -86,7 +83,7 @@ class _LoadingSceneInsuranceWidgetState
           ),
           Expanded(
             child: Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Text(
                 'กำลังอัพโหลดรูปภาพและส่งอีเมลไปยังบริษัทประกัน กระบวนการนี้อาจใช้เวลาสักครู่\nกรุณาอย่าปิดหน้านี้',
                 textAlign: TextAlign.center,

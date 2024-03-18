@@ -10,10 +10,11 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -21,10 +22,15 @@ import 'search_insurance_page_model.dart';
 export 'search_insurance_page_model.dart';
 
 class SearchInsurancePageWidget extends StatefulWidget {
-  const SearchInsurancePageWidget({Key? key}) : super(key: key);
+  const SearchInsurancePageWidget({
+    super.key,
+    required this.fromIcon,
+  });
+
+  final String? fromIcon;
 
   @override
-  _SearchInsurancePageWidgetState createState() =>
+  State<SearchInsurancePageWidget> createState() =>
       _SearchInsurancePageWidgetState();
 }
 
@@ -72,18 +78,19 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -91,43 +98,58 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      _model.adminVersionQuery = await queryAuthorizationRecordOnce(
+        queryBuilder: (authorizationRecord) => authorizationRecord.where(
+          'content_name',
+          isEqualTo: 'skip_build_version',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (_model.buildVersionQuery?.appVersion != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersion ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
           return;
         }
       } else {
-        if (_model.buildVersionQuery?.appVersionIos != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersionIos ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
@@ -143,307 +165,790 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         FFAppState().addCustomerQuotationSaveSuccess = false;
         FFAppState().insurarerQuotationPdf = [];
       });
-      if (!FFAppState().insuranceRequestIsLoadedData) {
-        _model.getBrandAPI = await TeleGetBrandAPICall.call(
-          apiUrl: FFAppState().apiUrlInsuranceAppState,
-        );
-        if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getBrandAPI?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
+      setState(() {
+        FFAppState().insuranceInfoRegistrationCodeSelect = '';
+        FFAppState().insuranceInfoRegistrationProvinceSelect = '';
+      });
+      if (widget.fromIcon == 'MC') {
+        if (!FFAppState().insuranceRequestIsLoadDataMc) {
+          _model.getBrandMCAPI = await TeleGetBrandMCAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
-          return;
-        }
-        if (TeleGetBrandAPICall.statusLevel1(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            ) ==
-            200) {
+          if ((_model.getBrandMCAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getBrandMCAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetBrandMCAPICall.statusLevel1(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            setState(() {
+              FFAppState().insuranceBasicBrandNameList =
+                  TeleGetBrandMCAPICall.brandName(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdList =
+                  TeleGetBrandMCAPICall.brandID(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandNameListOriginal =
+                  TeleGetBrandMCAPICall.brandName(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdListOriginal =
+                  TeleGetBrandMCAPICall.brandID(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupBrandList =
+                  TeleGetBrandMCAPICall.carGroup(
+                (_model.getBrandMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetBrandMCAPICall.messageLayer1(
+                      (_model.getBrandMCAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getModelMCAPI = await TeleGetModelMCAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getModelMCAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getModelMCAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetModelMCAPICall.statusLevel1(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicModelIdListOriginal =
+                  TeleGetModelMCAPICall.modelCode(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelNameListOriginal =
+                  TeleGetModelMCAPICall.modelName(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelBrandIdListOriginal =
+                  TeleGetModelMCAPICall.brandID(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupList =
+                  TeleGetModelMCAPICall.carGroup(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarGroupDetail =
+                  TeleGetModelMCAPICall.carGroupDetail(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarDoorList =
+                  TeleGetModelMCAPICall.carDoors(
+                (_model.getModelMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetModelMCAPICall.messageLayer1(
+                      (_model.getModelMCAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getCoverTypeMCAPI = await TeleGetCoverTypeAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            carType: 'MC',
+          );
+          if ((_model.getCoverTypeMCAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getCoverTypeMCAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetCoverTypeAPICall.statusLevel1(
+                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicCoverTypeNameList =
+                  TeleGetCoverTypeAPICall.coverTypeName(
+                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeCodeList =
+                  TeleGetCoverTypeAPICall.coverTypeCode(
+                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeIdList =
+                  TeleGetCoverTypeAPICall.coverTypeId(
+                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetCoverTypeAPICall.messageLayer1(
+                      (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getVehicleUsedTypeMCAPI =
+              await InsuranceRequestGetVehicleAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            vehicleCategory: 'auto',
+            carType: 'MC',
+          );
+          if ((_model.getVehicleUsedTypeMCAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeMCAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                  InsuranceRequestGetVehicleAPICall.vehicleCode(
+                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                  InsuranceRequestGetVehicleAPICall.vehicleName(
+                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                  InsuranceRequestGetVehicleAPICall.vehicletype(
+                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                  InsuranceRequestGetVehicleAPICall.vehicleId(
+                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content:
+                        Text(InsuranceRequestGetVehicleAPICall.messageLayer1(
+                      (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
           setState(() {
-            FFAppState().insuranceBasicBrandNameList =
-                (TeleGetBrandAPICall.brandName(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            FFAppState().insuranceRequestIsLoadDataMc = true;
+          });
+          _model.getProvinceMC = await TeleGetProvinceAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getProvinceMC?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getProvinceMC?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          if (TeleGetProvinceAPICall.statusLevel1(
+                (_model.getProvinceMC?.jsonBody ?? ''),
+              ) !=
+              200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('${TeleGetProvinceAPICall.messageLayer1(
+                      (_model.getProvinceMC?.jsonBody ?? ''),
+                    )}'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          setState(() {
+            FFAppState().insuranceInfoRegistrationCodeList =
+                TeleGetProvinceAPICall.provinceID(
+              (_model.getProvinceMC?.jsonBody ?? ''),
+            )!
                     .toList()
                     .cast<String>();
-            FFAppState().insuranceBasicBrandIdList =
-                (TeleGetBrandAPICall.brandID(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            FFAppState().insuranceInfoRegistrationprovinceList =
+                TeleGetProvinceAPICall.provinceNameTH(
+              (_model.getProvinceMC?.jsonBody ?? ''),
+            )!
                     .toList()
                     .cast<String>();
           });
-        } else {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text('พบข้อผิดพลาด (${TeleGetBrandAPICall.statusLevel1(
-                  (_model.getBrandAPI?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
         }
-
-        _model.getModelAPI = await TeleGetModelAPICall.call(
-          apiUrl: FFAppState().apiUrlInsuranceAppState,
-        );
-        if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getBrandAPI?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-        if (TeleGetModelAPICall.statusLevel1(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            ) ==
-            200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicModelIdListOriginal =
-                (TeleGetModelAPICall.modelCode(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicModelNameListOriginal =
-                (TeleGetModelAPICall.modelName(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicModelBrandIdListOriginal =
-                (TeleGetModelAPICall.brandID(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-          });
-        } else {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text('พบข้อผิดพลาด (${TeleGetModelAPICall.statusLevel1(
-                  (_model.getModelAPI?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-
-        _model.getCoverTypeAPI = await TeleGetCoverTypeAPICall.call(
-          apiUrl: FFAppState().apiUrlInsuranceAppState,
-        );
-        if ((_model.getCoverTypeAPI?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getCoverTypeAPI?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-        if (TeleGetCoverTypeAPICall.statusLevel1(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            ) ==
-            200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicCoverTypeNameList =
-                (TeleGetCoverTypeAPICall.coverTypeName(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCoverTypeCodeList =
-                (TeleGetCoverTypeAPICall.coverTypeCode(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCoverTypeIdList =
-                (TeleGetCoverTypeAPICall.coverTypeId(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-          });
-        } else {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content:
-                    Text('พบข้อผิดพลาด (${TeleGetCoverTypeAPICall.statusLevel1(
-                  (_model.getCoverTypeAPI?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-
-        _model.getVehicleUsedTypeAPI =
-            await InsuranceRequestGetVehicleAPICall.call(
-          apiUrl: FFAppState().apiUrlInsuranceAppState,
-          vehicleCategory: 'auto',
-        );
-        if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeAPI?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-        if (InsuranceRequestGetVehicleAPICall.statusLayer1(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) ==
-            200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
-                (InsuranceRequestGetVehicleAPICall.vehicleCode(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeNameList =
-                (InsuranceRequestGetVehicleAPICall.vehicleName(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
-                (InsuranceRequestGetVehicleAPICall.vehicletype(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeIdList =
-                (InsuranceRequestGetVehicleAPICall.vehicleId(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
-                    .toList()
-                    .cast<String>();
-          });
-        } else {
-          await showDialog(
-            context: context,
-            builder: (alertDialogContext) {
-              return WebViewAware(
-                  child: AlertDialog(
-                content: Text(InsuranceRequestGetVehicleAPICall.statusLayer1(
-                  (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-                ).toString().toString()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
-            },
-          );
-          return;
-        }
-
+        Navigator.pop(context);
         setState(() {
-          FFAppState().insuranceRequestIsLoadedData = true;
+          FFAppState().searchPackageSubProduct = 'MC';
+          FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
+        });
+      } else {
+        if (!FFAppState().insuranceRequestIsLoadedData) {
+          _model.getBrandAPI = await TeleGetBrandAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getBrandAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetBrandAPICall.statusLevel1(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            setState(() {
+              FFAppState().insuranceBasicBrandNameList =
+                  TeleGetBrandAPICall.brandName(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdList =
+                  TeleGetBrandAPICall.brandID(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandNameListOriginal =
+                  TeleGetBrandAPICall.brandName(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdListOriginal =
+                  TeleGetBrandAPICall.brandID(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupBrandList =
+                  TeleGetBrandAPICall.carGroup(
+                (_model.getBrandAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetBrandAPICall.messageLayer1(
+                      (_model.getBrandAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getModelAPI = await TeleGetModelAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getModelAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetModelAPICall.statusLevel1(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicModelIdListOriginal =
+                  TeleGetModelAPICall.modelCode(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelNameListOriginal =
+                  TeleGetModelAPICall.modelName(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelBrandIdListOriginal =
+                  TeleGetModelAPICall.brandID(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupList =
+                  TeleGetModelAPICall.carGroup(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarGroupDetail =
+                  TeleGetModelAPICall.carGroupDetail(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarDoorList =
+                  TeleGetModelAPICall.carDoors(
+                (_model.getModelAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetModelAPICall.messageLayer1(
+                      (_model.getModelAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getCoverTypeAPI = await TeleGetCoverTypeAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getCoverTypeAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getCoverTypeAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetCoverTypeAPICall.statusLevel1(
+                (_model.getCoverTypeAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicCoverTypeNameList =
+                  TeleGetCoverTypeAPICall.coverTypeName(
+                (_model.getCoverTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeCodeList =
+                  TeleGetCoverTypeAPICall.coverTypeCode(
+                (_model.getCoverTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeIdList =
+                  TeleGetCoverTypeAPICall.coverTypeId(
+                (_model.getCoverTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetCoverTypeAPICall.messageLayer1(
+                      (_model.getCoverTypeAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getVehicleUsedTypeAPI =
+              await InsuranceRequestGetVehicleAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            vehicleCategory: 'auto',
+          );
+          if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                  InsuranceRequestGetVehicleAPICall.vehicleCode(
+                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                  InsuranceRequestGetVehicleAPICall.vehicleName(
+                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                  InsuranceRequestGetVehicleAPICall.vehicletype(
+                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                  InsuranceRequestGetVehicleAPICall.vehicleId(
+                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content:
+                        Text(InsuranceRequestGetVehicleAPICall.messageLayer1(
+                      (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          setState(() {
+            FFAppState().insuranceRequestIsLoadedData = true;
+          });
+          _model.getProvince = await TeleGetProvinceAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getProvince?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          if (TeleGetProvinceAPICall.statusLevel1(
+                (_model.getProvince?.jsonBody ?? ''),
+              ) !=
+              200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('${TeleGetProvinceAPICall.messageLayer1(
+                      (_model.getProvince?.jsonBody ?? ''),
+                    )}'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          setState(() {
+            FFAppState().insuranceInfoRegistrationCodeList =
+                TeleGetProvinceAPICall.provinceID(
+              (_model.getProvince?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceInfoRegistrationprovinceList =
+                TeleGetProvinceAPICall.provinceNameTH(
+              (_model.getProvince?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        }
+        Navigator.pop(context);
+        setState(() {
+          FFAppState().searchPackageSubProduct = 'Motor';
         });
       }
-      Navigator.pop(context);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -458,15 +963,6 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -499,6 +995,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                       'เลือกการใช้งาน';
                   FFAppState().insuranceBasicCoverTypeNameOutputList = [];
                   FFAppState().insuranceBasicGarageTypeInPackage = [];
+                  FFAppState().insuranceCarTypeDetailSelected = '';
                 });
 
                 context.goNamed('SuperAppPage');
@@ -510,7 +1007,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
               ),
             ),
             title: Text(
-              'ค้นหาประกันรถ',
+              widget.fromIcon == 'MC'
+                  ? 'ค้นหาประกันมอเตอร์ไซค์'
+                  : 'ค้นหาประกันรถ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
@@ -587,37 +1086,39 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed(
-                                        'SearchableListPage',
-                                        queryParameters: {
-                                          'titleText': serializeParam(
-                                            'เลือกประเภทรถ',
-                                            ParamType.String,
-                                          ),
-                                          'searchLabel': serializeParam(
-                                            'ระบุประเภทรถ',
-                                            ParamType.String,
-                                          ),
-                                          'dataList': serializeParam(
-                                            FFAppState()
-                                                .insuranceBasicVehicleTypeDropdownList,
-                                            ParamType.String,
-                                            true,
-                                          ),
-                                          'multiSelect': serializeParam(
-                                            false,
-                                            ParamType.bool,
-                                          ),
-                                          'maxSelected': serializeParam(
-                                            0,
-                                            ParamType.int,
-                                          ),
-                                          'fromPage': serializeParam(
-                                            'searchPackage',
-                                            ParamType.String,
-                                          ),
-                                        }.withoutNulls,
-                                      );
+                                      if (widget.fromIcon != 'MC') {
+                                        context.pushNamed(
+                                          'SearchableCarListPage',
+                                          queryParameters: {
+                                            'titleText': serializeParam(
+                                              'เลือกประเภทรถ',
+                                              ParamType.String,
+                                            ),
+                                            'searchLabel': serializeParam(
+                                              'ระบุประเภทรถ',
+                                              ParamType.String,
+                                            ),
+                                            'dataList': serializeParam(
+                                              FFAppState()
+                                                  .insuranceBasicVehicleTypeDropdownList,
+                                              ParamType.String,
+                                              true,
+                                            ),
+                                            'multiSelect': serializeParam(
+                                              false,
+                                              ParamType.bool,
+                                            ),
+                                            'maxSelected': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                            'fromPage': serializeParam(
+                                              'searchPackage',
+                                              ParamType.String,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      }
                                     },
                                     child: Container(
                                       width: double.infinity,
@@ -633,7 +1134,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -774,7 +1275,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -840,44 +1341,16 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            await showDialog(
-                                              context: context,
-                                              builder: (alertDialogContext) {
-                                                return WebViewAware(
-                                                    child: AlertDialog(
-                                                  content: Text(FFAppState()
-                                                      .insuranceBasicModelNameList
-                                                      .length
-                                                      .toString()),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
-                                              },
-                                            );
-                                          },
-                                          child: Text(
-                                            'รุ่นรถ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: Color(0xFF404040),
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
+                                        Text(
+                                          'รุ่นรถ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color: Color(0xFF404040),
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                         ),
                                         Padding(
                                           padding:
@@ -953,7 +1426,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1070,7 +1543,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                           ),
                                           'dataList': serializeParam(
                                             functions.reverseList(functions
-                                                .ganerateYearList(2500, 2566)
+                                                .ganerateYearList(2500, 2567)
                                                 ?.toList()),
                                             ParamType.String,
                                             true,
@@ -1096,7 +1569,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1244,7 +1717,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1406,7 +1879,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1557,7 +2030,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1593,7 +2066,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             ),
                                             trailing: Icon(
                                               Icons.arrow_forward_ios,
-                                              color: Color(0xFF143678),
+                                              color: Color(0xFF474747),
                                               size: 20.0,
                                             ),
                                             tileColor:
@@ -1606,6 +2079,322 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             ),
                                           ),
                                         ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 0.0, 20.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'จังหวัดที่จดทะเบียน',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            '(บังคับกรอก)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFFB0606),
+                                                  fontSize: 12.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 5.0, 16.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'SearchableListPage',
+                                          queryParameters: {
+                                            'titleText': serializeParam(
+                                              'เลือกจังหวัดที่จดทะเบียน',
+                                              ParamType.String,
+                                            ),
+                                            'searchLabel': serializeParam(
+                                              'เลือกจังหวัดที่จดทะเบียน',
+                                              ParamType.String,
+                                            ),
+                                            'dataList': serializeParam(
+                                              FFAppState()
+                                                  .insuranceInfoRegistrationprovinceList,
+                                              ParamType.String,
+                                              true,
+                                            ),
+                                            'multiSelect': serializeParam(
+                                              false,
+                                              ParamType.bool,
+                                            ),
+                                            'maxSelected': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
+                                        await actions.hideKeyboardAction(
+                                          context,
+                                        );
+                                      },
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: Color(0xFFB3B3B3),
+                                          ),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 0.0, 0.0),
+                                            child: ListTile(
+                                              title: Text(
+                                                FFAppState().insuranceInfoRegistrationProvinceSelect !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoRegistrationProvinceSelect !=
+                                                            ''
+                                                    ? FFAppState()
+                                                        .insuranceInfoRegistrationProvinceSelect
+                                                    : 'กรุณาเลือกจังหวัดที่จดทะเบียน',
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleLarge
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      color: functions
+                                                              .containWordinStringUrl(
+                                                                  'เลือก',
+                                                                  FFAppState()
+                                                                      .insuranceInfoProductYear)!
+                                                          ? Color(0xFF9F9F9F)
+                                                          : Colors.black,
+                                                      fontSize: 15.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                              trailing: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Color(0xFF474747),
+                                                size: 20.0,
+                                              ),
+                                              tileColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              dense: false,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 4.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'วันที่หมดอายุของประกันเดิม',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Color(0xFF424242),
+                                              fontSize: 15.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 5.0, 16.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      if (kIsWeb) {
+                                        final _datePickedDate =
+                                            await showDatePicker(
+                                          context: context,
+                                          initialDate: getCurrentTimestamp,
+                                          firstDate: DateTime(1900),
+                                          lastDate: DateTime(2050),
+                                        );
+
+                                        if (_datePickedDate != null) {
+                                          safeSetState(() {
+                                            _model.datePicked = DateTime(
+                                              _datePickedDate.year,
+                                              _datePickedDate.month,
+                                              _datePickedDate.day,
+                                            );
+                                          });
+                                        }
+                                      } else {
+                                        await DatePicker.showDatePicker(
+                                          context,
+                                          showTitleActions: true,
+                                          onConfirm: (date) {
+                                            safeSetState(() {
+                                              _model.datePicked = date;
+                                            });
+                                          },
+                                          currentTime: getCurrentTimestamp,
+                                          minTime: DateTime(0, 0, 0),
+                                          locale: LocaleType.values.firstWhere(
+                                            (l) =>
+                                                l.name ==
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
+                                            orElse: () => LocaleType.en,
+                                          ),
+                                        );
+                                      }
+
+                                      if (!(_model.datePicked != null)) {
+                                        await actions.hideKeyboardAction(
+                                          context,
+                                        );
+                                        return;
+                                      }
+                                      setState(() {
+                                        FFAppState()
+                                                .insuranceBasicOldVmiExpDate =
+                                            functions.getDateFormat(
+                                                _model.datePicked)!;
+                                      });
+                                      await actions.hideKeyboardAction(
+                                        context,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          width: 0.5,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              valueOrDefault<String>(
+                                                _model.datePicked != null
+                                                    ? functions.showDateBE(
+                                                        _model.datePicked
+                                                            ?.toString())
+                                                    : 'กรุณาเลือกวันที่หมดอายุประกันเดิม',
+                                                'กรุณาเลือกวันที่หมดอายุประกันเดิม',
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: _model.datePicked !=
+                                                            null
+                                                        ? Colors.black
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .secondaryText,
+                                                    fontSize: 15.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Icon(
+                                              Icons.edit_calendar_outlined,
+                                              color: Color(0xFF474747),
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -1652,16 +2441,17 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกประเภทรถ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text('กรุณาเลือกประเภทรถ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1678,16 +2468,17 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกยี่ห้อรถ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text('กรุณาเลือกยี่ห้อรถ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1704,16 +2495,17 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกรุ่นรถ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text('กรุณาเลือกรุ่นรถ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1727,16 +2519,17 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกปีจดทะเบียน'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text('กรุณาเลือกปีจดทะเบียน'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1756,16 +2549,18 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกลักษณะการใช้รถ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content:
+                                            Text('กรุณาเลือกลักษณะการใช้รถ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1778,17 +2573,18 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content:
-                                          Text('กรุณาเลือกประเภทชั้นประกัน'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content:
+                                            Text('กรุณาเลือกประเภทชั้นประกัน'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1801,16 +2597,18 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('กรุณาเลือกประเภทการซ่อม'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content:
+                                            Text('กรุณาเลือกประเภทการซ่อม'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 return;
@@ -1823,22 +2621,49 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text(
-                                          'ไม่พบรุ่นย่อยรถนี้ในแพ็กเกจประกัน'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'ไม่พบรุ่นย่อยรถนี้ในแพ็กเกจประกัน'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
 
                                 context.pushNamed('InsuranceWorkSelectPage');
 
+                                return;
+                              }
+                              if (!(FFAppState()
+                                          .insuranceInfoRegistrationProvinceSelect !=
+                                      null &&
+                                  FFAppState()
+                                          .insuranceInfoRegistrationProvinceSelect !=
+                                      '')) {
+                                await showDialog(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return WebViewAware(
+                                      child: AlertDialog(
+                                        content: Text(
+                                            'กรุณาเลือกจังหวัดที่จดทะเบียน'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
                                 return;
                               }
                               setState(() {
@@ -1866,7 +2691,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     ParamType.String,
                                   ),
                                   'province': serializeParam(
-                                    'กรุงเทพมหานคร',
+                                    FFAppState()
+                                        .insuranceInfoRegistrationProvinceSelect,
                                     ParamType.String,
                                   ),
                                   'vehicleUsage': serializeParam(
@@ -1894,6 +2720,22 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                   ),
                                   'modelName': serializeParam(
                                     FFAppState().insuranceBasicModelName,
+                                    ParamType.String,
+                                  ),
+                                  'carTypeDetail': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'oldVmiExpDate': serializeParam(
+                                    _model.datePicked != null
+                                        ? functions
+                                            .getDateFormat(_model.datePicked)
+                                        : '',
+                                    ParamType.String,
+                                  ),
+                                  'provinceCode': serializeParam(
+                                    FFAppState()
+                                        .insuranceInfoRegistrationCodeSelect,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

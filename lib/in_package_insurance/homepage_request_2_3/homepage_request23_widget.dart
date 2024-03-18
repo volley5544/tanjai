@@ -9,7 +9,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -17,10 +16,10 @@ import 'homepage_request23_model.dart';
 export 'homepage_request23_model.dart';
 
 class HomepageRequest23Widget extends StatefulWidget {
-  const HomepageRequest23Widget({Key? key}) : super(key: key);
+  const HomepageRequest23Widget({super.key});
 
   @override
-  _HomepageRequest23WidgetState createState() =>
+  State<HomepageRequest23Widget> createState() =>
       _HomepageRequest23WidgetState();
 }
 
@@ -45,15 +44,16 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -65,16 +65,17 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.getFinanceAPIOutput?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.getFinanceAPIOutput?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -88,28 +89,27 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text('พบข้อผิดพลาด (${GetFinanceCall.statusLayer1(
-                (_model.getFinanceAPIOutput?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text('พบข้อผิดพลาด (${GetFinanceCall.statusLayer1(
+                  (_model.getFinanceAPIOutput?.jsonBody ?? ''),
+                )?.toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
         return;
       }
       setState(() {
-        FFAppState().insuranceInfoFinance = (GetFinanceCall.beneficiaryname(
+        FFAppState().insuranceInfoFinance = GetFinanceCall.beneficiaryname(
           (_model.getFinanceAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
+        )!
             .toList()
             .cast<String>();
       });
@@ -134,15 +134,6 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -347,8 +338,8 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
@@ -501,6 +492,8 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
                                           ),
+                                  searchTextStyle:
+                                      FlutterFlowTheme.of(context).bodyMedium,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -581,7 +574,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
@@ -704,7 +697,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                     ),
                   Flexible(
                     child: Align(
-                      alignment: AlignmentDirectional(0.00, 1.00),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 40.0),

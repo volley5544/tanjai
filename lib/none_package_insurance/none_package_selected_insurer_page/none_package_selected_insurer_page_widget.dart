@@ -9,7 +9,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -18,7 +17,7 @@ export 'none_package_selected_insurer_page_model.dart';
 
 class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   const NonePackageSelectedInsurerPageWidget({
-    Key? key,
+    super.key,
     required this.leadID,
     required this.coverTypeName,
     required this.garageTypeName,
@@ -26,7 +25,7 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
     required this.insurerName,
     required this.quotationId,
     required this.leadDtlId,
-  }) : super(key: key);
+  });
 
   final String? leadID;
   final String? coverTypeName;
@@ -37,7 +36,7 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   final int? leadDtlId;
 
   @override
-  _NonePackageSelectedInsurerPageWidgetState createState() =>
+  State<NonePackageSelectedInsurerPageWidget> createState() =>
       _NonePackageSelectedInsurerPageWidgetState();
 }
 
@@ -59,13 +58,76 @@ class _NonePackageSelectedInsurerPageWidgetState
 
     _model.netPremiumController ??= TextEditingController();
     _model.netPremiumFocusNode ??= FocusNode();
-
+    _model.netPremiumFocusNode!.addListener(
+      () async {
+        if ((_model.netPremiumFocusNode?.hasFocus ?? false)) {
+          if (_model.netPremiumController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.netPremiumController?.text = functions
+                .removeCommaFromNumText(_model.netPremiumController.text);
+          });
+        } else {
+          if (_model.netPremiumController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.netPremiumController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.netPremiumController.text)!;
+          });
+        }
+      },
+    );
     _model.actAmountController ??= TextEditingController();
     _model.actAmountFocusNode ??= FocusNode();
-
+    _model.actAmountFocusNode!.addListener(
+      () async {
+        if ((_model.actAmountFocusNode?.hasFocus ?? false)) {
+          if (_model.actAmountController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.actAmountController?.text = functions
+                .removeCommaFromNumText(_model.actAmountController.text);
+          });
+        } else {
+          if (_model.actAmountController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.actAmountController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.actAmountController.text)!;
+          });
+        }
+      },
+    );
     _model.accessoryTotalController ??= TextEditingController();
     _model.accessoryTotalFocusNode ??= FocusNode();
-
+    _model.accessoryTotalFocusNode!.addListener(
+      () async {
+        if ((_model.accessoryTotalFocusNode?.hasFocus ?? false)) {
+          if (_model.accessoryTotalController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.accessoryTotalController?.text = functions
+                .removeCommaFromNumText(_model.accessoryTotalController.text);
+          });
+        } else {
+          if (_model.accessoryTotalController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.accessoryTotalController?.text =
+                functions.returnNumberWithComma2Decimal(
+                    _model.accessoryTotalController.text)!;
+          });
+        }
+      },
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -78,15 +140,6 @@ class _NonePackageSelectedInsurerPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -650,7 +703,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -715,8 +768,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0x00101213),
+                                                                color: Colors
+                                                                    .black,
                                                               ),
                                                           keyboardType:
                                                               const TextInputType
@@ -727,40 +780,6 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .netPremiumControllerValidator
                                                               .asValidator(
                                                                   context),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          _model.netPremiumController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.netPremiumController
-                                                                          .text !=
-                                                                      ''
-                                                              ? valueOrDefault<
-                                                                  String>(
-                                                                  functions.showNumberWithCommaWithoutDot(
-                                                                      _model
-                                                                          .netPremiumController
-                                                                          .text),
-                                                                  '0',
-                                                                )
-                                                              : '',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
                                                         ),
                                                       ),
                                                     ),
@@ -833,7 +852,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -898,8 +917,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0x00101213),
+                                                                color: Colors
+                                                                    .black,
                                                               ),
                                                           keyboardType:
                                                               const TextInputType
@@ -910,40 +929,6 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .actAmountControllerValidator
                                                               .asValidator(
                                                                   context),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          _model.actAmountController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.actAmountController
-                                                                          .text !=
-                                                                      ''
-                                                              ? valueOrDefault<
-                                                                  String>(
-                                                                  functions.showNumberWithCommaWithoutDot(
-                                                                      _model
-                                                                          .actAmountController
-                                                                          .text),
-                                                                  '0',
-                                                                )
-                                                              : '',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
                                                         ),
                                                       ),
                                                     ),
@@ -1016,7 +1001,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1081,8 +1066,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .override(
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0x00101213),
+                                                                color: Colors
+                                                                    .black,
                                                               ),
                                                           keyboardType:
                                                               const TextInputType
@@ -1093,40 +1078,6 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               .accessoryTotalControllerValidator
                                                               .asValidator(
                                                                   context),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              -1.00, 0.00),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          _model.accessoryTotalController
-                                                                          .text !=
-                                                                      null &&
-                                                                  _model.accessoryTotalController
-                                                                          .text !=
-                                                                      ''
-                                                              ? valueOrDefault<
-                                                                  String>(
-                                                                  functions.showNumberWithCommaWithoutDot(
-                                                                      _model
-                                                                          .accessoryTotalController
-                                                                          .text),
-                                                                  '0',
-                                                                )
-                                                              : '',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
                                                         ),
                                                       ),
                                                     ),
@@ -1149,7 +1100,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                     Expanded(
                       flex: 1,
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.75),
+                        alignment: AlignmentDirectional(0.0, 0.75),
                         child: Container(
                           width: double.infinity,
                           height: 100.0,
@@ -1175,39 +1126,44 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text('กรุณากรอกราคาเบี้ย'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text('กรุณากรอกราคาเบี้ย'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (!(double.parse(
-                                            _model.netPremiumController.text) >
+                                    if (!(double.parse(functions
+                                            .removeLetterShowonlyNumber(_model
+                                                .netPremiumController.text)) >
                                         999)) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text(
-                                                'ค่าเบี้ยไม่ถูกต้องกรุณากรอกใหม่'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text(
+                                                  'ค่าเบี้ยไม่ถูกต้องกรุณากรอกใหม่'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -1218,26 +1174,27 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  content: Text(
-                                                      'กรุณาตรวจสอบข้อมูลก่อนยืนยัน'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              false),
-                                                      child: Text('ยกเลิก'),
-                                                    ),
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext,
-                                                              true),
-                                                      child: Text('ยืนยัน'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'กรุณาตรวจสอบข้อมูลก่อนยืนยัน'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: Text('ยกเลิก'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: Text('ยืนยัน'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             ) ??
                                             false;
@@ -1252,23 +1209,24 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: double.infinity,
-                                              child: LoadingSceneWidget(),
+                                          child: GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: double.infinity,
+                                                child: LoadingSceneWidget(),
+                                              ),
                                             ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
 
@@ -1278,14 +1236,16 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           FFAppState().apiUrlInsuranceAppState,
                                       token: FFAppState().accessToken,
                                       insurerShortName: widget.insurerShortName,
-                                      netPremium:
-                                          _model.netPremiumController.text !=
-                                                      null &&
-                                                  _model.netPremiumController
-                                                          .text !=
-                                                      ''
-                                              ? _model.netPremiumController.text
-                                              : '0',
+                                      netPremium: _model.netPremiumController
+                                                      .text !=
+                                                  null &&
+                                              _model.netPremiumController
+                                                      .text !=
+                                                  ''
+                                          ? functions
+                                              .removeLetterShowonlyNumber(_model
+                                                  .netPremiumController.text)
+                                          : '0',
                                       accessoryTotal: functions
                                                       .removeLetterShowonlyNumber(
                                                           _model
@@ -1328,18 +1288,20 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text('พบข้อผิดพลาด'),
-                                            content: Text(
-                                                '(${(_model.saveInirer?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text('พบข้อผิดพลาด'),
+                                              content: Text(
+                                                  '(${(_model.saveInirer?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -1354,21 +1316,23 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text('พบข้อผิดพลาด'),
-                                            content: Text(
-                                                '(${SaveInsurerAPICall.statusLayer2(
-                                              (_model.saveInirer?.jsonBody ??
-                                                  ''),
-                                            ).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text('พบข้อผิดพลาด'),
+                                              content: Text(SaveInsurerAPICall
+                                                  .massageLayer2(
+                                                (_model.saveInirer?.jsonBody ??
+                                                    ''),
+                                              )!),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,10 +12,10 @@ import 'none_package_edit_page2_copy_model.dart';
 export 'none_package_edit_page2_copy_model.dart';
 
 class NonePackageEditPage2CopyWidget extends StatefulWidget {
-  const NonePackageEditPage2CopyWidget({Key? key}) : super(key: key);
+  const NonePackageEditPage2CopyWidget({super.key});
 
   @override
-  _NonePackageEditPage2CopyWidgetState createState() =>
+  State<NonePackageEditPage2CopyWidget> createState() =>
       _NonePackageEditPage2CopyWidgetState();
 }
 
@@ -45,17 +44,6 @@ class _NonePackageEditPage2CopyWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return FutureBuilder<List<UrlLinkStorageRecord>>(
       future: queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
@@ -323,27 +311,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -469,7 +458,7 @@ class _NonePackageEditPage2CopyWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    -0.88, -0.70),
+                                                    -0.88, -0.7),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -486,27 +475,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -632,7 +622,7 @@ class _NonePackageEditPage2CopyWidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, -0.80),
+                                                    0.0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -649,27 +639,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -812,27 +803,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -975,27 +967,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1138,27 +1131,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1301,27 +1295,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1464,27 +1459,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1627,27 +1623,28 @@ class _NonePackageEditPage2CopyWidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -2573,7 +2570,7 @@ class _NonePackageEditPage2CopyWidgetState
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),

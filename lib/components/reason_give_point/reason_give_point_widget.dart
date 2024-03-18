@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,12 +13,12 @@ export 'reason_give_point_model.dart';
 
 class ReasonGivePointWidget extends StatefulWidget {
   const ReasonGivePointWidget({
-    Key? key,
+    super.key,
     this.leaveID,
     this.employeeID,
     this.leaveName,
     this.isFromApprovePage,
-  }) : super(key: key);
+  });
 
   final String? leaveID;
   final String? employeeID;
@@ -27,7 +26,7 @@ class ReasonGivePointWidget extends StatefulWidget {
   final bool? isFromApprovePage;
 
   @override
-  _ReasonGivePointWidgetState createState() => _ReasonGivePointWidgetState();
+  State<ReasonGivePointWidget> createState() => _ReasonGivePointWidgetState();
 }
 
 class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
@@ -59,8 +58,6 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
       child: SingleChildScrollView(

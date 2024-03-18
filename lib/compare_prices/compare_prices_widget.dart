@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'compare_prices_model.dart';
 export 'compare_prices_model.dart';
 
 class ComparePricesWidget extends StatefulWidget {
-  const ComparePricesWidget({Key? key}) : super(key: key);
+  const ComparePricesWidget({super.key});
 
   @override
-  _ComparePricesWidgetState createState() => _ComparePricesWidgetState();
+  State<ComparePricesWidget> createState() => _ComparePricesWidgetState();
 }
 
 class _ComparePricesWidgetState extends State<ComparePricesWidget> {
@@ -40,17 +39,6 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)

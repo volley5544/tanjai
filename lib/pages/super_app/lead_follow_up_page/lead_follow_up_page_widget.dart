@@ -12,7 +12,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,10 +21,10 @@ import 'lead_follow_up_page_model.dart';
 export 'lead_follow_up_page_model.dart';
 
 class LeadFollowUpPageWidget extends StatefulWidget {
-  const LeadFollowUpPageWidget({Key? key}) : super(key: key);
+  const LeadFollowUpPageWidget({super.key});
 
   @override
-  _LeadFollowUpPageWidgetState createState() => _LeadFollowUpPageWidgetState();
+  State<LeadFollowUpPageWidget> createState() => _LeadFollowUpPageWidgetState();
 }
 
 class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
@@ -51,18 +50,19 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -70,43 +70,58 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      _model.adminVersionQuery = await queryAuthorizationRecordOnce(
+        queryBuilder: (authorizationRecord) => authorizationRecord.where(
+          'content_name',
+          isEqualTo: 'skip_build_version',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (_model.buildVersionQuery?.appVersion != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersion ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
           return;
         }
       } else {
-        if (_model.buildVersionQuery?.appVersionIos != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersionIos ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
@@ -130,18 +145,19 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาดConnection (${InsuranceRequestListAPICall.messageLayer1(
-                (_model.getRequestList?.jsonBody ?? ''),
-              ).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาดConnection (${InsuranceRequestListAPICall.messageLayer1(
+                  (_model.getRequestList?.jsonBody ?? ''),
+                )})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -159,18 +175,19 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${InsuranceRequestListAPICall.messageLayer2(
-                (_model.getRequestList?.jsonBody ?? ''),
-              ).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${InsuranceRequestListAPICall.messageLayer2(
+                  (_model.getRequestList?.jsonBody ?? ''),
+                )})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -190,15 +207,6 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -231,16 +239,17 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                   context: context,
                   builder: (context) {
                     return WebViewAware(
-                        child: GestureDetector(
-                      onTap: () => _model.unfocusNode.canRequestFocus
-                          ? FocusScope.of(context)
-                              .requestFocus(_model.unfocusNode)
-                          : FocusScope.of(context).unfocus(),
-                      child: Padding(
-                        padding: MediaQuery.viewInsetsOf(context),
-                        child: LoadingSceneWidget(),
+                      child: GestureDetector(
+                        onTap: () => _model.unfocusNode.canRequestFocus
+                            ? FocusScope.of(context)
+                                .requestFocus(_model.unfocusNode)
+                            : FocusScope.of(context).unfocus(),
+                        child: Padding(
+                          padding: MediaQuery.viewInsetsOf(context),
+                          child: LoadingSceneWidget(),
+                        ),
                       ),
-                    ));
+                    );
                   },
                 ).then((value) => safeSetState(() {}));
 
@@ -291,8 +300,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -319,7 +327,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.listTotal(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -369,8 +378,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -397,7 +405,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   child: Text(
                                     InsuranceRequestListAPICall.auto(
                                       (_model.getRequestList?.jsonBody ?? ''),
-                                    ).toString(),
+                                    )!
+                                        .toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -436,8 +445,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -464,7 +472,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                   child: Text(
                                     InsuranceRequestListAPICall.manual(
                                       (_model.getRequestList?.jsonBody ?? ''),
-                                    ).toString(),
+                                    )!
+                                        .toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -546,8 +555,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -563,8 +571,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.clipboardList,
                                         color: Color(0xFF204A77),
@@ -577,7 +584,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.waitingInfo(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -650,8 +658,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -678,7 +685,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.waitingCar(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -761,13 +769,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 50.0,
                                       height: 50.0,
@@ -782,7 +789,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.userCheck,
                                           color: Color(0xFF204A77),
@@ -796,7 +803,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.approve(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -869,8 +877,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -897,7 +904,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.notApprove(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -980,13 +988,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 50.0,
                                       height: 50.0,
@@ -1001,7 +1008,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           Icons.attach_money_sharp,
                                           color: Color(0xFF204A77),
@@ -1016,7 +1023,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.payment(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -1089,13 +1097,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 50.0,
                                       height: 50.0,
@@ -1110,7 +1117,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.ban,
                                           color: Color(0xFF204A77),
@@ -1124,7 +1131,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.cancle(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -1207,13 +1215,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 50.0,
                                       height: 50.0,
@@ -1228,7 +1235,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           Icons.reply_all_sharp,
                                           color: Color(0xFF204A77),
@@ -1243,7 +1250,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.refund(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -1316,13 +1324,12 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 50.0,
                                       height: 50.0,
@@ -1337,7 +1344,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.moneyCheckAlt,
                                           color: Color(0xFF204A77),
@@ -1351,7 +1358,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     child: Text(
                                       InsuranceRequestListAPICall.refundSuccess(
                                         (_model.getRequestList?.jsonBody ?? ''),
-                                      ).toString(),
+                                      )!
+                                          .toString(),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(

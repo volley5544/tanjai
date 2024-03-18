@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +11,10 @@ import 'point_infomation_container_model.dart';
 export 'point_infomation_container_model.dart';
 
 class PointInfomationContainerWidget extends StatefulWidget {
-  const PointInfomationContainerWidget({Key? key}) : super(key: key);
+  const PointInfomationContainerWidget({super.key});
 
   @override
-  _PointInfomationContainerWidgetState createState() =>
+  State<PointInfomationContainerWidget> createState() =>
       _PointInfomationContainerWidgetState();
 }
 
@@ -46,8 +45,6 @@ class _PointInfomationContainerWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 8.0),
       child: Container(
@@ -136,7 +133,7 @@ class _PointInfomationContainerWidgetState
                   //
                   //
                   Align(
-                    alignment: AlignmentDirectional(1.00, -1.00),
+                    alignment: AlignmentDirectional(1.0, -1.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 8.0, 0.0),
@@ -151,8 +148,7 @@ class _PointInfomationContainerWidgetState
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 12.0, 12.0, 12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,

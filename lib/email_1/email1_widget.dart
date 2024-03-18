@@ -7,7 +7,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,10 +15,10 @@ import 'email1_model.dart';
 export 'email1_model.dart';
 
 class Email1Widget extends StatefulWidget {
-  const Email1Widget({Key? key}) : super(key: key);
+  const Email1Widget({super.key});
 
   @override
-  _Email1WidgetState createState() => _Email1WidgetState();
+  State<Email1Widget> createState() => _Email1WidgetState();
 }
 
 class _Email1WidgetState extends State<Email1Widget>
@@ -43,15 +42,16 @@ class _Email1WidgetState extends State<Email1Widget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -88,15 +88,6 @@ class _Email1WidgetState extends State<Email1Widget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -182,7 +173,7 @@ class _Email1WidgetState extends State<Email1Widget>
                             ),
                             Expanded(
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.5, 8.0, 0.5),
@@ -294,7 +285,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                           leadListItemIndex])! ||
                                   (_model.textController.text == ''),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: BoxDecoration(
@@ -309,8 +300,7 @@ class _Email1WidgetState extends State<Email1Widget>
                                     ],
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 20.0, 20.0, 20.0),
+                                    padding: EdgeInsets.all(20.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -384,8 +374,8 @@ class _Email1WidgetState extends State<Email1Widget>
                                         ),
                                         Flexible(
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                1.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(1.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:

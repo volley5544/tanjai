@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,14 +12,14 @@ export 'input_copy2_copy_model.dart';
 
 class InputCopy2CopyWidget extends StatefulWidget {
   const InputCopy2CopyWidget({
-    Key? key,
+    super.key,
     this.leaveID,
-  }) : super(key: key);
+  });
 
   final String? leaveID;
 
   @override
-  _InputCopy2CopyWidgetState createState() => _InputCopy2CopyWidgetState();
+  State<InputCopy2CopyWidget> createState() => _InputCopy2CopyWidgetState();
 }
 
 class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
@@ -102,8 +101,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                            padding: EdgeInsets.all(10.0),
                             child: TextFormField(
                               controller: _model.reasonCancelController,
                               focusNode: _model.reasonCancelFocusNode,
@@ -216,17 +214,18 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'กรุณากรอกEmailที่ต้องการรับข้อมูล'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณากรอกEmailที่ต้องการรับข้อมูล'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -237,26 +236,27 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'คุณต้องการจะส่งฟอร์มลาออกไปยังEmailนี้หรือไม่?'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          false),
-                                                  child: Text('ไม่'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          true),
-                                                  child: Text('ใช่'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'คุณต้องการจะส่งฟอร์มลาออกไปยังEmailนี้หรือไม่?'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            false),
+                                                    child: Text('ไม่'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            true),
+                                                    child: Text('ใช่'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         ) ??
                                         false;
@@ -272,13 +272,15 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height: double.infinity,
-                                        child: LoadingSceneWidget(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: double.infinity,
+                                          child: LoadingSceneWidget(),
+                                        ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
 
@@ -296,17 +298,18 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'พบข้อผิดพลาดConnection (${(_model.sendEmail?.statusCode ?? 200).toString()})'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาดConnection (${(_model.sendEmail?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -314,27 +317,28 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                 }
                                 if (SendResignFormEmailAPICall.statusLayer2(
                                       (_model.sendEmail?.jsonBody ?? ''),
-                                    ).toString() !=
+                                    ) !=
                                     '200') {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'พบข้อผิดพลาดLayer2 (${SendResignFormEmailAPICall.statusLayer2(
-                                          (_model.sendEmail?.jsonBody ?? ''),
-                                        ).toString()}) ${SendResignFormEmailAPICall.messageLayer2(
-                                          (_model.sendEmail?.jsonBody ?? ''),
-                                        ).toString()}'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาดLayer2 (${SendResignFormEmailAPICall.statusLayer2(
+                                            (_model.sendEmail?.jsonBody ?? ''),
+                                          )}) ${SendResignFormEmailAPICall.messageLayer2(
+                                            (_model.sendEmail?.jsonBody ?? ''),
+                                          )}'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -344,27 +348,28 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text(SendResignFormEmailAPICall
-                                                  .messageLayer2(
+                                      child: AlertDialog(
+                                        content: Text(SendResignFormEmailAPICall
+                                                    .messageLayer2(
+                                                  (_model.sendEmail?.jsonBody ??
+                                                      ''),
+                                                ) ==
+                                                'mail send successfully'
+                                            ? 'ทำการส่งฟอร์มลาออกไปยังEmailแล้ว'
+                                            : SendResignFormEmailAPICall
+                                                .messageLayer2(
                                                 (_model.sendEmail?.jsonBody ??
                                                     ''),
-                                              ).toString() ==
-                                              'mail send successfully'
-                                          ? 'ทำการส่งฟอร์มลาออกไปยังEmailแล้ว'
-                                          : SendResignFormEmailAPICall
-                                              .messageLayer2(
-                                              (_model.sendEmail?.jsonBody ??
-                                                  ''),
-                                            ).toString()),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                              )!),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
                                 Navigator.pop(context);

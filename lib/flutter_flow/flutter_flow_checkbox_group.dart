@@ -77,6 +77,7 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
   Widget build(BuildContext context) => ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
+        padding: EdgeInsets.zero,
         itemCount: widget.options.length,
         itemBuilder: (context, index) {
           final option = widget.options[index];
@@ -112,11 +113,14 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     visualDensity: VisualDensity.compact,
                   ),
-                  Padding(
-                    padding: widget.labelPadding ?? EdgeInsets.zero,
-                    child: Text(
-                      widget.options[index],
-                      style: selected ? widget.textStyle : unselectedTextStyle,
+                  Expanded(
+                    child: Padding(
+                      padding: widget.labelPadding ?? EdgeInsets.zero,
+                      child: Text(
+                        widget.options[index],
+                        style:
+                            selected ? widget.textStyle : unselectedTextStyle,
+                      ),
                     ),
                   ),
                 ],

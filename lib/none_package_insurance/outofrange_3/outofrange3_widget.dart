@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,10 +10,10 @@ import 'outofrange3_model.dart';
 export 'outofrange3_model.dart';
 
 class Outofrange3Widget extends StatefulWidget {
-  const Outofrange3Widget({Key? key}) : super(key: key);
+  const Outofrange3Widget({super.key});
 
   @override
-  _Outofrange3WidgetState createState() => _Outofrange3WidgetState();
+  State<Outofrange3Widget> createState() => _Outofrange3WidgetState();
 }
 
 class _Outofrange3WidgetState extends State<Outofrange3Widget> {
@@ -41,15 +40,6 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -151,8 +141,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: EdgeInsets.all(10.0),
                                         child: Material(
                                           color: Colors.transparent,
                                           elevation: 1.0,
@@ -178,7 +167,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: 50.0,
                                                       height: 50.0,
@@ -196,7 +185,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons
                                                               .userCheck,
@@ -232,8 +221,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: EdgeInsets.all(10.0),
                                         child: Material(
                                           color: Colors.transparent,
                                           elevation: 1.0,
@@ -263,7 +251,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: 50.0,
                                                       height: 50.0,
@@ -279,7 +267,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .person_add_outlined,

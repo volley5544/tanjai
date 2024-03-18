@@ -7,7 +7,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'splash_page_holiday_model.dart';
@@ -15,14 +14,14 @@ export 'splash_page_holiday_model.dart';
 
 class SplashPageHolidayWidget extends StatefulWidget {
   const SplashPageHolidayWidget({
-    Key? key,
+    super.key,
     this.dailyText,
-  }) : super(key: key);
+  });
 
   final String? dailyText;
 
   @override
-  _SplashPageHolidayWidgetState createState() =>
+  State<SplashPageHolidayWidget> createState() =>
       _SplashPageHolidayWidgetState();
 }
 
@@ -52,8 +51,6 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -106,7 +103,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 1.00),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),

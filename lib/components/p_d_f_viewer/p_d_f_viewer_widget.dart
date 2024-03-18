@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,14 +11,14 @@ export 'p_d_f_viewer_model.dart';
 
 class PDFViewerWidget extends StatefulWidget {
   const PDFViewerWidget({
-    Key? key,
+    super.key,
     this.pdfUrl,
-  }) : super(key: key);
+  });
 
   final String? pdfUrl;
 
   @override
-  _PDFViewerWidgetState createState() => _PDFViewerWidgetState();
+  State<PDFViewerWidget> createState() => _PDFViewerWidgetState();
 }
 
 class _PDFViewerWidgetState extends State<PDFViewerWidget> {
@@ -48,8 +47,6 @@ class _PDFViewerWidgetState extends State<PDFViewerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,

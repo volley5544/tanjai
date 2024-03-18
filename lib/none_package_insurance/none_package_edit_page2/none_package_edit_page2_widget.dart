@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -16,10 +15,10 @@ import 'none_package_edit_page2_model.dart';
 export 'none_package_edit_page2_model.dart';
 
 class NonePackageEditPage2Widget extends StatefulWidget {
-  const NonePackageEditPage2Widget({Key? key}) : super(key: key);
+  const NonePackageEditPage2Widget({super.key});
 
   @override
-  _NonePackageEditPage2WidgetState createState() =>
+  State<NonePackageEditPage2Widget> createState() =>
       _NonePackageEditPage2WidgetState();
 }
 
@@ -48,15 +47,6 @@ class _NonePackageEditPage2WidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -344,27 +334,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -532,27 +523,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -703,7 +695,7 @@ class _NonePackageEditPage2WidgetState
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, -0.80),
+                                                    0.0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -720,27 +712,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -908,27 +901,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1096,27 +1090,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1284,27 +1279,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1472,27 +1468,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1660,27 +1657,28 @@ class _NonePackageEditPage2WidgetState
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -1835,7 +1833,7 @@ class _NonePackageEditPage2WidgetState
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -1854,27 +1852,28 @@ class _NonePackageEditPage2WidgetState
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            false),
-                                                                        child: Text(
-                                                                            'ไม่'),
-                                                                      ),
-                                                                      TextButton(
-                                                                        onPressed: () => Navigator.pop(
-                                                                            alertDialogContext,
-                                                                            true),
-                                                                        child: Text(
-                                                                            'ใช่'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              false),
+                                                                          child:
+                                                                              Text('ไม่'),
+                                                                        ),
+                                                                        TextButton(
+                                                                          onPressed: () => Navigator.pop(
+                                                                              alertDialogContext,
+                                                                              true),
+                                                                          child:
+                                                                              Text('ใช่'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               ) ??
                                                               false;
@@ -2182,38 +2181,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2239,7 +2238,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2259,7 +2258,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2354,38 +2353,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageRightFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageRightFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageRightFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageRightFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2411,7 +2410,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2431,7 +2430,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2526,38 +2525,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageRight[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageRight[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageRight[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageRight[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2583,7 +2582,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2603,7 +2602,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2698,38 +2697,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageRightRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageRightRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageRightRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageRightRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2755,7 +2754,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2775,7 +2774,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -2870,38 +2869,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2927,7 +2926,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -2947,7 +2946,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -3042,38 +3041,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageLeftRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageLeftRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageLeftRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageLeftRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3099,7 +3098,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -3119,7 +3118,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -3214,38 +3213,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageLeft[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageLeft[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageLeft[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageLeft[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3271,7 +3270,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -3291,7 +3290,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -3386,38 +3385,38 @@ class _NonePackageEditPage2WidgetState
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().nonePackageImageLeftFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().nonePackageImageLeftFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().nonePackageImageLeftFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().nonePackageImageLeftFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3443,7 +3442,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.check,
                                                         color:
@@ -3463,7 +3462,7 @@ class _NonePackageEditPage2WidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons.close,
                                                         color:
@@ -3563,37 +3562,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageImageRoof[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageImageRoof[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageImageRoof[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageImageRoof[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -3619,7 +3619,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -3639,7 +3639,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -3701,29 +3701,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -3872,29 +3872,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4030,7 +4030,7 @@ class _NonePackageEditPage2WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, -0.80),
+                                              AlignmentDirectional(0.0, -0.8),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4043,29 +4043,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4214,29 +4214,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4372,7 +4372,7 @@ class _NonePackageEditPage2WidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(1.00, 0.06),
+                                              AlignmentDirectional(1.0, 0.06),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -4385,29 +4385,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4556,29 +4556,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4727,29 +4727,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -4898,29 +4898,29 @@ class _NonePackageEditPage2WidgetState
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        false),
-                                                                child:
-                                                                    Text('ไม่'),
-                                                              ),
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext,
-                                                                        true),
-                                                                child:
-                                                                    Text('ใช่'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'ไม่'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'ใช่'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       ) ??
                                                       false;
@@ -5209,37 +5209,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -5265,7 +5266,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5285,7 +5286,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5383,37 +5384,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageRightFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageRightFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageRightFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -5439,7 +5441,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5459,7 +5461,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5557,37 +5559,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageRight[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageRight[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageRight[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageRight[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -5613,7 +5616,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5633,7 +5636,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5731,37 +5734,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageRightRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageRightRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageRightRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -5787,7 +5791,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5807,7 +5811,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -5905,37 +5909,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -5961,7 +5966,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -5981,7 +5986,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -6079,37 +6084,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageLeftRear[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageLeftRear[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageLeftRear[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftRear[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -6135,7 +6141,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -6155,7 +6161,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -6253,37 +6259,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageLeft[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageLeft[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageLeft[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeft[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -6309,7 +6316,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -6329,7 +6336,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -6427,37 +6434,38 @@ class _NonePackageEditPage2WidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        ShowImageComponentWidget(
-                                                                      imageUrl: FFAppState().nonePackageTrailerImageLeftFront[FFAppState().nonePackageInsurerOutputIndex] !=
-                                                                              ''
-                                                                          ? functions
-                                                                              .stringToImgPath(FFAppState().nonePackageTrailerImageLeftFront[FFAppState().nonePackageInsurerOutputIndex])!
-                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          ShowImageComponentWidget(
+                                                                        imageUrl: FFAppState().nonePackageTrailerImageLeftFront[FFAppState().nonePackageInsurerOutputIndex] !=
+                                                                                ''
+                                                                            ? functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftFront[FFAppState().nonePackageInsurerOutputIndex])!
+                                                                            : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -6483,7 +6491,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.check,
                                                           color:
@@ -6503,7 +6511,7 @@ class _NonePackageEditPage2WidgetState
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Icon(
                                                           Icons.close,
                                                           color:
@@ -6535,7 +6543,7 @@ class _NonePackageEditPage2WidgetState
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),

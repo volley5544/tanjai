@@ -24,7 +24,7 @@ export 'none_package_basic_page_model.dart';
 
 class NonePackageBasicPageWidget extends StatefulWidget {
   const NonePackageBasicPageWidget({
-    Key? key,
+    super.key,
     this.branchCode,
     this.carType,
     this.truckPart,
@@ -61,7 +61,8 @@ class NonePackageBasicPageWidget extends StatefulWidget {
     this.actFlag,
     this.oldVmi,
     this.oldVmiExpireDate,
-  }) : super(key: key);
+    required this.workType,
+  });
 
   final String? branchCode;
   final String? carType;
@@ -99,9 +100,10 @@ class NonePackageBasicPageWidget extends StatefulWidget {
   final bool? actFlag;
   final String? oldVmi;
   final String? oldVmiExpireDate;
+  final String? workType;
 
   @override
-  _NonePackageBasicPageWidgetState createState() =>
+  State<NonePackageBasicPageWidget> createState() =>
       _NonePackageBasicPageWidgetState();
 }
 
@@ -127,18 +129,19 @@ class _NonePackageBasicPageWidgetState
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -151,16 +154,17 @@ class _NonePackageBasicPageWidgetState
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาดConnection (${(_model.getProvince?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           return;
@@ -171,19 +175,15 @@ class _NonePackageBasicPageWidgetState
             200) {
           setState(() {
             FFAppState().insuranceBasicProvinceIdList =
-                (TeleGetProvinceAPICall.provinceID(
+                TeleGetProvinceAPICall.provinceID(
               (_model.getProvince?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
             FFAppState().insuranceBasicProvinceNameList =
-                (TeleGetProvinceAPICall.provinceNameTH(
+                TeleGetProvinceAPICall.provinceNameTH(
               (_model.getProvince?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
           });
@@ -192,18 +192,18 @@ class _NonePackageBasicPageWidgetState
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content:
-                    Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
-                  (_model.getProvince?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(TeleGetProvinceAPICall.messageLayer1(
+                    (_model.getProvince?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           return;
@@ -218,16 +218,17 @@ class _NonePackageBasicPageWidgetState
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeAPI?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           return;
@@ -238,35 +239,27 @@ class _NonePackageBasicPageWidgetState
             200) {
           FFAppState().update(() {
             FFAppState().nonePackageUsedTypeIdList =
-                (InsuranceRequestGetVehicleAPICall.vehicleId(
+                InsuranceRequestGetVehicleAPICall.vehicleId(
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
             FFAppState().nonePackageUsedTypeCodeList =
-                (InsuranceRequestGetVehicleAPICall.vehicleCode(
+                InsuranceRequestGetVehicleAPICall.vehicleCode(
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
             FFAppState().nonePackageUsedTypeNameList =
-                (InsuranceRequestGetVehicleAPICall.vehicleName(
+                InsuranceRequestGetVehicleAPICall.vehicleName(
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
             FFAppState().nonePackageUsedTypeTypeList =
-                (InsuranceRequestGetVehicleAPICall.vehicletype(
+                InsuranceRequestGetVehicleAPICall.vehicletype(
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            ) as List)
-                    .map<String>((s) => s.toString())
-                    .toList()!
+            )!
                     .toList()
                     .cast<String>();
           });
@@ -275,18 +268,18 @@ class _NonePackageBasicPageWidgetState
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${InsuranceRequestGetVehicleAPICall.statusLayer1(
-                  (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(InsuranceRequestGetVehicleAPICall.messageLayer1(
+                    (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           return;
@@ -296,6 +289,251 @@ class _NonePackageBasicPageWidgetState
           FFAppState().nonePackageIsLoadedData = true;
         });
       }
+      if (FFAppState().insuranceRequestIsLoadedData &&
+          (FFAppState().insuranceBasicBrandNameListOriginal.length > 0)) {
+      } else {
+        _model.getBrandAPI = await TeleGetBrandAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+        if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getBrandAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TeleGetBrandAPICall.statusLevel1(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            ) ==
+            200) {
+          setState(() {
+            FFAppState().insuranceBasicBrandNameList =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdList =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandNameListOriginal =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdListOriginal =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupBrandList =
+                TeleGetBrandAPICall.carGroup(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(TeleGetBrandAPICall.messageLayer1(
+                    (_model.getBrandAPI?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+
+        _model.getModelAPI = await TeleGetModelAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+        if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getModelAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TeleGetModelAPICall.statusLevel1(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            ) ==
+            200) {
+          FFAppState().update(() {
+            FFAppState().insuranceBasicModelIdListOriginal =
+                TeleGetModelAPICall.modelCode(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelNameListOriginal =
+                TeleGetModelAPICall.modelName(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelBrandIdListOriginal =
+                TeleGetModelAPICall.brandID(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupList =
+                TeleGetModelAPICall.carGroup(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarGroupDetail =
+                TeleGetModelAPICall.carGroupDetail(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarDoorList =
+                TeleGetModelAPICall.carDoors(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(TeleGetModelAPICall.messageLayer1(
+                    (_model.getModelAPI?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+
+        _model.getCoverTypeAPI = await TeleGetCoverTypeAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+        );
+        if ((_model.getCoverTypeAPI?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาดConnection (${(_model.getCoverTypeAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TeleGetCoverTypeAPICall.statusLevel1(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            ) ==
+            200) {
+          FFAppState().update(() {
+            FFAppState().insuranceBasicCoverTypeNameList =
+                TeleGetCoverTypeAPICall.coverTypeName(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeCodeList =
+                TeleGetCoverTypeAPICall.coverTypeCode(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeIdList =
+                TeleGetCoverTypeAPICall.coverTypeId(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(TeleGetCoverTypeAPICall.messageLayer1(
+                    (_model.getCoverTypeAPI?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+
+        setState(() {
+          FFAppState().insuranceRequestIsLoadedData = true;
+        });
+      }
+
       Navigator.pop(context);
     });
 
@@ -306,11 +544,55 @@ class _NonePackageBasicPageWidgetState
     _model.currentPriceTextFieldController ??=
         TextEditingController(text: widget.truckCurrentPrice);
     _model.currentPriceTextFieldFocusNode ??= FocusNode();
-
+    _model.currentPriceTextFieldFocusNode!.addListener(
+      () async {
+        if ((_model.currentPriceTextFieldFocusNode?.hasFocus ?? false)) {
+          if (_model.carrierPriceTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.currentPriceTextFieldController?.text =
+                functions.removeCommaFromNumText(
+                    _model.currentPriceTextFieldController.text);
+          });
+        } else {
+          if (_model.currentPriceTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.currentPriceTextFieldController?.text =
+                functions.showNumberWithCommaWithoutDot(
+                    _model.currentPriceTextFieldController.text)!;
+          });
+        }
+      },
+    );
     _model.carrierPriceTextFieldController ??=
         TextEditingController(text: widget.carrierPrice);
     _model.carrierPriceTextFieldFocusNode ??= FocusNode();
-
+    _model.carrierPriceTextFieldFocusNode!.addListener(
+      () async {
+        if ((_model.carrierPriceTextFieldFocusNode?.hasFocus ?? false)) {
+          if (_model.carrierPriceTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.carrierPriceTextFieldController?.text =
+                functions.removeCommaFromNumText(
+                    _model.carrierPriceTextFieldController.text);
+          });
+        } else {
+          if (_model.carrierPriceTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.carrierPriceTextFieldController?.text =
+                functions.showNumberWithCommaWithoutDot(
+                    _model.carrierPriceTextFieldController.text)!;
+          });
+        }
+      },
+    );
     _model.brandNameTextFieldController ??= TextEditingController(
         text: functions.containWordinStringUrl(
                     'กรุณา', FFAppState().nonePackageBrandName)! ||
@@ -350,11 +632,55 @@ class _NonePackageBasicPageWidgetState
     _model.sumInsuredTextFieldController ??=
         TextEditingController(text: widget.sumInsured);
     _model.sumInsuredTextFieldFocusNode ??= FocusNode();
-
+    _model.sumInsuredTextFieldFocusNode!.addListener(
+      () async {
+        if ((_model.sumInsuredTextFieldFocusNode?.hasFocus ?? false)) {
+          if (_model.sumInsuredTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.sumInsuredTextFieldController?.text =
+                functions.removeCommaFromNumText(
+                    _model.sumInsuredTextFieldController.text);
+          });
+        } else {
+          if (_model.sumInsuredTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.sumInsuredTextFieldController?.text =
+                functions.showNumberWithCommaWithoutDot(
+                    _model.sumInsuredTextFieldController.text)!;
+          });
+        }
+      },
+    );
     _model.trailerSumInsuredTextFieldController ??=
         TextEditingController(text: widget.trailerSumInsured);
     _model.trailerSumInsuredTextFieldFocusNode ??= FocusNode();
-
+    _model.trailerSumInsuredTextFieldFocusNode!.addListener(
+      () async {
+        if ((_model.trailerSumInsuredTextFieldFocusNode?.hasFocus ?? false)) {
+          if (_model.trailerSumInsuredTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.trailerSumInsuredTextFieldController?.text =
+                functions.removeCommaFromNumText(
+                    _model.trailerSumInsuredTextFieldController.text);
+          });
+        } else {
+          if (_model.trailerSumInsuredTextFieldController.text == '') {
+            return;
+          }
+          setState(() {
+            _model.trailerSumInsuredTextFieldController?.text =
+                functions.showNumberWithCommaWithoutDot(
+                    _model.trailerSumInsuredTextFieldController.text)!;
+          });
+        }
+      },
+    );
     _model.remarkTextFieldController ??=
         TextEditingController(text: widget.remark);
     _model.remarkTextFieldFocusNode ??= FocusNode();
@@ -371,15 +697,6 @@ class _NonePackageBasicPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -409,7 +726,15 @@ class _NonePackageBasicPageWidgetState
               },
             ),
             title: Text(
-              FFAppState().nonePackageFlagRenew ? 'งานต่ออายุ' : 'งานนอกเรท',
+              () {
+                if (widget.workType == 'transfer') {
+                  return 'งานโอนโค้ด';
+                } else if (FFAppState().nonePackageFlagRenew) {
+                  return 'งานต่ออายุ';
+                } else {
+                  return 'งานนอกเรท';
+                }
+              }(),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -507,7 +832,7 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: ListTile(
                                       title: Text(
                                         (FFAppState().nonePackageBranchCode !=
@@ -603,7 +928,7 @@ class _NonePackageBasicPageWidgetState
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'SearchableListPage',
+                                  'SearchableCarListPage',
                                   queryParameters: {
                                     'titleText': serializeParam(
                                       'เลือกประเภทรถ',
@@ -1029,7 +1354,7 @@ class _NonePackageBasicPageWidgetState
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
@@ -1111,113 +1436,64 @@ class _NonePackageBasicPageWidgetState
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 60.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
                                   borderRadius: BorderRadius.circular(8.0),
                                   border: Border.all(
                                     color: Color(0xFFB3B3B3),
                                   ),
                                 ),
-                                child: Stack(
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model
-                                              .currentPriceTextFieldController,
-                                          focusNode: _model
-                                              .currentPriceTextFieldFocusNode,
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.currentPriceTextFieldController',
-                                            Duration(milliseconds: 100),
-                                            () => setState(() {}),
-                                          ),
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      fontSize: 15.0,
-                                                    ),
-                                            hintText:
-                                                'กรุณากรอกราคาซื้อขายปัจจุบัน',
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      color: Color(0xFFB3B3B3),
-                                                      fontSize: 15.0,
-                                                    ),
-                                            enabledBorder: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            focusedErrorBorder:
-                                                InputBorder.none,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Colors.transparent,
-                                                fontSize: 15.0,
-                                              ),
-                                          keyboardType: TextInputType.number,
-                                          validator: _model
-                                              .currentPriceTextFieldControllerValidator
-                                              .asValidator(context),
-                                        ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 10.0, 0.0),
+                                    child: TextFormField(
+                                      controller: _model
+                                          .currentPriceTextFieldController,
+                                      focusNode:
+                                          _model.currentPriceTextFieldFocusNode,
+                                      onChanged: (_) => EasyDebounce.debounce(
+                                        '_model.currentPriceTextFieldController',
+                                        Duration(milliseconds: 100),
+                                        () => setState(() {}),
                                       ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            _model.currentPriceTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.currentPriceTextFieldController
-                                                            .text !=
-                                                        ''
-                                                ? functions
-                                                    .showNumberWithCommaWithoutDot(
-                                                        _model
-                                                            .currentPriceTextFieldController
-                                                            .text)
-                                                : '',
-                                            '0',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: _model.currentPriceTextFieldController
-                                                                .text !=
-                                                            null &&
-                                                        _model.currentPriceTextFieldController
-                                                                .text !=
-                                                            ''
-                                                    ? Colors.black
-                                                    : Color(0x00B3B3B3),
-                                                fontSize: 15.0,
-                                              ),
-                                        ),
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        labelStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              fontSize: 15.0,
+                                            ),
+                                        hintText:
+                                            'กรุณากรอกราคาซื้อขายปัจจุบัน',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              fontSize: 15.0,
+                                            ),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontSize: 15.0,
+                                          ),
+                                      keyboardType: TextInputType.number,
+                                      validator: _model
+                                          .currentPriceTextFieldControllerValidator
+                                          .asValidator(context),
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -1332,7 +1608,7 @@ class _NonePackageBasicPageWidgetState
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
@@ -1456,7 +1732,7 @@ class _NonePackageBasicPageWidgetState
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
@@ -1674,8 +1950,7 @@ class _NonePackageBasicPageWidgetState
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -1720,52 +1995,15 @@ class _NonePackageBasicPageWidgetState
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
-                                                color: Colors.transparent,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 fontSize: 15.0,
                                               ),
                                           keyboardType: TextInputType.number,
                                           validator: _model
                                               .carrierPriceTextFieldControllerValidator
                                               .asValidator(context),
-                                        ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            _model.carrierPriceTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.carrierPriceTextFieldController
-                                                            .text !=
-                                                        ''
-                                                ? functions
-                                                    .showNumberWithCommaWithoutDot(
-                                                        _model
-                                                            .carrierPriceTextFieldController
-                                                            .text)
-                                                : '',
-                                            '0',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: _model.carrierPriceTextFieldController
-                                                                .text !=
-                                                            null &&
-                                                        _model.carrierPriceTextFieldController
-                                                                .text !=
-                                                            ''
-                                                    ? Colors.black
-                                                    : Color(0x00B3B3B3),
-                                                fontSize: 15.0,
-                                              ),
                                         ),
                                       ),
                                     ),
@@ -1836,8 +2074,7 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -1921,9 +2158,139 @@ class _NonePackageBasicPageWidgetState
                                                 '_model.brandNameTextFieldController',
                                                 Duration(milliseconds: 1000),
                                                 () async {
+                                                  if (FFAppState()
+                                                          .insuranceBasicVehicleGroup ==
+                                                      'PICKUP') {
+                                                    setState(() {
+                                                      FFAppState().nonePackageSearchModelList = functions
+                                                          .returnMappedListFrom3List(
+                                                              FFAppState()
+                                                                  .insuranceBasicModelNameListOriginal
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicModelBrandIdListOriginal
+                                                                  .toList(),
+                                                              functions.getValueWithMappedList(
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandIdList
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandNameList
+                                                                      .toList(),
+                                                                  functions.toUpperCase(_model
+                                                                      .brandNameTextFieldController
+                                                                      .text)),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroupList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroup,
+                                                              FFAppState()
+                                                                  .insuranceBasicCarGroupDetail
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicCarTypeContain,
+                                                              FFAppState()
+                                                                  .insuranceBasicCarDoorList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicCarTypeDoors)
+                                                          .toList()
+                                                          .cast<String>();
+                                                      FFAppState().nonePackageSearchModelIdList = functions
+                                                          .returnMappedListFrom3List(
+                                                              FFAppState()
+                                                                  .insuranceBasicModelIdListOriginal
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicModelBrandIdListOriginal
+                                                                  .toList(),
+                                                              functions.getValueWithMappedList(
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandIdList
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandNameList
+                                                                      .toList(),
+                                                                  functions.toUpperCase(_model
+                                                                      .brandNameTextFieldController
+                                                                      .text)),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroupList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroup,
+                                                              FFAppState()
+                                                                  .insuranceBasicCarGroupDetail
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicCarTypeContain,
+                                                              FFAppState()
+                                                                  .insuranceBasicCarDoorList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicCarTypeDoors)
+                                                          .toList()
+                                                          .cast<String>();
+                                                    });
+                                                  } else {
+                                                    setState(() {
+                                                      FFAppState().nonePackageSearchModelList = functions
+                                                          .returnMappedListFrom3ListOther(
+                                                              FFAppState()
+                                                                  .insuranceBasicModelNameListOriginal
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicModelBrandIdListOriginal
+                                                                  .toList(),
+                                                              functions.getValueWithMappedList(
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandIdList
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandNameList
+                                                                      .toList(),
+                                                                  functions.toUpperCase(_model
+                                                                      .brandNameTextFieldController
+                                                                      .text)),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroupList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroup)
+                                                          .toList()
+                                                          .cast<String>();
+                                                      FFAppState().nonePackageSearchModelIdList = functions
+                                                          .returnMappedListFrom3ListOther(
+                                                              FFAppState()
+                                                                  .insuranceBasicModelIdListOriginal
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicModelBrandIdListOriginal
+                                                                  .toList(),
+                                                              functions.getValueWithMappedList(
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandIdList
+                                                                      .toList(),
+                                                                  FFAppState()
+                                                                      .insuranceBasicBrandNameList
+                                                                      .toList(),
+                                                                  functions.toUpperCase(_model
+                                                                      .brandNameTextFieldController
+                                                                      .text)),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroupList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicVehicleGroup)
+                                                          .toList()
+                                                          .cast<String>();
+                                                    });
+                                                  }
+
                                                   setState(() {
                                                     FFAppState().nonePackageSearchModelList = functions
-                                                        .returnMappedListFrom2List(
+                                                        .returnMappedListFrom3List(
                                                             FFAppState()
                                                                 .insuranceBasicModelNameListOriginal
                                                                 .toList(),
@@ -1940,11 +2307,26 @@ class _NonePackageBasicPageWidgetState
                                                                 functions.toUpperCase(
                                                                     _model
                                                                         .brandNameTextFieldController
-                                                                        .text)))
+                                                                        .text)),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroupList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroup,
+                                                            FFAppState()
+                                                                .insuranceBasicCarGroupDetail
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicCarTypeContain,
+                                                            FFAppState()
+                                                                .insuranceBasicCarDoorList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicCarTypeDoors)
                                                         .toList()
                                                         .cast<String>();
                                                     FFAppState().nonePackageSearchModelIdList = functions
-                                                        .returnMappedListFrom2List(
+                                                        .returnMappedListFrom3List(
                                                             FFAppState()
                                                                 .insuranceBasicModelIdListOriginal
                                                                 .toList(),
@@ -1961,7 +2343,22 @@ class _NonePackageBasicPageWidgetState
                                                                 functions.toUpperCase(
                                                                     _model
                                                                         .brandNameTextFieldController
-                                                                        .text)))
+                                                                        .text)),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroupList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroup,
+                                                            FFAppState()
+                                                                .insuranceBasicCarGroupDetail
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicCarTypeContain,
+                                                            FFAppState()
+                                                                .insuranceBasicCarDoorList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicCarTypeDoors)
                                                         .toList()
                                                         .cast<String>();
                                                   });
@@ -2079,7 +2476,7 @@ class _NonePackageBasicPageWidgetState
                                 ),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
@@ -2262,7 +2659,7 @@ class _NonePackageBasicPageWidgetState
                                     ),
                                     'dataList': serializeParam(
                                       functions.reverseList(functions
-                                          .ganerateYearList(2500, 2566)
+                                          .ganerateYearList(2500, 2567)
                                           ?.toList()),
                                       ParamType.String,
                                       true,
@@ -2408,7 +2805,7 @@ class _NonePackageBasicPageWidgetState
                                   ),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
@@ -2457,40 +2854,40 @@ class _NonePackageBasicPageWidgetState
                         ),
                       ),
                     ),
-                  if (FFAppState().nonePackageFlagRenew)
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  'วันที่หมดอายุประกัน',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                                Text(
-                                  'เดิม',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w800,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'วันที่หมดอายุประกัน',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+                              Text(
+                                'เดิม',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.w800,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                              ),
+                              if (FFAppState().nonePackageFlagRenew)
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
@@ -2505,127 +2902,153 @@ class _NonePackageBasicPageWidgetState
                                         ),
                                   ),
                                 ),
-                              ],
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (kIsWeb) {
-                                    final _datePickedDate =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: DateTime(2050),
-                                    );
-
-                                    if (_datePickedDate != null) {
-                                      safeSetState(() {
-                                        _model.datePicked = DateTime(
-                                          _datePickedDate.year,
-                                          _datePickedDate.month,
-                                          _datePickedDate.day,
-                                        );
-                                      });
-                                    }
-                                  } else {
-                                    await DatePicker.showDatePicker(
-                                      context,
-                                      showTitleActions: true,
-                                      onConfirm: (date) {
-                                        safeSetState(() {
-                                          _model.datePicked = date;
-                                        });
-                                      },
-                                      currentTime: getCurrentTimestamp,
-                                      minTime: DateTime(0, 0, 0),
-                                      locale: LocaleType.values.firstWhere(
-                                        (l) =>
-                                            l.name ==
-                                            FFLocalizations.of(context)
-                                                .languageCode,
-                                        orElse: () => LocaleType.en,
-                                      ),
-                                    );
-                                  }
-
-                                  await actions.hideKeyboardAction(
-                                    context,
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (kIsWeb) {
+                                  final _datePickedDate = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: DateTime(1900),
+                                    lastDate: DateTime(2050),
                                   );
-                                },
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
+
+                                  if (_datePickedDate != null) {
+                                    safeSetState(() {
+                                      _model.datePicked = DateTime(
+                                        _datePickedDate.year,
+                                        _datePickedDate.month,
+                                        _datePickedDate.day,
+                                      );
+                                    });
+                                  }
+                                } else {
+                                  await DatePicker.showDatePicker(
+                                    context,
+                                    showTitleActions: true,
+                                    onConfirm: (date) {
+                                      safeSetState(() {
+                                        _model.datePicked = date;
+                                      });
+                                    },
+                                    currentTime: getCurrentTimestamp,
+                                    minTime: DateTime(0, 0, 0),
+                                    locale: LocaleType.values.firstWhere(
+                                      (l) =>
+                                          l.name ==
+                                          FFLocalizations.of(context)
+                                              .languageCode,
+                                      orElse: () => LocaleType.en,
                                     ),
+                                  );
+                                }
+
+                                await actions.hideKeyboardAction(
+                                  context,
+                                );
+                              },
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFB3B3B3),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            _model.datePicked != null
-                                                ? functions.showDateBE(_model
-                                                    .datePicked
-                                                    ?.toString())
-                                                : (widget.oldVmiExpireDate !=
-                                                            null &&
-                                                        widget.oldVmiExpireDate !=
-                                                            ''
-                                                    ? functions.showDateBE(
-                                                        widget.oldVmiExpireDate)
-                                                    : 'กรุณาเลือกวันที่หมดอายุประกันเดิม'),
-                                            'กรุณาเลือกวันที่หมดอายุประกันเดิม',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: _model.datePicked != null
-                                                    ? Colors.black
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          () {
+                                            if (_model.datePicked != null) {
+                                              return functions.showDateBE(_model
+                                                  .datePicked
+                                                  ?.toString());
+                                            } else if ((FFAppState()
+                                                        .nonePackageOldVmiExpDate !=
+                                                    '') &&
+                                                !functions.containWordinStringUrl(
+                                                    'กรุณา',
+                                                    FFAppState()
+                                                        .nonePackageOldVmiExpDate)!) {
+                                              return functions.showDateBE(
+                                                  FFAppState()
+                                                      .nonePackageOldVmiExpDate);
+                                            } else {
+                                              return (widget.oldVmiExpireDate !=
+                                                          null &&
+                                                      widget.oldVmiExpireDate !=
+                                                          ''
+                                                  ? functions.showDateBE(
+                                                      widget.oldVmiExpireDate)
+                                                  : 'กรุณาเลือกวันที่หมดอายุประกันเดิม');
+                                            }
+                                          }(),
+                                          'กรุณาเลือกวันที่หมดอายุประกันเดิม',
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: () {
+                                                if (_model.datePicked != null) {
+                                                  return Colors.black;
+                                                } else if ((FFAppState()
+                                                            .nonePackageOldVmiExpDate !=
+                                                        '') &&
+                                                    !functions
+                                                        .containWordinStringUrl(
+                                                            'กรุณา',
+                                                            FFAppState()
+                                                                .nonePackageOldVmiExpDate)!) {
+                                                  return Colors.black;
+                                                } else {
+                                                  return FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText;
+                                                }
+                                              }(),
+                                              fontSize: 15.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: Icon(
-                                          Icons.edit_calendar_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Icon(
+                                        Icons.edit_calendar_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
+                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
@@ -3163,8 +3586,7 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -3282,8 +3704,7 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -3404,8 +3825,7 @@ class _NonePackageBasicPageWidgetState
                                 children: [
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -3525,7 +3945,7 @@ class _NonePackageBasicPageWidgetState
                                     Expanded(
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -3770,8 +4190,6 @@ class _NonePackageBasicPageWidgetState
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 60.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
                                 borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
                                   color: Color(0xFFB3B3B3),
@@ -3798,7 +4216,9 @@ class _NonePackageBasicPageWidgetState
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              color: Color(0xFFB3B3B3),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               fontSize: 15.0,
                                             ),
                                         hintText: 'กรุณากรอกทุนประกัน',
@@ -3806,7 +4226,9 @@ class _NonePackageBasicPageWidgetState
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              color: Color(0xFFB3B3B3),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               fontSize: 15.0,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -3818,52 +4240,14 @@ class _NonePackageBasicPageWidgetState
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            color: Colors.transparent,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
                                             fontSize: 15.0,
                                           ),
                                       keyboardType: TextInputType.number,
                                       validator: _model
                                           .sumInsuredTextFieldControllerValidator
                                           .asValidator(context),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment:
-                                        AlignmentDirectional(-1.00, 0.00),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      child: Text(
-                                        valueOrDefault<String>(
-                                          _model.sumInsuredTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.sumInsuredTextFieldController
-                                                          .text !=
-                                                      ''
-                                              ? functions
-                                                  .showNumberWithCommaWithoutDot(
-                                                      _model
-                                                          .sumInsuredTextFieldController
-                                                          .text)
-                                              : '',
-                                          '0',
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              color: _model.sumInsuredTextFieldController
-                                                              .text !=
-                                                          null &&
-                                                      _model.sumInsuredTextFieldController
-                                                              .text !=
-                                                          ''
-                                                  ? Colors.black
-                                                  : Color(0x00B3B3B3),
-                                              fontSize: 15.0,
-                                            ),
-                                      ),
                                     ),
                                   ),
                                 ],
@@ -3949,25 +4333,27 @@ class _NonePackageBasicPageWidgetState
                                             TextCapitalization.none,
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFFB3B3B3),
-                                                    fontSize: 15.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 15.0,
+                                              ),
                                           hintText: 'กรุณากรอกทุนประกันหางพ่วง',
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFFB3B3B3),
-                                                    fontSize: 15.0,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 15.0,
+                                              ),
                                           enabledBorder: InputBorder.none,
                                           focusedBorder: InputBorder.none,
                                           errorBorder: InputBorder.none,
@@ -3977,7 +4363,9 @@ class _NonePackageBasicPageWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              color: Colors.transparent,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               fontSize: 15.0,
                                             ),
                                         keyboardType: TextInputType.number,
@@ -3988,48 +4376,6 @@ class _NonePackageBasicPageWidgetState
                                           FilteringTextInputFormatter.allow(
                                               RegExp('[0-9]'))
                                         ],
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: Text(
-                                          valueOrDefault<String>(
-                                            _model.trailerSumInsuredTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.trailerSumInsuredTextFieldController
-                                                            .text !=
-                                                        ''
-                                                ? functions
-                                                    .showNumberWithCommaWithoutDot(
-                                                        valueOrDefault<String>(
-                                                    _model
-                                                        .trailerSumInsuredTextFieldController
-                                                        .text,
-                                                    '0',
-                                                  ))
-                                                : '',
-                                            '0',
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: _model.trailerSumInsuredTextFieldController
-                                                                .text !=
-                                                            null &&
-                                                        _model.trailerSumInsuredTextFieldController
-                                                                .text !=
-                                                            ''
-                                                    ? Colors.black
-                                                    : Color(0x00B3B3B3),
-                                                fontSize: 15.0,
-                                              ),
-                                        ),
                                       ),
                                     ),
                                   ],
@@ -4230,7 +4576,7 @@ class _NonePackageBasicPageWidgetState
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
@@ -4248,7 +4594,7 @@ class _NonePackageBasicPageWidgetState
                         ),
                       ),
                     ),
-                  if (FFAppState().nonePackageFlagRenew)
+                  if (widget.workType == 'transfer')
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
@@ -4325,6 +4671,21 @@ class _NonePackageBasicPageWidgetState
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            '(บังคับอัพโหลดรูป)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFFB0606),
+                                                  fontSize: 12.0,
+                                                ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                     Padding(
@@ -4346,7 +4707,7 @@ class _NonePackageBasicPageWidgetState
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -4355,7 +4716,7 @@ class _NonePackageBasicPageWidgetState
                                                 height: 100.0,
                                                 decoration: BoxDecoration(),
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -4508,12 +4869,7 @@ class _NonePackageBasicPageWidgetState
                                                                 0.35,
                                                         height: 40.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                            EdgeInsets.all(0.0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
@@ -4655,6 +5011,21 @@ class _NonePackageBasicPageWidgetState
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            '(บังคับอัพโหลดรูป)',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFFB0606),
+                                                  fontSize: 12.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Icon(
                                             Icons.content_paste_search_rounded,
@@ -4711,7 +5082,7 @@ class _NonePackageBasicPageWidgetState
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -4720,7 +5091,7 @@ class _NonePackageBasicPageWidgetState
                                                 height: 100.0,
                                                 decoration: BoxDecoration(),
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -4873,12 +5244,7 @@ class _NonePackageBasicPageWidgetState
                                                                 0.35,
                                                         height: 40.0,
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                            EdgeInsets.all(0.0),
                                                         iconPadding:
                                                             EdgeInsetsDirectional
                                                                 .fromSTEB(
@@ -5020,6 +5386,24 @@ class _NonePackageBasicPageWidgetState
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              '(บังคับอัพโหลดรูป)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                      ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                       Padding(
@@ -5041,7 +5425,7 @@ class _NonePackageBasicPageWidgetState
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
@@ -5051,7 +5435,7 @@ class _NonePackageBasicPageWidgetState
                                                   decoration: BoxDecoration(),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -5209,12 +5593,8 @@ class _NonePackageBasicPageWidgetState
                                                                   0.35,
                                                           height: 40.0,
                                                           padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
+                                                              EdgeInsets.all(
+                                                                  0.0),
                                                           iconPadding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
@@ -5365,17 +5745,19 @@ class _NonePackageBasicPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกสาขาที่จะลงผลงาน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       return;
@@ -5747,9 +6129,10 @@ class _NonePackageBasicPageWidgetState
                                           );
                                           return;
                                         } else {
-                                          if (!functions.checkIsIntValue(_model
-                                              .carrierPriceTextFieldController
-                                              .text)!) {
+                                          if (!functions.checkIsIntValue(functions
+                                              .removeCommaFromNumText(_model
+                                                  .carrierPriceTextFieldController
+                                                  .text))!) {
                                             ScaffoldMessenger.of(context)
                                                 .clearSnackBars();
                                             ScaffoldMessenger.of(context)
@@ -5871,6 +6254,79 @@ class _NonePackageBasicPageWidgetState
                                     }
                                   }
 
+                                  if (widget.workType == 'transfer') {
+                                    if (!(_model.uploadedFileUrl1 != null &&
+                                        _model.uploadedFileUrl1 != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดรูปตารางกรมธรรม์เดิม'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
+                                    if (!(_model.uploadedFileUrl2 != null &&
+                                        _model.uploadedFileUrl2 != '')) {
+                                      await showDialog(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return WebViewAware(
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดรูปสำเนาบัตรประชาชนลูกค้า'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        },
+                                      );
+                                      return;
+                                    }
+                                    if (!FFAppState().buttonOrdinary) {
+                                      if (!(_model.uploadedFileUrl3 != null &&
+                                          _model.uploadedFileUrl3 != '')) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาอัพโหลดรูปหนังสือจดทะเบียนบริษัท'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                    }
+                                  }
                                   setState(() {
                                     FFAppState().nonePackageModelName =
                                         functions.toUpperCase(
@@ -5897,8 +6353,10 @@ class _NonePackageBasicPageWidgetState
                                     FFAppState().nonePackagePlate = functions
                                         .removeSpacialLetterFromText(_model
                                             .plateTextFieldController.text);
-                                    FFAppState().nonePackageSumInsured = _model
-                                        .sumInsuredTextFieldController.text;
+                                    FFAppState().nonePackageSumInsured =
+                                        functions.removeCommaFromNumText(_model
+                                            .sumInsuredTextFieldController
+                                            .text);
                                     FFAppState().nonePackageBrandName =
                                         functions.toUpperCase(_model
                                             .brandNameTextFieldController
@@ -5924,8 +6382,9 @@ class _NonePackageBasicPageWidgetState
                                   });
                                   setState(() {
                                     FFAppState().nonePackageCarrierPrice =
-                                        _model.carrierPriceTextFieldController
-                                            .text;
+                                        functions.removeCommaFromNumText(_model
+                                            .carrierPriceTextFieldController
+                                            .text);
                                   });
                                   setState(() {
                                     FFAppState().nonePackageTruckPart =
@@ -5933,8 +6392,9 @@ class _NonePackageBasicPageWidgetState
                                     FFAppState().nonePackageCusMembership =
                                         FFAppState().nonePackageCusMembership;
                                     FFAppState().nonePackageTruckCurrentPrice =
-                                        _model.currentPriceTextFieldController
-                                            .text;
+                                        functions.removeCommaFromNumText(_model
+                                            .currentPriceTextFieldController
+                                            .text);
                                     FFAppState().nonePackagePlateAdditional =
                                         functions.removeSpacialLetterFromText(
                                             _model
@@ -5944,9 +6404,9 @@ class _NonePackageBasicPageWidgetState
                                         _model.carryPurposeTextFieldController
                                             .text;
                                     FFAppState().nonePackageTrailerSumInsured =
-                                        _model
+                                        functions.removeCommaFromNumText(_model
                                             .trailerSumInsuredTextFieldController
-                                            .text;
+                                            .text);
                                     FFAppState().nonePackageRemark =
                                         _model.remarkTextFieldController.text;
                                   });
@@ -5969,17 +6429,40 @@ class _NonePackageBasicPageWidgetState
                                               .nonePackageCompanyBookImageUrl =
                                           _model.uploadedFileUrl3;
                                     });
+                                  } else {
+                                    setState(() {
+                                      FFAppState().nonePackageOldVmiExpDate =
+                                          _model.datePicked != null
+                                              ? functions.getDateFormat(
+                                                  _model.datePicked)!
+                                              : '';
+                                    });
                                   }
+
                                   if (FFAppState().nonePackageFlagRenew ||
                                       (FFAppState().nonePackageUsedTypeCode ==
                                           '110') ||
                                       (FFAppState().nonePackageCoverTypeName ==
                                           'ชั้น 3')) {
                                     context.pushNamed(
-                                        'NonePackageBasicImage2Page');
+                                      'NonePackageBasicImage2Page',
+                                      queryParameters: {
+                                        'workType': serializeParam(
+                                          widget.workType,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   } else {
                                     context.pushNamed(
-                                        'NonePackageBasicImage1Page');
+                                      'NonePackageBasicImage1Page',
+                                      queryParameters: {
+                                        'workType': serializeParam(
+                                          widget.workType,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   }
                                 },
                                 text: 'ถัดไป',
