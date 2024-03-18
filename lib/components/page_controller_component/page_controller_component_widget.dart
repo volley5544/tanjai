@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +11,10 @@ import 'page_controller_component_model.dart';
 export 'page_controller_component_model.dart';
 
 class PageControllerComponentWidget extends StatefulWidget {
-  const PageControllerComponentWidget({Key? key}) : super(key: key);
+  const PageControllerComponentWidget({super.key});
 
   @override
-  _PageControllerComponentWidgetState createState() =>
+  State<PageControllerComponentWidget> createState() =>
       _PageControllerComponentWidgetState();
 }
 
@@ -61,7 +60,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -96,7 +95,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -135,14 +134,14 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 6,
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: FlutterFlowChoiceChips(
                   options: FFAppState()
                       .pageSelectionList
                       .map((label) => ChipData(label))
                       .toList(),
                   onChanged: (val) async {
-                    setState(() => _model.choiceChipsValue = val?.first);
+                    setState(() => _model.choiceChipsValue = val?.firstOrNull);
                     setState(() {
                       FFAppState().reportItemIndexList = functions
                           .setReportItemIndexList(_model.choiceChipsValue)!
@@ -208,7 +207,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -247,7 +246,7 @@ class _PageControllerComponentWidgetState
             Expanded(
               flex: 1,
               child: Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,

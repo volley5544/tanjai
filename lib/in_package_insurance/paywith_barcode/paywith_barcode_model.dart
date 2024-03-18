@@ -6,7 +6,6 @@ import 'paywith_barcode_widget.dart' show PaywithBarcodeWidget;
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -17,8 +16,10 @@ class PaywithBarcodeModel extends FlutterFlowModel<PaywithBarcodeWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

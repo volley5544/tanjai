@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'homepage_request21_model.dart';
@@ -12,14 +11,14 @@ export 'homepage_request21_model.dart';
 
 class HomepageRequest21Widget extends StatefulWidget {
   const HomepageRequest21Widget({
-    Key? key,
+    super.key,
     required this.accessory,
-  }) : super(key: key);
+  });
 
   final String? accessory;
 
   @override
-  _HomepageRequest21WidgetState createState() =>
+  State<HomepageRequest21Widget> createState() =>
       _HomepageRequest21WidgetState();
 }
 
@@ -47,15 +46,6 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -292,7 +282,7 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Icon(
                                                       Icons.check,
                                                       color: Colors.white,
@@ -508,7 +498,7 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Icon(
                                                       Icons.check,
                                                       color: Colors.white,
@@ -629,7 +619,7 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -651,7 +641,7 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                           ),
                           Flexible(
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 1.00),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 40.0),

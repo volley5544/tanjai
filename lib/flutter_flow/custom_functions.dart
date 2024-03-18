@@ -36,12 +36,35 @@ String? showNumberWithCommaWithoutDot(String? number) {
   //String formattedNumber = parsedNumber.toStringAsFixed(2);
 
   // Use regular expression to add commas
+  List<String> parts = number.split('.');
+
+  // Format the part before the decimal point with commas
+  String formattedBeforeDecimal = formatWithCommas(parts[0]);
+
+  // Format the part after the decimal point with two decimal places
+  String formattedAfterDecimal =
+      parts.length > 1 ? formatDecimal(parts[1]) : '00';
+
+  // Combine the formatted parts
+  String result = '$formattedBeforeDecimal.$formattedAfterDecimal';
+
+  return (result);
+}
+
+String formatWithCommas(String input) {
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
+  return input.replaceAllMapped(reg, mathFunc);
+}
 
-  String result = number!.replaceAllMapped(reg, mathFunc);
-
-  return result;
+String formatDecimal(String input) {
+  if (input.length >= 2) {
+    return input.substring(0, 2);
+  } else if (input.isNotEmpty) {
+    return input.padRight(2, '0');
+  } else {
+    return '00';
+  }
 }
 
 int getIndexOfIntList(
@@ -157,6 +180,33 @@ bool checkGPSDeviceIsOn(LatLng? currentDeviceLocation) {
 bool returnTrueFunction() {
   // Add your function code here!
   return true;
+}
+
+List<String> returnMappedListFrom3ListOther(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+  List<String>? vehicleGroupList,
+  String? vehicleGroupSearch,
+) {
+  //Map<String, String> mappedList =
+  //  Map.fromIterables(somethingList1!, somethingList2!);
+
+  //List<String> keysWithSearchValue = mappedList.entries
+  //   .where((entry) => entry.value == searchValue!)
+  // .map((entry) => entry.key)
+  //.toList();
+
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i] &&
+        vehicleGroupList![i].contains(vehicleGroupSearch!)) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
 }
 
 String? imgPathListToStringCopy(List<String>? imgPathList) {
@@ -2080,13 +2130,24 @@ String showCoverTypeThai(String? coverTypeEng) {
 }
 
 String? showNumberWithComma(String? number) {
+  List<String> numberSplit = number!.split('.');
   // Check if the input is null or empty
   if (number == null || number.isEmpty) {
     return '';
   }
+  double? parsedNumber = 0.00;
+  if (number.contains('.')) {
+    if (numberSplit[1].length > 1) {
+      parsedNumber = double.tryParse(
+          '${numberSplit[0]}.${numberSplit[1][0]}${numberSplit[1][1]}');
+    } else {
+      parsedNumber = double.tryParse('${numberSplit[0]}.${numberSplit[1]}0');
+    }
+  } else {
+    parsedNumber = double.tryParse(number + '.00');
+  }
 
   // Parse the input string to a double
-  double? parsedNumber = double.tryParse(number);
 
   // Check if parsing was successful
   if (parsedNumber == null) {
@@ -2094,15 +2155,20 @@ String? showNumberWithComma(String? number) {
   }
 
   // Format the double as a string with two decimal places
-  String formattedNumber = parsedNumber.toStringAsFixed(2);
+  if (parsedNumber != null) {
+    // Format the number with two decimal places
+    String formattedNumber = parsedNumber.toStringAsFixed(2);
 
-  // Use regular expression to add commas
-  RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
-  String Function(Match) mathFunc = (Match match) => '${match[1]},';
+    // Use regular expression to add commas
+    RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+    String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
-  String result = formattedNumber.replaceAllMapped(reg, mathFunc);
-
-  return result;
+    // Format the number with commas and print
+    String result = formattedNumber.replaceAllMapped(reg, mathFunc);
+    return result;
+  } else {
+    print("Failed to parse number.");
+  }
 }
 
 String checkNullVariable(List<String>? checkInStatusList) {
@@ -3788,7 +3854,7 @@ List<int>? setReportItemIndexList(String? pageNumber) {
 
 String removeLetterShowonlyNumber(String? numberText) {
   // Add your function code here!
-  String result = numberText!.replaceAll(RegExp('[0-9.]'), '');
+  String result = numberText!.replaceAll(RegExp('[^0-9.]'), '');
 
   return result;
 }
@@ -4034,6 +4100,115 @@ List<String>? createListByItemNumber(
   List<String> output = List.filled(listLength!, value!);
 
   return output;
+}
+
+List<String> returnMappedListFrom2ListContain(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+) {
+  //Map<String, String> mappedList =
+  //  Map.fromIterables(somethingList1!, somethingList2!);
+
+  //List<String> keysWithSearchValue = mappedList.entries
+  //   .where((entry) => entry.value == searchValue!)
+  // .map((entry) => entry.key)
+  //.toList();
+
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (somethingList2![i].contains(searchValue!)) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
+}
+
+List<String> returnMappedListParamContainInList(
+  List<String>? somethingList1,
+  String? searchValue,
+) {
+  //Map<String, String> mappedList =
+  //  Map.fromIterables(somethingList1!, somethingList2!);
+
+  //List<String> keysWithSearchValue = mappedList.entries
+  //   .where((entry) => entry.value == searchValue!)
+  // .map((entry) => entry.key)
+  //.toList();
+
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (somethingList1![i].contains(searchValue!)) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
+}
+
+List<String> returnMappedListFrom3List(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+  List<String>? vehicleGroupList,
+  String? vehicleGroupSearch,
+  List<String>? carGroupDetailList,
+  String? carTypeContain,
+  List<String>? carDoorList,
+  String? carTypeDoors,
+) {
+  //Map<String, String> mappedList =
+  //  Map.fromIterables(somethingList1!, somethingList2!);
+
+  //List<String> keysWithSearchValue = mappedList.entries
+  //   .where((entry) => entry.value == searchValue!)
+  // .map((entry) => entry.key)
+  //.toList();
+
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i] &&
+        vehicleGroupList![i].contains(vehicleGroupSearch!) &&
+        carTypeContain! == carGroupDetailList![i] &&
+        (carTypeDoors! == carDoorList![i] || carDoorList![i] == '-')) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
+}
+
+List<String> returnMappedListFrom3ListContain(
+  List<String>? somethingList1,
+  List<String>? somethingList2,
+  String? searchValue,
+  List<String>? somethingList3,
+  String? searchValue2,
+  String? searchValue3,
+) {
+  //Map<String, String> mappedList =
+  //  Map.fromIterables(somethingList1!, somethingList2!);
+
+  //List<String> keysWithSearchValue = mappedList.entries
+  //   .where((entry) => entry.value == searchValue!)
+  // .map((entry) => entry.key)
+  //.toList();
+
+  List<String> mappedList = [];
+
+  for (int i = 0; i < somethingList1!.length; i++) {
+    if (searchValue! == somethingList2![i] &&
+        searchValue2! == somethingList3![i] &&
+        somethingList1![i].contains(searchValue3!)) {
+      mappedList.add(somethingList1![i]);
+    }
+  }
+
+  return mappedList;
 }
 
 bool? checkIsIntValue(String? value) {
@@ -4406,6 +4581,7 @@ dynamic sendJsonData(
   List<String>? stamp,
   List<String>? grosstotal,
   List<String>? contractProcessstate,
+  List<String>? cc,
 ) {
   List<Map<String, String>> jsonList = [];
 
@@ -4442,6 +4618,7 @@ dynamic sendJsonData(
       'stamp': stamp![i],
       'gross_total': grosstotal![i],
       'contractProcessstate': contractProcessstate![i],
+      'cc': cc![i],
     };
     jsonList.add(jsonObject);
   }
@@ -4555,19 +4732,31 @@ List<String>? changeListintToString(List<int>? intInput) {
 
 String? showDateBE(String? inputDateStr) {
   //String inputDateStr = '1996-02-13';
-  DateTime inputDate = DateTime.parse(inputDateStr!);
-  DateTime newDate =
-      DateTime(inputDate!.year + 543, inputDate!.month, inputDate!.day);
+  //DateTime inputDate = DateTime.parse(inputDateStr!);
+  //DateTime newDate =
+  //DateTime(inputDate!.year + 543, inputDate!.month, inputDate!.day);
 
   // Create a DateFormat instance with the Thai locale and B.E. era
 //   final thaiDateFormat = DateFormat.yMd('th').add_y();
-  final thaiDateFormat = DateFormat('dd/MM/y');
+  // final thaiDateFormat = DateFormat('dd/MM/y');
 
   // Format the date in Thai style with B.E. era
-  String formattedDate = thaiDateFormat.format(newDate);
+  //String formattedDate = thaiDateFormat.format(newDate);
 
-  print(formattedDate); // Output: "13 กุมภาพันธ์ 2539"
-  return formattedDate;
+  //print(formattedDate); // Output: "13 กุมภาพันธ์ 2539"
+  // return formattedDate;
+
+  final datetimeFormatDate = DateFormat('dd/MM/y');
+  String datetimeDate =
+      datetimeFormatDate.format(DateTime.parse(inputDateStr!));
+  print(datetimeDate);
+
+  List<String> splitDate = datetimeDate.split('/');
+  print(splitDate);
+  String dateBE =
+      '${splitDate[0]}/${splitDate[1]}/${int.parse(splitDate[2]) + 543}';
+  print(dateBE);
+  return dateBE;
 }
 
 List<dynamic>? returnJsonSearchToList(
@@ -4850,4 +5039,68 @@ bool? checkCurrentDateIsBeforeInputDate(
   } else {
     return false;
   }
+}
+
+String? changeIntToString(int? input) {
+  String output = '${input!}';
+  return output;
+}
+
+bool? checkString(String? param) {
+  bool paramcheck = false;
+  if (param! is String) {
+    paramcheck = true;
+  } else {
+    paramcheck = false;
+  }
+  return paramcheck;
+}
+
+List<String>? removeValueContainInList(
+  List<String>? somethingList,
+  List<String>? value,
+) {
+  somethingList!.removeWhere((item) => value!.any((p) => item.contains(p)));
+  return somethingList;
+}
+
+String? combineStringFromListreturnLength(List<String>? stringList) {
+  String text = '';
+
+  for (int i = 0; i < stringList!.length; i++) {
+    if (i == 0) {
+      text = '${stringList[i].length}';
+    } else {
+      text = text + ',${stringList[i].length}';
+    }
+  }
+
+  return text;
+}
+
+DateTime? addOneYearDateTime(DateTime? inputDate) {
+  if (inputDate != null) {
+    return DateTime(
+      inputDate.year + 1,
+      inputDate.month,
+      inputDate.day,
+    );
+  } else {
+    return null;
+  }
+}
+
+DateTime? changeYearBDtoAD(String? inputDate) {
+  List<String> parts = inputDate!.split('/');
+
+  // Extract day, month, and year from the parts
+  int day = int.parse(parts[0]);
+  int month = int.parse(parts[1]);
+  int thaiYear = int.parse(parts[2]);
+
+  // Convert the Thai Buddhist year to the common era year
+  int year = thaiYear - 543;
+
+  // Construct a new DateTime object with the parsed components
+  return DateTime(year, month, day);
 }

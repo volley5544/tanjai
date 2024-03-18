@@ -5,7 +5,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +13,14 @@ export 'show_image_list_component_model.dart';
 
 class ShowImageListComponentWidget extends StatefulWidget {
   const ShowImageListComponentWidget({
-    Key? key,
+    super.key,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   final List<String>? imageUrl;
 
   @override
-  _ShowImageListComponentWidgetState createState() =>
+  State<ShowImageListComponentWidget> createState() =>
       _ShowImageListComponentWidgetState();
 }
 
@@ -52,8 +51,6 @@ class _ShowImageListComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +163,7 @@ class _ShowImageListComponentWidgetState
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 1.00),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 16.0),

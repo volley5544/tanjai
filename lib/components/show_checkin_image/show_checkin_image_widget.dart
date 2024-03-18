@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +13,14 @@ export 'show_checkin_image_model.dart';
 
 class ShowCheckinImageWidget extends StatefulWidget {
   const ShowCheckinImageWidget({
-    Key? key,
+    super.key,
     this.leaveImage,
-  }) : super(key: key);
+  });
 
   final List<String>? leaveImage;
 
   @override
-  _ShowCheckinImageWidgetState createState() => _ShowCheckinImageWidgetState();
+  State<ShowCheckinImageWidget> createState() => _ShowCheckinImageWidgetState();
 }
 
 class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
@@ -50,8 +49,6 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Builder(
       builder: (context) {
         final leaveimagelist = widget.leaveImage?.toList() ?? [];
@@ -125,7 +122,7 @@ class _ShowCheckinImageWidgetState extends State<ShowCheckinImageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: smooth_page_indicator.SmoothPageIndicator(

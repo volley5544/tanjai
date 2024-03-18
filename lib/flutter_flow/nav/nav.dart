@@ -100,16 +100,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SetPinCodePage',
-              path: 'setPinCodePage',
-              builder: (context, params) => SetPinCodePageWidget(),
-            ),
-            FFRoute(
-              name: 'PinCodePage',
-              path: 'pinCodePage',
-              builder: (context, params) => PinCodePageWidget(),
-            ),
-            FFRoute(
               name: 'SuperAppPage',
               path: 'superAppPage',
               builder: (context, params) => params.isEmpty
@@ -119,126 +109,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ),
             ),
             FFRoute(
-              name: 'NotificationDetailPage',
-              path: 'notificationDetailPage',
-              builder: (context, params) => NotificationDetailPageWidget(),
-            ),
-            FFRoute(
               name: 'MyProfilePage',
               path: 'myProfilePage',
               builder: (context, params) => MyProfilePageWidget(),
             ),
             FFRoute(
-              name: 'IntrodutionPage',
-              path: 'introdutionPage',
-              builder: (context, params) => IntrodutionPageWidget(),
+              name: 'PinCodePage',
+              path: 'pinCodePage',
+              builder: (context, params) => PinCodePageWidget(),
             ),
             FFRoute(
-              name: 'CheckInsurancePage',
-              path: 'checkInsurancePage',
-              builder: (context, params) => CheckInsurancePageWidget(),
-            ),
-            FFRoute(
-              name: 'Check_1InsurancePage',
-              path: 'check1InsurancePage',
-              builder: (context, params) => Check1InsurancePageWidget(
-                brandCode: params.getParam('brandCode', ParamType.String),
-                modelCode: params.getParam('modelCode', ParamType.String),
-                year: params.getParam('year', ParamType.String),
-                province: params.getParam('province', ParamType.String),
-                driver: params.getParam('driver', ParamType.String),
-                vehicleUsage: params.getParam('vehicleUsage', ParamType.String),
-              ),
-            ),
-            FFRoute(
-              name: 'ListInsurancPage',
-              path: 'listInsurancPage',
-              builder: (context, params) => ListInsurancPageWidget(),
-            ),
-            FFRoute(
-              name: 'DetailInsurancePage',
-              path: 'detailInsurancePage',
-              builder: (context, params) => DetailInsurancePageWidget(
-                fullName: params.getParam('fullName', ParamType.String),
-                coverType: params.getParam('coverType', ParamType.String),
-                garageType: params.getParam('garageType', ParamType.String),
-                grossTotal: params.getParam('grossTotal', ParamType.String),
-                sumInsured: params.getParam('sumInsured', ParamType.String),
-                tppd: params.getParam('tppd', ParamType.String),
-                pa: params.getParam('pa', ParamType.String),
-                actAmount: params.getParam('actAmount', ParamType.String),
-                expiryDate: params.getParam('expiryDate', ParamType.String),
-              ),
-            ),
-            FFRoute(
-              name: 'htmlPage',
-              path: 'htmlPage',
-              builder: (context, params) => HtmlPageWidget(
-                contentHtml: params.getParam('contentHtml', ParamType.String),
-              ),
-            ),
-            FFRoute(
-              name: 'WelfareKPICEOPage',
-              path: 'welfareKPICEOPage',
-              builder: (context, params) => WelfareKPICEOPageWidget(),
+              name: 'SetPinCodePage',
+              path: 'setPinCodePage',
+              builder: (context, params) => SetPinCodePageWidget(),
             ),
             FFRoute(
               name: 'LifeInsuranceLicenseCardPage',
               path: 'lifeInsuranceLicenseCardPage',
               builder: (context, params) =>
                   LifeInsuranceLicenseCardPageWidget(),
-            ),
-            FFRoute(
-              name: 'ChatSearchPage',
-              path: 'chatSearchPage',
-              builder: (context, params) => ChatSearchPageWidget(),
-            ),
-            FFRoute(
-              name: 'ChatHomePage',
-              path: 'chatHomePage',
-              builder: (context, params) => ChatHomePageWidget(),
-            ),
-            FFRoute(
-              name: 'ChattingPage',
-              path: 'chattingPage',
-              builder: (context, params) => ChattingPageWidget(
-                userBProfileImage:
-                    params.getParam('userBProfileImage', ParamType.String),
-                userBDocRef: params.getParam('userBDocRef',
-                    ParamType.DocumentReference, false, ['user_custom']),
-                userBName: params.getParam('userBName', ParamType.String),
-                userBNickname:
-                    params.getParam('userBNickname', ParamType.String),
-                userBEmployeeId:
-                    params.getParam('userBEmployeeId', ParamType.String),
-              ),
-            ),
-            FFRoute(
-              name: 'InsuranceRequestInsurerPage',
-              path: 'InsuranceRequestPageCopy',
-              builder: (context, params) => InsuranceRequestInsurerPageWidget(),
-            ),
-            FFRoute(
-              name: 'InsuranceRequestImagePage',
-              path: 'InsuranceRequestImagePage',
-              builder: (context, params) => InsuranceRequestImagePageWidget(),
-            ),
-            FFRoute(
-              name: 'InsuranceRequestBasicPage',
-              path: 'InsuranceRequestBasicPage',
-              builder: (context, params) => InsuranceRequestBasicPageWidget(),
-            ),
-            FFRoute(
-              name: 'InsuranceRequestListPage',
-              path: 'InsuranceRequestListPage',
-              builder: (context, params) => InsuranceRequestListPageWidget(),
-            ),
-            FFRoute(
-              name: 'InsuranceRequestDashboardPage',
-              path: 'insuranceRequestDashboardPage',
-              builder: (context, params) => InsuranceRequestDashboardPageWidget(
-                jwtToken: params.getParam('jwtToken', ParamType.String),
-              ),
             ),
             FFRoute(
               name: 'inboxEmail',
@@ -248,7 +137,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'SearchInsurancePage',
               path: 'searchInsurancePage',
-              builder: (context, params) => SearchInsurancePageWidget(),
+              builder: (context, params) => SearchInsurancePageWidget(
+                fromIcon: params.getParam('fromIcon', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'AboutUsPage',
@@ -261,25 +152,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => ContactUsPageWidget(),
             ),
             FFRoute(
-              name: 'InsuranceRequestListPageCopy',
-              path: 'InsuranceRequestListPageCopy',
-              builder: (context, params) =>
-                  InsuranceRequestListPageCopyWidget(),
-            ),
-            FFRoute(
               name: 'SelectReasonPage',
               path: 'selectReasonPage',
               builder: (context, params) => SelectReasonPageWidget(),
-            ),
-            FFRoute(
-              name: 'SelectInsurer',
-              path: 'selectInsurer',
-              builder: (context, params) => SelectInsurerWidget(),
-            ),
-            FFRoute(
-              name: 'VehicleType',
-              path: 'vehicleType',
-              builder: (context, params) => VehicleTypeWidget(),
             ),
             FFRoute(
               name: 'MyAccountPage',
@@ -375,6 +250,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   tppd: params.getParam<String>('tppd', ParamType.String, true),
                   contractProcessstate: params.getParam<String>(
                       'contractProcessstate', ParamType.String, true),
+                  insurerCondition: params.getParam<String>(
+                      'insurerCondition', ParamType.String, true),
+                  cc: params.getParam<String>('cc', ParamType.String, true),
                 ),
               ),
             ),
@@ -418,6 +296,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     'garageType', ParamType.String, true),
                 brandName: params.getParam('brandName', ParamType.String),
                 modelName: params.getParam('modelName', ParamType.String),
+                carTypeDetail:
+                    params.getParam('carTypeDetail', ParamType.String),
+                oldVmiExpDate:
+                    params.getParam('oldVmiExpDate', ParamType.String),
+                provinceCode: params.getParam('provinceCode', ParamType.String),
               ),
             ),
             FFRoute(
@@ -478,6 +361,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                       params.getParam('insurerMaxName', ParamType.String),
                   contractProcessstate:
                       params.getParam('contractProcessstate', ParamType.String),
+                  insurerCondition:
+                      params.getParam('insurerCondition', ParamType.String),
+                  cc: params.getParam('cc', ParamType.String),
                 ),
               ),
             ),
@@ -523,16 +409,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'homepageFollowUp11',
-              path: 'homepageFollowUp11',
-              builder: (context, params) => HomepageFollowUp11Widget(),
-            ),
-            FFRoute(
-              name: 'homepageFollowUp12',
-              path: 'homepageFollowUp12',
-              builder: (context, params) => HomepageFollowUp12Widget(),
-            ),
-            FFRoute(
               name: 'SuccessPage',
               path: 'successPage',
               builder: (context, params) => SuccessPageWidget(),
@@ -573,7 +449,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Homepage_Request_4_1',
               path: 'Homepage_Request_4_1',
-              builder: (context, params) => HomepageRequest41Widget(),
+              builder: (context, params) => HomepageRequest41Widget(
+                fromPage: params.getParam('fromPage', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'Homepage_Request_5_4_1',
@@ -594,6 +472,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ref1: params.getParam('ref1', ParamType.String),
                 ref2: params.getParam('ref2', ParamType.String),
                 amount: params.getParam('amount', ParamType.String),
+                fromPage: params.getParam('fromPage', ParamType.String),
+                actCMI: params.getParam('actCMI', ParamType.bool),
               ),
             ),
             FFRoute(
@@ -608,22 +488,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'Homepage_Request_5_2_3',
-              path: 'Homepage_Request_5_2_3',
-              builder: (context, params) => HomepageRequest523Widget(
-                index: params.getParam('index', ParamType.int),
-                insuranceName:
-                    params.getParam('insuranceName', ParamType.String),
-                insuranceType:
-                    params.getParam('insuranceType', ParamType.String),
-              ),
-            ),
-            FFRoute(
-              name: 'List_out_1',
-              path: 'List_out_1',
-              builder: (context, params) => ListOut1Widget(),
-            ),
-            FFRoute(
               name: 'Outofrange_3',
               path: 'Outofrange_3',
               builder: (context, params) => Outofrange3Widget(),
@@ -633,7 +497,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'Quotation',
               builder: (context, params) => NavBarPage(
                 initialPage: '',
-                page: QuotationWidget(),
+                page: QuotationWidget(
+                  fromPage: params.getParam('fromPage', ParamType.String),
+                ),
               ),
             ),
             FFRoute(
@@ -644,7 +510,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'NonePackageRenewPage',
               path: 'NonePackageRenewPage',
-              builder: (context, params) => NonePackageRenewPageWidget(),
+              builder: (context, params) => NonePackageRenewPageWidget(
+                workType: params.getParam('workType', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'Search_7_Renew_1',
@@ -709,6 +577,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 oldVmi: params.getParam('oldVmi', ParamType.String),
                 oldVmiExpireDate:
                     params.getParam('oldVmiExpireDate', ParamType.String),
+                workType: params.getParam('workType', ParamType.String),
               ),
             ),
             FFRoute(
@@ -810,6 +679,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 fromPage: params.getParam('fromPage', ParamType.String),
                 fromBtn: params.getParam('fromBtn', ParamType.String),
                 indexPage: params.getParam('indexPage', ParamType.int),
+                oldVMIExpDate:
+                    params.getParam('oldVMIExpDate', ParamType.String),
+                cc: params.getParam<String>('cc', ParamType.String, true),
               ),
             ),
             FFRoute(
@@ -847,7 +719,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'NonePackageInsurerPage',
               path: 'NonePackageInsurerPage',
-              builder: (context, params) => NonePackageInsurerPageWidget(),
+              builder: (context, params) => NonePackageInsurerPageWidget(
+                workType: params.getParam('workType', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'insuranceInfoPage5Cancel',
@@ -892,29 +766,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'List_out_1_EDIT1Copy',
-              path: 'List_out_1_EDIT177',
-              builder: (context, params) => ListOut1EDIT1CopyWidget(),
-            ),
-            FFRoute(
               name: 'NonePackageEditPage2Copy',
               path: 'NonePackageEditPage22',
               builder: (context, params) => NonePackageEditPage2CopyWidget(),
             ),
             FFRoute(
-              name: 'ReloadApp',
-              path: 'reloadApp',
-              builder: (context, params) => ReloadAppWidget(),
-            ),
-            FFRoute(
               name: 'NonePackageBasicImage1Page',
               path: 'NonePackageBasicImage1Page',
-              builder: (context, params) => NonePackageBasicImage1PageWidget(),
+              builder: (context, params) => NonePackageBasicImage1PageWidget(
+                workType: params.getParam('workType', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'NonePackageBasicImage2Page',
               path: 'NonePackageBasicImage2Page',
-              builder: (context, params) => NonePackageBasicImage2PageWidget(),
+              builder: (context, params) => NonePackageBasicImage2PageWidget(
+                workType: params.getParam('workType', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'insuranceInfoPage3_1',
@@ -936,11 +804,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'QuotationCopy',
               path: 'QuotationCopy',
-              builder: (context, params) => NavBarPage(
-                initialPage: '',
-                page: QuotationCopyWidget(
-                  quotation: params.getParam('quotation', ParamType.JSON),
-                ),
+              builder: (context, params) => QuotationCopyWidget(
+                quotation: params.getParam<String>(
+                    'quotation', ParamType.String, true),
               ),
             ),
             FFRoute(
@@ -952,6 +818,124 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'webViewPromotionPage',
               path: 'webViewPromotionPage',
               builder: (context, params) => WebViewPromotionPageWidget(),
+            ),
+            FFRoute(
+              name: 'NotificationIBS',
+              path: 'notificationIBS',
+              builder: (context, params) => NotificationIBSWidget(),
+            ),
+            FFRoute(
+              name: 'SearchableCarListPage',
+              path: 'SearchableCarListPage',
+              builder: (context, params) => SearchableCarListPageWidget(
+                titleText: params.getParam('titleText', ParamType.String),
+                searchLabel: params.getParam('searchLabel', ParamType.String),
+                dataList:
+                    params.getParam<String>('dataList', ParamType.String, true),
+                multiSelect: params.getParam('multiSelect', ParamType.bool),
+                maxSelected: params.getParam('maxSelected', ParamType.int),
+                fromPage: params.getParam('fromPage', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'SearchablePickUpListPage',
+              path: 'SearchablePickUpListPage',
+              builder: (context, params) => SearchablePickUpListPageWidget(
+                titleText: params.getParam('titleText', ParamType.String),
+                searchLabel: params.getParam('searchLabel', ParamType.String),
+                dataList:
+                    params.getParam<String>('dataList', ParamType.String, true),
+                multiSelect: params.getParam('multiSelect', ParamType.bool),
+                maxSelected: params.getParam('maxSelected', ParamType.int),
+                fromPage: params.getParam('fromPage', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'renewHistory',
+              path: 'renewHistory',
+              builder: (context, params) => RenewHistoryWidget(
+                refRenewId: params.getParam('refRenewId', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'MakeInsuranceListPageSearch',
+              path: 'MakeInsuranceListPageSearch',
+              builder: (context, params) => MakeInsuranceListPageSearchWidget(
+                checkTotal: params.getParam('checkTotal', ParamType.int),
+                list: params.getParam<dynamic>('list', ParamType.JSON, true),
+                checkPayment: params.getParam('checkPayment', ParamType.String),
+                checkVMI: params.getParam('checkVMI', ParamType.String),
+                fromPage: params.getParam('fromPage', ParamType.String),
+                type: params.getParam('type', ParamType.String),
+                carRegistration:
+                    params.getParam('carRegistration', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'renewDetailPage',
+              path: 'renewDetailPage',
+              builder: (context, params) => RenewDetailPageWidget(
+                refRenewId: params.getParam('refRenewId', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'RenewBasicInfoPage',
+              path: 'RenewBasicInfoPage',
+              builder: (context, params) => RenewBasicInfoPageWidget(
+                quotationId: params.getParam('quotationId', ParamType.String),
+                leadDetailId: params.getParam('leadDetailId', ParamType.int),
+              ),
+            ),
+            FFRoute(
+              name: 'renewSearchAllPoolPage',
+              path: 'renewSearchAllPoolPage',
+              builder: (context, params) => RenewSearchAllPoolPageWidget(),
+            ),
+            FFRoute(
+              name: 'renewSaveHistory',
+              path: 'renewSaveHistory',
+              builder: (context, params) => RenewSaveHistoryWidget(
+                title: params.getParam('title', ParamType.String),
+                name: params.getParam('name', ParamType.String),
+                lastname: params.getParam('lastname', ParamType.String),
+                brand: params.getParam('brand', ParamType.String),
+                model: params.getParam('model', ParamType.String),
+                covertype: params.getParam('covertype', ParamType.String),
+                garagetype: params.getParam('garagetype', ParamType.String),
+                expDate: params.getParam('expDate', ParamType.String),
+                status: params.getParam('status', ParamType.String),
+                refRenewId: params.getParam('refRenewId', ParamType.String),
+                carregis: params.getParam('carregis', ParamType.String),
+              ),
+            ),
+            FFRoute(
+              name: 'SellingAct',
+              path: 'sellingAct',
+              builder: (context, params) => SellingActWidget(),
+            ),
+            FFRoute(
+              name: 'InformationAct',
+              path: 'Actinformation',
+              builder: (context, params) => InformationActWidget(),
+            ),
+            FFRoute(
+              name: 'InformationCustomer',
+              path: 'informationCustomer',
+              builder: (context, params) => InformationCustomerWidget(),
+            ),
+            FFRoute(
+              name: 'informationCustomer2',
+              path: 'informationCustomer2',
+              builder: (context, params) => InformationCustomer2Widget(
+                bodyNumber: params.getParam('bodyNumber', ParamType.String),
+                effectiveDateAct:
+                    params.getParam('effectiveDateAct', ParamType.DateTime),
+              ),
+            ),
+            FFRoute(
+              name: 'webViewPolicy',
+              path: 'webViewPolicy',
+              builder: (context, params) => WebViewPolicyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -1125,6 +1109,7 @@ class FFRoute {
           return null;
         },
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(
@@ -1148,13 +1133,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

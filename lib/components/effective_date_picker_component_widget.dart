@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,14 +13,14 @@ export 'effective_date_picker_component_model.dart';
 
 class EffectiveDatePickerComponentWidget extends StatefulWidget {
   const EffectiveDatePickerComponentWidget({
-    Key? key,
+    super.key,
     required this.effectiveDateInsurerFlag,
     required this.effectiveDateActFlag,
     required this.effectiveDateInsurer,
     required this.effectiveFateAct,
     required this.currentDate,
     required this.actFlag,
-  }) : super(key: key);
+  });
 
   final bool? effectiveDateInsurerFlag;
   final bool? effectiveDateActFlag;
@@ -31,7 +30,7 @@ class EffectiveDatePickerComponentWidget extends StatefulWidget {
   final bool? actFlag;
 
   @override
-  _EffectiveDatePickerComponentWidgetState createState() =>
+  State<EffectiveDatePickerComponentWidget> createState() =>
       _EffectiveDatePickerComponentWidgetState();
 }
 
@@ -62,8 +61,6 @@ class _EffectiveDatePickerComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.end,
@@ -338,6 +335,17 @@ class _EffectiveDatePickerComponentWidgetState
                           ? true
                           : false)
                       : false);
+                } else if (widget.actFlag!
+                    ? (!widget.effectiveDateInsurerFlag! &&
+                        widget.effectiveDateActFlag!)
+                    : false) {
+                  return (_model.datePicked1 != null
+                      ? (functions.checkCurrentDateIsBeforeInputDate(
+                              widget.currentDate,
+                              functions.getDateFormat(_model.datePicked1))!
+                          ? true
+                          : false)
+                      : false);
                 } else {
                   return ((_model.datePicked1 != null) &&
                           (_model.datePicked2 != null)
@@ -355,7 +363,7 @@ class _EffectiveDatePickerComponentWidgetState
               }())
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.00, 1.00),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
@@ -373,17 +381,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'กรุณาเลือกวันที่คุ้มครองประกัน'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -397,17 +406,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -429,17 +439,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -453,17 +464,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -475,23 +487,27 @@ class _EffectiveDatePickerComponentWidgetState
                                                 _model.datePicked2
                                                     ?.toString()))!;
                                   });
-                                } else {
+                                } else if (widget.actFlag!
+                                    ? (!widget.effectiveDateInsurerFlag! &&
+                                        widget.effectiveDateActFlag!)
+                                    : false) {
                                   if (!(_model.datePicked1 != null)) {
                                     await showDialog(
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'กรุณาเลือกวันที่คุ้มครองประกัน'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -505,17 +521,73 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
+                                  setState(() {
+                                    FFAppState()
+                                            .insuranceInfoEffectiveDateInsure =
+                                        functions.getDateFormat(
+                                            functions.parseStringToDatetime(
+                                                _model.datePicked1
+                                                    ?.toString()))!;
+                                  });
+                                } else {
+                                  if (!(_model.datePicked1 != null)) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
+                                  if (!functions
+                                      .checkCurrentDateIsBeforeInputDate(
+                                          widget.currentDate,
+                                          functions.getDateFormat(
+                                              _model.datePicked1))!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -525,17 +597,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -549,17 +622,18 @@ class _EffectiveDatePickerComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;

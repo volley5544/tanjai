@@ -18,14 +18,14 @@ export 'search_employee_component_model.dart';
 
 class SearchEmployeeComponentWidget extends StatefulWidget {
   const SearchEmployeeComponentWidget({
-    Key? key,
+    super.key,
     this.tableauUrlLink,
-  }) : super(key: key);
+  });
 
   final String? tableauUrlLink;
 
   @override
-  _SearchEmployeeComponentWidgetState createState() =>
+  State<SearchEmployeeComponentWidget> createState() =>
       _SearchEmployeeComponentWidgetState();
 }
 
@@ -275,17 +275,18 @@ class _SearchEmployeeComponentWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'กรุณากรอก ชื่อเล่น/สังกัด/รหัสพนักงาน ของพนักงานที่ต้องการจะค้นหา'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'กรุณากรอก ชื่อเล่น/สังกัด/รหัสพนักงาน ของพนักงานที่ต้องการจะค้นหา'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -299,14 +300,15 @@ class _SearchEmployeeComponentWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: Container(
-                                          height: double.infinity,
-                                          child: LoadingSceneWidget(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: Container(
+                                            height: double.infinity,
+                                            child: LoadingSceneWidget(),
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
 
@@ -345,29 +347,26 @@ class _SearchEmployeeComponentWidgetState
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  functions.showMatNameInList(
-                                                      (GetEmployeeIdFromNicknameAPICall
-                                                              .detailMessage(
-                                                        (_model.getEmployeeSearched
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) as List)
-                                                          .map<String>((s) =>
-                                                              s.toString())
-                                                          .toList()
-                                                          ?.toList(),
-                                                      0)!),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    functions.showMatNameInList(
+                                                        GetEmployeeIdFromNicknameAPICall
+                                                            .detailMessage(
+                                                          (_model.getEmployeeSearched
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )?.toList(),
+                                                        0)!),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                       } else {
@@ -375,22 +374,23 @@ class _SearchEmployeeComponentWidgetState
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาดLayer2 (${GetEmployeeIdFromNicknameAPICall.statusLayer2(
-                                                (_model.getEmployeeSearched
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'พบข้อผิดพลาดLayer2 (${GetEmployeeIdFromNicknameAPICall.statusLayer2(
+                                                  (_model.getEmployeeSearched
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )?.toString()})'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                       }
@@ -399,17 +399,19 @@ class _SearchEmployeeComponentWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาดConnection (${(_model.getEmployeeSearched?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาดConnection (${(_model.getEmployeeSearched?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                     }
@@ -463,33 +465,25 @@ class _SearchEmployeeComponentWidgetState
                                     _model.dropDownValue ??= '',
                                   ),
                                   options: List<String>.from(
-                                      (GetEmployeeIdFromNicknameAPICall
-                                              .employeeID(
+                                      GetEmployeeIdFromNicknameAPICall
+                                          .employeeID(
                                     (_model.getEmployeeSearched?.jsonBody ??
                                         ''),
-                                  ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!),
+                                  )!),
                                   optionLabels:
                                       functions.createEmployeeDropdown(
-                                          (GetEmployeeIdFromNicknameAPICall
-                                                  .mapNickname(
+                                          GetEmployeeIdFromNicknameAPICall
+                                              .mapNickname(
                                             (_model.getEmployeeSearched
                                                     ?.jsonBody ??
                                                 ''),
-                                          ) as List)
-                                              .map<String>((s) => s.toString())
-                                              .toList()
-                                              ?.toList(),
-                                          (GetEmployeeIdFromNicknameAPICall
-                                                  .branch(
+                                          )?.toList(),
+                                          GetEmployeeIdFromNicknameAPICall
+                                              .branch(
                                             (_model.getEmployeeSearched
                                                     ?.jsonBody ??
                                                 ''),
-                                          ) as List)
-                                              .map<String>((s) => s.toString())
-                                              .toList()
-                                              ?.toList()),
+                                          )?.toList()),
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue = val),
                                   width: 180.0,
@@ -531,17 +525,18 @@ class _SearchEmployeeComponentWidgetState
                               context: context,
                               builder: (alertDialogContext) {
                                 return WebViewAware(
-                                    child: AlertDialog(
-                                  content: Text(
-                                      'กรุณาเลือกพนักงานที่ต้องการจะดูยอดประกันก่อน'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                ));
+                                  child: AlertDialog(
+                                    content: Text(
+                                        'กรุณาเลือกพนักงานที่ต้องการจะดูยอดประกันก่อน'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               },
                             );
                             return;

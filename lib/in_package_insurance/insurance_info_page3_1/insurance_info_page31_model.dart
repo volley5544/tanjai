@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/show_image_component_widget.dart';
 import '/components/show_image_list_component_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,9 +13,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_info_page31_widget.dart' show InsuranceInfoPage31Widget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -25,6 +22,8 @@ class InsuranceInfoPage31Model
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Model for infomationCustomer component.
+  late InfomationCustomerModel infomationCustomerModel;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -140,6 +139,12 @@ class InsuranceInfoPage31Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl23 = '';
 
+  // State field(s) for privacy_consent_1 widget.
+  bool? privacyConsent1Value;
+  // State field(s) for privacy_consent_2 widget.
+  bool? privacyConsent2Value;
+  // State field(s) for privacy_consent_3 widget.
+  bool? privacyConsent3Value;
   // State field(s) for privacy_consent widget.
   bool? privacyConsentValue;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in VIM1Btn widget.
@@ -147,10 +152,16 @@ class InsuranceInfoPage31Model
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  @override
+  void initState(BuildContext context) {
+    infomationCustomerModel =
+        createModel(context, () => InfomationCustomerModel());
+  }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
+    infomationCustomerModel.dispose();
   }
 
   /// Action blocks are added here.

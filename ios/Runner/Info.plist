@@ -58,7 +58,7 @@
 	<key>NSCameraUsageDescription</key>
     <string>Allow อรุณสวัสดิ์ to take pictures and record video  ?</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>Allow อรุณสวัสดิ์ to access photos and media on your device ?</string>
+    <string>Allow ประกันทันใจ to access photos and media on your device ?</string>
 	<key>NSFaceIDUsageDescription</key>
     <string>อณุญาตให้อรุณสวัสดิ์ใช้งาน biometric verification เพื่อทำการยืนยันตัวตน</string>
 	<key>PermissionGroupNotification</key>

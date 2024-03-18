@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'showimgurl_model.dart';
@@ -10,14 +9,14 @@ export 'showimgurl_model.dart';
 
 class ShowimgurlWidget extends StatefulWidget {
   const ShowimgurlWidget({
-    Key? key,
+    super.key,
     required this.imgPath,
-  }) : super(key: key);
+  });
 
   final String? imgPath;
 
   @override
-  _ShowimgurlWidgetState createState() => _ShowimgurlWidgetState();
+  State<ShowimgurlWidget> createState() => _ShowimgurlWidgetState();
 }
 
 class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
@@ -46,8 +45,6 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       children: [
         ClipRRect(

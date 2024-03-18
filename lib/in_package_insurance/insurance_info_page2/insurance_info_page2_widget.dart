@@ -1,7 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,8 +14,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -24,15 +23,14 @@ import 'insurance_info_page2_model.dart';
 export 'insurance_info_page2_model.dart';
 
 class InsuranceInfoPage2Widget extends StatefulWidget {
-  const InsuranceInfoPage2Widget({Key? key}) : super(key: key);
+  const InsuranceInfoPage2Widget({super.key});
 
   @override
-  _InsuranceInfoPage2WidgetState createState() =>
+  State<InsuranceInfoPage2Widget> createState() =>
       _InsuranceInfoPage2WidgetState();
 }
 
-class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
-    with TickerProviderStateMixin {
+class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
   late InsuranceInfoPage2Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -53,15 +51,16 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -73,16 +72,17 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.getProvince?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -96,18 +96,18 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content:
-                  Text('พบข้อผิดพลาด (${TeleGetProvinceAPICall.statusLevel1(
-                (_model.getProvince?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(TeleGetProvinceAPICall.messageLayer1(
+                  (_model.getProvince?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -115,22 +115,96 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
       }
       setState(() {
         FFAppState().insuranceInfoRegistrationCodeList =
-            (TeleGetProvinceAPICall.provinceID(
+            TeleGetProvinceAPICall.provinceID(
           (_model.getProvince?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().insuranceInfoRegistrationprovinceList =
-            (TeleGetProvinceAPICall.provinceNameTH(
+            TeleGetProvinceAPICall.provinceNameTH(
           (_model.getProvince?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
       });
+      if (FFAppState().flagRenew != '1') {
+        _model.getVehicleUsedTypeAPI =
+            await InsuranceRequestGetVehicleAPICall.call(
+          apiUrl: FFAppState().apiUrlInsuranceAppState,
+          vehicleCategory: 'manual',
+        );
+        if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeAPI?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            ) ==
+            200) {
+          FFAppState().update(() {
+            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                InsuranceRequestGetVehicleAPICall.vehicleCode(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                InsuranceRequestGetVehicleAPICall.vehicleName(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                InsuranceRequestGetVehicleAPICall.vehicletype(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                InsuranceRequestGetVehicleAPICall.vehicleId(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        } else {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(InsuranceRequestGetVehicleAPICall.messageLayer1(
+                    (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+      }
       Navigator.pop(context);
     });
 
@@ -188,15 +262,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -227,7 +292,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
               },
             ),
             title: Text(
-              '2. ข้อมูลรถยนต์',
+              FFAppState().insuranceinfoActType == 'MC'
+                  ? '2. ข้อมูลมอเตอร์ไซค์'
+                  : '2. ข้อมูลรถยนต์',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -277,783 +344,18 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Material(
-                                color: Colors.transparent,
-                                elevation: 1.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
+                              if (FFAppState().insuranceinfoActType != 'CMI')
+                                wrapWithModel(
+                                  model: _model.infomationCustomerModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: InfomationCustomerWidget(),
                                 ),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFE6E6E6),
-                                    ),
-                                  ),
-                                  child: ListView(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.00, 0.00),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.65,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ใบเสนอราคา',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoQuotationId,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ชื่อลูกค้า',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'เบอร์โทร',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoPhonenumber,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'การซ่อม',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoGarageType,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ประกัน',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfocoverType,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคาเบี้ย',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState().insuranceInfoApplicationType ==
-                                                                    'auto'
-                                                                ? '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท'
-                                                                : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    if (FFAppState()
-                                                            .insuranceInfoActFlag ==
-                                                        '1')
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              'ราคา พ.ร.บ',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    fontSize:
-                                                                        15.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: 10.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              ':',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              '${functions.showNumberWithComma(FFAppState().insuranceInfoActAmount)} บาท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    if (FFAppState()
-                                                            .insuranceInfoActFlag ==
-                                                        '1')
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              'ราคารวม',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    fontSize:
-                                                                        15.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: 10.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              ':',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ประเภทงาน',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                              child: Text(
-                                                                FFAppState().insuranceInfoApplicationType ==
-                                                                        'auto'
-                                                                    ? 'งานในเรท'
-                                                                    : 'งานนอกเรท',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Sans Thai',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontSize:
-                                                                          15.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            if (FFAppState()
-                                                                    .nonePackageWorkType !=
-                                                                '')
-                                                              Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  '(${FFAppState().nonePackageWorkType})',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Flexible(
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.00, 0.00),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        height: 75.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.stringToImgPath(FFAppState()
-                                                                          .insuranceInfoInsuranceLogo !=
-                                                                      ''
-                                                                  ? FFAppState()
-                                                                      .insuranceInfoInsuranceLogo
-                                                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                            ),
-                                                            width: 300.0,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                              if (FFAppState().insuranceinfoActType == 'CMI')
+                                wrapWithModel(
+                                  model: _model.infomationCustomerActModel,
+                                  updateCallback: () => setState(() {}),
+                                  child: InfomationCustomerActWidget(),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
@@ -1082,7 +384,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                         color: Color(0xFFE6E6E6),
                                       ),
                                     ),
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 5.0, 0.0),
@@ -1095,7 +397,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
@@ -1113,7 +415,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                   ),
                                                 ),
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Text(
                                                   '1',
                                                   style: FlutterFlowTheme.of(
@@ -1169,7 +471,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '2',
                                                 style:
@@ -1226,7 +528,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '3',
                                                 style:
@@ -1282,7 +584,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '4',
                                                 style:
@@ -1339,7 +641,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 ),
                                               ),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 '5',
                                                 style:
@@ -1361,29 +663,33 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                   ),
                                 ),
                               ),
-                              if (!functions.checkIsStringLengthInLength(
-                                  FFAppState().branchCode, 2)!)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'เลือกสาขาที่จะลงผลงาน',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  if (!functions.checkIsStringLengthInLength(
+                                      FFAppState().branchCode, 2)!)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'เลือกสาขาที่จะลงผลงาน',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -1392,88 +698,98 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '(บังคับเลือก)',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFFB0606),
-                                                        fontSize: 12.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'SearchBranchPage',
-                                                queryParameters: {
-                                                  'fromPage': serializeParam(
-                                                    'Step2',
-                                                    ParamType.String,
                                                   ),
-                                                }.withoutNulls,
-                                              );
-
-                                              await actions.hideKeyboardAction(
-                                                context,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          4.0, 0.0, 0.0, 0.0),
-                                                  child: ListTile(
-                                                    title: Text(
-                                                      (FFAppState().insuranceInfoBranchCode !=
-                                                                  '') &&
-                                                              (FFAppState()
-                                                                      .insuranceInfoBranchNameOutput !=
-                                                                  '')
-                                                          ? '(${FFAppState().insuranceInfoBranchCode}) ${FFAppState().insuranceInfoBranchNameOutput}'
-                                                          : 'กรุณาเลือกสาขาที่จะลงผลงาน',
-                                                      textAlign:
-                                                          TextAlign.start,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับเลือก)',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    'SearchBranchPage',
+                                                    queryParameters: {
+                                                      'fromPage':
+                                                          serializeParam(
+                                                        'Step2',
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+
+                                                  await actions
+                                                      .hideKeyboardAction(
+                                                    context,
+                                                  );
+                                                },
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: ListTile(
+                                                        title: Text(
+                                                          (FFAppState().insuranceInfoBranchCode !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .insuranceInfoBranchNameOutput !=
+                                                                      '')
+                                                              ? '(${FFAppState().insuranceInfoBranchCode}) ${FFAppState().insuranceInfoBranchNameOutput}'
+                                                              : 'กรุณาเลือกสาขาที่จะลงผลงาน',
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .titleLarge
                                                               .override(
                                                                 fontFamily:
@@ -1491,51 +807,56 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                                     FontWeight
                                                                         .w600,
                                                               ),
-                                                    ),
-                                                    trailing: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      color: Color(0xFF474747),
-                                                      size: 20.0,
-                                                    ),
-                                                    tileColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
-                                                    dense: false,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
+                                                        ),
+                                                        trailing: Icon(
+                                                          Icons
+                                                              .arrow_forward_ios,
+                                                          color:
+                                                              Color(0xFF474747),
+                                                          size: 20.0,
+                                                        ),
+                                                        tileColor: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        dense: false,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      10.0),
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                  ),
-                                ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'ประเภทรถ',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 12.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  'ประเภทรถ',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
@@ -1544,15 +865,15 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                '(บังคับเลือก)',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -1561,666 +882,873 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
                                                         ),
-                                              ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {},
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 5.0, 0.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                if (FFAppState().flagRenew !=
+                                                    '1') {
+                                                  return;
+                                                }
+
+                                                context.pushNamed(
+                                                  'SearchableCarListPage',
+                                                  queryParameters: {
+                                                    'titleText': serializeParam(
+                                                      'เลือกประเภทรถ',
+                                                      ParamType.String,
+                                                    ),
+                                                    'searchLabel':
+                                                        serializeParam(
+                                                      'ระบุประเภทรถ',
+                                                      ParamType.String,
+                                                    ),
+                                                    'dataList': serializeParam(
+                                                      FFAppState()
+                                                          .insuranceBasicVehicleTypeDropdownList,
+                                                      ParamType.String,
+                                                      true,
+                                                    ),
+                                                    'multiSelect':
+                                                        serializeParam(
+                                                      false,
+                                                      ParamType.bool,
+                                                    ),
+                                                    'maxSelected':
+                                                        serializeParam(
+                                                      0,
+                                                      ParamType.int,
+                                                    ),
+                                                    'fromPage': serializeParam(
+                                                      'RenewStep2',
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
                                                       .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color: Color(0xFFB3B3B3),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        FFAppState()
+                                                            .insuranceInfoVehicleType,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .black600,
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  20.0,
+                                                                  0.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=68ef0a76-99d9-4c43-ae86-b48970b7fb09';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B8%95%E0%B8%B9%E0%B9%89.png?alt=media&token=8969fa4a-52e0-4b0c-9c44-f349976bc624';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%20%E0%B8%95%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B8%A7%20(%E0%B8%A3%E0%B8%A7%E0%B8%A1).png?alt=media&token=bd62e47d-dd92-41ca-8f51-3632edfd54a6';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%204%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9.png?alt=media&token=45bc2e60-3a29-47dc-aa4d-e9c82a113bbc';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%A5%E0%B8%B2%E0%B8%81%20%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B9%88%E0%B8%A7%E0%B8%87.png?alt=media&token=1d749f04-0765-422a-b0b7-34a3d5d60519';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%A3%E0%B8%96%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%87%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%84%E0%B8%AD%E0%B8%81.png?alt=media&token=80501c24-fec4-4c34-ac0f-361db3b698b3';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%B0%E0%B8%9A%E0%B8%B0%202%20%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1.png?alt=media&token=ca1d014f-d1aa-4f27-bd54-3d97d5efba3f';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%95%E0%B8%B4%E0%B8%A1%E0%B9%80%E0%B8%81%E0%B8%B4%E0%B8%99%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%81%E0%B9%8B%E0%B8%87.png?alt=media&token=957c9ae1-6d8a-41d5-b7aa-23965926a562';
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/carTypeImage%2F2_%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B0%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B8%97%E0%B8%B6%E0%B8%9A_%E0%B8%95%E0%B8%B9%E0%B9%89%E0%B9%81%E0%B8%AB%E0%B9%89%E0%B8%87.png?alt=media&token=71715c79-6196-4a63-9a9e-c179033218ea';
+                                                            } else {
+                                                              return '-';
+                                                            }
+                                                          }(),
+                                                          width: () {
+                                                            if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถเก๋ง') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถตู้') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 2 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถกระบะ 4 ประตู') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถบรรทุก หัวลาก หางพ่วง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'รถแต่ง ต่อคอก') {
+                                                              return 90;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะไม่ต่อเติม') {
+                                                              return 100;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมเกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะต่อเติมไม่เกินหัวเก๋ง') {
+                                                              return 130;
+                                                            } else if (FFAppState()
+                                                                    .insuranceInfoCarTypeDetail ==
+                                                                'กระบะตู้ทึบ/ตู้แห้ง') {
+                                                              return 100;
+                                                            } else {
+                                                              return 0;
+                                                            }
+                                                          }()
+                                                              .toDouble(),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFAppState()
-                                                        .insuranceInfoVehicleType,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถบรรทุก หัวลาก หางพ่วง'))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'ส่วนของรถบรรทุก',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          color: FlutterFlowTheme
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {},
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFAppState()
+                                                              .nonePackageTruckPart,
+                                                          style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .black600,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black600,
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถบรรทุก หัวลาก หางพ่วง'))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'ประเภทลูกค้า',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {},
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFAppState()
+                                                              .nonePackageCusMembership,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black600,
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถบรรทุก หัวลาก หางพ่วง'))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'รถใช้บรรทุกอะไร',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {},
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFAppState()
+                                                              .nonePackageTruckCarryPurpose,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black600,
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถบรรทุก หัวลาก หางพ่วง'))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'ราคาซื้อขายปัจจุบัน',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {},
+                                                child: Container(
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          1.0,
+                                                  height: 60.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Color(0xFFB3B3B3),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          FFAppState().nonePackageTruckCurrentPrice ==
+                                                                  ''
+                                                              ? ''
+                                                              : valueOrDefault<
+                                                                  String>(
+                                                                  functions.returnNumberWithComma2Decimal(
+                                                                      FFAppState()
+                                                                          .nonePackageTruckCurrentPrice),
+                                                                  '0',
+                                                                ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black600,
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถกระบะ'))
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 10.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: Color(0xFFB3B3B3),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                'ติดตู้เหล็ก',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: Colors.black,
                                                           fontSize: 15.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                              ),
+                                            ),
+                                            if (!FFAppState()
+                                                .nonePackageFlagCarrier)
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Container(
+                                                  width: 25.0,
+                                                  height: 25.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color: Color(0xFF9F9F9F),
+                                                      width: 1.0,
+                                                    ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
-                                          ),
+                                              ),
+                                            if (FFAppState()
+                                                .nonePackageFlagCarrier)
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Container(
+                                                  width: 25.0,
+                                                  height: 25.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .success,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.check,
+                                                      color: Colors.white,
+                                                      size: 18.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                          ],
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ),
+                                    ),
+                                  if ((FFAppState()
+                                              .insuranceInfoApplicationType !=
+                                          'auto') &&
+                                      (FFAppState().insuranceInfoVehicleType ==
+                                          'รถกระบะ') &&
+                                      FFAppState().nonePackageFlagCarrier)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 10.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        height: 60.0,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          border: Border.all(
+                                            color: Color(0xFFB3B3B3),
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                'ใช้ร่วมกับขนส่งสาธารณะ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: Colors.black,
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                              ),
+                                            ),
+                                            if (!FFAppState()
+                                                .nonePackageFlagCoop)
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Container(
+                                                  width: 25.0,
+                                                  height: 25.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryBackground,
+                                                    shape: BoxShape.circle,
+                                                    border: Border.all(
+                                                      color: Color(0xFF9F9F9F),
+                                                      width: 1.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            if (FFAppState()
+                                                .nonePackageFlagCoop)
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Container(
+                                                  width: 25.0,
+                                                  height: 25.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .success,
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.check,
+                                                      color: Colors.white,
+                                                      size: 18.0,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                ],
                               ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถบรรทุก หัวลาก หางพ่วง'))
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'ส่วนของรถบรรทุก',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {},
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .nonePackageTruckPart,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถบรรทุก หัวลาก หางพ่วง'))
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'ประเภทลูกค้า',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {},
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .nonePackageCusMembership,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถบรรทุก หัวลาก หางพ่วง'))
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'รถใช้บรรทุกอะไร',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {},
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState()
-                                                          .nonePackageTruckCarryPurpose,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถบรรทุก หัวลาก หางพ่วง'))
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 12.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                'ราคาซื้อขายปัจจุบัน',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 5.0, 0.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {},
-                                            child: Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  1.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                border: Border.all(
-                                                  color: Color(0xFFB3B3B3),
-                                                ),
-                                              ),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFAppState().nonePackageTruckCurrentPrice ==
-                                                              ''
-                                                          ? ''
-                                                          : valueOrDefault<
-                                                              String>(
-                                                              functions.returnNumberWithComma2Decimal(
-                                                                  FFAppState()
-                                                                      .nonePackageTruckCurrentPrice),
-                                                              '0',
-                                                            ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .black600,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถกระบะ'))
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 10.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'ติดตู้เหล็ก',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: Colors.black,
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ),
-                                        if (!FFAppState()
-                                            .nonePackageFlagCarrier)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Container(
-                                              width: 25.0,
-                                              height: 25.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  color: Color(0xFF9F9F9F),
-                                                  width: 1.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        if (FFAppState().nonePackageFlagCarrier)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Container(
-                                              width: 25.0,
-                                              height: 25.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .success,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Icon(
-                                                  Icons.check,
-                                                  color: Colors.white,
-                                                  size: 18.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              if ((FFAppState().insuranceInfoApplicationType !=
-                                      'auto') &&
-                                  (FFAppState().insuranceInfoVehicleType ==
-                                      'รถกระบะ') &&
-                                  FFAppState().nonePackageFlagCarrier)
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 10.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'ใช้ร่วมกับขนส่งสาธารณะ',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: Colors.black,
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                          ),
-                                        ),
-                                        if (!FFAppState().nonePackageFlagCoop)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Container(
-                                              width: 25.0,
-                                              height: 25.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                shape: BoxShape.circle,
-                                                border: Border.all(
-                                                  color: Color(0xFF9F9F9F),
-                                                  width: 1.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        if (FFAppState().nonePackageFlagCoop)
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Container(
-                                              width: 25.0,
-                                              height: 25.0,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .success,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Icon(
-                                                  Icons.check,
-                                                  color: Colors.white,
-                                                  size: 18.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
                               if ((FFAppState().insuranceInfoApplicationType !=
                                       'auto') &&
                                   (FFAppState().insuranceInfoVehicleType ==
@@ -2738,7 +2266,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -2748,7 +2276,9 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                       .oldVmiTextFieldController,
                                                   focusNode: _model
                                                       .oldVmiTextFieldFocusNode,
-                                                  readOnly: true,
+                                                  readOnly: FFAppState()
+                                                          .nonePackageOldVmi !=
+                                                      '',
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelStyle:
@@ -2802,7 +2332,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                     ),
                                   ),
                                 ),
-                              if (FFAppState().nonePackageFlagRenew)
+                              if (FFAppState().insuranceinfoActType != 'CMI')
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 5.0, 0.0, 0.0),
@@ -2849,24 +2379,26 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                                   .underline,
                                                         ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '(บังคับเลือก)',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFFB0606),
-                                                        fontSize: 12.0,
-                                                      ),
+                                              if (FFAppState()
+                                                  .nonePackageFlagRenew)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    '(บังคับเลือก)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                        ),
+                                                  ),
                                                 ),
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -2879,7 +2411,92 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             focusColor: Colors.transparent,
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
-                                            onTap: () async {},
+                                            onTap: () async {
+                                              if (kIsWeb) {
+                                                final _datePicked1Date =
+                                                    await showDatePicker(
+                                                  context: context,
+                                                  initialDate:
+                                                      getCurrentTimestamp,
+                                                  firstDate: DateTime(1900),
+                                                  lastDate: DateTime(2050),
+                                                  builder: (context, child) {
+                                                    return wrapInMaterialDatePickerTheme(
+                                                      context,
+                                                      child!,
+                                                      headerBackgroundColor:
+                                                          Color(0x00000000),
+                                                      headerForegroundColor:
+                                                          Color(0x00000000),
+                                                      headerTextStyle:
+                                                          TextStyle(),
+                                                      pickerBackgroundColor:
+                                                          Color(0x00000000),
+                                                      pickerForegroundColor:
+                                                          Color(0x00000000),
+                                                      selectedDateTimeBackgroundColor:
+                                                          Color(0x00000000),
+                                                      selectedDateTimeForegroundColor:
+                                                          Color(0x00000000),
+                                                      actionButtonForegroundColor:
+                                                          Color(0x00000000),
+                                                      iconSize: 24,
+                                                    );
+                                                  },
+                                                );
+
+                                                if (_datePicked1Date != null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked1 =
+                                                        DateTime(
+                                                      _datePicked1Date.year,
+                                                      _datePicked1Date.month,
+                                                      _datePicked1Date.day,
+                                                    );
+                                                  });
+                                                }
+                                              } else {
+                                                await DatePicker.showDatePicker(
+                                                  context,
+                                                  showTitleActions: true,
+                                                  onConfirm: (date) {
+                                                    safeSetState(() {
+                                                      _model.datePicked1 = date;
+                                                    });
+                                                  },
+                                                  currentTime:
+                                                      getCurrentTimestamp,
+                                                  minTime: DateTime(0, 0, 0),
+                                                  locale: LocaleType.values
+                                                      .firstWhere(
+                                                    (l) =>
+                                                        l.name ==
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                    orElse: () => LocaleType.en,
+                                                  ),
+                                                );
+                                              }
+
+                                              if (!(_model.datePicked1 !=
+                                                  null)) {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                                return;
+                                              }
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageOldVmiExpDate =
+                                                    functions.getDateFormat(
+                                                        _model.datePicked1)!;
+                                              });
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
+                                            },
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -2907,12 +2524,37 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      valueOrDefault<String>(
-                                                        functions.showDateBE(
-                                                            FFAppState()
-                                                                .nonePackageOldVmiExpDate),
-                                                        '0',
-                                                      ),
+                                                      () {
+                                                        if ((FFAppState()
+                                                                    .nonePackageOldVmiExpDate !=
+                                                                '') &&
+                                                            !functions
+                                                                .containWordinStringUrl(
+                                                                    'กรุณา',
+                                                                    FFAppState()
+                                                                        .nonePackageOldVmiExpDate)!) {
+                                                          return valueOrDefault<
+                                                              String>(
+                                                            functions.showDateBE(
+                                                                FFAppState()
+                                                                    .nonePackageOldVmiExpDate),
+                                                            '0',
+                                                          );
+                                                        } else if (_model
+                                                                .datePicked1 !=
+                                                            null) {
+                                                          return valueOrDefault<
+                                                              String>(
+                                                            functions.showDateBE(
+                                                                _model
+                                                                    .datePicked1
+                                                                    ?.toString()),
+                                                            '0',
+                                                          );
+                                                        } else {
+                                                          return 'กรุณาเลือกวันหมดอายุประกันเดิม';
+                                                        }
+                                                      }(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -2954,251 +2596,516 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                     ),
                                   ),
                                 ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'วันที่ต้องการเริ่มคุ้มครองประกัน',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 15.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                '(บังคับเลือก)',
+                              if (FFAppState().insuranceinfoActType != 'CMI')
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                'วันที่ต้องการเริ่มคุ้มครองประกัน',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
                                                         ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            if (kIsWeb) {
-                                              final _datePickedDate =
-                                                  await showDatePicker(
-                                                context: context,
-                                                initialDate: (((FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? functions.addDateTimeDuration(
-                                                            1,
-                                                            functions
-                                                                .parseStringToDatetime(
-                                                                    FFAppState()
-                                                                        .nonePackageOldVmiExpDate)
-                                                                ?.toString())
-                                                        : getCurrentTimestamp) ??
-                                                    DateTime.now()),
-                                                firstDate: (((FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานต่ออายุ') ||
-                                                            (FFAppState()
-                                                                    .nonePackageWorkType ==
-                                                                'งานโอนโค้ด')
-                                                        ? functions.addDateTimeDuration(
-                                                            1,
-                                                            functions
-                                                                .parseStringToDatetime(
-                                                                    FFAppState()
-                                                                        .nonePackageOldVmiExpDate)
-                                                                ?.toString())
-                                                        : getCurrentTimestamp) ??
-                                                    DateTime.now()),
-                                                lastDate: DateTime(2050),
-                                              );
-
-                                              if (_datePickedDate != null) {
-                                                safeSetState(() {
-                                                  _model.datePicked = DateTime(
-                                                    _datePickedDate.year,
-                                                    _datePickedDate.month,
-                                                    _datePickedDate.day,
-                                                  );
-                                                });
-                                              }
-                                            } else {
-                                              await DatePicker.showDatePicker(
-                                                context,
-                                                showTitleActions: true,
-                                                onConfirm: (date) {
-                                                  safeSetState(() {
-                                                    _model.datePicked = date;
-                                                  });
-                                                },
-                                                currentTime: (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานต่ออายุ') ||
-                                                        (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานโอนโค้ด')
-                                                    ? functions.addDateTimeDuration(
-                                                        1,
-                                                        functions
-                                                            .parseStringToDatetime(
-                                                                FFAppState()
-                                                                    .nonePackageOldVmiExpDate)
-                                                            ?.toString())!
-                                                    : getCurrentTimestamp,
-                                                minTime: (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานต่ออายุ') ||
-                                                        (FFAppState()
-                                                                .nonePackageWorkType ==
-                                                            'งานโอนโค้ด')
-                                                    ? functions.addDateTimeDuration(
-                                                        1,
-                                                        functions
-                                                            .parseStringToDatetime(
-                                                                FFAppState()
-                                                                    .nonePackageOldVmiExpDate)
-                                                            ?.toString())!
-                                                    : getCurrentTimestamp,
-                                                locale: LocaleType.values
-                                                    .firstWhere(
-                                                  (l) =>
-                                                      l.name ==
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .languageCode,
-                                                  orElse: () => LocaleType.en,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '(บังคับเลือก)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                      ),
                                                 ),
-                                              );
-                                            }
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              if (kIsWeb) {
+                                                final _datePicked2Date =
+                                                    await showDatePicker(
+                                                  context: context,
+                                                  initialDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  firstDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  lastDate: DateTime(2050),
+                                                );
 
-                                            if (!(_model.datePicked != null)) {
+                                                if (_datePicked2Date != null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked2 =
+                                                        DateTime(
+                                                      _datePicked2Date.year,
+                                                      _datePicked2Date.month,
+                                                      _datePicked2Date.day,
+                                                    );
+                                                  });
+                                                }
+                                              } else {
+                                                await DatePicker.showDatePicker(
+                                                  context,
+                                                  showTitleActions: true,
+                                                  onConfirm: (date) {
+                                                    safeSetState(() {
+                                                      _model.datePicked2 = date;
+                                                    });
+                                                  },
+                                                  currentTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  minTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  locale: LocaleType.values
+                                                      .firstWhere(
+                                                    (l) =>
+                                                        l.name ==
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                    orElse: () => LocaleType.en,
+                                                  ),
+                                                );
+                                              }
+
+                                              if (!(_model.datePicked2 !=
+                                                  null)) {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                                return;
+                                              }
+                                              setState(() {
+                                                FFAppState()
+                                                        .insuranceInfoEffectiveDateInsure =
+                                                    functions.getDateFormat(
+                                                        _model.datePicked2)!;
+                                              });
                                               await actions.hideKeyboardAction(
                                                 context,
                                               );
-                                              return;
-                                            }
-                                            setState(() {
-                                              FFAppState()
-                                                      .insuranceInfoEffectiveDateInsure =
-                                                  functions.getDateFormat(
-                                                      _model.datePicked)!;
-                                            });
-                                            await actions.hideKeyboardAction(
-                                              context,
-                                            );
-                                          },
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color: Color(0xFFB3B3B3),
+                                            },
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                border: Border.all(
+                                                  color: Color(0xFFB3B3B3),
+                                                ),
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFAppState().insuranceInfoEffectiveDateInsure ==
+                                                              ''
+                                                          ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
+                                                          : valueOrDefault<
+                                                              String>(
+                                                              functions.showDateBE(
+                                                                  FFAppState()
+                                                                      .insuranceInfoEffectiveDateInsure),
+                                                              '0',
+                                                            ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: FFAppState()
+                                                                        .insuranceInfoEffectiveDateAct ==
+                                                                    ''
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Icon(
+                                                      Icons
+                                                          .edit_calendar_outlined,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFAppState().insuranceInfoEffectiveDateInsure ==
-                                                            ''
-                                                        ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
-                                                        : valueOrDefault<
-                                                            String>(
-                                                            functions.showDateBE(
-                                                                FFAppState()
-                                                                    .insuranceInfoEffectiveDateInsure),
-                                                            '0',
-                                                          ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              if (FFAppState().insuranceinfoActType == 'CMI')
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                'วันที่ต้องการเริ่มคุ้มครอง พ.ร.บ',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          color: FFAppState()
-                                                                      .insuranceInfoEffectiveDateAct ==
-                                                                  ''
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
                                                           fontSize: 15.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w500,
                                                         ),
-                                                  ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '(บังคับเลือก)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                      ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Icon(
-                                                    Icons
-                                                        .edit_calendar_outlined,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              if (kIsWeb) {
+                                                final _datePicked3Date =
+                                                    await showDatePicker(
+                                                  context: context,
+                                                  initialDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  firstDate: (((FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานต่ออายุ') ||
+                                                              (FFAppState()
+                                                                      .nonePackageWorkType ==
+                                                                  'งานโอนโค้ด')
+                                                          ? functions.addDateTimeDuration(
+                                                              1,
+                                                              functions
+                                                                  .parseStringToDatetime(
+                                                                      FFAppState()
+                                                                          .nonePackageOldVmiExpDate)
+                                                                  ?.toString())
+                                                          : getCurrentTimestamp) ??
+                                                      DateTime.now()),
+                                                  lastDate: DateTime(2050),
+                                                );
+
+                                                if (_datePicked3Date != null) {
+                                                  safeSetState(() {
+                                                    _model.datePicked3 =
+                                                        DateTime(
+                                                      _datePicked3Date.year,
+                                                      _datePicked3Date.month,
+                                                      _datePicked3Date.day,
+                                                    );
+                                                  });
+                                                }
+                                              } else {
+                                                await DatePicker.showDatePicker(
+                                                  context,
+                                                  showTitleActions: true,
+                                                  onConfirm: (date) {
+                                                    safeSetState(() {
+                                                      _model.datePicked3 = date;
+                                                    });
+                                                  },
+                                                  currentTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  minTime: (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานต่ออายุ') ||
+                                                          (FFAppState()
+                                                                  .nonePackageWorkType ==
+                                                              'งานโอนโค้ด')
+                                                      ? functions.addDateTimeDuration(
+                                                          1,
+                                                          functions
+                                                              .parseStringToDatetime(
+                                                                  FFAppState()
+                                                                      .nonePackageOldVmiExpDate)
+                                                              ?.toString())!
+                                                      : getCurrentTimestamp,
+                                                  locale: LocaleType.values
+                                                      .firstWhere(
+                                                    (l) =>
+                                                        l.name ==
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .languageCode,
+                                                    orElse: () => LocaleType.en,
                                                   ),
+                                                );
+                                              }
+
+                                              if (!(_model.datePicked3 !=
+                                                  null)) {
+                                                await actions
+                                                    .hideKeyboardAction(
+                                                  context,
+                                                );
+                                                return;
+                                              }
+                                              setState(() {
+                                                FFAppState()
+                                                        .insuranceInfoEffectiveDateAct =
+                                                    functions.getDateFormat(
+                                                        _model.datePicked3)!;
+                                              });
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
+                                            },
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                border: Border.all(
+                                                  color: Color(0xFFB3B3B3),
                                                 ),
-                                              ],
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFAppState().insuranceInfoEffectiveDateAct ==
+                                                              ''
+                                                          ? 'กรุณาเลือกวันที่ต้องการเริ่มคุ้มครองประกัน'
+                                                          : valueOrDefault<
+                                                              String>(
+                                                              functions.showDateBE(
+                                                                  FFAppState()
+                                                                      .insuranceInfoEffectiveDateAct),
+                                                              '0',
+                                                            ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: FFAppState()
+                                                                        .insuranceInfoEffectiveDateAct ==
+                                                                    ''
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Icon(
+                                                      Icons
+                                                          .edit_calendar_outlined,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
@@ -3266,8 +3173,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -3435,7 +3342,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -3445,7 +3352,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                       .vehicleregistrationController2,
                                                   focusNode: _model
                                                       .vehicleregistrationFocusNode2,
-                                                  autofocus: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelStyle: FlutterFlowTheme
@@ -3604,7 +3510,46 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                           focusColor: Colors.transparent,
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
-                                          onTap: () async {},
+                                          onTap: () async {
+                                            if (FFAppState().flagRenew != '1') {
+                                              return;
+                                            }
+
+                                            context.pushNamed(
+                                              'SearchableListPage',
+                                              queryParameters: {
+                                                'titleText': serializeParam(
+                                                  'เลือกปีจดทะเบียน',
+                                                  ParamType.String,
+                                                ),
+                                                'searchLabel': serializeParam(
+                                                  'ระบุปีจดทะเบียน',
+                                                  ParamType.String,
+                                                ),
+                                                'dataList': serializeParam(
+                                                  functions.reverseList(
+                                                      functions
+                                                          .ganerateYearList(
+                                                              2500, 2567)
+                                                          ?.toList()),
+                                                  ParamType.String,
+                                                  true,
+                                                ),
+                                                'multiSelect': serializeParam(
+                                                  false,
+                                                  ParamType.bool,
+                                                ),
+                                                'fromPage': serializeParam(
+                                                  'RenewStep2',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+
+                                            await actions.hideKeyboardAction(
+                                              context,
+                                            );
+                                          },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -3631,10 +3576,13 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                       .fromSTEB(
                                                           10.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    (int.parse(FFAppState()
-                                                                .insuranceInfoRegisYear) +
-                                                            543)
-                                                        .toString(),
+                                                    FFAppState().insuranceInfoRegisYear !=
+                                                            ''
+                                                        ? (int.parse(FFAppState()
+                                                                    .insuranceInfoRegisYear) +
+                                                                543)
+                                                            .toString()
+                                                        : 'กรุณาเลือกปีจดทะเบียน',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -3650,6 +3598,19 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                         ),
                                                   ),
                                                 ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 16.0, 0.0),
+                                                  child: Icon(
+                                                    Icons
+                                                        .arrow_forward_ios_sharp,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 20.0,
+                                                  ),
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -3659,176 +3620,180 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              'ปีที่ผลิต ค.ศ.',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        fontSize: 15.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                '(บังคับกรอก)',
+                              if (FFAppState().insuranceinfoActType != 'CMI')
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 5.0, 0.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Text(
+                                                'ปีที่ผลิต ค.ศ.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            context.pushNamed(
-                                              'SearchableListPage',
-                                              queryParameters: {
-                                                'titleText': serializeParam(
-                                                  'เลือกปีที่ผลิต',
-                                                  ParamType.String,
-                                                ),
-                                                'searchLabel': serializeParam(
-                                                  'เลือกปี',
-                                                  ParamType.String,
-                                                ),
-                                                'dataList': serializeParam(
-                                                  functions.reverseList(
-                                                      functions
-                                                          .ganerateYearList(
-                                                              1957, 2023)
-                                                          ?.toList()),
-                                                  ParamType.String,
-                                                  true,
-                                                ),
-                                                'multiSelect': serializeParam(
-                                                  false,
-                                                  ParamType.bool,
-                                                ),
-                                                'fromPage': serializeParam(
-                                                  'insuranceInfoPage2',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                            );
-
-                                            await actions.hideKeyboardAction(
-                                              context,
-                                            );
-                                          },
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                            height: 60.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              border: Border.all(
-                                                color: Color(0xFFB3B3B3),
-                                              ),
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        4.0, 0.0, 0.0, 0.0),
-                                                child: ListTile(
-                                                  title: Text(
-                                                    FFAppState().insuranceInfoProductYear !=
-                                                                null &&
-                                                            FFAppState()
-                                                                    .insuranceInfoProductYear !=
-                                                                ''
-                                                        ? FFAppState()
-                                                            .insuranceInfoProductYear
-                                                        : 'กรุณาเลือกปีที่ผลิต',
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: functions
-                                                                  .containWordinStringUrl(
-                                                                      'เลือก',
-                                                                      FFAppState()
-                                                                          .insuranceInfoProductYear)!
-                                                              ? Color(
-                                                                  0xFF9F9F9F)
-                                                              : Colors.black,
                                                           fontSize: 15.0,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w500,
                                                         ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  '(บังคับกรอก)',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFFB0606),
+                                                        fontSize: 12.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed(
+                                                'SearchableListPage',
+                                                queryParameters: {
+                                                  'titleText': serializeParam(
+                                                    'เลือกปีที่ผลิต',
+                                                    ParamType.String,
                                                   ),
-                                                  trailing: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Color(0xFF474747),
-                                                    size: 20.0,
+                                                  'searchLabel': serializeParam(
+                                                    'เลือกปี',
+                                                    ParamType.String,
                                                   ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .secondaryBackground,
-                                                  dense: false,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10.0),
+                                                  'dataList': serializeParam(
+                                                    functions.reverseList(
+                                                        functions
+                                                            .ganerateYearList(
+                                                                1957, 2023)
+                                                            ?.toList()),
+                                                    ParamType.String,
+                                                    true,
+                                                  ),
+                                                  'multiSelect': serializeParam(
+                                                    false,
+                                                    ParamType.bool,
+                                                  ),
+                                                  'fromPage': serializeParam(
+                                                    'insuranceInfoPage2',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
+
+                                              await actions.hideKeyboardAction(
+                                                context,
+                                              );
+                                            },
+                                            child: Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  1.0,
+                                              height: 60.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                border: Border.all(
+                                                  color: Color(0xFFB3B3B3),
+                                                ),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          4.0, 0.0, 0.0, 0.0),
+                                                  child: ListTile(
+                                                    title: Text(
+                                                      FFAppState().insuranceInfoProductYear !=
+                                                                  null &&
+                                                              FFAppState()
+                                                                      .insuranceInfoProductYear !=
+                                                                  ''
+                                                          ? FFAppState()
+                                                              .insuranceInfoProductYear
+                                                          : 'กรุณาเลือกปีที่ผลิต',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: functions.containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceInfoProductYear)!
+                                                                ? Color(
+                                                                    0xFF9F9F9F)
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    trailing: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Color(0xFF474747),
+                                                      size: 20.0,
+                                                    ),
+                                                    tileColor: FlutterFlowTheme
+                                                            .of(context)
+                                                        .secondaryBackground,
+                                                    dense: false,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
@@ -3940,7 +3905,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -4049,52 +4014,160 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                      if (false)
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFB3B3B3),
+                                              ),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFAppState()
+                                                        .insuranceInfoVehicleUsage,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryText,
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (FFAppState().flagRenew != '1') {
+                                            return;
+                                          }
+
+                                          context.pushNamed(
+                                            'SearchableListPage',
+                                            queryParameters: {
+                                              'titleText': serializeParam(
+                                                'เลือกลักษณะการใช้รถ',
+                                                ParamType.String,
+                                              ),
+                                              'searchLabel': serializeParam(
+                                                'ระบุลักษณะการใช้รถ',
+                                                ParamType.String,
+                                              ),
+                                              'dataList': serializeParam(
+                                                functions.generateInsuranceVehicleTypeDropdown(
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeCodeList
+                                                        .toList(),
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeTypeList
+                                                        .toList(),
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeNameList
+                                                        .toList()),
+                                                ParamType.String,
+                                                true,
+                                              ),
+                                              'multiSelect': serializeParam(
+                                                false,
+                                                ParamType.bool,
+                                              ),
+                                            }.withoutNulls,
+                                          );
+                                        },
                                         child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
+                                          width: double.infinity,
                                           height: 60.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(10.0),
                                             border: Border.all(
-                                              color: Color(0xFFB3B3B3),
+                                              width: 0.5,
                                             ),
                                           ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFAppState()
-                                                      .insuranceInfoVehicleUsage,
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                              child: ListTile(
+                                                title: Text(
+                                                  FFAppState().insuranceInfoVehicleUsage ==
+                                                          ''
+                                                      ? 'เลือกการใช้งาน'
+                                                      : FFAppState()
+                                                          .insuranceInfoVehicleUsage,
+                                                  textAlign: TextAlign.start,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium
+                                                      .titleLarge
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryText,
+                                                        color: functions
+                                                                .containWordinStringUrl(
+                                                                    'เลือก',
+                                                                    FFAppState()
+                                                                        .insuranceBasicVehicleUsedTypeName)!
+                                                            ? Color(0xFF9F9F9F)
+                                                            : Colors.black,
                                                         fontSize: 15.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
                                                 ),
+                                                trailing: Icon(
+                                                  Icons.arrow_forward_ios,
+                                                  color: Color(0xFF474747),
+                                                  size: 20.0,
+                                                ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                dense: false,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          10.0),
+                                                ),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -4172,7 +4245,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4252,7 +4325,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    -1.00, 0.00),
+                                                    -1.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4347,7 +4420,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4427,7 +4500,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    -1.00, 0.00),
+                                                    -1.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4519,8 +4592,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -4670,8 +4743,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -4812,8 +4885,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -4894,684 +4967,726 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'ไม่ระบุผู้ขับขี่',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: Colors.black,
-                                                fontSize: 15.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                        ),
+                              if ((FFAppState().insuranceinfoActType !=
+                                      'CMI') &&
+                                  (FFAppState().insuranceinfoActType != 'MC'))
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 60.0,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color: Color(0xFFB3B3B3),
                                       ),
-                                      if (false)
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            'ไม่ระบุผู้ขับขี่',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Colors.black,
+                                                  fontSize: 15.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
+                                        if (false)
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Container(
+                                              width: 25.0,
+                                              height: 25.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                shape: BoxShape.circle,
+                                                border: Border.all(
+                                                  color: Color(0xFF9F9F9F),
+                                                  width: 1.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        if (false)
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Container(
+                                              width: 25.0,
+                                              height: 25.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .success,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Icon(
+                                                  Icons.check,
+                                                  color: Colors.white,
+                                                  size: 18.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                          child: Icon(
+                                            Icons.gpp_good_outlined,
+                                            color: Color(0xFF00B505),
+                                            size: 24.0,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              if ((FFAppState().insuranceinfoActType !=
+                                      'CMI') &&
+                                  (FFAppState().insuranceinfoActType != 'MC'))
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'Homepage_Request_2_1',
+                                        queryParameters: {
+                                          'accessory': serializeParam(
+                                            FFAppState().insuranceInfoAccessory,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+
+                                      await actions.hideKeyboardAction(
+                                        context,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.6,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color: Color(0xFF9F9F9F),
-                                                width: 1.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons
+                                                              .dashboard_customize_outlined,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          size: 30.0,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                if (FFAppState()
+                                                        .insuranceInfoAccessoryProtect ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'อุปกรณ์เสริม',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF003063),
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoAccessoryProtect ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับเลือก)',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoAccessoryProtect !=
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFAppState().insuranceInfoAccessoryProtect ==
+                                                              'คุ้มครองอุปกรณ์เสริม'
+                                                          ? '${FFAppState().insuranceInfoAccessoryProtect} ${functions.showNumberWithComma(FFAppState().insuranceInfoAccessory)}'
+                                                          : FFAppState()
+                                                              .insuranceInfoAccessoryProtect,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFF003063),
+                                                                fontSize: 15.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.navigate_next,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              if ((FFAppState().insuranceinfoActType !=
+                                      'CMI') &&
+                                  (FFAppState().insuranceinfoActType != 'MC'))
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('Homepage_Request_2_2');
+
+                                      await actions.hideKeyboardAction(
+                                        context,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
                                         ),
-                                      if (false)
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.6,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .success,
-                                              shape: BoxShape.circle,
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: Icon(
-                                                Icons.check,
-                                                color: Colors.white,
-                                                size: 18.0,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: Icon(
-                                          Icons.gpp_good_outlined,
-                                          color: Color(0xFF00B505),
-                                          size: 24.0,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed(
-                                      'Homepage_Request_2_1',
-                                      queryParameters: {
-                                        'accessory': serializeParam(
-                                          FFAppState().insuranceInfoAccessory,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
-
-                                    await actions.hideKeyboardAction(
-                                      context,
-                                    );
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.6,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Icon(
-                                                        Icons
-                                                            .dashboard_customize_outlined,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 30.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              if (FFAppState()
-                                                      .insuranceInfoAccessoryProtect ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'อุปกรณ์เสริม',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoAccessoryProtect ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(บังคับเลือก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoAccessoryProtect !=
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFAppState().insuranceInfoAccessoryProtect ==
-                                                            'คุ้มครองอุปกรณ์เสริม'
-                                                        ? '${FFAppState().insuranceInfoAccessoryProtect} ${functions.showNumberWithComma(FFAppState().insuranceInfoAccessory)}'
-                                                        : FFAppState()
-                                                            .insuranceInfoAccessoryProtect,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Column(
+                                            child: Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
                                               children: [
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Icon(
-                                                    Icons.navigate_next,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('Homepage_Request_2_2');
-
-                                    await actions.hideKeyboardAction(
-                                      context,
-                                    );
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.6,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color: Colors.black,
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: Colors.black,
+                                                        ),
                                                       ),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Icon(
-                                                        Icons.playlist_add,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 30.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              if (FFAppState()
-                                                      .insuranceInfoActOflLegislation ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'พ.ร.บ.',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoActOflLegislation ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(บังคับเลือก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoActOflLegislation !=
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFAppState()
-                                                        .insuranceInfoActOflLegislation,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoActFlag !=
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFAppState().insuranceInfoActFlag ==
-                                                            '1'
-                                                        ? '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท'
-                                                        : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Icon(
-                                                    Icons.navigate_next,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 10.0, 0.0, 10.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    context.pushNamed('Homepage_Request_2_3');
-
-                                    await actions.hideKeyboardAction(
-                                      context,
-                                    );
-                                  },
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.6,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Container(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Icon(
-                                                        Icons
-                                                            .person_add_alt_outlined,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondaryText,
-                                                        size: 30.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              if (FFAppState()
-                                                      .insuranceInfoBeneficiaryName ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    'ผู้รับผลประโยชน์',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFF003063),
-                                                          fontSize: 15.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoBeneficiaryName ==
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    '(บังคับเลือก)',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFFB0606),
-                                                          fontSize: 12.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              if (FFAppState()
-                                                      .insuranceInfoBeneficiaryName !=
-                                                  '')
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: AutoSizeText(
-                                                    FFAppState()
-                                                        .insuranceInfoBeneficiaryName,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons.playlist_add,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .info,
-                                                          fontSize: 15.0,
+                                                              .secondaryText,
+                                                          size: 30.0,
                                                         ),
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                            ],
+                                                if (FFAppState()
+                                                        .insuranceInfoActOflLegislation ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'พ.ร.บ.',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF003063),
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoActOflLegislation ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับเลือก)',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoActOflLegislation !=
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFAppState()
+                                                          .insuranceInfoActOflLegislation,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFF003063),
+                                                                fontSize: 15.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoActFlag !=
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFAppState().insuranceInfoActFlag ==
+                                                              '1'
+                                                          ? '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท'
+                                                          : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFF003063),
+                                                                fontSize: 15.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
                                           ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.navigate_next,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              if (FFAppState().insuranceinfoActType != 'CMI')
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 10.0, 0.0, 10.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('Homepage_Request_2_3');
+
+                                      await actions.hideKeyboardAction(
+                                        context,
+                                      );
+                                    },
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
                                         ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Column(
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.6,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            child: Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
                                               children: [
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: Icon(
-                                                    Icons.navigate_next,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons
+                                                              .person_add_alt_outlined,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                          size: 30.0,
+                                                        ),
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
+                                                if (FFAppState()
+                                                        .insuranceInfoBeneficiaryName ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      'ผู้รับผลประโยชน์',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF003063),
+                                                            fontSize: 15.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoBeneficiaryName ==
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      '(บังคับเลือก)',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Color(
+                                                                    0xFFFB0606),
+                                                                fontSize: 12.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                        .insuranceInfoBeneficiaryName !=
+                                                    '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      FFAppState()
+                                                          .insuranceInfoBeneficiaryName,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .info,
+                                                                fontSize: 15.0,
+                                                              ),
+                                                    ),
+                                                  ),
                                               ],
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Icon(
+                                                      Icons.navigate_next,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondaryText,
+                                                      size: 24.0,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 15.0, 0.0, 15.0),
@@ -5593,217 +5708,62 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                         FFButtonWidget(
                                           onPressed: () async {
                                             var _shouldSetState = false;
-                                            if (!functions
-                                                .checkIsStringLengthInLength(
-                                                    FFAppState().branchCode,
-                                                    2)!) {
-                                              if (!((FFAppState()
-                                                          .insuranceInfoBranchCode !=
-                                                      '') &&
-                                                  (FFAppState()
-                                                          .insuranceInfoBranchNameOutput !=
-                                                      ''))) {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'กรุณาเลือกสาขาที่จะลงผลงาน'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                                return;
-                                              }
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoEffectiveDateInsure !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoEffectiveDateInsure !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกวันที่เริ่มคุ้มครองประกัน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(_model.vehicleregistrationController1
-                                                        .text !=
-                                                    null &&
-                                                _model.vehicleregistrationController1
-                                                        .text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกเลขทะเบียนรถ'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(_model.carBodyNoTextFieldController
-                                                        .text !=
-                                                    null &&
-                                                _model.carBodyNoTextFieldController
-                                                        .text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกเลขตัวถัง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(_model.enginNoTextFieldController
-                                                        .text !=
-                                                    null &&
-                                                _model.enginNoTextFieldController
-                                                        .text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกเลขเครื่อง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(_model.seatAmountTextFieldController
-                                                        .text !=
-                                                    null &&
-                                                _model.seatAmountTextFieldController
-                                                        .text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกจำนวนที่นั่ง'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
                                             if (FFAppState()
-                                                    .insuranceInfoVehicleType !=
-                                                'รถบรรทุก หัวลาก หางพ่วง') {
-                                              if (_model.sizeTextFieldController
-                                                          .text !=
-                                                      null &&
-                                                  _model.sizeTextFieldController
-                                                          .text !=
-                                                      '') {
-                                                if (functions.checkDoubleBool(
-                                                    _model
-                                                        .sizeTextFieldController
-                                                        .text)!) {
-                                                  if (!(((double.parse(_model
-                                                                  .sizeTextFieldController
-                                                                  .text) <=
-                                                              1.0) &&
-                                                          (double.parse(_model
-                                                                  .sizeTextFieldController
-                                                                  .text) >=
-                                                              0.0)) ||
-                                                      ((double.parse(_model
-                                                                  .sizeTextFieldController
-                                                                  .text) >=
-                                                              1000.0) &&
-                                                          (double.parse(_model
-                                                                  .sizeTextFieldController
-                                                                  .text) <=
-                                                              99999.0)))) {
+                                                    .insuranceinfoActType !=
+                                                'CMI') {
+                                              if (FFAppState()
+                                                      .insuranceinfoActType !=
+                                                  'MC') {
+                                                if (!functions
+                                                    .checkIsStringLengthInLength(
+                                                        FFAppState().branchCode,
+                                                        2)!) {
+                                                  if (!((FFAppState()
+                                                              .insuranceInfoBranchCode !=
+                                                          '') &&
+                                                      (FFAppState()
+                                                              .insuranceInfoBranchNameOutput !=
+                                                          ''))) {
                                                     await showDialog(
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
                                                           content: Text(
-                                                              'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                              'บังคับกรอกวันที่เริ่มคุ้มครองประกัน'),
                                                           actions: [
                                                             TextButton(
                                                               onPressed: () =>
@@ -5812,7 +5772,1138 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
-                                                        ));
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.vehicleregistrationController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.vehicleregistrationController1
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขทะเบียนรถ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.carBodyNoTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.carBodyNoTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขตัวถัง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.enginNoTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.enginNoTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขเครื่อง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.seatAmountTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.seatAmountTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกจำนวนที่นั่ง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (FFAppState()
+                                                        .insuranceInfoVehicleType !=
+                                                    'รถบรรทุก หัวลาก หางพ่วง') {
+                                                  if (_model.sizeTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.sizeTextFieldController
+                                                              .text !=
+                                                          '') {
+                                                    if (functions
+                                                        .checkDoubleBool(_model
+                                                            .sizeTextFieldController
+                                                            .text)!) {
+                                                      if (!(((double.parse(_model
+                                                                      .sizeTextFieldController
+                                                                      .text) <=
+                                                                  1.0) &&
+                                                              (double.parse(_model
+                                                                      .sizeTextFieldController
+                                                                      .text) >=
+                                                                  0.0)) ||
+                                                          ((double.parse(_model
+                                                                      .sizeTextFieldController
+                                                                      .text) >=
+                                                                  1000.0) &&
+                                                              (double.parse(_model
+                                                                      .sizeTextFieldController
+                                                                      .text) <=
+                                                                  99999.0)))) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        if (_shouldSetState)
+                                                          setState(() {});
+                                                        return;
+                                                      }
+                                                    } else {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                      if (_shouldSetState)
+                                                        setState(() {});
+                                                      return;
+                                                    }
+                                                  } else {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกขนาด'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                if (!(_model.weightTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.weightTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกน้ำหนัก'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoAccessoryProtect !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoAccessoryProtect !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกอุปกรณ์เสริม'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoActOflLegislation !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoActOflLegislation !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือก พ.ร.บ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกผู้รับผลประโยชน์'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (functions.countCharInString(
+                                                        _model
+                                                            .vehicleregistrationController1
+                                                            .text)! >
+                                                    10) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ทะเบียนรถเกิน 10 ตัว กรุณากรอกใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoProductYear !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoProductYear !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกปีที่ผลิต'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoRegistrationProvinceSelect !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoRegistrationProvinceSelect !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกจังหวัดที่จดทะเบียน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoVehicleUsage !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoVehicleUsage !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกลักษณะการใช้รถ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoRegisYear !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoRegisYear !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณากรอกปีจดทะเบียน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                              } else {
+                                                if (!functions
+                                                    .checkIsStringLengthInLength(
+                                                        FFAppState().branchCode,
+                                                        2)!) {
+                                                  if (!((FFAppState()
+                                                              .insuranceInfoBranchCode !=
+                                                          '') &&
+                                                      (FFAppState()
+                                                              .insuranceInfoBranchNameOutput !=
+                                                          ''))) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
+                                                  }
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกวันที่เริ่มคุ้มครองประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.vehicleregistrationController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.vehicleregistrationController1
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขทะเบียนรถ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.carBodyNoTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.carBodyNoTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขตัวถัง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.enginNoTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.enginNoTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกเลขเครื่อง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.seatAmountTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.seatAmountTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกจำนวนที่นั่ง'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.sizeTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.sizeTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกขนาด'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(_model.weightTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.weightTextFieldController
+                                                            .text !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกน้ำหนัก'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoBeneficiaryName !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับเลือกผู้รับผลประโยชน์'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (functions.countCharInString(
+                                                        _model
+                                                            .vehicleregistrationController1
+                                                            .text)! >
+                                                    10) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ทะเบียนรถเกิน 10 ตัว กรุณากรอกใหม่'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoRegistrationProvinceSelect !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoRegistrationProvinceSelect !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกจังหวัดที่จดทะเบียน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoVehicleUsage !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoVehicleUsage !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกลักษณะการใช้รถ'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                                if (!(FFAppState()
+                                                            .insuranceInfoRegisYear !=
+                                                        null &&
+                                                    FFAppState()
+                                                            .insuranceInfoRegisYear !=
+                                                        '')) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณากรอกปีจดทะเบียน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                              }
+                                            } else {
+                                              if (!functions
+                                                  .checkIsStringLengthInLength(
+                                                      FFAppState().branchCode,
+                                                      2)!) {
+                                                if (!((FFAppState()
+                                                            .insuranceInfoBranchCode !=
+                                                        '') &&
+                                                    (FFAppState()
+                                                            .insuranceInfoBranchNameOutput !=
+                                                        ''))) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'กรุณาเลือกสาขาที่จะลงผลงาน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                              }
+                                              if (!(FFAppState()
+                                                          .insuranceInfoEffectiveDateAct !=
+                                                      null &&
+                                                  FFAppState()
+                                                          .insuranceInfoEffectiveDateAct !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'บังคับกรอกวันที่เริ่มคุ้มครองพรบ.'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(_model.vehicleregistrationController1
+                                                          .text !=
+                                                      null &&
+                                                  _model.vehicleregistrationController1
+                                                          .text !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'บังคับกรอกเลขทะเบียนรถ'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(_model.enginNoTextFieldController
+                                                          .text !=
+                                                      null &&
+                                                  _model.enginNoTextFieldController
+                                                          .text !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'บังคับกรอกเลขเครื่อง'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(_model.seatAmountTextFieldController
+                                                          .text !=
+                                                      null &&
+                                                  _model.seatAmountTextFieldController
+                                                          .text !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'บังคับกรอกจำนวนที่นั่ง'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (FFAppState()
+                                                      .insuranceInfoVehicleType !=
+                                                  'รถบรรทุก หัวลาก หางพ่วง') {
+                                                if (_model.sizeTextFieldController
+                                                            .text !=
+                                                        null &&
+                                                    _model.sizeTextFieldController
+                                                            .text !=
+                                                        '') {
+                                                  if (functions.checkDoubleBool(
+                                                      _model
+                                                          .sizeTextFieldController
+                                                          .text)!) {
+                                                    if (!(((double.parse(_model
+                                                                    .sizeTextFieldController
+                                                                    .text) <=
+                                                                1.0) &&
+                                                            (double.parse(_model
+                                                                    .sizeTextFieldController
+                                                                    .text) >=
+                                                                0.0)) ||
+                                                        ((double.parse(_model
+                                                                    .sizeTextFieldController
+                                                                    .text) >=
+                                                                1000.0) &&
+                                                            (double.parse(_model
+                                                                    .sizeTextFieldController
+                                                                    .text) <=
+                                                                99999.0)))) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                      if (_shouldSetState)
+                                                        setState(() {});
+                                                      return;
+                                                    }
+                                                  } else {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     if (_shouldSetState)
@@ -5825,9 +6916,40 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                     builder:
                                                         (alertDialogContext) {
                                                       return WebViewAware(
-                                                          child: AlertDialog(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'บังคับกรอกขนาด'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+                                              }
+                                              if (!(_model.weightTextFieldController
+                                                          .text !=
+                                                      null &&
+                                                  _model.weightTextFieldController
+                                                          .text !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
                                                         content: Text(
-                                                            'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                            'บังคับกรอกน้ำหนัก'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () =>
@@ -5836,31 +6958,126 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                             child: Text('Ok'),
                                                           ),
                                                         ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    setState(() {});
-                                                  return;
-                                                }
-                                              } else {
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (functions.countCharInString(_model
+                                                      .vehicleregistrationController1
+                                                      .text)! >
+                                                  10) {
                                                 await showDialog(
                                                   context: context,
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'บังคับกรอกขนาด'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'ทะเบียนรถเกิน 10 ตัว กรุณากรอกใหม่'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(FFAppState()
+                                                          .insuranceInfoRegistrationProvinceSelect !=
+                                                      null &&
+                                                  FFAppState()
+                                                          .insuranceInfoRegistrationProvinceSelect !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'กรุณาเลือกจังหวัดที่จดทะเบียน'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(FFAppState()
+                                                          .insuranceInfoVehicleUsage !=
+                                                      null &&
+                                                  FFAppState()
+                                                          .insuranceInfoVehicleUsage !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'กรุณาเลือกลักษณะการใช้รถ'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                                return;
+                                              }
+                                              if (!(FFAppState()
+                                                          .insuranceInfoRegisYear !=
+                                                      null &&
+                                                  FFAppState()
+                                                          .insuranceInfoRegisYear !=
+                                                      '')) {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'กรุณากรอกปีจดทะเบียน'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
                                                   },
                                                 );
                                                 if (_shouldSetState)
@@ -5868,200 +7085,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 return;
                                               }
                                             }
-                                            if (!(_model.weightTextFieldController
-                                                        .text !=
-                                                    null &&
-                                                _model.weightTextFieldController
-                                                        .text !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับกรอกน้ำหนัก'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoAccessoryProtect !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoAccessoryProtect !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับเลือกอุปกรณ์เสริม'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoActOflLegislation !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoActOflLegislation !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับเลือก พ.ร.บ'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoBeneficiaryName !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoBeneficiaryName !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'บังคับเลือกผู้รับผลประโยชน์'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (functions.countCharInString(_model
-                                                    .vehicleregistrationController1
-                                                    .text)! >
-                                                10) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'ทะเบียนรถเกิน 10 ตัว กรุณากรอกใหม่'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoProductYear !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoProductYear !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาเลือกปีที่ผลิต'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
-                                            if (!(FFAppState()
-                                                        .insuranceInfoRegistrationProvinceSelect !=
-                                                    null &&
-                                                FFAppState()
-                                                        .insuranceInfoRegistrationProvinceSelect !=
-                                                    '')) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาเลือกจังหวัดที่จดทะเบียน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              if (_shouldSetState)
-                                                setState(() {});
-                                              return;
-                                            }
+
                                             showModalBottomSheet(
                                               isScrollControlled: true,
                                               backgroundColor:
@@ -6070,22 +7094,24 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                               context: context,
                                               builder: (context) {
                                                 return WebViewAware(
-                                                    child: GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
-                                                          .unfocus(),
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: LoadingSceneWidget(),
+                                                  child: GestureDetector(
+                                                    onTap: () => _model
+                                                            .unfocusNode
+                                                            .canRequestFocus
+                                                        ? FocusScope.of(context)
+                                                            .requestFocus(_model
+                                                                .unfocusNode)
+                                                        : FocusScope.of(context)
+                                                            .unfocus(),
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          LoadingSceneWidget(),
+                                                    ),
                                                   ),
-                                                ));
+                                                );
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
@@ -6125,6 +7151,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                       .insuranceInfoWeightCar =
                                                   _model
                                                       .weightTextFieldController
+                                                      .text;
+                                              FFAppState().nonePackageOldVmi =
+                                                  _model
+                                                      .oldVmiTextFieldController
                                                       .text;
                                             });
                                             _model.ibsAppAPIOutput =
@@ -6167,16 +7197,27 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                               weight: FFAppState()
                                                   .insuranceInfoWeightCar,
                                               driverType: '0',
-                                              accessoryFlg: FFAppState()
-                                                          .insuranceInfoAccessoryProtect ==
-                                                      'คุ้มครองอุปกรณ์เสริม'
-                                                  ? '1'
-                                                  : '0',
+                                              accessoryFlg: (FFAppState()
+                                                              .insuranceinfoActType ==
+                                                          'CMI') ||
+                                                      (FFAppState()
+                                                              .insuranceinfoActType ==
+                                                          'MC')
+                                                  ? '0'
+                                                  : (FFAppState()
+                                                              .insuranceInfoAccessoryProtect ==
+                                                          'คุ้มครองอุปกรณ์เสริม'
+                                                      ? '1'
+                                                      : '0'),
                                               actFlg: FFAppState()
-                                                          .insuranceInfoActOflLegislation ==
-                                                      'ราคารวม พ.ร.บ'
+                                                          .insuranceinfoActType ==
+                                                      'CMI'
                                                   ? '1'
-                                                  : '0',
+                                                  : (FFAppState()
+                                                              .insuranceInfoActOflLegislation ==
+                                                          'ราคารวม พ.ร.บ'
+                                                      ? '1'
+                                                      : '0'),
                                               beneficiaryName: FFAppState()
                                                   .insuranceInfoBeneficiaryName,
                                               action: 'save_draft',
@@ -6299,6 +7340,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                   .insuranceInfoEffectiveDateAct,
                                               effectiveDateInsure: FFAppState()
                                                   .insuranceInfoEffectiveDateInsure,
+                                              subProduct: FFAppState()
+                                                  .insuranceinfoActType,
                                             );
                                             _shouldSetState = true;
                                             if ((_model.ibsAppAPIOutput
@@ -6309,21 +7352,22 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text((_model
-                                                                .ibsAppAPIOutput
-                                                                ?.statusCode ??
-                                                            200)
-                                                        .toString()),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text((_model
+                                                                  .ibsAppAPIOutput
+                                                                  ?.statusCode ??
+                                                              200)
+                                                          .toString()),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               Navigator.pop(context);
@@ -6342,23 +7386,24 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        IbsApplicationsSaveCall
-                                                            .statuslayer1(
-                                                      (_model.ibsAppAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          IbsApplicationsSaveCall
+                                                              .messageLayer1(
+                                                        (_model.ibsAppAPIOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               Navigator.pop(context);
@@ -6384,18 +7429,19 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'พบข้อผิดพลาด (${(_model.detailAPIOutput?.statusCode ?? 200).toString()})'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'พบข้อผิดพลาด (${(_model.detailAPIOutput?.statusCode ?? 200).toString()})'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               Navigator.pop(context);
@@ -6414,22 +7460,24 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                                                      (_model.detailAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()})'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          IbsApplicationsDetailCall
+                                                              .messageLayer1(
+                                                        (_model.detailAPIOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )!),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               Navigator.pop(context);
@@ -6441,18 +7489,19 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  content: Text(
-                                                      'บันทึกเตรียมข้อมูลขั้นตอนที่ 2 สำเร็จ'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'บันทึกเตรียมข้อมูลขั้นตอนที่ 2 สำเร็จ'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                             setState(() {
@@ -6461,43 +7510,44 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                   true;
                                               FFAppState()
                                                       .insuranceInfoActFlag =
-                                                  IbsApplicationsDetailCall
-                                                      .actflg(
+                                                  '${IbsApplicationsDetailCall.actflg(
                                                 (_model.detailAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ).toString();
+                                              )}';
                                               FFAppState()
                                                       .insuranceInfoGrosstotalNet =
-                                                  IbsApplicationsDetailCall
-                                                      .grosstotalnet(
+                                                  '${IbsApplicationsDetailCall.grosstotalnet(
                                                 (_model.detailAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ).toString();
+                                              )}';
                                               FFAppState()
                                                       .insuranceInfoPage4NetPremiumTotal =
-                                                  IbsApplicationsDetailCall
-                                                      .netpremiumtotal(
+                                                  '${IbsApplicationsDetailCall.netpremiumtotal(
                                                 (_model.detailAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ).toString();
+                                              )}';
                                               FFAppState()
                                                       .insuranceInfoActAmount =
-                                                  IbsApplicationsDetailCall
-                                                      .acttotal(
+                                                  '${IbsApplicationsDetailCall.acttotal(
                                                 (_model.detailAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ).toString();
+                                              )}';
                                               FFAppState().nonePackageWorkType =
-                                                  IbsApplicationsDetailCall
-                                                      .workType(
+                                                  '${IbsApplicationsDetailCall.workType(
                                                 (_model.detailAPIOutput
                                                         ?.jsonBody ??
                                                     ''),
-                                              ).toString();
+                                              )}';
+                                              FFAppState().flagRenew =
+                                                  '${IbsApplicationsDetailCall.flgrenew(
+                                                (_model.detailAPIOutput
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )}';
                                             });
                                             Navigator.pop(context);
                                             if (_shouldSetState)
@@ -6541,292 +7591,300 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget>
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: FFButtonWidget(
                                               onPressed: () async {
-                                                if (!(_model.vehicleregistrationController1
-                                                            .text !=
-                                                        null &&
-                                                    _model.vehicleregistrationController1
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกเลขทะเบียนรถ'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(_model.carBodyNoTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.carBodyNoTextFieldController
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกเลขตัวถัง'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(_model.enginNoTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.enginNoTextFieldController
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกเลขเครื่อง'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(_model.seatAmountTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.seatAmountTextFieldController
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกจำนวนที่นั่ง'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(_model.sizeTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.sizeTextFieldController
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกขนาด'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(_model.weightTextFieldController
-                                                            .text !=
-                                                        null &&
-                                                    _model.weightTextFieldController
-                                                            .text !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับกรอกน้ำหนัก'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(FFAppState()
-                                                            .insuranceInfoAccessoryProtect !=
-                                                        null &&
-                                                    FFAppState()
-                                                            .insuranceInfoAccessoryProtect !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับเลือกอุปกรณ์เสริม'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(FFAppState()
-                                                            .insuranceInfoActOflLegislation !=
-                                                        null &&
-                                                    FFAppState()
-                                                            .insuranceInfoActOflLegislation !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับเลือก พ.ร.บ'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                if (!(FFAppState()
-                                                            .insuranceInfoBeneficiaryName !=
-                                                        null &&
-                                                    FFAppState()
-                                                            .insuranceInfoBeneficiaryName !=
-                                                        '')) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'บังคับเลือกผู้รับผลประโยชน์'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  return;
-                                                }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoCarRegis =
-                                                      _model
-                                                          .vehicleregistrationController1
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoBodyNumber =
-                                                      _model
-                                                          .carBodyNoTextFieldController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoEngineNumber =
-                                                      _model
-                                                          .enginNoTextFieldController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoCarSeat =
-                                                      _model
-                                                          .seatAmountTextFieldController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoSizeCar =
-                                                      _model
-                                                          .sizeTextFieldController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoWeightCar =
-                                                      _model
-                                                          .weightTextFieldController
-                                                          .text;
-                                                });
                                                 if (FFAppState()
-                                                        .insuranceInfoApplicationType !=
-                                                    'auto') {
+                                                        .insuranceinfoActType !=
+                                                    'CMI') {
+                                                  if (!(_model.vehicleregistrationController1
+                                                              .text !=
+                                                          null &&
+                                                      _model.vehicleregistrationController1
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกเลขทะเบียนรถ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(_model.carBodyNoTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.carBodyNoTextFieldController
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกเลขตัวถัง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(_model.enginNoTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.enginNoTextFieldController
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกเลขเครื่อง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(_model.seatAmountTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.seatAmountTextFieldController
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกจำนวนที่นั่ง'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(_model.sizeTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.sizeTextFieldController
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกขนาด'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(_model.weightTextFieldController
+                                                              .text !=
+                                                          null &&
+                                                      _model.weightTextFieldController
+                                                              .text !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับกรอกน้ำหนัก'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  if (!(FFAppState()
+                                                              .insuranceInfoBeneficiaryName !=
+                                                          null &&
+                                                      FFAppState()
+                                                              .insuranceInfoBeneficiaryName !=
+                                                          '')) {
+                                                    await showDialog(
+                                                      context: context,
+                                                      builder:
+                                                          (alertDialogContext) {
+                                                        return WebViewAware(
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'บังคับเลือกผู้รับผลประโยชน์'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                    return;
+                                                  }
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoCarRegis =
+                                                        _model
+                                                            .vehicleregistrationController1
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoBodyNumber =
+                                                        _model
+                                                            .carBodyNoTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoEngineNumber =
+                                                        _model
+                                                            .enginNoTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoCarSeat =
+                                                        _model
+                                                            .seatAmountTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoSizeCar =
+                                                        _model
+                                                            .sizeTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoWeightCar =
+                                                        _model
+                                                            .weightTextFieldController
+                                                            .text;
+                                                  });
+                                                  if (FFAppState()
+                                                          .insuranceInfoApplicationType !=
+                                                      'auto') {
+                                                    context.pushNamed(
+                                                        'insuranceInfoPage3_1');
+
+                                                    return;
+                                                  }
+
                                                   context.pushNamed(
-                                                      'insuranceInfoPage3_1');
+                                                      'insuranceInfoPage3');
+                                                } else {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoCarRegis =
+                                                        _model
+                                                            .vehicleregistrationController1
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoBodyNumber =
+                                                        _model
+                                                            .carBodyNoTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoEngineNumber =
+                                                        _model
+                                                            .enginNoTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoCarSeat =
+                                                        _model
+                                                            .seatAmountTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoSizeCar =
+                                                        _model
+                                                            .sizeTextFieldController
+                                                            .text;
+                                                    FFAppState()
+                                                            .insuranceInfoWeightCar =
+                                                        _model
+                                                            .weightTextFieldController
+                                                            .text;
+                                                  });
+                                                  if (FFAppState()
+                                                          .insuranceInfoApplicationType !=
+                                                      'auto') {
+                                                    context.pushNamed(
+                                                        'insuranceInfoPage3_1');
 
-                                                  return;
+                                                    return;
+                                                  }
+
+                                                  context.pushNamed(
+                                                      'insuranceInfoPage3');
                                                 }
-
-                                                context.pushNamed(
-                                                    'insuranceInfoPage3');
                                               },
                                               text: 'ถัดไป',
                                               options: FFButtonOptions(

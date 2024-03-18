@@ -1,9 +1,14 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -11,10 +16,15 @@ import 'none_package_renew_page_model.dart';
 export 'none_package_renew_page_model.dart';
 
 class NonePackageRenewPageWidget extends StatefulWidget {
-  const NonePackageRenewPageWidget({Key? key}) : super(key: key);
+  const NonePackageRenewPageWidget({
+    super.key,
+    required this.workType,
+  });
+
+  final String? workType;
 
   @override
-  _NonePackageRenewPageWidgetState createState() =>
+  State<NonePackageRenewPageWidget> createState() =>
       _NonePackageRenewPageWidgetState();
 }
 
@@ -31,6 +41,94 @@ class _NonePackageRenewPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageRenewPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
+      _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.buildVersionQuery = await queryBuildVersionRecordOnce(
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      _model.adminVersionQuery = await queryAuthorizationRecordOnce(
+        queryBuilder: (authorizationRecord) => authorizationRecord.where(
+          'content_name',
+          isEqualTo: 'skip_build_version',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
+      if (isAndroid) {
+        if (!((_model.buildVersionQuery?.appVersion ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          await actions.terminateAppAction();
+          return;
+        }
+      } else {
+        if (!((_model.buildVersionQuery?.appVersionIos ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          await actions.terminateAppAction();
+          return;
+        }
+      }
+
+      Navigator.pop(context);
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -43,15 +141,6 @@ class _NonePackageRenewPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -115,7 +204,7 @@ class _NonePackageRenewPageWidgetState
                     ),
                   ),
                   title: Text(
-                    'งานต่ออายุ',
+                    widget.workType == 'transfer' ? 'งานโอนโค้ด' : 'งานต่ออายุ',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
@@ -153,8 +242,7 @@ class _NonePackageRenewPageWidgetState
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: EdgeInsets.all(10.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -209,7 +297,7 @@ class _NonePackageRenewPageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -228,7 +316,7 @@ class _NonePackageRenewPageWidgetState
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .person_outline_sharp,
@@ -267,8 +355,7 @@ class _NonePackageRenewPageWidgetState
                                     Expanded(
                                       flex: 1,
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 10.0, 10.0, 10.0),
+                                        padding: EdgeInsets.all(10.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
                                           focusColor: Colors.transparent,
@@ -322,7 +409,7 @@ class _NonePackageRenewPageWidgetState
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -341,7 +428,7 @@ class _NonePackageRenewPageWidgetState
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .home_work_outlined,
@@ -413,23 +500,33 @@ class _NonePackageRenewPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content:
-                                                Text('กรุณาเลือกผู้ทำประกัน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content:
+                                                  Text('กรุณาเลือกผู้ทำประกัน'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       return;
                                     }
 
-                                    context.pushNamed('NonePackageBasicPage');
+                                    context.pushNamed(
+                                      'NonePackageBasicPage',
+                                      queryParameters: {
+                                        'workType': serializeParam(
+                                          widget.workType,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
                                   },
                                   text: 'ถัดไป',
                                   options: FFButtonOptions(

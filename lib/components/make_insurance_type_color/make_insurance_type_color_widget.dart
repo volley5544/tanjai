@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,10 +10,10 @@ import 'make_insurance_type_color_model.dart';
 export 'make_insurance_type_color_model.dart';
 
 class MakeInsuranceTypeColorWidget extends StatefulWidget {
-  const MakeInsuranceTypeColorWidget({Key? key}) : super(key: key);
+  const MakeInsuranceTypeColorWidget({super.key});
 
   @override
-  _MakeInsuranceTypeColorWidgetState createState() =>
+  State<MakeInsuranceTypeColorWidget> createState() =>
       _MakeInsuranceTypeColorWidgetState();
 }
 
@@ -86,7 +85,7 @@ class _MakeInsuranceTypeColorWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),

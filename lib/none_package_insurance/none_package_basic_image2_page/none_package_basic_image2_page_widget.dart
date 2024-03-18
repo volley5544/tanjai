@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,10 +12,15 @@ import 'none_package_basic_image2_page_model.dart';
 export 'none_package_basic_image2_page_model.dart';
 
 class NonePackageBasicImage2PageWidget extends StatefulWidget {
-  const NonePackageBasicImage2PageWidget({Key? key}) : super(key: key);
+  const NonePackageBasicImage2PageWidget({
+    super.key,
+    required this.workType,
+  });
+
+  final String? workType;
 
   @override
-  _NonePackageBasicImage2PageWidgetState createState() =>
+  State<NonePackageBasicImage2PageWidget> createState() =>
       _NonePackageBasicImage2PageWidgetState();
 }
 
@@ -45,15 +49,6 @@ class _NonePackageBasicImage2PageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -82,7 +77,15 @@ class _NonePackageBasicImage2PageWidgetState
               },
             ),
             title: Text(
-              'งานนอกเรท',
+              () {
+                if (widget.workType == 'transfer') {
+                  return 'งานโอนโค้ด';
+                } else if (widget.workType == 'renew') {
+                  return 'งานต่ออายุ';
+                } else {
+                  return 'งานนอกเรท';
+                }
+              }(),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -1678,6 +1681,348 @@ class _NonePackageBasicImage2PageWidgetState
                                       ),
                                   ],
                                 ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 20.0, 12.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 12.0),
+                                          child: Text(
+                                            'รายละเอียดความยินยอม',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  fontSize: 16.0,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                '**ต้องอ่านให้ลูกค้าฟังอย่างครบถ้วนทีละข้อ**',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFF0000),
+                                                          fontSize: 16.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Expanded(
+                                                flex: 1,
+                                                child: Container(
+                                                  height: 250.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 10.0,
+                                                                0.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Theme(
+                                                          data: ThemeData(
+                                                            checkboxTheme:
+                                                                CheckboxThemeData(
+                                                              visualDensity:
+                                                                  VisualDensity
+                                                                      .compact,
+                                                              materialTapTargetSize:
+                                                                  MaterialTapTargetSize
+                                                                      .shrinkWrap,
+                                                              shape:
+                                                                  RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            4.0),
+                                                              ),
+                                                            ),
+                                                            unselectedWidgetColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                          ),
+                                                          child: Checkbox(
+                                                            value: _model
+                                                                    .privacyConsent1Value ??=
+                                                                false,
+                                                            onChanged:
+                                                                (newValue) async {
+                                                              setState(() =>
+                                                                  _model.privacyConsent1Value =
+                                                                      newValue!);
+                                                            },
+                                                            activeColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBtnText,
+                                                            checkColor: Color(
+                                                                0xFF00B505),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      40.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Theme(
+                                                            data: ThemeData(
+                                                              checkboxTheme:
+                                                                  CheckboxThemeData(
+                                                                visualDensity:
+                                                                    VisualDensity
+                                                                        .compact,
+                                                                materialTapTargetSize:
+                                                                    MaterialTapTargetSize
+                                                                        .shrinkWrap,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              4.0),
+                                                                ),
+                                                              ),
+                                                              unselectedWidgetColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                            ),
+                                                            child: Checkbox(
+                                                              value: _model
+                                                                      .privacyConsent2Value ??=
+                                                                  false,
+                                                              onChanged:
+                                                                  (newValue) async {
+                                                                setState(() =>
+                                                                    _model.privacyConsent2Value =
+                                                                        newValue!);
+                                                              },
+                                                              activeColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBtnText,
+                                                              checkColor: Color(
+                                                                  0xFF00B505),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      40.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Theme(
+                                                            data: ThemeData(
+                                                              checkboxTheme:
+                                                                  CheckboxThemeData(
+                                                                visualDensity:
+                                                                    VisualDensity
+                                                                        .compact,
+                                                                materialTapTargetSize:
+                                                                    MaterialTapTargetSize
+                                                                        .shrinkWrap,
+                                                                shape:
+                                                                    RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              4.0),
+                                                                ),
+                                                              ),
+                                                              unselectedWidgetColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                            ),
+                                                            child: Checkbox(
+                                                              value: _model
+                                                                      .privacyConsent3Value ??=
+                                                                  false,
+                                                              onChanged:
+                                                                  (newValue) async {
+                                                                setState(() =>
+                                                                    _model.privacyConsent3Value =
+                                                                        newValue!);
+                                                              },
+                                                              activeColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBtnText,
+                                                              checkColor: Color(
+                                                                  0xFF00B505),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                flex: 10,
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      '1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท\n\n2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ\n\n3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                lineHeight: 1.3,
+                                                              ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 12.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Theme(
+                                                data: ThemeData(
+                                                  checkboxTheme:
+                                                      CheckboxThemeData(
+                                                    visualDensity:
+                                                        VisualDensity.compact,
+                                                    materialTapTargetSize:
+                                                        MaterialTapTargetSize
+                                                            .shrinkWrap,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                  ),
+                                                  unselectedWidgetColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondaryText,
+                                                ),
+                                                child: Checkbox(
+                                                  value: _model
+                                                          .privacyConsentValue ??=
+                                                      false,
+                                                  onChanged: (newValue) async {
+                                                    setState(() => _model
+                                                            .privacyConsentValue =
+                                                        newValue!);
+                                                    if (newValue!) {
+                                                      setState(() {
+                                                        _model.privacyConsent1Value =
+                                                            true;
+                                                      });
+                                                      setState(() {
+                                                        _model.privacyConsent2Value =
+                                                            true;
+                                                      });
+                                                      setState(() {
+                                                        _model.privacyConsent3Value =
+                                                            true;
+                                                      });
+                                                    } else {
+                                                      setState(() {
+                                                        _model.privacyConsent1Value =
+                                                            false;
+                                                      });
+                                                      setState(() {
+                                                        _model.privacyConsent2Value =
+                                                            false;
+                                                      });
+                                                      setState(() {
+                                                        _model.privacyConsent3Value =
+                                                            false;
+                                                      });
+                                                    }
+                                                  },
+                                                  activeColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBtnText,
+                                                  checkColor: Color(0xFF00B505),
+                                                ),
+                                              ),
+                                              Text(
+                                                'ยินยอมทั้งหมด',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                  color: FlutterFlowTheme.of(context).accent4,
+                                ),
                               ],
                             ),
                           ),
@@ -1689,7 +2034,7 @@ class _NonePackageBasicImage2PageWidgetState
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: AlignmentDirectional(0.00, 0.75),
+                    alignment: AlignmentDirectional(0.0, 0.75),
                     child: Container(
                       width: double.infinity,
                       height: 100.0,
@@ -1715,23 +2060,54 @@ class _NonePackageBasicImage2PageWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content:
-                                            Text('กรุณาอัพโหลดรูปหน้าเล่มรถ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('กรุณาอัพโหลดรูปหน้าเล่มรถ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+                                if (!(_model.privacyConsent1Value! &&
+                                    _model.privacyConsent2Value! &&
+                                    _model.privacyConsent3Value!)) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text('กรุณาเลือกยินยอม'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   return;
                                 }
 
-                                context.pushNamed('NonePackageInsurerPage');
+                                context.pushNamed(
+                                  'NonePackageInsurerPage',
+                                  queryParameters: {
+                                    'workType': serializeParam(
+                                      widget.workType,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               text: 'ถัดไป',
                               options: FFButtonOptions(

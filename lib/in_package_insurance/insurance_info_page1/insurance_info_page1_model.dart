@@ -1,5 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -14,7 +16,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -36,6 +37,12 @@ class InsuranceInfoPage1Model
   ApiCallResponse? getOccuAPIOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in insuranceInfoPage1 widget.
   ApiCallResponse? detailAPIOutput;
+  // Stores action output result for [Backend Call - API (getProfileImage)] action in insuranceInfoPage1 widget.
+  ApiCallResponse? profileImgOutputPage;
+  // Model for infomationCustomer component.
+  late InfomationCustomerModel infomationCustomerModel;
+  // Model for infomationCustomerAct component.
+  late InfomationCustomerActModel infomationCustomerActModel;
   // State field(s) for IdCardTextField widget.
   FocusNode? idCardTextFieldFocusNode1;
   TextEditingController? idCardTextFieldController1;
@@ -93,13 +100,24 @@ class InsuranceInfoPage1Model
   ApiCallResponse? profileImgOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppSaveAPIoutput;
+  // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
+  ApiCallResponse? ibsAppSaveAPIoutputCMI;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  @override
+  void initState(BuildContext context) {
+    infomationCustomerModel =
+        createModel(context, () => InfomationCustomerModel());
+    infomationCustomerActModel =
+        createModel(context, () => InfomationCustomerActModel());
+  }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
+    infomationCustomerModel.dispose();
+    infomationCustomerActModel.dispose();
     idCardTextFieldFocusNode1?.dispose();
     idCardTextFieldController1?.dispose();
 

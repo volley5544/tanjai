@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'searchable_list_component_widget.dart'
     show SearchableListComponentWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +17,10 @@ class SearchableListComponentModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     textFieldFocusNode?.dispose();
     textController?.dispose();

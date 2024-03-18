@@ -6,7 +6,6 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -15,20 +14,19 @@ export 'upload_img_page_model.dart';
 
 class UploadImgPageWidget extends StatefulWidget {
   const UploadImgPageWidget({
-    Key? key,
+    super.key,
     String? titleText,
     required this.searchLabel,
     String? fromPage,
   })  : this.titleText = titleText ?? 'เลือก...',
-        this.fromPage = fromPage ?? '-',
-        super(key: key);
+        this.fromPage = fromPage ?? '-';
 
   final String titleText;
   final String? searchLabel;
   final String fromPage;
 
   @override
-  _UploadImgPageWidgetState createState() => _UploadImgPageWidgetState();
+  State<UploadImgPageWidget> createState() => _UploadImgPageWidgetState();
 }
 
 class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
@@ -62,15 +60,6 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -163,22 +152,22 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.74,
                                             height: 100.0,
                                             decoration: BoxDecoration(),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                          -1.0, 0.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -311,7 +300,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -1.00, 0.00),
+                                                                -1.0, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -479,8 +468,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -488,14 +477,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -633,7 +622,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -805,8 +794,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -814,14 +803,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -959,7 +948,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1131,8 +1120,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -1140,14 +1129,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1285,7 +1274,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1457,8 +1446,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -1466,14 +1455,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1611,7 +1600,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1784,8 +1773,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Container(
                                               width: MediaQuery.sizeOf(context)
                                                       .width *
@@ -1793,14 +1782,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                               height: 100.0,
                                               decoration: BoxDecoration(),
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -1938,7 +1927,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -2124,16 +2113,17 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('กรุณาถ่ายรูป'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text('กรุณาถ่ายรูป'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   return;

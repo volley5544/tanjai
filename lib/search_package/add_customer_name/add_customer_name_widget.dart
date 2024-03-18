@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +15,7 @@ export 'add_customer_name_model.dart';
 
 class AddCustomerNameWidget extends StatefulWidget {
   const AddCustomerNameWidget({
-    Key? key,
+    super.key,
     required this.insurerId,
     required this.insurerCode,
     required this.insurerShortName,
@@ -61,8 +60,9 @@ class AddCustomerNameWidget extends StatefulWidget {
     this.fromPage,
     this.fromBtn,
     this.indexPage,
-  })  : this.driverType = driverType ?? '0',
-        super(key: key);
+    this.oldVMIExpDate,
+    required this.cc,
+  }) : this.driverType = driverType ?? '0';
 
   final List<String>? insurerId;
   final List<String>? insurerCode;
@@ -108,9 +108,11 @@ class AddCustomerNameWidget extends StatefulWidget {
   final String? fromPage;
   final String? fromBtn;
   final int? indexPage;
+  final String? oldVMIExpDate;
+  final List<String>? cc;
 
   @override
-  _AddCustomerNameWidgetState createState() => _AddCustomerNameWidgetState();
+  State<AddCustomerNameWidget> createState() => _AddCustomerNameWidgetState();
 }
 
 class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
@@ -165,15 +167,6 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -293,8 +286,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       children: [
                                         Expanded(
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -477,8 +470,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       children: [
                                         Expanded(
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -656,7 +649,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       Expanded(
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -880,7 +873,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.75),
+                      alignment: AlignmentDirectional(0.0, 0.75),
                       child: Container(
                         width: double.infinity,
                         height: 100.0,
@@ -901,16 +894,17 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('บังคับกรอกชื่อ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text('บังคับกรอกชื่อ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -939,21 +933,43 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
+                                  if (!((String var1) {
+                                    return var1.startsWith('0');
+                                  }(_model.phonenumberController.text))) {
+                                    ScaffoldMessenger.of(context)
+                                        .clearSnackBars();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'เบอร์โทรศัพตัวแรกต้องเป็นเลข 0',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 3000),
+                                        backgroundColor: Color(0xB2000000),
+                                      ),
+                                    );
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
                                 } else {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('บังคับกรอกเบอร์โทรศัพ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('บังคับกรอกเบอร์โทรศัพ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -987,26 +1003,27 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'คุณต้องการบันทึกใช่หรือไม่'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          false),
-                                                  child: Text('ยกเลิก'),
-                                                ),
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext,
-                                                          true),
-                                                  child: Text('ตกลง'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'คุณต้องการบันทึกใช่หรือไม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            false),
+                                                    child: Text('ยกเลิก'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            true),
+                                                    child: Text('ตกลง'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         ) ??
                                         false;
@@ -1021,18 +1038,20 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: LoadingSceneWidget(),
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: LoadingSceneWidget(),
+                                        ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
 
@@ -1043,12 +1062,13 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   phoneNumber: functions.removeCommaFromNumText(
                                       _model.phonenumberController.text),
                                   carRegistration:
-                                      _model.textFieldController.text,
+                                      functions.removeSpacialLetterFromText(
+                                          _model.textFieldController.text),
                                   driverType: widget.driverType,
-                                  carRegistrationYear:
-                                      (int.parse(widget.carRegistrationYear!) -
-                                              543)
-                                          .toString(),
+                                  carRegistrationYear: (int.parse(
+                                              (widget.carRegistrationYear!)) -
+                                          543)
+                                      .toString(),
                                   carBrandId: widget.carBrandId,
                                   carBrandName: widget.carBrandName,
                                   carModelName: widget.carModelName,
@@ -1095,7 +1115,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         widget.vat?.toList(),
                                         widget.stamp?.toList(),
                                         widget.grossTotal?.toList(),
-                                        widget.contractProcessstate?.toList()),
+                                        widget.contractProcessstate?.toList(),
+                                        widget.cc?.toList()),
                                     r'''$''',
                                   ),
                                   insuranceUrl:
@@ -1103,6 +1124,15 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   lastName: _model.lastnameController.text,
                                   token: FFAppState().accessToken,
                                   ownerId: FFAppState().employeeID,
+                                  oldVMIExpriedDate: widget.oldVMIExpDate,
+                                  carTypeDetail: FFAppState()
+                                      .insuranceCarTypeDetailSelected,
+                                  carProvinceName: FFAppState()
+                                      .insuranceInfoRegistrationProvinceSelect,
+                                  carProvinceCode: FFAppState()
+                                      .insuranceInfoRegistrationCodeSelect,
+                                  subProduct:
+                                      FFAppState().searchPackageSubProduct,
                                 );
                                 _shouldSetState = true;
                                 if ((_model.aPIQuotationSaveOutput
@@ -1113,17 +1143,18 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'พบข้อผิดพลาด (${(_model.aPIQuotationSaveOutput?.statusCode ?? 200).toString()})'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'พบข้อผิดพลาด (${(_model.aPIQuotationSaveOutput?.statusCode ?? 200).toString()})'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   Navigator.pop(context);
@@ -1140,21 +1171,22 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'พบข้อผิดพลาด (${IbsQuotationsSaveCall.statuslayer1(
-                                          (_model.aPIQuotationSaveOutput
-                                                  ?.jsonBody ??
-                                              ''),
-                                        ).toString()})'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(IbsQuotationsSaveCall
+                                              .messageLayer1(
+                                            (_model.aPIQuotationSaveOutput
+                                                    ?.jsonBody ??
+                                                ''),
+                                          ).toString()),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   Navigator.pop(context);
@@ -1173,21 +1205,19 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   FFAppState().addCustomerQuotationSaveSuccess =
                                       true;
                                   FFAppState().insurarerQuotationPdf =
-                                      (IbsQuotationsSaveCall.url(
+                                      IbsQuotationsSaveCall.url(
                                     (_model.aPIQuotationSaveOutput?.jsonBody ??
                                         ''),
-                                  ) as List)
-                                          .map<String>((s) => s.toString())
-                                          .toList()!
+                                  )!
                                           .toList()
                                           .cast<String>();
                                 });
                                 setState(() {
                                   FFAppState().addToInsurarerQuotationPdf(
-                                      IbsQuotationsSaveCall.urlCompare(
+                                      '${IbsQuotationsSaveCall.urlCompare(
                                     (_model.aPIQuotationSaveOutput?.jsonBody ??
                                         ''),
-                                  ).toString());
+                                  )}');
                                 });
                                 Navigator.pop(context);
                                 if (widget.fromPage == 'compare') {
@@ -1196,11 +1226,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       'insuranceInfoPage1',
                                       queryParameters: {
                                         'quotationId': serializeParam(
-                                          IbsQuotationsSaveCall.quotationid(
+                                          '${IbsQuotationsSaveCall.quotationid(
                                             (_model.aPIQuotationSaveOutput
                                                     ?.jsonBody ??
                                                 ''),
-                                          ).toString(),
+                                          )?.toString()}',
                                           ParamType.String,
                                         ),
                                         'leadDtailId': serializeParam(
@@ -1208,7 +1238,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             (_model.aPIQuotationSaveOutput
                                                     ?.jsonBody ??
                                                 ''),
-                                          )[widget.indexPage!],
+                                          )?[widget.indexPage!],
                                           ParamType.int,
                                         ),
                                       }.withoutNulls,
@@ -1225,11 +1255,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       'insuranceInfoPage1',
                                       queryParameters: {
                                         'quotationId': serializeParam(
-                                          IbsQuotationsSaveCall.quotationid(
+                                          '${IbsQuotationsSaveCall.quotationid(
                                             (_model.aPIQuotationSaveOutput
                                                     ?.jsonBody ??
                                                 ''),
-                                          ).toString(),
+                                          )?.toString()}',
                                           ParamType.String,
                                         ),
                                         'leadDtailId': serializeParam(
@@ -1237,7 +1267,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             (_model.aPIQuotationSaveOutput
                                                     ?.jsonBody ??
                                                 ''),
-                                          )[0],
+                                          )?[0],
                                           ParamType.int,
                                         ),
                                       }.withoutNulls,

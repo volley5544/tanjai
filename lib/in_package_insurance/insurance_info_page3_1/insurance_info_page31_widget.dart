@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/show_image_component_widget.dart';
 import '/components/show_image_list_component_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,9 +12,6 @@ import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -22,15 +19,14 @@ import 'insurance_info_page31_model.dart';
 export 'insurance_info_page31_model.dart';
 
 class InsuranceInfoPage31Widget extends StatefulWidget {
-  const InsuranceInfoPage31Widget({Key? key}) : super(key: key);
+  const InsuranceInfoPage31Widget({super.key});
 
   @override
-  _InsuranceInfoPage31WidgetState createState() =>
+  State<InsuranceInfoPage31Widget> createState() =>
       _InsuranceInfoPage31WidgetState();
 }
 
-class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
-    with TickerProviderStateMixin {
+class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
   late InsuranceInfoPage31Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -54,15 +50,6 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -148,785 +135,10 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 1.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFE6E6E6),
-                                    ),
-                                  ),
-                                  child: ListView(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.00, 0.00),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  15.0, 15.0, 15.0, 15.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.65,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryBackground,
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ใบเสนอราคา',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoQuotationId,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ชื่อลูกค้า',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'เบอร์โทร',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoPhonenumber,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'การซ่อม',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfoGarageType,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ประกัน',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                .insuranceInfocoverType,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคาเบี้ย',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            FFAppState().insuranceInfoApplicationType ==
-                                                                    'auto'
-                                                                ? '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท'
-                                                                : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    if (FFAppState()
-                                                            .insuranceInfoActFlag ==
-                                                        '1')
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              'ราคา พ.ร.บ',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    fontSize:
-                                                                        15.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: 10.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              ':',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              '${functions.showNumberWithComma(FFAppState().insuranceInfoActAmount)} บาท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    if (FFAppState()
-                                                            .insuranceInfoActFlag ==
-                                                        '1')
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.2,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              'ราคารวม',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    fontSize:
-                                                                        15.0,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            width: 10.0,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              ':',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium,
-                                                            ),
-                                                          ),
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ประเภทงาน',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                              child: Text(
-                                                                FFAppState().insuranceInfoApplicationType ==
-                                                                        'auto'
-                                                                    ? 'งานในเรท'
-                                                                    : 'งานนอกเรท',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Sans Thai',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontSize:
-                                                                          15.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                            if (FFAppState()
-                                                                    .nonePackageWorkType !=
-                                                                '')
-                                                              Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                ),
-                                                                child: Text(
-                                                                  '(${FFAppState().nonePackageWorkType})',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryText,
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                          ],
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              Flexible(
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          1.00, 0.00),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        height: 75.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                        ),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      0.0),
-                                                          child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              functions.stringToImgPath(FFAppState()
-                                                                          .insuranceInfoInsuranceLogo !=
-                                                                      ''
-                                                                  ? FFAppState()
-                                                                      .insuranceInfoInsuranceLogo
-                                                                  : 'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37'),
-                                                              'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/No_image_available.png?alt=media&token=15ea426e-3ea2-4b15-8f1b-947dc2daef37',
-                                                            ),
-                                                            width: 300.0,
-                                                            height: 200.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                            wrapWithModel(
+                              model: _model.infomationCustomerModel,
+                              updateCallback: () => setState(() {}),
+                              child: InfomationCustomerWidget(),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -948,7 +160,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                     color: Color(0xFFE6E6E6),
                                   ),
                                 ),
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 5.0, 0.0),
@@ -961,7 +173,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -976,8 +188,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '1',
                                               style:
@@ -1032,7 +244,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '2',
                                             style: FlutterFlowTheme.of(context)
@@ -1083,7 +295,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '3',
                                             style: FlutterFlowTheme.of(context)
@@ -1134,7 +346,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '4',
                                             style: FlutterFlowTheme.of(context)
@@ -1186,7 +398,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '5',
                                             style: FlutterFlowTheme.of(context)
@@ -1341,7 +553,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '1. ใบตรวจสภาพรถฟอร์มศรีสวัสดิ์',
+                                                'ใบตรวจสภาพรถฟอร์มศรีสวัสดิ์',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1398,7 +610,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -1409,7 +621,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1417,8 +629,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1582,8 +793,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -1720,38 +931,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageExamination !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageExamination)!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageExamination !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageExamination)!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -1791,32 +1002,32 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            ShowImageComponentWidget(
-                                                                          imageUrl:
-                                                                              functions.stringToImgPath(FFAppState().insuranceInfoPage3ImageExamination)!,
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              ShowImageComponentWidget(
+                                                                            imageUrl:
+                                                                                functions.stringToImgPath(FFAppState().insuranceInfoPage3ImageExamination)!,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -1892,7 +1103,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '2. รายการจดทะเบียนรถ',
+                                                ' รายการจดทะเบียนรถ',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -1946,7 +1157,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -1957,7 +1168,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1965,8 +1176,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -2131,8 +1341,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2269,38 +1479,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageBluebook !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageBluebook)!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageBluebook !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageBluebook)!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2340,32 +1550,32 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            ShowImageComponentWidget(
-                                                                          imageUrl:
-                                                                              functions.stringToImgPath(FFAppState().nonePackageImageBlueBookUploaded)!,
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              ShowImageComponentWidget(
+                                                                            imageUrl:
+                                                                                functions.stringToImgPath(FFAppState().nonePackageImageBlueBookUploaded)!,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -2441,7 +1651,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '3. สำเนาบัตรประชาชน',
+                                                'สำเนาบัตรประชาชน',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2495,7 +1705,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -2506,7 +1716,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -2514,8 +1724,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -2680,8 +1889,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2800,38 +2009,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -2871,32 +2080,32 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            ShowImageComponentWidget(
-                                                                          imageUrl:
-                                                                              functions.stringToImgPath(FFAppState().nonePackageIdCardImageUrl)!,
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              ShowImageComponentWidget(
+                                                                            imageUrl:
+                                                                                functions.stringToImgPath(FFAppState().nonePackageIdCardImageUrl)!,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -2972,7 +2181,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '4. ใบเสนอราคาที่ได้จากบริษัทประกัน',
+                                                'ใบเสนอราคาที่ได้จากบริษัทประกัน',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -3026,7 +2235,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -3037,7 +2246,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3045,8 +2254,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -3211,8 +2419,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -3331,38 +2539,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
-                                                                            ''
-                                                                        ? functions
-                                                                            .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
-                                                                        : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageIdCard !=
+                                                                              ''
+                                                                          ? functions
+                                                                              .stringToImgPath(FFAppState().insuranceInfoPage3ImageIdCard)!
+                                                                          : 'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3402,32 +2610,32 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            ShowImageComponentWidget(
-                                                                          imageUrl:
-                                                                              functions.stringToImgPath(FFAppState().nonePackageImageQuotationPdfUploaded)!,
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              ShowImageComponentWidget(
+                                                                            imageUrl:
+                                                                                functions.stringToImgPath(FFAppState().nonePackageImageQuotationPdfUploaded)!,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -3502,7 +2710,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '5. รูปเอกสารอื่นๆ ถ้ามี',
+                                                ' รูปเอกสารอื่นๆ ถ้ามี',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -3555,7 +2763,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -3566,7 +2774,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3574,8 +2782,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -3631,8 +2838,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -3781,39 +2988,39 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageListComponentWidget(
-                                                                    imageUrl: functions.splitStringToList(FFAppState().insuranceInfoPage3ImageOther).length >
-                                                                            1
-                                                                        ? functions.splitStringToList(FFAppState()
-                                                                            .insuranceInfoPage3ImageOther)
-                                                                        : FFAppState()
-                                                                            .insuranceInfoUploadImgOther,
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageListComponentWidget(
+                                                                      imageUrl: functions.splitStringToList(FFAppState().insuranceInfoPage3ImageOther).length >
+                                                                              1
+                                                                          ? functions.splitStringToList(FFAppState()
+                                                                              .insuranceInfoPage3ImageOther)
+                                                                          : FFAppState()
+                                                                              .insuranceInfoUploadImgOther,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3891,7 +3098,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '6. รูปรอยแผล ถ้ามี',
+                                                ' รูปรอยแผล ถ้ามี',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -3944,7 +3151,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -3955,7 +3162,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3963,8 +3170,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -4020,8 +3226,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -4130,39 +3336,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageListComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageWound.length >
-                                                                            1
-                                                                        ? FFAppState()
-                                                                            .insuranceInfoPage3ImageWound
-                                                                        : FFAppState()
-                                                                            .insuranceInfoUploadImgScar,
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageListComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageWound.length > 1
+                                                                          ? FFAppState()
+                                                                              .insuranceInfoPage3ImageWound
+                                                                          : FFAppState()
+                                                                              .insuranceInfoUploadImgScar,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -4240,7 +3445,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Text(
-                                                '7. รูปอุปกรณ์เสริม ถ้ามี',
+                                                'รูปอุปกรณ์เสริม ถ้ามี',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -4293,7 +3498,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -4304,7 +3509,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -4312,8 +3517,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -4369,8 +3573,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -1.00,
-                                                                          0.00),
+                                                                          -1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -4479,39 +3683,38 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageListComponentWidget(
-                                                                    imageUrl: FFAppState().insuranceInfoPage3ImageAccessories.length >
-                                                                            1
-                                                                        ? FFAppState()
-                                                                            .insuranceInfoPage3ImageAccessories
-                                                                        : FFAppState()
-                                                                            .insuranceInfoUploadImgAccessory,
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageListComponentWidget(
+                                                                      imageUrl: FFAppState().insuranceInfoPage3ImageAccessories.length > 1
+                                                                          ? FFAppState()
+                                                                              .insuranceInfoPage3ImageAccessories
+                                                                          : FFAppState()
+                                                                              .insuranceInfoUploadImgAccessory,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -4645,7 +3848,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -4656,7 +3859,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -4813,12 +4016,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   0.35,
                                                               height: 40.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  EdgeInsets
+                                                                      .all(0.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -4917,36 +4116,36 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: functions
-                                                                        .stringToImgPath(
-                                                                            FFAppState().nonePackageOldVmiImageUrl)!,
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl:
+                                                                          functions
+                                                                              .stringToImgPath(FFAppState().nonePackageOldVmiImageUrl)!,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -5067,7 +4266,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -5078,7 +4277,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           BoxDecoration(),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -5235,12 +4434,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   0.35,
                                                               height: 40.0,
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
+                                                                  EdgeInsets
+                                                                      .all(0.0),
                                                               iconPadding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -5339,36 +4534,36 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      ShowImageComponentWidget(
-                                                                    imageUrl: functions
-                                                                        .stringToImgPath(
-                                                                            FFAppState().nonePackageCompanyBookImageUrl)!,
+                                                                      Container(
+                                                                    height: double
+                                                                        .infinity,
+                                                                    child:
+                                                                        ShowImageComponentWidget(
+                                                                      imageUrl:
+                                                                          functions
+                                                                              .stringToImgPath(FFAppState().nonePackageCompanyBookImageUrl)!,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -5572,21 +4767,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -5758,21 +4954,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -5925,7 +5122,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, -0.80),
+                                                                0.0, -0.8),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -5944,21 +5141,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -6130,21 +5328,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -6297,7 +5496,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                1.09, 0.20),
+                                                                1.09, 0.2),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -6316,21 +5515,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -6502,21 +5702,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -6688,21 +5889,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -6874,21 +6076,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ไม่'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ใช่'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ไม่'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ใช่'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -7044,7 +6247,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -7064,20 +6267,21 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            content:
-                                                                                Text('คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                child: Text('ไม่'),
-                                                                              ),
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                child: Text('ใช่'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('คุณต้องการถ่ายรูปที่ 9ใช่หรือไม่'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: Text('ไม่'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: Text('ใช่'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       ) ??
                                                                       false;
@@ -7413,31 +6617,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -7463,8 +6663,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -7484,8 +6683,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -7590,31 +6788,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageRightFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRightFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -7640,8 +6834,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -7661,8 +6854,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -7767,31 +6959,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageRightUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRightUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -7817,8 +7005,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -7838,8 +7025,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -7944,31 +7130,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageRightRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRightRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -7994,8 +7176,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -8015,8 +7196,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -8121,31 +7301,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -8171,8 +7347,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -8192,8 +7367,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -8298,31 +7472,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageLeftRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageLeftRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -8348,8 +7518,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -8369,8 +7538,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -8475,31 +7643,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageLeftUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageLeftUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -8525,8 +7689,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -8546,8 +7709,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -8652,31 +7814,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageImageLeftFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageLeftFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -8702,8 +7860,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -8723,8 +7880,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -8835,26 +7991,25 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                     builder:
                                                                         (context) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                        onTap: () => _model.unfocusNode.canRequestFocus
-                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              Container(
-                                                                            height:
-                                                                                double.infinity,
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                ShowImageComponentWidget(
-                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRoofUploaded)!,
+                                                                                Container(
+                                                                              height: double.infinity,
+                                                                              child: ShowImageComponentWidget(
+                                                                                imageUrl: functions.stringToImgPath(FFAppState().nonePackageImageRoofUploaded)!,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ));
+                                                                      );
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -8880,8 +8035,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons.check,
                                                                   color: Color(
@@ -8901,8 +8056,8 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons.close,
                                                                   color: Color(
@@ -8974,27 +8129,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 1 ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -9162,27 +8318,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 2ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -9333,7 +8490,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, -0.80),
+                                                    0.0, -0.8),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -9350,27 +8507,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 3ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -9538,27 +8696,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 4ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -9709,7 +8868,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    1.00, 0.06),
+                                                    1.0, 0.06),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -9726,27 +8885,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 5ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -9914,27 +9074,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 6ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -10085,7 +9246,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 1.15),
+                                                    0.0, 1.15),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -10102,27 +9263,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 7ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -10290,27 +9452,28 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          false),
-                                                                      child: Text(
-                                                                          'ไม่'),
-                                                                    ),
-                                                                    TextButton(
-                                                                      onPressed: () => Navigator.pop(
-                                                                          alertDialogContext,
-                                                                          true),
-                                                                      child: Text(
-                                                                          'ใช่'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'คุณต้องการถ่ายรูปที่ 8ใช่หรือไม่'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            false),
+                                                                        child: Text(
+                                                                            'ไม่'),
+                                                                      ),
+                                                                      TextButton(
+                                                                        onPressed: () => Navigator.pop(
+                                                                            alertDialogContext,
+                                                                            true),
+                                                                        child: Text(
+                                                                            'ใช่'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             ) ??
                                                             false;
@@ -10630,31 +9793,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -10680,8 +9839,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -10701,8 +9859,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -10807,31 +9964,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -10857,8 +10010,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -10878,8 +10030,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -10984,31 +10135,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11034,8 +10181,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11055,8 +10201,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11161,31 +10306,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageRightRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11211,8 +10352,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11232,8 +10372,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11338,31 +10477,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11388,8 +10523,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11409,8 +10543,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11515,31 +10648,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftRearUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftRearUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11565,8 +10694,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11586,8 +10714,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11692,31 +10819,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11742,8 +10865,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11763,8 +10885,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11869,31 +10990,27 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            GestureDetector(
-                                                                      onTap: () => _model
-                                                                              .unfocusNode
-                                                                              .canRequestFocus
-                                                                          ? FocusScope.of(context).requestFocus(_model
-                                                                              .unfocusNode)
-                                                                          : FocusScope.of(context)
-                                                                              .unfocus(),
                                                                       child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Container(
-                                                                          height:
-                                                                              double.infinity,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              ShowImageComponentWidget(
-                                                                            imageUrl:
-                                                                                functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftFrontUploaded)!,
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                ShowImageComponentWidget(
+                                                                              imageUrl: functions.stringToImgPath(FFAppState().nonePackageTrailerImageLeftFrontUploaded)!,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ));
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -11919,8 +11036,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.check,
                                                                 color: Color(
@@ -11940,8 +11056,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons.close,
                                                                 color: Color(
@@ -11968,7 +11083,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 20.0, 10.0, 0.0),
+                                  0.0, 20.0, 0.0, 0.0),
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
@@ -11992,72 +11107,295 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             ),
                                       ),
                                     ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          12.0, 0.0, 12.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            '**ต้องอ่านให้ลูกค้าฟังอย่างครบถ้วนทีละข้อ**',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  color: Color(0xFFFF0000),
+                                                  fontSize: 16.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                       ),
-                                      child: Column(
+                                      child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            '1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท\n\n2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ\n\n3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  lineHeight: 1.3,
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              height: 250.0,
+                                              decoration: BoxDecoration(),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 10.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Theme(
+                                                      data: ThemeData(
+                                                        checkboxTheme:
+                                                            CheckboxThemeData(
+                                                          visualDensity:
+                                                              VisualDensity
+                                                                  .compact,
+                                                          materialTapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          shape:
+                                                              RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        4.0),
+                                                          ),
+                                                        ),
+                                                        unselectedWidgetColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                      ),
+                                                      child: Checkbox(
+                                                        value: _model
+                                                                .privacyConsent1Value ??=
+                                                            false,
+                                                        onChanged:
+                                                            (newValue) async {
+                                                          setState(() => _model
+                                                                  .privacyConsent1Value =
+                                                              newValue!);
+                                                        },
+                                                        activeColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBtnText,
+                                                        checkColor:
+                                                            Color(0xFF00B505),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  40.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Theme(
+                                                        data: ThemeData(
+                                                          checkboxTheme:
+                                                              CheckboxThemeData(
+                                                            visualDensity:
+                                                                VisualDensity
+                                                                    .compact,
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                            ),
+                                                          ),
+                                                          unselectedWidgetColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                        ),
+                                                        child: Checkbox(
+                                                          value: _model
+                                                                  .privacyConsent2Value ??=
+                                                              false,
+                                                          onChanged:
+                                                              (newValue) async {
+                                                            setState(() => _model
+                                                                    .privacyConsent2Value =
+                                                                newValue!);
+                                                          },
+                                                          activeColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryBtnText,
+                                                          checkColor:
+                                                              Color(0xFF00B505),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  40.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Theme(
+                                                        data: ThemeData(
+                                                          checkboxTheme:
+                                                              CheckboxThemeData(
+                                                            visualDensity:
+                                                                VisualDensity
+                                                                    .compact,
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          4.0),
+                                                            ),
+                                                          ),
+                                                          unselectedWidgetColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondaryText,
+                                                        ),
+                                                        child: Checkbox(
+                                                          value: _model
+                                                                  .privacyConsent3Value ??=
+                                                              false,
+                                                          onChanged:
+                                                              (newValue) async {
+                                                            setState(() => _model
+                                                                    .privacyConsent3Value =
+                                                                newValue!);
+                                                          },
+                                                          activeColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primaryBtnText,
+                                                          checkColor:
+                                                              Color(0xFF00B505),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
+                                              ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            flex: 10,
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  '1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท\n\n2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ\n\n3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        lineHeight: 1.3,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Theme(
-                                          data: ThemeData(
-                                            checkboxTheme: CheckboxThemeData(
-                                              visualDensity:
-                                                  VisualDensity.compact,
-                                              materialTapTargetSize:
-                                                  MaterialTapTargetSize
-                                                      .shrinkWrap,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(4.0),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Theme(
+                                            data: ThemeData(
+                                              checkboxTheme: CheckboxThemeData(
+                                                visualDensity:
+                                                    VisualDensity.compact,
+                                                materialTapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
                                               ),
+                                              unselectedWidgetColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                             ),
-                                            unselectedWidgetColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
+                                            child: Checkbox(
+                                              value:
+                                                  _model.privacyConsentValue ??=
+                                                      false,
+                                              onChanged: (newValue) async {
+                                                setState(() =>
+                                                    _model.privacyConsentValue =
+                                                        newValue!);
+                                                if (newValue!) {
+                                                  setState(() {
+                                                    _model.privacyConsent1Value =
+                                                        true;
+                                                  });
+                                                  setState(() {
+                                                    _model.privacyConsent2Value =
+                                                        true;
+                                                  });
+                                                  setState(() {
+                                                    _model.privacyConsent3Value =
+                                                        true;
+                                                  });
+                                                } else {
+                                                  setState(() {
+                                                    _model.privacyConsent1Value =
+                                                        false;
+                                                  });
+                                                  setState(() {
+                                                    _model.privacyConsent2Value =
+                                                        false;
+                                                  });
+                                                  setState(() {
+                                                    _model.privacyConsent3Value =
+                                                        false;
+                                                  });
+                                                }
+                                              },
+                                              activeColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBtnText,
+                                              checkColor: Color(0xFF00B505),
+                                            ),
                                           ),
-                                          child: Checkbox(
-                                            value: _model
-                                                .privacyConsentValue ??= false,
-                                            onChanged: (newValue) async {
-                                              setState(() =>
-                                                  _model.privacyConsentValue =
-                                                      newValue!);
-                                            },
-                                            activeColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .primaryBtnText,
-                                            checkColor: Color(0xFF00B505),
+                                          Text(
+                                            'ยินยอมทั้งหมด',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
                                           ),
-                                        ),
-                                        Text(
-                                          'ยินยอม',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -12099,17 +11437,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาอัพโหลดรูปตรวจสภาพรถ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดรูปตรวจสภาพรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -12122,17 +11462,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content:
-                                                Text('กรุณาอัพโหลดหน้าเล่มรถ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดหน้าเล่มรถ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -12145,17 +11487,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาอัพโหลดสำเนาบัตรประชาชน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดสำเนาบัตรประชาชน'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -12168,17 +11512,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาอัพโหลดใบเสนอราคาที่ได้จากบริษัทประกัน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาอัพโหลดใบเสนอราคาที่ได้จากบริษัทประกัน'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -12194,18 +11540,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'กรุณาอัพโหลดตารางกรมธรรม์เดิม'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาอัพโหลดตารางกรมธรรม์เดิม'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                         if (_shouldSetState) setState(() {});
@@ -12221,18 +11568,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                content: Text(
-                                                    'กรุณาอัพโหลดหนังสือจดทะเบียนบริษัท'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'กรุณาอัพโหลดหนังสือจดทะเบียนบริษัท'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           if (_shouldSetState) setState(() {});
@@ -12240,21 +11588,25 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         }
                                       }
                                     }
-                                    if (!_model.privacyConsentValue!) {
+                                    if (!(_model.privacyConsent1Value! &&
+                                        _model.privacyConsent2Value! &&
+                                        _model.privacyConsent3Value!)) {
                                       await showDialog(
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text('กรุณาเลือกยินยอม'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text('กรุณาเลือกยินยอม'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -12316,21 +11668,22 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                             context: context,
                                             builder: (alertDialogContext) {
                                               return WebViewAware(
-                                                  child: AlertDialog(
-                                                content: Text(FFAppState()
-                                                            .nonePackageVehicleType ==
-                                                        'รถบรรทุก หัวลาก หางพ่วง'
-                                                    ? 'กรุณาอัพโหลดรูปรถทั้ง 8 รูป'
-                                                    : 'กรุณาอัพโหลดรูปรถทั้ง 9 รูป'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ));
+                                                child: AlertDialog(
+                                                  content: Text(FFAppState()
+                                                              .nonePackageVehicleType ==
+                                                          'รถบรรทุก หัวลาก หางพ่วง'
+                                                      ? 'กรุณาอัพโหลดรูปรถทั้ง 8 รูป'
+                                                      : 'กรุณาอัพโหลดรูปรถทั้ง 9 รูป'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
                                             },
                                           );
                                           if (_shouldSetState) setState(() {});
@@ -12394,18 +11747,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาอัพโหลดรูปหางพ่วงทั้ง 8 รูป'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'กรุณาอัพโหลดรูปหางพ่วงทั้ง 8 รูป'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               if (_shouldSetState)
@@ -12488,15 +11842,15 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                       imageLeftfrontTrailer: FFAppState()
                                           .nonePackageTrailerImageLeftFrontUploaded,
                                       sensitiveConsent:
-                                          _model.privacyConsentValue!
+                                          _model.privacyConsent1Value!
                                               ? '1'
                                               : '0',
                                       privacyConsent:
-                                          _model.privacyConsentValue!
+                                          _model.privacyConsent2Value!
                                               ? '1'
                                               : '0',
                                       sanctionConsent:
-                                          _model.privacyConsentValue!
+                                          _model.privacyConsent3Value!
                                               ? '1'
                                               : '0',
                                       oldVMIImage: FFAppState()
@@ -12515,17 +11869,19 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด (${(_model.ibsAppSaveAPIOutput2?.statusCode ?? 200).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาด (${(_model.ibsAppSaveAPIOutput2?.statusCode ?? 200).toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       Navigator.pop(context);
@@ -12542,21 +11898,23 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด (${IbsApplicationsSaveCall.statuslayer1(
-                                              (_model.ibsAppSaveAPIOutput2
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'พบข้อผิดพลาด (${IbsApplicationsSaveCall.statuslayer1(
+                                                (_model.ibsAppSaveAPIOutput2
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )?.toString()})'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       Navigator.pop(context);
@@ -12567,16 +11925,17 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text('บันทึกสำเร็จ'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text('บันทึกสำเร็จ'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     setState(() {
@@ -12585,12 +11944,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                           true;
                                       FFAppState()
                                               .insuranceinfoPage3PdfFileapplication =
-                                          IbsApplicationsSaveCall
-                                              .fileapplication(
+                                          '${IbsApplicationsSaveCall.fileapplication(
                                         (_model.ibsAppSaveAPIOutput2
                                                 ?.jsonBody ??
                                             ''),
-                                      ).toString();
+                                      ).toString()}';
                                     });
                                     if (_shouldSetState) setState(() {});
                                   },
@@ -12625,7 +11983,7 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget>
                                 .insuranceInfoPage3SaveDataCheckBool)
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),

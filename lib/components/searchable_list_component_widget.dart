@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'searchable_list_component_model.dart';
@@ -9,19 +8,18 @@ export 'searchable_list_component_model.dart';
 
 class SearchableListComponentWidget extends StatefulWidget {
   const SearchableListComponentWidget({
-    Key? key,
+    super.key,
     required this.dataList,
     bool? multiSelect,
     required this.hintSearchText,
-  })  : this.multiSelect = multiSelect ?? false,
-        super(key: key);
+  }) : this.multiSelect = multiSelect ?? false;
 
   final List<String>? dataList;
   final bool multiSelect;
   final String? hintSearchText;
 
   @override
-  _SearchableListComponentWidgetState createState() =>
+  State<SearchableListComponentWidget> createState() =>
       _SearchableListComponentWidgetState();
 }
 
@@ -55,8 +53,6 @@ class _SearchableListComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,

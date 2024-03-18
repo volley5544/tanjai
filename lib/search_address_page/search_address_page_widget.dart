@@ -4,17 +4,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'search_address_page_model.dart';
 export 'search_address_page_model.dart';
 
 class SearchAddressPageWidget extends StatefulWidget {
-  const SearchAddressPageWidget({Key? key}) : super(key: key);
+  const SearchAddressPageWidget({super.key});
 
   @override
-  _SearchAddressPageWidgetState createState() =>
+  State<SearchAddressPageWidget> createState() =>
       _SearchAddressPageWidgetState();
 }
 
@@ -45,17 +44,6 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -151,7 +139,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: TextFormField(
                                     controller: _model.textController,
                                     focusNode: _model.textFieldFocusNode,

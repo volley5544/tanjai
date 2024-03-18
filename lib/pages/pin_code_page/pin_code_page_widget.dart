@@ -24,10 +24,10 @@ import 'pin_code_page_model.dart';
 export 'pin_code_page_model.dart';
 
 class PinCodePageWidget extends StatefulWidget {
-  const PinCodePageWidget({Key? key}) : super(key: key);
+  const PinCodePageWidget({super.key});
 
   @override
-  _PinCodePageWidgetState createState() => _PinCodePageWidgetState();
+  State<PinCodePageWidget> createState() => _PinCodePageWidgetState();
 }
 
 class _PinCodePageWidgetState extends State<PinCodePageWidget>
@@ -95,15 +95,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text('เกิดข้อผิดพลาด กรุณาเข้าสู่ระบบใหม่'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text('เกิดข้อผิดพลาด กรุณาเข้าสู่ระบบใหม่'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         FFAppState().update(() {
@@ -208,15 +209,6 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -433,29 +425,29 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            double.infinity,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            LoadingSceneWidget(),
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              LoadingSceneWidget(),
+                                                                        ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -474,19 +466,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'กรุณาเปิดGPSเพื่อทำรายการ'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาเปิดGPSเพื่อทำรายการ'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
@@ -507,19 +500,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'กรุณาให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาให้อรุณสวัสดิ์เข้าถึงGPSของคุณ'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
@@ -542,19 +536,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'กรุณาเปิดGPSเพื่อทำรายการ'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาเปิดGPSเพื่อทำรายการ'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
@@ -808,20 +803,21 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            content:
-                                                                                Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                child: Text('ยกเลิก'),
-                                                                              ),
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                child: Text('ตกลง'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('คุณต้องการจะล้างข้อมูลแอพหรือไม่?'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: Text('ยกเลิก'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: Text('ตกลง'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       ) ??
                                                                       false;
@@ -838,20 +834,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'เคลียร์แคชเรียบร้อยกรุณาปิดแอปเปิดใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
                                                             },
@@ -1079,7 +1075,12 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               fieldHeight: 55.0,
                                                                               fieldWidth: 50.0,
                                                                               borderWidth: 2.0,
-                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                              borderRadius: BorderRadius.only(
+                                                                                bottomLeft: Radius.circular(12.0),
+                                                                                bottomRight: Radius.circular(12.0),
+                                                                                topLeft: Radius.circular(12.0),
+                                                                                topRight: Radius.circular(12.0),
+                                                                              ),
                                                                               shape: PinCodeFieldShape.box,
                                                                               activeColor: FlutterFlowTheme.of(context).primaryBackground,
                                                                               selectedColor: Color(0x66FFFFFF),
@@ -1095,68 +1096,23 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               var _shouldSetState = false;
                                                                               HapticFeedback.mediumImpact();
                                                                               if (FFAppState().isProduction) {
-                                                                                if (!((FFAppState().employeeID == '31622') || (FFAppState().employeeID == '33511') || (FFAppState().employeeID == '36270'))) {
-                                                                                  if (isiOS) {
-                                                                                    if (columnsecBuildVersionRecord?.appVersionIos != _model.getBuildVersion) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                            content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                            actions: [
-                                                                                              TextButton(
-                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                child: Text('Ok'),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ));
-                                                                                        },
-                                                                                      );
-                                                                                      await launchURL('https://testflight.apple.com/join/8sA3XObM');
-                                                                                      await actions.terminateAppAction();
-                                                                                      if (_shouldSetState) setState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                  } else {
-                                                                                    if (columnsecBuildVersionRecord?.appVersion != _model.getBuildVersion) {
-                                                                                      await showDialog(
-                                                                                        context: context,
-                                                                                        builder: (alertDialogContext) {
-                                                                                          return WebViewAware(
-                                                                                              child: AlertDialog(
-                                                                                            content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                            actions: [
-                                                                                              TextButton(
-                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                                child: Text('Ok'),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ));
-                                                                                        },
-                                                                                      );
-                                                                                      await launchURL('https://play.google.com/store/apps/details?id=com.srisawad.ibsmobileapp');
-                                                                                      await actions.terminateAppAction();
-                                                                                      if (_shouldSetState) setState(() {});
-                                                                                      return;
-                                                                                    }
-                                                                                  }
-                                                                                }
+                                                                                if (!((FFAppState().employeeID == '31622') || (FFAppState().employeeID == '33511') || (FFAppState().employeeID == '36270'))) {}
                                                                               }
                                                                               if (FFAppState().pinCodeAuthen != _model.pinCodeController!.text) {
                                                                                 await showDialog(
                                                                                   context: context,
                                                                                   builder: (alertDialogContext) {
                                                                                     return WebViewAware(
-                                                                                        child: AlertDialog(
-                                                                                      content: Text('รหัสพินไม่ถูกต้อง กรุณาลองอีกครั้ง'),
-                                                                                      actions: [
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                          child: Text('Ok'),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ));
+                                                                                      child: AlertDialog(
+                                                                                        content: Text('รหัสพินไม่ถูกต้อง กรุณาลองอีกครั้ง'),
+                                                                                        actions: [
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                            child: Text('Ok'),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    );
                                                                                   },
                                                                                 );
                                                                                 setState(() {
@@ -1165,6 +1121,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 if (_shouldSetState) setState(() {});
                                                                                 return;
                                                                               }
+                                                                              if (!(await getPermissionStatus(notificationsPermission))) {
+                                                                                await requestPermission(notificationsPermission);
+                                                                              }
                                                                               showModalBottomSheet(
                                                                                 isScrollControlled: true,
                                                                                 backgroundColor: Colors.transparent,
@@ -1172,16 +1131,17 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 context: context,
                                                                                 builder: (context) {
                                                                                   return WebViewAware(
-                                                                                      child: GestureDetector(
-                                                                                    onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                    child: Padding(
-                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                      child: Container(
-                                                                                        height: double.infinity,
-                                                                                        child: LoadingSceneWidget(),
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                      child: Padding(
+                                                                                        padding: MediaQuery.viewInsetsOf(context),
+                                                                                        child: Container(
+                                                                                          height: double.infinity,
+                                                                                          child: LoadingSceneWidget(),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
-                                                                                  ));
+                                                                                  );
                                                                                 },
                                                                               ).then((value) => safeSetState(() {}));
 
@@ -1200,121 +1160,165 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               _shouldSetState = true;
                                                                               if ((_model.getUserProfilePin?.statusCode ?? 200) == 200) {
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().userNickname = GetUserProfileAPICall.profileNickName(
+                                                                                  FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileFullName = GetUserProfileAPICall.profileFullName(
+                                                                                  )}';
+                                                                                  FFAppState().profileFullName = '${GetUserProfileAPICall.profileFullName(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().profileBirthDate = GetUserProfileAPICall.profileBirthDate(
+                                                                                  FFAppState().profileBirthDate = '${GetUserProfileAPICall.profileBirthDate(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileUnitCodeName = GetUserProfileAPICall.profileBranchName(
+                                                                                  )}';
+                                                                                  FFAppState().profileUnitCodeName = '${GetUserProfileAPICall.profileBranchName(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().profileParentUnit = GetUserProfileAPICall.profileArea(
+                                                                                  FFAppState().profileParentUnit = '${GetUserProfileAPICall.profileArea(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileRegion = GetUserProfileAPICall.profileRegion(
+                                                                                  )}';
+                                                                                  FFAppState().profileRegion = '${GetUserProfileAPICall.profileRegion(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().profileHiredDate = GetUserProfileAPICall.profileHiredDate(
+                                                                                  FFAppState().profileHiredDate = '${GetUserProfileAPICall.profileHiredDate(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileServiceDuration = functions.profileServiceDuration(
-                                                                                      GetUserProfileAPICall.profileServiceDurationYY(
+                                                                                  )}';
+                                                                                  FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString(),
-                                                                                      GetUserProfileAPICall.profileServiceDurationMM(
+                                                                                      )}', '${GetUserProfileAPICall.profileServiceDurationMM(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString(),
-                                                                                      GetUserProfileAPICall.profileServiceDurationDD(
+                                                                                      )}', '${GetUserProfileAPICall.profileServiceDurationDD(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString());
+                                                                                      )}')}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().profilePositionAge = functions.positionAgeText(
-                                                                                      GetUserProfileAPICall.profilePositionAgeYY(
+                                                                                  FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString(),
-                                                                                      GetUserProfileAPICall.profilePositionAgeMM(
+                                                                                      )}', '${GetUserProfileAPICall.profilePositionAgeMM(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString(),
-                                                                                      GetUserProfileAPICall.profilePositionAgeDD(
+                                                                                      )}', '${GetUserProfileAPICall.profilePositionAgeDD(
                                                                                         (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      ).toString());
-                                                                                  FFAppState().profilePositionAgeCheck = GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                                      )}')}';
+                                                                                  FFAppState().profilePositionAgeCheck = '${GetUserProfileAPICall.profilePositionAgeCheck(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().profilePositionName = GetUserProfileAPICall.profliePositionName(
+                                                                                  FFAppState().profilePositionName = '${GetUserProfileAPICall.profliePositionName(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 FFAppState().update(() {
-                                                                                  FFAppState().ProfilePhoneNumber = GetUserProfileAPICall.profilePhoneNumber(
+                                                                                  FFAppState().ProfilePhoneNumber = '${GetUserProfileAPICall.profilePhoneNumber(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileLevel = GetUserProfileAPICall.profileLevel(
+                                                                                  )}';
+                                                                                  FFAppState().profileLevel = '${GetUserProfileAPICall.profileLevel(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
-                                                                                  FFAppState().profileBranch = GetUserProfileAPICall.profileBranch(
+                                                                                  )}';
+                                                                                  FFAppState().profileBranch = '${GetUserProfileAPICall.profileBranch(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 setState(() {
-                                                                                  FFAppState().branchCode = GetUserProfileAPICall.branchCode(
+                                                                                  FFAppState().branchCode = '${GetUserProfileAPICall.branchCode(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                   FFAppState().userRef = columnfourUserCustomRecord?.reference;
                                                                                 });
                                                                                 setState(() {
-                                                                                  FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(FFAppState().profileFullName, 'first_name')!;
-                                                                                  FFAppState().profileLastName = functions.getFirstLastNameFromFullName(FFAppState().profileFullName, 'last_name')!;
+                                                                                  FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                                  FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
                                                                                 });
                                                                                 setState(() {
-                                                                                  FFAppState().departmentProfile = GetUserProfileAPICall.department(
+                                                                                  FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
                                                                                     (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  ).toString();
+                                                                                  )}';
                                                                                 });
                                                                                 _model.getUserInsuranceLicensePin = await GetUserInsuranceLicenseCall.call(
                                                                                   token: FFAppState().accessToken,
                                                                                   apiUrl: FFAppState().apiURLLocalState,
                                                                                 );
                                                                                 _shouldSetState = true;
-                                                                                if ((_model.getUserInsuranceLicensePin?.statusCode ?? 200) != 200) {
+                                                                                if ((_model.getUserInsuranceLicensePin?.statusCode ?? 200) == 200) {
+                                                                                  setState(() {
+                                                                                    FFAppState().profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          )}'
+                                                                                        : FFAppState().profileInsuranceLicenseFullName;
+                                                                                    FFAppState().profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          )}'
+                                                                                        : FFAppState().profileInsuranceLicenseIdCard;
+                                                                                    FFAppState().profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          )}'
+                                                                                        : FFAppState().profileInsuranceLicenseLicenseNo;
+                                                                                    FFAppState().profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          )}'
+                                                                                        : FFAppState().profileInsuranceLicenseStartDate;
+                                                                                    FFAppState().profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          )}'
+                                                                                        : FFAppState().profileInsuranceLicenseExpireDate;
+                                                                                    FFAppState().profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                            ) ==
+                                                                                            200
+                                                                                        ? true
+                                                                                        : false;
+                                                                                  });
+                                                                                } else {
                                                                                   if (_shouldSetState) setState(() {});
                                                                                   return;
                                                                                 }
                                                                               } else {
                                                                                 if (!((GetUserProfileAPICall.message(
                                                                                           (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                        ).toString() ==
+                                                                                        ) ==
                                                                                         'The token has been blacklisted') ||
                                                                                     (GetUserProfileAPICall.message(
                                                                                           (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                        ).toString() ==
+                                                                                        ) ==
                                                                                         'Token Signature could not be verified.'))) {
                                                                                   await showDialog(
                                                                                     context: context,
                                                                                     builder: (alertDialogContext) {
                                                                                       return WebViewAware(
-                                                                                          child: AlertDialog(
-                                                                                        content: Text('พบข้อผิดพลาด (${(_model.getUserProfilePin?.statusCode ?? 200).toString()})'),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ));
+                                                                                        child: AlertDialog(
+                                                                                          content: Text('พบข้อผิดพลาด (${(_model.getUserProfilePin?.statusCode ?? 200).toString()})'),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
                                                                                     },
                                                                                   );
                                                                                   if (_shouldSetState) setState(() {});
@@ -1324,15 +1328,16 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   context: context,
                                                                                   builder: (alertDialogContext) {
                                                                                     return WebViewAware(
-                                                                                        child: AlertDialog(
-                                                                                      content: Text('Session Loginหมดอายุ'),
-                                                                                      actions: [
-                                                                                        TextButton(
-                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                          child: Text('Ok'),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ));
+                                                                                      child: AlertDialog(
+                                                                                        content: Text('Session Loginหมดอายุ'),
+                                                                                        actions: [
+                                                                                          TextButton(
+                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                            child: Text('Ok'),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    );
                                                                                   },
                                                                                 );
                                                                                 FFAppState().update(() {
@@ -1444,7 +1449,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '1',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1463,7 +1468,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '2',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1482,7 +1487,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '3',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1501,7 +1506,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '4',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1520,7 +1525,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '5',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1539,7 +1544,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '6',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1558,7 +1563,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '7',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1577,7 +1582,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '8',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1596,7 +1601,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '9',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1622,7 +1627,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               '0',
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1639,7 +1644,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                           ),
                                                                                           child: Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Icon(
                                                                                               Icons.backspace_outlined,
                                                                                               color: Color(0xFFDF8633),
@@ -1676,7 +1681,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
@@ -1707,65 +1712,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         (FFAppState().employeeID ==
                                                                             '33511') ||
                                                                         (FFAppState().employeeID ==
-                                                                            '36270'))) {
-                                                                      if (isiOS) {
-                                                                        if (columnsecBuildVersionRecord?.appVersionIos !=
-                                                                            _model.getBuildVersion) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
-                                                                            },
-                                                                          );
-                                                                          await launchURL(
-                                                                              'https://testflight.apple.com/join/8sA3XObM');
-                                                                          await actions
-                                                                              .terminateAppAction();
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
-                                                                        }
-                                                                      } else {
-                                                                        if (columnsecBuildVersionRecord?.appVersion !=
-                                                                            _model.getBuildVersion) {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจ ให้เป็นเวอร์ชั่นล่าสุด'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
-                                                                            },
-                                                                          );
-                                                                          await launchURL(
-                                                                              'https://play.google.com/store/apps/details?id=com.srisawad.ibsmobileapp');
-                                                                          await actions
-                                                                              .terminateAppAction();
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
-                                                                        }
-                                                                      }
-                                                                    }
+                                                                            '36270'))) {}
                                                                   }
                                                                   if (!FFAppState()
                                                                       .BioAuthCheck) {
@@ -1774,19 +1721,20 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               context: context,
                                                                               builder: (alertDialogContext) {
                                                                                 return WebViewAware(
-                                                                                    child: AlertDialog(
-                                                                                  content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                                      child: Text('ไม่เปิด'),
-                                                                                    ),
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                                      child: Text('เปิด'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ));
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('คุณต้องการจะเปิดใช้งานเข้าสู่ระบบด้วย Face id หรือ สแกนลายนิ้วมือหรือไม่?'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('ไม่เปิด'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('เปิด'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
                                                                               },
                                                                             ) ??
                                                                             false;
@@ -1802,16 +1750,17 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            content:
-                                                                                Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('คุณได้เปิดการใช้งาน Face id หรือ สแกนนิ้วเรียบร้อย'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                     } else {
@@ -1851,6 +1800,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           () {});
                                                                     return;
                                                                   }
+                                                                  if (!(await getPermissionStatus(
+                                                                      notificationsPermission))) {
+                                                                    await requestPermission(
+                                                                        notificationsPermission);
+                                                                  }
                                                                   showModalBottomSheet(
                                                                     isScrollControlled:
                                                                         true,
@@ -1865,24 +1819,23 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     builder:
                                                                         (context) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                        onTap: () => _model.unfocusNode.canRequestFocus
-                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                            : FocusScope.of(context).unfocus(),
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              Container(
-                                                                            height:
-                                                                                double.infinity,
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                LoadingSceneWidget(),
+                                                                                Container(
+                                                                              height: double.infinity,
+                                                                              child: LoadingSceneWidget(),
+                                                                            ),
                                                                           ),
                                                                         ),
-                                                                      ));
+                                                                      );
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -1931,148 +1884,129 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             () {
                                                                       FFAppState()
                                                                               .userNickname =
-                                                                          GetUserProfileAPICall
-                                                                              .profileNickName(
+                                                                          '${GetUserProfileAPICall.profileNickName(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .profileFullName =
-                                                                          GetUserProfileAPICall
-                                                                              .profileFullName(
+                                                                          '${GetUserProfileAPICall.profileFullName(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
                                                                       FFAppState()
                                                                               .profileBirthDate =
-                                                                          GetUserProfileAPICall
-                                                                              .profileBirthDate(
+                                                                          '${GetUserProfileAPICall.profileBirthDate(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .profileUnitCodeName =
-                                                                          GetUserProfileAPICall
-                                                                              .profileBranchName(
+                                                                          '${GetUserProfileAPICall.profileBranchName(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
                                                                       FFAppState()
                                                                               .profileParentUnit =
-                                                                          GetUserProfileAPICall
-                                                                              .profileArea(
+                                                                          '${GetUserProfileAPICall.profileArea(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .profileRegion =
-                                                                          GetUserProfileAPICall
-                                                                              .profileRegion(
+                                                                          '${GetUserProfileAPICall.profileRegion(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
                                                                       FFAppState()
                                                                               .profileHiredDate =
-                                                                          GetUserProfileAPICall
-                                                                              .profileHiredDate(
+                                                                          '${GetUserProfileAPICall.profileHiredDate(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
-                                                                      FFAppState().profileServiceDuration = functions.profileServiceDuration(
-                                                                          GetUserProfileAPICall.profileServiceDurationYY(
+                                                                      )}';
+                                                                      FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString(),
-                                                                          GetUserProfileAPICall.profileServiceDurationMM(
+                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationMM(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString(),
-                                                                          GetUserProfileAPICall.profileServiceDurationDD(
+                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationDD(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString());
+                                                                          )}')}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
-                                                                      FFAppState().profilePositionAge = functions.positionAgeText(
-                                                                          GetUserProfileAPICall.profilePositionAgeYY(
+                                                                      FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString(),
-                                                                          GetUserProfileAPICall.profilePositionAgeMM(
+                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeMM(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString(),
-                                                                          GetUserProfileAPICall.profilePositionAgeDD(
+                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeDD(
                                                                             (_model.getUserProfileBio?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString());
+                                                                          )}')}';
                                                                       FFAppState()
                                                                               .profilePositionAgeCheck =
-                                                                          GetUserProfileAPICall
-                                                                              .profilePositionAgeCheck(
+                                                                          '${GetUserProfileAPICall.profilePositionAgeCheck(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
                                                                       FFAppState()
                                                                               .profilePositionName =
-                                                                          GetUserProfileAPICall
-                                                                              .profliePositionName(
+                                                                          '${GetUserProfileAPICall.profliePositionName(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     FFAppState()
                                                                         .update(
                                                                             () {
                                                                       FFAppState()
                                                                               .ProfilePhoneNumber =
-                                                                          GetUserProfileAPICall
-                                                                              .profilePhoneNumber(
+                                                                          '${GetUserProfileAPICall.profilePhoneNumber(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .profileLevel =
-                                                                          GetUserProfileAPICall
-                                                                              .profileLevel(
+                                                                          '${GetUserProfileAPICall.profileLevel(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .profileBranch =
-                                                                          GetUserProfileAPICall
-                                                                              .profileBranch(
+                                                                          '${GetUserProfileAPICall.profileBranch(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     setState(
                                                                         () {
                                                                       FFAppState()
                                                                               .branchCode =
-                                                                          GetUserProfileAPICall
-                                                                              .branchCode(
+                                                                          '${GetUserProfileAPICall.branchCode(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                       FFAppState()
                                                                               .userRef =
                                                                           columnfourUserCustomRecord
@@ -2080,24 +2014,21 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     });
                                                                     setState(
                                                                         () {
-                                                                      FFAppState().profileFirstName = functions.getFirstLastNameFromFullName(
-                                                                          FFAppState()
-                                                                              .profileFullName,
-                                                                          'first_name')!;
-                                                                      FFAppState().profileLastName = functions.getFirstLastNameFromFullName(
-                                                                          FFAppState()
-                                                                              .profileFullName,
-                                                                          'last_name')!;
+                                                                      FFAppState()
+                                                                              .profileFirstName =
+                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                      FFAppState()
+                                                                              .profileLastName =
+                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
                                                                     });
                                                                     setState(
                                                                         () {
                                                                       FFAppState()
                                                                               .departmentProfile =
-                                                                          GetUserProfileAPICall
-                                                                              .department(
+                                                                          '${GetUserProfileAPICall.department(
                                                                         (_model.getUserProfileBio?.jsonBody ??
                                                                             ''),
-                                                                      ).toString();
+                                                                      )}';
                                                                     });
                                                                     _model.getUserInsuranceLicenseBio =
                                                                         await GetUserInsuranceLicenseCall
@@ -2110,8 +2041,64 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.getUserInsuranceLicenseBio?.statusCode ??
-                                                                            200) !=
+                                                                            200) ==
                                                                         200) {
+                                                                      setState(
+                                                                          () {
+                                                                        FFAppState()
+                                                                            .profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              )}'
+                                                                            : FFAppState().profileInsuranceLicenseFullName;
+                                                                        FFAppState()
+                                                                            .profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              )}'
+                                                                            : FFAppState().profileInsuranceLicenseIdCard;
+                                                                        FFAppState()
+                                                                            .profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              )}'
+                                                                            : FFAppState().profileInsuranceLicenseLicenseNo;
+                                                                        FFAppState()
+                                                                            .profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              )}'
+                                                                            : FFAppState().profileInsuranceLicenseStartDate;
+                                                                        FFAppState()
+                                                                            .profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              )}'
+                                                                            : FFAppState().profileInsuranceLicenseExpireDate;
+                                                                        FFAppState()
+                                                                            .profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                                ) ==
+                                                                                200
+                                                                            ? true
+                                                                            : false;
+                                                                      });
+                                                                    } else {
                                                                       if (_shouldSetState)
                                                                         setState(
                                                                             () {});
@@ -2120,11 +2107,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   } else {
                                                                     if (!((GetUserProfileAPICall.message(
                                                                               (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                            ).toString() ==
+                                                                            ) ==
                                                                             'The token has been blacklisted') ||
                                                                         (GetUserProfileAPICall.message(
                                                                               (_model.getUserProfileBio?.jsonBody ?? ''),
-                                                                            ).toString() ==
+                                                                            ) ==
                                                                             'Token Signature could not be verified.'))) {
                                                                       await showDialog(
                                                                         context:
@@ -2132,16 +2119,17 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                         builder:
                                                                             (alertDialogContext) {
                                                                           return WebViewAware(
-                                                                              child: AlertDialog(
-                                                                            content:
-                                                                                Text('พบข้อผิดพลาด (${(_model.getUserProfileBio?.statusCode ?? 200).toString()})'),
-                                                                            actions: [
-                                                                              TextButton(
-                                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                child: Text('Ok'),
-                                                                              ),
-                                                                            ],
-                                                                          ));
+                                                                            child:
+                                                                                AlertDialog(
+                                                                              content: Text('พบข้อผิดพลาด (${(_model.getUserProfileBio?.statusCode ?? 200).toString()})'),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                  child: Text('Ok'),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          );
                                                                         },
                                                                       );
                                                                       if (_shouldSetState)
@@ -2155,17 +2143,18 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('Session Loginหมดอายุ'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                              child: Text('Ok'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('Session Loginหมดอายุ'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                child: Text('Ok'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     );
                                                                     FFAppState()

@@ -21,17 +21,17 @@ class InsurerListPageModel extends FlutterFlowModel<InsurerListPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - API (telePackageSearchMCAPI)] action in insurerListPage widget.
+  ApiCallResponse? packageAPIMCOutput;
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in insurerListPage widget.
   ApiCallResponse? packageAPIOutput;
-  // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
-  ApiCallResponse? getServerDateTimeRenew;
-  // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
-  ApiCallResponse? getServerDateTimeNonePackage;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

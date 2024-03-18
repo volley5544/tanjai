@@ -6,11 +6,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import '/flutter_flow/permissions_util.dart';
 import 'login_page_widget.dart' show LoginPageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -27,6 +27,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   String? getAndroidImei;
   // Stores action output result for [Custom Action - a4] action in LoginPage widget.
   String? getIosImei;
+  // Stores action output result for [Custom Action - getFirebaseServerTime] action in Text widget.
+  String? getFirebaseServerTime;
   // State field(s) for UsernameTextField widget.
   FocusNode? usernameTextFieldFocusNode;
   TextEditingController? usernameTextFieldController;
@@ -51,10 +53,12 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     passwordTextFieldVisibility = false;
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     usernameTextFieldFocusNode?.dispose();

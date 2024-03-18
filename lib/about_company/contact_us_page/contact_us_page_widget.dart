@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,10 +11,10 @@ import 'contact_us_page_model.dart';
 export 'contact_us_page_model.dart';
 
 class ContactUsPageWidget extends StatefulWidget {
-  const ContactUsPageWidget({Key? key}) : super(key: key);
+  const ContactUsPageWidget({super.key});
 
   @override
-  _ContactUsPageWidgetState createState() => _ContactUsPageWidgetState();
+  State<ContactUsPageWidget> createState() => _ContactUsPageWidgetState();
 }
 
 class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
@@ -42,17 +41,6 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -140,7 +128,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -323,7 +311,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         flex: 1,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Icon(
                                             Icons.perm_phone_msg_rounded,
                                             color: Color(0xFFDB771A),
@@ -335,7 +323,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         flex: 3,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Text(
                                             '1652',
                                             style: FlutterFlowTheme.of(context)
@@ -353,7 +341,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                         flex: 4,
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(1.00, 0.00),
+                                              AlignmentDirectional(1.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               await launchUrl(Uri(

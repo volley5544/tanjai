@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'planning_k_p_i_component_model.dart';
 export 'planning_k_p_i_component_model.dart';
 
 class PlanningKPIComponentWidget extends StatefulWidget {
-  const PlanningKPIComponentWidget({Key? key}) : super(key: key);
+  const PlanningKPIComponentWidget({super.key});
 
   @override
-  _PlanningKPIComponentWidgetState createState() =>
+  State<PlanningKPIComponentWidget> createState() =>
       _PlanningKPIComponentWidgetState();
 }
 
@@ -50,8 +49,6 @@ class _PlanningKPIComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(

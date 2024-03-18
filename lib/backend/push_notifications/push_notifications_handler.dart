@@ -114,76 +114,24 @@ final parametersBuilderMap =
           'token': getParameter<String>(data, 'token'),
         },
       ),
-  'SetPinCodePage': ParameterData.none(),
-  'PinCodePage': ParameterData.none(),
   'SuperAppPage': (data) async => ParameterData(
         allParams: {
           'dailyText': getParameter<String>(data, 'dailyText'),
         },
       ),
-  'NotificationDetailPage': ParameterData.none(),
   'MyProfilePage': ParameterData.none(),
-  'IntrodutionPage': ParameterData.none(),
-  'CheckInsurancePage': ParameterData.none(),
-  'Check_1InsurancePage': (data) async => ParameterData(
-        allParams: {
-          'brandCode': getParameter<String>(data, 'brandCode'),
-          'modelCode': getParameter<String>(data, 'modelCode'),
-          'year': getParameter<String>(data, 'year'),
-          'province': getParameter<String>(data, 'province'),
-          'driver': getParameter<String>(data, 'driver'),
-          'vehicleUsage': getParameter<String>(data, 'vehicleUsage'),
-        },
-      ),
-  'ListInsurancPage': ParameterData.none(),
-  'DetailInsurancePage': (data) async => ParameterData(
-        allParams: {
-          'fullName': getParameter<String>(data, 'fullName'),
-          'coverType': getParameter<String>(data, 'coverType'),
-          'garageType': getParameter<String>(data, 'garageType'),
-          'grossTotal': getParameter<String>(data, 'grossTotal'),
-          'sumInsured': getParameter<String>(data, 'sumInsured'),
-          'tppd': getParameter<String>(data, 'tppd'),
-          'pa': getParameter<String>(data, 'pa'),
-          'actAmount': getParameter<String>(data, 'actAmount'),
-          'expiryDate': getParameter<String>(data, 'expiryDate'),
-        },
-      ),
-  'htmlPage': (data) async => ParameterData(
-        allParams: {
-          'contentHtml': getParameter<String>(data, 'contentHtml'),
-        },
-      ),
-  'WelfareKPICEOPage': ParameterData.none(),
+  'PinCodePage': ParameterData.none(),
+  'SetPinCodePage': ParameterData.none(),
   'LifeInsuranceLicenseCardPage': ParameterData.none(),
-  'ChatSearchPage': ParameterData.none(),
-  'ChatHomePage': ParameterData.none(),
-  'ChattingPage': (data) async => ParameterData(
-        allParams: {
-          'userBProfileImage': getParameter<String>(data, 'userBProfileImage'),
-          'userBDocRef': getParameter<DocumentReference>(data, 'userBDocRef'),
-          'userBName': getParameter<String>(data, 'userBName'),
-          'userBNickname': getParameter<String>(data, 'userBNickname'),
-          'userBEmployeeId': getParameter<String>(data, 'userBEmployeeId'),
-        },
-      ),
-  'InsuranceRequestInsurerPage': ParameterData.none(),
-  'InsuranceRequestImagePage': ParameterData.none(),
-  'InsuranceRequestBasicPage': ParameterData.none(),
-  'InsuranceRequestListPage': ParameterData.none(),
-  'InsuranceRequestDashboardPage': (data) async => ParameterData(
-        allParams: {
-          'jwtToken': getParameter<String>(data, 'jwtToken'),
-        },
-      ),
   'inboxEmail': ParameterData.none(),
-  'SearchInsurancePage': ParameterData.none(),
+  'SearchInsurancePage': (data) async => ParameterData(
+        allParams: {
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
+        },
+      ),
   'AboutUsPage': ParameterData.none(),
   'ContactUsPage': ParameterData.none(),
-  'InsuranceRequestListPageCopy': ParameterData.none(),
   'SelectReasonPage': ParameterData.none(),
-  'SelectInsurer': ParameterData.none(),
-  'VehicleType': ParameterData.none(),
   'MyAccountPage': ParameterData.none(),
   'SearchableListPage': (data) async => ParameterData(
         allParams: {
@@ -226,6 +174,9 @@ final parametersBuilderMap =
           'vehicleUsage': getParameter<String>(data, 'vehicleUsage'),
           'brandName': getParameter<String>(data, 'brandName'),
           'modelName': getParameter<String>(data, 'modelName'),
+          'carTypeDetail': getParameter<String>(data, 'carTypeDetail'),
+          'oldVmiExpDate': getParameter<String>(data, 'oldVmiExpDate'),
+          'provinceCode': getParameter<String>(data, 'provinceCode'),
         },
       ),
   'detailsInsurancePage': (data) async => ParameterData(
@@ -272,6 +223,8 @@ final parametersBuilderMap =
           'insurerMaxName': getParameter<String>(data, 'insurerMaxName'),
           'contractProcessstate':
               getParameter<String>(data, 'contractProcessstate'),
+          'insurerCondition': getParameter<String>(data, 'insurerCondition'),
+          'cc': getParameter<String>(data, 'cc'),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),
@@ -286,8 +239,6 @@ final parametersBuilderMap =
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
         },
       ),
-  'homepageFollowUp11': ParameterData.none(),
-  'homepageFollowUp12': ParameterData.none(),
   'SuccessPage': ParameterData.none(),
   'AddAddress': ParameterData.none(),
   'LeadFollowUpPage': ParameterData.none(),
@@ -299,7 +250,11 @@ final parametersBuilderMap =
       ),
   'Homepage_Request_2_2': ParameterData.none(),
   'Homepage_Request_2_3': ParameterData.none(),
-  'Homepage_Request_4_1': ParameterData.none(),
+  'Homepage_Request_4_1': (data) async => ParameterData(
+        allParams: {
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
   'Homepage_Request_5_4_1': ParameterData.none(),
   'Homepage_Request_5_4_2': ParameterData.none(),
   'PaywithQRcode': (data) async => ParameterData(
@@ -309,6 +264,8 @@ final parametersBuilderMap =
           'ref1': getParameter<String>(data, 'ref1'),
           'ref2': getParameter<String>(data, 'ref2'),
           'amount': getParameter<String>(data, 'amount'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'actCMI': getParameter<bool>(data, 'actCMI'),
         },
       ),
   'insuranceInfoPage5ShowPolicy': (data) async => ParameterData(
@@ -316,18 +273,18 @@ final parametersBuilderMap =
           'vmiDocumentUrl': getParameter<String>(data, 'vmiDocumentUrl'),
         },
       ),
-  'Homepage_Request_5_2_3': (data) async => ParameterData(
+  'Outofrange_3': ParameterData.none(),
+  'Quotation': (data) async => ParameterData(
         allParams: {
-          'index': getParameter<int>(data, 'index'),
-          'insuranceName': getParameter<String>(data, 'insuranceName'),
-          'insuranceType': getParameter<String>(data, 'insuranceType'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
-  'List_out_1': ParameterData.none(),
-  'Outofrange_3': ParameterData.none(),
-  'Quotation': ParameterData.none(),
   'ComparePrices': ParameterData.none(),
-  'NonePackageRenewPage': ParameterData.none(),
+  'NonePackageRenewPage': (data) async => ParameterData(
+        allParams: {
+          'workType': getParameter<String>(data, 'workType'),
+        },
+      ),
   'Search_7_Renew_1': ParameterData.none(),
   'SampleIDcard': ParameterData.none(),
   'NonePackageBasicPage': (data) async => ParameterData(
@@ -368,6 +325,7 @@ final parametersBuilderMap =
           'actFlag': getParameter<bool>(data, 'actFlag'),
           'oldVmi': getParameter<String>(data, 'oldVmi'),
           'oldVmiExpireDate': getParameter<String>(data, 'oldVmiExpireDate'),
+          'workType': getParameter<String>(data, 'workType'),
         },
       ),
   'Email_1': ParameterData.none(),
@@ -398,6 +356,7 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
           'fromBtn': getParameter<String>(data, 'fromBtn'),
           'indexPage': getParameter<int>(data, 'indexPage'),
+          'oldVMIExpDate': getParameter<String>(data, 'oldVMIExpDate'),
         },
       ),
   'NonePackageSelectedInsurerPage': (data) async => ParameterData(
@@ -414,7 +373,11 @@ final parametersBuilderMap =
   'PaywithBarcode': ParameterData.none(),
   'AddLeadsPage': ParameterData.none(),
   'LoginScreen_1': ParameterData.none(),
-  'NonePackageInsurerPage': ParameterData.none(),
+  'NonePackageInsurerPage': (data) async => ParameterData(
+        allParams: {
+          'workType': getParameter<String>(data, 'workType'),
+        },
+      ),
   'insuranceInfoPage5Cancel': (data) async => ParameterData(
         allParams: {
           'quotationId': getParameter<String>(data, 'quotationId'),
@@ -443,11 +406,17 @@ final parametersBuilderMap =
           'fromPage': getParameter<String>(data, 'fromPage'),
         },
       ),
-  'List_out_1_EDIT1Copy': ParameterData.none(),
   'NonePackageEditPage2Copy': ParameterData.none(),
-  'ReloadApp': ParameterData.none(),
-  'NonePackageBasicImage1Page': ParameterData.none(),
-  'NonePackageBasicImage2Page': ParameterData.none(),
+  'NonePackageBasicImage1Page': (data) async => ParameterData(
+        allParams: {
+          'workType': getParameter<String>(data, 'workType'),
+        },
+      ),
+  'NonePackageBasicImage2Page': (data) async => ParameterData(
+        allParams: {
+          'workType': getParameter<String>(data, 'workType'),
+        },
+      ),
   'insuranceInfoPage3_1': ParameterData.none(),
   'SearchBranchPage': (data) async => ParameterData(
         allParams: {
@@ -460,6 +429,77 @@ final parametersBuilderMap =
       ),
   'InsurerInfomationPage': ParameterData.none(),
   'webViewPromotionPage': ParameterData.none(),
+  'NotificationIBS': ParameterData.none(),
+  'SearchableCarListPage': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'SearchablePickUpListPage': (data) async => ParameterData(
+        allParams: {
+          'titleText': getParameter<String>(data, 'titleText'),
+          'searchLabel': getParameter<String>(data, 'searchLabel'),
+          'multiSelect': getParameter<bool>(data, 'multiSelect'),
+          'maxSelected': getParameter<int>(data, 'maxSelected'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+        },
+      ),
+  'renewHistory': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
+  'MakeInsuranceListPageSearch': (data) async => ParameterData(
+        allParams: {
+          'checkTotal': getParameter<int>(data, 'checkTotal'),
+          'checkPayment': getParameter<String>(data, 'checkPayment'),
+          'checkVMI': getParameter<String>(data, 'checkVMI'),
+          'fromPage': getParameter<String>(data, 'fromPage'),
+          'type': getParameter<String>(data, 'type'),
+          'carRegistration': getParameter<String>(data, 'carRegistration'),
+        },
+      ),
+  'renewDetailPage': (data) async => ParameterData(
+        allParams: {
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+        },
+      ),
+  'RenewBasicInfoPage': (data) async => ParameterData(
+        allParams: {
+          'quotationId': getParameter<String>(data, 'quotationId'),
+          'leadDetailId': getParameter<int>(data, 'leadDetailId'),
+        },
+      ),
+  'renewSearchAllPoolPage': ParameterData.none(),
+  'renewSaveHistory': (data) async => ParameterData(
+        allParams: {
+          'title': getParameter<String>(data, 'title'),
+          'name': getParameter<String>(data, 'name'),
+          'lastname': getParameter<String>(data, 'lastname'),
+          'brand': getParameter<String>(data, 'brand'),
+          'model': getParameter<String>(data, 'model'),
+          'covertype': getParameter<String>(data, 'covertype'),
+          'garagetype': getParameter<String>(data, 'garagetype'),
+          'expDate': getParameter<String>(data, 'expDate'),
+          'status': getParameter<String>(data, 'status'),
+          'refRenewId': getParameter<String>(data, 'refRenewId'),
+          'carregis': getParameter<String>(data, 'carregis'),
+        },
+      ),
+  'SellingAct': ParameterData.none(),
+  'InformationAct': ParameterData.none(),
+  'InformationCustomer': ParameterData.none(),
+  'informationCustomer2': (data) async => ParameterData(
+        allParams: {
+          'bodyNumber': getParameter<String>(data, 'bodyNumber'),
+          'effectiveDateAct': getParameter<DateTime>(data, 'effectiveDateAct'),
+        },
+      ),
+  'webViewPolicy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

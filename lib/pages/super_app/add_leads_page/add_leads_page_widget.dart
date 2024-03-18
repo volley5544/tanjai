@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -17,10 +16,10 @@ import 'add_leads_page_model.dart';
 export 'add_leads_page_model.dart';
 
 class AddLeadsPageWidget extends StatefulWidget {
-  const AddLeadsPageWidget({Key? key}) : super(key: key);
+  const AddLeadsPageWidget({super.key});
 
   @override
-  _AddLeadsPageWidgetState createState() => _AddLeadsPageWidgetState();
+  State<AddLeadsPageWidget> createState() => _AddLeadsPageWidgetState();
 }
 
 class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
@@ -62,15 +61,6 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -228,8 +218,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -328,8 +318,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -446,8 +436,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -594,7 +584,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.75),
+                        alignment: AlignmentDirectional(0.0, 0.75),
                         child: Container(
                           width: double.infinity,
                           height: 100.0,
@@ -620,17 +610,19 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content:
-                                                Text('กรุณากรอกชื่อลูกค้า'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content:
+                                                  Text('กรุณากรอกชื่อลูกค้า'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -644,17 +636,19 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณากรอกเบอร์โทรศัพท์ลูกค้า'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกเบอร์โทรศัพท์ลูกค้า'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -672,17 +666,19 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณากรอกเบอร์โทรศัพท์ 10 หลัก'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณากรอกเบอร์โทรศัพท์ 10 หลัก'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -695,20 +691,21 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: LoadingSceneWidget(),
+                                          child: GestureDetector(
+                                            onTap: () => _model
+                                                    .unfocusNode.canRequestFocus
+                                                ? FocusScope.of(context)
+                                                    .requestFocus(
+                                                        _model.unfocusNode)
+                                                : FocusScope.of(context)
+                                                    .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: LoadingSceneWidget(),
+                                            ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
 
@@ -730,21 +727,25 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text('พบข้อผิดพลาด'),
-                                            content: Text(
-                                                GetTokenLeadManagementCall
-                                                    .statuslayer1(
-                                              (_model.getToken?.jsonBody ?? ''),
-                                            ).toString()),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text('พบข้อผิดพลาด'),
+                                              content: Text(
+                                                  GetTokenLeadManagementCall
+                                                          .statuslayer1(
+                                                (_model.getToken?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toString()),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -782,7 +783,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       ),
                                       token: GetTokenLeadManagementCall.token(
                                         (_model.getToken?.jsonBody ?? ''),
-                                      ).toString(),
+                                      ),
                                       product: 'insurance',
                                       subProduct: 'Motor',
                                       sourceBy: 'NewIBS',
@@ -810,33 +811,36 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
-                                                      title: Text(
-                                                          LeadManagementCheckDuplicateCall
-                                                              .message(
-                                                        (_model.checkDupApi
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString()),
-                                                      content: Text(
-                                                          'ต้องการเพิ่มลีดหรือไม่'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext,
-                                                                  false),
-                                                          child: Text('ยกเลิก'),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext,
-                                                                  true),
-                                                          child: Text('ยืนยัน'),
-                                                        ),
-                                                      ],
-                                                    ));
+                                                      child: AlertDialog(
+                                                        title: Text(
+                                                            LeadManagementCheckDuplicateCall
+                                                                .message(
+                                                          (_model.checkDupApi
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )!),
+                                                        content: Text(
+                                                            'ต้องการเพิ่มลีดหรือไม่'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    false),
+                                                            child:
+                                                                Text('ยกเลิก'),
+                                                          ),
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext,
+                                                                    true),
+                                                            child:
+                                                                Text('ยืนยัน'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
                                                   },
                                                 ) ??
                                                 false;
@@ -851,23 +855,26 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              title: Text('พบข้อผิดพลาด'),
-                                              content: Text(
-                                                  LeadManagementCheckDuplicateCall
-                                                      .statuslayer1(
-                                                (_model.checkDupApi?.jsonBody ??
-                                                    ''),
-                                              ).toString()),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
+                                              child: AlertDialog(
+                                                title: Text('พบข้อผิดพลาด'),
+                                                content: Text(
+                                                    LeadManagementCheckDuplicateCall
+                                                            .statuslayer1(
+                                                  (_model.checkDupApi
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )!
+                                                        .toString()),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
                                           },
                                         );
                                         if (_shouldSetState) setState(() {});
@@ -905,7 +912,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       ),
                                       token: GetTokenLeadManagementCall.token(
                                         (_model.getToken?.jsonBody ?? ''),
-                                      ).toString(),
+                                      ),
                                       product: 'insurance',
                                       subProduct: 'Motor',
                                       sourceBy: 'NewIBS',
@@ -935,21 +942,25 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            title: Text('พบข้อผิดพลาด'),
-                                            content: Text(LeadManagementSaveCall
-                                                .statuslayer1(
-                                              (_model.saveLeadApi?.jsonBody ??
-                                                  ''),
-                                            ).toString()),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              title: Text('พบข้อผิดพลาด'),
+                                              content: Text(
+                                                  LeadManagementSaveCall
+                                                          .statuslayer1(
+                                                (_model.saveLeadApi?.jsonBody ??
+                                                    ''),
+                                              )!
+                                                      .toString()),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -960,16 +971,17 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('บันทึกข้อมูลสำเร็จ'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('บันทึกข้อมูลสำเร็จ'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
 

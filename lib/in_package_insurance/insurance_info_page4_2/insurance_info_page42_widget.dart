@@ -1,7 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/effective_date_picker_component_widget.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,8 +10,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -19,21 +18,20 @@ export 'insurance_info_page42_model.dart';
 
 class InsuranceInfoPage42Widget extends StatefulWidget {
   const InsuranceInfoPage42Widget({
-    Key? key,
+    super.key,
     this.quotationId,
     this.leadDetailId,
-  }) : super(key: key);
+  });
 
   final String? quotationId;
   final int? leadDetailId;
 
   @override
-  _InsuranceInfoPage42WidgetState createState() =>
+  State<InsuranceInfoPage42Widget> createState() =>
       _InsuranceInfoPage42WidgetState();
 }
 
-class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
-    with TickerProviderStateMixin {
+class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
   late InsuranceInfoPage42Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -54,15 +52,16 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -70,6 +69,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
         FFAppState().insuranceInfoPage4SelectTenor = '';
         FFAppState().insuranceInfoPage4SelectInstallMentFirstDue = '';
         FFAppState().insuranceInfoPage4SelectInstallMentLastDue = '';
+        FFAppState().isProcessing = false;
       });
       _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -79,16 +79,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -102,17 +103,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(InsuranceRequestGetInsurerAPICall.messageLayer1(
-                (_model.getInsurer?.jsonBody ?? ''),
-              ).toString()),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(InsuranceRequestGetInsurerAPICall.messageLayer1(
+                  (_model.getInsurer?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -120,19 +122,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
       }
       setState(() {
         FFAppState().insuranceInfoImgUrlInsurerList =
-            (InsuranceRequestGetInsurerAPICall.insurerLogo(
+            InsuranceRequestGetInsurerAPICall.insurerLogo(
           (_model.getInsurer?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
         FFAppState().insuranceInfoCompanyIdList =
-            (InsuranceRequestGetInsurerAPICall.companyShortName(
+            InsuranceRequestGetInsurerAPICall.companyShortName(
           (_model.getInsurer?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
+        )!
                 .toList()
                 .cast<String>();
       });
@@ -149,16 +147,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutput?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutput?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -172,18 +171,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content:
-                  Text('พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(IbsApplicationsDetailCall.messageLayer1(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         Navigator.pop(context);
@@ -191,62 +190,51 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
       }
       setState(() {
         FFAppState().insuranceInfoGrossTotal =
-            IbsApplicationsDetailCall.grosstotalnet(
+            '${IbsApplicationsDetailCall.grosstotalnet(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoActAmount =
-            IbsApplicationsDetailCall.acttotal(
+            '${IbsApplicationsDetailCall.acttotal(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoVehicleCode =
-            IbsApplicationsDetailCall.vehiclecode(
+            '${IbsApplicationsDetailCall.vehiclecode(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoQuotationId =
-            IbsApplicationsDetailCall.quotationId(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString().toString();
+            '${(widget.quotationId != null && widget.quotationId != '') && (widget.quotationId != '') ? widget.quotationId : FFAppState().insuranceInfoQuotationId}';
         FFAppState().insuranceInfoLeadDetailId =
-            (IbsApplicationsDetailCall.leaddtlid(
+            '${(IbsApplicationsDetailCall.leaddtlid(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                    functions
-                        .convertDynamicListToIntList(getJsonField(
-                          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                          true,
-                        ))
-                        .toList(),
-                    widget.leadDetailId)]
-                .toString();
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDetailId)])?.toString()}';
         FFAppState().insuranceInfoFirstName =
             IbsApplicationsDetailCall.firstnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().insuranceInfoLastName =
             IbsApplicationsDetailCall.lastnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().insuranceInfoPhonenumber =
             IbsApplicationsDetailCall.phonenumber(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().nonePackageWorkType = IbsApplicationsDetailCall.workType(
                   (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                ).toString() ==
+                ) ==
                 ''
             ? ''
             : IbsApplicationsDetailCall.workType(
                 (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-              ).toString();
+              )!;
         FFAppState().insuranceInfocoverType =
-            (IbsApplicationsDetailCall.covertypename(
+            IbsApplicationsDetailCall.covertypename(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
+        )![functions.getIndexOfIntList(
                 functions
                     .convertDynamicListToIntList(getJsonField(
                       (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -256,11 +244,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                     .toList(),
                 widget.leadDetailId)];
         FFAppState().insuranceInfoGarageType =
-            (IbsApplicationsDetailCall.garagetypename(
+            IbsApplicationsDetailCall.garagetypename(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
+        )![functions.getIndexOfIntList(
                 functions
                     .convertDynamicListToIntList(getJsonField(
                       (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -270,15 +256,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                     .toList(),
                 widget.leadDetailId)];
         FFAppState().insuranceInfoApplicationType =
-            IbsApplicationsDetailCall.quotationtype(
+            IbsApplicationsDetailCall.quotationtypebak(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().insuranceInfoCompayId =
-            (IbsApplicationsDetailCall.insurershortname(
+            IbsApplicationsDetailCall.insurershortname(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
+        )![functions.getIndexOfIntList(
                 functions
                     .convertDynamicListToIntList(getJsonField(
                       (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -289,105 +273,135 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                 widget.leadDetailId)];
         FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().insuranceInfoInsuranceLogo =
-            (IbsApplicationsDetailCall.insurerlogo(
+            IbsApplicationsDetailCall.insurerlogo(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()[functions.getIndexOfIntList(
-                    functions
-                        .convertDynamicListToIntList(getJsonField(
-                          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                          r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                          true,
-                        ))
-                        .toList(),
-                    widget.leadDetailId)]
-                .toString();
+        )![functions.getIndexOfIntList(
+                functions
+                    .convertDynamicListToIntList(getJsonField(
+                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                      true,
+                    ))
+                    .toList(),
+                widget.leadDetailId)];
         FFAppState().insuranceInfoEffectiveDateAct =
             IbsApplicationsDetailCall.effectiveDateAct(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
         FFAppState().insuranceInfoEffectiveDateInsure =
             IbsApplicationsDetailCall.effectiveDateInsure(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )!;
+        FFAppState().insuranceInfoVehicleType =
+            IbsApplicationsDetailCall.quotationtypebak(
+                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    ) ==
+                    'auto'
+                ? IbsApplicationsDetailCall.cartype(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                  )!
+                : IbsApplicationsDetailCall.manualCarType(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                  )!;
+        FFAppState().insuranceInfoVehicleUsage =
+            '${IbsApplicationsDetailCall.vehiclecode(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )} ${IbsApplicationsDetailCall.vehiclename(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoQuotationTypeName =
+            '${IbsApplicationsDetailCall.quotationtypename(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoQuotationTypeBakName =
+            '${IbsApplicationsDetailCall.quotationtypebakname(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceinfoSubProductName =
+            '${IbsApplicationsDetailCall.subproductname(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
       });
       if (IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString() ==
+          ) ==
           'เตรียมข้อมูล') {
         setState(() {
           FFAppState().insuranceInfo4pageStatus =
-              IbsApplicationsDetailCall.quotationstatus(
+              '${IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString();
+          )}';
         });
         Navigator.pop(context);
         return;
       }
       setState(() {
         FFAppState().insuranceInfoPage4PaymentType =
-            IbsApplicationsDetailCall.paymenttype(
+            '${IbsApplicationsDetailCall.paymenttype(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4PaymentChannel =
-            IbsApplicationsDetailCall.paymentchannel(
+            '${IbsApplicationsDetailCall.paymentchannel(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfo4pagePaymentStatus =
-            IbsApplicationsDetailCall.paymentstatus(
+            '${IbsApplicationsDetailCall.paymentstatus(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoGrossTotal =
-            IbsApplicationsDetailCall.grosstotalnet(
+            '${IbsApplicationsDetailCall.grosstotalnet(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoActAmount =
-            IbsApplicationsDetailCall.acttotal(
+            '${IbsApplicationsDetailCall.acttotal(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoVehicleCode =
-            IbsApplicationsDetailCall.vehiclecode(
+            '${IbsApplicationsDetailCall.vehiclecode(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoQuotationId =
-            IbsApplicationsDetailCall.quotationId(
+            '${IbsApplicationsDetailCall.quotationId(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString().toString();
+        )}';
         FFAppState().insuranceInfoPage4SelectTenor =
-            IbsApplicationsDetailCall.tenor(
+            '${IbsApplicationsDetailCall.tenor(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfo4pageStatus =
-            IbsApplicationsDetailCall.quotationstatus(
+            '${IbsApplicationsDetailCall.quotationstatus(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
-            IbsApplicationsDetailCall.installmentfirstdue(
+            '${IbsApplicationsDetailCall.installmentfirstdue(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
-            IbsApplicationsDetailCall.installmentlastdue(
+            '${IbsApplicationsDetailCall.installmentlastdue(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4FirstPay =
-            IbsApplicationsDetailCall.firstPayAmount(
+            '${IbsApplicationsDetailCall.firstPayAmount(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoFirstName =
-            IbsApplicationsDetailCall.firstnameth(
+            '${IbsApplicationsDetailCall.firstnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoLastName =
-            IbsApplicationsDetailCall.lastnameth(
+            '${IbsApplicationsDetailCall.lastnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
         FFAppState().insuranceInfoPage4NetPremiumTotal =
-            IbsApplicationsDetailCall.netpremiumtotal(
+            '${IbsApplicationsDetailCall.netpremiumtotal(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        ).toString();
+        )}';
+        FFAppState().insuranceinfoActType =
+            '${IbsApplicationsDetailCall.subProduct(
+          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        )}';
       });
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
         setState(() {
@@ -402,19 +416,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           _model.actTotalController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         setState(() {
           _model.grossNetTotalController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         setState(() {
           _model.netPremiumTotalController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.netpremiumtotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         Navigator.pop(context);
       } else {
@@ -424,22 +438,24 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           actTotal: FFAppState().insuranceInfoActAmount,
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
           token: FFAppState().accessToken,
+          subProduct: FFAppState().insuranceinfoActType,
         );
         if ((_model.calInstallmentAPIOutput?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.calInstallmentAPIOutput?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.calInstallmentAPIOutput?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           Navigator.pop(context);
@@ -453,18 +469,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${IbsCalculateInstallmentCall.statuslayer1(
-                  (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${IbsCalculateInstallmentCall.statuslayer1(
+                    (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+                  )?.toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           Navigator.pop(context);
@@ -472,35 +489,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
         }
         setState(() {
           FFAppState().InsuranceInfoPage4PaymentFirst =
-              (IbsCalculateInstallmentCall.paymentfirst(
+              IbsCalculateInstallmentCall.paymentfirst(
             (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().InsuranceInfoPage4InstallmentFirstDue =
-              (IbsCalculateInstallmentCall.installmentfirstdue(
+              IbsCalculateInstallmentCall.installmentfirstdue(
             (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().InsuranceInfoPage4InstallmentLastDue =
-              (IbsCalculateInstallmentCall.installmentlastdue(
+              IbsCalculateInstallmentCall.installmentlastdue(
             (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().InsuranceInfoPage4Tenor =
-              (IbsCalculateInstallmentCall.tenor(
+              IbsCalculateInstallmentCall.tenor(
             (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
         });
@@ -516,19 +525,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
           _model.netPremiumTotalController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.netpremiumtotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         setState(() {
           _model.actTotalController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         setState(() {
           _model.grossNetTotalController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          ).toString())!;
+          ))!;
         });
         Navigator.pop(context);
       }
@@ -569,15 +578,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -635,16 +635,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                     context: context,
                     builder: (context) {
                       return WebViewAware(
-                          child: GestureDetector(
-                        onTap: () => _model.unfocusNode.canRequestFocus
-                            ? FocusScope.of(context)
-                                .requestFocus(_model.unfocusNode)
-                            : FocusScope.of(context).unfocus(),
-                        child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: LoadingSceneWidget(),
+                        child: GestureDetector(
+                          onTap: () => _model.unfocusNode.canRequestFocus
+                              ? FocusScope.of(context)
+                                  .requestFocus(_model.unfocusNode)
+                              : FocusScope.of(context).unfocus(),
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: LoadingSceneWidget(),
+                          ),
                         ),
-                      ));
+                      );
                     },
                   ).then((value) => safeSetState(() {}));
 
@@ -667,17 +668,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                       context: context,
                       builder: (alertDialogContext) {
                         return WebViewAware(
-                            child: AlertDialog(
-                          content: Text(
-                              'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputCopy?.statusCode ?? 200).toString()})'),
-                          actions: [
-                            TextButton(
-                              onPressed: () =>
-                                  Navigator.pop(alertDialogContext),
-                              child: Text('Ok'),
-                            ),
-                          ],
-                        ));
+                          child: AlertDialog(
+                            content: Text(
+                                'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputCopy?.statusCode ?? 200).toString()})'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          ),
+                        );
                       },
                     );
                     Navigator.pop(context);
@@ -691,19 +693,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                       context: context,
                       builder: (alertDialogContext) {
                         return WebViewAware(
-                            child: AlertDialog(
-                          content: Text(
-                              'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                            (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                          ).toString()})'),
-                          actions: [
-                            TextButton(
-                              onPressed: () =>
-                                  Navigator.pop(alertDialogContext),
-                              child: Text('Ok'),
-                            ),
-                          ],
-                        ));
+                          child: AlertDialog(
+                            content: Text(
+                                'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
+                              (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                            )?.toString()})'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext),
+                                child: Text('Ok'),
+                              ),
+                            ],
+                          ),
+                        );
                       },
                     );
                     Navigator.pop(context);
@@ -713,31 +716,31 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                     FFAppState().insuranceInfoPage4PaymentType =
                         IbsApplicationsDetailCall.paymenttype(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfoPage4PaymentChannel =
                         IbsApplicationsDetailCall.paymentchannel(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfo4pagePaymentStatus =
                         IbsApplicationsDetailCall.paymentstatus(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfoGrossTotal =
                         IbsApplicationsDetailCall.grosstotalnet(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfoActAmount =
                         IbsApplicationsDetailCall.acttotal(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfoVehicleCode =
                         IbsApplicationsDetailCall.vehiclecode(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                     FFAppState().insuranceInfo4pageStatus =
                         IbsApplicationsDetailCall.quotationstatus(
                       (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    ).toString();
+                    )!;
                   });
                   Navigator.pop(context);
                 },
@@ -751,763 +754,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Material(
-                              color: Colors.transparent,
-                              elevation: 1.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8.0),
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              wrapWithModel(
+                                model: _model.infomationCustomerModel,
+                                updateCallback: () => setState(() {}),
+                                child: InfomationCustomerWidget(),
                               ),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color: Color(0xFFE6E6E6),
-                                  ),
-                                ),
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            15.0, 15.0, 15.0, 15.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              width: MediaQuery.sizeOf(context)
-                                                      .width *
-                                                  0.65,
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                              ),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ใบเสนอราคา',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoQuotationId,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ชื่อลูกค้า',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          '${FFAppState().insuranceInfoFirstName}  ${FFAppState().insuranceInfoLastName}',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'เบอร์โทร',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoPhonenumber,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'การซ่อม',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfoGarageType,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ประกัน',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState()
-                                                              .insuranceInfocoverType,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ราคาเบี้ย',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          FFAppState().insuranceInfoApplicationType ==
-                                                                  'auto'
-                                                              ? '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4GrossTotalNet)} บาท'
-                                                              : '${functions.showNumberWithComma(FFAppState().insuranceInfoPage4NetPremiumTotal)} บาท',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  if (FFAppState()
-                                                          .insuranceInfoActFlag ==
-                                                      '1')
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคา พ.ร.บ',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${functions.showNumberWithComma(FFAppState().insuranceInfoActAmount)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  if (FFAppState()
-                                                          .insuranceInfoActFlag ==
-                                                      '1')
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.2,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            'ราคารวม',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  fontSize:
-                                                                      15.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 10.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            ':',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: Text(
-                                                            '${functions.showNumberWithComma(FFAppState().insuranceInfoGrosstotalNet)} บาท',
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.2,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          'ประเภทงาน',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 15.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        width: 10.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                        ),
-                                                        child: Text(
-                                                          ':',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium,
-                                                        ),
-                                                      ),
-                                                      Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondaryBackground,
-                                                            ),
-                                                            child: Text(
-                                                              FFAppState().insuranceInfoApplicationType ==
-                                                                      'auto'
-                                                                  ? 'งานในเรท'
-                                                                  : 'งานนอกเรท',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Noto Sans Thai',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    fontSize:
-                                                                        15.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                  ),
-                                                            ),
-                                                          ),
-                                                          if (FFAppState()
-                                                                  .nonePackageWorkType !=
-                                                              '')
-                                                            Container(
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                              ),
-                                                              child: Text(
-                                                                '(${FFAppState().nonePackageWorkType})',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Noto Sans Thai',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
-                                                                      fontSize:
-                                                                          15.0,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
-                                                              ),
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            Flexible(
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    1.00, 0.00),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      height: 75.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                      ),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(0.0),
-                                                        child: Image.network(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            functions
-                                                                .stringToImgPath(
-                                                                    FFAppState()
-                                                                        .insuranceInfoInsuranceLogo),
-                                                            'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
-                                                          ),
-                                                          width: 300.0,
-                                                          height: 200.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                            if (FFAppState().insuranceinfoActType == 'CMI')
+                              wrapWithModel(
+                                model: _model.infomationCustomerActModel,
+                                updateCallback: () => setState(() {}),
+                                child: InfomationCustomerActWidget(),
                               ),
-                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
@@ -1528,7 +786,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                     color: Color(0xFFE6E6E6),
                                   ),
                                 ),
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 5.0, 0.0),
@@ -1541,7 +799,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
@@ -1556,8 +814,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                 color: Color(0xFFFAFAFA),
                                               ),
                                             ),
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               '1',
                                               style:
@@ -1612,7 +870,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '2',
                                             style: FlutterFlowTheme.of(context)
@@ -1663,7 +921,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '3',
                                             style: FlutterFlowTheme.of(context)
@@ -1713,7 +971,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '4',
                                             style: FlutterFlowTheme.of(context)
@@ -1765,7 +1023,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             '5',
                                             style: FlutterFlowTheme.of(context)
@@ -1953,27 +1211,28 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                LoadingSceneWidget(),
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  LoadingSceneWidget(),
+                                                            ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -2005,20 +1264,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputCopyRefresh?.statusCode ?? 200).toString()})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputCopyRefresh?.statusCode ?? 200).toString()})'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       );
                                                       Navigator.pop(context);
@@ -2038,24 +1297,24 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                         builder:
                                                             (alertDialogContext) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                                                              (_model.ibsDetailAPIOutputCopyRefresh
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ).toString()})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ));
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
+                                                                (_model.ibsDetailAPIOutputCopyRefresh
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )?.toString()})'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
                                                         },
                                                       );
                                                       Navigator.pop(context);
@@ -2066,78 +1325,73 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                     setState(() {
                                                       FFAppState()
                                                               .insuranceInfoPage4PaymentType =
-                                                          IbsApplicationsDetailCall
-                                                              .paymenttype(
+                                                          '${IbsApplicationsDetailCall.paymenttype(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfoPage4PaymentChannel =
-                                                          IbsApplicationsDetailCall
-                                                              .paymentchannel(
+                                                          '${IbsApplicationsDetailCall.paymentchannel(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfo4pagePaymentStatus =
-                                                          IbsApplicationsDetailCall
-                                                              .paymentstatus(
+                                                          '${IbsApplicationsDetailCall.paymentstatus(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfoGrossTotal =
-                                                          IbsApplicationsDetailCall
-                                                              .grosstotalnet(
+                                                          '${IbsApplicationsDetailCall.grosstotalnet(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfoActAmount =
-                                                          IbsApplicationsDetailCall
-                                                              .acttotal(
+                                                          '${IbsApplicationsDetailCall.acttotal(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfoVehicleCode =
-                                                          IbsApplicationsDetailCall
-                                                              .vehiclecode(
+                                                          '${IbsApplicationsDetailCall.vehiclecode(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                       FFAppState()
                                                               .insuranceInfo4pageStatus =
-                                                          IbsApplicationsDetailCall
-                                                              .quotationstatus(
+                                                          '${IbsApplicationsDetailCall.quotationstatus(
                                                         (_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ).toString();
+                                                      )}';
                                                     });
                                                     await showDialog(
                                                       context: context,
                                                       builder:
                                                           (alertDialogContext) {
                                                         return WebViewAware(
-                                                            child: AlertDialog(
-                                                          content: Text(
-                                                              'รีเฟรชสำเร็จ'),
-                                                          actions: [
-                                                            TextButton(
-                                                              onPressed: () =>
-                                                                  Navigator.pop(
-                                                                      alertDialogContext),
-                                                              child: Text('Ok'),
-                                                            ),
-                                                          ],
-                                                        ));
+                                                          child: AlertDialog(
+                                                            content: Text(
+                                                                'รีเฟรชสำเร็จ'),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
                                                       },
                                                     );
                                                     Navigator.pop(context);
@@ -2377,216 +1631,235 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFAFAFA),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'ราคาเบี้ย',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFB3B3B3),
-                                          ),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.00, 0.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 10.0, 0.0),
-                                            child: TextFormField(
-                                              controller: _model
-                                                  .netPremiumTotalController,
-                                              focusNode: _model
-                                                  .netPremiumTotalFocusNode,
-                                              readOnly: true,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium,
-                                                hintText: FFAppState()
-                                                    .insuranceInfoPage4NetPremiumTotal,
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color:
-                                                              Color(0xFFB3B3B3),
-                                                          fontSize: 15.0,
-                                                        ),
-                                                enabledBorder: InputBorder.none,
-                                                focusedBorder: InputBorder.none,
-                                                errorBorder: InputBorder.none,
-                                                focusedErrorBorder:
-                                                    InputBorder.none,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                              validator: _model
-                                                  .netPremiumTotalControllerValidator
-                                                  .asValidator(context),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 0.0),
-                              child: Container(
-                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFFAFAFA),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 12.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Text(
-                                            'ราคา พ.ร.บ (ถ้ามี)',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  fontSize: 15.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFB3B3B3),
-                                          ),
-                                        ),
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFAFAFA),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Expanded(
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 10.0, 0.0),
-                                                  child: TextFormField(
-                                                    controller: _model
-                                                        .actTotalController,
-                                                    focusNode: _model
-                                                        .actTotalFocusNode,
-                                                    readOnly: true,
-                                                    obscureText: false,
-                                                    decoration: InputDecoration(
-                                                      labelStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium,
-                                                      hintText: FFAppState()
-                                                          .insuranceInfoPage4ActTotal,
-                                                      hintStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .labelMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFB3B3B3),
-                                                                fontSize: 15.0,
-                                                              ),
-                                                      enabledBorder:
-                                                          InputBorder.none,
-                                                      focusedBorder:
-                                                          InputBorder.none,
-                                                      errorBorder:
-                                                          InputBorder.none,
-                                                      focusedErrorBorder:
-                                                          InputBorder.none,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium,
-                                                    validator: _model
-                                                        .actTotalControllerValidator
-                                                        .asValidator(context),
-                                                  ),
-                                                ),
-                                              ),
+                                            Text(
+                                              'ราคาเบี้ย',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                             ),
                                           ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          constraints: BoxConstraints(
+                                            minHeight: 60.0,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .netPremiumTotalController,
+                                                focusNode: _model
+                                                    .netPremiumTotalFocusNode,
+                                                readOnly: true,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium,
+                                                  hintText: FFAppState()
+                                                      .insuranceInfoPage4NetPremiumTotal,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFB3B3B3),
+                                                        fontSize: 15.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      InputBorder.none,
+                                                  focusedBorder:
+                                                      InputBorder.none,
+                                                  errorBorder: InputBorder.none,
+                                                  focusedErrorBorder:
+                                                      InputBorder.none,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                                validator: _model
+                                                    .netPremiumTotalControllerValidator
+                                                    .asValidator(context),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ),
+                            if (FFAppState().insuranceinfoActType != 'CMI')
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFFFAFAFA),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 12.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              'ราคา พ.ร.บ (ถ้ามี)',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .actTotalController,
+                                                      focusNode: _model
+                                                          .actTotalFocusNode,
+                                                      readOnly: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium,
+                                                        hintText: FFAppState()
+                                                            .insuranceInfoPage4ActTotal,
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFB3B3B3),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                      validator: _model
+                                                          .actTotalControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             if (FFAppState().insuranceInfoPage4PaymentType !=
                                 'ผ่อนชำระ')
                               Padding(
@@ -2648,7 +1921,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -2732,27 +2005,28 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  LoadingSceneWidget(),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    LoadingSceneWidget(),
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -2784,20 +2058,21 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                           builder:
                                                               (alertDialogContext) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                              content: Text(
-                                                                  'พบข้อผิดพลาด (${(_model.regenQRCodeOutput?.statusCode ?? 200).toString()})'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ));
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'พบข้อผิดพลาด (${(_model.regenQRCodeOutput?.statusCode ?? 200).toString()})'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
                                                           },
                                                         );
                                                         Navigator.pop(context);
@@ -2817,24 +2092,25 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                           builder:
                                                               (alertDialogContext) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    AlertDialog(
-                                                              content: Text(
-                                                                  'พบข้อผิดพลาด (${IbsPaymentRegenerateCodeCall.statuslayer1(
-                                                                (_model.regenQRCodeOutput
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              ).toString()})'),
-                                                              actions: [
-                                                                TextButton(
-                                                                  onPressed: () =>
-                                                                      Navigator.pop(
-                                                                          alertDialogContext),
-                                                                  child: Text(
-                                                                      'Ok'),
-                                                                ),
-                                                              ],
-                                                            ));
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'พบข้อผิดพลาด (${IbsPaymentRegenerateCodeCall.statuslayer1(
+                                                                  (_model.regenQRCodeOutput
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.toString()})'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
                                                           },
                                                         );
                                                         Navigator.pop(context);
@@ -2845,44 +2121,39 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                       setState(() {
                                                         FFAppState()
                                                                 .insuranceInfoQrcodeRef2 =
-                                                            IbsPaymentRegenerateCodeCall
-                                                                .ref2(
+                                                            '${IbsPaymentRegenerateCodeCall.ref2(
                                                           (_model.regenQRCodeOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ).toString();
+                                                        )}';
                                                         FFAppState()
                                                                 .insuranceInfoQrcodeRef1 =
-                                                            IbsPaymentRegenerateCodeCall
-                                                                .ref1(
+                                                            '${IbsPaymentRegenerateCodeCall.ref1(
                                                           (_model.regenQRCodeOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ).toString();
+                                                        )}';
                                                         FFAppState()
                                                                 .insuranceInfoQrcodeSuffix =
-                                                            IbsPaymentRegenerateCodeCall
-                                                                .suffix(
+                                                            '${IbsPaymentRegenerateCodeCall.suffix(
                                                           (_model.regenQRCodeOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ).toString();
+                                                        )}';
                                                         FFAppState()
                                                                 .insuranceInfoQrcodeTaxId =
-                                                            IbsPaymentRegenerateCodeCall
-                                                                .taxid(
+                                                            '${IbsPaymentRegenerateCodeCall.taxid(
                                                           (_model.regenQRCodeOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ).toString();
+                                                        )}';
                                                         FFAppState()
                                                                 .insuranceInfoQrcodeAmount =
-                                                            IbsPaymentRegenerateCodeCall
-                                                                .amount(
+                                                            '${IbsPaymentRegenerateCodeCall.amount(
                                                           (_model.regenQRCodeOutput
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ).toString();
+                                                        )}';
                                                       });
 
                                                       context.pushNamed(
@@ -3387,27 +2658,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    LoadingSceneWidget(),
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      LoadingSceneWidget(),
+                                                                ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -3441,20 +2712,21 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                             builder:
                                                                 (alertDialogContext) {
                                                               return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                content: Text(
-                                                                    'พบข้อผิดพลาด (${(_model.regenQRCodeOutput2?.statusCode ?? 200).toString()})'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ));
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'พบข้อผิดพลาด (${(_model.regenQRCodeOutput2?.statusCode ?? 200).toString()})'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
                                                             },
                                                           );
                                                           Navigator.pop(
@@ -3475,24 +2747,25 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                             builder:
                                                                 (alertDialogContext) {
                                                               return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                content: Text(
-                                                                    'พบข้อผิดพลาด (${IbsPaymentRegenerateCodeCall.statuslayer1(
-                                                                  (_model.regenQRCodeOutput2
-                                                                          ?.jsonBody ??
-                                                                      ''),
-                                                                ).toString()})'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ));
+                                                                child:
+                                                                    AlertDialog(
+                                                                  content: Text(
+                                                                      'พบข้อผิดพลาด (${IbsPaymentRegenerateCodeCall.statuslayer1(
+                                                                    (_model.regenQRCodeOutput2
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?.toString()})'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed:
+                                                                          () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                      child: Text(
+                                                                          'Ok'),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
                                                             },
                                                           );
                                                           Navigator.pop(
@@ -3504,44 +2777,39 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                         setState(() {
                                                           FFAppState()
                                                                   .insuranceInfoQrcodeRef2 =
-                                                              IbsPaymentRegenerateCodeCall
-                                                                  .ref2(
+                                                              '${IbsPaymentRegenerateCodeCall.ref2(
                                                             (_model.regenQRCodeOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString();
+                                                          )}';
                                                           FFAppState()
                                                                   .insuranceInfoQrcodeRef1 =
-                                                              IbsPaymentRegenerateCodeCall
-                                                                  .ref1(
+                                                              '${IbsPaymentRegenerateCodeCall.ref1(
                                                             (_model.regenQRCodeOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString();
+                                                          )}';
                                                           FFAppState()
                                                                   .insuranceInfoQrcodeSuffix =
-                                                              IbsPaymentRegenerateCodeCall
-                                                                  .suffix(
+                                                              '${IbsPaymentRegenerateCodeCall.suffix(
                                                             (_model.regenQRCodeOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString();
+                                                          )}';
                                                           FFAppState()
                                                                   .insuranceInfoQrcodeTaxId =
-                                                              IbsPaymentRegenerateCodeCall
-                                                                  .taxid(
+                                                              '${IbsPaymentRegenerateCodeCall.taxid(
                                                             (_model.regenQRCodeOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString();
+                                                          )}';
                                                           FFAppState()
                                                                   .insuranceInfoQrcodeAmount =
-                                                              IbsPaymentRegenerateCodeCall
-                                                                  .amount(
+                                                              '${IbsPaymentRegenerateCodeCall.amount(
                                                             (_model.regenQRCodeOutput2
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          ).toString();
+                                                          )}';
                                                         });
 
                                                         context.pushNamed(
@@ -3576,6 +2844,14 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                               FFAppState()
                                                                   .insuranceInfoQrcodeAmount,
                                                               ParamType.String,
+                                                            ),
+                                                            'actCMI':
+                                                                serializeParam(
+                                                              FFAppState().insuranceinfoActType ==
+                                                                      'CMI'
+                                                                  ? true
+                                                                  : false,
+                                                              ParamType.bool,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -3622,7 +2898,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                               ),
                             if (false)
                               Align(
-                                alignment: AlignmentDirectional(0.00, 1.00),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 10.0),
@@ -3634,8 +2910,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                           .secondaryBackground,
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 1.00),
+                                      alignment: AlignmentDirectional(0.0, 1.0),
                                       child: SingleChildScrollView(
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -3644,7 +2919,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 1.00),
+                                                  0.0, 1.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -3801,7 +3076,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                 ),
                               ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 1.00),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 10.0),
@@ -3812,7 +3087,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                         .secondaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 1.00),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -3820,8 +3095,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 1.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -3863,19 +3138,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'บังคับเลือกงวด'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('บังคับเลือกงวด'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
@@ -3892,21 +3168,22 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                       builder:
                                                                           (alertDialogContext) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                AlertDialog(
-                                                                          content:
-                                                                              Text('คุณต้องการบันทึกใช่หรือไม่'),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: Text('ยกเลิก'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: Text('ยืนยัน'),
-                                                                            ),
-                                                                          ],
-                                                                        ));
+                                                                          child:
+                                                                              AlertDialog(
+                                                                            content:
+                                                                                Text('คุณต้องการบันทึกใช่หรือไม่'),
+                                                                            actions: [
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                child: Text('ยกเลิก'),
+                                                                              ),
+                                                                              TextButton(
+                                                                                onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                child: Text('ยืนยัน'),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        );
                                                                       },
                                                                     ) ??
                                                                     false;
@@ -3915,6 +3192,41 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 setState(() {});
                                                               return;
                                                             }
+                                                            if (FFAppState()
+                                                                .isProcessing) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'กรุณารอ 10 วินาที'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                setState(() {});
+                                                              return;
+                                                            } else {
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    true;
+                                                              });
+                                                            }
+
                                                             showModalBottomSheet(
                                                               isScrollControlled:
                                                                   true,
@@ -3926,27 +3238,25 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
                                                                   child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
+                                                                      GestureDetector(
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
-                                                                        LoadingSceneWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          LoadingSceneWidget(),
+                                                                    ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
@@ -4020,22 +3330,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'คุณชำระเงินเรียบร้อยแล้ว กรุณากดปุ่มรีเฟรชเพื่อทำรายการต่อ'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'คุณชำระเงินเรียบร้อยแล้ว กรุณากดปุ่มรีเฟรชเพื่อทำรายการต่อ'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4055,26 +3370,30 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${IbsApplicationsPaymentSaveCall.statuslayer1(
-                                                                      (_model.paymentAPIOutpu
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'พบข้อผิดพลาด (${IbsApplicationsPaymentSaveCall.messageLayer1(
+                                                                        (_model.paymentAPIOutpu?.jsonBody ??
+                                                                            ''),
+                                                                      ).toString()})'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4084,12 +3403,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                             setState(() {
                                                               FFAppState()
                                                                       .insuranceInfo4pageStatus =
-                                                                  IbsApplicationsPaymentSaveCall
-                                                                      .quotationstatus(
+                                                                  '${IbsApplicationsPaymentSaveCall.quotationstatus(
                                                                 (_model.paymentAPIOutpu
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ).toString();
+                                                              )}';
                                                             });
                                                             _model.ibsDetailAPIOutputSavebtn =
                                                                 await IbsApplicationsDetailCall
@@ -4122,22 +3440,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputSavebtn?.statusCode ?? 200).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'พบข้อผิดพลาด (${(_model.ibsDetailAPIOutputSavebtn?.statusCode ?? 200).toString()})'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4157,26 +3480,31 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${IbsApplicationsDetailCall.statuslayer1(
-                                                                      (_model.ibsDetailAPIOutputSavebtn
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          IbsApplicationsDetailCall
+                                                                              .messageLayer1(
+                                                                        (_model.ibsDetailAPIOutputSavebtn?.jsonBody ??
+                                                                            ''),
+                                                                      )!),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4186,44 +3514,52 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                             setState(() {
                                                               FFAppState()
                                                                       .insuranceInfoPage4FirstPay =
-                                                                  IbsApplicationsDetailCall
-                                                                      .firstPayAmount(
+                                                                  '${IbsApplicationsDetailCall.firstPayAmount(
                                                                 (_model.ibsDetailAPIOutputSavebtn
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ).toString();
+                                                              )}';
                                                               FFAppState()
                                                                       .insuranceInfo4pagePaymentStatus =
-                                                                  IbsApplicationsDetailCall
-                                                                      .paymentstatus(
+                                                                  '${IbsApplicationsDetailCall.paymentstatus(
                                                                 (_model.ibsDetailAPIOutputSavebtn
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ).toString();
+                                                              )}';
                                                             });
                                                             await showDialog(
                                                               context: context,
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text(
-                                                                      'บันทึกสำเร็จ'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    content: Text(
+                                                                        'บันทึกสำเร็จ'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             );
                                                             Navigator.pop(
                                                                 context);
+                                                            await Future.delayed(
+                                                                const Duration(
+                                                                    milliseconds:
+                                                                        10000));
+                                                            setState(() {
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                            });
                                                             if (_shouldSetState)
                                                               setState(() {});
                                                           },
@@ -4278,9 +3614,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if (FFAppState()
-                                                          .insuranceInfo4pagePaymentStatus ==
-                                                      'ชำระแล้ว')
+                                                  if ((FFAppState()
+                                                              .insuranceInfo4pagePaymentStatus ==
+                                                          'ชำระแล้ว') &&
+                                                      !FFAppState()
+                                                          .isProcessing)
                                                     Expanded(
                                                       child: Padding(
                                                         padding:
@@ -4305,31 +3643,64 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
                                                                   child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
+                                                                      GestureDetector(
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
-                                                                        LoadingSceneWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          LoadingSceneWidget(),
+                                                                    ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
                                                                     () {}));
+
+                                                            if (FFAppState()
+                                                                .isProcessing) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'กรุณารอ 10 วินาที'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                setState(() {});
+                                                              return;
+                                                            } else {
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    true;
+                                                              });
+                                                            }
 
                                                             _model.getServerTime =
                                                                 await GetDateTimeAPICall
@@ -4351,20 +3722,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาดConnection (${(_model.getServerTime?.statusCode ?? 200).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'พบข้อผิดพลาดConnection (${(_model.getServerTime?.statusCode ?? 200).toString()})'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
                                                               if (_shouldSetState)
@@ -4384,48 +3755,48 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${GetDateTimeAPICall.statusLayer1(
-                                                                      (_model.getServerTime
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          GetDateTimeAPICall
+                                                                              .messageLayer1(
+                                                                        (_model.getServerTime?.jsonBody ??
+                                                                            ''),
+                                                                      )!),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
                                                               if (_shouldSetState)
                                                                 setState(() {});
                                                               return;
                                                             }
-                                                            if (!(functions
-                                                                    .checkCurrentDateIsBeforeInputDate(
-                                                                        GetDateTimeAPICall
-                                                                                .currentDateYMD(
-                                                                          (_model.getServerTime?.jsonBody ??
-                                                                              ''),
-                                                                        )
-                                                                            .toString(),
-                                                                        FFAppState()
-                                                                            .insuranceInfoEffectiveDateInsure)! &&
-                                                                (FFAppState()
-                                                                            .insuranceInfoActFlag ==
-                                                                        '1'
+                                                            if (!(functions.checkCurrentDateIsBeforeInputDate(
+                                                                    GetDateTimeAPICall.currentDateYMD(
+                                                                      (_model.getServerTime
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    ),
+                                                                    FFAppState().insuranceinfoActType != 'CMI'
+                                                                        ? FFAppState().insuranceInfoEffectiveDateInsure
+                                                                        : GetDateTimeAPICall.currentDateYMD(
+                                                                            (_model.getServerTime?.jsonBody ??
+                                                                                ''),
+                                                                          ))! &&
+                                                                (FFAppState().insuranceInfoActFlag == '1'
                                                                     ? functions.checkCurrentDateIsBeforeInputDate(
                                                                         GetDateTimeAPICall.currentDateYMD(
                                                                           (_model.getServerTime?.jsonBody ??
                                                                               ''),
-                                                                        ).toString(),
+                                                                        ),
                                                                         FFAppState().insuranceInfoEffectiveDateAct)!
                                                                     : true))) {
                                                               await showModalBottomSheet(
@@ -4445,96 +3816,110 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                    onTap: () => _model
-                                                                            .unfocusNode
-                                                                            .canRequestFocus
-                                                                        ? FocusScope.of(context).requestFocus(_model
-                                                                            .unfocusNode)
-                                                                        : FocusScope.of(context)
-                                                                            .unfocus(),
                                                                     child:
-                                                                        Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
+                                                                        GestureDetector(
+                                                                      onTap: () => _model
+                                                                              .unfocusNode
+                                                                              .canRequestFocus
+                                                                          ? FocusScope.of(context).requestFocus(_model
+                                                                              .unfocusNode)
+                                                                          : FocusScope.of(context)
+                                                                              .unfocus(),
                                                                       child:
-                                                                          Container(
-                                                                        height:
-                                                                            250.0,
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            EffectiveDatePickerComponentWidget(
-                                                                          effectiveDateInsurerFlag: functions.checkCurrentDateIsBeforeInputDate(
-                                                                              GetDateTimeAPICall.currentDateYMD(
-                                                                                (_model.getServerTime?.jsonBody ?? ''),
-                                                                              ).toString(),
-                                                                              FFAppState().insuranceInfoEffectiveDateInsure)!,
-                                                                          effectiveDateActFlag: FFAppState().insuranceInfoActFlag == '1'
-                                                                              ? functions.checkCurrentDateIsBeforeInputDate(
-                                                                                  GetDateTimeAPICall.currentDateYMD(
-                                                                                    (_model.getServerTime?.jsonBody ?? ''),
-                                                                                  ).toString(),
-                                                                                  FFAppState().insuranceInfoEffectiveDateAct)!
-                                                                              : true,
-                                                                          effectiveDateInsurer:
-                                                                              FFAppState().insuranceInfoEffectiveDateInsure,
-                                                                          effectiveFateAct:
-                                                                              FFAppState().insuranceInfoEffectiveDateAct,
-                                                                          currentDate:
-                                                                              GetDateTimeAPICall.currentDateYMD(
-                                                                            (_model.getServerTime?.jsonBody ??
-                                                                                ''),
-                                                                          ).toString(),
-                                                                          actFlag: FFAppState().insuranceInfoActFlag == '1'
-                                                                              ? true
-                                                                              : false,
+                                                                            Container(
+                                                                          height:
+                                                                              250.0,
+                                                                          child:
+                                                                              EffectiveDatePickerComponentWidget(
+                                                                            effectiveDateInsurerFlag: functions.checkCurrentDateIsBeforeInputDate(
+                                                                                GetDateTimeAPICall.currentDateYMD(
+                                                                                  (_model.getServerTime?.jsonBody ?? ''),
+                                                                                ),
+                                                                                FFAppState().insuranceinfoActType == 'CMI'
+                                                                                    ? GetDateTimeAPICall.currentDateYMD(
+                                                                                        (_model.getServerTime?.jsonBody ?? ''),
+                                                                                      )
+                                                                                    : FFAppState().insuranceInfoEffectiveDateInsure)!,
+                                                                            effectiveDateActFlag: FFAppState().insuranceInfoActFlag == '1'
+                                                                                ? functions.checkCurrentDateIsBeforeInputDate(
+                                                                                    GetDateTimeAPICall.currentDateYMD(
+                                                                                      (_model.getServerTime?.jsonBody ?? ''),
+                                                                                    ),
+                                                                                    FFAppState().insuranceInfoEffectiveDateAct)!
+                                                                                : true,
+                                                                            effectiveDateInsurer:
+                                                                                FFAppState().insuranceInfoEffectiveDateInsure,
+                                                                            effectiveFateAct:
+                                                                                FFAppState().insuranceInfoEffectiveDateAct,
+                                                                            currentDate:
+                                                                                GetDateTimeAPICall.currentDateYMD(
+                                                                              (_model.getServerTime?.jsonBody ?? ''),
+                                                                            )!,
+                                                                            actFlag: FFAppState().insuranceInfoActFlag == '1'
+                                                                                ? true
+                                                                                : false,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
                                                                       () {}));
 
-                                                              if (!(functions.checkCurrentDateIsBeforeInputDate(
-                                                                      GetDateTimeAPICall.currentDateYMD(
-                                                                        (_model.getServerTime?.jsonBody ??
-                                                                            ''),
-                                                                      ).toString(),
-                                                                      FFAppState().insuranceInfoEffectiveDateInsure)! &&
-                                                                  (FFAppState().insuranceInfoActFlag == '1'
+                                                              if (!(functions
+                                                                      .checkCurrentDateIsBeforeInputDate(
+                                                                          GetDateTimeAPICall
+                                                                              .currentDateYMD(
+                                                                            (_model.getServerTime?.jsonBody ??
+                                                                                ''),
+                                                                          ),
+                                                                          FFAppState()
+                                                                              .insuranceInfoEffectiveDateInsure)! &&
+                                                                  (FFAppState()
+                                                                              .insuranceInfoActFlag ==
+                                                                          '1'
                                                                       ? functions.checkCurrentDateIsBeforeInputDate(
                                                                           GetDateTimeAPICall.currentDateYMD(
                                                                             (_model.getServerTime?.jsonBody ??
                                                                                 ''),
-                                                                          ).toString(),
+                                                                          ),
                                                                           FFAppState().insuranceInfoEffectiveDateAct)!
                                                                       : true))) {
-                                                                Navigator.pop(
-                                                                    context);
                                                                 await showDialog(
                                                                   context:
                                                                       context,
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'กรุณาเลือกวันที่คุ้มครองประกันหรือวันที่คุ้มครอง พ.ร.บ.'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('กรุณาเลือกวันที่คุ้มครองประกันหรือวันที่คุ้มครอง พ.ร.บ.'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .isProcessing =
+                                                                      false;
+                                                                });
+                                                                Navigator.pop(
+                                                                    context);
                                                                 if (_shouldSetState)
                                                                   setState(
                                                                       () {});
@@ -4567,29 +3952,35 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                           ?.statusCode ??
                                                                       200) !=
                                                                   200) {
-                                                                Navigator.pop(
-                                                                    context);
                                                                 await showDialog(
                                                                   context:
                                                                       context,
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'พบข้อผิดพลาดConnection (${(_model.ibsApplicationEditOutput?.statusCode ?? 200).toString()})'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('พบข้อผิดพลาดConnection (${(_model.ibsApplicationEditOutput?.statusCode ?? 200).toString()})'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .isProcessing =
+                                                                      false;
+                                                                });
+                                                                Navigator.pop(
+                                                                    context);
                                                                 if (_shouldSetState)
                                                                   setState(
                                                                       () {});
@@ -4602,32 +3993,38 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                         ''),
                                                                   ) !=
                                                                   200) {
-                                                                Navigator.pop(
-                                                                    context);
                                                                 await showDialog(
                                                                   context:
                                                                       context,
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          'พบข้อผิดพลาด (${IbsApplicationsEditCall.statuslayer1(
-                                                                        (_model.ibsApplicationEditOutput?.jsonBody ??
-                                                                            ''),
-                                                                      ).toString()})'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text(IbsApplicationsEditCall.messageLayer1(
+                                                                          (_model.ibsApplicationEditOutput?.jsonBody ??
+                                                                              ''),
+                                                                        )!),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .isProcessing =
+                                                                      false;
+                                                                });
+                                                                Navigator.pop(
+                                                                    context);
                                                                 if (_shouldSetState)
                                                                   setState(
                                                                       () {});
@@ -4664,22 +4061,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${(_model.postPolicyAPIOutPut?.statusCode ?? 200).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'พบข้อผิดพลาด (${(_model.postPolicyAPIOutPut?.statusCode ?? 200).toString()})'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4699,26 +4101,31 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    content: Text(
-                                                                        'พบข้อผิดพลาด (${PostInsurancePolicyApiCall.statuslayer1(
-                                                                      (_model.postPolicyAPIOutPut
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          PostInsurancePolicyApiCall
+                                                                              .messageLayer1(
+                                                                        (_model.postPolicyAPIOutPut?.jsonBody ??
+                                                                            ''),
+                                                                      )!),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                              });
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4758,37 +4165,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget>
                                                               }.withoutNulls,
                                                             );
 
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  content: Text((widget.quotationId !=
-                                                                                  null &&
-                                                                              widget.quotationId !=
-                                                                                  '') &&
-                                                                          (widget.quotationId !=
-                                                                              '')
-                                                                      ? widget
-                                                                          .quotationId!
-                                                                      : FFAppState()
-                                                                          .insuranceInfoQuotationId),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
-                                                              },
-                                                            );
                                                             Navigator.pop(
                                                                 context);
+                                                            await Future.delayed(
+                                                                const Duration(
+                                                                    milliseconds:
+                                                                        10000));
+                                                            setState(() {
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                            });
                                                             if (_shouldSetState)
                                                               setState(() {});
                                                           },

@@ -3,17 +3,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'sample_i_dcard_model.dart';
 export 'sample_i_dcard_model.dart';
 
 class SampleIDcardWidget extends StatefulWidget {
-  const SampleIDcardWidget({Key? key}) : super(key: key);
+  const SampleIDcardWidget({super.key});
 
   @override
-  _SampleIDcardWidgetState createState() => _SampleIDcardWidgetState();
+  State<SampleIDcardWidget> createState() => _SampleIDcardWidgetState();
 }
 
 class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
@@ -40,17 +39,6 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return FutureBuilder<List<UrlLinkStorageRecord>>(
       future: queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
@@ -185,7 +173,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                                                   'assets/images/messageImage_1697533223044.jpg',
                                                   fit: BoxFit.cover,
                                                   alignment:
-                                                      Alignment(0.00, 0.00),
+                                                      Alignment(0.0, 0.0),
                                                 ),
                                               ),
                                             ),

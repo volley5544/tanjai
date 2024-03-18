@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -14,7 +13,7 @@ export 'details_insurance_page_model.dart';
 
 class DetailsInsurancePageWidget extends StatefulWidget {
   const DetailsInsurancePageWidget({
-    Key? key,
+    super.key,
     String? insurerFullName,
     String? currentDate,
     String? brandId,
@@ -56,6 +55,8 @@ class DetailsInsurancePageWidget extends StatefulWidget {
     required this.stamp,
     required this.insurerMaxName,
     required this.contractProcessstate,
+    this.insurerCondition,
+    required this.cc,
   })  : this.insurerFullName = insurerFullName ?? '-',
         this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
@@ -81,8 +82,7 @@ class DetailsInsurancePageWidget extends StatefulWidget {
         this.tpbiPerson = tpbiPerson ?? '-',
         this.tpbiAccident = tpbiAccident ?? '-',
         this.logoUrl = logoUrl ??
-            'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
-        super(key: key);
+            'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949';
 
   final String insurerFullName;
   final String currentDate;
@@ -125,9 +125,11 @@ class DetailsInsurancePageWidget extends StatefulWidget {
   final String? stamp;
   final String? insurerMaxName;
   final String? contractProcessstate;
+  final String? insurerCondition;
+  final String? cc;
 
   @override
-  _DetailsInsurancePageWidgetState createState() =>
+  State<DetailsInsurancePageWidget> createState() =>
       _DetailsInsurancePageWidgetState();
 }
 
@@ -156,15 +158,6 @@ class _DetailsInsurancePageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -194,7 +187,9 @@ class _DetailsInsurancePageWidgetState
               ),
             ),
             title: Text(
-              'รายละเอียดประกันรถยนต์',
+              FFAppState().searchPackageSubProduct == 'MC'
+                  ? 'รายละเอียดประกันมอเตอร์ไซค์'
+                  : 'รายละเอียดประกันรถยนต์',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF002D5E),
@@ -233,6 +228,10 @@ class _DetailsInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
+                // Return an empty Container when the item does not exist.
+                if (snapshot.data!.isEmpty) {
+                  return Container();
+                }
                 final columnHideInAppContentRecord =
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first
@@ -400,6 +399,61 @@ class _DetailsInsurancePageWidgetState
                           ),
                         ],
                       ),
+                      if (widget.insurerCondition != '')
+                        Divider(
+                          thickness: 1.0,
+                          color: Color(0xFFCBD8D8),
+                        ),
+                      if (widget.insurerCondition != '')
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 10.0, 20.0, 10.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 18.0,
+                                    child: VerticalDivider(
+                                      thickness: 3.0,
+                                      color: Color(0xFFEDBB8D),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        4.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      'เงื่อนไขบริษัทประกัน',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Color(0xFF002D5E),
+                                            fontSize: 15.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  30.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.insurerCondition,
+                                  '-',
+                                ),
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
+                            ),
+                          ],
+                        ),
                       Divider(
                         thickness: 1.0,
                         color: Color(0xFFCBD8D8),
@@ -693,6 +747,48 @@ class _DetailsInsurancePageWidgetState
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
+                                  'ค่าเสียหายส่วนเเรก',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: Color(0xFF646464),
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                                Text(
+                                  widget.deductible == '-'
+                                      ? '-'
+                                      : '${functions.showNumberWithComma(widget.deductible)} บาท',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color:
+                                            FlutterFlowTheme.of(context).error,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1.0,
+                        color: Color(0xFFCBD8D8),
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 10.0, 20.0, 10.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
                                   'ความรับผิดต่อบุคคลภายนอก',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -901,8 +997,7 @@ class _DetailsInsurancePageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 20.0, 20.0, 20.0),
+                            padding: EdgeInsets.all(20.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -1172,6 +1267,21 @@ class _DetailsInsurancePageWidgetState
                                               'quotationBtn',
                                               ParamType.String,
                                             ),
+                                            'indexPage': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                            'oldVMIExpDate': serializeParam(
+                                              FFAppState()
+                                                  .insuranceBasicOldVmiExpDate,
+                                              ParamType.String,
+                                            ),
+                                            'cc': serializeParam(
+                                              functions
+                                                  .makeStringToList1(widget.cc),
+                                              ParamType.String,
+                                              true,
+                                            ),
                                           }.withoutNulls,
                                         );
                                       },
@@ -1236,7 +1346,7 @@ class _DetailsInsurancePageWidgetState
                                               (_model.getServerDateTime
                                                       ?.jsonBody ??
                                                   ''),
-                                            ).toString())!) {
+                                            ))!) {
                                               if (functions.showCoverTypeThai(
                                                       widget.coverTypeCode) ==
                                                   'ชั้น 1') {
@@ -1245,18 +1355,19 @@ class _DetailsInsurancePageWidgetState
                                                   builder:
                                                       (alertDialogContext) {
                                                     return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
                                                   },
                                                 );
                                                 if (_shouldSetState)
@@ -1269,22 +1380,23 @@ class _DetailsInsurancePageWidgetState
                                               context: context,
                                               builder: (alertDialogContext) {
                                                 return WebViewAware(
-                                                    child: AlertDialog(
-                                                  content: Text(
-                                                      'พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                    (_model.getServerDateTime
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  ).toString()})get date'),
-                                                  actions: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Navigator.pop(
-                                                              alertDialogContext),
-                                                      child: Text('Ok'),
-                                                    ),
-                                                  ],
-                                                ));
+                                                  child: AlertDialog(
+                                                    content: Text(
+                                                        'พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
+                                                      (_model.getServerDateTime
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )?.toString()})get date'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
+                                                        child: Text('Ok'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
                                               },
                                             );
                                           }
@@ -1548,6 +1660,21 @@ class _DetailsInsurancePageWidgetState
                                             'fromBtn': serializeParam(
                                               'saveBtn',
                                               ParamType.String,
+                                            ),
+                                            'indexPage': serializeParam(
+                                              0,
+                                              ParamType.int,
+                                            ),
+                                            'oldVMIExpDate': serializeParam(
+                                              FFAppState()
+                                                  .insuranceBasicOldVmiExpDate,
+                                              ParamType.String,
+                                            ),
+                                            'cc': serializeParam(
+                                              functions
+                                                  .makeStringToList1(widget.cc),
+                                              ParamType.String,
+                                              true,
                                             ),
                                           }.withoutNulls,
                                         );

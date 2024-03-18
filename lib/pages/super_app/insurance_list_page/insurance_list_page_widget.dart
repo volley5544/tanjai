@@ -15,7 +15,6 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,14 +26,14 @@ export 'insurance_list_page_model.dart';
 
 class InsuranceListPageWidget extends StatefulWidget {
   const InsuranceListPageWidget({
-    Key? key,
+    super.key,
     this.checkType,
-  }) : super(key: key);
+  });
 
   final dynamic checkType;
 
   @override
-  _InsuranceListPageWidgetState createState() =>
+  State<InsuranceListPageWidget> createState() =>
       _InsuranceListPageWidgetState();
 }
 
@@ -76,18 +75,19 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -95,43 +95,58 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      _model.adminVersionQuery = await queryAuthorizationRecordOnce(
+        queryBuilder: (authorizationRecord) => authorizationRecord.where(
+          'content_name',
+          isEqualTo: 'skip_build_version',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (_model.buildVersionQuery?.appVersion != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersion ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
           return;
         }
       } else {
-        if (_model.buildVersionQuery?.appVersionIos != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersionIos ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
@@ -155,16 +170,17 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาดConnection (${(_model.getRequestList?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาดConnection (${(_model.getRequestList?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -182,18 +198,19 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${InsuranceRequestListAPICall.statusLayer2(
-                (_model.getRequestList?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาด (${InsuranceRequestListAPICall.statusLayer2(
+                  (_model.getRequestList?.jsonBody ?? ''),
+                )?.toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -223,15 +240,6 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -398,7 +406,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
               },
             ),
             title: Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Text(
                 'จำนวนลูกค้าทั้งหมด',
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -431,19 +439,20 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: GestureDetector(
-                          onTap: () => _model.unfocusNode.canRequestFocus
-                              ? FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode)
-                              : FocusScope.of(context).unfocus(),
-                          child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: Container(
-                              height: MediaQuery.sizeOf(context).height * 0.7,
-                              child: InsuranceTypeColorWidget(),
+                          child: GestureDetector(
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: Container(
+                                height: MediaQuery.sizeOf(context).height * 0.7,
+                                child: InsuranceTypeColorWidget(),
+                              ),
                             ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   },
@@ -495,7 +504,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.5, 8.0, 0.5),
@@ -566,7 +575,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                         ),
                         child: Builder(
                           builder: (context) {
-                            final list = InsuranceRequestListAPICall.leadId(
+                            final list = InsuranceRequestListAPICall.leadNo(
                                   (_model.getRequestList?.jsonBody ?? ''),
                                 )?.toList() ??
                                 [];
@@ -586,15 +595,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                   visible: (functions.containWordinStringUrl(
                                               _model.searchFirstnameController
                                                   .text,
-                                              (InsuranceRequestListAPICall
-                                                      .firstname(
+                                              InsuranceRequestListAPICall
+                                                  .firstname(
                                                 (_model.getRequestList
                                                         ?.jsonBody ??
                                                     ''),
-                                              ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()[listIndex])! ||
+                                              )?[listIndex])! ||
                                           (_model.searchFirstnameController
                                                       .text ==
                                                   null ||
@@ -604,30 +610,24 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                       ((FFAppState().searchList1 == '0') ||
                                           (FFAppState().searchList1 ==
                                               (InsuranceRequestListAPICall
-                                                      .quotationType(
+                                                  .quotationType(
                                                 (_model.getRequestList
                                                         ?.jsonBody ??
                                                     ''),
-                                              ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()[listIndex])),
+                                              )?[listIndex]))),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 20.0),
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: (InsuranceRequestListAPICall
-                                                          .quotationType(
+                                                      .quotationtypebak(
                                                     (_model.getRequestList
                                                             ?.jsonBody ??
                                                         ''),
-                                                  ) as List)
-                                                      .map<String>(
-                                                          (s) => s.toString())
-                                                      .toList()[listIndex] !=
+                                                  )?[listIndex]) !=
                                                   'manual'
                                               ? Color(0xFFF9DCC3)
                                               : Color(0xFFD9D9D9),
@@ -635,14 +635,11 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                               BorderRadius.circular(20.0),
                                           border: Border.all(
                                             color: (InsuranceRequestListAPICall
-                                                            .quotationType(
+                                                        .quotationtypebak(
                                                       (_model.getRequestList
                                                               ?.jsonBody ??
                                                           ''),
-                                                    ) as List)
-                                                        .map<String>(
-                                                            (s) => s.toString())
-                                                        .toList()[listIndex] !=
+                                                    )?[listIndex]) !=
                                                     'manual'
                                                 ? Color(0xFFD9761A)
                                                 : Color(0xFF95A1AC),
@@ -659,9 +656,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             Stack(
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(12.0, 12.0,
-                                                          12.0, 12.0),
+                                                  padding: EdgeInsets.all(12.0),
                                                   child: Column(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -736,15 +731,15 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 decoration:
                                                                     BoxDecoration(),
                                                                 child: Text(
-                                                                  '${functions.checkNullValueAndReturn((InsuranceRequestListAPICall.firstname(
+                                                                  '${functions.checkNullValueAndReturn(InsuranceRequestListAPICall.firstname(
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List).map<String>((s) => s.toString()).toList()[listIndex])} ${functions.checkNullValueAndReturn((InsuranceRequestListAPICall.lastname(
+                                                                  )?[listIndex])} ${functions.checkNullValueAndReturn(InsuranceRequestListAPICall.lastname(
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List).map<String>((s) => s.toString()).toList()[listIndex])}',
+                                                                  )?[listIndex])}',
                                                                   maxLines: 2,
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -818,16 +813,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                                functions.checkNullValueAndReturn(
+                                                                    InsuranceRequestListAPICall
                                                                         .phoneNumber(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex]),
+                                                                )?[listIndex]),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -894,47 +886,66 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   ),
                                                             ),
                                                           ),
+                                                          if (false)
+                                                            Expanded(
+                                                              flex: 6,
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                                child: Text(
+                                                                  () {
+                                                                    if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '0')) {
+                                                                      return 'งานต่ออายุ';
+                                                                    } else if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1')) {
+                                                                      return 'งานโอนโค้ด';
+                                                                    } else {
+                                                                      return 'งานใหม่';
+                                                                    }
+                                                                  }(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Sans Thai',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .black600,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
                                                           Expanded(
                                                             flex: 6,
                                                             child: Container(
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                () {
-                                                                  if (((InsuranceRequestListAPICall.flagRenew(
-                                                                            (_model.getRequestList?.jsonBody ??
-                                                                                ''),
-                                                                          ) as List)
-                                                                              .map<String>((s) => s.toString())
-                                                                              .toList()[listIndex] ==
-                                                                          '1') &&
-                                                                      ((InsuranceRequestListAPICall.oldVMIFlg(
-                                                                            (_model.getRequestList?.jsonBody ??
-                                                                                ''),
-                                                                          ) as List)
-                                                                              .map<String>((s) => s.toString())
-                                                                              .toList()[listIndex] ==
-                                                                          '0')) {
-                                                                    return 'งานต่ออายุ';
-                                                                  } else if (((InsuranceRequestListAPICall.flagRenew(
-                                                                            (_model.getRequestList?.jsonBody ??
-                                                                                ''),
-                                                                          ) as List)
-                                                                              .map<String>((s) => s.toString())
-                                                                              .toList()[listIndex] ==
-                                                                          '1') &&
-                                                                      ((InsuranceRequestListAPICall.oldVMIFlg(
-                                                                            (_model.getRequestList?.jsonBody ??
-                                                                                ''),
-                                                                          ) as List)
-                                                                              .map<String>((s) => s.toString())
-                                                                              .toList()[listIndex] ==
-                                                                          '1')) {
-                                                                    return 'งานโอนโค้ด';
-                                                                  } else {
-                                                                    return 'งานใหม่';
-                                                                  }
-                                                                }(),
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  InsuranceRequestListAPICall
+                                                                      .quotationtypename(
+                                                                    (_model.getRequestList
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[listIndex],
+                                                                  '-',
+                                                                ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1007,16 +1018,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                                functions.checkNullValueAndReturn(
+                                                                    InsuranceRequestListAPICall
                                                                         .quotationDate(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex]),
+                                                                )?[listIndex]),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1089,16 +1097,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                                functions.checkNullValueAndReturn(
+                                                                    InsuranceRequestListAPICall
                                                                         .expireDate(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex]),
+                                                                )?[listIndex]),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1171,27 +1176,22 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                                functions.checkNullValueAndReturn(
+                                                                    InsuranceRequestListAPICall
                                                                         .quotationStatus(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex]),
+                                                                )?[listIndex]),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           'Noto Sans Thai',
-                                                                      color: functions.checkNullValueAndReturn((InsuranceRequestListAPICall.quotationStatus(
+                                                                      color: functions.checkNullValueAndReturn(InsuranceRequestListAPICall.quotationStatus(
                                                                                 (_model.getRequestList?.jsonBody ?? ''),
-                                                                              ) as List)
-                                                                                  .map<String>((s) => s.toString())
-                                                                                  .toList()[listIndex]) ==
+                                                                              )?[listIndex]) ==
                                                                               'ประกันปฏิเสธ'
                                                                           ? FlutterFlowTheme.of(context).error
                                                                           : FlutterFlowTheme.of(context).black600,
@@ -1261,16 +1261,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                                functions.checkNullValueAndReturn(
+                                                                    InsuranceRequestListAPICall
                                                                         .quotationNo(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex]),
+                                                                )?[listIndex]),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1296,37 +1293,27 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   ),
                                                 ),
                                                 if ((((InsuranceRequestListAPICall
-                                                                                .phoneNumber(
+                                                                            .phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                            .map<String>((s) => s
-                                                                                .toString())
-                                                                            .toList()[
-                                                                        listIndex] !=
+                                                                    )?[
+                                                                        listIndex]) !=
                                                                     null &&
                                                                 (InsuranceRequestListAPICall
-                                                                                .phoneNumber(
+                                                                            .phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                            .map<String>((s) => s
-                                                                                .toString())
-                                                                            .toList()[
-                                                                        listIndex] !=
+                                                                    )?[
+                                                                        listIndex]) !=
                                                                     '') &&
                                                             ((InsuranceRequestListAPICall
-                                                                        .phoneNumber(
+                                                                    .phoneNumber(
                                                                   (_model.getRequestList
                                                                           ?.jsonBody ??
                                                                       ''),
-                                                                ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()[listIndex] !=
+                                                                )?[listIndex]) !=
                                                                 '')
                                                         ? true
                                                         : false) &&
@@ -1337,7 +1324,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            1.00, -1.00),
+                                                            1.0, -1.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1387,15 +1374,13 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       Uri(
                                                                     scheme:
                                                                         'tel',
-                                                                    path: functions.checkNullValueAndReturn((InsuranceRequestListAPICall
-                                                                            .phoneNumber(
+                                                                    path: functions
+                                                                        .checkNullValueAndReturn(
+                                                                            InsuranceRequestListAPICall.phoneNumber(
                                                                       (_model.getRequestList
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) =>
-                                                                            s.toString())
-                                                                        .toList()[listIndex]),
+                                                                    )?[listIndex]),
                                                                   ));
                                                                 },
                                                                 child: Icon(
@@ -1425,26 +1410,19 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   if (((InsuranceRequestListAPICall
-                                                                          .quotationType(
+                                                                  .quotationType(
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ) as List)
-                                                                      .map<String>((s) => s
-                                                                          .toString())
-                                                                      .toList()[
-                                                                  listIndex] ==
+                                                              )?[listIndex]) ==
                                                               'manual') &&
-                                                          (functions.checkNullValueAndReturn((InsuranceRequestListAPICall
+                                                          (functions.checkNullValueAndReturn(
+                                                                  InsuranceRequestListAPICall
                                                                       .quotationStatus(
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ) as List)
-                                                                  .map<String>(
-                                                                      (s) => s
-                                                                          .toString())
-                                                                  .toList()[listIndex]) !=
+                                                              )?[listIndex]) !=
                                                               'ประกันปฏิเสธ')
                                                       ? true
                                                       : false)
@@ -1470,31 +1448,33 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        LoadingSceneWidget(),
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          LoadingSceneWidget(),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -1772,6 +1752,9 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .nonePackageBranchName = '';
                                                             FFAppState()
                                                                 .nonePackageInsurerShortNameDupList = [];
+                                                            FFAppState()
+                                                                    .nonePackageOldVmiFlag =
+                                                                false;
                                                           });
                                                           _model.getDetailAPIEdit =
                                                               await InsuranceRequestDetailAPICall
@@ -1780,18 +1763,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .apiUrlInsuranceAppState,
                                                             token: FFAppState()
                                                                 .accessToken,
-                                                            leadId: (InsuranceRequestListAPICall
-                                                                    .leadId(
+                                                            leadId:
+                                                                (InsuranceRequestListAPICall
+                                                                        .leadId(
                                                               (_model.getRequestList
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                .map<String>(
-                                                                    (s) => s
-                                                                        .toString())
-                                                                .toList()[
-                                                                    listIndex]
-                                                                .toString(),
+                                                            )?[listIndex])
+                                                                    ?.toString(),
                                                           );
                                                           _shouldSetState =
                                                               true;
@@ -1809,26 +1788,27 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  title: Text(
-                                                                      'พบข้อผิดพลาด'),
-                                                                  content: Text(
-                                                                      'กรุณาติดต่อเจ้าหน้าที่(${InsuranceRequestDetailAPICall.messageLayer1(
-                                                                    (_model.getDetailAPIEdit
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ).toString()})'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    title: Text(
+                                                                        'พบข้อผิดพลาด'),
+                                                                    content: Text(
+                                                                        'กรุณาติดต่อเจ้าหน้าที่(${InsuranceRequestDetailAPICall.messageLayer1(
+                                                                      (_model.getDetailAPIEdit
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )})'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             );
                                                             if (_shouldSetState)
@@ -1849,34 +1829,33 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  title: Text(
-                                                                      'พบข้อผิดพลาด'),
-                                                                  content: Text(
-                                                                      'กรุณาติดต่อเจ้าหน้าที่(${InsuranceRequestDetailAPICall.messageLayer2(
-                                                                    (_model.getDetailAPIEdit
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ).toString()})'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    title: Text(
+                                                                        'พบข้อผิดพลาด'),
+                                                                    content: Text(
+                                                                        'กรุณาติดต่อเจ้าหน้าที่(${InsuranceRequestDetailAPICall.messageLayer2(
+                                                                      (_model.getDetailAPIEdit
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )})'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             );
                                                             if (_shouldSetState)
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          Navigator.pop(
-                                                              context);
                                                           setState(() {
                                                             FFAppState()
                                                                     .nonePackageFlagCarrier =
@@ -1884,73 +1863,73 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .flagCarrier(
                                                                           (_model.getDetailAPIEdit?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
                                                                     .nonePackageVehicleType =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carType(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carType(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageBrandName =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .brandName(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.brandName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageModelName =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .modelName(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.modelName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageYear =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .year(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.year(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageUsedTypeId =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleId(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleId(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )?.toString()}');
                                                             FFAppState()
                                                                     .nonePackageUsedTypeCode =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleCode(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleCode(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageUsedTypeName =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleName(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageCusFullname =
                                                                 functions
@@ -1959,247 +1938,231 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString()} ${InsuranceRequestDetailAPICall.lastname(
+                                                            )} ${InsuranceRequestDetailAPICall.lastname(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString()}');
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageCusPhone =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .phoneNumber(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.phoneNumber(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackagePlate =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .plateNo(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.plateNo(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageProvince =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .province(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall.province(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            ))}');
                                                             FFAppState()
                                                                     .nonePackageSumInsured =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .sumInsured(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.sumInsured(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageFlagAct =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagAct(
                                                                           (_model.getDetailAPIEdit?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
                                                                     .nonePackageCarrierType =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierType(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierType(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageFlagCoop =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagCoop(
                                                                           (_model.getDetailAPIEdit?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
                                                                     .nonePackageTruckPart =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .truckPart(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.truckPart(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageCusMembership =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .customerMemberchip(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.customerMemberchip(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageTruckCurrentPrice =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .truckCurrentPrice(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.truckCurrentPrice(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackagePlateAdditional =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .trailerPlateNo(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.trailerPlateNo(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            ).toString()}');
                                                             FFAppState()
                                                                     .nonePackageTruckCarryPurpose =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierPropose(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierPropose(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageTrailerSumInsured =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .trailerSumInsured(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.trailerSumInsured(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            ).toString()}');
                                                             FFAppState()
                                                                     .nonePackageCarrierPrice =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierPrice(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierPrice(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageInsurerDisplayName =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .insurerNameList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageCoverTypeName =
-                                                                functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .coverTypeNameList(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.coverTypeNameList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                            )?.first}');
                                                             FFAppState()
                                                                     .nonePackageGarageTypeName =
-                                                                functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .garageTypeNameList(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.garageTypeNameList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                            )?.first}');
                                                             FFAppState()
                                                                     .nonePackageFlagRenew =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagRenew(
                                                                           (_model.getDetailAPIEdit?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
                                                                     .nonePackageOldVmiExpDate =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .oldVmiExpriedDate(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageOldVmi =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .oldVmiPolicyNumber(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageCustomerType =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .customerType(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.customerType(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageLeadId =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .leadId(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.leadId(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )?.toString()}');
                                                             FFAppState()
                                                                     .nonePackageLeadNo =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .leadNo(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.leadNo(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageInsurerShortNameList =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .insurerShortName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
@@ -2217,29 +2180,36 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     : false;
                                                             FFAppState()
                                                                     .nonePackageRemark =
-                                                                functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .remark(
+                                                                functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.remark(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString());
+                                                            )}');
                                                             FFAppState()
                                                                     .nonePackageBranchCode =
-                                                                InsuranceRequestDetailAPICall
-                                                                    .branchCode(
+                                                                '${InsuranceRequestDetailAPICall.branchCode(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString();
+                                                            )}';
                                                             FFAppState()
                                                                     .nonePackageBranchName =
-                                                                InsuranceRequestDetailAPICall
-                                                                    .branchName(
+                                                                '${InsuranceRequestDetailAPICall.branchName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ).toString();
+                                                            )}';
+                                                            FFAppState()
+                                                                    .nonePackageOldVmiFlag =
+                                                                '${InsuranceRequestDetailAPICall.oldVmiFlg(
+                                                                          (_model.getDetailAPIEdit?.jsonBody ??
+                                                                              ''),
+                                                                        )}' ==
+                                                                        '1'
+                                                                    ? true
+                                                                    : false;
                                                           });
                                                           setState(() {
                                                             FFAppState()
@@ -2256,335 +2226,249 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         dynamic>();
                                                             FFAppState()
                                                                     .nonePackageImageFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageFrontList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageRightFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightFrontList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageRight =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageRightRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightRearList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRearList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageLeftRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftRearList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageLeft =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageLeftFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftFrontList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageRoof =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRoofList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageFrontTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageRightFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightFrontTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageRight =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageRightRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRightRearTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageRearTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageLeftRear =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftRearTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageLeft =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageTrailerImageLeftFront =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageLeftFrontTrailerList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageOldVmi =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageOldVmi(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageCompanyBook =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageCompanyBook(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageIdCard =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageIdCardList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageBlueBook =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageBluebookList(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                             FFAppState()
                                                                     .nonePackageImageOtherNameList =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .imageOtherName(
                                                               (_model.getDetailAPIEdit
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
                                                           });
+                                                          Navigator.pop(
+                                                              context);
 
                                                           context.pushNamed(
                                                               'NonePackageEditPage1');
@@ -2642,16 +2526,27 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if ((InsuranceRequestListAPICall
+                                                  if (((InsuranceRequestListAPICall
                                                               .quotationType(
-                                                        (_model.getRequestList
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) as List)
-                                                          .map<String>((s) =>
-                                                              s.toString())
-                                                          .toList()[listIndex] ==
-                                                      'manual')
+                                                            (_model.getRequestList
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?[listIndex]) ==
+                                                          'manual') &&
+                                                      ((InsuranceRequestListAPICall
+                                                              .flagRenew(
+                                                            (_model.getRequestList
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?[listIndex]) !=
+                                                          '1') &&
+                                                      ((InsuranceRequestListAPICall
+                                                              .refRenewId(
+                                                            (_model.getRequestList
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?[listIndex]) ==
+                                                          ''))
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2674,31 +2569,33 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        LoadingSceneWidget(),
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          LoadingSceneWidget(),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -2984,18 +2881,14 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 .apiUrlInsuranceAppState,
                                                             token: FFAppState()
                                                                 .accessToken,
-                                                            leadId: (InsuranceRequestListAPICall
-                                                                    .leadId(
+                                                            leadId:
+                                                                (InsuranceRequestListAPICall
+                                                                        .leadId(
                                                               (_model.getRequestList
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                .map<String>(
-                                                                    (s) => s
-                                                                        .toString())
-                                                                .toList()[
-                                                                    listIndex]
-                                                                .toString(),
+                                                            )?[listIndex])
+                                                                    ?.toString(),
                                                           );
                                                           _shouldSetState =
                                                               true;
@@ -3013,26 +2906,27 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  title: Text(
-                                                                      'พบข้อผิดพลาด'),
-                                                                  content: Text(
-                                                                      'กรุณาติดต่อเจ้าหน้าที่ (${InsuranceRequestDetailAPICall.messageLayer1(
-                                                                    (_model.getDetailApiDup
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ).toString()} )'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    title: Text(
+                                                                        'พบข้อผิดพลาด'),
+                                                                    content: Text(
+                                                                        'กรุณาติดต่อเจ้าหน้าที่ (${InsuranceRequestDetailAPICall.messageLayer1(
+                                                                      (_model.getDetailApiDup
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )} )'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             );
                                                             if (_shouldSetState)
@@ -3053,26 +2947,27 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               builder:
                                                                   (alertDialogContext) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        AlertDialog(
-                                                                  title: Text(
-                                                                      'พบข้อผิดพลาด'),
-                                                                  content: Text(
-                                                                      'กรุณาติดต่อเจ้าหน้าที่ (${InsuranceRequestDetailAPICall.messageLayer2(
-                                                                    (_model.getDetailApiDup
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  ).toString()} )'),
-                                                                  actions: [
-                                                                    TextButton(
-                                                                      onPressed:
-                                                                          () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                      child: Text(
-                                                                          'Ok'),
-                                                                    ),
-                                                                  ],
-                                                                ));
+                                                                  child:
+                                                                      AlertDialog(
+                                                                    title: Text(
+                                                                        'พบข้อผิดพลาด'),
+                                                                    content: Text(
+                                                                        'กรุณาติดต่อเจ้าหน้าที่ (${InsuranceRequestDetailAPICall.messageLayer2(
+                                                                      (_model.getDetailApiDup
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )} )'),
+                                                                    actions: [
+                                                                      TextButton(
+                                                                        onPressed:
+                                                                            () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                        child: Text(
+                                                                            'Ok'),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                );
                                                               },
                                                             );
                                                             if (_shouldSetState)
@@ -3086,273 +2981,272 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .flagCarrier(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
-                                                                .nonePackageVehicleType = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carType(
+                                                                .nonePackageVehicleType = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carType(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกประเภทรถ'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carType(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carType(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageBrandName = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .brandName(
+                                                                .nonePackageBrandName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.brandName(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .brandName(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.brandName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageBrandId = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carBrandId(
+                                                                .nonePackageBrandId = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carBrandId(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carBrandId(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carBrandId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageModelName = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .modelName(
+                                                                .nonePackageModelName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.modelName(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .modelName(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.modelName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageModelCode = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carModelId(
+                                                                .nonePackageModelCode = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carModelId(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carModelId(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carModelId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageYear = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .year(
+                                                                .nonePackageYear = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.year(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกปีจดทะเบียน'
                                                                 : functions
                                                                     .checkNullValueAndReturn(
-                                                                        InsuranceRequestDetailAPICall
-                                                                            .year(
+                                                                        '${InsuranceRequestDetailAPICall.year(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageUsedTypeId = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .vehicleId(
+                                                                .nonePackageUsedTypeId = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.vehicleId(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )?.toString()}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleId(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )?.toString()}');
                                                             FFAppState()
-                                                                .nonePackageUsedTypeCode = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .vehicleCode(
+                                                                .nonePackageUsedTypeCode = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.vehicleCode(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleCode(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageUsedTypeName = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .vehicleName(
+                                                                .nonePackageUsedTypeName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.vehicleName(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกลักษณะการใช้รถ'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .vehicleName(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.vehicleName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageCusFullname = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .firstname(
+                                                                .nonePackageCusFullname = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.firstname(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .firstname(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.firstname(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageCusPhone = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .phoneNumber(
+                                                                .nonePackageCusPhone = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.phoneNumber(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .phoneNumber(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.phoneNumber(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackagePlate = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .plateNo(
+                                                                .nonePackagePlate = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.plateNo(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .plateNo(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.plateNo(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageProvince = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .province(
+                                                                .nonePackageProvince = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.province(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกจังหวัดจดทะเบียน'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .province(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.province(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageProvinceId = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carProvinceCode(
+                                                                .nonePackageProvinceId = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carProvinceCode(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carProvinceCode(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carProvinceCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageSumInsured = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .sumInsured(
+                                                                .nonePackageSumInsured = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.sumInsured(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .sumInsured(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.sumInsured(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
                                                                     .nonePackageFlagAct =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagAct(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
@@ -3360,385 +3254,339 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     .nonePackageIsBrandSelect =
                                                                 false;
                                                             FFAppState()
-                                                                .nonePackageCarrierType = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carrierType(
+                                                                .nonePackageCarrierType = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carrierType(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกประเภทตู้เหล็ก'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierType(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierType(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
                                                                     .nonePackageFlagCoop =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagCoop(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
-                                                                .nonePackageTruckPart = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .truckPart(
+                                                                .nonePackageTruckPart = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.truckPart(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกส่วนของรถบรรทุก'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .truckPart(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.truckPart(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageCusMembership = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .customerMemberchip(
+                                                                .nonePackageCusMembership = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.customerMemberchip(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกประเภทลูกค้า'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .customerMemberchip(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.customerMemberchip(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageTruckCurrentPrice = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .truckCurrentPrice(
+                                                                .nonePackageTruckCurrentPrice = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.truckCurrentPrice(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .truckCurrentPrice(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.truckCurrentPrice(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackagePlateAdditional = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .trailerPlateNo(
+                                                                .nonePackagePlateAdditional = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.trailerPlateNo(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    ).toString()}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .trailerPlateNo(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.trailerPlateNo(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  ).toString()}');
                                                             FFAppState()
-                                                                .nonePackageTruckCarryPurpose = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carrierPropose(
+                                                                .nonePackageTruckCarryPurpose = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carrierPropose(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierPropose(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierPropose(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageTrailerSumInsured = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .trailerSumInsured(
+                                                                .nonePackageTrailerSumInsured = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.trailerSumInsured(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    ).toString()}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .trailerSumInsured(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.trailerSumInsured(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  ).toString()}');
                                                             FFAppState()
-                                                                .nonePackageCarrierPrice = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .carrierPrice(
+                                                                .nonePackageCarrierPrice = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.carrierPrice(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .carrierPrice(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.carrierPrice(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageCoverTypeId = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .coverTypeId(
+                                                                .nonePackageCoverTypeId = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.coverTypeId(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .coverTypeId(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.coverTypeId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
-                                                                .nonePackageCoverTypeCode = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .coverTypeCode(
+                                                                .nonePackageCoverTypeCode = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.coverTypeCode(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .coverTypeCode(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.coverTypeCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
-                                                                .nonePackageCoverTypeName = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .coverTypeNameList(
+                                                                .nonePackageCoverTypeName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.coverTypeNameList(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกประเภทชั้นประกัน'
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .coverTypeNameList(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.coverTypeNameList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
-                                                                .nonePackageGarageTypeId = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .garageTypeId(
+                                                                .nonePackageGarageTypeId = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.garageTypeId(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .garageTypeId(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.garageTypeId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
-                                                                .nonePackageGarageTypeName = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .garageTypeNameList(
+                                                                .nonePackageGarageTypeName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.garageTypeNameList(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกประเภทการซ่อม'
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .garageTypeNameList(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.garageTypeNameList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
-                                                                .nonePackageGarageTypeCode = functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                            .garageTypeCodeList(
+                                                                .nonePackageGarageTypeCode = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.garageTypeCodeList(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ) as List)
-                                                                        .map<String>((s) => s
-                                                                            .toString())
-                                                                        .toList()
-                                                                        .first) ==
+                                                                    )?.first}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn((InsuranceRequestDetailAPICall
-                                                                        .garageTypeCodeList(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.garageTypeCodeList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()
-                                                                    .first);
+                                                                  )?.first}');
                                                             FFAppState()
                                                                     .nonePackageFlagRenew =
                                                                 InsuranceRequestDetailAPICall
                                                                             .flagRenew(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         '1'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
-                                                                .nonePackageOldVmiExpDate = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .oldVmiExpriedDate(
+                                                                .nonePackageOldVmiExpDate = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? 'กรุณาเลือกวันที่หมดอายุประกันเดิม'
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .oldVmiExpriedDate(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageOldVmi = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .oldVmiPolicyNumber(
+                                                                .nonePackageOldVmi = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .oldVmiPolicyNumber(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageBranchCode = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .branchCode(
+                                                                .nonePackageBranchCode = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.branchCode(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .branchCode(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.branchCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
-                                                                .nonePackageRemark = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .remark(
+                                                                .nonePackageRemark = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.remark(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .remark(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.remark(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                             FFAppState()
                                                                     .nonePackageInsurerShortNameDupList =
-                                                                (InsuranceRequestDetailAPICall
+                                                                InsuranceRequestDetailAPICall
                                                                         .insurerShortName(
                                                               (_model.getDetailApiDup
                                                                       ?.jsonBody ??
                                                                   ''),
-                                                            ) as List)
-                                                                    .map<String>(
-                                                                        (s) => s
-                                                                            .toString())
-                                                                    .toList()!
+                                                            )!
                                                                     .toList()
                                                                     .cast<
                                                                         String>();
@@ -3757,7 +3605,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .customerType(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         'บุคคลธรรมดา'
                                                                     ? true
                                                                     : false;
@@ -3767,39 +3615,38 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .customerType(
                                                                           (_model.getDetailApiDup?.jsonBody ??
                                                                               ''),
-                                                                        ).toString() ==
+                                                                        ) ==
                                                                         'นิติบุคคล'
                                                                     ? true
                                                                     : false;
                                                             FFAppState()
-                                                                .nonePackageBranchName = functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall
-                                                                            .branchName(
+                                                                .nonePackageBranchName = functions
+                                                                        .checkNullValueAndReturn(
+                                                                            '${InsuranceRequestDetailAPICall.branchName(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString()) ==
+                                                                    )}') ==
                                                                     '-'
                                                                 ? ''
-                                                                : functions.checkNullValueAndReturn(
-                                                                    InsuranceRequestDetailAPICall
-                                                                        .branchName(
+                                                                : functions
+                                                                    .checkNullValueAndReturn(
+                                                                        '${InsuranceRequestDetailAPICall.branchName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString());
+                                                                  )}');
                                                           });
                                                           setState(() {
                                                             FFAppState()
                                                                 .updateNonePackageReasonAtIndex(
                                                               () {
                                                                 if (InsuranceRequestDetailAPICall
-                                                                            .reason(
+                                                                        .reason(
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    )
-                                                                        .toString() ==
+                                                                    ) ==
                                                                     'ไม่มีในเรท') {
                                                                   return 0;
                                                                 } else if (InsuranceRequestDetailAPICall
@@ -3807,7 +3654,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       (_model.getDetailApiDup
                                                                               ?.jsonBody ??
                                                                           ''),
-                                                                    ).toString() ==
+                                                                    ) ==
                                                                     'ไม่พอใจในทุนประกัน') {
                                                                   return 1;
                                                                 } else {
@@ -4058,6 +3905,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     .nonePackageFlagAct,
                                                                 ParamType.bool,
                                                               ),
+                                                              'workType':
+                                                                  serializeParam(
+                                                                'manual',
+                                                                ParamType
+                                                                    .String,
+                                                              ),
                                                             }.withoutNulls,
                                                           );
 
@@ -4115,12 +3968,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if (InsuranceRequestListAPICall
+                                                  if ((InsuranceRequestListAPICall
                                                               .flagExpired(
                                                             (_model.getRequestList
                                                                     ?.jsonBody ??
                                                                 ''),
-                                                          )[listIndex] ==
+                                                          )?[listIndex]) ==
                                                           0
                                                       ? true
                                                       : false)
@@ -4144,25 +3997,22 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     builder:
                                                                         (alertDialogContext) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              AlertDialog(
-                                                                        content:
-                                                                            Text('ต้องการจะบันทึกเตรียมข้อมูลใช่หรือไม่?'),
-                                                                        actions: [
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, false),
-                                                                            child:
-                                                                                Text('ยกเลิก'),
-                                                                          ),
-                                                                          TextButton(
-                                                                            onPressed: () =>
-                                                                                Navigator.pop(alertDialogContext, true),
-                                                                            child:
-                                                                                Text('ยืนยัน'),
-                                                                          ),
-                                                                        ],
-                                                                      ));
+                                                                        child:
+                                                                            AlertDialog(
+                                                                          content:
+                                                                              Text('ต้องการจะบันทึกเตรียมข้อมูลใช่หรือไม่?'),
+                                                                          actions: [
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                              child: Text('ยกเลิก'),
+                                                                            ),
+                                                                            TextButton(
+                                                                              onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                              child: Text('ยืนยัน'),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      );
                                                                     },
                                                                   ) ??
                                                                   false;
@@ -4452,13 +4302,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 (_model.getRequestList
                                                                         ?.jsonBody ??
                                                                     ''),
-                                                              ) as List)
-                                                                  .map<String>(
-                                                                      (s) => s
-                                                                          .toString())
-                                                                  .toList()[
-                                                                      listIndex]
-                                                                  .toString(),
+                                                              )?[listIndex])
+                                                                  ?.toString(),
                                                               list: FFAppState()
                                                                   .typeList,
                                                               mode: 'arunsawad',
@@ -4482,25 +4327,26 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   builder:
                                                                       (alertDialogContext) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            AlertDialog(
-                                                                      content: Text(
-                                                                          '${InsuranceRequestListAPIDashBoardCall.messageLayer2(
-                                                                        (_model.listFromDash?.jsonBody ??
-                                                                            ''),
-                                                                      ).toString()}(${InsuranceRequestListAPIDashBoardCall.statusLayer2(
-                                                                        (_model.listFromDash?.jsonBody ??
-                                                                            ''),
-                                                                      ).toString()})'),
-                                                                      actions: [
-                                                                        TextButton(
-                                                                          onPressed: () =>
-                                                                              Navigator.pop(alertDialogContext),
-                                                                          child:
-                                                                              Text('Ok'),
-                                                                        ),
-                                                                      ],
-                                                                    ));
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('${InsuranceRequestListAPIDashBoardCall.messageLayer2(
+                                                                          (_model.listFromDash?.jsonBody ??
+                                                                              ''),
+                                                                        )}(${InsuranceRequestListAPIDashBoardCall.statusLayer2(
+                                                                          (_model.listFromDash?.jsonBody ??
+                                                                              ''),
+                                                                        )?.toString()})'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext),
+                                                                            child:
+                                                                                Text('Ok'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 );
                                                                 if (_shouldSetState)
@@ -4551,26 +4397,25 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                 builder:
                                                                     (alertDialogContext) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          AlertDialog(
-                                                                    title: Text(
-                                                                        'connection'),
-                                                                    content: Text(
-                                                                        '${InsuranceRequestListAPIDashBoardCall.messageLayer1(
-                                                                      (_model.listFromDash
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()}(${(_model.listFromDash?.statusCode ?? 200).toString()})'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ));
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      title: Text(
+                                                                          'connection'),
+                                                                      content: Text(
+                                                                          '${InsuranceRequestListAPIDashBoardCall.messageLayer1(
+                                                                        (_model.listFromDash?.jsonBody ??
+                                                                            ''),
+                                                                      )}(${(_model.listFromDash?.statusCode ?? 200).toString()})'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
                                                                 },
                                                               );
                                                               if (_shouldSetState)
@@ -4660,7 +4505,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                     ? true
                     : false)
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
@@ -4675,7 +4520,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'ไม่พบข้อมูลในระบบ',
                             style: FlutterFlowTheme.of(context).bodyMedium,

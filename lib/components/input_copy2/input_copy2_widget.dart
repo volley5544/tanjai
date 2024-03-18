@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'input_copy2_model.dart';
@@ -11,12 +10,12 @@ export 'input_copy2_model.dart';
 
 class InputCopy2Widget extends StatefulWidget {
   const InputCopy2Widget({
-    Key? key,
+    super.key,
     this.leaveID,
     this.employeeID,
     this.leaveName,
     this.isFromApprovePage,
-  }) : super(key: key);
+  });
 
   final String? leaveID;
   final String? employeeID;
@@ -24,7 +23,7 @@ class InputCopy2Widget extends StatefulWidget {
   final bool? isFromApprovePage;
 
   @override
-  _InputCopy2WidgetState createState() => _InputCopy2WidgetState();
+  State<InputCopy2Widget> createState() => _InputCopy2WidgetState();
 }
 
 class _InputCopy2WidgetState extends State<InputCopy2Widget> {
@@ -56,8 +55,6 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -169,8 +166,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: TextFormField(
                                       controller: _model.reasonCancelController,
                                       focusNode: _model.reasonCancelFocusNode,

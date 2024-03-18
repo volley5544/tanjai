@@ -1,3 +1,4 @@
+import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,22 +9,22 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'quotation_copy_model.dart';
 export 'quotation_copy_model.dart';
 
 class QuotationCopyWidget extends StatefulWidget {
   const QuotationCopyWidget({
-    Key? key,
+    super.key,
     required this.quotation,
-  }) : super(key: key);
+  });
 
-  final dynamic quotation;
+  final List<String>? quotation;
 
   @override
-  _QuotationCopyWidgetState createState() => _QuotationCopyWidgetState();
+  State<QuotationCopyWidget> createState() => _QuotationCopyWidgetState();
 }
 
 class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
@@ -40,11 +41,34 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
         parameters: {'screen_name': 'QuotationCopy'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
       setState(() {
         FFAppState().indexPdfQuotation = 0;
-        FFAppState().lengthListPdfQuotation =
-            functions.convertDynamicListToStringList(widget.quotation).length;
+        FFAppState().lengthListPdfQuotation = widget.quotation!.length;
       });
+      Navigator.pop(context);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -59,15 +83,6 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -149,7 +164,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -175,16 +190,13 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                         if (FFAppState().indexPdfQuotation == 0) Spacer(),
                         if (functions.containWordinStringUrl(
                                 'pdf',
-                                functions.convertDynamicListToStringList(
-                                        widget.quotation)[
+                                widget.quotation?[
                                     FFAppState().indexPdfQuotation]) ??
                             true)
                           FFButtonWidget(
                             onPressed: () async {
-                              await launchURL(
-                                  functions.convertDynamicListToStringList(
-                                          widget.quotation)[
-                                      FFAppState().indexPdfQuotation]);
+                              await launchURL(widget
+                                  .quotation![FFAppState().indexPdfQuotation]);
                             },
                             text: 'ดาวน์โหลด PDF',
                             options: FFButtonOptions(
@@ -236,7 +248,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -266,9 +278,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                 ),
                 Builder(
                   builder: (context) {
-                    final listPdf = functions
-                        .convertDynamicListToStringList(widget.quotation)
-                        .toList();
+                    final listPdf = widget.quotation!.toList().take(1).toList();
                     return Container(
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 0.85,
@@ -286,10 +296,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   if (functions.containWordinStringUrl(
-                                          'pdf',
-                                          functions
-                                              .convertDynamicListToStringList(
-                                                  widget.quotation)[FFAppState()
+                                          '.pdf',
+                                          widget.quotation?[FFAppState()
                                               .indexPdfQuotation]) ??
                                       true)
                                     InkWell(
@@ -311,10 +319,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                               .secondaryBackground,
                                         ),
                                         child: FlutterFlowPdfViewer(
-                                          networkPath: functions
-                                              .convertDynamicListToStringList(
-                                                  widget.quotation)[FFAppState()
-                                              .indexPdfQuotation],
+                                          networkPath: widget.quotation![
+                                              FFAppState().indexPdfQuotation],
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
                                               0.85,
@@ -323,9 +329,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                       ),
                                     ),
                                   if (!functions.containWordinStringUrl(
-                                      'pdf',
-                                      functions.convertDynamicListToStringList(
-                                              widget.quotation)[
+                                      '.pdf',
+                                      widget.quotation?[
                                           FFAppState().indexPdfQuotation])!)
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -341,17 +346,16 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
-                                          functions.stringToImgPath(functions
-                                              .convertDynamicListToStringList(
-                                                  widget.quotation)[FFAppState()
-                                              .indexPdfQuotation])!,
+                                          functions.stringToImgPath(widget
+                                                  .quotation?[
+                                              FFAppState().indexPdfQuotation])!,
                                           width:
                                               MediaQuery.sizeOf(context).width *
                                                   1.0,
                                           height: MediaQuery.sizeOf(context)
                                                   .height *
                                               1.0,
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
@@ -360,7 +364,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                             },
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.90, -0.95),
+                            alignment: AlignmentDirectional(0.9, -0.95),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 16.0),

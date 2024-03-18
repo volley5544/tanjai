@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -13,10 +12,10 @@ import 'select_reason_page_model.dart';
 export 'select_reason_page_model.dart';
 
 class SelectReasonPageWidget extends StatefulWidget {
-  const SelectReasonPageWidget({Key? key}) : super(key: key);
+  const SelectReasonPageWidget({super.key});
 
   @override
-  _SelectReasonPageWidgetState createState() => _SelectReasonPageWidgetState();
+  State<SelectReasonPageWidget> createState() => _SelectReasonPageWidgetState();
 }
 
 class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
@@ -53,15 +52,6 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -135,7 +125,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -223,8 +213,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
@@ -240,7 +230,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -327,8 +317,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
@@ -344,7 +334,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -431,8 +421,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                             shape: BoxShape.circle,
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.check,
                                               color: Colors.white,
@@ -459,7 +449,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                 color: Color(0xFFF1F4F8),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 24.0),
@@ -476,9 +466,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
+                                              padding: EdgeInsets.all(10.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -533,7 +521,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Container(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -553,8 +541,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons
                                                                     .person_outline_sharp,
@@ -591,9 +578,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                           Expanded(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 10.0, 10.0, 10.0),
+                                              padding: EdgeInsets.all(10.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -648,7 +633,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Container(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -668,8 +653,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                             child: Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Icon(
                                                                 Icons
                                                                     .home_work_outlined,
@@ -719,18 +703,19 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาเลือกเหตุผลการทำประกัน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'กรุณาเลือกเหตุผลการทำประกัน'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               return;
@@ -744,25 +729,33 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return WebViewAware(
-                                                      child: AlertDialog(
-                                                    content: Text(
-                                                        'กรุณาเลือกผู้ทำประกัน'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
+                                                    child: AlertDialog(
+                                                      content: Text(
+                                                          'กรุณาเลือกผู้ทำประกัน'),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
                                                 },
                                               );
                                               return;
                                             }
 
                                             context.pushNamed(
-                                                'NonePackageBasicPage');
+                                              'NonePackageBasicPage',
+                                              queryParameters: {
+                                                'workType': serializeParam(
+                                                  'manual',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
                                           },
                                           text: 'ถัดไป',
                                           options: FFButtonOptions(

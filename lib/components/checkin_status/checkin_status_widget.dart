@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +9,10 @@ import 'checkin_status_model.dart';
 export 'checkin_status_model.dart';
 
 class CheckinStatusWidget extends StatefulWidget {
-  const CheckinStatusWidget({Key? key}) : super(key: key);
+  const CheckinStatusWidget({super.key});
 
   @override
-  _CheckinStatusWidgetState createState() => _CheckinStatusWidgetState();
+  State<CheckinStatusWidget> createState() => _CheckinStatusWidgetState();
 }
 
 class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
@@ -42,8 +41,6 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -383,7 +380,7 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(1.00, -1.00),
+            alignment: AlignmentDirectional(1.0, -1.0),
             child: FlutterFlowIconButton(
               borderColor: Colors.transparent,
               borderRadius: 30.0,

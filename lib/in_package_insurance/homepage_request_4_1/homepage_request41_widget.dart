@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -15,10 +14,15 @@ import 'homepage_request41_model.dart';
 export 'homepage_request41_model.dart';
 
 class HomepageRequest41Widget extends StatefulWidget {
-  const HomepageRequest41Widget({Key? key}) : super(key: key);
+  const HomepageRequest41Widget({
+    super.key,
+    this.fromPage,
+  });
+
+  final String? fromPage;
 
   @override
-  _HomepageRequest41WidgetState createState() =>
+  State<HomepageRequest41Widget> createState() =>
       _HomepageRequest41WidgetState();
 }
 
@@ -46,15 +50,6 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -179,125 +174,131 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         ],
                                       ),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          setState(() {
-                                            FFAppState().maxCurrentSelected =
-                                                true;
-                                            FFAppState().installmentSelected =
-                                                false;
-                                          });
-                                        },
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          height: 60.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            border: Border.all(
-                                              color: Color(0xFFB3B3B3),
-                                            ),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'ชำระเต็มจำนวน',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                        fontSize: 15.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
+                                    if (!columnListInsurerCantInstallmentRecord!
+                                        .insurerFullPayment
+                                        .contains(
+                                            FFAppState().insuranceInfoCompayId))
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            setState(() {
+                                              FFAppState().maxCurrentSelected =
+                                                  true;
+                                              FFAppState().installmentSelected =
+                                                  false;
+                                            });
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                1.0,
+                                            height: 60.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              border: Border.all(
+                                                color: Color(0xFFB3B3B3),
                                               ),
-                                              if (!FFAppState()
-                                                  .maxCurrentSelected)
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    'ชำระเต็มจำนวน',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFB3B3B3),
+                                                          fontSize: 15.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                                  ),
+                                                ),
+                                                if (!FFAppState()
+                                                    .maxCurrentSelected)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Container(
+                                                      width: 25.0,
+                                                      height: 25.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        shape: BoxShape.circle,
+                                                        border: Border.all(
+                                                          color:
+                                                              Color(0xFF9F9F9F),
+                                                          width: 1.0,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                if (FFAppState()
+                                                    .maxCurrentSelected)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Container(
+                                                      width: 25.0,
+                                                      height: 25.0,
+                                                      decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFF9F9F9F),
-                                                        width: 1.0,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .success,
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Icon(
+                                                          Icons.check,
+                                                          color: Colors.white,
+                                                          size: 18.0,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              if (FFAppState()
-                                                  .maxCurrentSelected)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .success,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.00, 0.00),
-                                                      child: Icon(
-                                                        Icons.check,
-                                                        color: Colors.white,
-                                                        size: 18.0,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
                                   ],
                                 ),
                               ),
                             ),
                             if (!columnListInsurerCantInstallmentRecord!
-                                    .insurerName
-                                    .contains(
-                                        FFAppState().insuranceInfoCompayId) ||
-                                true)
+                                .insurerInstallment
+                                .contains(FFAppState().insuranceInfoCompayId))
                               InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -376,7 +377,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.check,
                                                 color: Colors.white,
@@ -398,7 +399,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.75),
+                          alignment: AlignmentDirectional(0.0, 0.75),
                           child: Container(
                             width: double.infinity,
                             height: 100.0,
@@ -422,312 +423,334 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
-                                                child: AlertDialog(
-                                              content:
-                                                  Text('กรุณาเลือกการชำระเงิน'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-                                      showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return WebViewAware(
-                                              child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: LoadingSceneWidget(),
-                                            ),
-                                          ));
-                                        },
-                                      ).then((value) => safeSetState(() {}));
-
-                                      _model.save4APIOutput =
-                                          await IbsApplicationsSaveCall.call(
-                                        action: 'save_draft',
-                                        quotationId: FFAppState()
-                                            .insuranceInfoQuotationId,
-                                        step: '4',
-                                        paymentType:
-                                            FFAppState().maxCurrentSelected
-                                                ? 'จ่ายเต็ม'
-                                                : 'ผ่อนชำระ',
-                                        imageApplication: FFAppState()
-                                            .insuranceInfoImageApplication,
-                                        fileLoanApplicationRegister: FFAppState()
-                                            .insuranceInfoImageFileloanApplicationRegister,
-                                        insuranceUrl: FFAppState()
-                                            .apiUrlInsuranceAppState,
-                                        leadDtlId: FFAppState()
-                                            .insuranceInfoLeadDetailId,
-                                        token: FFAppState().accessToken,
-                                      );
-                                      _shouldSetState = true;
-                                      if ((_model.save4APIOutput?.statusCode ??
-                                              200) !=
-                                          200) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${(_model.save4APIOutput?.statusCode ?? 200).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-                                      if (IbsApplicationsSaveCall.statuslayer1(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ) !=
-                                          200) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                                child: AlertDialog(
-                                              content: Text(
-                                                  'พบข้อผิดพลาด (${IbsApplicationsSaveCall.statuslayer1(
-                                                (_model.save4APIOutput
-                                                        ?.jsonBody ??
-                                                    ''),
-                                              ).toString()})'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            ));
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-                                      if (IbsApplicationsSaveCall.paymenttype(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString() ==
-                                          'ผ่อนชำระ') {
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage4NetPremiumTotal =
-                                              IbsApplicationsSaveCall
-                                                  .netpremiumtotal(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4GrossTotalNet =
-                                              IbsApplicationsSaveCall
-                                                  .grosstotalnet(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4ActTotal =
-                                              IbsApplicationsSaveCall.acttotal(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4PaymentChannel =
-                                              IbsApplicationsSaveCall
-                                                  .paymentchannel(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4PaymentType =
-                                              IbsApplicationsSaveCall
-                                                  .paymenttype(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfo4pagePaymentStatus =
-                                              IbsApplicationsSaveCall
-                                                  .paymentstatus(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfo4pageStatus =
-                                              IbsApplicationsSaveCall.status(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                        });
-                                        setState(() {
-                                          FFAppState()
-                                                  .InsuranceInfoPage4PaymentFirst =
-                                              (IbsApplicationsSaveCall
-                                                      .paymentfirst(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState()
-                                                  .InsuranceInfoPage4InstallmentFirstDue =
-                                              (IbsApplicationsSaveCall
-                                                      .installmentfirstdue(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState()
-                                                  .InsuranceInfoPage4InstallmentLastDue =
-                                              (IbsApplicationsSaveCall
-                                                      .installmentlastdue(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
-                                                  .toList()
-                                                  .cast<String>();
-                                          FFAppState().InsuranceInfoPage4Tenor =
-                                              (IbsApplicationsSaveCall.tenor(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ) as List)
-                                                  .map<String>(
-                                                      (s) => s.toString())
-                                                  .toList()!
-                                                  .toList()
-                                                  .cast<String>();
-                                        });
-                                      } else {
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage4NetPremiumTotal =
-                                              IbsApplicationsSaveCall
-                                                  .netpremiumtotal(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4GrossTotalNet =
-                                              IbsApplicationsSaveCall
-                                                  .grosstotalnet(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4ActTotal =
-                                              IbsApplicationsSaveCall.acttotal(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4PaymentChannel =
-                                              IbsApplicationsSaveCall
-                                                  .paymentchannel(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfoPage4PaymentType =
-                                              IbsApplicationsSaveCall
-                                                  .paymenttype(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfo4pagePaymentStatus =
-                                              IbsApplicationsSaveCall
-                                                  .paymentstatus(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                          FFAppState()
-                                                  .insuranceInfo4pageStatus =
-                                              IbsApplicationsSaveCall.status(
-                                            (_model.save4APIOutput?.jsonBody ??
-                                                ''),
-                                          ).toString();
-                                        });
-                                      }
-
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return WebViewAware(
                                               child: AlertDialog(
-                                            content: Text(
-                                                'เลือกประเภทการชำระเงินสำเร็จ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
+                                                content: Text(
+                                                    'กรุณาเลือกการชำระเงิน'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ));
-                                        },
-                                      );
+                                            );
+                                          },
+                                        );
+                                        if (_shouldSetState) setState(() {});
+                                        return;
+                                      }
+                                      if (widget.fromPage == 'RenewBasic') {
+                                        setState(() {
+                                          FFAppState().renewPaymentType =
+                                              FFAppState().maxCurrentSelected
+                                                  ? 'จ่ายเต็ม'
+                                                  : 'ผ่อนชำระ';
+                                        });
+                                        context.safePop();
+                                      } else {
+                                        showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: LoadingSceneWidget(),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
 
-                                      context.pushNamed(
-                                        'insuranceInfoPage4_2',
-                                        queryParameters: {
-                                          'quotationId': serializeParam(
+                                        _model.save4APIOutput =
+                                            await IbsApplicationsSaveCall.call(
+                                          action: 'save_draft',
+                                          quotationId: FFAppState()
+                                              .insuranceInfoQuotationId,
+                                          step: '4',
+                                          paymentType:
+                                              FFAppState().maxCurrentSelected
+                                                  ? 'จ่ายเต็ม'
+                                                  : 'ผ่อนชำระ',
+                                          imageApplication: FFAppState()
+                                              .insuranceInfoImageApplication,
+                                          fileLoanApplicationRegister: FFAppState()
+                                              .insuranceInfoImageFileloanApplicationRegister,
+                                          insuranceUrl: FFAppState()
+                                              .apiUrlInsuranceAppState,
+                                          leadDtlId: FFAppState()
+                                              .insuranceInfoLeadDetailId,
+                                          token: FFAppState().accessToken,
+                                          subProduct:
+                                              FFAppState().insuranceinfoActType,
+                                        );
+                                        _shouldSetState = true;
+                                        if ((_model.save4APIOutput
+                                                    ?.statusCode ??
+                                                200) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      'พบข้อผิดพลาด (${(_model.save4APIOutput?.statusCode ?? 200).toString()})'),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                        if (IbsApplicationsSaveCall
+                                                .statuslayer1(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) !=
+                                            200) {
+                                          await showDialog(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return WebViewAware(
+                                                child: AlertDialog(
+                                                  content: Text(
+                                                      IbsApplicationsSaveCall
+                                                          .messageLayer1(
+                                                    (_model.save4APIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!),
+                                                  actions: [
+                                                    TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              alertDialogContext),
+                                                      child: Text('Ok'),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                          if (_shouldSetState) setState(() {});
+                                          return;
+                                        }
+                                        if (IbsApplicationsSaveCall.paymenttype(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            ) ==
+                                            'ผ่อนชำระ') {
+                                          setState(() {
                                             FFAppState()
-                                                .insuranceInfoQuotationId,
-                                            ParamType.String,
-                                          ),
-                                          'leadDetailId': serializeParam(
-                                            functions.stringToInteger(
-                                                FFAppState()
-                                                    .insuranceInfoLeadDetailId),
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
-                                      );
+                                                    .insuranceInfoPage4NetPremiumTotal =
+                                                '${IbsApplicationsSaveCall.netpremiumtotal(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4GrossTotalNet =
+                                                '${IbsApplicationsSaveCall.grosstotalnet(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4ActTotal =
+                                                '${IbsApplicationsSaveCall.acttotal(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4PaymentChannel =
+                                                '${IbsApplicationsSaveCall.paymentchannel(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4PaymentType =
+                                                '${IbsApplicationsSaveCall.paymenttype(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfo4pagePaymentStatus =
+                                                '${IbsApplicationsSaveCall.paymentstatus(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfo4pageStatus =
+                                                '${IbsApplicationsSaveCall.status(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                          });
+                                          setState(() {
+                                            FFAppState()
+                                                    .InsuranceInfoPage4PaymentFirst =
+                                                IbsApplicationsSaveCall
+                                                        .paymentfirst(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .InsuranceInfoPage4InstallmentFirstDue =
+                                                IbsApplicationsSaveCall
+                                                        .installmentfirstdue(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .InsuranceInfoPage4InstallmentLastDue =
+                                                IbsApplicationsSaveCall
+                                                        .installmentlastdue(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                            FFAppState()
+                                                    .InsuranceInfoPage4Tenor =
+                                                IbsApplicationsSaveCall.tenor(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )!
+                                                    .toList()
+                                                    .cast<String>();
+                                          });
+                                        } else {
+                                          setState(() {
+                                            FFAppState()
+                                                    .insuranceInfoPage4NetPremiumTotal =
+                                                '${IbsApplicationsSaveCall.netpremiumtotal(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4GrossTotalNet =
+                                                '${IbsApplicationsSaveCall.grosstotalnet(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4ActTotal =
+                                                '${IbsApplicationsSaveCall.acttotal(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4PaymentChannel =
+                                                '${IbsApplicationsSaveCall.paymentchannel(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfoPage4PaymentType =
+                                                '${IbsApplicationsSaveCall.paymenttype(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfo4pagePaymentStatus =
+                                                '${IbsApplicationsSaveCall.paymentstatus(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                            FFAppState()
+                                                    .insuranceInfo4pageStatus =
+                                                '${IbsApplicationsSaveCall.status(
+                                              (_model.save4APIOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )}';
+                                          });
+                                        }
 
-                                      Navigator.pop(context);
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'เลือกประเภทการชำระเงินสำเร็จ'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+
+                                        context.pushNamed(
+                                          'insuranceInfoPage4_2',
+                                          queryParameters: {
+                                            'quotationId': serializeParam(
+                                              FFAppState()
+                                                  .insuranceInfoQuotationId,
+                                              ParamType.String,
+                                            ),
+                                            'leadDetailId': serializeParam(
+                                              functions.stringToInteger(
+                                                  FFAppState()
+                                                      .insuranceInfoLeadDetailId),
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+
+                                        Navigator.pop(context);
+                                      }
+
                                       if (_shouldSetState) setState(() {});
                                     },
                                     text: 'ตกลง',

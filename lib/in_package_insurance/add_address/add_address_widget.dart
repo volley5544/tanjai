@@ -9,7 +9,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -17,10 +16,10 @@ import 'add_address_model.dart';
 export 'add_address_model.dart';
 
 class AddAddressWidget extends StatefulWidget {
-  const AddAddressWidget({Key? key}) : super(key: key);
+  const AddAddressWidget({super.key});
 
   @override
-  _AddAddressWidgetState createState() => _AddAddressWidgetState();
+  State<AddAddressWidget> createState() => _AddAddressWidgetState();
 }
 
 class _AddAddressWidgetState extends State<AddAddressWidget> {
@@ -43,15 +42,16 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -64,16 +64,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'พบข้อผิดพลาด (${(_model.getAddressMaster?.statusCode ?? 200).toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.getAddressMaster?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           Navigator.pop(context);
@@ -87,18 +88,18 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content:
-                    Text('พบข้อผิดพลาด (${GetAddressMasterCall.statusLayer1(
-                  (_model.getAddressMaster?.jsonBody ?? ''),
-                ).toString().toString()})'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(GetAddressMasterCall.messageLayer1(
+                    (_model.getAddressMaster?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           Navigator.pop(context);
@@ -106,49 +107,37 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
         }
         setState(() {
           FFAppState().addAddressCallAPI = true;
-          FFAppState().addAddressProvinceId = (GetAddressMasterCall.provinceid(
+          FFAppState().addAddressProvinceId = GetAddressMasterCall.provinceid(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-              .map<String>((s) => s.toString())
-              .toList()!
+          )!
               .toList()
               .cast<String>();
           FFAppState().addAddressProvinceName =
-              (GetAddressMasterCall.provincename(
+              GetAddressMasterCall.provincename(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().addAddressDistrictName =
-              (GetAddressMasterCall.districtname(
+              GetAddressMasterCall.districtname(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().addAddressSubdistrictName =
-              (GetAddressMasterCall.subdistrictname(
+              GetAddressMasterCall.subdistrictname(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
-          FFAppState().addAddressZipCode = (GetAddressMasterCall.zipcode(
+          FFAppState().addAddressZipCode = GetAddressMasterCall.zipcode(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-              .map<String>((s) => s.toString())
-              .toList()!
+          )!
               .toList()
               .cast<String>();
-          FFAppState().addAddressKeyWord = (GetAddressMasterCall.keyword(
+          FFAppState().addAddressKeyWord = GetAddressMasterCall.keyword(
             (_model.getAddressMaster?.jsonBody ?? ''),
-          ) as List)
-              .map<String>((s) => s.toString())
-              .toList()!
+          )!
               .toList()
               .cast<String>();
           FFAppState().addAddressDistrictId = functions
@@ -200,15 +189,6 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -467,7 +447,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -574,8 +554,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
@@ -769,7 +748,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     Icons.check,
                                                     color: Colors.white,
@@ -1256,7 +1235,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1380,7 +1359,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1487,6 +1466,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                           _model.addressAtIdCardValue!;
                                       FFAppState().addAddressForDocBool =
                                           _model.addressForDocValue!;
+                                      FFAppState().addAddressForDoc =
+                                          FFAppState().addAddressAtIdCard;
                                     });
                                     context.safePop();
                                     return;
@@ -1506,16 +1487,18 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('กรุณากรอกที่อยู่ให้ครบ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('กรุณากรอกที่อยู่ให้ครบ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   return;
@@ -1531,17 +1514,18 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'กรุณากรอกที่อยู่จัดส่งเอกสาร'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณากรอกที่อยู่จัดส่งเอกสาร'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   return;

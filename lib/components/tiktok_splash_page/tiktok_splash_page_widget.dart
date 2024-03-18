@@ -4,17 +4,16 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'tiktok_splash_page_model.dart';
 export 'tiktok_splash_page_model.dart';
 
 class TiktokSplashPageWidget extends StatefulWidget {
-  const TiktokSplashPageWidget({Key? key}) : super(key: key);
+  const TiktokSplashPageWidget({super.key});
 
   @override
-  _TiktokSplashPageWidgetState createState() => _TiktokSplashPageWidgetState();
+  State<TiktokSplashPageWidget> createState() => _TiktokSplashPageWidgetState();
 }
 
 class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
@@ -63,7 +62,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 1.0,
@@ -82,8 +81,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                    padding: EdgeInsets.all(20.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -105,7 +103,7 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.50, 0.00),
+                                            AlignmentDirectional(0.5, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(

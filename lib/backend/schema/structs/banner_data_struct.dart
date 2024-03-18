@@ -28,8 +28,9 @@ class BannerDataStruct extends FFFirebaseStruct {
         pdfUrl: getDataList(data['pdf_url']),
       );
 
-  static BannerDataStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? BannerDataStruct.fromMap(data) : null;
+  static BannerDataStruct? maybeFromMap(dynamic data) => data is Map
+      ? BannerDataStruct.fromMap(data.cast<String, dynamic>())
+      : null;
 
   Map<String, dynamic> toMap() => {
         'pdf_url': _pdfUrl,

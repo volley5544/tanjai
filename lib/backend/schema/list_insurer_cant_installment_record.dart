@@ -16,13 +16,19 @@ class ListInsurerCantInstallmentRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "InsurerName" field.
-  List<String>? _insurerName;
-  List<String> get insurerName => _insurerName ?? const [];
-  bool hasInsurerName() => _insurerName != null;
+  // "InsurerFullPayment" field.
+  List<String>? _insurerFullPayment;
+  List<String> get insurerFullPayment => _insurerFullPayment ?? const [];
+  bool hasInsurerFullPayment() => _insurerFullPayment != null;
+
+  // "InsurerInstallment" field.
+  List<String>? _insurerInstallment;
+  List<String> get insurerInstallment => _insurerInstallment ?? const [];
+  bool hasInsurerInstallment() => _insurerInstallment != null;
 
   void _initializeFields() {
-    _insurerName = getDataList(snapshotData['InsurerName']);
+    _insurerFullPayment = getDataList(snapshotData['InsurerFullPayment']);
+    _insurerInstallment = getDataList(snapshotData['InsurerInstallment']);
   }
 
   static CollectionReference get collection =>
@@ -80,12 +86,14 @@ class ListInsurerCantInstallmentRecordDocumentEquality
   bool equals(ListInsurerCantInstallmentRecord? e1,
       ListInsurerCantInstallmentRecord? e2) {
     const listEquality = ListEquality();
-    return listEquality.equals(e1?.insurerName, e2?.insurerName);
+    return listEquality.equals(
+            e1?.insurerFullPayment, e2?.insurerFullPayment) &&
+        listEquality.equals(e1?.insurerInstallment, e2?.insurerInstallment);
   }
 
   @override
   int hash(ListInsurerCantInstallmentRecord? e) =>
-      const ListEquality().hash([e?.insurerName]);
+      const ListEquality().hash([e?.insurerFullPayment, e?.insurerInstallment]);
 
   @override
   bool isValidKey(Object? o) => o is ListInsurerCantInstallmentRecord;

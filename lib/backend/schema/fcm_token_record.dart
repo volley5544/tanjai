@@ -56,8 +56,8 @@ class FcmTokenRecord extends FirestoreRecord {
           ? parent.collection('fcm_token')
           : FirebaseFirestore.instance.collectionGroup('fcm_token');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('fcm_token').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('fcm_token').doc(id);
 
   static Stream<FcmTokenRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => FcmTokenRecord.fromSnapshot(s));

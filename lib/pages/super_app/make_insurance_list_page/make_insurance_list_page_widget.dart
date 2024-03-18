@@ -16,7 +16,6 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -26,15 +25,14 @@ export 'make_insurance_list_page_model.dart';
 
 class MakeInsuranceListPageWidget extends StatefulWidget {
   const MakeInsuranceListPageWidget({
-    Key? key,
+    super.key,
     this.checkTotal,
     required this.list,
     required this.checkPayment,
     String? checkVMI,
     this.fromPage,
     this.type,
-  })  : this.checkVMI = checkVMI ?? '0',
-        super(key: key);
+  }) : this.checkVMI = checkVMI ?? '0';
 
   final int? checkTotal;
   final List<dynamic>? list;
@@ -44,7 +42,7 @@ class MakeInsuranceListPageWidget extends StatefulWidget {
   final String? type;
 
   @override
-  _MakeInsuranceListPageWidgetState createState() =>
+  State<MakeInsuranceListPageWidget> createState() =>
       _MakeInsuranceListPageWidgetState();
 }
 
@@ -71,18 +69,19 @@ class _MakeInsuranceListPageWidgetState
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -90,43 +89,58 @@ class _MakeInsuranceListPageWidgetState
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      _model.adminVersionQuery = await queryAuthorizationRecordOnce(
+        queryBuilder: (authorizationRecord) => authorizationRecord.where(
+          'content_name',
+          isEqualTo: 'skip_build_version',
+        ),
+        singleRecord: true,
+      ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (_model.buildVersionQuery?.appVersion != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersion ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน Play Store ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
           return;
         }
       } else {
-        if (_model.buildVersionQuery?.appVersionIos != _model.getBuildVersion) {
+        if (!((_model.buildVersionQuery?.appVersionIos ==
+                _model.getBuildVersion) ||
+            _model.adminVersionQuery!.employeeIdList
+                .contains(FFAppState().employeeID))) {
           await showDialog(
             context: context,
             builder: (alertDialogContext) {
               return WebViewAware(
-                  child: AlertDialog(
-                content: Text(
-                    'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ));
+                child: AlertDialog(
+                  content: Text(
+                      'มีประกันทันใจเวอร์ชั่นใหม่แล้ว! กรุณาอัพเดท ประกันทันใจใน TestFlight ให้เป็นเวอร์ชั่นล่าสุด'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
             },
           );
           await actions.terminateAppAction();
@@ -155,15 +169,6 @@ class _MakeInsuranceListPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<UrlLinkStorageRecord>>(
@@ -231,7 +236,9 @@ class _MakeInsuranceListPageWidgetState
                   },
                 ),
                 title: Text(
-                  'รายการ',
+                  widget.checkVMI == '0'
+                      ? 'รายการ'
+                      : 'รายการกรมธรรม์เดือนปัจจุบัน',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
@@ -264,20 +271,23 @@ class _MakeInsuranceListPageWidgetState
                             context: context,
                             builder: (context) {
                               return WebViewAware(
-                                  child: GestureDetector(
-                                onTap: () => _model.unfocusNode.canRequestFocus
-                                    ? FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode)
-                                    : FocusScope.of(context).unfocus(),
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.7,
-                                    child: MakeInsuranceTypeColorWidget(),
+                                child: GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height *
+                                              0.7,
+                                      child: MakeInsuranceTypeColorWidget(),
+                                    ),
                                   ),
                                 ),
-                              ));
+                              );
                             },
                           ).then((value) => safeSetState(() {}));
                         },
@@ -301,18 +311,75 @@ class _MakeInsuranceListPageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 12.0, 5.0),
-                            child: Text(
-                              'ค้นหาชื่อลูกค้า',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    fontSize: 15.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 12.0, 5.0),
+                                child: Text(
+                                  'ค้นหาชื่อลูกค้า',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        fontSize: 15.0,
+                                      ),
+                                ),
+                              ),
+                              if (widget.checkPayment == '1')
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 20.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 40.0,
+                                    icon: Icon(
+                                      Icons.calendar_month_sharp,
+                                      color: Color(0xFFDB771A),
+                                      size: 30.0,
+                                    ),
+                                    onPressed: () async {
+                                      showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        isDismissible: false,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: Container(
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.7,
+                                                  child:
+                                                      MakeInsuranceTypeColorWidget(),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
                                   ),
-                            ),
+                                ),
+                            ],
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -354,8 +421,8 @@ class _MakeInsuranceListPageWidgetState
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 0.5, 8.0, 0.5),
@@ -521,7 +588,7 @@ class _MakeInsuranceListPageWidgetState
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -595,12 +662,8 @@ class _MakeInsuranceListPageWidgetState
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        20.0,
-                                                                        20.0,
-                                                                        20.0,
-                                                                        20.0),
+                                                                EdgeInsets.all(
+                                                                    20.0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -615,8 +678,8 @@ class _MakeInsuranceListPageWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          1.00,
-                                                                          0.00),
+                                                                          1.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -655,10 +718,16 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list![leadListItemIndex],
                                                                                 r'''$.image''',
-                                                                              ),
+                                                                              ).toString(),
                                                                               width: 300.0,
                                                                               height: 200.0,
                                                                               fit: BoxFit.cover,
+                                                                              errorBuilder: (context, error, stackTrace) => Image.asset(
+                                                                                'assets/images/error_image.png',
+                                                                                width: 300.0,
+                                                                                height: 200.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -722,40 +791,50 @@ class _MakeInsuranceListPageWidgetState
                                                                           ),
                                                                         ],
                                                                       ),
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'ประเภทประกัน',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            getJsonField(
-                                                                              widget.list![leadListItemIndex],
-                                                                              r'''$.cover_type_name''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                  fontWeight: FontWeight.w600,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                      if ('งานนอกเรท' ==
+                                                                      if ('CMI' !=
+                                                                          getJsonField(
+                                                                            widget.list?[leadListItemIndex],
+                                                                            r'''$.sub_product''',
+                                                                          ))
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              'ประเภทประกัน',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                            Text(
                                                                               getJsonField(
-                                                                                widget.list?[leadListItemIndex],
-                                                                                r'''$.quotation_type_name''',
-                                                                              )
+                                                                                widget.list![leadListItemIndex],
+                                                                                r'''$.cover_type_name''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      if (('งานนอกเรท' ==
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.quotation_type_name''',
+                                                                                  )) ||
+                                                                              ('CMI' ==
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.sub_product''',
+                                                                                  ))
                                                                           ? false
                                                                           : true)
                                                                         Row(
@@ -792,33 +871,80 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                           ],
                                                                         ),
-                                                                      Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        children: [
-                                                                          Text(
-                                                                            'ประเภทซ่อม',
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            getJsonField(
-                                                                              widget.list![leadListItemIndex],
-                                                                              r'''$.garage_type_name''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Noto Sans Thai',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 13.0,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
+                                                                      if ('CMI' ==
+                                                                          getJsonField(
+                                                                            widget.list?[leadListItemIndex],
+                                                                            r'''$.sub_product''',
+                                                                          ))
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              'ราคาเบี้ยอากรและภาษีรวมเงิน',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                '' !=
+                                                                                        getJsonField(
+                                                                                          widget.list?[leadListItemIndex],
+                                                                                          r'''$.act_total''',
+                                                                                        )
+                                                                                    ? functions.showNumberWithComma(getJsonField(
+                                                                                        widget.list?[leadListItemIndex],
+                                                                                        r'''$.act_total''',
+                                                                                      ).toString())
+                                                                                    : '-',
+                                                                                '-',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      if ('CMI' !=
+                                                                          getJsonField(
+                                                                            widget.list?[leadListItemIndex],
+                                                                            r'''$.sub_product''',
+                                                                          ))
+                                                                        Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              'ประเภทซ่อม',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                  ),
+                                                                            ),
+                                                                            Text(
+                                                                              getJsonField(
+                                                                                widget.list![leadListItemIndex],
+                                                                                r'''$.garage_type_name''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
                                                                       Row(
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
@@ -841,7 +967,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           Expanded(
                                                                             child:
                                                                                 Align(
-                                                                              alignment: AlignmentDirectional(1.00, 0.00),
+                                                                              alignment: AlignmentDirectional(1.0, 0.0),
                                                                               child: Text(
                                                                                 'ปฏิเสธ' !=
                                                                                         functions.checkNullValueAndReturn(getJsonField(
@@ -962,7 +1088,12 @@ class _MakeInsuranceListPageWidgetState
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.insurer_status''',
                                                                                   ).toString()))
-                                                                              : true))
+                                                                              : true) &&
+                                                                          ('CMI' !=
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.sub_product''',
+                                                                              )))
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -979,15 +1110,23 @@ class _MakeInsuranceListPageWidgetState
                                                                             ),
                                                                             FFButtonWidget(
                                                                               onPressed: () async {
+                                                                                setState(() {
+                                                                                  FFAppState().jsonTemp = widget.list![leadListItemIndex];
+                                                                                });
+
                                                                                 context.pushNamed(
                                                                                   'QuotationCopy',
                                                                                   queryParameters: {
                                                                                     'quotation': serializeParam(
-                                                                                      getJsonField(
-                                                                                        widget.list?[leadListItemIndex],
+                                                                                      (getJsonField(
+                                                                                        FFAppState().jsonTemp,
                                                                                         r'''$.pdf_quotation''',
-                                                                                      ),
-                                                                                      ParamType.JSON,
+                                                                                        true,
+                                                                                      ) as List)
+                                                                                          .map<String>((s) => s.toString())
+                                                                                          .toList(),
+                                                                                      ParamType.String,
+                                                                                      true,
                                                                                     ),
                                                                                   }.withoutNulls,
                                                                                 );
@@ -1014,6 +1153,242 @@ class _MakeInsuranceListPageWidgetState
                                                                               ),
                                                                             ),
                                                                           ],
+                                                                        ),
+                                                                      if (('อนุมัติ' ==
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.quotation_status''',
+                                                                              )) &&
+                                                                          ('CMI' !=
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.sub_product''',
+                                                                              )))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Text(
+                                                                                'กรมธรรม์',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontSize: 13.0,
+                                                                                    ),
+                                                                              ),
+                                                                              FFButtonWidget(
+                                                                                onPressed: () async {
+                                                                                  var _shouldSetState = false;
+                                                                                  _model.getFileVmiButton = await GetFileVmiApiCall.call(
+                                                                                    apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                                    token: FFAppState().accessToken,
+                                                                                    quotationId: getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_id''',
+                                                                                    ).toString(),
+                                                                                    ownerId: FFAppState().employeeID,
+                                                                                  );
+                                                                                  _shouldSetState = true;
+                                                                                  if ((_model.getFileVmiButton?.statusCode ?? 200) != 200) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmiButton?.statusCode ?? 200).toString()})'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (GetFileVmiApiCall.statusLayer1(
+                                                                                        (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                      ) !=
+                                                                                      200) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text(GetFileVmiApiCall.messageLayer1(
+                                                                                              (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                            )!),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  await launchURL('${GetFileVmiApiCall.vmiDocumentUrl(
+                                                                                    (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                  )}');
+                                                                                  if (_shouldSetState) setState(() {});
+                                                                                },
+                                                                                text: 'ดูกรมธรรม์',
+                                                                                options: FFButtonOptions(
+                                                                                  width: 115.0,
+                                                                                  height: 40.0,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  color: Color(0xFFA75194),
+                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: Colors.white,
+                                                                                        fontSize: 13.0,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                      ),
+                                                                                  elevation: 3.0,
+                                                                                  borderSide: BorderSide(
+                                                                                    color: Colors.transparent,
+                                                                                    width: 1.0,
+                                                                                  ),
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      if (('อนุมัติ' ==
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.quotation_status''',
+                                                                              )) &&
+                                                                          ('1' ==
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.flg_act''',
+                                                                              )))
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Text(
+                                                                                'พ.ร.บ',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                      fontSize: 13.0,
+                                                                                    ),
+                                                                              ),
+                                                                              FFButtonWidget(
+                                                                                onPressed: () async {
+                                                                                  var _shouldSetState = false;
+                                                                                  _model.getFileCmiOutput = await GetFileCmiApiCall.call(
+                                                                                    apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                                    token: FFAppState().accessToken,
+                                                                                    quotationId: getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_id''',
+                                                                                    ).toString(),
+                                                                                    ownerId: FFAppState().employeeID,
+                                                                                  );
+                                                                                  _shouldSetState = true;
+                                                                                  if ((_model.getFileCmiOutput?.statusCode ?? 200) != 200) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('พบข้อผิดพลาด (${(_model.getFileCmiOutput?.statusCode ?? 200).toString()})'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  if (GetFileCmiApiCall.statusLayer1(
+                                                                                        (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                      ) !=
+                                                                                      200) {
+                                                                                    await showDialog(
+                                                                                      context: context,
+                                                                                      builder: (alertDialogContext) {
+                                                                                        return WebViewAware(
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('${GetFileCmiApiCall.messageLayer1(
+                                                                                              (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                            )}'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
+                                                                                      },
+                                                                                    );
+                                                                                    if (_shouldSetState) setState(() {});
+                                                                                    return;
+                                                                                  }
+                                                                                  await launchURL(GetFileCmiApiCall.cMIdocumentUrl(
+                                                                                    (_model.getFileCmiOutput?.jsonBody ?? ''),
+                                                                                  )!);
+                                                                                  if (_shouldSetState) setState(() {});
+                                                                                },
+                                                                                text: 'ดู พ.ร.บ',
+                                                                                options: FFButtonOptions(
+                                                                                  width: 115.0,
+                                                                                  height: 40.0,
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                                                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                                                  color: Color(0xFFA3933D),
+                                                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: Colors.white,
+                                                                                        fontSize: 13.0,
+                                                                                        fontWeight: FontWeight.w500,
+                                                                                      ),
+                                                                                  elevation: 3.0,
+                                                                                  borderSide: BorderSide(
+                                                                                    color: Colors.transparent,
+                                                                                    width: 1.0,
+                                                                                  ),
+                                                                                  borderRadius: BorderRadius.circular(15.0),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
                                                                         ),
                                                                       if ('manual' ==
                                                                           getJsonField(
@@ -1050,15 +1425,16 @@ class _MakeInsuranceListPageWidgetState
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
                                                                                         return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                          content: Text('พบข้อผิดพลาดConnection (${(_model.getHistory?.statusCode ?? 200).toString()})'),
-                                                                                          actions: [
-                                                                                            TextButton(
-                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                              child: Text('Ok'),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ));
+                                                                                          child: AlertDialog(
+                                                                                            content: Text('พบข้อผิดพลาดConnection (${(_model.getHistory?.statusCode ?? 200).toString()})'),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
                                                                                       },
                                                                                     );
                                                                                     if (_shouldSetState) setState(() {});
@@ -1072,17 +1448,18 @@ class _MakeInsuranceListPageWidgetState
                                                                                       context: context,
                                                                                       builder: (alertDialogContext) {
                                                                                         return WebViewAware(
-                                                                                            child: AlertDialog(
-                                                                                          content: Text(GetNonePackageHistoryAPICall.messageLayer1(
-                                                                                            (_model.getHistory?.jsonBody ?? ''),
-                                                                                          ).toString()),
-                                                                                          actions: [
-                                                                                            TextButton(
-                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                              child: Text('Ok'),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ));
+                                                                                          child: AlertDialog(
+                                                                                            content: Text(GetNonePackageHistoryAPICall.messageLayer1(
+                                                                                              (_model.getHistory?.jsonBody ?? ''),
+                                                                                            )!),
+                                                                                            actions: [
+                                                                                              TextButton(
+                                                                                                onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                                child: Text('Ok'),
+                                                                                              ),
+                                                                                            ],
+                                                                                          ),
+                                                                                        );
                                                                                       },
                                                                                     );
                                                                                     if (_shouldSetState) setState(() {});
@@ -1095,45 +1472,30 @@ class _MakeInsuranceListPageWidgetState
                                                                                     context: context,
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
-                                                                                          child: GestureDetector(
-                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                        child: Padding(
-                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                          child: Container(
-                                                                                            height: MediaQuery.sizeOf(context).height * 0.7,
-                                                                                            child: NonePackageShowStatusComponentWidget(
-                                                                                              quotationStatusList: (GetNonePackageHistoryAPICall.quotationStatus(
-                                                                                                (_model.getHistory?.jsonBody ?? ''),
-                                                                                              ) as List)
-                                                                                                  .map<String>((s) => s.toString())
-                                                                                                  .toList()
-                                                                                                  ?.map((e) => e.toString())
-                                                                                                  .toList(),
-                                                                                              updateAtList: (GetNonePackageHistoryAPICall.updateAt(
-                                                                                                (_model.getHistory?.jsonBody ?? ''),
-                                                                                              ) as List)
-                                                                                                  .map<String>((s) => s.toString())
-                                                                                                  .toList()
-                                                                                                  ?.map((e) => e.toString())
-                                                                                                  .toList(),
-                                                                                              updaterList: (GetNonePackageHistoryAPICall.updaterName(
-                                                                                                (_model.getHistory?.jsonBody ?? ''),
-                                                                                              ) as List)
-                                                                                                  .map<String>((s) => s.toString())
-                                                                                                  .toList()
-                                                                                                  ?.map((e) => e.toString())
-                                                                                                  .toList(),
-                                                                                              reasonNameList: (GetNonePackageHistoryAPICall.reasonName(
-                                                                                                (_model.getHistory?.jsonBody ?? ''),
-                                                                                              ) as List)
-                                                                                                  .map<String>((s) => s.toString())
-                                                                                                  .toList()
-                                                                                                  ?.map((e) => e.toString())
-                                                                                                  .toList(),
+                                                                                        child: GestureDetector(
+                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: Container(
+                                                                                              height: MediaQuery.sizeOf(context).height * 0.7,
+                                                                                              child: NonePackageShowStatusComponentWidget(
+                                                                                                quotationStatusList: GetNonePackageHistoryAPICall.quotationStatus(
+                                                                                                  (_model.getHistory?.jsonBody ?? ''),
+                                                                                                )?.map((e) => e.toString()).toList(),
+                                                                                                updateAtList: GetNonePackageHistoryAPICall.updateAt(
+                                                                                                  (_model.getHistory?.jsonBody ?? ''),
+                                                                                                )?.map((e) => e.toString()).toList(),
+                                                                                                updaterList: GetNonePackageHistoryAPICall.updaterName(
+                                                                                                  (_model.getHistory?.jsonBody ?? ''),
+                                                                                                )?.map((e) => e.toString()).toList(),
+                                                                                                reasonNameList: GetNonePackageHistoryAPICall.reasonName(
+                                                                                                  (_model.getHistory?.jsonBody ?? ''),
+                                                                                                )?.map((e) => e.toString()).toList(),
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
-                                                                                      ));
+                                                                                      );
                                                                                     },
                                                                                   ).then((value) => safeSetState(() {}));
 
@@ -1197,18 +1559,19 @@ class _MakeInsuranceListPageWidgetState
                                                                                     context: context,
                                                                                     builder: (alertDialogContext) {
                                                                                       return WebViewAware(
-                                                                                          child: AlertDialog(
-                                                                                        content: Text(functions.checkNullValueAndReturn(getJsonField(
-                                                                                          widget.list?[leadListItemIndex],
-                                                                                          r'''$.insurer_remark''',
-                                                                                        ).toString())),
-                                                                                        actions: [
-                                                                                          TextButton(
-                                                                                            onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                            child: Text('Ok'),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ));
+                                                                                        child: AlertDialog(
+                                                                                          content: Text(functions.checkNullValueAndReturn(getJsonField(
+                                                                                            widget.list?[leadListItemIndex],
+                                                                                            r'''$.insurer_remark''',
+                                                                                          ).toString())),
+                                                                                          actions: [
+                                                                                            TextButton(
+                                                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                              child: Text('Ok'),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      );
                                                                                     },
                                                                                   );
                                                                                 },
@@ -1261,77 +1624,124 @@ class _MakeInsuranceListPageWidgetState
                                                                   CrossAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        'ราคาเบี้ย (ไม่รวม พรบ.)',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Noto Sans Thai',
-                                                                              fontSize: 13.0,
-                                                                            ),
-                                                                      ),
-                                                                      Text(
-                                                                        '' !=
-                                                                                getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                if ('CMI' !=
+                                                                    getJsonField(
+                                                                      widget.list?[
+                                                                          leadListItemIndex],
+                                                                      r'''$.sub_product''',
+                                                                    ))
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Text(
+                                                                          'ราคาเบี้ย (ไม่รวม พรบ.)',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                fontSize: 13.0,
+                                                                              ),
+                                                                        ),
+                                                                        Text(
+                                                                          '' !=
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.net_premium_total''',
+                                                                                  )
+                                                                              ? getJsonField(
+                                                                                  widget.list![leadListItemIndex],
                                                                                   r'''$.net_premium_total''',
-                                                                                )
-                                                                            ? getJsonField(
-                                                                                widget.list![leadListItemIndex],
-                                                                                r'''$.net_premium_total''',
-                                                                              ).toString()
-                                                                            : '-',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Noto Sans Thai',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              fontSize: 13.0,
-                                                                              fontWeight: FontWeight.w600,
-                                                                            ),
-                                                                      ),
-                                                                    ],
+                                                                                ).toString()
+                                                                              : '-',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Noto Sans Thai',
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                fontSize: 13.0,
+                                                                                fontWeight: FontWeight.w600,
+                                                                              ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                                if ((widget.checkPayment !=
-                                                                            'cancle') &&
-                                                                        ('ส่งเรื่องขอใบเสนอราคา' !=
-                                                                                getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
-                                                                                  r'''$.quotation_status''',
-                                                                                )
-                                                                            ? true
-                                                                            : ('' !=
-                                                                                getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
-                                                                                  r'''$.pdf_quotation''',
-                                                                                ))) &&
-                                                                        ('manual' ==
-                                                                                getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
-                                                                                  r'''$.quotation_type''',
-                                                                                )
-                                                                            ? ('ปฏิเสธ' !=
-                                                                                functions.checkNullValueAndReturn(getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
-                                                                                  r'''$.insurer_status''',
-                                                                                ).toString()))
-                                                                            : true)
+                                                                if ('CMI' ==
+                                                                    getJsonField(
+                                                                      widget.list?[
+                                                                          leadListItemIndex],
+                                                                      r'''$.sub_product''',
+                                                                    ))
+                                                                  Container(
+                                                                    width:
+                                                                        100.0,
+                                                                    height:
+                                                                        40.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                  ),
+                                                                if (((widget.checkPayment !=
+                                                                                'cancle') &&
+                                                                            ('ส่งเรื่องขอใบเสนอราคา' !=
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_status''',
+                                                                                    )
+                                                                                ? (('' !=
+                                                                                        getJsonField(
+                                                                                          widget.list?[leadListItemIndex],
+                                                                                          r'''$.pdf_quotation''',
+                                                                                        )) &&
+                                                                                    (functions.checkNullValueAndReturn(getJsonField(
+                                                                                          widget.list?[leadListItemIndex],
+                                                                                          r'''$.pdf_quotation''',
+                                                                                        ).toString()) !=
+                                                                                        '-'))
+                                                                                : (('' !=
+                                                                                        getJsonField(
+                                                                                          widget.list?[leadListItemIndex],
+                                                                                          r'''$.pdf_quotation''',
+                                                                                        )) &&
+                                                                                    (functions.checkNullValueAndReturn(getJsonField(
+                                                                                          widget.list?[leadListItemIndex],
+                                                                                          r'''$.pdf_quotation''',
+                                                                                        ).toString()) !=
+                                                                                        '-'))) &&
+                                                                            ('manual' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_type''',
+                                                                                    )
+                                                                                ? ('ปฏิเสธ' !=
+                                                                                    functions.checkNullValueAndReturn(getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.insurer_status''',
+                                                                                    ).toString()))
+                                                                                : true) &&
+                                                                            ('1' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.is_active''',
+                                                                                    )
+                                                                                ? true
+                                                                                : false)) ||
+                                                                        ('CMI' ==
+                                                                            getJsonField(
+                                                                              widget.list?[leadListItemIndex],
+                                                                              r'''$.sub_product''',
+                                                                            ))
                                                                     ? true
                                                                     : false)
                                                                   FFButtonWidget(
@@ -1340,80 +1750,7 @@ class _MakeInsuranceListPageWidgetState
                                                                       var _shouldSetState =
                                                                           false;
                                                                       if (columnHideInAppContentRecord!
-                                                                          .isShowContent) {
-                                                                        _model.getServerDateTime =
-                                                                            await GetDateTimeAPICall.call(
-                                                                          apiUrl:
-                                                                              FFAppState().apiURLLocalState,
-                                                                          token:
-                                                                              FFAppState().accessToken,
-                                                                        );
-                                                                        _shouldSetState =
-                                                                            true;
-                                                                        if (((_model.getServerDateTime?.statusCode ?? 200) ==
-                                                                                200) &&
-                                                                            (GetDateTimeAPICall.statusLayer1(
-                                                                                  (_model.getServerDateTime?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200)) {
-                                                                          if (functions
-                                                                              .checkWeekendDate(GetDateTimeAPICall.currentDateYMD(
-                                                                            (_model.getServerDateTime?.jsonBody ??
-                                                                                ''),
-                                                                          ).toString())!) {
-                                                                            if (('${getJsonField(
-                                                                                      widget.list?[leadListItemIndex],
-                                                                                      r'''$.cover_type_name''',
-                                                                                    ).toString()}' ==
-                                                                                    'ชั้น 1') ||
-                                                                                functions.containWordinStringUrl(
-                                                                                    'นอกเรท',
-                                                                                    getJsonField(
-                                                                                      widget.list?[leadListItemIndex],
-                                                                                      r'''$.quotation_type_name''',
-                                                                                    ).toString())!) {
-                                                                              await showDialog(
-                                                                                context: context,
-                                                                                builder: (alertDialogContext) {
-                                                                                  return WebViewAware(
-                                                                                      child: AlertDialog(
-                                                                                    content: Text('วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ));
-                                                                                },
-                                                                              );
-                                                                              if (_shouldSetState)
-                                                                                setState(() {});
-                                                                              return;
-                                                                            }
-                                                                          }
-                                                                        } else {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                content: Text('พบข้อผิดพลาด (${(_model.getServerDateTime?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                                                  (_model.getServerDateTime?.jsonBody ?? ''),
-                                                                                ).toString()})get date'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
-                                                                            },
-                                                                          );
-                                                                        }
-                                                                      }
+                                                                          .isShowContent) {}
                                                                       setState(
                                                                           () {
                                                                         FFAppState().nonePackageFlagCarrier =
@@ -1867,11 +2204,75 @@ class _MakeInsuranceListPageWidgetState
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.VMI_documentUrl''',
                                                                             )) {
+                                                                          _model.getFileVmi =
+                                                                              await GetFileVmiApiCall.call(
+                                                                            apiUrl:
+                                                                                FFAppState().apiUrlInsuranceAppState,
+                                                                            token:
+                                                                                FFAppState().accessToken,
+                                                                            quotationId:
+                                                                                getJsonField(
+                                                                              widget.list?[leadListItemIndex],
+                                                                              r'''$.quotation_id''',
+                                                                            ).toString(),
+                                                                            ownerId:
+                                                                                FFAppState().employeeID,
+                                                                          );
+                                                                          _shouldSetState =
+                                                                              true;
+                                                                          if ((_model.getFileVmi?.statusCode ?? 200) !=
+                                                                              200) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
+                                                                          if (GetFileVmiApiCall.statusLayer1(
+                                                                                (_model.getFileVmi?.jsonBody ?? ''),
+                                                                              ) !=
+                                                                              200) {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text(GetFileVmiApiCall.messageLayer1(
+                                                                                      (_model.getFileVmi?.jsonBody ?? ''),
+                                                                                    )!),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
                                                                           await launchURL(
-                                                                              getJsonField(
-                                                                            widget.list![leadListItemIndex],
-                                                                            r'''$.VMI_documentUrl''',
-                                                                          ).toString());
+                                                                              GetFileVmiApiCall.vmiDocumentUrl(
+                                                                            (_model.getFileVmi?.jsonBody ??
+                                                                                ''),
+                                                                          )!);
                                                                           if (_shouldSetState)
                                                                             setState(() {});
                                                                           return;
@@ -1882,16 +2283,17 @@ class _MakeInsuranceListPageWidgetState
                                                                             builder:
                                                                                 (alertDialogContext) {
                                                                               return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                title: Text('ไม่พบไฟล์ในระบบ'),
-                                                                                content: Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
-                                                                                actions: [
-                                                                                  TextButton(
-                                                                                    onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                    child: Text('Ok'),
-                                                                                  ),
-                                                                                ],
-                                                                              ));
+                                                                                child: AlertDialog(
+                                                                                  title: Text('ไม่พบไฟล์ในระบบ'),
+                                                                                  content: Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
+                                                                                  actions: [
+                                                                                    TextButton(
+                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                      child: Text('Ok'),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                           if (_shouldSetState)
@@ -1972,7 +2374,7 @@ class _MakeInsuranceListPageWidgetState
                               if (widget.checkTotal == 0 ? true : false)
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 20.0),
@@ -1993,7 +2395,7 @@ class _MakeInsuranceListPageWidgetState
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'ไม่พบข้อมูลในระบบ',
                                             style: FlutterFlowTheme.of(context)

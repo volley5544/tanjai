@@ -7,7 +7,6 @@ import '/flutter_flow/upload_data.dart';
 import 'none_package_basic_image2_page_widget.dart'
     show NonePackageBasicImage2PageWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -52,10 +51,21 @@ class NonePackageBasicImage2PageModel
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl7 = '';
 
+  // State field(s) for privacy_consent_1 widget.
+  bool? privacyConsent1Value;
+  // State field(s) for privacy_consent_2 widget.
+  bool? privacyConsent2Value;
+  // State field(s) for privacy_consent_3 widget.
+  bool? privacyConsent3Value;
+  // State field(s) for privacy_consent widget.
+  bool? privacyConsentValue;
+
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

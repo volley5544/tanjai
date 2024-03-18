@@ -6,7 +6,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,10 +14,10 @@ import 'homepage_request22_model.dart';
 export 'homepage_request22_model.dart';
 
 class HomepageRequest22Widget extends StatefulWidget {
-  const HomepageRequest22Widget({Key? key}) : super(key: key);
+  const HomepageRequest22Widget({super.key});
 
   @override
-  _HomepageRequest22WidgetState createState() =>
+  State<HomepageRequest22Widget> createState() =>
       _HomepageRequest22WidgetState();
 }
 
@@ -46,15 +45,6 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -290,7 +280,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Icon(
                                                       Icons.check,
                                                       color: Colors.white,
@@ -504,7 +494,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Icon(
                                                       Icons.check,
                                                       color: Colors.white,
@@ -620,7 +610,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(-1.00, 0.00),
+                                              AlignmentDirectional(-1.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -895,7 +885,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                             ),
                           Flexible(
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 1.00),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 40.0),
@@ -907,17 +897,19 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกราคารวมหรือไม่รวม พ.ร.บ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'กรุณาเลือกราคารวมหรือไม่รวม พ.ร.บ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       return;
@@ -933,17 +925,19 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'บังคับเลือกวันคุ้มครอง พ.ร.บ'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  'บังคับเลือกวันคุ้มครอง พ.ร.บ'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       return;

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
@@ -14,10 +13,10 @@ import 'login_screen1_model.dart';
 export 'login_screen1_model.dart';
 
 class LoginScreen1Widget extends StatefulWidget {
-  const LoginScreen1Widget({Key? key}) : super(key: key);
+  const LoginScreen1Widget({super.key});
 
   @override
-  _LoginScreen1WidgetState createState() => _LoginScreen1WidgetState();
+  State<LoginScreen1Widget> createState() => _LoginScreen1WidgetState();
 }
 
 class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
@@ -65,17 +64,6 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -614,7 +602,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -759,7 +747,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -910,7 +898,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1056,7 +1044,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1136,7 +1124,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                 Expanded(
                   flex: 1,
                   child: Align(
-                    alignment: AlignmentDirectional(0.00, 0.75),
+                    alignment: AlignmentDirectional(0.0, 0.75),
                     child: Container(
                       width: double.infinity,
                       height: 100.0,
@@ -1176,16 +1164,18 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('กรุณากรอกข้อมูลให้ครบ'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content:
+                                              Text('กรุณากรอกข้อมูลให้ครบ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -1197,16 +1187,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('password ไม่ถูกต้อง'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text('password ไม่ถูกต้อง'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -1223,26 +1214,9 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content:
-                                          Text(_model.createFirebaseOutput!),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
-                                  },
-                                );
-                                if (_model.createFirebaseOutput != 'Create') {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text('email ถูกใช้แล้ว'),
+                                      child: AlertDialog(
+                                        content:
+                                            Text(_model.createFirebaseOutput!),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
@@ -1250,7 +1224,26 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                             child: Text('Ok'),
                                           ),
                                         ],
-                                      ));
+                                      ),
+                                    );
+                                  },
+                                );
+                                if (_model.createFirebaseOutput != 'Create') {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text('email ถูกใช้แล้ว'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -1260,16 +1253,17 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
-                                        child: AlertDialog(
-                                      content: Text('สมัครสมาชิกสำเร็จ'),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () =>
-                                              Navigator.pop(alertDialogContext),
-                                          child: Text('Ok'),
-                                        ),
-                                      ],
-                                    ));
+                                      child: AlertDialog(
+                                        content: Text('สมัครสมาชิกสำเร็จ'),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () => Navigator.pop(
+                                                alertDialogContext),
+                                            child: Text('Ok'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
                                   },
                                 );
 

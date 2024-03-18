@@ -17,7 +17,6 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,19 +31,27 @@ class MakeInsuranceListPageModel
   String? getBuildVersion;
   // Stores action output result for [Firestore Query - Query a collection] action in MakeInsuranceListPage widget.
   BuildVersionRecord? buildVersionQuery;
+  // Stores action output result for [Firestore Query - Query a collection] action in MakeInsuranceListPage widget.
+  AuthorizationRecord? adminVersionQuery;
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode;
   TextEditingController? searchFirstnameController;
   String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
+  // Stores action output result for [Backend Call - API (getFileVmiApi)] action in Button widget.
+  ApiCallResponse? getFileVmiButton;
+  // Stores action output result for [Backend Call - API (getFileCmiApi )] action in Button widget.
+  ApiCallResponse? getFileCmiOutput;
   // Stores action output result for [Backend Call - API (getNonePackageHistoryAPI)] action in Button widget.
   ApiCallResponse? getHistory;
-  // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
-  ApiCallResponse? getServerDateTime;
+  // Stores action output result for [Backend Call - API (getFileVmiApi)] action in Button widget.
+  ApiCallResponse? getFileVmi;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();

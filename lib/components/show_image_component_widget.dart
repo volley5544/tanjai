@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'show_image_component_model.dart';
@@ -9,14 +8,14 @@ export 'show_image_component_model.dart';
 
 class ShowImageComponentWidget extends StatefulWidget {
   const ShowImageComponentWidget({
-    Key? key,
+    super.key,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   final String? imageUrl;
 
   @override
-  _ShowImageComponentWidgetState createState() =>
+  State<ShowImageComponentWidget> createState() =>
       _ShowImageComponentWidgetState();
 }
 
@@ -46,8 +45,6 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.start,

@@ -4,7 +4,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'none_package_show_status_component_model.dart';
@@ -12,12 +11,12 @@ export 'none_package_show_status_component_model.dart';
 
 class NonePackageShowStatusComponentWidget extends StatefulWidget {
   const NonePackageShowStatusComponentWidget({
-    Key? key,
+    super.key,
     this.quotationStatusList,
     this.updateAtList,
     this.updaterList,
     this.reasonNameList,
-  }) : super(key: key);
+  });
 
   final List<String>? quotationStatusList;
   final List<String>? updateAtList;
@@ -25,7 +24,7 @@ class NonePackageShowStatusComponentWidget extends StatefulWidget {
   final List<String>? reasonNameList;
 
   @override
-  _NonePackageShowStatusComponentWidgetState createState() =>
+  State<NonePackageShowStatusComponentWidget> createState() =>
       _NonePackageShowStatusComponentWidgetState();
 }
 
@@ -57,8 +56,6 @@ class _NonePackageShowStatusComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,

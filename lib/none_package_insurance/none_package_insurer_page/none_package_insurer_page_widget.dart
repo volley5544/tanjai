@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +8,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -15,10 +15,15 @@ import 'none_package_insurer_page_model.dart';
 export 'none_package_insurer_page_model.dart';
 
 class NonePackageInsurerPageWidget extends StatefulWidget {
-  const NonePackageInsurerPageWidget({Key? key}) : super(key: key);
+  const NonePackageInsurerPageWidget({
+    super.key,
+    required this.workType,
+  });
+
+  final String? workType;
 
   @override
-  _NonePackageInsurerPageWidgetState createState() =>
+  State<NonePackageInsurerPageWidget> createState() =>
       _NonePackageInsurerPageWidgetState();
 }
 
@@ -44,18 +49,19 @@ class _NonePackageInsurerPageWidgetState
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: Container(
-                height: double.infinity,
-                child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
               ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
@@ -67,16 +73,17 @@ class _NonePackageInsurerPageWidgetState
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาดConnection (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(
+                    'พบข้อผิดพลาดConnection (${(_model.getInsurer?.statusCode ?? 200).toString()})'),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -87,43 +94,33 @@ class _NonePackageInsurerPageWidgetState
           200) {
         setState(() {
           FFAppState().nonePackageInsurerIdList =
-              (InsuranceRequestGetInsurerAPICall.companyId(
+              InsuranceRequestGetInsurerAPICall.companyId(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().nonePackageInsurerCodeList =
-              (InsuranceRequestGetInsurerAPICall.companyCode(
+              InsuranceRequestGetInsurerAPICall.companyCode(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().nonePackageInsurerShortNameList =
-              (InsuranceRequestGetInsurerAPICall.companyShortName(
+              InsuranceRequestGetInsurerAPICall.companyShortName(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().nonePackageInsurerNameList =
-              (InsuranceRequestGetInsurerAPICall.companyFullName(
+              InsuranceRequestGetInsurerAPICall.companyFullName(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
           FFAppState().nonePackageInsurerDisplayName =
-              (InsuranceRequestGetInsurerAPICall.companyListName(
+              InsuranceRequestGetInsurerAPICall.companyListName(
             (_model.getInsurer?.jsonBody ?? ''),
-          ) as List)
-                  .map<String>((s) => s.toString())
-                  .toList()!
+          )!
                   .toList()
                   .cast<String>();
         });
@@ -132,18 +129,18 @@ class _NonePackageInsurerPageWidgetState
           context: context,
           builder: (alertDialogContext) {
             return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${InsuranceRequestGetInsurerAPICall.statusLayer1(
-                (_model.getInsurer?.jsonBody ?? ''),
-              ).toString().toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
+              child: AlertDialog(
+                content: Text(InsuranceRequestGetInsurerAPICall.messageLayer1(
+                  (_model.getInsurer?.jsonBody ?? ''),
+                )!),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(alertDialogContext),
+                    child: Text('Ok'),
+                  ),
+                ],
+              ),
+            );
           },
         );
         return;
@@ -185,15 +182,6 @@ class _NonePackageInsurerPageWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -223,7 +211,15 @@ class _NonePackageInsurerPageWidgetState
               ),
             ),
             title: Text(
-              FFAppState().nonePackageFlagRenew ? 'งานต่ออายุ' : 'งานนอกเรท',
+              () {
+                if (widget.workType == 'transfer') {
+                  return 'งานโอนโค้ด';
+                } else if (FFAppState().nonePackageFlagRenew) {
+                  return 'งานต่ออายุ';
+                } else {
+                  return 'งานนอกเรท';
+                }
+              }(),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
@@ -358,239 +354,328 @@ class _NonePackageInsurerPageWidgetState
                             ),
                           ),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(),
-                            child: Visibility(
-                              visible:
-                                  ((_model.getInsurer?.statusCode ?? 200) ==
+                          child: FutureBuilder<List<InsurerConfigRecord>>(
+                            future: queryInsurerConfigRecordOnce(
+                              queryBuilder: (insurerConfigRecord) =>
+                                  insurerConfigRecord.where(
+                                'config_name',
+                                isEqualTo: 'inactive_insurer',
+                              ),
+                              singleRecord: true,
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<InsurerConfigRecord>
+                                  containerInsurerConfigRecordList =
+                                  snapshot.data!;
+                              final containerInsurerConfigRecord =
+                                  containerInsurerConfigRecordList.isNotEmpty
+                                      ? containerInsurerConfigRecordList.first
+                                      : null;
+                              return Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(),
+                                child: Visibility(
+                                  visible: ((_model.getInsurer?.statusCode ??
+                                              200) ==
                                           200) &&
                                       (InsuranceRequestGetInsurerAPICall
                                               .statusLayer1(
                                             (_model.getInsurer?.jsonBody ?? ''),
                                           ) ==
                                           200),
-                              child: Builder(
-                                builder: (context) {
-                                  final dataList = FFAppState()
-                                      .nonePackageInsurerNameList
-                                      .toList();
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: dataList.length,
-                                    itemBuilder: (context, dataListIndex) {
-                                      final dataListItem =
-                                          dataList[dataListIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    if (FFAppState()
-                                                        .nonePackageFlagRenew) {
-                                                      setState(() {
-                                                        FFAppState().nonePackageInsurerSelectedList = functions
-                                                            .setBoolValueListAtIndex(
-                                                                functions
-                                                                    .createFalseListByItemNumber(
-                                                                        false,
-                                                                        FFAppState()
-                                                                            .nonePackageInsurerNameList
-                                                                            .length)
-                                                                    ?.toList(),
-                                                                dataListIndex)!
-                                                            .toList()
-                                                            .cast<bool>();
-                                                      });
-                                                    } else {
-                                                      if (functions.countTrueInBoolList(
-                                                              FFAppState()
-                                                                  .nonePackageInsurerSelectedList
-                                                                  .toList())! >=
-                                                          3) {
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .updateNonePackageInsurerSelectedListAtIndex(
-                                                            dataListIndex,
-                                                            (_) => false,
-                                                          );
-                                                        });
-                                                      } else {
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .updateNonePackageInsurerSelectedListAtIndex(
-                                                            dataListIndex,
-                                                            (_) => FFAppState()
-                                                                            .nonePackageInsurerSelectedList[
-                                                                        dataListIndex] ==
-                                                                    true
-                                                                ? false
-                                                                : true,
-                                                          );
-                                                        });
-                                                      }
-                                                    }
-                                                  },
+                                  child:
+                                      FutureBuilder<List<InsurerConfigRecord>>(
+                                    future: queryInsurerConfigRecordOnce(
+                                      queryBuilder: (insurerConfigRecord) =>
+                                          insurerConfigRecord.where(
+                                        'config_name',
+                                        isEqualTo: 'supercar_insurer',
+                                      ),
+                                      singleRecord: true,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<InsurerConfigRecord>
+                                          listViewInsurerConfigRecordList =
+                                          snapshot.data!;
+                                      final listViewInsurerConfigRecord =
+                                          listViewInsurerConfigRecordList
+                                                  .isNotEmpty
+                                              ? listViewInsurerConfigRecordList
+                                                  .first
+                                              : null;
+                                      return Builder(
+                                        builder: (context) {
+                                          final dataList = FFAppState()
+                                              .nonePackageInsurerNameList
+                                              .toList();
+                                          return ListView.builder(
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.vertical,
+                                            itemCount: dataList.length,
+                                            itemBuilder:
+                                                (context, dataListIndex) {
+                                              final dataListItem =
+                                                  dataList[dataListIndex];
+                                              return Visibility(
+                                                visible: (FFAppState()
+                                                                .nonePackageVehicleType ==
+                                                            'รถซุปเปอร์คาร์'
+                                                        ? listViewInsurerConfigRecord
+                                                            ?.insurerShortNameList
+                                                            ?.contains(FFAppState()
+                                                                    .nonePackageInsurerShortNameList[
+                                                                dataListIndex])
+                                                        : !containerInsurerConfigRecord!
+                                                            .insurerShortNameList
+                                                            .contains(FFAppState()
+                                                                    .nonePackageInsurerShortNameList[
+                                                                dataListIndex])) ??
+                                                    true,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 10.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
                                                         1.0,
-                                                    height: 60.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFFB3B3B3),
-                                                      ),
-                                                    ),
-                                                    child: Row(
+                                                    decoration: BoxDecoration(),
+                                                    child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFAppState()
-                                                                    .nonePackageInsurerDisplayName[
-                                                                dataListIndex],
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Color(
-                                                                      0xFFB3B3B3),
-                                                                  fontSize:
-                                                                      15.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
+                                                        InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (FFAppState()
+                                                                .nonePackageFlagRenew) {
+                                                              setState(() {
+                                                                FFAppState().nonePackageInsurerSelectedList = functions
+                                                                    .setBoolValueListAtIndex(
+                                                                        functions
+                                                                            .createFalseListByItemNumber(false,
+                                                                                FFAppState().nonePackageInsurerNameList.length)
+                                                                            ?.toList(),
+                                                                        dataListIndex)!
+                                                                    .toList()
+                                                                    .cast<bool>();
+                                                              });
+                                                            } else {
+                                                              if (functions.countTrueInBoolList(
+                                                                      FFAppState()
+                                                                          .nonePackageInsurerSelectedList
+                                                                          .toList())! >=
+                                                                  3) {
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                      .updateNonePackageInsurerSelectedListAtIndex(
+                                                                    dataListIndex,
+                                                                    (_) =>
+                                                                        false,
+                                                                  );
+                                                                });
+                                                              } else {
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                      .updateNonePackageInsurerSelectedListAtIndex(
+                                                                    dataListIndex,
+                                                                    (_) => FFAppState().nonePackageInsurerSelectedList[dataListIndex] ==
+                                                                            true
+                                                                        ? false
+                                                                        : true,
+                                                                  );
+                                                                });
+                                                              }
+                                                            }
+                                                          },
+                                                          child: Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                1.0,
+                                                            height: 60.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              border:
+                                                                  Border.all(
+                                                                color: Color(
+                                                                    0xFFB3B3B3),
+                                                              ),
+                                                            ),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFAppState()
+                                                                            .nonePackageInsurerDisplayName[
+                                                                        dataListIndex],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFFB3B3B3),
+                                                                          fontSize:
+                                                                              15.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ),
                                                                 ),
+                                                                if (!FFAppState()
+                                                                        .nonePackageInsurerSelectedList[
+                                                                    dataListIndex])
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          25.0,
+                                                                      height:
+                                                                          25.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                        border:
+                                                                            Border.all(
+                                                                          color:
+                                                                              Color(0xFF9F9F9F),
+                                                                          width:
+                                                                              1.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                if (FFAppState()
+                                                                        .nonePackageInsurerSelectedList[
+                                                                    dataListIndex])
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            10.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          25.0,
+                                                                      height:
+                                                                          25.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .success,
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .check,
+                                                                          color:
+                                                                              Colors.white,
+                                                                          size:
+                                                                              18.0,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                              ],
+                                                            ),
                                                           ),
                                                         ),
-                                                        if (!FFAppState()
-                                                                .nonePackageInsurerSelectedList[
-                                                            dataListIndex])
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        10.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: 25.0,
-                                                              height: 25.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: Color(
-                                                                      0xFF9F9F9F),
-                                                                  width: 1.0,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        if (FFAppState()
-                                                                .nonePackageInsurerSelectedList[
-                                                            dataListIndex])
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        10.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: 25.0,
-                                                              height: 25.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .success,
-                                                                shape: BoxShape
-                                                                    .circle,
-                                                              ),
-                                                              child: Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
-                                                                child: Icon(
-                                                                  Icons.check,
-                                                                  color: Colors
-                                                                      .white,
-                                                                  size: 18.0,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
                                                       ],
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                              );
+                                            },
+                                          );
+                                        },
                                       );
                                     },
-                                  );
-                                },
-                              ),
-                            ),
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
-                      ]
-                          .divide(SizedBox(height: 12.0))
-                          .addToEnd(SizedBox(height: 24.0)),
+                      ].addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
                   Expanded(
@@ -619,17 +704,18 @@ class _NonePackageInsurerPageWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            'กรุณาเลือกบริษัทประกันอย่างน้อย 1 บริษัท'),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'กรุณาเลือกบริษัทประกันอย่างน้อย 1 บริษัท'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                   if (_shouldSetState) setState(() {});
@@ -900,6 +986,23 @@ class _NonePackageInsurerPageWidgetState
                                         : FFAppState().nonePackageBranchName,
                                     ownerId: FFAppState().employeeID,
                                     ownerName: FFAppState().profileFullName,
+                                    carTypeDetail: FFAppState()
+                                        .nonepackagevehicletypeDetail,
+                                    imageBluebook: FFAppState()
+                                        .nonePackageImageBlueBookUploaded,
+                                    oldVMIFlg: widget.workType == 'transfer'
+                                        ? '1'
+                                        : '0',
+                                    imageOther1:
+                                        FFAppState().nonePackageImageOther1,
+                                    imageOther2:
+                                        FFAppState().nonePackageImageOther2,
+                                    imageOther3:
+                                        FFAppState().nonePackageImageOther3,
+                                    imageOther4:
+                                        FFAppState().nonePackageImageOther4,
+                                    imageOther5:
+                                        FFAppState().nonePackageImageOther5,
                                   );
                                   _shouldSetState = true;
                                   if ((_model.sendRenewApi?.statusCode ??
@@ -909,17 +1012,18 @@ class _NonePackageInsurerPageWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'พบข้อผิดพลาดConnection (${(_model.sendRenewApi?.statusCode ?? 200).toString()})'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาดConnection (${(_model.sendRenewApi?.statusCode ?? 200).toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -939,20 +1043,24 @@ class _NonePackageInsurerPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด (${InsuranceRequestSendEmailAPICall.statusLayer2(
-                                              (_model.sendRenewApi?.jsonBody ??
-                                                  ''),
-                                            ).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  InsuranceRequestSendEmailAPICall
+                                                      .messageLayer2(
+                                                (_model.sendRenewApi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -1252,20 +1360,22 @@ class _NonePackageInsurerPageWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            InsuranceRequestSendEmailAPICall
-                                                .messageLayer2(
-                                          (_model.sendRenewApi?.jsonBody ?? ''),
-                                        ).toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              InsuranceRequestSendEmailAPICall
+                                                  .messageLayer2(
+                                            (_model.sendRenewApi?.jsonBody ??
+                                                ''),
+                                          )!),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                 } else {
@@ -1463,7 +1573,8 @@ class _NonePackageInsurerPageWidgetState
                                             FFAppState()
                                                 .nonePackageInsurerNameOutputList
                                                 .length),
-                                    oldVMIExpriedDate: '',
+                                    oldVMIExpriedDate:
+                                        FFAppState().nonePackageOldVmiExpDate,
                                     reason: () {
                                       if (functions.getIndexOfBoolList(
                                               FFAppState()
@@ -1538,6 +1649,11 @@ class _NonePackageInsurerPageWidgetState
                                         : FFAppState().nonePackageBranchName,
                                     ownerId: FFAppState().employeeID,
                                     ownerName: FFAppState().profileFullName,
+                                    carTypeDetail: FFAppState()
+                                        .nonepackagevehicletypeDetail,
+                                    oldVMIFlg: widget.workType == 'transfer'
+                                        ? '1'
+                                        : '0',
                                   );
                                   _shouldSetState = true;
                                   if ((_model.sendNonePackageApi?.statusCode ??
@@ -1547,17 +1663,18 @@ class _NonePackageInsurerPageWidgetState
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content: Text(
-                                              'พบข้อผิดพลาดConnection (${(_model.sendNonePackageApi?.statusCode ?? 200).toString()})'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'พบข้อผิดพลาดConnection (${(_model.sendNonePackageApi?.statusCode ?? 200).toString()})'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     if (_shouldSetState) setState(() {});
@@ -1887,21 +2004,24 @@ class _NonePackageInsurerPageWidgetState
                                         context: context,
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
-                                              child: AlertDialog(
-                                            content: Text(
-                                                'พบข้อผิดพลาด (${InsuranceRequestSendEmailAPICall.statusLayer2(
-                                              (_model.sendNonePackageApi
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            ).toString()})'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ));
+                                            child: AlertDialog(
+                                              content: Text(
+                                                  InsuranceRequestSendEmailAPICall
+                                                      .messageLayer2(
+                                                (_model.sendNonePackageApi
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )!),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext),
+                                                  child: Text('Ok'),
+                                                ),
+                                              ],
+                                            ),
+                                          );
                                         },
                                       );
                                       if (_shouldSetState) setState(() {});
@@ -1915,22 +2035,23 @@ class _NonePackageInsurerPageWidgetState
                                     context: context,
                                     builder: (alertDialogContext) {
                                       return WebViewAware(
-                                          child: AlertDialog(
-                                        content: Text(
-                                            InsuranceRequestSendEmailAPICall
-                                                .messageLayer2(
-                                          (_model.sendNonePackageApi
-                                                  ?.jsonBody ??
-                                              ''),
-                                        ).toString()),
-                                        actions: [
-                                          TextButton(
-                                            onPressed: () => Navigator.pop(
-                                                alertDialogContext),
-                                            child: Text('Ok'),
-                                          ),
-                                        ],
-                                      ));
+                                        child: AlertDialog(
+                                          content: Text(
+                                              InsuranceRequestSendEmailAPICall
+                                                  .messageLayer2(
+                                            (_model.sendNonePackageApi
+                                                    ?.jsonBody ??
+                                                ''),
+                                          )!),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
                                     },
                                   );
                                 }

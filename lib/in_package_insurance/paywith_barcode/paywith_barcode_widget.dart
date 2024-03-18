@@ -5,17 +5,16 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'paywith_barcode_model.dart';
 export 'paywith_barcode_model.dart';
 
 class PaywithBarcodeWidget extends StatefulWidget {
-  const PaywithBarcodeWidget({Key? key}) : super(key: key);
+  const PaywithBarcodeWidget({super.key});
 
   @override
-  _PaywithBarcodeWidgetState createState() => _PaywithBarcodeWidgetState();
+  State<PaywithBarcodeWidget> createState() => _PaywithBarcodeWidgetState();
 }
 
 class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
@@ -45,17 +44,6 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return FutureBuilder<List<UrlLinkStorageRecord>>(
       future: queryUrlLinkStorageRecordOnce(
         queryBuilder: (urlLinkStorageRecord) => urlLinkStorageRecord.where(
@@ -188,8 +176,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      -1.00,
-                                                                      0.00),
+                                                                      -1.0,
+                                                                      0.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -220,8 +208,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     'คิวอาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -244,8 +232,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      1.00,
-                                                                      0.00),
+                                                                      1.0, 0.0),
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
@@ -264,8 +251,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     'บาร์โค้ด',
                                                                     style: FlutterFlowTheme.of(
@@ -305,7 +292,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: Container(
                                                       width: MediaQuery.sizeOf(
                                                                   context)
@@ -342,7 +329,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -375,7 +362,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -495,7 +482,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 1.00),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 50.0),

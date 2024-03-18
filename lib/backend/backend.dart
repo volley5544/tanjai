@@ -27,6 +27,9 @@ import 'schema/fcm_token_record.dart';
 import 'schema/tanjai_banner_record.dart';
 import 'schema/list_insurer_cant_installment_record.dart';
 import 'schema/key_storage3_record.dart';
+import 'schema/insurer_data_record.dart';
+import 'schema/text_content_record.dart';
+import 'schema/insurer_config_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -56,6 +59,9 @@ export 'schema/fcm_token_record.dart';
 export 'schema/tanjai_banner_record.dart';
 export 'schema/list_insurer_cant_installment_record.dart';
 export 'schema/key_storage3_record.dart';
+export 'schema/insurer_data_record.dart';
+export 'schema/text_content_record.dart';
+export 'schema/insurer_config_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -879,6 +885,117 @@ Future<List<KeyStorage3Record>> queryKeyStorage3RecordOnce({
       singleRecord: singleRecord,
     );
 
+/// Functions to query InsurerDataRecords (as a Stream and as a Future).
+Future<int> queryInsurerDataRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      InsurerDataRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<InsurerDataRecord>> queryInsurerDataRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      InsurerDataRecord.collection,
+      InsurerDataRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<InsurerDataRecord>> queryInsurerDataRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      InsurerDataRecord.collection,
+      InsurerDataRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query TextContentRecords (as a Stream and as a Future).
+Future<int> queryTextContentRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TextContentRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TextContentRecord>> queryTextContentRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TextContentRecord.collection,
+      TextContentRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TextContentRecord>> queryTextContentRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TextContentRecord.collection,
+      TextContentRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query InsurerConfigRecords (as a Stream and as a Future).
+Future<int> queryInsurerConfigRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      InsurerConfigRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<InsurerConfigRecord>> queryInsurerConfigRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      InsurerConfigRecord.collection,
+      InsurerConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<InsurerConfigRecord>> queryInsurerConfigRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      InsurerConfigRecord.collection,
+      InsurerConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
 Future<int> queryCollectionCount(
   Query collection, {
   Query Function(Query)? queryBuilder,
@@ -892,7 +1009,7 @@ Future<int> queryCollectionCount(
 
   return query.count().get().catchError((err) {
     print('Error querying $collection: $err');
-  }).then((value) => value.count);
+  }).then((value) => value.count!);
 }
 
 Stream<List<T>> queryCollection<T>(

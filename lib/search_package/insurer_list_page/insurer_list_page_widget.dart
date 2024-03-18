@@ -20,7 +20,7 @@ export 'insurer_list_page_model.dart';
 
 class InsurerListPageWidget extends StatefulWidget {
   const InsurerListPageWidget({
-    Key? key,
+    super.key,
     this.brandCode,
     this.modelCode,
     this.year,
@@ -30,7 +30,10 @@ class InsurerListPageWidget extends StatefulWidget {
     required this.garageType,
     required this.brandName,
     required this.modelName,
-  }) : super(key: key);
+    this.carTypeDetail,
+    required this.oldVmiExpDate,
+    required this.provinceCode,
+  });
 
   final String? brandCode;
   final String? modelCode;
@@ -41,9 +44,12 @@ class InsurerListPageWidget extends StatefulWidget {
   final List<String>? garageType;
   final String? brandName;
   final String? modelName;
+  final String? carTypeDetail;
+  final String? oldVmiExpDate;
+  final String? provinceCode;
 
   @override
-  _InsurerListPageWidgetState createState() => _InsurerListPageWidgetState();
+  State<InsurerListPageWidget> createState() => _InsurerListPageWidgetState();
 }
 
 class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
@@ -68,329 +74,582 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
-            child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: LoadingSceneWidget(),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: LoadingSceneWidget(),
+              ),
             ),
-          ));
+          );
         },
       ).then((value) => safeSetState(() {}));
 
-      _model.packageAPIOutput = await TelePackageSearchAPICall.call(
-        brandCode: widget.brandCode,
-        modelCode: widget.modelCode,
-        year: widget.year,
-        vehicleUsage: widget.vehicleUsage,
-        coverType:
-            functions.listStringToStringForFF(widget.coverType?.toList()),
-        insuranceUrl: FFAppState().apiUrlInsuranceAppState,
-        garageType:
-            functions.listStringToStringForFF(widget.garageType?.toList()),
-      );
-      if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-                child: AlertDialog(
-              content: Text(
-                  'พบข้อผิดพลาด (${(_model.packageAPIOutput?.statusCode ?? 200).toString()})'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ));
-          },
+      if (FFAppState().searchPackageSubProduct == 'MC') {
+        _model.packageAPIMCOutput = await TelePackageSearchMCAPICall.call(
+          brandCode: widget.brandCode,
+          year: widget.year,
+          modelCode: widget.modelCode,
+          province: widget.province,
+          vehicleUsage: widget.vehicleUsage,
+          insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+          coverTypeList: widget.coverType,
+          garageTypeList: widget.garageType,
         );
-        return;
-      }
-      if (TelePackageSearchAPICall.total(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          ) ==
-          0) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
+        if ((_model.packageAPIMCOutput?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
                 child: AlertDialog(
-              content: Text('ไม่พบข้อมูลประกัน'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.packageAPIMCOutput?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
                 ),
-              ],
-            ));
-          },
-        );
+              );
+            },
+          );
+          return;
+        }
+        if (TelePackageSearchMCAPICall.statusLayer1(
+              (_model.packageAPIMCOutput?.jsonBody ?? ''),
+            ) !=
+            200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(TelePackageSearchMCAPICall.messageLayer1(
+                    (_model.packageAPIMCOutput?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TelePackageSearchMCAPICall.total(
+              (_model.packageAPIMCOutput?.jsonBody ?? ''),
+            ) ==
+            0) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('ไม่พบข้อมูลประกัน'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+          return;
+        }
+        setState(() {
+          FFAppState().searchSerialName = TelePackageSearchMCAPICall.serialName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSumInsured = TelePackageSearchMCAPICall.sumInsured(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchCoverType = TelePackageSearchMCAPICall.coverType(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGrossTotal = TelePackageSearchMCAPICall.grossTotal(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchExpDate = TelePackageSearchMCAPICall.expiryDate(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiAccident = TelePackageSearchMCAPICall.tpbiAccident(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiPerson = TelePackageSearchMCAPICall.tpbiPerson(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelName = TelePackageSearchMCAPICall.modelName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandName = TelePackageSearchMCAPICall.brandName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGarageType = TelePackageSearchMCAPICall.garageType(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRegisYearList =
+              TelePackageSearchMCAPICall.registrationYear(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchFullName = TelePackageSearchMCAPICall.fullName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchTppd = TelePackageSearchMCAPICall.tppd(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchPa = TelePackageSearchMCAPICall.pa(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().companyId = TelePackageSearchMCAPICall.companyId(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandID = TelePackageSearchMCAPICall.brandCode(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelCode = TelePackageSearchMCAPICall.modelCode(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchActAmount = TelePackageSearchMCAPICall.actAmount(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchShortName = TelePackageSearchMCAPICall.shortName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchLogo = TelePackageSearchMCAPICall.logo(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchAccessoryList =
+              TelePackageSearchMCAPICall.accessory(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchInsurerCondition =
+              TelePackageSearchMCAPICall.insurerCondition(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+        });
+        setState(() {
+          FFAppState().effectiveDate = TelePackageSearchMCAPICall.effectiveDate(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchId = TelePackageSearchMCAPICall.id(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<int>();
+          FFAppState().searchPackageId = TelePackageSearchMCAPICall.packageId(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().serachPackageName =
+              TelePackageSearchMCAPICall.packageName(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchStamp = TelePackageSearchMCAPICall.stamp(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchVat = TelePackageSearchMCAPICall.vat(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchNetPremium = TelePackageSearchMCAPICall.netPremium(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSeat = TelePackageSearchMCAPICall.seat(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRoadsideAssistance =
+              TelePackageSearchMCAPICall.roadsideAssistance(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchbb = TelePackageSearchMCAPICall.bb(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchme = TelePackageSearchMCAPICall.me(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchFlood = TelePackageSearchMCAPICall.flood(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchDeductible = TelePackageSearchMCAPICall.deductible(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchContractProcessstate =
+              TelePackageSearchMCAPICall.contractProcessstate(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchcc = TelePackageSearchMCAPICall.cc(
+            (_model.packageAPIMCOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+        });
+        setState(() {
+          FFAppState().selectInsurerList = functions
+              .createFalseListByItemNumber(
+                  false, FFAppState().searchSerialName.length)!
+              .toList()
+              .cast<bool>();
+          FFAppState().addCustomerQuotationSaveSuccess = false;
+        });
         Navigator.pop(context);
-        return;
+      } else {
+        _model.packageAPIOutput = await TelePackageSearchAPICall.call(
+          brandCode: widget.brandCode,
+          modelCode: widget.modelCode,
+          year: widget.year,
+          vehicleUsage: widget.vehicleUsage,
+          coverTypeList: widget.coverType,
+          insuranceUrl: FFAppState().apiUrlInsuranceAppState,
+          garageTypeList: widget.garageType,
+          province: widget.province,
+        );
+        if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(
+                      'พบข้อผิดพลาด (${(_model.packageAPIOutput?.statusCode ?? 200).toString()})'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TelePackageSearchAPICall.statusLayer1(
+              (_model.packageAPIOutput?.jsonBody ?? ''),
+            ) !=
+            200) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text(TelePackageSearchAPICall.messageLayer1(
+                    (_model.packageAPIOutput?.jsonBody ?? ''),
+                  )!),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          return;
+        }
+        if (TelePackageSearchAPICall.total(
+              (_model.packageAPIOutput?.jsonBody ?? ''),
+            ) ==
+            0) {
+          await showDialog(
+            context: context,
+            builder: (alertDialogContext) {
+              return WebViewAware(
+                child: AlertDialog(
+                  content: Text('ไม่พบข้อมูลประกัน'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(alertDialogContext),
+                      child: Text('Ok'),
+                    ),
+                  ],
+                ),
+              );
+            },
+          );
+          Navigator.pop(context);
+          return;
+        }
+        setState(() {
+          FFAppState().searchSerialName = TelePackageSearchAPICall.serialName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSumInsured = TelePackageSearchAPICall.sumInsured(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchCoverType = TelePackageSearchAPICall.coverType(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGrossTotal = TelePackageSearchAPICall.grossTotal(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchExpDate = TelePackageSearchAPICall.expiryDate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiAccident = TelePackageSearchAPICall.tpbiAccident(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().tpbiPerson = TelePackageSearchAPICall.tpbiPerson(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelName = TelePackageSearchAPICall.modelName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandName = TelePackageSearchAPICall.brandName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchGarageType = TelePackageSearchAPICall.garageType(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRegisYearList =
+              TelePackageSearchAPICall.registrationYear(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchFullName = TelePackageSearchAPICall.fullName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchTppd = TelePackageSearchAPICall.tppd(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchPa = TelePackageSearchAPICall.pa(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().companyId = TelePackageSearchAPICall.companyId(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleBrandID = TelePackageSearchAPICall.brandCode(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().teleModelCode = TelePackageSearchAPICall.modelCode(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchActAmount = TelePackageSearchAPICall.actAmount(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchShortName = TelePackageSearchAPICall.shortName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchLogo = TelePackageSearchAPICall.logo(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchAccessoryList = TelePackageSearchAPICall.accessory(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchInsurerCondition =
+              TelePackageSearchAPICall.insurerCondition(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+        });
+        setState(() {
+          FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchId = TelePackageSearchAPICall.id(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<int>();
+          FFAppState().searchPackageId = TelePackageSearchAPICall.packageId(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().serachPackageName = TelePackageSearchAPICall.packageName(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchStamp = TelePackageSearchAPICall.stamp(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchVat = TelePackageSearchAPICall.vat(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchNetPremium = TelePackageSearchAPICall.netPremium(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchSeat = TelePackageSearchAPICall.seat(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchRoadsideAssistance =
+              TelePackageSearchAPICall.roadsideAssistance(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchbb = TelePackageSearchAPICall.bb(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchme = TelePackageSearchAPICall.me(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchFlood = TelePackageSearchAPICall.flood(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchDeductible = TelePackageSearchAPICall.deductible(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().searchContractProcessstate =
+              TelePackageSearchAPICall.contractProcessstate(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().searchcc = TelePackageSearchAPICall.cc(
+            (_model.packageAPIOutput?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+        });
+        setState(() {
+          FFAppState().selectInsurerList = functions
+              .createFalseListByItemNumber(
+                  false, FFAppState().searchSerialName.length)!
+              .toList()
+              .cast<bool>();
+          FFAppState().addCustomerQuotationSaveSuccess = false;
+        });
+        Navigator.pop(context);
       }
-      setState(() {
-        FFAppState().searchSerialName = (TelePackageSearchAPICall.serialName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchSumInsured = (TelePackageSearchAPICall.sumInsured(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchCoverType = (TelePackageSearchAPICall.coverType(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchGrossTotal = (TelePackageSearchAPICall.grossTotal(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchExpDate = (TelePackageSearchAPICall.expiryDate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().tpbiAccident = (TelePackageSearchAPICall.tpbiAccident(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().tpbiPerson = (TelePackageSearchAPICall.tpbiPerson(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().teleModelName = (TelePackageSearchAPICall.modelName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().teleBrandName = (TelePackageSearchAPICall.brandName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchGarageType = (TelePackageSearchAPICall.garageType(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchRegisYearList =
-            (TelePackageSearchAPICall.registrationYear(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .toList()
-                .cast<String>();
-        FFAppState().searchFullName = (TelePackageSearchAPICall.fullName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchTppd = (TelePackageSearchAPICall.tppd(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchPa = (TelePackageSearchAPICall.pa(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().companyId = (TelePackageSearchAPICall.companyId(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().teleBrandID = (TelePackageSearchAPICall.brandCode(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().teleModelCode = (TelePackageSearchAPICall.modelCode(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchActAmount = (TelePackageSearchAPICall.actAmount(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchShortName = (TelePackageSearchAPICall.shortName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchLogo = (TelePackageSearchAPICall.logo(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchAccessoryList = (TelePackageSearchAPICall.accessory(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-      });
-      setState(() {
-        FFAppState().effectiveDate = (TelePackageSearchAPICall.effectiveDate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchId = TelePackageSearchAPICall.id(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<int>();
-        FFAppState().searchPackageId = (TelePackageSearchAPICall.packageId(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().serachPackageName = (TelePackageSearchAPICall.packageName(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchStamp = (TelePackageSearchAPICall.stamp(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchVat = (TelePackageSearchAPICall.vat(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchNetPremium = (TelePackageSearchAPICall.netPremium(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchSeat = (TelePackageSearchAPICall.seat(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchRoadsideAssistance =
-            (TelePackageSearchAPICall.roadsideAssistance(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .toList()
-                .cast<String>();
-        FFAppState().searchbb = (TelePackageSearchAPICall.bb(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchme = (TelePackageSearchAPICall.me(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchFlood = (TelePackageSearchAPICall.flood(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchDeductible = (TelePackageSearchAPICall.deductible(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-            .map<String>((s) => s.toString())
-            .toList()!
-            .toList()
-            .cast<String>();
-        FFAppState().searchContractProcessstate =
-            (TelePackageSearchAPICall.contractProcessstate(
-          (_model.packageAPIOutput?.jsonBody ?? ''),
-        ) as List)
-                .map<String>((s) => s.toString())
-                .toList()!
-                .toList()
-                .cast<String>();
-      });
-      setState(() {
-        FFAppState().selectInsurerList = functions
-            .createFalseListByItemNumber(
-                false, FFAppState().searchSerialName.length)!
-            .toList()
-            .cast<bool>();
-        FFAppState().addCustomerQuotationSaveSuccess = false;
-      });
-      Navigator.pop(context);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -405,15 +664,6 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -443,7 +693,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
               },
             ),
             title: Text(
-              'ค้นหาประกันรถ',
+              FFAppState().searchPackageSubProduct == 'MC'
+                  ? 'ค้นหาประกันมอเตอร์ไซค์'
+                  : 'ค้นหาประกันรถ',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
@@ -493,7 +745,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
@@ -512,7 +764,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                               children: [
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 5.0),
+                                      0.0, 5.0, 0.0, 4.0),
                                   child: Text(
                                     'ค้นหาชื่อบริษัทประกัน ',
                                     style: FlutterFlowTheme.of(context)
@@ -539,7 +791,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 20.0, 0.0),
+                                  0.0, 0.0, 20.0, 8.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -555,17 +807,18 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          content:
-                                              Text('ไม่พบข้อมูลรายการประกัน'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            content:
+                                                Text('ไม่พบข้อมูลรายการประกัน'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -575,8 +828,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 },
                                 child: Container(
                                   width: double.infinity,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  height: 40.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -603,7 +855,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
-                                                fontSize: 15.0,
+                                                fontSize: 14.0,
                                               ),
                                         ),
                                       ),
@@ -614,7 +866,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                           Icons.arrow_forward_ios,
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
-                                          size: 24.0,
+                                          size: 18.0,
                                         ),
                                       ),
                                     ],
@@ -638,7 +890,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
-                                  fontSize: 15.0,
+                                  fontSize: 14.0,
                                 ),
                           ),
                         ),
@@ -657,219 +909,249 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                         ),
                       ],
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 0.45,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          if ((TelePackageSearchAPICall.total(
-                                    (_model.packageAPIOutput?.jsonBody ?? ''),
-                                  ) !=
-                                  0) &&
-                              (TelePackageSearchAPICall.statusLayer1(
-                                    (_model.packageAPIOutput?.jsonBody ?? ''),
-                                  ) ==
-                                  200) &&
-                              ((_model.packageAPIOutput?.statusCode ?? 200) ==
-                                  200))
-                            Expanded(
-                              child: Builder(
-                                builder: (context) {
-                                  final listinsurance =
-                                      (TelePackageSearchAPICall.fullName(
-                                            (_model.packageAPIOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          ) as List)
-                                              .map<String>((s) => s.toString())
-                                              .toList()
-                                              ?.toList() ??
-                                          [];
-                                  return ListView.builder(
-                                    padding: EdgeInsets.fromLTRB(
-                                      0,
-                                      4.0,
-                                      0,
-                                      0,
-                                    ),
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: listinsurance.length,
-                                    itemBuilder: (context, listinsuranceIndex) {
-                                      final listinsuranceItem =
-                                          listinsurance[listinsuranceIndex];
-                                      return Visibility(
-                                        visible: (FFAppState().filterInsurerList.length > 0) ||
-                                                (FFAppState().filterCoverTypeList.length >
-                                                    0) ||
-                                                (FFAppState().filterGarageTypeList.length >
-                                                    0)
-                                            ? ((FFAppState().filterInsurerList.length > 0
-                                                    ? FFAppState()
-                                                        .filterInsurerList
-                                                        .contains(FFAppState().searchSerialName[
-                                                            listinsuranceIndex])
-                                                    : true) &&
-                                                (FFAppState().filterCoverTypeList.length > 0
-                                                    ? FFAppState()
-                                                        .filterCoverTypeList
-                                                        .contains(FFAppState().searchCoverType[
-                                                            listinsuranceIndex])
-                                                    : true) &&
-                                                (FFAppState().filterGarageTypeList.length > 0
-                                                    ? FFAppState().filterGarageTypeList.contains(FFAppState().searchGarageType[listinsuranceIndex])
-                                                    : true))
-                                            : true,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 20.0, 16.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 165.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 4.0,
-                                                  color: Color(0x33000000),
-                                                  offset: Offset(0.0, 2.0),
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(16.0),
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      if (functions.countTrueInBoolList(
-                                                              FFAppState()
-                                                                  .selectInsurerList
-                                                                  .toList())! >
-                                                          2) {
-                                                        if (!FFAppState()
-                                                                .selectInsurerList[
-                                                            listinsuranceIndex]) {
-                                                          return;
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.sizeOf(context).height * 0.58,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (((TelePackageSearchAPICall.total(
+                                          (_model.packageAPIOutput?.jsonBody ??
+                                              ''),
+                                        ) !=
+                                        0) &&
+                                    (TelePackageSearchAPICall.statusLayer1(
+                                          (_model.packageAPIOutput?.jsonBody ??
+                                              ''),
+                                        ) ==
+                                        200) &&
+                                    ((_model.packageAPIOutput?.statusCode ??
+                                            200) ==
+                                        200)) ||
+                                ((TelePackageSearchMCAPICall.total(
+                                          (_model.packageAPIMCOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        ) !=
+                                        0) &&
+                                    (TelePackageSearchMCAPICall.statusLayer1(
+                                          (_model.packageAPIMCOutput
+                                                  ?.jsonBody ??
+                                              ''),
+                                        ) ==
+                                        200) &&
+                                    ((_model.packageAPIMCOutput?.statusCode ??
+                                            200) ==
+                                        200)))
+                              Expanded(
+                                child: Builder(
+                                  builder: (context) {
+                                    final listinsurance =
+                                        FFAppState().searchFullName.toList();
+                                    return ListView.builder(
+                                      padding: EdgeInsets.fromLTRB(
+                                        0,
+                                        4.0,
+                                        0,
+                                        0,
+                                      ),
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: listinsurance.length,
+                                      itemBuilder:
+                                          (context, listinsuranceIndex) {
+                                        final listinsuranceItem =
+                                            listinsurance[listinsuranceIndex];
+                                        return Visibility(
+                                          visible: (FFAppState()
+                                                          .filterInsurerList
+                                                          .length >
+                                                      0) ||
+                                                  (FFAppState()
+                                                          .filterCoverTypeList
+                                                          .length >
+                                                      0) ||
+                                                  (FFAppState()
+                                                          .filterGarageTypeList
+                                                          .length >
+                                                      0)
+                                              ? ((FFAppState().filterInsurerList.length > 0 ? FFAppState().filterInsurerList.contains(FFAppState().searchSerialName[listinsuranceIndex]) : true) &&
+                                                  (FFAppState().filterCoverTypeList.length > 0
+                                                      ? FFAppState()
+                                                          .filterCoverTypeList
+                                                          .contains(FFAppState()
+                                                                  .searchCoverType[
+                                                              listinsuranceIndex])
+                                                      : true) &&
+                                                  (FFAppState().filterGarageTypeList.length >
+                                                          0
+                                                      ? FFAppState()
+                                                          .filterGarageTypeList
+                                                          .contains(FFAppState().searchGarageType[listinsuranceIndex])
+                                                      : true))
+                                              : true,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    20.0, 0.0, 20.0, 8.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 140.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBtnText,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Color(0x33000000),
+                                                    offset: Offset(0.0, 2.0),
+                                                  )
+                                                ],
+                                                borderRadius:
+                                                    BorderRadius.circular(16.0),
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        if (functions.countTrueInBoolList(
+                                                                FFAppState()
+                                                                    .selectInsurerList
+                                                                    .toList())! >
+                                                            2) {
+                                                          if (!FFAppState()
+                                                                  .selectInsurerList[
+                                                              listinsuranceIndex]) {
+                                                            return;
+                                                          }
                                                         }
-                                                      }
-                                                      HapticFeedback
-                                                          .mediumImpact();
-                                                      setState(() {
-                                                        FFAppState()
-                                                            .updateSelectInsurerListAtIndex(
-                                                          listinsuranceIndex,
-                                                          (_) => FFAppState()
-                                                                          .selectInsurerList[
-                                                                      listinsuranceIndex] ==
-                                                                  true
-                                                              ? false
-                                                              : true,
-                                                        );
-                                                      });
-                                                    },
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceAround,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: 25.0,
-                                                              height: 25.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBtnText,
-                                                                border:
-                                                                    Border.all(
+                                                        HapticFeedback
+                                                            .mediumImpact();
+                                                        setState(() {
+                                                          FFAppState()
+                                                              .updateSelectInsurerListAtIndex(
+                                                            listinsuranceIndex,
+                                                            (_) => FFAppState()
+                                                                            .selectInsurerList[
+                                                                        listinsuranceIndex] ==
+                                                                    true
+                                                                ? false
+                                                                : true,
+                                                          );
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Colors.white,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceAround,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                width: 15.0,
+                                                                height: 15.0,
+                                                                decoration:
+                                                                    BoxDecoration(
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .primaryText,
+                                                                      .primaryBtnText,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                              child: Visibility(
-                                                                visible: FFAppState()
-                                                                        .selectInsurerList[
-                                                                    listinsuranceIndex],
-                                                                child: Icon(
-                                                                  Icons.check,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .success,
-                                                                  size: 22.0,
+                                                                child:
+                                                                    Visibility(
+                                                                  visible: FFAppState()
+                                                                          .selectInsurerList[
+                                                                      listinsuranceIndex],
+                                                                  child: Icon(
+                                                                    Icons.check,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .success,
+                                                                    size: 12.0,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        ],
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                Expanded(
-                                                  flex: 9,
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(6.0, 4.0,
-                                                                0.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Expanded(
-                                                            child: Row(
+                                                  Expanded(
+                                                    flex: 9,
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  6.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 100.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      16.0),
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
@@ -905,13 +1187,14 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                           child:
                                                                               Container(
                                                                             width:
-                                                                                65.0,
+                                                                                40.0,
                                                                             height:
-                                                                                65.0,
+                                                                                40.0,
                                                                             decoration:
                                                                                 BoxDecoration(
                                                                               color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                              shape: BoxShape.circle,
+                                                                              borderRadius: BorderRadius.circular(0.0),
+                                                                              shape: BoxShape.rectangle,
                                                                             ),
                                                                             child:
                                                                                 ClipRRect(
@@ -921,8 +1204,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                   functions.stringToImgPath(FFAppState().searchLogo[listinsuranceIndex]),
                                                                                   'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                                                                 ),
-                                                                                width: 300.0,
-                                                                                height: 200.0,
+                                                                                width: 150.0,
+                                                                                height: 150.0,
                                                                                 fit: BoxFit.contain,
                                                                               ),
                                                                             ),
@@ -947,7 +1230,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            10.0),
+                                                                            3.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -963,7 +1246,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                 FFAppState().searchSerialName[listinsuranceIndex],
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
-                                                                                      fontSize: 15.0,
+                                                                                      fontSize: 11.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -975,7 +1258,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            5.0),
+                                                                            3.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -987,7 +1270,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                               'ประเภทประกัน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
-                                                                                    fontSize: 12.0,
+                                                                                    fontSize: 11.0,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -996,7 +1279,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                 functions.showCoverTypeThai(FFAppState().searchCoverType[listinsuranceIndex]),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
-                                                                                      fontSize: 12.0,
+                                                                                      fontSize: 11.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1008,7 +1291,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            5.0),
+                                                                            3.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -1043,7 +1326,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            5.0),
+                                                                            3.0),
                                                                         child:
                                                                             Row(
                                                                           mainAxisSize:
@@ -1073,495 +1356,477 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                           ],
                                                                         ),
                                                                       ),
+                                                                      if (FFAppState()
+                                                                              .searchDeductible[listinsuranceIndex] !=
+                                                                          '0')
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              3.0),
+                                                                          child:
+                                                                              Row(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              Text(
+                                                                                'ค่าเสียหายส่วนเเรก',
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                      fontFamily: 'Noto Sans Thai',
+                                                                                      color: FlutterFlowTheme.of(context).error,
+                                                                                      fontSize: 10.0,
+                                                                                    ),
+                                                                              ),
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                                                                                child: Text(
+                                                                                  functions.showNumberWithComma(FFAppState().searchDeductible[listinsuranceIndex])!,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: FlutterFlowTheme.of(context).error,
+                                                                                        fontSize: 10.0,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
                                                                     ],
                                                                   ),
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        20.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        20.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    Text(
-                                                                      'ราคาเบี้ย',
-                                                                      style: FlutterFlowTheme.of(
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          20.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        'ราคาเบี้ย',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              fontSize: 10.0,
+                                                                            ),
+                                                                      ),
+                                                                      Text(
+                                                                        '${functions.showNumberWithComma(FFAppState().searchGrossTotal[listinsuranceIndex])} บาท',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              fontSize: 11.0,
+                                                                            ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'detailsInsurancePage',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'insurerFullName':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchSerialName[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'currentDate':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(getCurrentTimestamp.toString()),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'brandId':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().teleBrandID[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'brandName':
+                                                                              serializeParam(
+                                                                            widget.brandName,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'modelCode':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().teleModelCode[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'modelName':
+                                                                              serializeParam(
+                                                                            widget.modelName,
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'year':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(widget.year),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'driverType':
+                                                                              serializeParam(
+                                                                            '-',
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'grossTotal':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchGrossTotal[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'sumInsured':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchSumInsured[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'tppd':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchTppd[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'pa':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchPa[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'grossAct':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchActAmount[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'expireDate':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchExpDate[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'coverTypeId':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'coverTypeCode':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'coverTypeName':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'garageTypeId':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'garageTypeName':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'insurerId':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().companyId[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'insurerShortName':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchShortName[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'garageTypeCode':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'tpbiPerson':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().tpbiPerson[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'tpbiAccident':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().tpbiAccident[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'logoUrl':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchLogo[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'yearProduct':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchRegisYearList[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'accessory':
+                                                                              serializeParam(
+                                                                            functions.checkNullValueAndReturn(FFAppState().searchAccessoryList[listinsuranceIndex]),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'productId':
+                                                                              serializeParam(
+                                                                            FFAppState().searchId[listinsuranceIndex].toString(),
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'packageId':
+                                                                              serializeParam(
+                                                                            FFAppState().searchPackageId[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'packageName':
+                                                                              serializeParam(
+                                                                            FFAppState().serachPackageName[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'roadsideAssis':
+                                                                              serializeParam(
+                                                                            FFAppState().searchRoadsideAssistance[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'flood':
+                                                                              serializeParam(
+                                                                            FFAppState().searchFlood[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'deductible':
+                                                                              serializeParam(
+                                                                            FFAppState().searchDeductible[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'me':
+                                                                              serializeParam(
+                                                                            FFAppState().searchme[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'bb':
+                                                                              serializeParam(
+                                                                            FFAppState().searchbb[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'seat':
+                                                                              serializeParam(
+                                                                            FFAppState().searchSeat[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'netPremium':
+                                                                              serializeParam(
+                                                                            FFAppState().searchNetPremium[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'vat':
+                                                                              serializeParam(
+                                                                            FFAppState().searchVat[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'stamp':
+                                                                              serializeParam(
+                                                                            FFAppState().searchStamp[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'insurerMaxName':
+                                                                              serializeParam(
+                                                                            FFAppState().searchFullName[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'contractProcessstate':
+                                                                              serializeParam(
+                                                                            FFAppState().searchContractProcessstate[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'insurerCondition':
+                                                                              serializeParam(
+                                                                            FFAppState().searchInsurerCondition[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                          'cc':
+                                                                              serializeParam(
+                                                                            FFAppState().searchcc[listinsuranceIndex],
+                                                                            ParamType.String,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                      );
+
+                                                                      setState(
+                                                                          () {
+                                                                        FFAppState().addCustomerQuotationSaveSuccess =
+                                                                            false;
+                                                                      });
+                                                                    },
+                                                                    text:
+                                                                        'รายละเอียด',
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      height:
+                                                                          30.0,
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: Color(
+                                                                          0x9EFF6500),
+                                                                      textStyle: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium
+                                                                          .titleSmall
                                                                           .override(
                                                                             fontFamily:
                                                                                 'Noto Sans Thai',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
+                                                                                Colors.white,
                                                                             fontSize:
-                                                                                10.0,
+                                                                                12.0,
                                                                           ),
+                                                                      elevation:
+                                                                          3.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Colors
+                                                                            .transparent,
+                                                                        width:
+                                                                            1.0,
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              10.0),
                                                                     ),
-                                                                    Text(
-                                                                      '${functions.showNumberWithComma(FFAppState().searchGrossTotal[listinsuranceIndex])} บาท',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding: EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        20.0,
-                                                                        20.0),
-                                                                child:
-                                                                    FFButtonWidget(
-                                                                  onPressed:
-                                                                      () async {
-                                                                    context
-                                                                        .pushNamed(
-                                                                      'detailsInsurancePage',
-                                                                      queryParameters:
-                                                                          {
-                                                                        'insurerFullName':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchSerialName[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'currentDate':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(getCurrentTimestamp.toString()),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'brandId':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().teleBrandID[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'brandName':
-                                                                            serializeParam(
-                                                                          widget
-                                                                              .brandName,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'modelCode':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().teleModelCode[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'modelName':
-                                                                            serializeParam(
-                                                                          widget
-                                                                              .modelName,
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'year':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(widget.year),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'driverType':
-                                                                            serializeParam(
-                                                                          '-',
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'grossTotal':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchGrossTotal[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'sumInsured':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchSumInsured[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'tppd':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchTppd[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'pa':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchPa[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'grossAct':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchActAmount[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'expireDate':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchExpDate[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'coverTypeId':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'coverTypeCode':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'coverTypeName':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchCoverType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'garageTypeId':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'garageTypeName':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'insurerId':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().companyId[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'insurerShortName':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchShortName[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'garageTypeCode':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchGarageType[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'tpbiPerson':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().tpbiPerson[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'tpbiAccident':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().tpbiAccident[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'logoUrl':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchLogo[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'yearProduct':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchRegisYearList[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'accessory':
-                                                                            serializeParam(
-                                                                          functions
-                                                                              .checkNullValueAndReturn(FFAppState().searchAccessoryList[listinsuranceIndex]),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'productId':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchId[listinsuranceIndex]
-                                                                              .toString(),
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'packageId':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchPackageId[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'packageName':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .serachPackageName[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'roadsideAssis':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchRoadsideAssistance[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'flood':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchFlood[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'deductible':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchDeductible[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'me':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchme[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'bb':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchbb[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'seat':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchSeat[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'netPremium':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchNetPremium[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'vat':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchVat[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'stamp':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchStamp[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'insurerMaxName':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchFullName[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                        'contractProcessstate':
-                                                                            serializeParam(
-                                                                          FFAppState()
-                                                                              .searchContractProcessstate[listinsuranceIndex],
-                                                                          ParamType
-                                                                              .String,
-                                                                        ),
-                                                                      }.withoutNulls,
-                                                                    );
-
-                                                                    setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .addCustomerQuotationSaveSuccess =
-                                                                          false;
-                                                                    });
-                                                                  },
-                                                                  text:
-                                                                      'รายละเอียด',
-                                                                  options:
-                                                                      FFButtonOptions(
-                                                                    height:
-                                                                        40.0,
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            24.0,
-                                                                            0.0,
-                                                                            24.0,
-                                                                            0.0),
-                                                                    iconPadding:
-                                                                        EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    color: Color(
-                                                                        0x9EFF6500),
-                                                                    textStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleSmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Noto Sans Thai',
-                                                                          color:
-                                                                              Colors.white,
-                                                                        ),
-                                                                    elevation:
-                                                                        3.0,
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                      width:
-                                                                          1.0,
-                                                                    ),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            10.0),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
                               ),
-                            ),
-                          if (TelePackageSearchAPICall.total(
-                                (_model.packageAPIOutput?.jsonBody ?? ''),
-                              ) ==
-                              0)
-                            Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 0.0, 20.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.53,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 1.0,
-                                        color: Color(0x33000000),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                    child: Text(
-                                      'ไม่พบข้อมูลรายการประกัน',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Noto Sans Thai',
-                                            color: FlutterFlowTheme.of(context)
-                                                .grayIcon,
-                                            fontSize: 20.0,
-                                          ),
+                            if (TelePackageSearchAPICall.total(
+                                  (_model.packageAPIOutput?.jsonBody ?? ''),
+                                ) ==
+                                0)
+                              Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 20.0, 0.0),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: MediaQuery.sizeOf(context).height *
+                                        0.53,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 1.0,
+                                          color: Color(0x33000000),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Text(
+                                        'ไม่พบข้อมูลรายการประกัน',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .grayIcon,
+                                              fontSize: 20.0,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                    if (((TelePackageSearchAPICall.total(
-                                  (_model.packageAPIOutput?.jsonBody ?? ''),
-                                ) !=
-                                0) &&
-                            (TelePackageSearchAPICall.statusLayer1(
-                                  (_model.packageAPIOutput?.jsonBody ?? ''),
-                                ) ==
-                                200) &&
-                            ((_model.packageAPIOutput?.statusCode ?? 200) ==
-                                200)) &&
+                    if ((((TelePackageSearchAPICall.total(
+                                      (_model.packageAPIOutput?.jsonBody ?? ''),
+                                    ) !=
+                                    0) &&
+                                (TelePackageSearchAPICall.statusLayer1(
+                                      (_model.packageAPIOutput?.jsonBody ?? ''),
+                                    ) ==
+                                    200) &&
+                                ((_model.packageAPIOutput?.statusCode ?? 200) ==
+                                    200)) ||
+                            ((TelePackageSearchMCAPICall.total(
+                                      (_model.packageAPIMCOutput?.jsonBody ??
+                                          ''),
+                                    ) !=
+                                    0) &&
+                                (TelePackageSearchMCAPICall.statusLayer1(
+                                      (_model.packageAPIMCOutput?.jsonBody ??
+                                          ''),
+                                    ) ==
+                                    200) &&
+                                ((_model.packageAPIMCOutput?.statusCode ??
+                                        200) ==
+                                    200))) &&
                         (functions.countTrueInBoolList(
                                 FFAppState().selectInsurerList.toList())! >=
                             2))
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 12.0, 20.0, 0.0),
+                            20.0, 8.0, 20.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -1917,6 +2182,24 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                   ParamType.String,
                                   true,
                                 ),
+                                'insurerCondition': serializeParam(
+                                  functions.returnMappedListFromBoolList(
+                                      FFAppState()
+                                          .searchInsurerCondition
+                                          .toList(),
+                                      FFAppState().selectInsurerList.toList(),
+                                      true),
+                                  ParamType.String,
+                                  true,
+                                ),
+                                'cc': serializeParam(
+                                  functions.returnMappedListFromBoolList(
+                                      FFAppState().searchcc.toList(),
+                                      FFAppState().selectInsurerList.toList(),
+                                      true),
+                                  ParamType.String,
+                                  true,
+                                ),
                               }.withoutNulls,
                             );
 
@@ -1927,7 +2210,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 50.0,
+                            height: 40.0,
                             decoration: BoxDecoration(
                               color: Color(0xFF5CC2BC),
                               boxShadow: [
@@ -1944,7 +2227,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'เปรียบเทียบ',
                                 style: FlutterFlowTheme.of(context)
@@ -1960,1173 +2243,1050 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                           ),
                         ),
                       ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 4.0,
-                              color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                    if (false)
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 4.0, 20.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .tertiary,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                        ),
                                       ),
-                                    ),
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: FaIcon(
-                                        FontAwesomeIcons.carSide,
-                                        color: Color(0xB0FF9936),
-                                        size: 24.0,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.carSide,
+                                          color: Color(0xB0FF9936),
+                                          size: 24.0,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: Text(
-                                'งานต่ออายุ',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Noto Sans Thai',
-                                      fontSize: 16.0,
-                                    ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  'งานต่ออายุ',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        fontSize: 16.0,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            var _shouldSetState = false;
-                                            if (columnHideInAppContentRecord!
-                                                .isShowContent) {
-                                              _model.getServerDateTimeRenew =
-                                                  await GetDateTimeAPICall.call(
-                                                apiUrl: FFAppState()
-                                                    .apiURLLocalState,
-                                                token: FFAppState().accessToken,
+                              Expanded(
+                                flex: 2,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              if (columnHideInAppContentRecord!
+                                                  .isShowContent) {}
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageFlagCarrier =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageVehicleType =
+                                                    'กรุณาเลือกประเภทรถ';
+                                                FFAppState()
+                                                        .nonePackageBrandName =
+                                                    'กรุณาเลือกยี่ห้อรถ';
+                                                FFAppState()
+                                                    .nonePackageBrandId = '';
+                                                FFAppState()
+                                                        .nonePackageModelName =
+                                                    'กรุณากรอกรุ่นรถ';
+                                                FFAppState()
+                                                    .nonePackageModelCode = '';
+                                                FFAppState().nonePackageYear =
+                                                    'กรุณาเลือกปีจดทะเบียน';
+                                                FFAppState()
+                                                    .nonePackageUsedTypeId = '';
+                                                FFAppState()
+                                                    .nonePackageSearchModelList = [];
+                                                FFAppState()
+                                                    .nonePackageUsedTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageUsedTypeName =
+                                                    'กรุณาเลือกลักษณะการใช้รถ';
+                                                FFAppState()
+                                                        .nonePackageCusFullname =
+                                                    'กรุณากรอกชื่อ';
+                                                FFAppState()
+                                                        .nonePackageCusPhone =
+                                                    'กรุณากรอกเบอร์โทรศัพท์';
+                                                FFAppState().nonePackagePlate =
+                                                    '';
+                                                FFAppState()
+                                                        .nonePackageProvince =
+                                                    'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                FFAppState()
+                                                    .nonePackageProvinceId = '';
+                                                FFAppState()
+                                                        .nonePackageSumInsured =
+                                                    'กรุณากรอกทุนประกัน';
+                                                FFAppState()
+                                                    .nonePackageFlagAct = true;
+                                                FFAppState()
+                                                        .nonePackageIsBrandSelect =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageSearchModelIdList = [];
+                                                FFAppState()
+                                                        .nonePackageCarrierType =
+                                                    'กรุณาเลือกประเภทตู้เหล็ก';
+                                                FFAppState()
+                                                        .nonePackageFlagCoop =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageTruckPart =
+                                                    'กรุณาเลือกส่วนของรถบรรทุก';
+                                                FFAppState()
+                                                        .nonePackageCusMembership =
+                                                    'กรุณาเลือกประเภทลูกค้า';
+                                                FFAppState()
+                                                        .nonePackageTruckCurrentPrice =
+                                                    'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                FFAppState()
+                                                        .nonePackagePlateAdditional =
+                                                    'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                FFAppState()
+                                                        .nonePackageTruckCarryPurpose =
+                                                    'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                FFAppState()
+                                                        .nonePackageTrailerSumInsured =
+                                                    'กรุณากรอกทุนประกันหางพ่วง';
+                                                FFAppState()
+                                                    .nonePackageCarrierPrice = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerIdList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerCodeList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerNameList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerDisplayName = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerIdOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerCodeOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerNameOutputList = [];
+                                                FFAppState().nonePackageReason =
+                                                    [];
+                                                FFAppState()
+                                                    .nonePackageInsurerSelectedList = [];
+                                                FFAppState()
+                                                    .nonePackageCoverTypeId = '';
+                                                FFAppState()
+                                                    .nonePackageCoverTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageCoverTypeName =
+                                                    'กรุณาเลือกประเภทชั้นประกัน';
+                                                FFAppState()
+                                                    .nonePackageGarageTypeId = '';
+                                                FFAppState()
+                                                        .nonePackageGarageTypeName =
+                                                    'กรุณาเลือกประเภทการซ่อม';
+                                                FFAppState()
+                                                    .nonePackageGarageTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageFlagRenew =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageOldVmiExpDate =
+                                                    'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                FFAppState().nonePackageOldVmi =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageOldVmiImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageIdCardImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageRenewImageUrlList = [];
+                                                FFAppState()
+                                                    .nonePackageRenewImageCheckList = [];
+                                                FFAppState()
+                                                        .nonePackageOldVmiImageUploadedCheck =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageIdCardWatermarkUploadedCheck =
+                                                    false;
+                                                FFAppState().buttonOrdinary =
+                                                    false;
+                                                FFAppState().buttonCorporation =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageCustomerType = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerDisplayNameOutput = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther = [];
+                                                FFAppState()
+                                                    .nonePackageImageFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRightFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRight = [];
+                                                FFAppState()
+                                                    .nonePackageImageRightRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeftRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeft = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeftFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRoof = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFront = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFront = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRight = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeft = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFront = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerOutputIndex = 0;
+                                                FFAppState().nonePackageLeadId =
+                                                    '';
+                                                FFAppState().nonePackageLeadNo =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageCarImageUploadedList = [];
+                                                FFAppState()
+                                                    .nonePackageImageOldVmi = [];
+                                                FFAppState()
+                                                    .nonePackageImageCompanyBook = [];
+                                                FFAppState()
+                                                    .nonePackageImageIdCard = [];
+                                                FFAppState()
+                                                    .nonePackageImageBlueBook = [];
+                                                FFAppState()
+                                                        .nonePackageCompanyBookImageUploadedCheck =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageCompanyBookImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRoofUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageBlueBookUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther1 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther2 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther3 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther4 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther5 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOtherNameList = [];
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerShortName = '';
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerName = '';
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerShortNameList = [];
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerNameList = [];
+                                                FFAppState()
+                                                    .nonePackageFlagOldVmi = '';
+                                                FFAppState()
+                                                    .nonePackageWorkType = '';
+                                                FFAppState().nonePackageRemark =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageBranchCode = '';
+                                                FFAppState()
+                                                    .nonePackageBranchName = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameDupList = [];
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageFlagRenew =
+                                                    true;
+                                                FFAppState()
+                                                        .nonePackageOldVmiImageUploadedCheck =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageIdCardWatermarkUploadedCheck =
+                                                    false;
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageVehicleType =
+                                                    FFAppState()
+                                                        .insuranceVehicleTypeDropDown;
+                                                FFAppState()
+                                                        .nonePackageBrandName =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandName;
+                                                FFAppState()
+                                                        .nonePackageBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandId;
+                                                FFAppState()
+                                                        .nonePackageModelName =
+                                                    FFAppState()
+                                                        .insuranceBasicModelName;
+                                                FFAppState()
+                                                        .nonePackageModelCode =
+                                                    FFAppState()
+                                                        .insuranceBasicModelId;
+                                                FFAppState().nonePackageYear =
+                                                    FFAppState()
+                                                        .insuranceBasicYear;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeId;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeCode =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeCode;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeName =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeName;
+                                                FFAppState()
+                                                        .nonePackageSearchModelList =
+                                                    FFAppState()
+                                                        .insuranceBasicModelNameList
+                                                        .toList()
+                                                        .cast<String>();
+                                                FFAppState()
+                                                        .nonePackageSearchModelIdList =
+                                                    FFAppState()
+                                                        .insuranceBasicModelIdList
+                                                        .toList()
+                                                        .cast<String>();
+                                                FFAppState()
+                                                        .nonePackageIsBrandSelect =
+                                                    FFAppState()
+                                                        .searchPackageCheckFilled[1];
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageOldVmiExpDate =
+                                                    FFAppState()
+                                                        .insuranceBasicOldVmiExpDate;
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                    .nonePackageImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRoofUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageBlueBookUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther1 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther2 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther3 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther4 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther5 = '';
+                                                FFAppState()
+                                                    .nonePackageIdCardImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageOldVmiImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageCompanyBookImageUrl = '';
+                                              });
+
+                                              context.pushNamed(
+                                                'NonePackageRenewPage',
+                                                queryParameters: {
+                                                  'workType': serializeParam(
+                                                    'renew',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
                                               );
-                                              _shouldSetState = true;
-                                              if (((_model.getServerDateTimeRenew
-                                                              ?.statusCode ??
-                                                          200) ==
-                                                      200) &&
-                                                  (GetDateTimeAPICall
-                                                          .statusLayer1(
-                                                        (_model.getServerDateTimeRenew
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) ==
-                                                      200)) {
-                                                if (functions.checkWeekendDate(
-                                                    GetDateTimeAPICall
-                                                        .currentDateYMD(
-                                                  (_model.getServerDateTimeRenew
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ).toString())!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    setState(() {});
-                                                  return;
-                                                }
-                                              } else {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'พบข้อผิดพลาด (${(_model.getServerDateTimeRenew?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                        (_model.getServerDateTimeRenew
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString()})get date'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                              }
-                                            }
-                                            setState(() {
-                                              FFAppState()
-                                                      .nonePackageFlagCarrier =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageVehicleType =
-                                                  'กรุณาเลือกประเภทรถ';
-                                              FFAppState()
-                                                      .nonePackageBrandName =
-                                                  'กรุณาเลือกยี่ห้อรถ';
-                                              FFAppState().nonePackageBrandId =
-                                                  '';
-                                              FFAppState()
-                                                      .nonePackageModelName =
-                                                  'กรุณากรอกรุ่นรถ';
-                                              FFAppState()
-                                                  .nonePackageModelCode = '';
-                                              FFAppState().nonePackageYear =
-                                                  'กรุณาเลือกปีจดทะเบียน';
-                                              FFAppState()
-                                                  .nonePackageUsedTypeId = '';
-                                              FFAppState()
-                                                  .nonePackageSearchModelList = [];
-                                              FFAppState()
-                                                  .nonePackageUsedTypeCode = '';
-                                              FFAppState()
-                                                      .nonePackageUsedTypeName =
-                                                  'กรุณาเลือกลักษณะการใช้รถ';
-                                              FFAppState()
-                                                      .nonePackageCusFullname =
-                                                  'กรุณากรอกชื่อ';
-                                              FFAppState().nonePackageCusPhone =
-                                                  'กรุณากรอกเบอร์โทรศัพท์';
-                                              FFAppState().nonePackagePlate =
-                                                  '';
-                                              FFAppState().nonePackageProvince =
-                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
-                                              FFAppState()
-                                                  .nonePackageProvinceId = '';
-                                              FFAppState()
-                                                      .nonePackageSumInsured =
-                                                  'กรุณากรอกทุนประกัน';
-                                              FFAppState().nonePackageFlagAct =
-                                                  true;
-                                              FFAppState()
-                                                      .nonePackageIsBrandSelect =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageSearchModelIdList = [];
-                                              FFAppState()
-                                                      .nonePackageCarrierType =
-                                                  'กรุณาเลือกประเภทตู้เหล็ก';
-                                              FFAppState().nonePackageFlagCoop =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageTruckPart =
-                                                  'กรุณาเลือกส่วนของรถบรรทุก';
-                                              FFAppState()
-                                                      .nonePackageCusMembership =
-                                                  'กรุณาเลือกประเภทลูกค้า';
-                                              FFAppState()
-                                                      .nonePackageTruckCurrentPrice =
-                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                              FFAppState()
-                                                      .nonePackagePlateAdditional =
-                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                              FFAppState()
-                                                      .nonePackageTruckCarryPurpose =
-                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
-                                              FFAppState()
-                                                      .nonePackageTrailerSumInsured =
-                                                  'กรุณากรอกทุนประกันหางพ่วง';
-                                              FFAppState()
-                                                  .nonePackageCarrierPrice = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerIdList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerCodeList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerNameList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerDisplayName = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerIdOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerCodeOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerNameOutputList = [];
-                                              FFAppState().nonePackageReason =
-                                                  [];
-                                              FFAppState()
-                                                  .nonePackageInsurerSelectedList = [];
-                                              FFAppState()
-                                                  .nonePackageCoverTypeId = '';
-                                              FFAppState()
-                                                  .nonePackageCoverTypeCode = '';
-                                              FFAppState()
-                                                      .nonePackageCoverTypeName =
-                                                  'กรุณาเลือกประเภทชั้นประกัน';
-                                              FFAppState()
-                                                  .nonePackageGarageTypeId = '';
-                                              FFAppState()
-                                                      .nonePackageGarageTypeName =
-                                                  'กรุณาเลือกประเภทการซ่อม';
-                                              FFAppState()
-                                                  .nonePackageGarageTypeCode = '';
-                                              FFAppState()
-                                                  .nonePackageFlagRenew = false;
-                                              FFAppState()
-                                                      .nonePackageOldVmiExpDate =
-                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                              FFAppState().nonePackageOldVmi =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageOldVmiImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageIdCardImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageRenewImageUrlList = [];
-                                              FFAppState()
-                                                  .nonePackageRenewImageCheckList = [];
-                                              FFAppState()
-                                                      .nonePackageOldVmiImageUploadedCheck =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageIdCardWatermarkUploadedCheck =
-                                                  false;
-                                              FFAppState().buttonOrdinary =
-                                                  false;
-                                              FFAppState().buttonCorporation =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageCustomerType = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerDisplayNameOutput = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther = [];
-                                              FFAppState()
-                                                  .nonePackageImageFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRightFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRight = [];
-                                              FFAppState()
-                                                  .nonePackageImageRightRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeftRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeft = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeftFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRoof = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFront = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFront = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRight = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeft = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFront = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerOutputIndex = 0;
-                                              FFAppState().nonePackageLeadId =
-                                                  '';
-                                              FFAppState().nonePackageLeadNo =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageCarImageUploadedList = [];
-                                              FFAppState()
-                                                  .nonePackageImageOldVmi = [];
-                                              FFAppState()
-                                                  .nonePackageImageCompanyBook = [];
-                                              FFAppState()
-                                                  .nonePackageImageIdCard = [];
-                                              FFAppState()
-                                                  .nonePackageImageBlueBook = [];
-                                              FFAppState()
-                                                      .nonePackageCompanyBookImageUploadedCheck =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageCompanyBookImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRoofUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageBlueBookUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther1 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther2 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther3 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther4 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther5 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOtherNameList = [];
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerShortName = '';
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerName = '';
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerShortNameList = [];
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerNameList = [];
-                                              FFAppState()
-                                                  .nonePackageFlagOldVmi = '';
-                                              FFAppState().nonePackageWorkType =
-                                                  '';
-                                              FFAppState().nonePackageRemark =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageBranchCode = '';
-                                              FFAppState()
-                                                  .nonePackageBranchName = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameDupList = [];
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                  .nonePackageFlagRenew = true;
-                                              FFAppState()
-                                                      .nonePackageOldVmiImageUploadedCheck =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageIdCardWatermarkUploadedCheck =
-                                                  false;
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                      .nonePackageVehicleType =
-                                                  FFAppState()
-                                                      .insuranceVehicleTypeDropDown;
-                                              FFAppState()
-                                                      .nonePackageBrandName =
-                                                  FFAppState()
-                                                      .insuranceBasicBrandName;
-                                              FFAppState().nonePackageBrandId =
-                                                  FFAppState()
-                                                      .insuranceBasicBrandId;
-                                              FFAppState()
-                                                      .nonePackageModelName =
-                                                  FFAppState()
-                                                      .insuranceBasicModelName;
-                                              FFAppState()
-                                                      .nonePackageModelCode =
-                                                  FFAppState()
-                                                      .insuranceBasicModelId;
-                                              FFAppState().nonePackageYear =
-                                                  FFAppState()
-                                                      .insuranceBasicYear;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeId =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeId;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeCode =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeCode;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeName =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeName;
-                                              FFAppState()
-                                                      .nonePackageSearchModelList =
-                                                  FFAppState()
-                                                      .insuranceBasicModelNameList
-                                                      .toList()
-                                                      .cast<String>();
-                                              FFAppState()
-                                                      .nonePackageSearchModelIdList =
-                                                  FFAppState()
-                                                      .insuranceBasicModelIdList
-                                                      .toList()
-                                                      .cast<String>();
-                                              FFAppState()
-                                                      .nonePackageIsBrandSelect =
-                                                  FFAppState()
-                                                      .searchPackageCheckFilled[1];
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                  .nonePackageImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRoofUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageBlueBookUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther1 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther2 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther3 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther4 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther5 = '';
-                                              FFAppState()
-                                                  .nonePackageIdCardImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageOldVmiImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageCompanyBookImageUrl = '';
-                                            });
-
-                                            context.pushNamed(
-                                                'NonePackageRenewPage');
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                          },
-                                          text: 'ต่ออายุ',
-                                          options: FFButtonOptions(
-                                            width: double.infinity,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFEFE2D8),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      color: Color(0xFFDB771A),
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                            },
+                                            text: 'ต่ออายุ',
+                                            options: FFButtonOptions(
+                                              width: double.infinity,
+                                              height: 30.0,
+                                              padding: EdgeInsets.all(0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFEFE2D8),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFDB771A),
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        height: 60.0,
-                        decoration: BoxDecoration(
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 4.0,
-                              color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8.0),
-                          border: Border.all(
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            ],
                           ),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Container(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
+                      ),
+                    if (FFAppState().searchPackageSubProduct != 'MC')
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            20.0, 4.0, 20.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: 45.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Align(
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
                                       ),
-                                    ),
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: FaIcon(
-                                        FontAwesomeIcons.carSide,
-                                        color: Color(0xFF7A848E),
-                                        size: 24.0,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.carSide,
+                                          color: Color(0xFF7A848E),
+                                          size: 24.0,
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: Text(
-                                'งานนอกเรท',
-                                textAlign: TextAlign.center,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Noto Sans Thai',
-                                      fontSize: 16.0,
-                                    ),
+                              Expanded(
+                                flex: 2,
+                                child: Text(
+                                  'งานนอกเรท',
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        fontSize: 16.0,
+                                      ),
+                                ),
                               ),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 12.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            var _shouldSetState = false;
-                                            if (columnHideInAppContentRecord!
-                                                .isShowContent) {
-                                              _model.getServerDateTimeNonePackage =
-                                                  await GetDateTimeAPICall.call(
-                                                apiUrl: FFAppState()
-                                                    .apiURLLocalState,
-                                                token: FFAppState().accessToken,
-                                              );
-                                              _shouldSetState = true;
-                                              if (((_model.getServerDateTimeNonePackage
-                                                              ?.statusCode ??
-                                                          200) ==
-                                                      200) &&
-                                                  (GetDateTimeAPICall
-                                                          .statusLayer1(
-                                                        (_model.getServerDateTimeNonePackage
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ) ==
-                                                      200)) {
-                                                if (functions.checkWeekendDate(
-                                                    GetDateTimeAPICall
-                                                        .currentDateYMD(
-                                                  (_model.getServerDateTimeNonePackage
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                ).toString())!) {
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder:
-                                                        (alertDialogContext) {
-                                                      return WebViewAware(
-                                                          child: AlertDialog(
-                                                        content: Text(
-                                                            'วันเสาร์ / วันอาทิตย์ และวันหยุดนักขัตฤกษ์ ขายประกันรถยนต์ชั้น 2+,2, 3+ และ 3ในเรทเท่านั้น'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ));
-                                                    },
-                                                  );
-                                                  if (_shouldSetState)
-                                                    setState(() {});
-                                                  return;
-                                                }
-                                              } else {
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                        child: AlertDialog(
-                                                      content: Text(
-                                                          'พบข้อผิดพลาด (${(_model.getServerDateTimeNonePackage?.statusCode ?? 200).toString()}), (${GetDateTimeAPICall.statusLayer1(
-                                                        (_model.getServerDateTimeNonePackage
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      ).toString()})get date'),
-                                                      actions: [
-                                                        TextButton(
-                                                          onPressed: () =>
-                                                              Navigator.pop(
-                                                                  alertDialogContext),
-                                                          child: Text('Ok'),
-                                                        ),
-                                                      ],
-                                                    ));
-                                                  },
-                                                );
-                                              }
-                                            }
-                                            setState(() {
-                                              FFAppState()
-                                                      .nonePackageFlagCarrier =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageVehicleType =
-                                                  'กรุณาเลือกประเภทรถ';
-                                              FFAppState()
-                                                      .nonePackageBrandName =
-                                                  'กรุณาเลือกยี่ห้อรถ';
-                                              FFAppState().nonePackageBrandId =
-                                                  '';
-                                              FFAppState()
-                                                      .nonePackageModelName =
-                                                  'กรุณากรอกรุ่นรถ';
-                                              FFAppState()
-                                                  .nonePackageModelCode = '';
-                                              FFAppState().nonePackageYear =
-                                                  'กรุณาเลือกปีจดทะเบียน';
-                                              FFAppState()
-                                                  .nonePackageUsedTypeId = '';
-                                              FFAppState()
-                                                  .nonePackageSearchModelList = [];
-                                              FFAppState()
-                                                  .nonePackageUsedTypeCode = '';
-                                              FFAppState()
-                                                      .nonePackageUsedTypeName =
-                                                  'กรุณาเลือกลักษณะการใช้รถ';
-                                              FFAppState()
-                                                      .nonePackageCusFullname =
-                                                  'กรุณากรอกชื่อ';
-                                              FFAppState().nonePackageCusPhone =
-                                                  'กรุณากรอกเบอร์โทรศัพท์';
-                                              FFAppState().nonePackagePlate =
-                                                  '';
-                                              FFAppState().nonePackageProvince =
-                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
-                                              FFAppState()
-                                                  .nonePackageProvinceId = '';
-                                              FFAppState()
-                                                      .nonePackageSumInsured =
-                                                  'กรุณากรอกทุนประกัน';
-                                              FFAppState().nonePackageFlagAct =
-                                                  true;
-                                              FFAppState()
-                                                      .nonePackageIsBrandSelect =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageSearchModelIdList = [];
-                                              FFAppState()
-                                                      .nonePackageCarrierType =
-                                                  'กรุณาเลือกประเภทตู้เหล็ก';
-                                              FFAppState().nonePackageFlagCoop =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageTruckPart =
-                                                  'กรุณาเลือกส่วนของรถบรรทุก';
-                                              FFAppState()
-                                                      .nonePackageCusMembership =
-                                                  'กรุณาเลือกประเภทลูกค้า';
-                                              FFAppState()
-                                                      .nonePackageTruckCurrentPrice =
-                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                              FFAppState()
-                                                      .nonePackagePlateAdditional =
-                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                              FFAppState()
-                                                      .nonePackageTruckCarryPurpose =
-                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
-                                              FFAppState()
-                                                      .nonePackageTrailerSumInsured =
-                                                  'กรุณากรอกทุนประกันหางพ่วง';
-                                              FFAppState()
-                                                  .nonePackageCarrierPrice = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerIdList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerCodeList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerNameList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerDisplayName = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerIdOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerCodeOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameOutputList = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerNameOutputList = [];
-                                              FFAppState().nonePackageReason =
-                                                  [];
-                                              FFAppState()
-                                                  .nonePackageInsurerSelectedList = [];
-                                              FFAppState()
-                                                  .nonePackageCoverTypeId = '';
-                                              FFAppState()
-                                                  .nonePackageCoverTypeCode = '';
-                                              FFAppState()
-                                                      .nonePackageCoverTypeName =
-                                                  'กรุณาเลือกประเภทชั้นประกัน';
-                                              FFAppState()
-                                                  .nonePackageGarageTypeId = '';
-                                              FFAppState()
-                                                      .nonePackageGarageTypeName =
-                                                  'กรุณาเลือกประเภทการซ่อม';
-                                              FFAppState()
-                                                  .nonePackageGarageTypeCode = '';
-                                              FFAppState()
-                                                  .nonePackageFlagRenew = false;
-                                              FFAppState()
-                                                      .nonePackageOldVmiExpDate =
-                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                              FFAppState().nonePackageOldVmi =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageOldVmiImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageIdCardImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageRenewImageUrlList = [];
-                                              FFAppState()
-                                                  .nonePackageRenewImageCheckList = [];
-                                              FFAppState()
-                                                      .nonePackageOldVmiImageUploadedCheck =
-                                                  false;
-                                              FFAppState()
-                                                      .nonePackageIdCardWatermarkUploadedCheck =
-                                                  false;
-                                              FFAppState().buttonOrdinary =
-                                                  false;
-                                              FFAppState().buttonCorporation =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageCustomerType = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerDisplayNameOutput = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther = [];
-                                              FFAppState()
-                                                  .nonePackageImageFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRightFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRight = [];
-                                              FFAppState()
-                                                  .nonePackageImageRightRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeftRear = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeft = [];
-                                              FFAppState()
-                                                  .nonePackageImageLeftFront = [];
-                                              FFAppState()
-                                                  .nonePackageImageRoof = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFront = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFront = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRight = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRear = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeft = [];
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFront = [];
-                                              FFAppState()
-                                                  .nonePackageInsurerOutputIndex = 0;
-                                              FFAppState().nonePackageLeadId =
-                                                  '';
-                                              FFAppState().nonePackageLeadNo =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageCarImageUploadedList = [];
-                                              FFAppState()
-                                                  .nonePackageImageOldVmi = [];
-                                              FFAppState()
-                                                  .nonePackageImageCompanyBook = [];
-                                              FFAppState()
-                                                  .nonePackageImageIdCard = [];
-                                              FFAppState()
-                                                  .nonePackageImageBlueBook = [];
-                                              FFAppState()
-                                                      .nonePackageCompanyBookImageUploadedCheck =
-                                                  false;
-                                              FFAppState()
-                                                  .nonePackageCompanyBookImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRoofUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageBlueBookUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther1 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther2 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther3 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther4 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther5 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOtherNameList = [];
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerShortName = '';
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerName = '';
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerShortNameList = [];
-                                              FFAppState()
-                                                  .nonePackageSelectedInsurerNameList = [];
-                                              FFAppState()
-                                                  .nonePackageFlagOldVmi = '';
-                                              FFAppState().nonePackageWorkType =
-                                                  '';
-                                              FFAppState().nonePackageRemark =
-                                                  '';
-                                              FFAppState()
-                                                  .nonePackageBranchCode = '';
-                                              FFAppState()
-                                                  .nonePackageBranchName = '';
-                                              FFAppState()
-                                                  .nonePackageInsurerShortNameDupList = [];
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                  .nonePackageFlagRenew = false;
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                      .nonePackageVehicleType =
-                                                  FFAppState()
-                                                      .insuranceVehicleTypeDropDown;
-                                              FFAppState()
-                                                      .nonePackageBrandName =
-                                                  FFAppState()
-                                                      .insuranceBasicBrandName;
-                                              FFAppState().nonePackageBrandId =
-                                                  FFAppState()
-                                                      .insuranceBasicBrandId;
-                                              FFAppState()
-                                                      .nonePackageModelName =
-                                                  FFAppState()
-                                                      .insuranceBasicModelName;
-                                              FFAppState()
-                                                      .nonePackageModelCode =
-                                                  FFAppState()
-                                                      .insuranceBasicModelId;
-                                              FFAppState().nonePackageYear =
-                                                  FFAppState()
-                                                      .insuranceBasicYear;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeId =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeId;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeCode =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeCode;
-                                              FFAppState()
-                                                      .nonePackageUsedTypeName =
-                                                  FFAppState()
-                                                      .insuranceBasicVehicleUsedTypeName;
-                                              FFAppState()
-                                                      .nonePackageSearchModelList =
-                                                  FFAppState()
-                                                      .insuranceBasicModelNameList
-                                                      .toList()
-                                                      .cast<String>();
-                                              FFAppState()
-                                                      .nonePackageSearchModelIdList =
-                                                  FFAppState()
-                                                      .insuranceBasicModelIdList
-                                                      .toList()
-                                                      .cast<String>();
-                                              FFAppState()
-                                                      .nonePackageIsBrandSelect =
-                                                  FFAppState()
-                                                      .searchPackageCheckFilled[1];
-                                            });
-                                            setState(() {
-                                              FFAppState()
-                                                  .nonePackageImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageRoofUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRightRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftRearUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageBlueBookUploaded = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther1 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther2 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther3 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther4 = '';
-                                              FFAppState()
-                                                  .nonePackageImageOther5 = '';
-                                              FFAppState()
-                                                  .nonePackageIdCardImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageOldVmiImageUrl = '';
-                                              FFAppState()
-                                                  .nonePackageCompanyBookImageUrl = '';
-                                            });
+                              Expanded(
+                                flex: 2,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  12.0, 0.0, 12.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              if (columnHideInAppContentRecord!
+                                                  .isShowContent) {}
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageFlagCarrier =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageVehicleType =
+                                                    'กรุณาเลือกประเภทรถ';
+                                                FFAppState()
+                                                        .nonePackageBrandName =
+                                                    'กรุณาเลือกยี่ห้อรถ';
+                                                FFAppState()
+                                                    .nonePackageBrandId = '';
+                                                FFAppState()
+                                                        .nonePackageModelName =
+                                                    'กรุณากรอกรุ่นรถ';
+                                                FFAppState()
+                                                    .nonePackageModelCode = '';
+                                                FFAppState().nonePackageYear =
+                                                    'กรุณาเลือกปีจดทะเบียน';
+                                                FFAppState()
+                                                    .nonePackageUsedTypeId = '';
+                                                FFAppState()
+                                                    .nonePackageSearchModelList = [];
+                                                FFAppState()
+                                                    .nonePackageUsedTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageUsedTypeName =
+                                                    'กรุณาเลือกลักษณะการใช้รถ';
+                                                FFAppState()
+                                                        .nonePackageCusFullname =
+                                                    'กรุณากรอกชื่อ';
+                                                FFAppState()
+                                                        .nonePackageCusPhone =
+                                                    'กรุณากรอกเบอร์โทรศัพท์';
+                                                FFAppState().nonePackagePlate =
+                                                    '';
+                                                FFAppState()
+                                                        .nonePackageProvince =
+                                                    'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                FFAppState()
+                                                    .nonePackageProvinceId = '';
+                                                FFAppState()
+                                                        .nonePackageSumInsured =
+                                                    'กรุณากรอกทุนประกัน';
+                                                FFAppState()
+                                                    .nonePackageFlagAct = true;
+                                                FFAppState()
+                                                        .nonePackageIsBrandSelect =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageSearchModelIdList = [];
+                                                FFAppState()
+                                                        .nonePackageCarrierType =
+                                                    'กรุณาเลือกประเภทตู้เหล็ก';
+                                                FFAppState()
+                                                        .nonePackageFlagCoop =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageTruckPart =
+                                                    'กรุณาเลือกส่วนของรถบรรทุก';
+                                                FFAppState()
+                                                        .nonePackageCusMembership =
+                                                    'กรุณาเลือกประเภทลูกค้า';
+                                                FFAppState()
+                                                        .nonePackageTruckCurrentPrice =
+                                                    'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                FFAppState()
+                                                        .nonePackagePlateAdditional =
+                                                    'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                FFAppState()
+                                                        .nonePackageTruckCarryPurpose =
+                                                    'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                FFAppState()
+                                                        .nonePackageTrailerSumInsured =
+                                                    'กรุณากรอกทุนประกันหางพ่วง';
+                                                FFAppState()
+                                                    .nonePackageCarrierPrice = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerIdList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerCodeList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerNameList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerDisplayName = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerIdOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerCodeOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameOutputList = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerNameOutputList = [];
+                                                FFAppState().nonePackageReason =
+                                                    [];
+                                                FFAppState()
+                                                    .nonePackageInsurerSelectedList = [];
+                                                FFAppState()
+                                                    .nonePackageCoverTypeId = '';
+                                                FFAppState()
+                                                    .nonePackageCoverTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageCoverTypeName =
+                                                    'กรุณาเลือกประเภทชั้นประกัน';
+                                                FFAppState()
+                                                    .nonePackageGarageTypeId = '';
+                                                FFAppState()
+                                                        .nonePackageGarageTypeName =
+                                                    'กรุณาเลือกประเภทการซ่อม';
+                                                FFAppState()
+                                                    .nonePackageGarageTypeCode = '';
+                                                FFAppState()
+                                                        .nonePackageFlagRenew =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageOldVmiExpDate =
+                                                    'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                FFAppState().nonePackageOldVmi =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageOldVmiImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageIdCardImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageRenewImageUrlList = [];
+                                                FFAppState()
+                                                    .nonePackageRenewImageCheckList = [];
+                                                FFAppState()
+                                                        .nonePackageOldVmiImageUploadedCheck =
+                                                    false;
+                                                FFAppState()
+                                                        .nonePackageIdCardWatermarkUploadedCheck =
+                                                    false;
+                                                FFAppState().buttonOrdinary =
+                                                    false;
+                                                FFAppState().buttonCorporation =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageCustomerType = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerDisplayNameOutput = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther = [];
+                                                FFAppState()
+                                                    .nonePackageImageFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRightFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRight = [];
+                                                FFAppState()
+                                                    .nonePackageImageRightRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeftRear = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeft = [];
+                                                FFAppState()
+                                                    .nonePackageImageLeftFront = [];
+                                                FFAppState()
+                                                    .nonePackageImageRoof = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFront = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFront = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRight = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRear = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeft = [];
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFront = [];
+                                                FFAppState()
+                                                    .nonePackageInsurerOutputIndex = 0;
+                                                FFAppState().nonePackageLeadId =
+                                                    '';
+                                                FFAppState().nonePackageLeadNo =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageCarImageUploadedList = [];
+                                                FFAppState()
+                                                    .nonePackageImageOldVmi = [];
+                                                FFAppState()
+                                                    .nonePackageImageCompanyBook = [];
+                                                FFAppState()
+                                                    .nonePackageImageIdCard = [];
+                                                FFAppState()
+                                                    .nonePackageImageBlueBook = [];
+                                                FFAppState()
+                                                        .nonePackageCompanyBookImageUploadedCheck =
+                                                    false;
+                                                FFAppState()
+                                                    .nonePackageCompanyBookImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRoofUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageBlueBookUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther1 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther2 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther3 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther4 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther5 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOtherNameList = [];
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerShortName = '';
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerName = '';
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerShortNameList = [];
+                                                FFAppState()
+                                                    .nonePackageSelectedInsurerNameList = [];
+                                                FFAppState()
+                                                    .nonePackageFlagOldVmi = '';
+                                                FFAppState()
+                                                    .nonePackageWorkType = '';
+                                                FFAppState().nonePackageRemark =
+                                                    '';
+                                                FFAppState()
+                                                    .nonePackageBranchCode = '';
+                                                FFAppState()
+                                                    .nonePackageBranchName = '';
+                                                FFAppState()
+                                                    .nonePackageInsurerShortNameDupList = [];
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageFlagRenew =
+                                                    false;
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageVehicleType =
+                                                    FFAppState()
+                                                        .insuranceVehicleTypeDropDown;
+                                                FFAppState()
+                                                        .nonePackageBrandName =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandName;
+                                                FFAppState()
+                                                        .nonePackageBrandId =
+                                                    FFAppState()
+                                                        .insuranceBasicBrandId;
+                                                FFAppState()
+                                                        .nonePackageModelName =
+                                                    FFAppState()
+                                                        .insuranceBasicModelName;
+                                                FFAppState()
+                                                        .nonePackageModelCode =
+                                                    FFAppState()
+                                                        .insuranceBasicModelId;
+                                                FFAppState().nonePackageYear =
+                                                    FFAppState()
+                                                        .insuranceBasicYear;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeId =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeId;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeCode =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeCode;
+                                                FFAppState()
+                                                        .nonePackageUsedTypeName =
+                                                    FFAppState()
+                                                        .insuranceBasicVehicleUsedTypeName;
+                                                FFAppState()
+                                                        .nonePackageSearchModelList =
+                                                    FFAppState()
+                                                        .insuranceBasicModelNameList
+                                                        .toList()
+                                                        .cast<String>();
+                                                FFAppState()
+                                                        .nonePackageSearchModelIdList =
+                                                    FFAppState()
+                                                        .insuranceBasicModelIdList
+                                                        .toList()
+                                                        .cast<String>();
+                                                FFAppState()
+                                                        .nonePackageIsBrandSelect =
+                                                    FFAppState()
+                                                        .searchPackageCheckFilled[1];
+                                                FFAppState()
+                                                    .nonePackageOldVmiExpDate = '';
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                        .nonePackageOldVmiExpDate =
+                                                    FFAppState()
+                                                        .insuranceBasicOldVmiExpDate;
+                                              });
+                                              setState(() {
+                                                FFAppState()
+                                                    .nonePackageImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageRoofUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRightRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftRearUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageBlueBookUploaded = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther1 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther2 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther3 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther4 = '';
+                                                FFAppState()
+                                                    .nonePackageImageOther5 = '';
+                                                FFAppState()
+                                                    .nonePackageIdCardImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageOldVmiImageUrl = '';
+                                                FFAppState()
+                                                    .nonePackageCompanyBookImageUrl = '';
+                                              });
 
-                                            context
-                                                .pushNamed('SelectReasonPage');
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                          },
-                                          text: 'นอกเรท',
-                                          options: FFButtonOptions(
-                                            width: double.infinity,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: Color(0xFFD9D9D9),
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily:
-                                                          'Noto Sans Thai',
-                                                      color: Color(0xFF090F13),
-                                                    ),
-                                            elevation: 3.0,
-                                            borderSide: BorderSide(
-                                              color: Colors.transparent,
-                                              width: 1.0,
+                                              context.pushNamed(
+                                                  'SelectReasonPage');
+                                            },
+                                            text: 'นอกเรท',
+                                            options: FFButtonOptions(
+                                              width: double.infinity,
+                                              height: 30.0,
+                                              padding: EdgeInsets.all(0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color: Color(0xFFD9D9D9),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFF090F13),
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ].addToStart(SizedBox(height: 8.0)),
+                  ],
                 );
               },
             ),

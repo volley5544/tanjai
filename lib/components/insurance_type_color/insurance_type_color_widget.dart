@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,10 +9,10 @@ import 'insurance_type_color_model.dart';
 export 'insurance_type_color_model.dart';
 
 class InsuranceTypeColorWidget extends StatefulWidget {
-  const InsuranceTypeColorWidget({Key? key}) : super(key: key);
+  const InsuranceTypeColorWidget({super.key});
 
   @override
-  _InsuranceTypeColorWidgetState createState() =>
+  State<InsuranceTypeColorWidget> createState() =>
       _InsuranceTypeColorWidgetState();
 }
 
@@ -77,7 +76,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),

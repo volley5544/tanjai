@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future batchUpdate(DocumentReference? userDocRef) async {
+Future batchUpdate(
+    DocumentReference? userDocRef, String? updateFieldName) async {
   // collectionRef is variable name that can be changed
   // updateCollection is a parameter - set as a 'specific value' with the name of the collection
   // you want to update (e.g. where the documents are)
@@ -43,7 +44,7 @@ Future batchUpdate(DocumentReference? userDocRef) async {
       //.firestore.collection('notification')
       //.where('noti_is_read', isEqualTo: false)
       //.get is used to retrieves those documents
-      .where('noti_is_read', isEqualTo: false)
+      .where(updateFieldName!, isEqualTo: false)
       .get()
 
       //.then allows you to run action/actions on the results from your query
@@ -53,7 +54,7 @@ Future batchUpdate(DocumentReference? userDocRef) async {
     //document is a variable name you can change
     querySnapshot.docs.forEach((document) {
       //set newValue parameter in action with value you want your documents to be updated to
-      batch.update(document.reference, {'noti_is_read': true});
+      batch.update(document.reference, {updateFieldName!: true});
     });
 
     //this ends your firestore batch as one single 'action' on the database all at the same time

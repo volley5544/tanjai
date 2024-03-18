@@ -71,7 +71,6 @@ class FlutterFlowChoiceChips extends StatefulWidget {
 
 class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
   late List<String> choiceChipValues;
-  ValueListenable<List<String>?> get changeSelectedValues => widget.controller;
   List<String> get selectedValues => widget.controller.value ?? [];
 
   @override
@@ -87,16 +86,10 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
         },
       );
     }
-    changeSelectedValues.addListener(() {
-      if (widget.onChanged != null) {
-        widget.onChanged!(selectedValues);
-      }
-    });
   }
 
   @override
   void dispose() {
-    changeSelectedValues.removeListener(() {});
     super.dispose();
   }
 
@@ -126,6 +119,7 @@ class _FlutterFlowChoiceChipsState extends State<FlutterFlowChoiceChips> {
                         setState(() {});
                       }
                     }
+                    widget.onChanged!(choiceChipValues);
                   }
                 : null,
             label: Text(

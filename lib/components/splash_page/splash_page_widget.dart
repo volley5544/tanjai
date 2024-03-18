@@ -7,7 +7,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'splash_page_model.dart';
@@ -15,14 +14,14 @@ export 'splash_page_model.dart';
 
 class SplashPageWidget extends StatefulWidget {
   const SplashPageWidget({
-    Key? key,
+    super.key,
     this.dailyText,
-  }) : super(key: key);
+  });
 
   final String? dailyText;
 
   @override
-  _SplashPageWidgetState createState() => _SplashPageWidgetState();
+  State<SplashPageWidget> createState() => _SplashPageWidgetState();
 }
 
 class _SplashPageWidgetState extends State<SplashPageWidget> {
@@ -101,7 +100,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.50),
+                                  alignment: AlignmentDirectional(0.0, 0.5),
                                   child: Container(
                                     width: 280.0,
                                     height: 200.0,
@@ -112,9 +111,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: Text(
                                             FFAppState().dailyText,
                                             textAlign: TextAlign.center,
@@ -138,7 +135,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 1.00),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 10.0),

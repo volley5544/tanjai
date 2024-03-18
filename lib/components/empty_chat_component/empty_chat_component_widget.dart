@@ -2,17 +2,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'empty_chat_component_model.dart';
 export 'empty_chat_component_model.dart';
 
 class EmptyChatComponentWidget extends StatefulWidget {
-  const EmptyChatComponentWidget({Key? key}) : super(key: key);
+  const EmptyChatComponentWidget({super.key});
 
   @override
-  _EmptyChatComponentWidgetState createState() =>
+  State<EmptyChatComponentWidget> createState() =>
       _EmptyChatComponentWidgetState();
 }
 
@@ -67,7 +66,7 @@ class _EmptyChatComponentWidgetState extends State<EmptyChatComponentWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                  padding: EdgeInsets.all(1.0),
                   child: Container(
                     width: 80.0,
                     height: 80.0,

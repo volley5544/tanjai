@@ -2,17 +2,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'detail_reward_point_model.dart';
 export 'detail_reward_point_model.dart';
 
 class DetailRewardPointWidget extends StatefulWidget {
-  const DetailRewardPointWidget({Key? key}) : super(key: key);
+  const DetailRewardPointWidget({super.key});
 
   @override
-  _DetailRewardPointWidgetState createState() =>
+  State<DetailRewardPointWidget> createState() =>
       _DetailRewardPointWidgetState();
 }
 
@@ -42,8 +41,6 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(

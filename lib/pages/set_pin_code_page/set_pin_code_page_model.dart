@@ -30,10 +30,12 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     pinCodeController = TextEditingController();
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     pinCodeController?.dispose();

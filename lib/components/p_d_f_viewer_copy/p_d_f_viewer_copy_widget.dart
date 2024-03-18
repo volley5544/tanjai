@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,10 +10,10 @@ import 'p_d_f_viewer_copy_model.dart';
 export 'p_d_f_viewer_copy_model.dart';
 
 class PDFViewerCopyWidget extends StatefulWidget {
-  const PDFViewerCopyWidget({Key? key}) : super(key: key);
+  const PDFViewerCopyWidget({super.key});
 
   @override
-  _PDFViewerCopyWidgetState createState() => _PDFViewerCopyWidgetState();
+  State<PDFViewerCopyWidget> createState() => _PDFViewerCopyWidgetState();
 }
 
 class _PDFViewerCopyWidgetState extends State<PDFViewerCopyWidget> {
@@ -43,8 +42,6 @@ class _PDFViewerCopyWidgetState extends State<PDFViewerCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,

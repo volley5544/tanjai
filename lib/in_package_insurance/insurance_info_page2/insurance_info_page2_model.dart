@@ -1,7 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/infomation_customer_act_widget.dart';
+import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -14,8 +15,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -29,11 +28,19 @@ class InsuranceInfoPage2Model
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in insuranceInfoPage2 widget.
   ApiCallResponse? getProvince;
+  // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in insuranceInfoPage2 widget.
+  ApiCallResponse? getVehicleUsedTypeAPI;
+  // Model for infomationCustomer component.
+  late InfomationCustomerModel infomationCustomerModel;
+  // Model for infomationCustomerAct component.
+  late InfomationCustomerActModel infomationCustomerActModel;
   // State field(s) for OldVmiTextField widget.
   FocusNode? oldVmiTextFieldFocusNode;
   TextEditingController? oldVmiTextFieldController;
   String? Function(BuildContext, String?)? oldVmiTextFieldControllerValidator;
-  DateTime? datePicked;
+  DateTime? datePicked1;
+  DateTime? datePicked2;
+  DateTime? datePicked3;
   // State field(s) for Vehicleregistration widget.
   FocusNode? vehicleregistrationFocusNode1;
   TextEditingController? vehicleregistrationController1;
@@ -75,10 +82,19 @@ class InsuranceInfoPage2Model
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  @override
+  void initState(BuildContext context) {
+    infomationCustomerModel =
+        createModel(context, () => InfomationCustomerModel());
+    infomationCustomerActModel =
+        createModel(context, () => InfomationCustomerActModel());
+  }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
+    infomationCustomerModel.dispose();
+    infomationCustomerActModel.dispose();
     oldVmiTextFieldFocusNode?.dispose();
     oldVmiTextFieldController?.dispose();
 
