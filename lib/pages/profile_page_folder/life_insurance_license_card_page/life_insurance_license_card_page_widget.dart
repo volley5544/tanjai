@@ -42,8 +42,6 @@ class _LifeInsuranceLicenseCardPageWidgetState
         await actions.allowScreenRecordIOS();
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

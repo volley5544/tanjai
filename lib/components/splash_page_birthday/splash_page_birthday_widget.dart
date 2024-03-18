@@ -38,8 +38,6 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SplashPageBirthdayModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

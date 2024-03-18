@@ -44,7 +44,6 @@ class _NonePackageShowStatusComponentWidgetState
     _model = createModel(context, () => NonePackageShowStatusComponentModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

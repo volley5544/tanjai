@@ -96,8 +96,6 @@ class _MakeInsuranceListPageSearchWidgetState
       });
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

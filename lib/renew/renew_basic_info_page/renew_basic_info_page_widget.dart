@@ -436,8 +436,6 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
     _model.licenseCodeController ??= TextEditingController(
         text: FFAppState().insuranceInfoLicenseEmployeeId);
     _model.licenseCodeFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

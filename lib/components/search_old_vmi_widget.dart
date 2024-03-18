@@ -34,8 +34,6 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
 
     _model.searchFirstnameController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -35,8 +35,6 @@ class _NonePackageEditDetailPageWidgetState
         parameters: {'screen_name': 'NonePackageEditDetailPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

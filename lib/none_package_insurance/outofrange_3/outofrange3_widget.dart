@@ -28,7 +28,6 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Outofrange_3'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

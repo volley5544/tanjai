@@ -37,8 +37,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SplashPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

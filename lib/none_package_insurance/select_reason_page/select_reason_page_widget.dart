@@ -39,8 +39,6 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
             .cast<bool>();
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

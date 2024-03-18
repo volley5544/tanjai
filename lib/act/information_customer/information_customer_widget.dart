@@ -53,8 +53,6 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
 
     _model.textController9 ??= TextEditingController();
     _model.textFieldFocusNode9 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

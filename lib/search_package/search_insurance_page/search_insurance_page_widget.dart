@@ -10,7 +10,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -950,8 +949,6 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         });
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -2281,44 +2278,24 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (kIsWeb) {
-                                        final _datePickedDate =
-                                            await showDatePicker(
-                                          context: context,
-                                          initialDate: getCurrentTimestamp,
-                                          firstDate: DateTime(1900),
-                                          lastDate: DateTime(2050),
-                                        );
-
-                                        if (_datePickedDate != null) {
+                                      await DatePicker.showDatePicker(
+                                        context,
+                                        showTitleActions: true,
+                                        onConfirm: (date) {
                                           safeSetState(() {
-                                            _model.datePicked = DateTime(
-                                              _datePickedDate.year,
-                                              _datePickedDate.month,
-                                              _datePickedDate.day,
-                                            );
+                                            _model.datePicked = date;
                                           });
-                                        }
-                                      } else {
-                                        await DatePicker.showDatePicker(
-                                          context,
-                                          showTitleActions: true,
-                                          onConfirm: (date) {
-                                            safeSetState(() {
-                                              _model.datePicked = date;
-                                            });
-                                          },
-                                          currentTime: getCurrentTimestamp,
-                                          minTime: DateTime(0, 0, 0),
-                                          locale: LocaleType.values.firstWhere(
-                                            (l) =>
-                                                l.name ==
-                                                FFLocalizations.of(context)
-                                                    .languageCode,
-                                            orElse: () => LocaleType.en,
-                                          ),
-                                        );
-                                      }
+                                        },
+                                        currentTime: getCurrentTimestamp,
+                                        minTime: DateTime(0, 0, 0),
+                                        locale: LocaleType.values.firstWhere(
+                                          (l) =>
+                                              l.name ==
+                                              FFLocalizations.of(context)
+                                                  .languageCode,
+                                          orElse: () => LocaleType.en,
+                                        ),
+                                      );
 
                                       if (!(_model.datePicked != null)) {
                                         await actions.hideKeyboardAction(

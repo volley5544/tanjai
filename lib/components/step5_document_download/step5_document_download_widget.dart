@@ -30,8 +30,6 @@ class _Step5DocumentDownloadWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => Step5DocumentDownloadModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

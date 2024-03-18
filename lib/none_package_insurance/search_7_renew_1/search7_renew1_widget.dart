@@ -38,8 +38,6 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
 
     _model.textFieldController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

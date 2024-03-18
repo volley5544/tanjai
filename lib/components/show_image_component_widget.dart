@@ -32,8 +32,6 @@ class _ShowImageComponentWidgetState extends State<ShowImageComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowImageComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

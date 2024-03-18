@@ -432,7 +432,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
     });
 
     _model.expandableController = ExpandableController(initialExpanded: true);
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

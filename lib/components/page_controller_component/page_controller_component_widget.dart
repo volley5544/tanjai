@@ -32,8 +32,6 @@ class _PageControllerComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PageControllerComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

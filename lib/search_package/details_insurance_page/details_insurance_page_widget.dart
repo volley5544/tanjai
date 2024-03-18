@@ -146,7 +146,6 @@ class _DetailsInsurancePageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'detailsInsurancePage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -29,7 +29,6 @@ class _InsuranceUnSuccessPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsuranceUnSuccessPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -47,8 +47,6 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
         FFAppState().insuranceInfoCheckUploadImgBoolList = [];
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -29,8 +29,6 @@ class _TiktokSplashPageWidgetState extends State<TiktokSplashPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TiktokSplashPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

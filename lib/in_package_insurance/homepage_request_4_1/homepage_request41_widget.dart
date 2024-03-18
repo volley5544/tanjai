@@ -38,7 +38,6 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Homepage_Request_4_1'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

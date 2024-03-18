@@ -565,8 +565,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         text: functions
             .showNumberWithComma(FFAppState().insuranceInfoPage4GrossTotalNet));
     _model.grossNetTotalFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

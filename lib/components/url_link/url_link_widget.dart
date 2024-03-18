@@ -44,7 +44,6 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
       length: 1,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -28,8 +28,6 @@ class _CheckinStatusWidgetState extends State<CheckinStatusWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CheckinStatusModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

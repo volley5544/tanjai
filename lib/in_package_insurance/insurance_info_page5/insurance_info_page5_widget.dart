@@ -512,8 +512,6 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
       });
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -36,8 +36,6 @@ class _WebViewPromotionPageWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.lockLanscapeOrientation();
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

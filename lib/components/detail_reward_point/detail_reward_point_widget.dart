@@ -28,8 +28,6 @@ class _DetailRewardPointWidgetState extends State<DetailRewardPointWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailRewardPointModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

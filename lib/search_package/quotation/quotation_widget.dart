@@ -34,7 +34,6 @@ class _QuotationWidgetState extends State<QuotationWidget> {
     _model = createModel(context, () => QuotationModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Quotation'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

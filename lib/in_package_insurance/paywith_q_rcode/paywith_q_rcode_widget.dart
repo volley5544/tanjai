@@ -54,8 +54,6 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
         parameters: {'screen_name': 'PaywithQRcode'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

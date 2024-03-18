@@ -128,7 +128,6 @@ class _NonePackageSelectedInsurerPageWidgetState
         }
       },
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

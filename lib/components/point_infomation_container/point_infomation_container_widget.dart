@@ -32,8 +32,6 @@ class _PointInfomationContainerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PointInfomationContainerModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

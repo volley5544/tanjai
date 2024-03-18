@@ -50,7 +50,6 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
     _model = createModel(context, () => CallHistoryModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

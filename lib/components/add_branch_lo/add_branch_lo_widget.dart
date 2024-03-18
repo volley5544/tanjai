@@ -62,8 +62,6 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
 
     _model.textController7 ??= TextEditingController();
     _model.textFieldFocusNode7 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

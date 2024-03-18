@@ -128,8 +128,6 @@ class _NonePackageRenewPageWidgetState
 
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

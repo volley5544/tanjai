@@ -32,8 +32,6 @@ class _ShowimgurlWidgetState extends State<ShowimgurlWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ShowimgurlModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

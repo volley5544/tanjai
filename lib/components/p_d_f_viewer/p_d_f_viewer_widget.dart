@@ -34,8 +34,6 @@ class _PDFViewerWidgetState extends State<PDFViewerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PDFViewerModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

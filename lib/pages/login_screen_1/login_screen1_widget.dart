@@ -51,8 +51,6 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
 
     _model.licenseIdController ??= TextEditingController();
     _model.licenseIdFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

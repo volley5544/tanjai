@@ -176,8 +176,6 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
     _model.address5Controller ??=
         TextEditingController(text: FFAppState().addAddressForDoc3);
     _model.address5FocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

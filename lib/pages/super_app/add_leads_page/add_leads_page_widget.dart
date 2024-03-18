@@ -48,8 +48,6 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
 
     _model.remarkController ??= TextEditingController();
     _model.remarkFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

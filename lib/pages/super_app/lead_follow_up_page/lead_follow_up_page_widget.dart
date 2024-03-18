@@ -194,8 +194,6 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
       }
       Navigator.pop(context);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

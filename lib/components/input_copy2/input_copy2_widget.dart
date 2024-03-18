@@ -42,8 +42,6 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
 
     _model.reasonCancelController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
