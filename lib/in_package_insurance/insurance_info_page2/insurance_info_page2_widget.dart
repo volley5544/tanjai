@@ -126,7 +126,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                 .toList()
                 .cast<String>();
       });
-      if (FFAppState().flagRenew != '1') {
+      if (FFAppState().flagRenew == '1') {
         _model.getVehicleUsedTypeAPI =
             await InsuranceRequestGetVehicleAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -181,6 +181,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
             )!
                     .toList()
                     .cast<String>();
+            FFAppState().insuranceRequestIsLoadedData = false;
+            FFAppState().insuranceRequestIsLoadDataMc = false;
           });
         } else {
           await showDialog(

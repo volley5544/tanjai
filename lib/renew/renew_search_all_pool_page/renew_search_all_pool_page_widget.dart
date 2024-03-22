@@ -857,14 +857,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                     )?[poolListIndex],
                                                                                     '-',
                                                                                   ) !=
-                                                                                  'ตกลงทำประกัน') &&
-                                                                              (valueOrDefault<String>(
-                                                                                    RenewBranchListCall.insurerstatus(
-                                                                                      listViewRenewBranchListResponse.jsonBody,
-                                                                                    )?[poolListIndex],
-                                                                                    '-',
-                                                                                  ) ==
-                                                                                  'SUCCESS'))
+                                                                                  'ตกลงทำประกัน'))
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                                                                               child: Container(
@@ -2032,12 +2025,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                               listItemItem,
                                                                               r'''$.save_renew_status''',
                                                                             ).toString()}' !=
-                                                                            'ตกลงทำประกัน') &&
-                                                                        ('${getJsonField(
-                                                                              listItemItem,
-                                                                              r'''$.insurer_status''',
-                                                                            ).toString()}' ==
-                                                                            'SUCCESS'))
+                                                                            'ตกลงทำประกัน'))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -3390,11 +3378,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                         ((RenewCheckRenewCall.saverenewstatus(
                                                                               (_model.checkRenewAPIOutput?.jsonBody ?? ''),
                                                                             )?[poolListIndex]) !=
-                                                                            'ตกลงทำประกัน') &&
-                                                                        ((RenewCheckRenewCall.insurerstatus(
-                                                                              (_model.checkRenewAPIOutput?.jsonBody ?? ''),
-                                                                            )?[poolListIndex]) ==
-                                                                            'SUCCESS'))
+                                                                            'ตกลงทำประกัน'))
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,

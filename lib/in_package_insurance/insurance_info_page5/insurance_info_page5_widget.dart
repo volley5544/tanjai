@@ -337,6 +337,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
             '${IbsApplicationsDetailCall.subproductname(
           (_model.applicationDetailOutput?.jsonBody ?? ''),
         )}';
+        FFAppState().page5RefundRemark =
+            '${IbsApplicationsDetailCall.refundremark(
+          (_model.applicationDetailOutput?.jsonBody ?? ''),
+        )}';
       });
       _model.getPolicy = await GetInsurancePolicyApiCall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -388,11 +392,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         return;
       }
       setState(() {
-        FFAppState().page5QuotationStatus = '${valueOrDefault<String>(
-          GetInsurancePolicyApiCall.quotationStatus(
-            (_model.getPolicy?.jsonBody ?? ''),
-          ),
-          'สถานะ',
+        FFAppState().page5QuotationStatus =
+            '${IbsApplicationsDetailCall.quotationstatus(
+          (_model.applicationDetailOutput?.jsonBody ?? ''),
         )}';
         FFAppState().page5CreatedDate = '${GetInsurancePolicyApiCall.createDate(
               (_model.getPolicy?.jsonBody ?? ''),
@@ -416,7 +418,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                 (_model.getPolicy?.jsonBody ?? ''),
               ) : '-'}';
         FFAppState().page5Reason = '${() {
-          if (GetInsurancePolicyApiCall.vmiMessage(
+          if (GetInsurancePolicyApiCall.cancelReason(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) !=
+              '') {
+            return GetInsurancePolicyApiCall.cancelReason(
+              (_model.getPolicy?.jsonBody ?? ''),
+            );
+          } else if (GetInsurancePolicyApiCall.vmiMessage(
                 (_model.getPolicy?.jsonBody ?? ''),
               ) !=
               '') {
@@ -2800,68 +2809,134 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                               ),
                             ),
                           ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 0.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFAFAFA),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 12.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        'เหตุผล',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      border: Border.all(
-                                        color: Color(0xFFB3B3B3),
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Text(
-                                        FFAppState().page5Reason,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              fontSize: 15.0,
-                                            ),
-                                      ),
+                        if (FFAppState().page5QuotationStatus != 'ขอคืนเงิน')
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFAFAFA),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'เหตุผล',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineColor,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(10.0),
+                                        child: Text(
+                                          FFAppState().page5Reason,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                fontSize: 15.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                        if (FFAppState().page5QuotationStatus == 'ขอคืนเงิน')
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 0.0),
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFAFAFA),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 0.0, 12.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          'เหตุผลขอคืนเงิน',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                fontSize: 15.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .lineColor,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        border: Border.all(
+                                          color: Color(0xFFB3B3B3),
+                                        ),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(10.0),
+                                        child: Text(
+                                          FFAppState().page5RefundRemark,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                fontSize: 15.0,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         if (FFAppState().page5QuotationStatus == 'อนุมัติ')
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(

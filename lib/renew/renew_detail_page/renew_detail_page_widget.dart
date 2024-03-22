@@ -1647,6 +1647,77 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                       ),
                     ],
                   ),
+                if ((GetDataRenewCall.insurerstatus(
+                          (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
+                        ) !=
+                        'SUCCESS') &&
+                    (GetDataRenewCall.saverenewstatus(
+                          (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
+                        ) !=
+                        'ตกลงทำประกัน'))
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 10.0, 0.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setState(() {
+                                      FFAppState()
+                                          .insuranceRequestIsLoadDataMc = false;
+                                    });
+
+                                    context.goNamed(
+                                      'SearchInsurancePage',
+                                      queryParameters: {
+                                        'fromIcon': serializeParam(
+                                          'moto',
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  text: 'ค้นหาประกันรถยนต์',
+                                  options: FFButtonOptions(
+                                    width: 120.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(14.0),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
               ],
             ),
           ),

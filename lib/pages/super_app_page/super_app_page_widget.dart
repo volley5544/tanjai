@@ -1084,6 +1084,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
+                                                                    setState(
+                                                                        () {
+                                                                      FFAppState()
+                                                                              .insuranceRequestIsLoadDataMc =
+                                                                          false;
+                                                                    });
+
                                                                     context
                                                                         .goNamed(
                                                                       'SearchInsurancePage',
@@ -1091,7 +1098,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           {
                                                                         'fromIcon':
                                                                             serializeParam(
-                                                                          '',
+                                                                          'moto',
                                                                           ParamType
                                                                               .String,
                                                                         ),
@@ -2655,7 +2662,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                   ),
                   Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 260.0,
+                    height: 300.0,
                     decoration: BoxDecoration(),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
@@ -2680,7 +2687,6 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       .toList();
                                   return Container(
                                     width: double.infinity,
-                                    height: 235.0,
                                     child: Stack(
                                       children: [
                                         Padding(
@@ -2705,7 +2711,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.9,
-                                                  height: 210.0,
+                                                  constraints: BoxConstraints(
+                                                    maxHeight: 260.0,
+                                                  ),
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -2853,7 +2861,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        'ประเภท',
+                                                                        'ขอเบี้ย',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -2889,29 +2897,149 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           BoxDecoration(),
                                                                       child:
                                                                           Text(
-                                                                        () {
-                                                                          if (((GetVMICall.flgRenew(
-                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                  )?[leadListIndex]) ==
-                                                                                  '1') &&
-                                                                              ((GetVMICall.oldVMIFlg(
-                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                  )?[leadListIndex]) ==
-                                                                                  '1')) {
-                                                                            return 'งานโอนโค้ด';
-                                                                          } else if (((GetVMICall.flgRenew(
-                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                  )?[leadListIndex]) ==
-                                                                                  '1') &&
-                                                                              ((GetVMICall.oldVMIFlg(
-                                                                                    (_model.getVMIApi?.jsonBody ?? ''),
-                                                                                  )?[leadListIndex]) ==
-                                                                                  '0')) {
-                                                                            return 'งานต่ออายุ';
-                                                                          } else {
-                                                                            return 'งานใหม่';
-                                                                          }
-                                                                        }(),
+                                                                        functions
+                                                                            .checkNullValueAndReturn(GetVMICall.quotationtypebakname(
+                                                                          (_model.getVMIApi?.jsonBody ??
+                                                                              ''),
+                                                                        )),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).black600,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 5,
+                                                                    child:
+                                                                        Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.37,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Text(
+                                                                        'แจ้งงาน',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).black600,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    width: 10.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Text(
+                                                                      ':',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Noto Sans Thai',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).black600,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 5,
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Text(
+                                                                        functions
+                                                                            .checkNullValueAndReturn(GetVMICall.quotationtypename(
+                                                                          (_model.getVMIApi?.jsonBody ??
+                                                                              ''),
+                                                                        )),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).black600,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 5,
+                                                                    child:
+                                                                        Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.37,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Text(
+                                                                        'ผลิตภัณฑ์',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: FlutterFlowTheme.of(context).black600,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    width: 10.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Text(
+                                                                      ':',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Noto Sans Thai',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).black600,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Expanded(
+                                                                    flex: 5,
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Text(
+                                                                        functions
+                                                                            .checkNullValueAndReturn(GetVMICall.subproductname(
+                                                                          (_model.getVMIApi?.jsonBody ??
+                                                                              ''),
+                                                                        )),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
@@ -3082,6 +3210,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
                                                                     .center,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
                                                             children: [
                                                               Align(
                                                                 alignment:

@@ -848,8 +848,14 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().flagRenew = '${IbsApplicationsDetailCall.flgrenew(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) != null && IbsApplicationsDetailCall.flgrenew(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) != '' ? IbsApplicationsDetailCall.flgrenew(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) : IbsApplicationsDetailCall.flgrenewlead(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
           (_model.detailAPIOutput?.jsonBody ?? ''),

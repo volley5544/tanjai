@@ -9738,6 +9738,37 @@ class InsuranceRequestListAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static int? statustransfer(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.counting.status_transfer''',
+      ));
+  static int? statusreject(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.counting.status_reject''',
+      ));
+  static List? transfer(dynamic response) => getJsonField(
+        response,
+        r'''$.results.info.transfer''',
+        true,
+      ) as List?;
+  static List<String>? subproductname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].sub_product_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? quotationtypebakname(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].quotation_type_bak_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class InsuranceRequestListAPIDashBoardCall {
@@ -11473,6 +11504,21 @@ class GetVMICall {
         response,
         r'''$.results.info.count.status_approve''',
       ));
+  static String? subproductname(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.approve[:].sub_product_name''',
+      ));
+  static String? quotationtypebakname(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.approve[:].quotation_type_bak_name''',
+      ));
+  static String? quotationtypename(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.approve[:].quotation_type_name''',
+      ));
 }
 
 class ConfirmLeadStatusCall {
@@ -13156,6 +13202,16 @@ class IbsApplicationsDetailCall {
       castToType<String>(getJsonField(
         response,
         r'''$.results.data.quotation_type_bak_name''',
+      ));
+  static String? refundremark(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.payments[:].refund_remark''',
+      ));
+  static String? flgrenewlead(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.leads[:].flg_renew''',
       ));
 }
 

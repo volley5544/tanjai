@@ -850,7 +850,133 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               decoration:
                                                                   BoxDecoration(),
                                                               child: Text(
-                                                                'ประเภท',
+                                                                'ขอเบี้ย',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .black600,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                            width: 10.0,
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Text(
+                                                              ':',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .black600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          if (false)
+                                                            Expanded(
+                                                              flex: 6,
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                                child: Text(
+                                                                  () {
+                                                                    if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '0')) {
+                                                                      return 'งานต่ออายุ';
+                                                                    } else if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1')) {
+                                                                      return 'งานโอนโค้ด';
+                                                                    } else {
+                                                                      return 'งานใหม่';
+                                                                    }
+                                                                  }(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Sans Thai',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .black600,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          Expanded(
+                                                            flex: 6,
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  InsuranceRequestListAPICall
+                                                                      .quotationtypebakname(
+                                                                    (_model.getRequestList
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[listIndex],
+                                                                  '-',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .black600,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 5,
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.37,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Text(
+                                                                'แจ้งงาน',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -938,6 +1064,132 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     String>(
                                                                   InsuranceRequestListAPICall
                                                                       .quotationtypename(
+                                                                    (_model.getRequestList
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  )?[listIndex],
+                                                                  '-',
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .black600,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Expanded(
+                                                            flex: 5,
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.37,
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Text(
+                                                                'ผลิตภัณฑ์',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .black600,
+                                                                      fontSize:
+                                                                          15.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Container(
+                                                            width: 10.0,
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Text(
+                                                              ':',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .black600,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          if (false)
+                                                            Expanded(
+                                                              flex: 6,
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(),
+                                                                child: Text(
+                                                                  () {
+                                                                    if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '0')) {
+                                                                      return 'งานต่ออายุ';
+                                                                    } else if (((InsuranceRequestListAPICall.flagRenew(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1') &&
+                                                                        ((InsuranceRequestListAPICall.oldVMIFlg(
+                                                                              (_model.getRequestList?.jsonBody ?? ''),
+                                                                            )?[listIndex]) ==
+                                                                            '1')) {
+                                                                      return 'งานโอนโค้ด';
+                                                                    } else {
+                                                                      return 'งานใหม่';
+                                                                    }
+                                                                  }(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Noto Sans Thai',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .black600,
+                                                                        fontSize:
+                                                                            15.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          Expanded(
+                                                            flex: 6,
+                                                            child: Container(
+                                                              decoration:
+                                                                  BoxDecoration(),
+                                                              child: Text(
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  InsuranceRequestListAPICall
+                                                                      .subproductname(
                                                                     (_model.getRequestList
                                                                             ?.jsonBody ??
                                                                         ''),

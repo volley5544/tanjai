@@ -13120,6 +13120,12 @@ class FFAppState extends ChangeNotifier {
   set insuranceinfoSubProductName(String _value) {
     _insuranceinfoSubProductName = _value;
   }
+
+  String _page5RefundRemark = '';
+  String get page5RefundRemark => _page5RefundRemark;
+  set page5RefundRemark(String _value) {
+    _page5RefundRemark = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

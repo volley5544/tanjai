@@ -1049,6 +1049,42 @@ class _MakeInsuranceListPageWidgetState
                                                                               MainAxisAlignment.spaceBetween,
                                                                           children: [
                                                                             Text(
+                                                                              'ขอเบี้ย',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                  ),
+                                                                            ),
+                                                                            Text(
+                                                                              getJsonField(
+                                                                                widget.list![leadListItemIndex],
+                                                                                r'''$.quotation_type_bak_name''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            5.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
                                                                               'ประเภทงาน',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
@@ -1060,6 +1096,42 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list![leadListItemIndex],
                                                                                 r'''$.quotation_type_name''',
+                                                                              ).toString(),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                  ),
+                                                                            ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            5.0),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.spaceBetween,
+                                                                          children: [
+                                                                            Text(
+                                                                              'ผลิตภัณฑ์',
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'Noto Sans Thai',
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    fontSize: 13.0,
+                                                                                  ),
+                                                                            ),
+                                                                            Text(
+                                                                              getJsonField(
+                                                                                widget.list![leadListItemIndex],
+                                                                                r'''$.sub_product_name''',
                                                                               ).toString(),
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
@@ -1690,9 +1762,7 @@ class _MakeInsuranceListPageWidgetState
                                                                     decoration:
                                                                         BoxDecoration(),
                                                                   ),
-                                                                if (((widget.checkPayment !=
-                                                                                'cancle') &&
-                                                                            ('ส่งเรื่องขอใบเสนอราคา' !=
+                                                                if ((('ส่งเรื่องขอใบเสนอราคา' !=
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
@@ -2023,6 +2093,21 @@ class _MakeInsuranceListPageWidgetState
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
+                                                                                  )) ||
+                                                                              ('ยกเลิก' ==
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.quotation_status''',
+                                                                                  )) ||
+                                                                              ('ขอคืนเงิน' ==
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.quotation_status''',
+                                                                                  )) ||
+                                                                              ('โยกเงิน' ==
+                                                                                  getJsonField(
+                                                                                    widget.list?[leadListItemIndex],
+                                                                                    r'''$.quotation_status''',
                                                                                   ))) {
                                                                             context.pushNamed(
                                                                               'insuranceInfoPage5',
@@ -2306,7 +2391,28 @@ class _MakeInsuranceListPageWidgetState
                                                                     },
                                                                     text: widget.checkVMI ==
                                                                             '0'
-                                                                        ? 'ทำประกัน'
+                                                                        ? (('ยกเลิก' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_status''',
+                                                                                    )) ||
+                                                                                ('โยกเงิน' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_status''',
+                                                                                    )) ||
+                                                                                ('ขอคืนเงิน' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_status''',
+                                                                                    )) ||
+                                                                                ('ไม่อนุมัติ' ==
+                                                                                    getJsonField(
+                                                                                      widget.list?[leadListItemIndex],
+                                                                                      r'''$.quotation_status''',
+                                                                                    ))
+                                                                            ? 'ดูรายละเอียด'
+                                                                            : 'ทำประกัน')
                                                                         : 'ดูกรมธรรม์',
                                                                     options:
                                                                         FFButtonOptions(

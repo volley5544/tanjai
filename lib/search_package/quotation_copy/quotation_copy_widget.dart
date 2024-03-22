@@ -279,7 +279,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                     final listPdf = widget.quotation!.toList().take(1).toList();
                     return Container(
                       width: double.infinity,
-                      height: MediaQuery.sizeOf(context).height * 0.85,
+                      height: MediaQuery.sizeOf(context).height * 1.0,
                       child: Stack(
                         children: [
                           PageView.builder(
@@ -291,7 +291,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                             itemBuilder: (context, listPdfIndex) {
                               final listPdfItem = listPdf[listPdfIndex];
                               return Column(
-                                mainAxisSize: MainAxisSize.max,
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   if (functions.containWordinStringUrl(
                                           '.pdf',
@@ -316,13 +317,18 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                         ),
-                                        child: FlutterFlowPdfViewer(
-                                          networkPath: widget.quotation![
-                                              FFAppState().indexPdfQuotation],
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.85,
-                                          horizontalScroll: false,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 300.0),
+                                          child: FlutterFlowPdfViewer(
+                                            networkPath: widget.quotation![
+                                                FFAppState().indexPdfQuotation],
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.85,
+                                            horizontalScroll: false,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -362,7 +368,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                             },
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.9, -0.95),
+                            alignment: AlignmentDirectional(0.9, -0.3),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 16.0),

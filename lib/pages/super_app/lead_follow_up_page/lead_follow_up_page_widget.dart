@@ -1261,7 +1261,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     ),
                                   ),
                                   Text(
-                                    'ขอคืนเงิน',
+                                    'คืนเงิน',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -1285,13 +1285,13 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               'MakeInsuranceListPage',
                               queryParameters: {
                                 'checkTotal': serializeParam(
-                                  InsuranceRequestListAPICall.refundSuccess(
+                                  InsuranceRequestListAPICall.statustransfer(
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.int,
                                 ),
                                 'list': serializeParam(
-                                  InsuranceRequestListAPICall.refundSuccessList(
+                                  InsuranceRequestListAPICall.transfer(
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
@@ -1354,10 +1354,14 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
                                     child: Text(
-                                      InsuranceRequestListAPICall.refundSuccess(
-                                        (_model.getRequestList?.jsonBody ?? ''),
-                                      )!
-                                          .toString(),
+                                      valueOrDefault<String>(
+                                        InsuranceRequestListAPICall
+                                            .statustransfer(
+                                          (_model.getRequestList?.jsonBody ??
+                                              ''),
+                                        )?.toString(),
+                                        '0',
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .titleMedium
                                           .override(
@@ -1369,7 +1373,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     ),
                                   ),
                                   Text(
-                                    'คืนเงินสำเร็จ',
+                                    'โยกเงิน',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
