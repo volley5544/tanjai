@@ -3,6 +3,7 @@ import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
+import '/components/showjson_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -357,25 +358,34 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      await showDialog(
+      await showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
         context: context,
-        builder: (alertDialogContext) {
+        builder: (context) {
           return WebViewAware(
-            child: AlertDialog(
-              content: Text('${getJsonField(
-                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                r'''$.results.data.app_detail[:]''',
-              ).toString().toString()}'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: ShowjsonWidget(
+                    json: getJsonField(
+                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                      r'''$.results.data.app_detail[:]''',
+                    ).toString().toString(),
+                  ),
                 ),
-              ],
+              ),
             ),
           );
         },
-      );
+      ).then((value) => safeSetState(() {}));
+
       await showDialog(
         context: context,
         builder: (alertDialogContext) {
