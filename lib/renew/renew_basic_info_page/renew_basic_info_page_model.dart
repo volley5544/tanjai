@@ -44,8 +44,6 @@ class RenewBasicInfoPageModel
   // Stores action output result for [Backend Call - API (getProfileImage)] action in Container widget.
   ApiCallResponse? profileImgOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -55,8 +53,4 @@ class RenewBasicInfoPageModel
     licenseCodeFocusNode?.dispose();
     licenseCodeController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

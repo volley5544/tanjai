@@ -103,8 +103,6 @@ class InsuranceInfoPage3Model
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? save4APIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -119,8 +117,4 @@ class InsuranceInfoPage3Model
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

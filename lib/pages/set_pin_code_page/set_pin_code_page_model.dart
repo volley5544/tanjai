@@ -28,8 +28,6 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   FcmTokenRecord? iosCreateFMCTokenDoc;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     pinCodeController = TextEditingController();
@@ -40,8 +38,4 @@ class SetPinCodePageModel extends FlutterFlowModel<SetPinCodePageWidget> {
     unfocusNode.dispose();
     pinCodeController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

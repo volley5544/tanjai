@@ -153,6 +153,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF9D50CF),
                                           fontSize: 20.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -200,6 +201,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -251,6 +253,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -273,6 +277,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -308,6 +314,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -330,6 +338,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -372,6 +382,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -388,6 +400,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -423,6 +437,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -439,6 +455,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -478,6 +496,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -490,6 +510,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -512,6 +534,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -524,6 +548,8 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],

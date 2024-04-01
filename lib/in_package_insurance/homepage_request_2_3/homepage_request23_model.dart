@@ -30,8 +30,6 @@ class HomepageRequest23Model extends FlutterFlowModel<HomepageRequest23Widget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -41,8 +39,4 @@ class HomepageRequest23Model extends FlutterFlowModel<HomepageRequest23Widget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

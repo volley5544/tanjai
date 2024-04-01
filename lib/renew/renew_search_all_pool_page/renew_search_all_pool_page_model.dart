@@ -62,8 +62,6 @@ class RenewSearchAllPoolPageModel
   // Stores action output result for [Backend Call - API (renewCheckRenew)] action in Icon widget.
   ApiCallResponse? checkRenewAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -79,10 +77,7 @@ class RenewSearchAllPoolPageModel
     textController2?.dispose();
   }
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForApiRequestCompleted2({
     double minWait = 0,
     double maxWait = double.infinity,

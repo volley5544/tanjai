@@ -698,6 +698,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -771,6 +772,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .grayIcon,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -783,6 +785,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],
@@ -854,6 +857,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -889,6 +893,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   fontSize: 14.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -902,6 +907,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: FlutterFlowTheme.of(context).error,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),
@@ -1010,7 +1016,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                   BoxShadow(
                                                     blurRadius: 4.0,
                                                     color: Color(0x33000000),
-                                                    offset: Offset(0.0, 2.0),
+                                                    offset: Offset(
+                                                      0.0,
+                                                      2.0,
+                                                    ),
                                                   )
                                                 ],
                                                 borderRadius:
@@ -1245,6 +1254,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       fontSize: 11.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1269,6 +1279,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     fontSize: 11.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -1278,6 +1289,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       fontSize: 11.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1303,6 +1315,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
                                                                                     fontSize: 10.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -1313,6 +1326,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                       fontSize: 10.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1338,6 +1352,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).secondaryText,
                                                                                     fontSize: 10.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Padding(
@@ -1348,6 +1363,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).secondaryText,
                                                                                       fontSize: 10.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1376,6 +1392,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).error,
                                                                                       fontSize: 10.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                               Padding(
@@ -1386,6 +1403,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: FlutterFlowTheme.of(context).error,
                                                                                         fontSize: 10.0,
+                                                                                        letterSpacing: 0.0,
                                                                                       ),
                                                                                 ),
                                                                               ),
@@ -1434,6 +1452,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).secondaryText,
                                                                               fontSize: 10.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                       Text(
@@ -1443,6 +1462,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               fontSize: 11.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ],
@@ -1716,6 +1736,8 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                                 Colors.white,
                                                                             fontSize:
                                                                                 12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                       elevation:
                                                                           3.0,
@@ -1786,6 +1808,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .grayIcon,
                                               fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -2215,7 +2238,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x33000000),
-                                  offset: Offset(0.0, 2.0),
+                                  offset: Offset(
+                                    0.0,
+                                    2.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -2235,6 +2261,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBtnText,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -2255,7 +2282,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -2307,6 +2337,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -2748,6 +2779,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFDB771A),
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(
@@ -2782,7 +2814,10 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -2834,6 +2869,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3264,6 +3300,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF090F13),
+                                                        letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
                                               borderSide: BorderSide(

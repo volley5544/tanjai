@@ -79,8 +79,6 @@ class InsuranceInfoPage2Model
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Button widget.
   ApiCallResponse? detailAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -118,8 +116,4 @@ class InsuranceInfoPage2Model
     weightTextFieldFocusNode?.dispose();
     weightTextFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

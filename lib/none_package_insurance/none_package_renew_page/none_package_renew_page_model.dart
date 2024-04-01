@@ -26,8 +26,6 @@ class NonePackageRenewPageModel
   // Stores action output result for [Firestore Query - Query a collection] action in NonePackageRenewPage widget.
   AuthorizationRecord? adminVersionQuery;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -35,8 +33,4 @@ class NonePackageRenewPageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -96,6 +96,7 @@ class _QrCodeShowComponentWidgetState extends State<QrCodeShowComponentWidget> {
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Noto Sans Thai',
                       color: Colors.white,
+                      letterSpacing: 0.0,
                     ),
                 elevation: 3.0,
                 borderSide: BorderSide(

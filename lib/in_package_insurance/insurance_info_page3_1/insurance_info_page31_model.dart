@@ -150,8 +150,6 @@ class InsuranceInfoPage31Model
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in VIM1Btn widget.
   ApiCallResponse? ibsAppSaveAPIOutput2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -163,8 +161,4 @@ class InsuranceInfoPage31Model
     unfocusNode.dispose();
     infomationCustomerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

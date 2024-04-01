@@ -1011,6 +1011,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -1053,6 +1054,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1067,6 +1069,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1155,6 +1158,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1204,6 +1208,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1218,6 +1223,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1296,6 +1302,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1346,6 +1353,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -1361,6 +1369,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1447,6 +1456,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                           ? Color(0xFF9F9F9F)
                                                           : Colors.black,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                     ),
@@ -1497,6 +1507,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1511,6 +1522,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1589,6 +1601,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1638,6 +1651,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1652,6 +1666,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1755,6 +1770,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1804,6 +1820,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1818,6 +1835,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1906,6 +1924,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Colors.black
                                                             : Color(0xFF9F9F9F),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1955,6 +1974,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF424242),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1969,6 +1989,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -2057,6 +2078,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                             ? Colors.black
                                                             : Color(0xFF9F9F9F),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -2105,6 +2127,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -2120,6 +2143,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -2213,6 +2237,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                           ? Color(0xFF9F9F9F)
                                                           : Colors.black,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                     ),
@@ -2263,6 +2288,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF424242),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -2357,6 +2383,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                                 context)
                                                             .secondaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -2733,6 +2760,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(

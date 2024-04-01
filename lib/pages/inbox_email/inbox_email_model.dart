@@ -29,8 +29,6 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   TextEditingController? searchFirstnameController;
   String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -40,8 +38,4 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
     searchFirstnameFocusNode?.dispose();
     searchFirstnameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

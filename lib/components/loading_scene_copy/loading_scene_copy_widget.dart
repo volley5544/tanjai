@@ -73,6 +73,7 @@ class _LoadingSceneCopyWidgetState extends State<LoadingSceneCopyWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Colors.white,
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             )),
           ),

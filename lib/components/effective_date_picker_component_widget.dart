@@ -83,7 +83,11 @@ class _EffectiveDatePickerComponentWidgetState
                       Expanded(
                         child: Text(
                           'เลือกวันคุ้มครองประกัน',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                       Expanded(
@@ -125,6 +129,7 @@ class _EffectiveDatePickerComponentWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(
@@ -147,7 +152,11 @@ class _EffectiveDatePickerComponentWidgetState
                       Expanded(
                         child: Text(
                           'เลือกวันคุ้มครอง พ.ร.บ.',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                       Expanded(
@@ -189,6 +198,7 @@ class _EffectiveDatePickerComponentWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(
@@ -555,6 +565,7 @@ class _EffectiveDatePickerComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

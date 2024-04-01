@@ -122,6 +122,7 @@ class _SearchablePickUpListPageWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 16.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -157,6 +158,7 @@ class _SearchablePickUpListPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color:
                                             FlutterFlowTheme.of(context).error,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],
@@ -189,13 +191,22 @@ class _SearchablePickUpListPageWidgetState
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: widget.searchLabel,
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
@@ -205,7 +216,12 @@ class _SearchablePickUpListPageWidgetState
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
+                                      minLines: null,
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),
@@ -561,7 +577,13 @@ class _SearchablePickUpListPageWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     Padding(
@@ -1831,7 +1853,13 @@ class _SearchablePickUpListPageWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     ClipRRect(
@@ -3092,7 +3120,13 @@ class _SearchablePickUpListPageWidgetState
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
                                                     ),
                                                     ClipRRect(
@@ -4335,7 +4369,12 @@ class _SearchablePickUpListPageWidgetState
                                                     'กระบะตู้ทึบ/ตู้แห้ง',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 Padding(
@@ -5335,6 +5374,7 @@ class _SearchablePickUpListPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

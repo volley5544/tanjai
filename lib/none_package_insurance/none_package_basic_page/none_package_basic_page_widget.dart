@@ -736,6 +736,7 @@ class _NonePackageBasicPageWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -774,6 +775,7 @@ class _NonePackageBasicPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -788,6 +790,7 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFFB0606),
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -853,6 +856,7 @@ class _NonePackageBasicPageWidgetState
                                                   ? Colors.black
                                                   : Color(0xFF9F9F9F),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -896,6 +900,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -910,6 +915,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -996,6 +1002,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -1040,6 +1047,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1054,6 +1062,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1134,6 +1143,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1178,6 +1188,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1192,6 +1203,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1273,6 +1285,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1317,6 +1330,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1331,6 +1345,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1360,6 +1375,7 @@ class _NonePackageBasicPageWidgetState
                                           .carryPurposeTextFieldController,
                                       focusNode:
                                           _model.carryPurposeTextFieldFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -1367,6 +1383,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกรถใช้บรรทุกอะไร',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -1375,6 +1392,7 @@ class _NonePackageBasicPageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -1387,7 +1405,9 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.black,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       validator: _model
                                           .carryPurposeTextFieldControllerValidator
                                           .asValidator(context),
@@ -1421,6 +1441,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1453,6 +1474,7 @@ class _NonePackageBasicPageWidgetState
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -1460,6 +1482,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText:
                                             'กรุณากรอกราคาซื้อขายปัจจุบัน',
@@ -1471,6 +1494,7 @@ class _NonePackageBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -1484,7 +1508,9 @@ class _NonePackageBasicPageWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.number,
                                       validator: _model
                                           .currentPriceTextFieldControllerValidator
@@ -1565,6 +1591,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1689,6 +1716,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1768,6 +1796,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1782,6 +1811,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1866,6 +1896,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1911,6 +1942,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1925,6 +1957,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1962,6 +1995,7 @@ class _NonePackageBasicPageWidgetState
                                             Duration(milliseconds: 100),
                                             () => setState(() {}),
                                           ),
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelStyle:
@@ -1971,6 +2005,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกราคา',
                                             hintStyle:
@@ -1981,6 +2016,7 @@ class _NonePackageBasicPageWidgetState
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -1996,7 +2032,9 @@ class _NonePackageBasicPageWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           keyboardType: TextInputType.number,
                                           validator: _model
                                               .carrierPriceTextFieldControllerValidator
@@ -2031,6 +2069,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -2045,6 +2084,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -2115,7 +2155,12 @@ class _NonePackageBasicPageWidgetState
                                               onSelected: onSelected,
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                               textHighlightStyle: TextStyle(),
                                               elevation: 4.0,
                                               optionBackgroundColor:
@@ -2367,6 +2412,7 @@ class _NonePackageBasicPageWidgetState
                                                   context,
                                                 );
                                               },
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -2376,6 +2422,7 @@ class _NonePackageBasicPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'กรุณากรอกรุ่นรถ',
                                                 hintStyle:
@@ -2387,6 +2434,7 @@ class _NonePackageBasicPageWidgetState
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -2402,7 +2450,9 @@ class _NonePackageBasicPageWidgetState
                                                             'Noto Sans Thai',
                                                         color: Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               validator: _model
                                                   .brandNameTextFieldControllerValidator
                                                   .asValidator(context),
@@ -2439,6 +2489,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -2453,6 +2504,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -2513,7 +2565,11 @@ class _NonePackageBasicPageWidgetState
                                         options: options.toList(),
                                         onSelected: onSelected,
                                         textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         textHighlightStyle: TextStyle(),
                                         elevation: 4.0,
                                         optionBackgroundColor:
@@ -2550,6 +2606,7 @@ class _NonePackageBasicPageWidgetState
                                             context,
                                           );
                                         },
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelStyle:
@@ -2559,6 +2616,7 @@ class _NonePackageBasicPageWidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           hintText: 'กรุณากรอกรุ่นรถ',
                                           hintStyle:
@@ -2569,6 +2627,7 @@ class _NonePackageBasicPageWidgetState
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           enabledBorder: InputBorder.none,
                                           focusedBorder: InputBorder.none,
@@ -2581,7 +2640,9 @@ class _NonePackageBasicPageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
+                                        minLines: null,
                                         validator: _model
                                             .modelNameControllerValidator
                                             .asValidator(context),
@@ -2615,6 +2676,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -2629,6 +2691,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -2714,6 +2777,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -2757,6 +2821,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -2767,6 +2832,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
                                       ),
@@ -2782,6 +2848,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -2811,6 +2878,7 @@ class _NonePackageBasicPageWidgetState
                                           _model.oldVmiTextFieldController,
                                       focusNode:
                                           _model.oldVmiTextFieldFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -2818,6 +2886,7 @@ class _NonePackageBasicPageWidgetState
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกเลขกรมธรรม์เดิม',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -2826,6 +2895,7 @@ class _NonePackageBasicPageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -2838,7 +2908,9 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.black,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       validator: _model
                                           .oldVmiTextFieldControllerValidator
                                           .asValidator(context),
@@ -2870,6 +2942,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -2880,6 +2953,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -2896,6 +2970,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -3004,6 +3079,7 @@ class _NonePackageBasicPageWidgetState
                                                 }
                                               }(),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -3046,6 +3122,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3060,6 +3137,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3176,6 +3254,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -3218,6 +3297,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3229,6 +3309,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
                                       ),
@@ -3244,6 +3325,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3328,6 +3410,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -3370,6 +3453,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3381,6 +3465,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w800,
                                         decoration: TextDecoration.underline,
                                       ),
@@ -3396,6 +3481,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3480,6 +3566,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -3524,6 +3611,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3538,6 +3626,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3573,6 +3662,7 @@ class _NonePackageBasicPageWidgetState
                                               _model.cusNameTextFieldController,
                                           focusNode:
                                               _model.cusNameTextFieldFocusNode,
+                                          autofocus: false,
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -3583,6 +3673,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกชื่อ',
                                             hintStyle:
@@ -3593,6 +3684,7 @@ class _NonePackageBasicPageWidgetState
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -3606,7 +3698,9 @@ class _NonePackageBasicPageWidgetState
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           validator: _model
                                               .cusNameTextFieldControllerValidator
                                               .asValidator(context),
@@ -3641,6 +3735,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3656,6 +3751,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -3691,6 +3787,7 @@ class _NonePackageBasicPageWidgetState
                                               .cusPhoneTextFieldController,
                                           focusNode:
                                               _model.cusPhoneTextFieldFocusNode,
+                                          autofocus: false,
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -3701,6 +3798,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกเบอร์โทรศัพท์',
                                             hintStyle:
@@ -3711,6 +3809,7 @@ class _NonePackageBasicPageWidgetState
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -3724,7 +3823,9 @@ class _NonePackageBasicPageWidgetState
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           keyboardType: TextInputType.phone,
                                           validator: _model
                                               .cusPhoneTextFieldControllerValidator
@@ -3763,6 +3864,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -3777,6 +3879,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -3812,6 +3915,7 @@ class _NonePackageBasicPageWidgetState
                                               _model.plateTextFieldController,
                                           focusNode:
                                               _model.plateTextFieldFocusNode,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelStyle:
@@ -3821,6 +3925,7 @@ class _NonePackageBasicPageWidgetState
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรุณากรอกทะเบียนรถ',
                                             hintStyle:
@@ -3831,6 +3936,7 @@ class _NonePackageBasicPageWidgetState
                                                           'Noto Sans Thai',
                                                       color: Color(0xFFB3B3B3),
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -3844,7 +3950,9 @@ class _NonePackageBasicPageWidgetState
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
+                                          minLines: null,
                                           validator: _model
                                               .plateTextFieldControllerValidator
                                               .asValidator(context),
@@ -3882,6 +3990,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -3896,6 +4005,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -3933,6 +4043,7 @@ class _NonePackageBasicPageWidgetState
                                                 .plateAdditionalTextFieldController,
                                             focusNode: _model
                                                 .plateAdditionalTextFieldFocusNode,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle:
@@ -3942,6 +4053,7 @@ class _NonePackageBasicPageWidgetState
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               hintText: 'กรุณากรอกทะเบียนรถ',
                                               hintStyle:
@@ -3953,6 +4065,7 @@ class _NonePackageBasicPageWidgetState
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                               enabledBorder: InputBorder.none,
                                               focusedBorder: InputBorder.none,
@@ -3966,7 +4079,9 @@ class _NonePackageBasicPageWidgetState
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Colors.black,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
+                                            minLines: null,
                                             validator: _model
                                                 .plateAdditionalTextFieldControllerValidator
                                                 .asValidator(context),
@@ -4005,6 +4120,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -4019,6 +4135,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -4099,6 +4216,7 @@ class _NonePackageBasicPageWidgetState
                                                       .secondaryText
                                                   : Colors.black,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -4141,6 +4259,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -4156,6 +4275,7 @@ class _NonePackageBasicPageWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -4188,6 +4308,7 @@ class _NonePackageBasicPageWidgetState
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -4198,6 +4319,7 @@ class _NonePackageBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'กรุณากรอกทุนประกัน',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -4208,6 +4330,7 @@ class _NonePackageBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -4221,7 +4344,9 @@ class _NonePackageBasicPageWidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
+                                      minLines: null,
                                       keyboardType: TextInputType.number,
                                       validator: _model
                                           .sumInsuredTextFieldControllerValidator
@@ -4258,6 +4383,7 @@ class _NonePackageBasicPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -4273,6 +4399,7 @@ class _NonePackageBasicPageWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -4307,6 +4434,7 @@ class _NonePackageBasicPageWidgetState
                                           Duration(milliseconds: 100),
                                           () => setState(() {}),
                                         ),
+                                        autofocus: false,
                                         textCapitalization:
                                             TextCapitalization.none,
                                         obscureText: false,
@@ -4320,6 +4448,7 @@ class _NonePackageBasicPageWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                           hintText: 'กรุณากรอกทุนประกันหางพ่วง',
                                           hintStyle: FlutterFlowTheme.of(
@@ -4331,6 +4460,7 @@ class _NonePackageBasicPageWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                               ),
                                           enabledBorder: InputBorder.none,
                                           focusedBorder: InputBorder.none,
@@ -4345,7 +4475,9 @@ class _NonePackageBasicPageWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
+                                        minLines: null,
                                         keyboardType: TextInputType.number,
                                         validator: _model
                                             .trailerSumInsuredTextFieldControllerValidator
@@ -4383,6 +4515,7 @@ class _NonePackageBasicPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -4408,6 +4541,7 @@ class _NonePackageBasicPageWidgetState
                                 child: TextFormField(
                                   controller: _model.remarkTextFieldController,
                                   focusNode: _model.remarkTextFieldFocusNode,
+                                  autofocus: false,
                                   textCapitalization: TextCapitalization.none,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -4417,6 +4551,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintText: 'กรุณากรอกหมายเหตุ',
                                     hintStyle: FlutterFlowTheme.of(context)
@@ -4425,6 +4560,7 @@ class _NonePackageBasicPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -4437,7 +4573,9 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   validator: _model
                                       .remarkTextFieldControllerValidator
                                       .asValidator(context),
@@ -4514,6 +4652,7 @@ class _NonePackageBasicPageWidgetState
                                                         .secondaryText
                                                     : Colors.black,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -4603,6 +4742,7 @@ class _NonePackageBasicPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -4617,6 +4757,7 @@ class _NonePackageBasicPageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -4646,6 +4787,7 @@ class _NonePackageBasicPageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -4661,6 +4803,7 @@ class _NonePackageBasicPageWidgetState
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -4866,6 +5009,8 @@ class _NonePackageBasicPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFD9761A),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -4898,6 +5043,8 @@ class _NonePackageBasicPageWidgetState
                                                               fontFamily:
                                                                   'Noto Sans Thai',
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -4908,15 +5055,15 @@ class _NonePackageBasicPageWidgetState
                                                                   ''
                                                           ? 'อัพโหลดแล้ว'
                                                           : 'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 14.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -4983,6 +5130,7 @@ class _NonePackageBasicPageWidgetState
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -4998,6 +5146,7 @@ class _NonePackageBasicPageWidgetState
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -5032,6 +5181,7 @@ class _NonePackageBasicPageWidgetState
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                     decoration: TextDecoration
                                                         .underline,
@@ -5241,6 +5391,8 @@ class _NonePackageBasicPageWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0xFFD9761A),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -5273,6 +5425,8 @@ class _NonePackageBasicPageWidgetState
                                                               fontFamily:
                                                                   'Noto Sans Thai',
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -5283,15 +5437,15 @@ class _NonePackageBasicPageWidgetState
                                                                   ''
                                                           ? 'อัพโหลดแล้ว'
                                                           : 'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 14.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -5361,6 +5515,7 @@ class _NonePackageBasicPageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -5379,6 +5534,7 @@ class _NonePackageBasicPageWidgetState
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -5591,6 +5747,8 @@ class _NonePackageBasicPageWidgetState
                                                                         'Noto Sans Thai',
                                                                     color: Color(
                                                                         0xFFD9761A),
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -5625,6 +5783,8 @@ class _NonePackageBasicPageWidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -5642,6 +5802,8 @@ class _NonePackageBasicPageWidgetState
                                                               fontFamily:
                                                                   'Noto Sans Thai',
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],
@@ -6457,6 +6619,7 @@ class _NonePackageBasicPageWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                   elevation: 3.0,

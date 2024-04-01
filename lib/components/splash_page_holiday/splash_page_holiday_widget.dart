@@ -155,6 +155,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           initialized: _model.checkboxGroupValues != null,
                         ),
@@ -197,6 +198,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.black,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(
@@ -230,6 +232,7 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.black,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

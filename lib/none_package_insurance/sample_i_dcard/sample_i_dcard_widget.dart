@@ -105,6 +105,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),

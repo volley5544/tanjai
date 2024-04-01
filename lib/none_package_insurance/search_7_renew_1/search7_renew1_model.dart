@@ -28,8 +28,6 @@ class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
   TextEditingController? textFieldController;
   String? Function(BuildContext, String?)? textFieldControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -48,8 +46,4 @@ class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
     textFieldFocusNode?.dispose();
     textFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -221,6 +221,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -259,6 +260,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF1D4774),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -273,6 +275,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -356,6 +359,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Colors.black,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -400,6 +404,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
@@ -414,6 +419,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFFB0606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -454,6 +460,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             controller:
                                                 _model.address2Controller,
                                             focusNode: _model.address2FocusNode,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               labelStyle: FlutterFlowTheme.of(
@@ -466,6 +473,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                             context)
                                                         .secondaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                               hintText: 'กรุณากรอกที่อยู่',
@@ -477,6 +485,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                               enabledBorder: InputBorder.none,
@@ -493,8 +502,10 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           context)
                                                       .primaryText,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
+                                            minLines: null,
                                             validator: _model
                                                 .address2ControllerValidator
                                                 .asValidator(context),
@@ -530,6 +541,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
@@ -559,6 +571,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         child: TextFormField(
                                           controller: _model.address3Controller,
                                           focusNode: _model.address3FocusNode,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelStyle: FlutterFlowTheme.of(
@@ -570,6 +583,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                           context)
                                                       .secondaryText,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                             hintText: 'กรุณากรอกที่อยู่',
@@ -580,6 +594,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFB3B3B3),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                             enabledBorder: InputBorder.none,
@@ -596,8 +611,10 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
+                                          minLines: null,
                                           validator: _model
                                               .address3ControllerValidator
                                               .asValidator(context),
@@ -633,6 +650,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF1D4774),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -647,6 +665,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFFB0606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -705,6 +724,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -894,6 +914,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFB3B3B3),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -1035,6 +1056,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF1D4774),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1050,6 +1072,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1139,6 +1162,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -1186,6 +1210,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -1201,6 +1226,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFB0606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1243,6 +1269,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   _model.address4Controller,
                                               focusNode:
                                                   _model.address4FocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -1255,6 +1282,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1269,6 +1297,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                                   .of(context)
                                                               .secondaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1288,8 +1317,10 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                             context)
                                                         .primaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
+                                              minLines: null,
                                               validator: _model
                                                   .address4ControllerValidator
                                                   .asValidator(context),
@@ -1326,6 +1357,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -1367,6 +1399,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   _model.address5Controller,
                                               focusNode:
                                                   _model.address5FocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -1379,6 +1412,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1393,6 +1427,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                                   .of(context)
                                                               .secondaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1412,8 +1447,10 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                             context)
                                                         .primaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
+                                              minLines: null,
                                               validator: _model
                                                   .address5ControllerValidator
                                                   .asValidator(context),
@@ -1555,6 +1592,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                                 elevation: 3.0,

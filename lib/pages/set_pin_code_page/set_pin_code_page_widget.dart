@@ -93,6 +93,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF1D4774),
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -108,6 +109,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF1D4774),
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -164,6 +166,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
+                                              letterSpacing: 0.0,
                                             ),
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
@@ -416,6 +419,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 2.0,
                           borderSide: BorderSide(

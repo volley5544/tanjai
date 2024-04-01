@@ -76,6 +76,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -113,6 +114,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF404040),
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -127,6 +129,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFF40606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -178,6 +181,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                 ? Color(0xFF9F9F9F)
                                                 : Colors.black,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -240,6 +244,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -250,6 +255,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -262,6 +268,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -285,6 +292,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -295,6 +303,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -309,6 +318,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .tertiary,
                                         fontSize: 17.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -450,6 +460,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -467,6 +478,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -577,7 +589,12 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                       : 'เลือกวันคุ้มครอง',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                                 Icon(
                                                   Icons.calendar_month,
@@ -617,6 +634,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -634,6 +652,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -678,12 +697,19 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                         _model.textController,
                                                     focusNode: _model
                                                         .textFieldFocusNode,
+                                                    autofocus: false,
                                                     obscureText: false,
                                                     decoration: InputDecoration(
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintText: 'กรอกเลขตัวถัง',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
@@ -695,6 +721,8 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                       enabledBorder:
                                                           InputBorder.none,
@@ -711,9 +739,11 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textControllerValidator
                                                         .asValidator(context),
@@ -950,6 +980,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFDB771A),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -1187,6 +1218,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(

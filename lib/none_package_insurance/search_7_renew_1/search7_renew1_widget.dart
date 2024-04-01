@@ -83,6 +83,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -116,6 +117,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -130,6 +132,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -165,6 +168,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -206,6 +210,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -220,6 +225,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -292,6 +298,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -334,6 +341,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -348,6 +356,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -374,6 +383,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   controller:
                                       _model.cusNameTextFieldController1,
                                   focusNode: _model.cusNameTextFieldFocusNode1,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
@@ -381,6 +391,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -388,6 +399,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -400,7 +412,9 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   validator: _model
                                       .cusNameTextFieldController1Validator
                                       .asValidator(context),
@@ -431,6 +445,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -445,6 +460,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -471,6 +487,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   controller:
                                       _model.cusNameTextFieldController2,
                                   focusNode: _model.cusNameTextFieldFocusNode2,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
@@ -478,6 +495,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -485,6 +503,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -497,7 +516,9 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   validator: _model
                                       .cusNameTextFieldController2Validator
                                       .asValidator(context),
@@ -528,6 +549,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -542,6 +564,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -577,6 +600,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -618,6 +642,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -628,6 +653,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -643,6 +669,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -669,6 +696,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                   controller:
                                       _model.cusNameTextFieldController3,
                                   focusNode: _model.cusNameTextFieldFocusNode3,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
@@ -676,6 +704,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -683,6 +712,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -695,7 +725,9 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   validator: _model
                                       .cusNameTextFieldController3Validator
                                       .asValidator(context),
@@ -726,6 +758,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -736,6 +769,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -751,6 +785,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -811,6 +846,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -821,6 +857,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -836,6 +873,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -871,6 +909,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -912,6 +951,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -922,6 +962,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -937,6 +978,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -972,6 +1014,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -1013,6 +1056,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -1023,6 +1067,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
                                       decoration: TextDecoration.underline,
                                     ),
@@ -1038,6 +1083,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1073,6 +1119,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -1114,6 +1161,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -1128,6 +1176,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1163,6 +1212,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -1204,6 +1254,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -1218,6 +1269,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFFB0606),
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1253,6 +1305,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -1294,6 +1347,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -1309,6 +1363,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 12.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1334,6 +1389,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 child: TextFormField(
                                   controller: _model.textFieldController,
                                   focusNode: _model.textFieldFocusNode,
+                                  autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     labelStyle: FlutterFlowTheme.of(context)
@@ -1341,6 +1397,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
@@ -1348,6 +1405,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFB3B3B3),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     enabledBorder: InputBorder.none,
                                     focusedBorder: InputBorder.none,
@@ -1360,7 +1418,9 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFFB3B3B3),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  minLines: null,
                                   keyboardType: TextInputType.emailAddress,
                                   validator: _model.textFieldControllerValidator
                                       .asValidator(context),
@@ -1398,6 +1458,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF003063),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -1412,6 +1473,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1441,6 +1503,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -1501,6 +1564,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFD9761A),
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1527,6 +1591,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1539,6 +1604,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -1590,6 +1656,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -1612,6 +1679,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                               decoration:
                                                   TextDecoration.underline,
@@ -1675,6 +1743,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFD9761A),
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1701,6 +1770,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -1713,6 +1783,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ],
@@ -1777,6 +1848,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBtnText,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                               elevation: 3.0,

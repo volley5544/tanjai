@@ -109,6 +109,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -220,6 +221,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -263,6 +266,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -350,6 +355,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                       .error,
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -378,6 +385,8 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                               fontFamily:
                                                                   'Noto Sans Thai',
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -392,18 +401,18 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'R2: 06388069',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -413,18 +422,18 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'คุณมมฑิรา ยอดแสง',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -434,18 +443,18 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       'คุณสามารถสแกนชำระค่างวดได้ที่ศรีสวัสดิ์ทุกสาขาหรือ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                   Padding(
@@ -518,6 +527,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(

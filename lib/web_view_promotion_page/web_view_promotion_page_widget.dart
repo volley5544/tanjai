@@ -104,7 +104,10 @@ class _WebViewPromotionPageWidgetState
                           BoxShadow(
                             blurRadius: 4.0,
                             color: Color(0x33000000),
-                            offset: Offset(2.0, 0.0),
+                            offset: Offset(
+                              2.0,
+                              0.0,
+                            ),
                           )
                         ],
                       ),

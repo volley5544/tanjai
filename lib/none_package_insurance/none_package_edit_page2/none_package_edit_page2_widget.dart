@@ -112,6 +112,7 @@ class _NonePackageEditPage2WidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -154,6 +155,7 @@ class _NonePackageEditPage2WidgetState
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -204,6 +206,8 @@ class _NonePackageEditPage2WidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -238,6 +242,7 @@ class _NonePackageEditPage2WidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 20.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -265,6 +270,7 @@ class _NonePackageEditPage2WidgetState
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFC33D5E),
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -2072,6 +2078,7 @@ class _NonePackageEditPage2WidgetState
                                                         color:
                                                             Color(0xFF002D5E),
                                                         fontSize: 18.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                             if (false)
@@ -2091,6 +2098,7 @@ class _NonePackageEditPage2WidgetState
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2147,6 +2155,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2319,6 +2329,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2491,6 +2503,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2663,6 +2677,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -2835,6 +2851,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -3007,6 +3025,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -3179,6 +3199,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -3351,6 +3373,8 @@ class _NonePackageEditPage2WidgetState
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -3527,6 +3551,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -5098,6 +5124,7 @@ class _NonePackageEditPage2WidgetState
                                                           color:
                                                               Color(0xFF002D5E),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                               if (false)
@@ -5116,6 +5143,7 @@ class _NonePackageEditPage2WidgetState
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .error,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -5174,6 +5202,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -5349,6 +5379,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -5524,6 +5556,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -5699,6 +5733,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -5874,6 +5910,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -6049,6 +6087,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -6224,6 +6264,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -6399,6 +6441,8 @@ class _NonePackageEditPage2WidgetState
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -6564,6 +6608,7 @@ class _NonePackageEditPage2WidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                                 elevation: 3.0,

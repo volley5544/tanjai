@@ -84,6 +84,7 @@ class _InsuranceInfoPage5CancelWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -105,6 +106,7 @@ class _InsuranceInfoPage5CancelWidgetState
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Noto Sans Thai',
                             fontSize: 15.0,
+                            letterSpacing: 0.0,
                           ),
                     ),
                   ),
@@ -123,7 +125,11 @@ class _InsuranceInfoPage5CancelWidgetState
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintText: 'กรุณากรอกเหตุผล',
                           hintStyle: FlutterFlowTheme.of(context)
                               .labelMedium
@@ -132,6 +138,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 fontSize: 15.0,
+                                letterSpacing: 0.0,
                               ),
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
@@ -141,7 +148,9 @@ class _InsuranceInfoPage5CancelWidgetState
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
                               fontSize: 15.0,
+                              letterSpacing: 0.0,
                             ),
+                        minLines: null,
                         validator:
                             _model.textControllerValidator.asValidator(context),
                       ),
@@ -189,6 +198,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF204A77),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                                 elevation: 3.0,
@@ -342,6 +352,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBtnText,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                   elevation: 3.0,

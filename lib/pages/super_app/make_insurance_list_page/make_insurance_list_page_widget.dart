@@ -241,6 +241,7 @@ class _MakeInsuranceListPageWidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -323,6 +324,7 @@ class _MakeInsuranceListPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -435,6 +437,7 @@ class _MakeInsuranceListPageWidgetState
                                                   Duration(milliseconds: 100),
                                                   () => setState(() {}),
                                                 ),
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle:
@@ -445,6 +448,7 @@ class _MakeInsuranceListPageWidgetState
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             fontSize: 14.0,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                   hintText: 'ค้นหาชื่อลูกค้า',
                                                   hintStyle:
@@ -455,6 +459,7 @@ class _MakeInsuranceListPageWidgetState
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             fontSize: 14.0,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                   enabledBorder:
                                                       InputBorder.none,
@@ -471,9 +476,11 @@ class _MakeInsuranceListPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                                minLines: null,
                                                 validator: _model
                                                     .searchFirstnameControllerValidator
                                                     .asValidator(context),
@@ -754,6 +761,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: Color(0xFF1D4774),
                                                                               fontSize: 13.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                       ),
@@ -768,6 +776,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
@@ -784,6 +793,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
@@ -806,6 +816,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -818,6 +829,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -847,6 +859,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -865,6 +878,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -886,6 +900,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -907,6 +922,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -928,6 +944,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Text(
@@ -939,6 +956,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -959,6 +977,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -992,6 +1011,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                           ? FlutterFlowTheme.of(context).primaryText
                                                                                           : FlutterFlowTheme.of(context).error,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -1020,6 +1040,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Text(
@@ -1031,6 +1052,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ],
@@ -1054,6 +1076,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Text(
@@ -1065,6 +1088,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1090,6 +1114,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Text(
@@ -1101,6 +1126,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1126,6 +1152,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             Text(
@@ -1137,6 +1164,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1176,6 +1204,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             FFButtonWidget(
@@ -1212,6 +1241,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -1253,6 +1283,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                               FFButtonWidget(
@@ -1313,9 +1344,11 @@ class _MakeInsuranceListPageWidgetState
                                                                                     if (_shouldSetState) setState(() {});
                                                                                     return;
                                                                                   }
-                                                                                  await launchURL('${GetFileVmiApiCall.vmiDocumentUrl(
-                                                                                    (_model.getFileVmiButton?.jsonBody ?? ''),
-                                                                                  )}');
+                                                                                  await actions.openLinkInBrowser(
+                                                                                    '${GetFileVmiApiCall.vmiDocumentUrl(
+                                                                                      (_model.getFileVmiButton?.jsonBody ?? ''),
+                                                                                    )}',
+                                                                                  );
                                                                                   if (_shouldSetState) setState(() {});
                                                                                 },
                                                                                 text: 'ดูกรมธรรม์',
@@ -1329,6 +1362,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
                                                                                         fontSize: 13.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
                                                                                   elevation: 3.0,
@@ -1371,6 +1405,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: FlutterFlowTheme.of(context).primaryText,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                     ),
                                                                               ),
                                                                               FFButtonWidget(
@@ -1447,6 +1482,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
                                                                                         fontSize: 13.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
                                                                                   elevation: 3.0,
@@ -1582,6 +1618,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
                                                                                         fontSize: 13.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
                                                                                   elevation: 3.0,
@@ -1656,6 +1693,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.white,
                                                                                         fontSize: 15.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w500,
                                                                                       ),
                                                                                   elevation: 3.0,
@@ -1723,6 +1761,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                         ),
                                                                         Text(
@@ -1742,6 +1781,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -2442,6 +2482,8 @@ class _MakeInsuranceListPageWidgetState
                                                                                 Colors.white,
                                                                             fontSize:
                                                                                 13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w500,
                                                                           ),
@@ -2503,7 +2545,11 @@ class _MakeInsuranceListPageWidgetState
                                           child: Text(
                                             'ไม่พบข้อมูลในระบบ',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ),

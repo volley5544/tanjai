@@ -34,8 +34,6 @@ class SavedLeadCalledStatusModel
   // Stores action output result for [Backend Call - API (saveCallStatusAPI)] action in Button widget.
   ApiCallResponse? saveCallOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -44,8 +42,4 @@ class SavedLeadCalledStatusModel
     calledRemarkTextFieldFocusNode?.dispose();
     calledRemarkTextFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

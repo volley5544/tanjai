@@ -52,8 +52,6 @@ class NonePackageEditPage2CopyModel
   FFUploadedFile uploadedLocalFile9 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -61,8 +59,4 @@ class NonePackageEditPage2CopyModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

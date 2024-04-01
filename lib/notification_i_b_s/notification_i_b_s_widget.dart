@@ -75,6 +75,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -98,6 +99,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Noto Sans Thai',
                               fontSize: 18.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
@@ -133,6 +135,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFDB771A),
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                           ),
@@ -245,6 +248,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -254,7 +258,12 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                     .notiBody,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -275,6 +284,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFBBBBBB),
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   Padding(
@@ -292,16 +302,16 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                                                                     context)
                                                                 .languageCode,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFBBBBBB),
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFBBBBBB),
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],

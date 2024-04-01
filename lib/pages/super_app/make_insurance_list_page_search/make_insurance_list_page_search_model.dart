@@ -36,8 +36,6 @@ class MakeInsuranceListPageSearchModel
   // Stores action output result for [Backend Call - API (getNonePackageHistoryAPI)] action in Button widget.
   ApiCallResponse? getHistory;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -45,8 +43,4 @@ class MakeInsuranceListPageSearchModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

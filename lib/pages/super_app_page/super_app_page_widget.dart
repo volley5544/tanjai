@@ -519,6 +519,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     context)
                                                                 .error,
                                                         fontSize: 50.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           if (FFAppState().isProduction)
@@ -665,6 +666,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                 color: Colors
                                                                     .white,
                                                                 fontSize: 8.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                         showBadge:
@@ -796,6 +799,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                           color:
                                                               Color(0xFF003063),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -866,6 +870,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -892,6 +898,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           10.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -930,6 +938,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             'Noto Sans Thai',
                                                                         fontSize:
                                                                             16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                       ),
@@ -961,6 +971,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             0xFF003063),
                                                                         fontSize:
                                                                             16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                       ),
@@ -1035,6 +1047,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       0xFFEDA44C),
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1161,6 +1175,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1336,6 +1351,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1409,6 +1425,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: Colors.black,
                                                                                 fontSize: 14.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -1569,6 +1586,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                               ),
@@ -1720,6 +1738,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                               ),
@@ -1790,6 +1809,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.black,
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
                                                                             ),
@@ -1868,6 +1888,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                               ),
@@ -2327,6 +2348,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.black,
                                                                                       fontSize: 14.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w600,
                                                                                     ),
                                                                               ),
@@ -2466,6 +2488,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.black,
                                                                                         fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
                                                                                 ),
@@ -2557,6 +2580,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                         fontFamily: 'Noto Sans Thai',
                                                                                         color: Colors.black,
                                                                                         fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.w600,
                                                                                       ),
                                                                                 ),
@@ -2627,6 +2651,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF003063),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -2651,6 +2676,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFFEDA44C),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     decoration: TextDecoration.underline,
                                   ),
@@ -2723,8 +2749,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         blurRadius: 4.0,
                                                         color:
                                                             Color(0x33000000),
-                                                        offset:
-                                                            Offset(0.0, 2.0),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          2.0,
+                                                        ),
                                                       )
                                                     ],
                                                     borderRadius:
@@ -2775,7 +2803,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         .max,
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
-                                                                        .start,
+                                                                        .end,
                                                                 children: [
                                                                   Expanded(
                                                                     flex: 5,
@@ -2795,6 +2823,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2813,6 +2842,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2839,6 +2870,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2868,6 +2900,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2886,6 +2919,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2901,13 +2936,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .checkNullValueAndReturn(GetVMICall.quotationtypebakname(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )),
+                                                                        )?[leadListIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2937,6 +2973,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -2955,6 +2992,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -2970,13 +3009,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .checkNullValueAndReturn(GetVMICall.quotationtypename(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )),
+                                                                        )?[leadListIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3006,6 +3046,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3024,6 +3065,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3039,13 +3082,14 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             .checkNullValueAndReturn(GetVMICall.subproductname(
                                                                           (_model.getVMIApi?.jsonBody ??
                                                                               ''),
-                                                                        )),
+                                                                        )?[leadListIndex]),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3075,6 +3119,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3093,6 +3138,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3115,6 +3162,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3144,6 +3192,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -3162,6 +3211,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 'Noto Sans Thai',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).black600,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -3184,6 +3235,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               fontFamily: 'Noto Sans Thai',
                                                                               color: FlutterFlowTheme.of(context).black600,
                                                                               fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
                                                                             ),
                                                                       ),
@@ -3402,6 +3454,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               Colors.white,
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -3494,6 +3548,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -3537,6 +3592,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
@@ -3620,6 +3676,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -3698,6 +3755,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -3795,6 +3853,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -3870,6 +3929,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF003063),
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -4094,9 +4154,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               4.0,
                                                                           color:
                                                                               Color(0x33000000),
-                                                                          offset: Offset(
-                                                                              0.0,
-                                                                              2.0),
+                                                                          offset:
+                                                                              Offset(
+                                                                            0.0,
+                                                                            2.0,
+                                                                          ),
                                                                         )
                                                                       ],
                                                                       borderRadius:
@@ -4193,9 +4255,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           4.0,
                                                                       color: Color(
                                                                           0x33000000),
-                                                                      offset: Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
                                                                     )
                                                                   ],
                                                                   borderRadius:
@@ -4285,7 +4349,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               color: Color(
                                                                   0x33000000),
                                                               offset: Offset(
-                                                                  0.0, 2.0),
+                                                                0.0,
+                                                                2.0,
+                                                              ),
                                                             )
                                                           ],
                                                           borderRadius:
@@ -4484,8 +4550,9 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       0x33000000),
                                                                   offset:
                                                                       Offset(
-                                                                          0.0,
-                                                                          2.0),
+                                                                    0.0,
+                                                                    2.0,
+                                                                  ),
                                                                 )
                                                               ],
                                                               borderRadius:
@@ -4616,6 +4683,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF003063),
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),

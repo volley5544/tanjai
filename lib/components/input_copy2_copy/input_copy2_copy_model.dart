@@ -19,8 +19,6 @@ class InputCopy2CopyModel extends FlutterFlowModel<InputCopy2CopyWidget> {
   // Stores action output result for [Backend Call - API (sendResignFormEmailAPI)] action in Button widget.
   ApiCallResponse? sendEmail;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -29,8 +27,4 @@ class InputCopy2CopyModel extends FlutterFlowModel<InputCopy2CopyWidget> {
     reasonCancelFocusNode?.dispose();
     reasonCancelController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

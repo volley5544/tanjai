@@ -188,6 +188,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -204,6 +205,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -229,6 +231,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -245,6 +248,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -269,6 +273,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -285,6 +290,7 @@ class _PointInfomationContainerWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -304,6 +310,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -317,6 +324,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -335,6 +343,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -348,6 +357,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -371,6 +381,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -386,6 +397,7 @@ class _PointInfomationContainerWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -464,6 +476,7 @@ class _PointInfomationContainerWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(

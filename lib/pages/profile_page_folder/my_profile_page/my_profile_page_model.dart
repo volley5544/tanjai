@@ -28,8 +28,6 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -37,8 +35,4 @@ class MyProfilePageModel extends FlutterFlowModel<MyProfilePageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

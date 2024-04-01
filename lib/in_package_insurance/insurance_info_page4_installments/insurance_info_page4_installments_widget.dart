@@ -82,6 +82,7 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 16.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -142,7 +143,12 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                                     '1',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (FFAppState()
@@ -219,6 +225,7 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

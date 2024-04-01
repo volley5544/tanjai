@@ -83,6 +83,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF1D4774),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -155,7 +156,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x34111417),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(8.0),
@@ -176,6 +180,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -260,7 +265,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x34111417),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(8.0),
@@ -281,6 +289,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -364,7 +373,10 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x34111417),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(8.0),
@@ -385,6 +397,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF878787),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -564,6 +577,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                                 color: Color(
                                                                     0xFF1D4774),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -676,6 +691,8 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                                 color: Color(
                                                                     0xFF1D4774),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -776,6 +793,7 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
+                                                  letterSpacing: 0.0,
                                                 ),
                                             elevation: 2.0,
                                             borderSide: BorderSide(

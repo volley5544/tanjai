@@ -46,8 +46,6 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   // Stores action output result for [Backend Call - API (insuranceRequestListAPIDashBoard)] action in Button widget.
   ApiCallResponse? listFromDash;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -57,8 +55,4 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
     searchFirstnameFocusNode?.dispose();
     searchFirstnameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

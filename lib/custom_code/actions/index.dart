@@ -47,8 +47,10 @@ export 'query_firebase_collection_string.dart'
     show queryFirebaseCollectionString;
 export 'get_device_current_location.dart' show getDeviceCurrentLocation;
 export 'add_watermark.dart' show addWatermark;
+export 'open_link_in_browser.dart' show openLinkInBrowser;
 export 'enough_email.dart' show enoughEmail;
 export 'create_firebase.dart' show createFirebase;
+export 'open_tableau_browser_copy.dart' show openTableauBrowserCopy;
 export 'delete_acc_firebase.dart' show deleteAccFirebase;
 export 'get_build_version1.dart' show getBuildVersion1;
 export 'hide_keyboard_action.dart' show hideKeyboardAction;

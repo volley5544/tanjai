@@ -106,6 +106,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: 'กรุณาเลือกเหตุผลที่ให้พอยท์',
                                   fillColor: Colors.white,
@@ -142,7 +143,11 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                     decoration: InputDecoration(
                                       hintText: 'กรุณาระบุเหตุผล ',
                                       hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
                                       enabledBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: Color(0x00000000),
@@ -187,9 +192,11 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     maxLines: 4,
+                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),
@@ -281,6 +288,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         elevation: 2.0,
@@ -328,6 +336,7 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Colors.white,
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                           elevation: 2.0,

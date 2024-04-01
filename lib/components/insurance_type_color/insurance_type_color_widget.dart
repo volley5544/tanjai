@@ -70,7 +70,12 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                             EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'สถานะทั้งหมด',
-                          style: FlutterFlowTheme.of(context).headlineSmall,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Noto Sans Thai',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ),
                       Align(
@@ -104,7 +109,10 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
                   child: Text(
                     'เเถบสีเเสดงสถานะดังนี้',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Container(
@@ -144,6 +152,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],
@@ -226,6 +235,7 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],

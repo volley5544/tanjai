@@ -28,8 +28,6 @@ class RenewDetailPageModel extends FlutterFlowModel<RenewDetailPageWidget> {
   // Stores action output result for [Backend Call - API (renewSave)] action in Button widget.
   ApiCallResponse? renewSaveAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -37,8 +35,4 @@ class RenewDetailPageModel extends FlutterFlowModel<RenewDetailPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

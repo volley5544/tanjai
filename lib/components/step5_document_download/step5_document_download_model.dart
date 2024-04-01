@@ -9,15 +9,9 @@ import 'package:provider/provider.dart';
 
 class Step5DocumentDownloadModel
     extends FlutterFlowModel<Step5DocumentDownloadWidget> {
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -84,6 +84,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     fontSize: 20.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                         )),
@@ -107,8 +108,12 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'กรอกEmail...',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -148,9 +153,11 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                               maxLines: 4,
+                              minLines: null,
                               validator: _model.reasonCancelControllerValidator
                                   .asValidator(context),
                             ),
@@ -185,6 +192,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 elevation: 2.0,
@@ -389,6 +397,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 elevation: 2.0,

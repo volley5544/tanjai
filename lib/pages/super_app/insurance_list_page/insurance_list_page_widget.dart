@@ -411,6 +411,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
@@ -516,6 +517,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -523,6 +525,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         hintText: 'ค้นหาชื่อลูกค้า',
                                         hintStyle: FlutterFlowTheme.of(context)
@@ -530,6 +533,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
@@ -541,8 +545,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
+                                      minLines: null,
                                       validator: _model
                                           .searchFirstnameControllerValidator
                                           .asValidator(context),
@@ -692,6 +698,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -711,6 +719,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -749,6 +759,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .black600,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -783,6 +795,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -802,6 +816,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -829,6 +845,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -862,6 +880,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -881,6 +901,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -924,6 +946,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .black600,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -955,6 +979,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -988,6 +1014,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1007,6 +1035,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1050,6 +1080,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .black600,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1081,6 +1113,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1114,6 +1148,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1133,6 +1169,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1176,6 +1214,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                             .black600,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1207,6 +1247,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1240,6 +1282,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1259,6 +1303,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1286,6 +1332,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1319,6 +1367,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1338,6 +1388,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1365,6 +1417,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1398,6 +1452,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1417,6 +1473,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1447,6 +1505,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           : FlutterFlowTheme.of(context).black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -1483,6 +1543,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -1502,6 +1564,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .black600,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -1529,6 +1593,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                           .black600,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .bold,
@@ -2758,6 +2824,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         .black600,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -4200,6 +4268,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         .black600,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -4713,6 +4783,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                         .white,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
@@ -4773,7 +4845,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             'ไม่พบข้อมูลในระบบ',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Noto Sans Thai',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),

@@ -21,8 +21,6 @@ class CheckActModel extends FlutterFlowModel<CheckActWidget> {
   TextEditingController? searchFirstnameController2;
   String? Function(BuildContext, String?)? searchFirstnameController2Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -34,8 +32,4 @@ class CheckActModel extends FlutterFlowModel<CheckActWidget> {
     searchFirstnameFocusNode2?.dispose();
     searchFirstnameController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

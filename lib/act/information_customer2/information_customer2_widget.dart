@@ -558,6 +558,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -604,6 +605,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -647,6 +649,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                       ? Color(0xFF9F9F9F)
                                                       : Colors.black,
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -694,6 +697,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -708,6 +712,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -794,6 +799,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -843,6 +849,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -857,6 +864,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -935,6 +943,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1013,6 +1022,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1029,6 +1039,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1115,6 +1126,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           ? Color(0xFF9F9F9F)
                                                           : Colors.black,
                                                       fontSize: 15.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                     ),
@@ -1165,6 +1177,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -1179,6 +1192,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -1257,6 +1271,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1317,6 +1332,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color:
                                                               Color(0xFF404040),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1336,6 +1352,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                         color:
                                                             Color(0xFFF40606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -1388,6 +1405,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             .firstnameController,
                                                         focusNode: _model
                                                             .firstnameFocusNode,
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -1403,6 +1421,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         .primaryText,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1419,6 +1439,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         0xFFAAAAAA),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1490,10 +1512,13 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .firstnameControllerValidator
                                                             .asValidator(
@@ -1538,6 +1563,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color:
                                                               Color(0xFF404040),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1558,6 +1584,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color:
                                                               Color(0xFFF40606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1610,6 +1637,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             .lastnameController,
                                                         focusNode: _model
                                                             .lastnameFocusNode,
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -1625,6 +1653,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         .primaryText,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1641,6 +1671,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                         0xFFAAAAAA),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1712,10 +1744,13 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .lastnameControllerValidator
                                                             .asValidator(
@@ -1754,6 +1789,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF404040),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -1772,6 +1808,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color:
                                                               Color(0xFFF40606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -1818,6 +1855,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           .phonenumberController,
                                                       focusNode: _model
                                                           .phonenumberFocusNode,
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -1833,6 +1871,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -1849,6 +1889,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       0xFFAAAAAA),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w500,
@@ -1908,21 +1950,21 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       8.0),
                                                         ),
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryText,
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                      minLines: null,
                                                       keyboardType:
                                                           TextInputType.number,
                                                       validator: _model
@@ -1964,6 +2006,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF404040),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -1981,6 +2024,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -2016,6 +2060,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                   _model.textFieldController,
                                               focusNode:
                                                   _model.textFieldFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -2028,6 +2073,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2041,6 +2087,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                           color:
                                                               Color(0xFFAAAAAA),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2060,8 +2107,10 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             context)
                                                         .primaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
+                                              minLines: null,
                                               validator: _model
                                                   .textFieldControllerValidator
                                                   .asValidator(context),
@@ -2524,6 +2573,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(

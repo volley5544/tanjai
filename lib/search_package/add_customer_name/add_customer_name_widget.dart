@@ -199,6 +199,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -240,6 +241,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -254,6 +256,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFF40606),
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -295,6 +298,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     _model.firstnameController,
                                                 focusNode:
                                                     _model.firstnameFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle: FlutterFlowTheme
@@ -308,6 +312,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                                     context)
                                                                 .primaryText,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -321,6 +326,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                         color:
                                                             Color(0xFFAAAAAA),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -381,9 +387,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                                minLines: null,
                                                 validator: _model
                                                     .firstnameControllerValidator
                                                     .asValidator(context),
@@ -422,6 +430,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF404040),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                       ),
@@ -438,6 +447,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -479,6 +489,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     _model.lastnameController,
                                                 focusNode:
                                                     _model.lastnameFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle: FlutterFlowTheme
@@ -492,6 +503,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                                     context)
                                                                 .primaryText,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -505,6 +517,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                         color:
                                                             Color(0xFFAAAAAA),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -565,9 +578,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
+                                                minLines: null,
                                                 validator: _model
                                                     .lastnameControllerValidator
                                                     .asValidator(context),
@@ -603,6 +618,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -617,6 +633,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFF40606),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -657,6 +674,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                   _model.phonenumberController,
                                               focusNode:
                                                   _model.phonenumberFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -669,6 +687,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                                   .of(context)
                                                               .primaryText,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -682,6 +701,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           color:
                                                               Color(0xFFAAAAAA),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -740,8 +760,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                             context)
                                                         .primaryText,
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
+                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
@@ -781,6 +803,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -795,6 +818,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.black,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -823,6 +847,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     child: TextFormField(
                                       controller: _model.textFieldController,
                                       focusNode: _model.textFieldFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
@@ -833,6 +858,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         hintText: 'กรุณากรอก',
@@ -842,6 +868,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFAAAAAA),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         enabledBorder: InputBorder.none,
@@ -856,8 +883,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
+                                      minLines: null,
                                       validator: _model
                                           .textFieldControllerValidator
                                           .asValidator(context),
@@ -1295,6 +1324,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

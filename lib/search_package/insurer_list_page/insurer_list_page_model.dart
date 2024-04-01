@@ -26,8 +26,6 @@ class InsurerListPageModel extends FlutterFlowModel<InsurerListPageWidget> {
   // Stores action output result for [Backend Call - API (telePackageSearchAPI)] action in insurerListPage widget.
   ApiCallResponse? packageAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -35,8 +33,4 @@ class InsurerListPageModel extends FlutterFlowModel<InsurerListPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

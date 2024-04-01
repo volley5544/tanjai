@@ -75,8 +75,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
       ? pageViewController2!.page!.round()
       : 0;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -85,8 +83,4 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
     unfocusNode.dispose();
     expandableController.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

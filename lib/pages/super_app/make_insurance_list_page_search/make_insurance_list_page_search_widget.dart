@@ -180,6 +180,7 @@ class _MakeInsuranceListPageSearchWidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -258,6 +259,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),
@@ -499,6 +501,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 Color(0xFF1D4774),
                                                                             fontSize:
                                                                                 13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.bold,
                                                                           ),
@@ -518,6 +522,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -536,6 +541,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                               .override(
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -557,6 +563,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -571,6 +578,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w600,
                                                                               ),
                                                                         ),
@@ -595,6 +603,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
@@ -613,6 +622,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ],
@@ -633,6 +643,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                         ),
                                                                         Text(
@@ -646,6 +657,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 fontFamily: 'Noto Sans Thai',
                                                                                 color: FlutterFlowTheme.of(context).primaryText,
                                                                                 fontSize: 13.0,
+                                                                                letterSpacing: 0.0,
                                                                               ),
                                                                         ),
                                                                       ],
@@ -668,6 +680,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -703,6 +716,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                         ? FlutterFlowTheme.of(context).primaryText
                                                                                         : FlutterFlowTheme.of(context).error,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -731,6 +745,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                           Text(
@@ -742,6 +757,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                         ],
@@ -765,6 +781,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                           Text(
@@ -776,6 +793,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                 ),
                                                                           ),
@@ -810,6 +828,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primaryText,
                                                                                   fontSize: 13.0,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                           ),
                                                                           FFButtonWidget(
@@ -849,6 +868,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: Colors.white,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w500,
                                                                                   ),
                                                                               elevation: 3.0,
@@ -886,6 +906,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: FlutterFlowTheme.of(context).primaryText,
                                                                                     fontSize: 13.0,
+                                                                                    letterSpacing: 0.0,
                                                                                   ),
                                                                             ),
                                                                             FFButtonWidget(
@@ -962,6 +983,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -1098,6 +1120,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,
                                                                                       fontSize: 13.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -1172,6 +1195,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                       fontFamily: 'Noto Sans Thai',
                                                                                       color: Colors.white,
                                                                                       fontSize: 15.0,
+                                                                                      letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.w500,
                                                                                     ),
                                                                                 elevation: 3.0,
@@ -1236,6 +1260,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 'Noto Sans Thai',
                                                                             fontSize:
                                                                                 13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                           ),
                                                                     ),
                                                                     Text(
@@ -1259,6 +1285,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 FlutterFlowTheme.of(context).primaryText,
                                                                             fontSize:
                                                                                 13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
@@ -1309,7 +1337,11 @@ class _MakeInsuranceListPageSearchWidgetState
                                           child: Text(
                                             'ไม่พบข้อมูลในระบบ',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ),

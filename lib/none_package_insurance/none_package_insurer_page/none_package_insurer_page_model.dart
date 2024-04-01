@@ -30,8 +30,6 @@ class NonePackageInsurerPageModel
   // Stores action output result for [Backend Call - API (insuranceRequestSendEmailAPI)] action in Button widget.
   ApiCallResponse? sendNonePackageApi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -41,8 +39,4 @@ class NonePackageInsurerPageModel
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

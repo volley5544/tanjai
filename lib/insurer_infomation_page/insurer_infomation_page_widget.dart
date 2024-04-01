@@ -98,6 +98,7 @@ class _InsurerInfomationPageWidgetState
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
@@ -139,13 +140,22 @@ class _InsurerInfomationPageWidgetState
                                 Duration(milliseconds: 100),
                                 () => setState(() {}),
                               ),
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintText: 'ค้นหาบริษัทปนะกัน',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -194,9 +204,11 @@ class _InsurerInfomationPageWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF848F97),
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                               maxLines: null,
+                              minLines: null,
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),
@@ -290,6 +302,7 @@ class _InsurerInfomationPageWidgetState
                                                         color:
                                                             Color(0xFF43628C),
                                                         fontSize: 17.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -323,6 +336,7 @@ class _InsurerInfomationPageWidgetState
                                                         color:
                                                             Color(0xFF848F97),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -368,6 +382,7 @@ class _InsurerInfomationPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Colors.white,
                                                             fontSize: 15.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -409,6 +424,7 @@ class _InsurerInfomationPageWidgetState
                                                         color:
                                                             Color(0xFF848F97),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -446,6 +462,7 @@ class _InsurerInfomationPageWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Colors.white,
                                                             fontSize: 15.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),

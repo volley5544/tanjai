@@ -28,8 +28,6 @@ class Email1Model extends FlutterFlowModel<Email1Widget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -39,8 +37,4 @@ class Email1Model extends FlutterFlowModel<Email1Widget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

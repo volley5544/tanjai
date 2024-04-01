@@ -813,7 +813,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insuranceInfoPage4NetPremiumTotal =
-            '${IbsApplicationsDetailCall.netpremiumtotal(
+            '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
@@ -1550,6 +1550,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -1668,6 +1669,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFAFAFA),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -1723,6 +1725,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -1779,6 +1782,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFFB3B3B3),
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -1836,6 +1840,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -1893,6 +1898,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -1925,6 +1931,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1943,6 +1950,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -2049,6 +2057,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -2135,6 +2144,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             'Noto Sans Thai',
                                                         color:
                                                             Color(0xFF003063),
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -2216,6 +2226,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                       0xFFD9761A),
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -2261,6 +2273,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2280,6 +2293,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -2332,6 +2346,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               .idCardTextFieldController1,
                                                           focusNode: _model
                                                               .idCardTextFieldFocusNode1,
+                                                          autofocus: false,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -2344,6 +2359,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             hintText:
                                                                 'กรุณากรอกเลขบัตร',
@@ -2359,6 +2376,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           .secondaryText,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             enabledBorder:
                                                                 InputBorder
@@ -2383,7 +2402,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         context)
                                                                     .primaryText,
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
+                                                          minLines: null,
                                                           keyboardType:
                                                               TextInputType
                                                                   .number,
@@ -2728,6 +2750,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFFD9761A),
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -2774,6 +2798,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2793,6 +2818,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -2845,6 +2871,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               .idCardTextFieldController2,
                                                           focusNode: _model
                                                               .idCardTextFieldFocusNode2,
+                                                          autofocus: false,
                                                           obscureText: false,
                                                           decoration:
                                                               InputDecoration(
@@ -2857,6 +2884,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             hintText:
                                                                 'กรุณากรอกเลขบัตร',
@@ -2872,6 +2901,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           .secondaryText,
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             enabledBorder:
                                                                 InputBorder
@@ -2896,7 +2927,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         context)
                                                                     .primaryText,
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
+                                                          minLines: null,
                                                           validator: _model
                                                               .idCardTextFieldController2Validator
                                                               .asValidator(
@@ -3174,6 +3208,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFFD9761A),
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -3213,6 +3249,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -3231,6 +3268,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -3337,6 +3375,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -3391,6 +3430,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -3410,6 +3450,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -3516,6 +3557,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   0xFF9F9F9F)
                                                               : Colors.black,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -3567,6 +3609,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -3585,6 +3628,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -3626,6 +3670,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -3635,6 +3680,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'กรุณากรอกชื่อ',
                                                 hintStyle:
@@ -3646,6 +3692,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -3664,7 +3711,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     context)
                                                                 .black600,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               validator: _model
                                                   .cusNameTextFieldControllerValidator
                                                   .asValidator(context),
@@ -3699,6 +3748,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -3717,6 +3767,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -3758,6 +3809,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -3767,6 +3819,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'กรุณากรอกนามสกุล',
                                                 hintStyle:
@@ -3778,6 +3831,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -3796,7 +3850,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     context)
                                                                 .black600,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               validator: _model
                                                   .cusLastnameTextFieldControllerValidator
                                                   .asValidator(context),
@@ -3842,6 +3898,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -3861,6 +3918,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -3995,6 +4053,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           .primaryText
                                                                       : Color(
                                                                           0xFF9F9F9F),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                       ),
                                                     ),
@@ -4049,6 +4109,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -4060,17 +4121,17 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       '(อายุมากกว่า 18 ปี)',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFFB0606),
-                                                                fontSize: 12.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFFB0606),
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -4115,6 +4176,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             .ageTextFieldController,
                                                         focusNode: _model
                                                             .ageTextFieldFocusNode,
+                                                        autofocus: false,
                                                         readOnly: true,
                                                         obscureText: false,
                                                         decoration:
@@ -4128,6 +4190,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           hintText:
                                                               'กรุณากรอกอายุ',
@@ -4142,6 +4206,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFFB3B3B3),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -4164,7 +4230,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                       .black600,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
+                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
@@ -4207,6 +4276,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -4225,6 +4295,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -4323,6 +4394,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             ? Color(0xFF9F9F9F)
                                                             : Colors.black,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -4384,6 +4456,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -4403,6 +4476,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -4502,6 +4576,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   0xFF9F9F9F)
                                                               : Colors.black,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -4564,6 +4639,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -4583,6 +4659,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -4618,6 +4695,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     .cusOcputationTextFieldController,
                                                 focusNode: _model
                                                     .cusOcputationTextFieldFocusNode,
+                                                autofocus: false,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle:
@@ -4628,6 +4706,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             fontSize: 15.0,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                   hintText: 'กรุณากรอกอาชีพ',
                                                   hintStyle: FlutterFlowTheme
@@ -4639,6 +4718,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   enabledBorder:
                                                       InputBorder.none,
@@ -4658,7 +4738,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   .of(context)
                                                               .black600,
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
+                                                minLines: null,
                                                 validator: _model
                                                     .cusOcputationTextFieldControllerValidator
                                                     .asValidator(context),
@@ -4693,6 +4775,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -4711,6 +4794,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -4752,6 +4836,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -4761,6 +4846,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText:
                                                     'กรุณากรอกเบอร์โทรศัพท์มือถือ',
@@ -4773,6 +4859,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -4791,7 +4878,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     context)
                                                                 .black600,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
@@ -4831,6 +4920,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -4866,6 +4956,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   .cusPhoneOtherTextFieldController,
                                               focusNode: _model
                                                   .cusPhoneOtherTextFieldFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -4875,6 +4966,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText:
                                                     'กรุณากรอกเบอร์โทรศัพท์อื่นๆ',
@@ -4887,6 +4979,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -4905,7 +4998,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     context)
                                                                 .black600,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               keyboardType: TextInputType.phone,
                                               validator: _model
                                                   .cusPhoneOtherTextFieldControllerValidator
@@ -4945,6 +5040,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -4980,6 +5076,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   .emailTextFieldController,
                                               focusNode: _model
                                                   .emailTextFieldFocusNode,
+                                              autofocus: false,
                                               obscureText: false,
                                               decoration: InputDecoration(
                                                 labelStyle:
@@ -4989,6 +5086,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 hintText: 'กรุณากรอกอีเมลล์',
                                                 hintStyle:
@@ -5000,6 +5098,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: InputBorder.none,
@@ -5018,7 +5117,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     context)
                                                                 .black600,
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
+                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.emailAddress,
                                               validator: _model
@@ -5142,6 +5243,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFF003063),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -5165,6 +5267,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5192,6 +5295,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFF003063),
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5262,6 +5366,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -5281,6 +5386,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -5339,6 +5445,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   .licenseCodeController,
                                                               focusNode: _model
                                                                   .licenseCodeFocusNode,
+                                                              autofocus: false,
                                                               obscureText:
                                                                   false,
                                                               decoration:
@@ -5351,6 +5458,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                                 hintText:
                                                                     'กรุณากรอกรหัสพนักงาน',
@@ -5364,6 +5473,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                           0xFFB3B3B3),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                                 enabledBorder:
                                                                     InputBorder
@@ -5389,7 +5500,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         .primaryText,
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
+                                                              minLines: null,
                                                               keyboardType:
                                                                   TextInputType
                                                                       .number,
@@ -5749,6 +5863,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -5859,6 +5975,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFF1D4774),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -5876,6 +5994,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFF1D4774),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w800,
@@ -5893,6 +6013,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFF1D4774),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -5911,6 +6033,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                         0xFF1D4774),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w800,
@@ -5944,6 +6068,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -5969,6 +6095,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w800,
                                                                         ),
@@ -6002,6 +6130,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                               'Noto Sans Thai',
                                                                           color:
                                                                               Color(0xFF1D4774),
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                         ),
@@ -6027,6 +6157,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w800,
                                                                         ),
@@ -8065,6 +8197,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     fontFamily:
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFD9761A),
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                               elevation: 3.0,
@@ -8408,6 +8541,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBtnText,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),

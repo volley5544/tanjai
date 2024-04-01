@@ -30,8 +30,6 @@ class InsuranceInfoPage4Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -43,8 +41,4 @@ class InsuranceInfoPage4Model
     unfocusNode.dispose();
     infomationCustomerModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -36,8 +36,6 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
   // Stores action output result for [Backend Call - API (ibsQuotationsSave)] action in Button widget.
   ApiCallResponse? aPIQuotationSaveOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -56,8 +54,4 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
     textFieldFocusNode?.dispose();
     textFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

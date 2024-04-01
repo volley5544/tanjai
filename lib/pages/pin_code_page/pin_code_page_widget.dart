@@ -758,6 +758,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                 fontFamily:
                                                                     'Noto Sans Thai',
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         )),
                                                       ],
@@ -870,6 +872,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       'Noto Sans Thai',
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           )),
                                                         ),
@@ -990,6 +994,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             0xFF1D4774),
                                                                         fontSize:
                                                                             28.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1015,6 +1021,8 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                               'Noto Sans Thai',
                                                                           color:
                                                                               Color(0xFF1D4774),
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                   Container(
@@ -1045,6 +1053,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                                                                   fontFamily: 'Noto Sans Thai',
                                                                                   color: FlutterFlowTheme.of(context).primary,
+                                                                                  letterSpacing: 0.0,
                                                                                 ),
                                                                             mainAxisAlignment:
                                                                                 MainAxisAlignment.spaceEvenly,
@@ -1454,6 +1463,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1473,6 +1483,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1492,6 +1503,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1511,6 +1523,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1530,6 +1543,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1549,6 +1563,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1568,6 +1583,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1587,6 +1603,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1606,6 +1623,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     color: Color(0xFF1D4774),
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                     fontWeight: FontWeight.w800,
                                                                                                   ),
                                                                                             ),
@@ -1631,6 +1649,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                                     fontSize: 20.0,
+                                                                                                    letterSpacing: 0.0,
                                                                                                   ),
                                                                                             ),
                                                                                           ),
@@ -1661,6 +1680,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                             fontFamily: 'Noto Sans Thai',
                                                                                             color: Color(0xFFDF8633),
                                                                                             fontSize: 15.0,
+                                                                                            letterSpacing: 0.0,
                                                                                             decoration: TextDecoration.underline,
                                                                                           ),
                                                                                     ),

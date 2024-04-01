@@ -102,8 +102,6 @@ class NonePackageBasicImage1PageModel
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl17 = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -111,8 +109,4 @@ class NonePackageBasicImage1PageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -69,7 +69,10 @@ class _SearchEmployeeComponentWidgetState
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x25090F13),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.only(
@@ -129,7 +132,12 @@ class _SearchEmployeeComponentWidgetState
                         children: [
                           Text(
                             'ดูยอดประกันพนักงานรายบุคคล',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Noto Sans Thai',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -139,7 +147,12 @@ class _SearchEmployeeComponentWidgetState
                                 'กรุณากรอกข้อมูลเพื่อเลือกพนักงานที่ต้องการจะดูข้อมูล',
                                 'กรุณากรอกข้อมูลเพื่อเลือกพนักงานที่ต้องการจะดูข้อมูล',
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -183,6 +196,7 @@ class _SearchEmployeeComponentWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -192,13 +206,22 @@ class _SearchEmployeeComponentWidgetState
                                 controller:
                                     _model.employeeKeywordInputController,
                                 focusNode: _model.employeeKeywordInputFocusNode,
+                                autofocus: false,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  labelStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                   hintText: 'ชื่อเล่น/สังกัด/รหัสพนักงาน',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -240,8 +263,14 @@ class _SearchEmployeeComponentWidgetState
                                     ),
                                   ),
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
+                                    ),
                                 textAlign: TextAlign.start,
+                                minLines: null,
                                 validator: _model
                                     .employeeKeywordInputControllerValidator
                                     .asValidator(context),
@@ -452,6 +481,7 @@ class _SearchEmployeeComponentWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -491,6 +521,7 @@ class _SearchEmployeeComponentWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: 'พนักงาน...',
                                   fillColor: Colors.white,
@@ -559,6 +590,7 @@ class _SearchEmployeeComponentWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     fontSize: 16.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                           elevation: 2.0,

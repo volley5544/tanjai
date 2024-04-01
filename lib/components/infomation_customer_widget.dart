@@ -100,6 +100,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -111,8 +112,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -127,6 +132,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -148,6 +154,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -159,8 +166,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -175,6 +186,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -196,6 +208,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -207,8 +220,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -223,6 +240,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -244,6 +262,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -255,8 +274,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -271,6 +294,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -292,6 +316,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -303,8 +328,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -319,6 +348,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -340,6 +370,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -351,8 +382,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -372,6 +407,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -395,6 +431,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -406,8 +443,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                   ),
                                   child: Text(
                                     ':',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                                 Container(
@@ -424,6 +465,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
@@ -447,6 +489,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -458,8 +501,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                   ),
                                   child: Text(
                                     ':',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                                 Container(
@@ -476,6 +523,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
@@ -498,6 +546,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -509,8 +558,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Row(
@@ -531,6 +584,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -554,6 +608,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -574,6 +629,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -598,6 +654,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -609,8 +666,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Row(
@@ -631,6 +692,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -654,6 +716,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -674,6 +737,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -698,6 +762,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -709,8 +774,12 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Row(
@@ -730,6 +799,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -753,6 +823,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -773,6 +844,7 @@ class _InfomationCustomerWidgetState extends State<InfomationCustomerWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryText,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),

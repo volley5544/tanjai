@@ -89,6 +89,7 @@ class _LoadingSceneInsuranceWidgetState
                       fontFamily: 'Noto Sans Thai',
                       color: Colors.white,
                       fontSize: 16.0,
+                      letterSpacing: 0.0,
                     ),
               ),
             ),

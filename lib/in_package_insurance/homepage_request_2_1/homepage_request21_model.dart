@@ -17,8 +17,6 @@ class HomepageRequest21Model extends FlutterFlowModel<HomepageRequest21Widget> {
   // State field(s) for Protect widget.
   bool? protectValue;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -26,8 +24,4 @@ class HomepageRequest21Model extends FlutterFlowModel<HomepageRequest21Widget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

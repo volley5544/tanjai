@@ -74,8 +74,6 @@ class NonePackageEditPage3Model
   // Stores action output result for [Backend Call - API (insuranceRequestEditAPI)] action in Button widget.
   ApiCallResponse? insuranceEditOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -83,8 +81,4 @@ class NonePackageEditPage3Model
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -85,9 +85,17 @@ class _SearchableListComponentWidgetState
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                          labelStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintText: widget.hintSearchText,
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: InputBorder.none,
                           focusedBorder: InputBorder.none,
                           errorBorder: InputBorder.none,
@@ -96,7 +104,11 @@ class _SearchableListComponentWidgetState
                             Icons.search_outlined,
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Noto Sans Thai',
+                              letterSpacing: 0.0,
+                            ),
+                        minLines: null,
                         validator:
                             _model.textControllerValidator.asValidator(context),
                       ),
@@ -134,8 +146,12 @@ class _SearchableListComponentWidgetState
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Hello World',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ],

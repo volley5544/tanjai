@@ -89,6 +89,7 @@ class _NonePackageBasicImage2PageWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -131,6 +132,7 @@ class _NonePackageBasicImage2PageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -149,7 +151,11 @@ class _NonePackageBasicImage2PageWidgetState
                                           Text(
                                             '1. หน้าเล่มรถ รายการจดทะเบียนล่าสุด',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           Padding(
                                             padding:
@@ -165,6 +171,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFFC0D0D),
                                                     fontSize: 13.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
                                             ),
@@ -332,6 +339,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           color:
                                                               Color(0xFFDB771A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ],
@@ -350,7 +358,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                   : 'สถานะ : ยังไม่อัพโหลด',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           if (_model.uploadedFileUrl1 != null &&
@@ -384,7 +397,11 @@ class _NonePackageBasicImage2PageWidgetState
                                           Text(
                                             '2.สำเนาบัตรประชาชนผู้เอาประกัน',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           if (false)
                                             Padding(
@@ -401,6 +418,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           color:
                                                               Color(0xFFFC0D0D),
                                                           fontSize: 13.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -579,6 +597,8 @@ class _NonePackageBasicImage2PageWidgetState
                                                               color: Color(
                                                                   0xFFDB771A),
                                                               fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],
@@ -598,7 +618,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                       : 'สถานะ : ยังไม่อัพโหลด',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                               if (_model.uploadedFileUrl2 !=
@@ -637,7 +662,11 @@ class _NonePackageBasicImage2PageWidgetState
                                           Text(
                                             '3. เอกสารอื่นๆ เช่น เล่มรถหางพ่วง',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Noto Sans Thai',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                           Padding(
                                             padding:
@@ -653,6 +682,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF101213),
                                                     fontSize: 14.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -820,6 +850,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           color:
                                                               Color(0xFFDB771A),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ],
@@ -838,7 +869,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                   : 'สถานะ : ยังไม่อัพโหลด',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                           if (_model.uploadedFileUrl3 != null &&
@@ -1012,17 +1048,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                   children: [
                                                     Text(
                                                       'ถ่ายรูป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFDB771A),
-                                                                fontSize: 15.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFDB771A),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -1041,7 +1077,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                     : 'สถานะ : ยังไม่อัพโหลด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             if (_model.uploadedFileUrl4 !=
@@ -1217,17 +1258,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                   children: [
                                                     Text(
                                                       'ถ่ายรูป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFDB771A),
-                                                                fontSize: 15.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFDB771A),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -1246,7 +1287,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                     : 'สถานะ : ยังไม่อัพโหลด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             if (_model.uploadedFileUrl5 !=
@@ -1422,17 +1468,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                   children: [
                                                     Text(
                                                       'ถ่ายรูป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFDB771A),
-                                                                fontSize: 15.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFDB771A),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -1451,7 +1497,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                     : 'สถานะ : ยังไม่อัพโหลด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             if (_model.uploadedFileUrl6 !=
@@ -1627,17 +1678,17 @@ class _NonePackageBasicImage2PageWidgetState
                                                   children: [
                                                     Text(
                                                       'ถ่ายรูป',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                color: Color(
-                                                                    0xFFDB771A),
-                                                                fontSize: 15.0,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFFDB771A),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -1656,7 +1707,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                     : 'สถานะ : ยังไม่อัพโหลด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                             if (_model.uploadedFileUrl7 !=
@@ -1706,6 +1762,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -1729,6 +1786,7 @@ class _NonePackageBasicImage2PageWidgetState
                                                           color:
                                                               Color(0xFFFF0000),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -1916,15 +1974,15 @@ class _NonePackageBasicImage2PageWidgetState
                                                       '1.ข้าพเจ้ารับทราบว่า ข้อมูลส่วนบุคคลของข้าพเจ้าได้รับการเก็บรวบรวม ใช้ และเปิดเผย ตามคำชี้แจงเกี่ยวกับข้อมูลส่วนบุคคลของบริษัท\n\n2.ผู้เอาประกันภัยและผู้รับประโยชน์/ ผู้ชำระเบี้ย ไม่มีความสัมพันธ์ ไม่ว่าทางตรงหรือทางอ้อม กับประเทศอิหร่าน เกาหลีเหนือ รัสเซีย ซีเรีย ในทุกประการ\n\n3.ข้าพเจ้ายินยอมให้บริษัทจัดเก็บรวบรวม ใช้และเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าเพื่อประชาสัมพันธ์ วิเคราะห์การตลาด และนำเสนอหรือให้ข้อมูลที่เกี่ยวข้องกับผลิตภัณฑ์ การให้บริการหรือสิทธิประโยชน์ต่างๆ ของบริษัทหรือบริษัทในกลุ่มอลิอันซ์ หรือคู่สัญญาของบริษัท',
                                                       textAlign:
                                                           TextAlign.start,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                lineHeight: 1.3,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                            lineHeight: 1.3,
+                                                          ),
                                                     ),
                                                   ],
                                                 ),
@@ -2009,7 +2067,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                 'ยินยอมทั้งหมด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ],
                                           ),
@@ -2123,6 +2186,7 @@ class _NonePackageBasicImage2PageWidgetState
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

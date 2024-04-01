@@ -11504,21 +11504,33 @@ class GetVMICall {
         response,
         r'''$.results.info.count.status_approve''',
       ));
-  static String? subproductname(dynamic response) =>
-      castToType<String>(getJsonField(
+  static List<String>? subproductname(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.approve[:].sub_product_name''',
-      ));
-  static String? quotationtypebakname(dynamic response) =>
-      castToType<String>(getJsonField(
+        r'''$.results.info.quotation[*].sub_product_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? quotationtypebakname(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.approve[:].quotation_type_bak_name''',
-      ));
-  static String? quotationtypename(dynamic response) =>
-      castToType<String>(getJsonField(
+        r'''$.results.info.quotation[*].quotation_type_bak_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? quotationtypename(dynamic response) => (getJsonField(
         response,
-        r'''$.results.info.approve[:].quotation_type_name''',
-      ));
+        r'''$.results.info.quotation[*].quotation_type_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class ConfirmLeadStatusCall {
@@ -12650,7 +12662,7 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static String? netpremiumtotal(dynamic response) =>
+  static String? netpremiumtotalAppdetail(dynamic response) =>
       castToType<String>(getJsonField(
         response,
         r'''$.results.data.app_detail[:].net_premium_total''',
@@ -16322,6 +16334,24 @@ class VloanBarcodeGenCall {
         response,
         r'''$.results.amount''',
       ));
+}
+
+class DownloadVmiThanachatCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'downloadVmiThanachat',
+      apiUrl:
+          'https://tniservice-uat.thanachartinsurance.co.th/ExBrokerLandingPage/download/epolicy?m9ZDB3yt9vkBAJv7DeoavqBAqho4EN8LysE8ycsUtdCkdvFTQUsTQIGUUqxioIU83L1jvlwATOH92qv31b/etWt2KPfTnrkbTCgH92CoDUOipf+E1gUyfC7UX3weudY5',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

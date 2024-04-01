@@ -68,6 +68,7 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -108,6 +109,7 @@ class _ComparePricesWidgetState extends State<ComparePricesWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFDF8633),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                         elevation: 3.0,

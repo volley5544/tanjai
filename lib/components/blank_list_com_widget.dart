@@ -44,6 +44,7 @@ class _BlankListComWidgetState extends State<BlankListComWidget> {
         style: FlutterFlowTheme.of(context).bodyMedium.override(
               fontFamily: 'Noto Sans Thai',
               fontSize: 18.0,
+              letterSpacing: 0.0,
             ),
       ),
     );

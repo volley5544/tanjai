@@ -25,8 +25,6 @@ class InformationActModel extends FlutterFlowModel<InformationActWidget> {
   // Stores action output result for [Backend Call - API (cmiCheckAPI)] action in Button widget.
   ApiCallResponse? cmiCheckAPIOutput1;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -36,8 +34,4 @@ class InformationActModel extends FlutterFlowModel<InformationActWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

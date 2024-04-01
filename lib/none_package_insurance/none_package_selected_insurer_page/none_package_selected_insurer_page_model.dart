@@ -35,8 +35,6 @@ class NonePackageSelectedInsurerPageModel
   // Stores action output result for [Backend Call - API (saveInsurerAPI)] action in Button widget.
   ApiCallResponse? saveInirer;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -52,8 +50,4 @@ class NonePackageSelectedInsurerPageModel
     accessoryTotalFocusNode?.dispose();
     accessoryTotalController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

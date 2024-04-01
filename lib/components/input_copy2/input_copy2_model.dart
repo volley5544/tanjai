@@ -15,8 +15,6 @@ class InputCopy2Model extends FlutterFlowModel<InputCopy2Widget> {
   TextEditingController? reasonCancelController;
   String? Function(BuildContext, String?)? reasonCancelControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -25,8 +23,4 @@ class InputCopy2Model extends FlutterFlowModel<InputCopy2Widget> {
     reasonCancelFocusNode?.dispose();
     reasonCancelController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

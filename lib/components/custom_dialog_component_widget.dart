@@ -68,6 +68,7 @@ class _CustomDialogComponentWidgetState
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -100,6 +101,7 @@ class _CustomDialogComponentWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.black,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(
@@ -132,6 +134,7 @@ class _CustomDialogComponentWidgetState
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderRadius: BorderRadius.circular(8.0),

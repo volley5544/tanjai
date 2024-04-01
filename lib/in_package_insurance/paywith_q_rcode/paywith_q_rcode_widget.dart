@@ -134,6 +134,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -243,6 +244,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                               Color(0xFF1D4774),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -287,6 +290,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                             .secondaryBackground,
                                                                         fontSize:
                                                                             15.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -427,6 +432,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                       .error,
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -440,18 +447,18 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             0.0, 0.0),
                                                     child: Text(
                                                       'R1: ${widget.ref1}',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Noto Sans Thai',
-                                                                fontSize: 16.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
                                                     ),
                                                   ),
                                                   Text(
@@ -463,6 +470,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -476,6 +484,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -515,6 +524,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -563,6 +574,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -610,6 +623,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                             'Noto Sans Thai',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -657,6 +672,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                             'Noto Sans Thai',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -704,6 +721,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                             'Noto Sans Thai',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.normal,
                                                                       ),
@@ -741,6 +760,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               color: Color(
                                                                   0xFFCC0000),
                                                               fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -773,6 +794,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               color: Color(
                                                                   0xFFCC0000),
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
@@ -817,6 +840,8 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                           0xFFCC0000),
                                                                       fontSize:
                                                                           16.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
@@ -956,6 +981,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

@@ -108,6 +108,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                           fontFamily: 'Noto Sans Thai',
                           color: Color(0xFF002D5E),
                           fontSize: 18.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                   ),
@@ -208,6 +209,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                           color:
                                                               Color(0xFF204A77),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -292,6 +294,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                                           color:
                                                               Color(0xFF204A77),
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                 ),
@@ -346,6 +349,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

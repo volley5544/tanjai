@@ -102,8 +102,6 @@ class InsuranceInfoPage1Model
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppSaveAPIoutputCMI;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -147,8 +145,4 @@ class InsuranceInfoPage1Model
     licenseCodeFocusNode?.dispose();
     licenseCodeController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

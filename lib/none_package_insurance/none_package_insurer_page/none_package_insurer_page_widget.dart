@@ -222,6 +222,7 @@ class _NonePackageInsurerPageWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 16.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -249,6 +250,7 @@ class _NonePackageInsurerPageWidgetState
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
@@ -265,6 +267,7 @@ class _NonePackageInsurerPageWidgetState
                                   fontFamily: 'Noto Sans Thai',
                                   color: FlutterFlowTheme.of(context).error,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -289,6 +292,7 @@ class _NonePackageInsurerPageWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     color: FlutterFlowTheme.of(context).error,
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
@@ -327,12 +331,21 @@ class _NonePackageInsurerPageWidgetState
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: InputBorder.none,
                                         focusedBorder: InputBorder.none,
                                         errorBorder: InputBorder.none,
@@ -342,7 +355,12 @@ class _NonePackageInsurerPageWidgetState
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
+                                      minLines: null,
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),
@@ -576,6 +594,8 @@ class _NonePackageInsurerPageWidgetState
                                                                               Color(0xFFB3B3B3),
                                                                           fontSize:
                                                                               15.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w600,
                                                                         ),
@@ -2333,6 +2353,7 @@ class _NonePackageInsurerPageWidgetState
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

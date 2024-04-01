@@ -59,8 +59,6 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
   // Stores action output result for [Backend Call - API (getUserInsuranceLicense)] action in Icon widget.
   ApiCallResponse? getUserInsuranceLicenseBio;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     pinCodeController = TextEditingController();
@@ -71,8 +69,4 @@ class PinCodePageModel extends FlutterFlowModel<PinCodePageWidget> {
     unfocusNode.dispose();
     pinCodeController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -22,8 +22,6 @@ class InsuranceInfoPage5CancelModel
   // Stores action output result for [Backend Call - API (cancelInsurancePolicyApi)] action in Button widget.
   ApiCallResponse? cancelPolicyApi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -33,8 +31,4 @@ class InsuranceInfoPage5CancelModel
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

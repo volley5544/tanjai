@@ -22,8 +22,6 @@ class CompareInsurancePageModel
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in Button widget.
   ApiCallResponse? getServerDateTime;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -31,8 +29,4 @@ class CompareInsurancePageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

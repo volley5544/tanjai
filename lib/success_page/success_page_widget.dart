@@ -74,6 +74,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                       fontFamily: 'Noto Sans Thai',
                       color: FlutterFlowTheme.of(context).primaryBtnText,
                       fontSize: 32.0,
+                      letterSpacing: 0.0,
                     ),
               ),
               Padding(
@@ -84,6 +85,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                         fontFamily: 'Noto Sans Thai',
                         color: FlutterFlowTheme.of(context).primaryBtnText,
                         fontSize: 20.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w300,
                       ),
                 ),
@@ -103,6 +105,7 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Noto Sans Thai',
                           color: FlutterFlowTheme.of(context).secondary,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(

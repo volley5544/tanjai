@@ -46,8 +46,6 @@ class MakeInsuranceListPageModel
   // Stores action output result for [Backend Call - API (getFileVmiApi)] action in Button widget.
   ApiCallResponse? getFileVmi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -57,8 +55,4 @@ class MakeInsuranceListPageModel
     searchFirstnameFocusNode?.dispose();
     searchFirstnameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

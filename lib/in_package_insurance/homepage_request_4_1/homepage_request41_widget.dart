@@ -83,6 +83,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -149,6 +150,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF1D4774),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -166,6 +168,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFFB0606),
                                                     fontSize: 12.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -229,6 +232,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
@@ -336,6 +340,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFFB3B3B3),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -768,6 +773,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(

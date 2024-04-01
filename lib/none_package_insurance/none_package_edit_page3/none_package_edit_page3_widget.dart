@@ -113,6 +113,7 @@ class _NonePackageEditPage3WidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -166,6 +167,7 @@ class _NonePackageEditPage3WidgetState
                                                         'Noto Sans Thai',
                                                     color: Color(0xFF003063),
                                                     fontSize: 15.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -184,6 +186,7 @@ class _NonePackageEditPage3WidgetState
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -217,6 +220,7 @@ class _NonePackageEditPage3WidgetState
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -431,6 +435,8 @@ class _NonePackageEditPage3WidgetState
                                                                           'Noto Sans Thai',
                                                                       color: Color(
                                                                           0xFFD9761A),
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -466,6 +472,8 @@ class _NonePackageEditPage3WidgetState
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -484,6 +492,8 @@ class _NonePackageEditPage3WidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -627,6 +637,7 @@ class _NonePackageEditPage3WidgetState
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -668,6 +679,7 @@ class _NonePackageEditPage3WidgetState
                                                             fontFamily:
                                                                 'Noto Sans Thai',
                                                             fontSize: 15.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                             decoration:
@@ -887,6 +899,8 @@ class _NonePackageEditPage3WidgetState
                                                                           'Noto Sans Thai',
                                                                       color: Color(
                                                                           0xFFD9761A),
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -922,6 +936,8 @@ class _NonePackageEditPage3WidgetState
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ),
@@ -940,6 +956,8 @@ class _NonePackageEditPage3WidgetState
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -1086,6 +1104,7 @@ class _NonePackageEditPage3WidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1297,6 +1316,8 @@ class _NonePackageEditPage3WidgetState
                                                                             'Noto Sans Thai',
                                                                         color: Color(
                                                                             0xFFD9761A),
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                       ),
@@ -1332,6 +1353,8 @@ class _NonePackageEditPage3WidgetState
                                                                             'Noto Sans Thai',
                                                                         fontSize:
                                                                             14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -1350,6 +1373,8 @@ class _NonePackageEditPage3WidgetState
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           14.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                             ],
@@ -1430,6 +1455,7 @@ class _NonePackageEditPage3WidgetState
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF002D5E),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1450,7 +1476,12 @@ class _NonePackageEditPage3WidgetState
                                                 '1. หน้าเล่มรถ รายการจดทะเบียนล่าสุด',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1467,6 +1498,7 @@ class _NonePackageEditPage3WidgetState
                                                         color:
                                                             Color(0xFFFC0D0D),
                                                         fontSize: 13.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1647,6 +1679,8 @@ class _NonePackageEditPage3WidgetState
                                                               color: Color(
                                                                   0xFFDB771A),
                                                               fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],
@@ -1666,7 +1700,12 @@ class _NonePackageEditPage3WidgetState
                                                       : 'สถานะ : ยังไม่อัพโหลด',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                               if (FFAppState().nonePackageImageBlueBook[
@@ -1774,7 +1813,12 @@ class _NonePackageEditPage3WidgetState
                                                 '2.สำเนาบัตรประชาชนผู้เอาประกัน',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -1791,6 +1835,7 @@ class _NonePackageEditPage3WidgetState
                                                         color:
                                                             Color(0xFFFC0D0D),
                                                         fontSize: 13.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1987,6 +2032,8 @@ class _NonePackageEditPage3WidgetState
                                                                       0xFFDB771A),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ],
@@ -2005,10 +2052,14 @@ class _NonePackageEditPage3WidgetState
                                                                   ''
                                                           ? 'สถานะ : อัพโหลดแล้ว'
                                                           : 'สถานะ : ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (FFAppState().nonePackageImageIdCard[
@@ -2122,7 +2173,12 @@ class _NonePackageEditPage3WidgetState
                                                 '3. เอกสารอื่นๆ เช่น เล่มรถหางพ่วง',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
@@ -2139,6 +2195,7 @@ class _NonePackageEditPage3WidgetState
                                                         color:
                                                             Color(0xFF101213),
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -2175,7 +2232,12 @@ class _NonePackageEditPage3WidgetState
                                                   'รูปภาพอื่นๆที่เคยอัพโหลดแล้ว',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -2428,6 +2490,8 @@ class _NonePackageEditPage3WidgetState
                                                               color: Color(
                                                                   0xFFDB771A),
                                                               fontSize: 15.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ],
@@ -2447,7 +2511,12 @@ class _NonePackageEditPage3WidgetState
                                                       : 'สถานะ : ยังไม่อัพโหลด',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                               if (_model.uploadedFileUrl6 !=
@@ -2647,6 +2716,8 @@ class _NonePackageEditPage3WidgetState
                                                                 color: Color(
                                                                     0xFFDB771A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -2666,7 +2737,12 @@ class _NonePackageEditPage3WidgetState
                                                         : 'สถานะ : ยังไม่อัพโหลด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (_model.uploadedFileUrl7 !=
@@ -2868,6 +2944,8 @@ class _NonePackageEditPage3WidgetState
                                                                 color: Color(
                                                                     0xFFDB771A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -2887,7 +2965,12 @@ class _NonePackageEditPage3WidgetState
                                                         : 'สถานะ : ยังไม่อัพโหลด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (_model.uploadedFileUrl8 !=
@@ -3089,6 +3172,8 @@ class _NonePackageEditPage3WidgetState
                                                                 color: Color(
                                                                     0xFFDB771A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -3108,7 +3193,12 @@ class _NonePackageEditPage3WidgetState
                                                         : 'สถานะ : ยังไม่อัพโหลด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (_model.uploadedFileUrl9 !=
@@ -3310,6 +3400,8 @@ class _NonePackageEditPage3WidgetState
                                                                 color: Color(
                                                                     0xFFDB771A),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ],
@@ -3329,7 +3421,12 @@ class _NonePackageEditPage3WidgetState
                                                         : 'สถานะ : ยังไม่อัพโหลด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (_model.uploadedFileUrl10 !=
@@ -3794,6 +3891,7 @@ class _NonePackageEditPage3WidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

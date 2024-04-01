@@ -48,8 +48,6 @@ class InformationCustomerModel
   TextEditingController? textController9;
   String? Function(BuildContext, String?)? textController9Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -83,8 +81,4 @@ class InformationCustomerModel
     textFieldFocusNode9?.dispose();
     textController9?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

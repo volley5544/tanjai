@@ -69,8 +69,6 @@ class InsuranceInfoPage42Model
   // Stores action output result for [Backend Call - API (postInsurancePolicyApi)] action in Button widget.
   ApiCallResponse? postPolicyAPIOutPut;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerModel =
@@ -99,8 +97,4 @@ class InsuranceInfoPage42Model
     grossNetTotalFocusNode?.dispose();
     grossNetTotalController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

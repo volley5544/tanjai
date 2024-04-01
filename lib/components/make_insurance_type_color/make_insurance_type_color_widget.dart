@@ -79,7 +79,12 @@ class _MakeInsuranceTypeColorWidgetState
                             EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'ค้นหาสถานะ',
-                          style: FlutterFlowTheme.of(context).headlineSmall,
+                          style: FlutterFlowTheme.of(context)
+                              .headlineSmall
+                              .override(
+                                fontFamily: 'Noto Sans Thai',
+                                letterSpacing: 0.0,
+                              ),
                         ),
                       ),
                       Align(
@@ -113,7 +118,10 @@ class _MakeInsuranceTypeColorWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
                   child: Text(
                     'เเถบสีเเสดงสถานะดังนี้',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Container(
@@ -153,6 +161,7 @@ class _MakeInsuranceTypeColorWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],
@@ -237,6 +246,7 @@ class _MakeInsuranceTypeColorWidgetState
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ],

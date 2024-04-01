@@ -134,6 +134,26 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 .toList()
                 .cast<String>();
       });
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text(
+                  (widget.quotationId != null && widget.quotationId != '') &&
+                          (widget.quotationId != '')
+                      ? widget.quotationId!
+                      : FFAppState().insuranceInfoQuotationId),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       _model.ibsDetailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: (widget.quotationId != null && widget.quotationId != '') &&
                 (widget.quotationId != '')
@@ -337,6 +357,44 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${getJsonField(
+                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.app_detail[:]''',
+              ).toString().toString()}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('${getJsonField(
+                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.app_detail[:].net_premium_total''',
+              ).toString().toString()}'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       setState(() {
         FFAppState().insuranceInfoPage4PaymentType =
             '${IbsApplicationsDetailCall.paymenttype(
@@ -394,10 +452,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
             '${IbsApplicationsDetailCall.lastnameth(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoPage4NetPremiumTotal =
-            '${IbsApplicationsDetailCall.netpremiumtotal(
+        FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
+          r'''$.results.data.app_detail[:].net_premium_total''',
+        ).toString().toString()}';
         FFAppState().insuranceinfoActType =
             '${IbsApplicationsDetailCall.subProduct(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -425,8 +483,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           ))!;
         });
         setState(() {
-          _model.netPremiumTotalController?.text = functions
-              .showNumberWithComma(IbsApplicationsDetailCall.netpremiumtotal(
+          _model.netPremiumTotalController?.text =
+              functions.showNumberWithComma(
+                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
@@ -522,8 +581,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
               FFAppState().insuranceInfoPage4PaymentChannel;
         });
         setState(() {
-          _model.netPremiumTotalController?.text = functions
-              .showNumberWithComma(IbsApplicationsDetailCall.netpremiumtotal(
+          _model.netPremiumTotalController?.text =
+              functions.showNumberWithComma(
+                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
@@ -613,6 +673,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -825,6 +886,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         color:
                                                             Color(0xFFFAFAFA),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -877,6 +939,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFAFAFA),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -927,6 +990,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFAFAFA),
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -978,6 +1042,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFFAFAFA),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -1030,6 +1095,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFB3B3B3),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -1064,6 +1130,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1101,7 +1168,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                     .insuranceInfo4pageStatus,
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                             ),
                                           ],
@@ -1137,6 +1209,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1180,6 +1253,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               'Noto Sans Thai',
                                                           color:
                                                               Color(0xFFB3B3B3),
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -1438,6 +1512,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1474,13 +1549,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                       .paymentTypeController,
                                                   focusNode: _model
                                                       .paymentTypeFocusNode,
+                                                  autofocus: false,
                                                   readOnly: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     hintText: FFAppState()
                                                         .insuranceInfoPage4PaymentType,
                                                     hintStyle: FlutterFlowTheme
@@ -1492,6 +1572,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -1506,7 +1587,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  minLines: null,
                                                   validator: _model
                                                       .paymentTypeControllerValidator
                                                       .asValidator(context),
@@ -1546,6 +1633,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1584,13 +1672,18 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                       .paymentChannelController,
                                                   focusNode: _model
                                                       .paymentChannelFocusNode,
+                                                  autofocus: false,
                                                   readOnly: true,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     hintText: FFAppState()
                                                         .insuranceInfoPage4PaymentChannel,
                                                     hintStyle: FlutterFlowTheme
@@ -1602,6 +1695,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           color:
                                                               Color(0xFFB3B3B3),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                     enabledBorder:
                                                         InputBorder.none,
@@ -1614,7 +1708,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  minLines: null,
                                                   validator: _model
                                                       .paymentChannelControllerValidator
                                                       .asValidator(context),
@@ -1656,6 +1756,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1695,13 +1796,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                     .netPremiumTotalController,
                                                 focusNode: _model
                                                     .netPremiumTotalFocusNode,
+                                                autofocus: false,
                                                 readOnly: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium,
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintText: FFAppState()
                                                       .insuranceInfoPage4NetPremiumTotal,
                                                   hintStyle: FlutterFlowTheme
@@ -1713,6 +1820,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         color:
                                                             Color(0xFFB3B3B3),
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                   enabledBorder:
                                                       InputBorder.none,
@@ -1724,7 +1832,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 validator: _model
                                                     .netPremiumTotalControllerValidator
                                                     .asValidator(context),
@@ -1764,6 +1878,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1808,6 +1923,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           .actTotalController,
                                                       focusNode: _model
                                                           .actTotalFocusNode,
+                                                      autofocus: false,
                                                       readOnly: true,
                                                       obscureText: false,
                                                       decoration:
@@ -1815,7 +1931,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         hintText: FFAppState()
                                                             .insuranceInfoPage4ActTotal,
                                                         hintStyle:
@@ -1829,6 +1951,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                       0xFFB3B3B3),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1839,10 +1963,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         focusedErrorBorder:
                                                             InputBorder.none,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .actTotalControllerValidator
                                                           .asValidator(context),
@@ -1886,6 +2015,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1930,6 +2060,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           .grossNetTotalController,
                                                       focusNode: _model
                                                           .grossNetTotalFocusNode,
+                                                      autofocus: false,
                                                       readOnly: true,
                                                       obscureText: false,
                                                       decoration:
@@ -1937,7 +2068,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         hintText: FFAppState()
                                                             .insuranceInfoPage4GrossTotalNet,
                                                         hintStyle:
@@ -1951,6 +2088,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                       0xFFB3B3B3),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                         enabledBorder:
                                                             InputBorder.none,
@@ -1961,10 +2100,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         focusedErrorBorder:
                                                             InputBorder.none,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .grossNetTotalControllerValidator
                                                           .asValidator(context),
@@ -2255,6 +2399,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2273,6 +2418,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           color:
                                                               Color(0xFFFB0606),
                                                           fontSize: 12.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -2357,7 +2503,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         : 'เลือกงวด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -2411,6 +2562,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2453,7 +2605,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -2492,6 +2649,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2535,7 +2693,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ],
                                             ),
@@ -2576,6 +2739,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 15.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2620,7 +2784,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if ((FFAppState()
@@ -2978,6 +3147,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                           'Noto Sans Thai',
                                                                       color: Color(
                                                                           0xFFDF8633),
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -3043,6 +3214,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBtnText,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -3595,6 +3768,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                           'Noto Sans Thai',
                                                                       color: Color(
                                                                           0xFFDF8633),
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -3870,18 +4045,17 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   safeSetState(
                                                                       () {}));
 
-                                                              if (!(functions
-                                                                      .checkCurrentDateIsBeforeInputDate(
-                                                                          GetDateTimeAPICall
-                                                                              .currentDateYMD(
-                                                                            (_model.getServerTime?.jsonBody ??
-                                                                                ''),
-                                                                          ),
-                                                                          FFAppState()
-                                                                              .insuranceInfoEffectiveDateInsure)! &&
-                                                                  (FFAppState()
-                                                                              .insuranceInfoActFlag ==
-                                                                          '1'
+                                                              if (!(functions.checkCurrentDateIsBeforeInputDate(
+                                                                      GetDateTimeAPICall.currentDateYMD(
+                                                                        (_model.getServerTime?.jsonBody ??
+                                                                            ''),
+                                                                      ),
+                                                                      FFAppState().insuranceinfoActType != 'CMI'
+                                                                          ? FFAppState().insuranceInfoEffectiveDateInsure
+                                                                          : GetDateTimeAPICall.currentDateYMD(
+                                                                              (_model.getServerTime?.jsonBody ?? ''),
+                                                                            ))! &&
+                                                                  (FFAppState().insuranceInfoActFlag == '1'
                                                                       ? functions.checkCurrentDateIsBeforeInputDate(
                                                                           GetDateTimeAPICall.currentDateYMD(
                                                                             (_model.getServerTime?.jsonBody ??
@@ -4216,6 +4390,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBtnText,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,

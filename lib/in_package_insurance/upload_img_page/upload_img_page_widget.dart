@@ -92,6 +92,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
                     fontSize: 16.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -128,6 +129,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -343,6 +345,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                             0xFFD9761A),
                                                                         fontSize:
                                                                             16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                       ),
                                                                 ),
                                                               ),
@@ -361,7 +365,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                     'สถานะ :',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 ),
                                                 if (_model.uploadedLocalFile1 ==
@@ -373,7 +382,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                     'ยังไม่อัพโหลด',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                                 if (_model.uploadedLocalFile1 !=
                                                         null &&
@@ -386,7 +400,12 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                     'อัพโหลดสำเร็จ',
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                   ),
                                               ],
                                             ),
@@ -664,6 +683,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -681,10 +702,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 5.0, 0.0),
                                                     child: Text(
                                                       'สถานะ :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (_model.uploadedLocalFile2 ==
@@ -694,10 +719,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           true))
                                                     Text(
                                                       'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   if (_model.uploadedLocalFile2 !=
                                                           null &&
@@ -708,10 +737,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           false))
                                                     Text(
                                                       'อัพโหลดสำเร็จ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                 ],
                                               ),
@@ -990,6 +1023,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1007,10 +1042,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 5.0, 0.0),
                                                     child: Text(
                                                       'สถานะ :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (_model.uploadedLocalFile3 ==
@@ -1020,10 +1059,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           true))
                                                     Text(
                                                       'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   if (_model.uploadedLocalFile3 !=
                                                           null &&
@@ -1034,10 +1077,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           false))
                                                     Text(
                                                       'อัพโหลดสำเร็จ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                 ],
                                               ),
@@ -1316,6 +1363,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1333,10 +1382,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 5.0, 0.0),
                                                     child: Text(
                                                       'สถานะ :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (_model.uploadedLocalFile4 ==
@@ -1346,10 +1399,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           true))
                                                     Text(
                                                       'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   if (_model.uploadedLocalFile4 !=
                                                           null &&
@@ -1360,10 +1417,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           false))
                                                     Text(
                                                       'อัพโหลดสำเร็จ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                 ],
                                               ),
@@ -1642,6 +1703,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1659,10 +1722,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 5.0, 0.0),
                                                     child: Text(
                                                       'สถานะ :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (_model.uploadedLocalFile5 ==
@@ -1672,10 +1739,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           true))
                                                     Text(
                                                       'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   if (_model.uploadedLocalFile5 !=
                                                           null &&
@@ -1686,10 +1757,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           false))
                                                     Text(
                                                       'อัพโหลดสำเร็จ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                 ],
                                               ),
@@ -1969,6 +2044,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                               Color(0xFFD9761A),
                                                                           fontSize:
                                                                               16.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1986,10 +2063,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                                 5.0, 0.0),
                                                     child: Text(
                                                       'สถานะ :',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   ),
                                                   if (_model.uploadedLocalFile6 ==
@@ -1999,10 +2080,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           true))
                                                     Text(
                                                       'ยังไม่อัพโหลด',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                   if (_model.uploadedLocalFile6 !=
                                                           null &&
@@ -2013,10 +2098,14 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                                           false))
                                                     Text(
                                                       'อัพโหลดสำเร็จ',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                 ],
                                               ),
@@ -2233,6 +2322,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

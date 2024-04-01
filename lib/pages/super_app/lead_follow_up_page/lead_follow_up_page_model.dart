@@ -32,8 +32,6 @@ class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   // Stores action output result for [Backend Call - API (insuranceRequestListAPI)] action in LeadFollowUpPage widget.
   ApiCallResponse? getRequestList;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -41,8 +39,4 @@ class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

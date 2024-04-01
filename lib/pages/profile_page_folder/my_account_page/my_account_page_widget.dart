@@ -101,7 +101,10 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                             BoxShadow(
                               blurRadius: 1.0,
                               color: Color(0xFFF1F4F8),
-                              offset: Offset(0.0, 0.0),
+                              offset: Offset(
+                                0.0,
+                                0.0,
+                              ),
                             )
                           ],
                         ),
@@ -182,6 +185,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF003063),
                                               fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -196,6 +200,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF003063),
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
                                         ),
@@ -235,6 +240,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                         color:
                                                             Color(0xFFDB771A),
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                         decoration:
@@ -302,6 +308,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF003063),
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
@@ -370,6 +377,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -436,6 +444,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -501,6 +510,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -593,6 +603,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -654,6 +665,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -716,6 +728,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 16.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -878,6 +891,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                   elevation: 1.0,
@@ -999,6 +1013,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                         color:
                                             FlutterFlowTheme.of(context).error,
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                   elevation: 1.0,
@@ -1020,6 +1035,7 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                   .override(
                                     fontFamily: 'Plus Jakarta Sans',
                                     fontSize: 12.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ),

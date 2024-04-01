@@ -127,6 +127,7 @@ class _NonePackageEditPage1WidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -164,6 +165,7 @@ class _NonePackageEditPage1WidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF002D5E),
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -178,6 +180,7 @@ class _NonePackageEditPage1WidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -243,6 +246,7 @@ class _NonePackageEditPage1WidgetState
                                                     ? Colors.black
                                                     : Color(0xFF9F9F9F),
                                                 fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
                                         ),
@@ -293,6 +297,7 @@ class _NonePackageEditPage1WidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF002D5E),
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
@@ -344,7 +349,13 @@ class _NonePackageEditPage1WidgetState
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintText: 'กรุณากรอก...',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
@@ -356,6 +367,8 @@ class _NonePackageEditPage1WidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -376,7 +389,9 @@ class _NonePackageEditPage1WidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textControllerValidator
                                                         .asValidator(context),
@@ -409,6 +424,7 @@ class _NonePackageEditPage1WidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -453,7 +469,12 @@ class _NonePackageEditPage1WidgetState
                                                           .nonePackageCoverTypeName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -482,6 +503,7 @@ class _NonePackageEditPage1WidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -596,6 +618,8 @@ class _NonePackageEditPage1WidgetState
                                                                       0xFFB3B3B3),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -694,7 +718,10 @@ class _NonePackageEditPage1WidgetState
                                     BoxShadow(
                                       blurRadius: 5.0,
                                       color: Color(0x34111417),
-                                      offset: Offset(0.0, 2.0),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                     )
                                   ],
                                   borderRadius: BorderRadius.circular(8.0),
@@ -749,6 +776,7 @@ class _NonePackageEditPage1WidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF002D5E),
                                               fontSize: 16.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       Padding(
@@ -892,6 +920,7 @@ class _NonePackageEditPage1WidgetState
                                                         'Noto Sans Thai',
                                                     color: Colors.white,
                                                     fontSize: 16.0,
+                                                    letterSpacing: 0.0,
                                                   ),
                                           elevation: 3.0,
                                           borderSide: BorderSide(

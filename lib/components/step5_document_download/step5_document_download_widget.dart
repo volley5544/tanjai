@@ -60,14 +60,20 @@ class _Step5DocumentDownloadWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'ไฟล์เอกสาร',
-                    style: FlutterFlowTheme.of(context).headlineSmall,
+                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
                   child: Text(
                     'เอกสารต่างๆที่บริษัทประกันจะขอหากไม่ได้แนบ',
-                    style: FlutterFlowTheme.of(context).bodySmall,
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 if ((FFAppState().insuranceInfoPage5QuotationType == 'auto') ||
@@ -114,6 +120,7 @@ class _Step5DocumentDownloadWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
@@ -169,6 +176,7 @@ class _Step5DocumentDownloadWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
@@ -222,6 +230,7 @@ class _Step5DocumentDownloadWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -275,6 +284,7 @@ class _Step5DocumentDownloadWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF003063),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),

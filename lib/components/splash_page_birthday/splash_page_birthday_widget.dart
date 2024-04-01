@@ -122,6 +122,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                                 .override(
                                                   fontFamily: 'FC Home Italic',
                                                   fontSize: 22.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                   fontStyle: FontStyle.italic,
                                                   useGoogleFonts: false,
@@ -191,6 +192,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           initialized: _model.checkboxGroupValues != null,
                         ),
@@ -233,6 +235,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.black,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 2.0,
                               borderSide: BorderSide(
@@ -263,6 +266,7 @@ class _SplashPageBirthdayWidgetState extends State<SplashPageBirthdayWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.black,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

@@ -19,8 +19,6 @@ class HomepageRequest41Model extends FlutterFlowModel<HomepageRequest41Widget> {
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? save4APIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -28,8 +26,4 @@ class HomepageRequest41Model extends FlutterFlowModel<HomepageRequest41Widget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

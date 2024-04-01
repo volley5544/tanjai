@@ -41,8 +41,6 @@ class AddAddressModel extends FlutterFlowModel<AddAddressWidget> {
   TextEditingController? address5Controller;
   String? Function(BuildContext, String?)? address5ControllerValidator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -61,8 +59,4 @@ class AddAddressModel extends FlutterFlowModel<AddAddressWidget> {
     address5FocusNode?.dispose();
     address5Controller?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

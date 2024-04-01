@@ -66,6 +66,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -144,6 +145,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -160,6 +162,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                         fontFamily:
                                                             'Noto Sans Thai',
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
@@ -174,6 +177,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -198,6 +202,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -208,6 +213,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -223,6 +229,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
                                               fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -336,6 +343,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -346,6 +354,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -358,6 +367,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -382,6 +392,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -392,6 +403,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -407,6 +419,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
                                               fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -511,6 +524,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -521,6 +535,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -533,6 +548,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -557,6 +573,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -567,6 +584,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -582,6 +600,7 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
                                               fontSize: 20.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),

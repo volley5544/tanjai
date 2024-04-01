@@ -68,6 +68,7 @@ class _InsuranceUnSuccessPageWidgetState
                               fontFamily: 'Noto Sans Thai',
                               color: Colors.white,
                               fontSize: 24.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -116,6 +117,7 @@ class _InsuranceUnSuccessPageWidgetState
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ],
@@ -158,6 +160,7 @@ class _InsuranceUnSuccessPageWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                               elevation: 3.0,

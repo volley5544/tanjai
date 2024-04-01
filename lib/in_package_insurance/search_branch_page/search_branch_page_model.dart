@@ -26,8 +26,6 @@ class SearchBranchPageModel extends FlutterFlowModel<SearchBranchPageWidget> {
   // Stores action output result for [Backend Call - API (GetlocationAPI)] action in Button widget.
   ApiCallResponse? getBranchSearched2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -37,8 +35,4 @@ class SearchBranchPageModel extends FlutterFlowModel<SearchBranchPageWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

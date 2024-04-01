@@ -60,8 +60,6 @@ class NonePackageBasicImage2PageModel
   // State field(s) for privacy_consent widget.
   bool? privacyConsentValue;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -69,8 +67,4 @@ class NonePackageBasicImage2PageModel
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

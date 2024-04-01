@@ -166,6 +166,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -202,6 +203,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF1D4774),
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -216,6 +218,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFFFB0606),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
@@ -263,6 +266,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFB3B3B3),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -435,6 +439,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           color: FlutterFlowTheme.of(context)
                                               .black600,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -449,6 +454,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFFB0606),
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
@@ -489,15 +495,21 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
-                                  searchTextStyle:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  searchTextStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: 'เลือกผู้รับผลประโยชน์',
                                   searchHintText: 'เลือกผู้รับผลประโยชน์',
@@ -551,6 +563,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           color: FlutterFlowTheme.of(context)
                                               .black600,
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -579,7 +592,11 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                     child: Text(
                                       FFAppState().insuranceInfoBeneficiaryName,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -615,6 +632,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .black600,
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -629,6 +647,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFFFB0606),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -663,6 +682,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       hintText: 'ระบุชื่อผู้รับผลประโยชน์',
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -671,6 +691,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFB3B3B3),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
@@ -682,7 +703,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                         ),
+                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),
@@ -724,6 +747,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   fontFamily: 'Noto Sans Thai',
                                   color: Colors.white,
                                   fontSize: 15.0,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

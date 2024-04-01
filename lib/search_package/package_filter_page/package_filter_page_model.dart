@@ -17,8 +17,6 @@ class PackageFilterPageModel extends FlutterFlowModel<PackageFilterPageWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -26,8 +24,4 @@ class PackageFilterPageModel extends FlutterFlowModel<PackageFilterPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -94,9 +94,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'LoginPage',
               path: 'loginPage',
               builder: (context, params) => LoginPageWidget(
-                apiURL: params.getParam('apiURL', ParamType.DocumentReference,
-                    false, ['Key_Storage']),
-                token: params.getParam('token', ParamType.String),
+                apiURL: params.getParam(
+                  'apiURL',
+                  ParamType.DocumentReference,
+                  false,
+                  ['Key_Storage'],
+                ),
+                token: params.getParam(
+                  'token',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -105,7 +112,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'SuperAppPage')
                   : SuperAppPageWidget(
-                      dailyText: params.getParam('dailyText', ParamType.String),
+                      dailyText: params.getParam(
+                        'dailyText',
+                        ParamType.String,
+                      ),
                     ),
             ),
             FFRoute(
@@ -138,7 +148,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchInsurancePage',
               path: 'searchInsurancePage',
               builder: (context, params) => SearchInsurancePageWidget(
-                fromIcon: params.getParam('fromIcon', ParamType.String),
+                fromIcon: params.getParam(
+                  'fromIcon',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -167,13 +180,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchableListPage',
               path: 'SearchableListPage',
               builder: (context, params) => SearchableListPageWidget(
-                titleText: params.getParam('titleText', ParamType.String),
-                searchLabel: params.getParam('searchLabel', ParamType.String),
-                dataList:
-                    params.getParam<String>('dataList', ParamType.String, true),
-                multiSelect: params.getParam('multiSelect', ParamType.bool),
-                maxSelected: params.getParam('maxSelected', ParamType.int),
-                fromPage: params.getParam('fromPage', ParamType.String),
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -183,76 +214,212 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 initialPage: '',
                 page: CompareInsurancePageWidget(
                   insurerFullName: params.getParam<String>(
-                      'insurerFullName', ParamType.String, true),
-                  currentDate: params.getParam('currentDate', ParamType.String),
-                  brandId: params.getParam('brandId', ParamType.String),
-                  brandName: params.getParam('brandName', ParamType.String),
-                  modelCode: params.getParam('modelCode', ParamType.String),
-                  modelName: params.getParam('modelName', ParamType.String),
-                  year: params.getParam('year', ParamType.String),
-                  driverType: params.getParam('driverType', ParamType.String),
+                    'insurerFullName',
+                    ParamType.String,
+                    true,
+                  ),
+                  currentDate: params.getParam(
+                    'currentDate',
+                    ParamType.String,
+                  ),
+                  brandId: params.getParam(
+                    'brandId',
+                    ParamType.String,
+                  ),
+                  brandName: params.getParam(
+                    'brandName',
+                    ParamType.String,
+                  ),
+                  modelCode: params.getParam(
+                    'modelCode',
+                    ParamType.String,
+                  ),
+                  modelName: params.getParam(
+                    'modelName',
+                    ParamType.String,
+                  ),
+                  year: params.getParam(
+                    'year',
+                    ParamType.String,
+                  ),
+                  driverType: params.getParam(
+                    'driverType',
+                    ParamType.String,
+                  ),
                   grossTotal: params.getParam<String>(
-                      'grossTotal', ParamType.String, true),
+                    'grossTotal',
+                    ParamType.String,
+                    true,
+                  ),
                   sumInsured: params.getParam<String>(
-                      'sumInsured', ParamType.String, true),
+                    'sumInsured',
+                    ParamType.String,
+                    true,
+                  ),
                   tpbiPerson: params.getParam<String>(
-                      'tpbiPerson', ParamType.String, true),
+                    'tpbiPerson',
+                    ParamType.String,
+                    true,
+                  ),
                   tpbiAccident: params.getParam<String>(
-                      'tpbiAccident', ParamType.String, true),
+                    'tpbiAccident',
+                    ParamType.String,
+                    true,
+                  ),
                   grossAct: params.getParam<String>(
-                      'grossAct', ParamType.String, true),
+                    'grossAct',
+                    ParamType.String,
+                    true,
+                  ),
                   expireDate: params.getParam<String>(
-                      'expireDate', ParamType.String, true),
+                    'expireDate',
+                    ParamType.String,
+                    true,
+                  ),
                   coverTypeId: params.getParam<String>(
-                      'coverTypeId', ParamType.String, true),
+                    'coverTypeId',
+                    ParamType.String,
+                    true,
+                  ),
                   coverTypeCode: params.getParam<String>(
-                      'coverTypeCode', ParamType.String, true),
+                    'coverTypeCode',
+                    ParamType.String,
+                    true,
+                  ),
                   coverTypeName: params.getParam<String>(
-                      'coverTypeName', ParamType.String, true),
+                    'coverTypeName',
+                    ParamType.String,
+                    true,
+                  ),
                   garageTypeId: params.getParam<String>(
-                      'garageTypeId', ParamType.String, true),
+                    'garageTypeId',
+                    ParamType.String,
+                    true,
+                  ),
                   garageTypeName: params.getParam<String>(
-                      'garageTypeName', ParamType.String, true),
+                    'garageTypeName',
+                    ParamType.String,
+                    true,
+                  ),
                   insurerId: params.getParam<String>(
-                      'insurerId', ParamType.String, true),
+                    'insurerId',
+                    ParamType.String,
+                    true,
+                  ),
                   insurerShortName: params.getParam<String>(
-                      'insurerShortName', ParamType.String, true),
+                    'insurerShortName',
+                    ParamType.String,
+                    true,
+                  ),
                   garageTypeCode: params.getParam<String>(
-                      'garageTypeCode', ParamType.String, true),
+                    'garageTypeCode',
+                    ParamType.String,
+                    true,
+                  ),
                   insurerLogoUrl: params.getParam<String>(
-                      'insurerLogoUrl', ParamType.String, true),
-                  yearProduct: params.getParam('yearProduct', ParamType.String),
+                    'insurerLogoUrl',
+                    ParamType.String,
+                    true,
+                  ),
+                  yearProduct: params.getParam(
+                    'yearProduct',
+                    ParamType.String,
+                  ),
                   accessory: params.getParam<String>(
-                      'accessory', ParamType.String, true),
-                  pa: params.getParam<String>('pa', ParamType.String, true),
+                    'accessory',
+                    ParamType.String,
+                    true,
+                  ),
+                  pa: params.getParam<String>(
+                    'pa',
+                    ParamType.String,
+                    true,
+                  ),
                   productId: params.getParam<String>(
-                      'productId', ParamType.String, true),
+                    'productId',
+                    ParamType.String,
+                    true,
+                  ),
                   packageId: params.getParam<String>(
-                      'packageId', ParamType.String, true),
+                    'packageId',
+                    ParamType.String,
+                    true,
+                  ),
                   packageName: params.getParam<String>(
-                      'packageName', ParamType.String, true),
+                    'packageName',
+                    ParamType.String,
+                    true,
+                  ),
                   roadsideAssis: params.getParam<String>(
-                      'roadsideAssis', ParamType.String, true),
-                  flood:
-                      params.getParam<String>('flood', ParamType.String, true),
+                    'roadsideAssis',
+                    ParamType.String,
+                    true,
+                  ),
+                  flood: params.getParam<String>(
+                    'flood',
+                    ParamType.String,
+                    true,
+                  ),
                   deductible: params.getParam<String>(
-                      'deductible', ParamType.String, true),
-                  me: params.getParam<String>('me', ParamType.String, true),
-                  bb: params.getParam<String>('bb', ParamType.String, true),
-                  seat: params.getParam<String>('seat', ParamType.String, true),
+                    'deductible',
+                    ParamType.String,
+                    true,
+                  ),
+                  me: params.getParam<String>(
+                    'me',
+                    ParamType.String,
+                    true,
+                  ),
+                  bb: params.getParam<String>(
+                    'bb',
+                    ParamType.String,
+                    true,
+                  ),
+                  seat: params.getParam<String>(
+                    'seat',
+                    ParamType.String,
+                    true,
+                  ),
                   netPremium: params.getParam<String>(
-                      'netPremium', ParamType.String, true),
-                  vat: params.getParam<String>('vat', ParamType.String, true),
-                  stamp:
-                      params.getParam<String>('stamp', ParamType.String, true),
+                    'netPremium',
+                    ParamType.String,
+                    true,
+                  ),
+                  vat: params.getParam<String>(
+                    'vat',
+                    ParamType.String,
+                    true,
+                  ),
+                  stamp: params.getParam<String>(
+                    'stamp',
+                    ParamType.String,
+                    true,
+                  ),
                   insurerMaxName: params.getParam<String>(
-                      'insurerMaxName', ParamType.String, true),
-                  tppd: params.getParam<String>('tppd', ParamType.String, true),
+                    'insurerMaxName',
+                    ParamType.String,
+                    true,
+                  ),
+                  tppd: params.getParam<String>(
+                    'tppd',
+                    ParamType.String,
+                    true,
+                  ),
                   contractProcessstate: params.getParam<String>(
-                      'contractProcessstate', ParamType.String, true),
+                    'contractProcessstate',
+                    ParamType.String,
+                    true,
+                  ),
                   insurerCondition: params.getParam<String>(
-                      'insurerCondition', ParamType.String, true),
-                  cc: params.getParam<String>('cc', ParamType.String, true),
+                    'insurerCondition',
+                    ParamType.String,
+                    true,
+                  ),
+                  cc: params.getParam<String>(
+                    'cc',
+                    ParamType.String,
+                    true,
+                  ),
                 ),
               ),
             ),
@@ -260,7 +427,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'insuranceListPage',
               path: 'insuranceListPage',
               builder: (context, params) => InsuranceListPageWidget(
-                checkType: params.getParam('checkType', ParamType.JSON),
+                checkType: params.getParam(
+                  'checkType',
+                  ParamType.JSON,
+                ),
               ),
             ),
             FFRoute(
@@ -272,8 +442,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'insuranceInfoPage1',
               path: 'insuranceInfoPage1',
               builder: (context, params) => InsuranceInfoPage1Widget(
-                quotationId: params.getParam('quotationId', ParamType.String),
-                leadDtailId: params.getParam('leadDtailId', ParamType.int),
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDtailId: params.getParam(
+                  'leadDtailId',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -285,22 +461,56 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'insurerListPage',
               path: 'insurerListPage',
               builder: (context, params) => InsurerListPageWidget(
-                brandCode: params.getParam('brandCode', ParamType.String),
-                modelCode: params.getParam('modelCode', ParamType.String),
-                year: params.getParam('year', ParamType.String),
-                province: params.getParam('province', ParamType.String),
-                vehicleUsage: params.getParam('vehicleUsage', ParamType.String),
+                brandCode: params.getParam(
+                  'brandCode',
+                  ParamType.String,
+                ),
+                modelCode: params.getParam(
+                  'modelCode',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                province: params.getParam(
+                  'province',
+                  ParamType.String,
+                ),
+                vehicleUsage: params.getParam(
+                  'vehicleUsage',
+                  ParamType.String,
+                ),
                 coverType: params.getParam<String>(
-                    'coverType', ParamType.String, true),
+                  'coverType',
+                  ParamType.String,
+                  true,
+                ),
                 garageType: params.getParam<String>(
-                    'garageType', ParamType.String, true),
-                brandName: params.getParam('brandName', ParamType.String),
-                modelName: params.getParam('modelName', ParamType.String),
-                carTypeDetail:
-                    params.getParam('carTypeDetail', ParamType.String),
-                oldVmiExpDate:
-                    params.getParam('oldVmiExpDate', ParamType.String),
-                provinceCode: params.getParam('provinceCode', ParamType.String),
+                  'garageType',
+                  ParamType.String,
+                  true,
+                ),
+                brandName: params.getParam(
+                  'brandName',
+                  ParamType.String,
+                ),
+                modelName: params.getParam(
+                  'modelName',
+                  ParamType.String,
+                ),
+                carTypeDetail: params.getParam(
+                  'carTypeDetail',
+                  ParamType.String,
+                ),
+                oldVmiExpDate: params.getParam(
+                  'oldVmiExpDate',
+                  ParamType.String,
+                ),
+                provinceCode: params.getParam(
+                  'provinceCode',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -309,61 +519,178 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: DetailsInsurancePageWidget(
-                  insurerFullName:
-                      params.getParam('insurerFullName', ParamType.String),
-                  currentDate: params.getParam('currentDate', ParamType.String),
-                  brandId: params.getParam('brandId', ParamType.String),
-                  brandName: params.getParam('brandName', ParamType.String),
-                  modelCode: params.getParam('modelCode', ParamType.String),
-                  modelName: params.getParam('modelName', ParamType.String),
-                  year: params.getParam('year', ParamType.String),
-                  driverType: params.getParam('driverType', ParamType.String),
-                  grossTotal: params.getParam('grossTotal', ParamType.String),
-                  sumInsured: params.getParam('sumInsured', ParamType.String),
-                  tppd: params.getParam('tppd', ParamType.String),
-                  pa: params.getParam('pa', ParamType.String),
-                  grossAct: params.getParam('grossAct', ParamType.String),
-                  expireDate: params.getParam('expireDate', ParamType.String),
-                  coverTypeId: params.getParam('coverTypeId', ParamType.String),
-                  coverTypeCode:
-                      params.getParam('coverTypeCode', ParamType.String),
-                  coverTypeName:
-                      params.getParam('coverTypeName', ParamType.String),
-                  garageTypeId:
-                      params.getParam('garageTypeId', ParamType.String),
-                  garageTypeName:
-                      params.getParam('garageTypeName', ParamType.String),
-                  insurerId: params.getParam('insurerId', ParamType.String),
-                  insurerShortName:
-                      params.getParam('insurerShortName', ParamType.String),
-                  garageTypeCode:
-                      params.getParam('garageTypeCode', ParamType.String),
-                  tpbiPerson: params.getParam('tpbiPerson', ParamType.String),
-                  tpbiAccident:
-                      params.getParam('tpbiAccident', ParamType.String),
-                  logoUrl: params.getParam('logoUrl', ParamType.String),
-                  yearProduct: params.getParam('yearProduct', ParamType.String),
-                  accessory: params.getParam('accessory', ParamType.String),
-                  productId: params.getParam('productId', ParamType.String),
-                  packageId: params.getParam('packageId', ParamType.String),
-                  packageName: params.getParam('packageName', ParamType.String),
-                  roadsideAssis:
-                      params.getParam('roadsideAssis', ParamType.String),
-                  flood: params.getParam('flood', ParamType.String),
-                  deductible: params.getParam('deductible', ParamType.String),
-                  me: params.getParam('me', ParamType.String),
-                  bb: params.getParam('bb', ParamType.String),
-                  seat: params.getParam('seat', ParamType.String),
-                  netPremium: params.getParam('netPremium', ParamType.String),
-                  vat: params.getParam('vat', ParamType.String),
-                  stamp: params.getParam('stamp', ParamType.String),
-                  insurerMaxName:
-                      params.getParam('insurerMaxName', ParamType.String),
-                  contractProcessstate:
-                      params.getParam('contractProcessstate', ParamType.String),
-                  insurerCondition:
-                      params.getParam('insurerCondition', ParamType.String),
-                  cc: params.getParam('cc', ParamType.String),
+                  insurerFullName: params.getParam(
+                    'insurerFullName',
+                    ParamType.String,
+                  ),
+                  currentDate: params.getParam(
+                    'currentDate',
+                    ParamType.String,
+                  ),
+                  brandId: params.getParam(
+                    'brandId',
+                    ParamType.String,
+                  ),
+                  brandName: params.getParam(
+                    'brandName',
+                    ParamType.String,
+                  ),
+                  modelCode: params.getParam(
+                    'modelCode',
+                    ParamType.String,
+                  ),
+                  modelName: params.getParam(
+                    'modelName',
+                    ParamType.String,
+                  ),
+                  year: params.getParam(
+                    'year',
+                    ParamType.String,
+                  ),
+                  driverType: params.getParam(
+                    'driverType',
+                    ParamType.String,
+                  ),
+                  grossTotal: params.getParam(
+                    'grossTotal',
+                    ParamType.String,
+                  ),
+                  sumInsured: params.getParam(
+                    'sumInsured',
+                    ParamType.String,
+                  ),
+                  tppd: params.getParam(
+                    'tppd',
+                    ParamType.String,
+                  ),
+                  pa: params.getParam(
+                    'pa',
+                    ParamType.String,
+                  ),
+                  grossAct: params.getParam(
+                    'grossAct',
+                    ParamType.String,
+                  ),
+                  expireDate: params.getParam(
+                    'expireDate',
+                    ParamType.String,
+                  ),
+                  coverTypeId: params.getParam(
+                    'coverTypeId',
+                    ParamType.String,
+                  ),
+                  coverTypeCode: params.getParam(
+                    'coverTypeCode',
+                    ParamType.String,
+                  ),
+                  coverTypeName: params.getParam(
+                    'coverTypeName',
+                    ParamType.String,
+                  ),
+                  garageTypeId: params.getParam(
+                    'garageTypeId',
+                    ParamType.String,
+                  ),
+                  garageTypeName: params.getParam(
+                    'garageTypeName',
+                    ParamType.String,
+                  ),
+                  insurerId: params.getParam(
+                    'insurerId',
+                    ParamType.String,
+                  ),
+                  insurerShortName: params.getParam(
+                    'insurerShortName',
+                    ParamType.String,
+                  ),
+                  garageTypeCode: params.getParam(
+                    'garageTypeCode',
+                    ParamType.String,
+                  ),
+                  tpbiPerson: params.getParam(
+                    'tpbiPerson',
+                    ParamType.String,
+                  ),
+                  tpbiAccident: params.getParam(
+                    'tpbiAccident',
+                    ParamType.String,
+                  ),
+                  logoUrl: params.getParam(
+                    'logoUrl',
+                    ParamType.String,
+                  ),
+                  yearProduct: params.getParam(
+                    'yearProduct',
+                    ParamType.String,
+                  ),
+                  accessory: params.getParam(
+                    'accessory',
+                    ParamType.String,
+                  ),
+                  productId: params.getParam(
+                    'productId',
+                    ParamType.String,
+                  ),
+                  packageId: params.getParam(
+                    'packageId',
+                    ParamType.String,
+                  ),
+                  packageName: params.getParam(
+                    'packageName',
+                    ParamType.String,
+                  ),
+                  roadsideAssis: params.getParam(
+                    'roadsideAssis',
+                    ParamType.String,
+                  ),
+                  flood: params.getParam(
+                    'flood',
+                    ParamType.String,
+                  ),
+                  deductible: params.getParam(
+                    'deductible',
+                    ParamType.String,
+                  ),
+                  me: params.getParam(
+                    'me',
+                    ParamType.String,
+                  ),
+                  bb: params.getParam(
+                    'bb',
+                    ParamType.String,
+                  ),
+                  seat: params.getParam(
+                    'seat',
+                    ParamType.String,
+                  ),
+                  netPremium: params.getParam(
+                    'netPremium',
+                    ParamType.String,
+                  ),
+                  vat: params.getParam(
+                    'vat',
+                    ParamType.String,
+                  ),
+                  stamp: params.getParam(
+                    'stamp',
+                    ParamType.String,
+                  ),
+                  insurerMaxName: params.getParam(
+                    'insurerMaxName',
+                    ParamType.String,
+                  ),
+                  contractProcessstate: params.getParam(
+                    'contractProcessstate',
+                    ParamType.String,
+                  ),
+                  insurerCondition: params.getParam(
+                    'insurerCondition',
+                    ParamType.String,
+                  ),
+                  cc: params.getParam(
+                    'cc',
+                    ParamType.String,
+                  ),
                 ),
               ),
             ),
@@ -403,8 +730,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: InsuranceInfoPage5Widget(
-                  quotationId: params.getParam('quotationId', ParamType.String),
-                  leadDtlId: params.getParam('leadDtlId', ParamType.int),
+                  quotationId: params.getParam(
+                    'quotationId',
+                    ParamType.String,
+                  ),
+                  leadDtlId: params.getParam(
+                    'leadDtlId',
+                    ParamType.int,
+                  ),
                 ),
               ),
             ),
@@ -433,7 +766,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Homepage_Request_2_1',
               path: 'Homepage_Request_2_1',
               builder: (context, params) => HomepageRequest21Widget(
-                accessory: params.getParam('accessory', ParamType.String),
+                accessory: params.getParam(
+                  'accessory',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -450,7 +786,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Homepage_Request_4_1',
               path: 'Homepage_Request_4_1',
               builder: (context, params) => HomepageRequest41Widget(
-                fromPage: params.getParam('fromPage', ParamType.String),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -467,13 +806,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'PaywithQRcode',
               path: 'PaywithQRcode',
               builder: (context, params) => PaywithQRcodeWidget(
-                taxId: params.getParam('taxId', ParamType.String),
-                suffix: params.getParam('suffix', ParamType.String),
-                ref1: params.getParam('ref1', ParamType.String),
-                ref2: params.getParam('ref2', ParamType.String),
-                amount: params.getParam('amount', ParamType.String),
-                fromPage: params.getParam('fromPage', ParamType.String),
-                actCMI: params.getParam('actCMI', ParamType.bool),
+                taxId: params.getParam(
+                  'taxId',
+                  ParamType.String,
+                ),
+                suffix: params.getParam(
+                  'suffix',
+                  ParamType.String,
+                ),
+                ref1: params.getParam(
+                  'ref1',
+                  ParamType.String,
+                ),
+                ref2: params.getParam(
+                  'ref2',
+                  ParamType.String,
+                ),
+                amount: params.getParam(
+                  'amount',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                actCMI: params.getParam(
+                  'actCMI',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
@@ -482,8 +842,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: InsuranceInfoPage5ShowPolicyWidget(
-                  vmiDocumentUrl:
-                      params.getParam('vmiDocumentUrl', ParamType.String),
+                  vmiDocumentUrl: params.getParam(
+                    'vmiDocumentUrl',
+                    ParamType.String,
+                  ),
                 ),
               ),
             ),
@@ -498,7 +860,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: QuotationWidget(
-                  fromPage: params.getParam('fromPage', ParamType.String),
+                  fromPage: params.getParam(
+                    'fromPage',
+                    ParamType.String,
+                  ),
                 ),
               ),
             ),
@@ -511,7 +876,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NonePackageRenewPage',
               path: 'NonePackageRenewPage',
               builder: (context, params) => NonePackageRenewPageWidget(
-                workType: params.getParam('workType', ParamType.String),
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -528,56 +896,154 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NonePackageBasicPage',
               path: 'NonePackageBasicPage',
               builder: (context, params) => NonePackageBasicPageWidget(
-                branchCode: params.getParam('branchCode', ParamType.String),
-                carType: params.getParam('carType', ParamType.String),
-                truckPart: params.getParam('truckPart', ParamType.String),
-                cusMembership:
-                    params.getParam('cusMembership', ParamType.String),
-                carrierPurpose:
-                    params.getParam('carrierPurpose', ParamType.String),
-                truckCurrentPrice:
-                    params.getParam('truckCurrentPrice', ParamType.String),
-                carrierFlag: params.getParam('carrierFlag', ParamType.bool),
-                coopFlag: params.getParam('coopFlag', ParamType.bool),
-                carrierType: params.getParam('carrierType', ParamType.String),
-                carrierPrice: params.getParam('carrierPrice', ParamType.String),
-                brandName: params.getParam('brandName', ParamType.String),
-                brandId: params.getParam('brandId', ParamType.String),
-                modelName: params.getParam('modelName', ParamType.String),
-                modelId: params.getParam('modelId', ParamType.String),
-                year: params.getParam('year', ParamType.String),
-                vehicleUsedName:
-                    params.getParam('vehicleUsedName', ParamType.String),
-                vehicleUsedId:
-                    params.getParam('vehicleUsedId', ParamType.String),
-                vehicleUsedCode:
-                    params.getParam('vehicleUsedCode', ParamType.String),
-                coverTypeName:
-                    params.getParam('coverTypeName', ParamType.String),
-                coverTypeCode:
-                    params.getParam('coverTypeCode', ParamType.String),
-                coverTypeId: params.getParam('coverTypeId', ParamType.String),
-                garageTypeName:
-                    params.getParam('garageTypeName', ParamType.String),
-                garageTypeCode:
-                    params.getParam('garageTypeCode', ParamType.String),
-                garageTypeId: params.getParam('garageTypeId', ParamType.String),
-                cusName: params.getParam('cusName', ParamType.String),
-                cusPhone: params.getParam('cusPhone', ParamType.String),
-                plate: params.getParam('plate', ParamType.String),
-                plateAdditional:
-                    params.getParam('plateAdditional', ParamType.String),
-                provinceName: params.getParam('provinceName', ParamType.String),
-                provinceCode: params.getParam('provinceCode', ParamType.String),
-                sumInsured: params.getParam('sumInsured', ParamType.String),
-                trailerSumInsured:
-                    params.getParam('trailerSumInsured', ParamType.String),
-                remark: params.getParam('remark', ParamType.String),
-                actFlag: params.getParam('actFlag', ParamType.bool),
-                oldVmi: params.getParam('oldVmi', ParamType.String),
-                oldVmiExpireDate:
-                    params.getParam('oldVmiExpireDate', ParamType.String),
-                workType: params.getParam('workType', ParamType.String),
+                branchCode: params.getParam(
+                  'branchCode',
+                  ParamType.String,
+                ),
+                carType: params.getParam(
+                  'carType',
+                  ParamType.String,
+                ),
+                truckPart: params.getParam(
+                  'truckPart',
+                  ParamType.String,
+                ),
+                cusMembership: params.getParam(
+                  'cusMembership',
+                  ParamType.String,
+                ),
+                carrierPurpose: params.getParam(
+                  'carrierPurpose',
+                  ParamType.String,
+                ),
+                truckCurrentPrice: params.getParam(
+                  'truckCurrentPrice',
+                  ParamType.String,
+                ),
+                carrierFlag: params.getParam(
+                  'carrierFlag',
+                  ParamType.bool,
+                ),
+                coopFlag: params.getParam(
+                  'coopFlag',
+                  ParamType.bool,
+                ),
+                carrierType: params.getParam(
+                  'carrierType',
+                  ParamType.String,
+                ),
+                carrierPrice: params.getParam(
+                  'carrierPrice',
+                  ParamType.String,
+                ),
+                brandName: params.getParam(
+                  'brandName',
+                  ParamType.String,
+                ),
+                brandId: params.getParam(
+                  'brandId',
+                  ParamType.String,
+                ),
+                modelName: params.getParam(
+                  'modelName',
+                  ParamType.String,
+                ),
+                modelId: params.getParam(
+                  'modelId',
+                  ParamType.String,
+                ),
+                year: params.getParam(
+                  'year',
+                  ParamType.String,
+                ),
+                vehicleUsedName: params.getParam(
+                  'vehicleUsedName',
+                  ParamType.String,
+                ),
+                vehicleUsedId: params.getParam(
+                  'vehicleUsedId',
+                  ParamType.String,
+                ),
+                vehicleUsedCode: params.getParam(
+                  'vehicleUsedCode',
+                  ParamType.String,
+                ),
+                coverTypeName: params.getParam(
+                  'coverTypeName',
+                  ParamType.String,
+                ),
+                coverTypeCode: params.getParam(
+                  'coverTypeCode',
+                  ParamType.String,
+                ),
+                coverTypeId: params.getParam(
+                  'coverTypeId',
+                  ParamType.String,
+                ),
+                garageTypeName: params.getParam(
+                  'garageTypeName',
+                  ParamType.String,
+                ),
+                garageTypeCode: params.getParam(
+                  'garageTypeCode',
+                  ParamType.String,
+                ),
+                garageTypeId: params.getParam(
+                  'garageTypeId',
+                  ParamType.String,
+                ),
+                cusName: params.getParam(
+                  'cusName',
+                  ParamType.String,
+                ),
+                cusPhone: params.getParam(
+                  'cusPhone',
+                  ParamType.String,
+                ),
+                plate: params.getParam(
+                  'plate',
+                  ParamType.String,
+                ),
+                plateAdditional: params.getParam(
+                  'plateAdditional',
+                  ParamType.String,
+                ),
+                provinceName: params.getParam(
+                  'provinceName',
+                  ParamType.String,
+                ),
+                provinceCode: params.getParam(
+                  'provinceCode',
+                  ParamType.String,
+                ),
+                sumInsured: params.getParam(
+                  'sumInsured',
+                  ParamType.String,
+                ),
+                trailerSumInsured: params.getParam(
+                  'trailerSumInsured',
+                  ParamType.String,
+                ),
+                remark: params.getParam(
+                  'remark',
+                  ParamType.String,
+                ),
+                actFlag: params.getParam(
+                  'actFlag',
+                  ParamType.bool,
+                ),
+                oldVmi: params.getParam(
+                  'oldVmi',
+                  ParamType.String,
+                ),
+                oldVmiExpireDate: params.getParam(
+                  'oldVmiExpireDate',
+                  ParamType.String,
+                ),
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -599,12 +1065,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'MakeInsuranceListPage',
               path: 'MakeInsuranceListPage',
               builder: (context, params) => MakeInsuranceListPageWidget(
-                checkTotal: params.getParam('checkTotal', ParamType.int),
-                list: params.getParam<dynamic>('list', ParamType.JSON, true),
-                checkPayment: params.getParam('checkPayment', ParamType.String),
-                checkVMI: params.getParam('checkVMI', ParamType.String),
-                fromPage: params.getParam('fromPage', ParamType.String),
-                type: params.getParam('type', ParamType.String),
+                checkTotal: params.getParam(
+                  'checkTotal',
+                  ParamType.int,
+                ),
+                list: params.getParam<dynamic>(
+                  'list',
+                  ParamType.JSON,
+                  true,
+                ),
+                checkPayment: params.getParam(
+                  'checkPayment',
+                  ParamType.String,
+                ),
+                checkVMI: params.getParam(
+                  'checkVMI',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                type: params.getParam(
+                  'type',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -612,76 +1097,221 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'AddCustomerName',
               builder: (context, params) => AddCustomerNameWidget(
                 insurerId: params.getParam<String>(
-                    'insurerId', ParamType.String, true),
+                  'insurerId',
+                  ParamType.String,
+                  true,
+                ),
                 insurerCode: params.getParam<String>(
-                    'insurerCode', ParamType.String, true),
+                  'insurerCode',
+                  ParamType.String,
+                  true,
+                ),
                 insurerShortName: params.getParam<String>(
-                    'insurerShortName', ParamType.String, true),
+                  'insurerShortName',
+                  ParamType.String,
+                  true,
+                ),
                 insurerName: params.getParam<String>(
-                    'insurerName', ParamType.String, true),
+                  'insurerName',
+                  ParamType.String,
+                  true,
+                ),
                 coverTypeId: params.getParam<String>(
-                    'coverTypeId', ParamType.String, true),
+                  'coverTypeId',
+                  ParamType.String,
+                  true,
+                ),
                 coverTypeCode: params.getParam<String>(
-                    'coverTypeCode', ParamType.String, true),
+                  'coverTypeCode',
+                  ParamType.String,
+                  true,
+                ),
                 coverTypeName: params.getParam<String>(
-                    'coverTypeName', ParamType.String, true),
+                  'coverTypeName',
+                  ParamType.String,
+                  true,
+                ),
                 garageTypeId: params.getParam<String>(
-                    'garageTypeId', ParamType.String, true),
+                  'garageTypeId',
+                  ParamType.String,
+                  true,
+                ),
                 garageTypeCode: params.getParam<String>(
-                    'garageTypeCode', ParamType.String, true),
+                  'garageTypeCode',
+                  ParamType.String,
+                  true,
+                ),
                 garageTypeName: params.getParam<String>(
-                    'garageTypeName', ParamType.String, true),
+                  'garageTypeName',
+                  ParamType.String,
+                  true,
+                ),
                 productId: params.getParam<String>(
-                    'productId', ParamType.String, true),
+                  'productId',
+                  ParamType.String,
+                  true,
+                ),
                 packageId: params.getParam<String>(
-                    'packageId', ParamType.String, true),
+                  'packageId',
+                  ParamType.String,
+                  true,
+                ),
                 packageName: params.getParam<String>(
-                    'packageName', ParamType.String, true),
+                  'packageName',
+                  ParamType.String,
+                  true,
+                ),
                 sumInsured: params.getParam<String>(
-                    'sumInsured', ParamType.String, true),
-                workType:
-                    params.getParam<String>('workType', ParamType.String, true),
+                  'sumInsured',
+                  ParamType.String,
+                  true,
+                ),
+                workType: params.getParam<String>(
+                  'workType',
+                  ParamType.String,
+                  true,
+                ),
                 roadsideAssistance: params.getParam<String>(
-                    'roadsideAssistance', ParamType.String, true),
+                  'roadsideAssistance',
+                  ParamType.String,
+                  true,
+                ),
                 tpbiPerson: params.getParam<String>(
-                    'tpbiPerson', ParamType.String, true),
+                  'tpbiPerson',
+                  ParamType.String,
+                  true,
+                ),
                 tpbiAccident: params.getParam<String>(
-                    'tpbiAccident', ParamType.String, true),
-                tppd: params.getParam<String>('tppd', ParamType.String, true),
-                flood: params.getParam<String>('flood', ParamType.String, true),
+                  'tpbiAccident',
+                  ParamType.String,
+                  true,
+                ),
+                tppd: params.getParam<String>(
+                  'tppd',
+                  ParamType.String,
+                  true,
+                ),
+                flood: params.getParam<String>(
+                  'flood',
+                  ParamType.String,
+                  true,
+                ),
                 deductible: params.getParam<String>(
-                    'deductible', ParamType.String, true),
-                pa: params.getParam<String>('pa', ParamType.String, true),
-                me: params.getParam<String>('me', ParamType.String, true),
-                bb: params.getParam<String>('bb', ParamType.String, true),
+                  'deductible',
+                  ParamType.String,
+                  true,
+                ),
+                pa: params.getParam<String>(
+                  'pa',
+                  ParamType.String,
+                  true,
+                ),
+                me: params.getParam<String>(
+                  'me',
+                  ParamType.String,
+                  true,
+                ),
+                bb: params.getParam<String>(
+                  'bb',
+                  ParamType.String,
+                  true,
+                ),
                 assessory: params.getParam<String>(
-                    'assessory', ParamType.String, true),
-                seat: params.getParam<String>('seat', ParamType.String, true),
+                  'assessory',
+                  ParamType.String,
+                  true,
+                ),
+                seat: params.getParam<String>(
+                  'seat',
+                  ParamType.String,
+                  true,
+                ),
                 netPremium: params.getParam<String>(
-                    'netPremium', ParamType.String, true),
-                vat: params.getParam<String>('vat', ParamType.String, true),
-                stamp: params.getParam<String>('stamp', ParamType.String, true),
+                  'netPremium',
+                  ParamType.String,
+                  true,
+                ),
+                vat: params.getParam<String>(
+                  'vat',
+                  ParamType.String,
+                  true,
+                ),
+                stamp: params.getParam<String>(
+                  'stamp',
+                  ParamType.String,
+                  true,
+                ),
                 grossTotal: params.getParam<String>(
-                    'grossTotal', ParamType.String, true),
-                carType: params.getParam('carType', ParamType.String),
-                driverType: params.getParam('driverType', ParamType.String),
-                carRegistrationYear:
-                    params.getParam('carRegistrationYear', ParamType.String),
-                carBrandId: params.getParam('carBrandId', ParamType.String),
-                carBrandName: params.getParam('carBrandName', ParamType.String),
-                carModelName: params.getParam('carModelName', ParamType.String),
-                carModelId: params.getParam('carModelId', ParamType.String),
-                vehicleId: params.getParam('vehicleId', ParamType.String),
-                vehicleCode: params.getParam('vehicleCode', ParamType.String),
-                vehicleName: params.getParam('vehicleName', ParamType.String),
+                  'grossTotal',
+                  ParamType.String,
+                  true,
+                ),
+                carType: params.getParam(
+                  'carType',
+                  ParamType.String,
+                ),
+                driverType: params.getParam(
+                  'driverType',
+                  ParamType.String,
+                ),
+                carRegistrationYear: params.getParam(
+                  'carRegistrationYear',
+                  ParamType.String,
+                ),
+                carBrandId: params.getParam(
+                  'carBrandId',
+                  ParamType.String,
+                ),
+                carBrandName: params.getParam(
+                  'carBrandName',
+                  ParamType.String,
+                ),
+                carModelName: params.getParam(
+                  'carModelName',
+                  ParamType.String,
+                ),
+                carModelId: params.getParam(
+                  'carModelId',
+                  ParamType.String,
+                ),
+                vehicleId: params.getParam(
+                  'vehicleId',
+                  ParamType.String,
+                ),
+                vehicleCode: params.getParam(
+                  'vehicleCode',
+                  ParamType.String,
+                ),
+                vehicleName: params.getParam(
+                  'vehicleName',
+                  ParamType.String,
+                ),
                 contractProcessstate: params.getParam<String>(
-                    'contractProcessstate', ParamType.String, true),
-                fromPage: params.getParam('fromPage', ParamType.String),
-                fromBtn: params.getParam('fromBtn', ParamType.String),
-                indexPage: params.getParam('indexPage', ParamType.int),
-                oldVMIExpDate:
-                    params.getParam('oldVMIExpDate', ParamType.String),
-                cc: params.getParam<String>('cc', ParamType.String, true),
+                  'contractProcessstate',
+                  ParamType.String,
+                  true,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                fromBtn: params.getParam(
+                  'fromBtn',
+                  ParamType.String,
+                ),
+                indexPage: params.getParam(
+                  'indexPage',
+                  ParamType.int,
+                ),
+                oldVMIExpDate: params.getParam(
+                  'oldVMIExpDate',
+                  ParamType.String,
+                ),
+                cc: params.getParam<String>(
+                  'cc',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
@@ -689,16 +1319,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'NonePackageSelectedInsurerPage',
               builder: (context, params) =>
                   NonePackageSelectedInsurerPageWidget(
-                leadID: params.getParam('leadID', ParamType.String),
-                coverTypeName:
-                    params.getParam('coverTypeName', ParamType.String),
-                garageTypeName:
-                    params.getParam('garageTypeName', ParamType.String),
-                insurerShortName:
-                    params.getParam('insurerShortName', ParamType.String),
-                insurerName: params.getParam('insurerName', ParamType.String),
-                quotationId: params.getParam('quotationId', ParamType.String),
-                leadDtlId: params.getParam('leadDtlId', ParamType.int),
+                leadID: params.getParam(
+                  'leadID',
+                  ParamType.String,
+                ),
+                coverTypeName: params.getParam(
+                  'coverTypeName',
+                  ParamType.String,
+                ),
+                garageTypeName: params.getParam(
+                  'garageTypeName',
+                  ParamType.String,
+                ),
+                insurerShortName: params.getParam(
+                  'insurerShortName',
+                  ParamType.String,
+                ),
+                insurerName: params.getParam(
+                  'insurerName',
+                  ParamType.String,
+                ),
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDtlId: params.getParam(
+                  'leadDtlId',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -720,15 +1368,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NonePackageInsurerPage',
               path: 'NonePackageInsurerPage',
               builder: (context, params) => NonePackageInsurerPageWidget(
-                workType: params.getParam('workType', ParamType.String),
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'insuranceInfoPage5Cancel',
               path: 'Homepage_Request_5_confirm',
               builder: (context, params) => InsuranceInfoPage5CancelWidget(
-                quotationId: params.getParam('quotationId', ParamType.String),
-                leadDtlId: params.getParam('leadDtlId', ParamType.int),
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDtlId: params.getParam(
+                  'leadDtlId',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -737,8 +1394,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: InsuranceInfoPage42Widget(
-                  quotationId: params.getParam('quotationId', ParamType.String),
-                  leadDetailId: params.getParam('leadDetailId', ParamType.int),
+                  quotationId: params.getParam(
+                    'quotationId',
+                    ParamType.String,
+                  ),
+                  leadDetailId: params.getParam(
+                    'leadDetailId',
+                    ParamType.int,
+                  ),
                 ),
               ),
             ),
@@ -747,22 +1410,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'insuranceInfoPage4_installments',
               builder: (context, params) =>
                   InsuranceInfoPage4InstallmentsWidget(
-                titleText: params.getParam('titleText', ParamType.String),
-                searchLabel: params.getParam('searchLabel', ParamType.String),
-                dataList:
-                    params.getParam<String>('dataList', ParamType.String, true),
-                multiSelect: params.getParam('multiSelect', ParamType.bool),
-                maxSelected: params.getParam('maxSelected', ParamType.int),
-                fromPage: params.getParam('fromPage', ParamType.String),
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'uploadImgPage',
               path: 'uploadImgPage',
               builder: (context, params) => UploadImgPageWidget(
-                titleText: params.getParam('titleText', ParamType.String),
-                searchLabel: params.getParam('searchLabel', ParamType.String),
-                fromPage: params.getParam('fromPage', ParamType.String),
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -774,14 +1464,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'NonePackageBasicImage1Page',
               path: 'NonePackageBasicImage1Page',
               builder: (context, params) => NonePackageBasicImage1PageWidget(
-                workType: params.getParam('workType', ParamType.String),
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'NonePackageBasicImage2Page',
               path: 'NonePackageBasicImage2Page',
               builder: (context, params) => NonePackageBasicImage2PageWidget(
-                workType: params.getParam('workType', ParamType.String),
+                workType: params.getParam(
+                  'workType',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -793,7 +1489,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchBranchPage',
               path: 'SearchBranchPage',
               builder: (context, params) => SearchBranchPageWidget(
-                fromPage: params.getParam('fromPage', ParamType.String),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -806,7 +1505,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'QuotationCopy',
               builder: (context, params) => QuotationCopyWidget(
                 quotation: params.getParam<String>(
-                    'quotation', ParamType.String, true),
+                  'quotation',
+                  ParamType.String,
+                  true,
+                ),
               ),
             ),
             FFRoute(
@@ -828,62 +1530,131 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SearchableCarListPage',
               path: 'SearchableCarListPage',
               builder: (context, params) => SearchableCarListPageWidget(
-                titleText: params.getParam('titleText', ParamType.String),
-                searchLabel: params.getParam('searchLabel', ParamType.String),
-                dataList:
-                    params.getParam<String>('dataList', ParamType.String, true),
-                multiSelect: params.getParam('multiSelect', ParamType.bool),
-                maxSelected: params.getParam('maxSelected', ParamType.int),
-                fromPage: params.getParam('fromPage', ParamType.String),
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'SearchablePickUpListPage',
               path: 'SearchablePickUpListPage',
               builder: (context, params) => SearchablePickUpListPageWidget(
-                titleText: params.getParam('titleText', ParamType.String),
-                searchLabel: params.getParam('searchLabel', ParamType.String),
-                dataList:
-                    params.getParam<String>('dataList', ParamType.String, true),
-                multiSelect: params.getParam('multiSelect', ParamType.bool),
-                maxSelected: params.getParam('maxSelected', ParamType.int),
-                fromPage: params.getParam('fromPage', ParamType.String),
+                titleText: params.getParam(
+                  'titleText',
+                  ParamType.String,
+                ),
+                searchLabel: params.getParam(
+                  'searchLabel',
+                  ParamType.String,
+                ),
+                dataList: params.getParam<String>(
+                  'dataList',
+                  ParamType.String,
+                  true,
+                ),
+                multiSelect: params.getParam(
+                  'multiSelect',
+                  ParamType.bool,
+                ),
+                maxSelected: params.getParam(
+                  'maxSelected',
+                  ParamType.int,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'renewHistory',
               path: 'renewHistory',
               builder: (context, params) => RenewHistoryWidget(
-                refRenewId: params.getParam('refRenewId', ParamType.String),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'MakeInsuranceListPageSearch',
               path: 'MakeInsuranceListPageSearch',
               builder: (context, params) => MakeInsuranceListPageSearchWidget(
-                checkTotal: params.getParam('checkTotal', ParamType.int),
-                list: params.getParam<dynamic>('list', ParamType.JSON, true),
-                checkPayment: params.getParam('checkPayment', ParamType.String),
-                checkVMI: params.getParam('checkVMI', ParamType.String),
-                fromPage: params.getParam('fromPage', ParamType.String),
-                type: params.getParam('type', ParamType.String),
-                carRegistration:
-                    params.getParam('carRegistration', ParamType.String),
+                checkTotal: params.getParam(
+                  'checkTotal',
+                  ParamType.int,
+                ),
+                list: params.getParam<dynamic>(
+                  'list',
+                  ParamType.JSON,
+                  true,
+                ),
+                checkPayment: params.getParam(
+                  'checkPayment',
+                  ParamType.String,
+                ),
+                checkVMI: params.getParam(
+                  'checkVMI',
+                  ParamType.String,
+                ),
+                fromPage: params.getParam(
+                  'fromPage',
+                  ParamType.String,
+                ),
+                type: params.getParam(
+                  'type',
+                  ParamType.String,
+                ),
+                carRegistration: params.getParam(
+                  'carRegistration',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'renewDetailPage',
               path: 'renewDetailPage',
               builder: (context, params) => RenewDetailPageWidget(
-                refRenewId: params.getParam('refRenewId', ParamType.String),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
               name: 'RenewBasicInfoPage',
               path: 'RenewBasicInfoPage',
               builder: (context, params) => RenewBasicInfoPageWidget(
-                quotationId: params.getParam('quotationId', ParamType.String),
-                leadDetailId: params.getParam('leadDetailId', ParamType.int),
+                quotationId: params.getParam(
+                  'quotationId',
+                  ParamType.String,
+                ),
+                leadDetailId: params.getParam(
+                  'leadDetailId',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -895,17 +1666,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'renewSaveHistory',
               path: 'renewSaveHistory',
               builder: (context, params) => RenewSaveHistoryWidget(
-                title: params.getParam('title', ParamType.String),
-                name: params.getParam('name', ParamType.String),
-                lastname: params.getParam('lastname', ParamType.String),
-                brand: params.getParam('brand', ParamType.String),
-                model: params.getParam('model', ParamType.String),
-                covertype: params.getParam('covertype', ParamType.String),
-                garagetype: params.getParam('garagetype', ParamType.String),
-                expDate: params.getParam('expDate', ParamType.String),
-                status: params.getParam('status', ParamType.String),
-                refRenewId: params.getParam('refRenewId', ParamType.String),
-                carregis: params.getParam('carregis', ParamType.String),
+                title: params.getParam(
+                  'title',
+                  ParamType.String,
+                ),
+                name: params.getParam(
+                  'name',
+                  ParamType.String,
+                ),
+                lastname: params.getParam(
+                  'lastname',
+                  ParamType.String,
+                ),
+                brand: params.getParam(
+                  'brand',
+                  ParamType.String,
+                ),
+                model: params.getParam(
+                  'model',
+                  ParamType.String,
+                ),
+                covertype: params.getParam(
+                  'covertype',
+                  ParamType.String,
+                ),
+                garagetype: params.getParam(
+                  'garagetype',
+                  ParamType.String,
+                ),
+                expDate: params.getParam(
+                  'expDate',
+                  ParamType.String,
+                ),
+                status: params.getParam(
+                  'status',
+                  ParamType.String,
+                ),
+                refRenewId: params.getParam(
+                  'refRenewId',
+                  ParamType.String,
+                ),
+                carregis: params.getParam(
+                  'carregis',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -927,9 +1731,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'informationCustomer2',
               path: 'informationCustomer2',
               builder: (context, params) => InformationCustomer2Widget(
-                bodyNumber: params.getParam('bodyNumber', ParamType.String),
-                effectiveDateAct:
-                    params.getParam('effectiveDateAct', ParamType.DateTime),
+                bodyNumber: params.getParam(
+                  'bodyNumber',
+                  ParamType.String,
+                ),
+                effectiveDateAct: params.getParam(
+                  'effectiveDateAct',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -1057,6 +1866,7 @@ class FFParameters {
     ParamType type, [
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -1070,8 +1880,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 

@@ -69,6 +69,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -109,6 +110,7 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFFDF8633),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                           elevation: 3.0,

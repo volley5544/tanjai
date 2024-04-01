@@ -54,8 +54,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   // Stores action output result for [Backend Call - Create Document] action in login_button widget.
   UserCustomRecord? createdUserCustom;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordTextFieldVisibility = false;
@@ -70,8 +68,4 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
     passwordTextFieldFocusNode?.dispose();
     passwordTextFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -203,6 +203,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                 'Noto Sans Thai',
                                                             color: Colors.black,
                                                             fontSize: 18.0,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                     ),
                                                     Container(
@@ -251,6 +252,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                           'Noto Sans Thai',
                                                                       color: Colors
                                                                           .black,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Column(
@@ -283,6 +286,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                               Colors.black,
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                   Text(
@@ -307,6 +312,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                               Colors.black,
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -317,7 +324,13 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             'รหัสพนักงาน: ${functions.showMatNameInList(widget.employeeIdList?.toList(), callStatusListViewIndex)}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                           ),
                                                           Padding(
                                                             padding:
@@ -331,7 +344,13 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                               '${functions.showMatNameInList(widget.reasonNameList?.toList(), callStatusListViewIndex)}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                           if (functions.checkNullValueAndReturn(
@@ -345,7 +364,13 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                               '${functions.showMatNameInList(widget.note?.toList(), callStatusListViewIndex)}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                         ],
                                                       ),
@@ -441,6 +466,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   collapsed: Container(
@@ -478,6 +504,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0x8A000000),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -507,6 +535,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -528,6 +558,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -570,6 +602,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0x8A000000),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -599,6 +633,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -620,6 +656,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],

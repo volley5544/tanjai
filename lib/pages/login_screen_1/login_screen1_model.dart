@@ -65,8 +65,6 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
   // Stores action output result for [Custom Action - createFirebase] action in Button widget.
   String? createFirebaseOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
@@ -98,8 +96,4 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
     licenseIdFocusNode?.dispose();
     licenseIdController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

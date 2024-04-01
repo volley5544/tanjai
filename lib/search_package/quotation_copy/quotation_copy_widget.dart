@@ -115,6 +115,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -178,8 +179,12 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                   ),
                                   Text(
                                     'ก่อนหน้า',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ],
                               ),
@@ -210,6 +215,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                   .override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(
@@ -257,7 +263,11 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                     child: Text(
                                       'ถัดไป',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Icon(

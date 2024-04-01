@@ -77,7 +77,10 @@ class _SavedLeadCalledStatusWidgetState
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x25090F13),
-              offset: Offset(0.0, 2.0),
+              offset: Offset(
+                0.0,
+                2.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.only(
@@ -137,7 +140,12 @@ class _SavedLeadCalledStatusWidgetState
                         children: [
                           Text(
                             'บันทึกการโทร',
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'Noto Sans Thai',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -147,7 +155,12 @@ class _SavedLeadCalledStatusWidgetState
                                 'กรุณากรอกสถานะการโทรของ ${widget.leadChannel} Lead ID ${widget.leadId}',
                                 'กรุณากรอกสถานะการโทรของ',
                               ),
-                              style: FlutterFlowTheme.of(context).bodySmall,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -226,6 +239,7 @@ class _SavedLeadCalledStatusWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.black,
+                                      letterSpacing: 0.0,
                                     ),
                                 hintText: 'สถานะการโทร...',
                                 fillColor: Colors.white,
@@ -283,6 +297,7 @@ class _SavedLeadCalledStatusWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                       ),
                                   hintText: 'เหตุผล...',
                                   fillColor: Colors.white,
@@ -314,11 +329,16 @@ class _SavedLeadCalledStatusWidgetState
                               controller:
                                   _model.calledRemarkTextFieldController,
                               focusNode: _model.calledRemarkTextFieldFocusNode,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: 'จดบันทึกการโทร...',
-                                hintStyle:
-                                    FlutterFlowTheme.of(context).bodySmall,
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      letterSpacing: 0.0,
+                                    ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Color(0x00000000),
@@ -360,8 +380,14 @@ class _SavedLeadCalledStatusWidgetState
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                               textAlign: TextAlign.start,
+                              minLines: null,
                               validator: _model
                                   .calledRemarkTextFieldControllerValidator
                                   .asValidator(context),
@@ -538,6 +564,7 @@ class _SavedLeadCalledStatusWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                         elevation: 2.0,

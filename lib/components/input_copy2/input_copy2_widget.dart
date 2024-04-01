@@ -149,6 +149,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 20.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 )),
@@ -173,7 +174,11 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                       decoration: InputDecoration(
                                         hintText: 'ระบุเหตุผล...',
                                         hintStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall,
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
                                         enabledBorder: UnderlineInputBorder(
                                           borderSide: BorderSide(
                                             color: Color(0x00000000),
@@ -219,9 +224,11 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                       maxLines: 4,
+                                      minLines: null,
                                       validator: _model
                                           .reasonCancelControllerValidator
                                           .asValidator(context),
@@ -258,6 +265,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         elevation: 2.0,
@@ -296,6 +304,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                               fontFamily: 'Noto Sans Thai',
                                               color: Colors.white,
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         elevation: 2.0,

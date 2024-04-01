@@ -112,6 +112,7 @@ class _NonePackageEditDetailPageWidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -226,6 +227,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF204A77),
                                                                 fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
                                                         ),
                                                       ),
@@ -307,6 +310,8 @@ class _NonePackageEditDetailPageWidgetState
                                                               color: Color(
                                                                   0xFF204A77),
                                                               fontSize: 16.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                             ),
                                                       ),
                                                     ),
@@ -341,6 +346,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -394,6 +400,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -438,6 +446,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             color: Color(
                                                                 0xFF565656),
                                                             fontSize: 16.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -503,6 +512,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                           0xFF565656),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -549,6 +560,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             color: Color(
                                                                 0xFF565656),
                                                             fontSize: 16.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -614,6 +626,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                           0xFF565656),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -660,6 +674,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             color: Color(
                                                                 0xFF565656),
                                                             fontSize: 16.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -723,6 +738,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                           0xFF565656),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -769,6 +786,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             color: Color(
                                                                 0xFF565656),
                                                             fontSize: 16.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -837,6 +855,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                           0xFF565656),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -904,6 +924,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1062,6 +1084,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1221,6 +1245,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1263,6 +1289,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         color:
                                                             Color(0xFF565656),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1330,6 +1357,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1368,6 +1397,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1421,6 +1451,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -1459,6 +1491,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1512,6 +1545,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -1551,6 +1586,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         color:
                                                             Color(0xFF565656),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1610,6 +1646,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1649,6 +1687,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         color:
                                                             Color(0xFF565656),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -1713,6 +1752,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -1751,6 +1792,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1806,6 +1848,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -1844,6 +1888,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1896,6 +1941,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -1934,6 +1981,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1987,6 +2035,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2025,6 +2075,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2078,6 +2129,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2116,6 +2169,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2169,6 +2223,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2207,6 +2263,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2260,6 +2317,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2298,6 +2357,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2351,6 +2411,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2397,6 +2459,7 @@ class _NonePackageEditDetailPageWidgetState
                                                             color: Color(
                                                                 0xFF565656),
                                                             fontSize: 16.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
@@ -2460,6 +2523,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                           0xFF565656),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
@@ -2500,6 +2565,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2553,6 +2619,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2591,6 +2659,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2650,6 +2719,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2692,6 +2763,7 @@ class _NonePackageEditDetailPageWidgetState
                                                         color:
                                                             Color(0xFF565656),
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
                                                       ),
@@ -2759,6 +2831,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                       0xFF565656),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -2797,6 +2871,7 @@ class _NonePackageEditDetailPageWidgetState
                                                           color:
                                                               Color(0xFF565656),
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -2850,6 +2925,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -2908,6 +2985,8 @@ class _NonePackageEditDetailPageWidgetState
                                                                 color: Color(
                                                                     0xFF565656),
                                                                 fontSize: 15.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
@@ -3059,6 +3138,7 @@ class _NonePackageEditDetailPageWidgetState
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                                 elevation: 3.0,

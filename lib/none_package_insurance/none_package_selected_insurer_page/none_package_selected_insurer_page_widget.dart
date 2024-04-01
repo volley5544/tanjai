@@ -206,6 +206,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
                         fontSize: 18.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
                 ),
@@ -263,6 +264,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -287,6 +289,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               color: Color(
                                                                   0xFFF40606),
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -345,6 +349,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -386,6 +392,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -410,6 +417,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               color: Color(
                                                                   0xFFF40606),
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -468,6 +477,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -509,6 +520,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -533,6 +545,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                               color: Color(
                                                                   0xFFF40606),
                                                               fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
@@ -591,6 +605,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                       .primaryText,
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -634,6 +650,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -649,6 +666,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           color:
                                                               Color(0xFF1F6CFF),
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -669,6 +687,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             color: Color(
                                                                 0xFFF40606),
                                                             fontSize: 12.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
@@ -733,7 +752,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             hintText:
                                                                 'กรุณากรอกราคาเบี้ย',
                                                             hintStyle:
@@ -747,6 +772,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                           0xFFB3B3B3),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             enabledBorder:
                                                                 InputBorder
@@ -769,7 +796,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .black,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
+                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
@@ -819,6 +849,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -882,7 +913,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             hintText:
                                                                 'กรุณากรอกราคา พ.ร.บ.',
                                                             hintStyle:
@@ -896,6 +933,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                           0xFFB3B3B3),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             enabledBorder:
                                                                 InputBorder
@@ -918,7 +957,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .black,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
+                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
@@ -968,6 +1010,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1031,7 +1074,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                             labelStyle:
                                                                 FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelMedium,
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                             hintText:
                                                                 'กรุณากรอกราคาคุ้มครองอุปกรณ์เสริม',
                                                             hintStyle:
@@ -1045,6 +1094,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                           0xFFB3B3B3),
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                             enabledBorder:
                                                                 InputBorder
@@ -1067,7 +1118,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     'Noto Sans Thai',
                                                                 color: Colors
                                                                     .black,
+                                                                letterSpacing:
+                                                                    0.0,
                                                               ),
+                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
@@ -1370,6 +1424,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(

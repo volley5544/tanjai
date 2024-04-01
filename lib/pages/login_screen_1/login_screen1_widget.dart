@@ -94,6 +94,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -150,6 +151,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -169,6 +171,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -218,11 +221,23 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                         enabledBorder:
                                                             InputBorder.none,
                                                         focusedBorder:
@@ -232,10 +247,15 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         focusedErrorBorder:
                                                             InputBorder.none,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .emailControllerValidator
                                                           .asValidator(context),
@@ -276,6 +296,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -295,6 +316,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -337,14 +359,22 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   obscureText: !_model
                                                       .passwordVisibility,
                                                   decoration: InputDecoration(
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     enabledBorder:
                                                         InputBorder.none,
                                                     focusedBorder:
@@ -374,7 +404,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  minLines: null,
                                                   validator: _model
                                                       .passwordControllerValidator
                                                       .asValidator(context),
@@ -413,6 +449,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -432,6 +469,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -473,11 +511,21 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                   labelStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium,
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   hintStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .labelMedium,
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   enabledBorder:
                                                       InputBorder.none,
                                                   focusedBorder:
@@ -506,7 +554,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                minLines: null,
                                                 validator: _model
                                                     .confirmpasswordControllerValidator
                                                     .asValidator(context),
@@ -546,6 +600,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -565,6 +620,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -621,7 +677,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -633,6 +695,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                         0xFFB3B3B3),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -646,7 +710,14 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .nameControllerValidator
                                                             .asValidator(
@@ -691,6 +762,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -710,6 +782,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -766,7 +839,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -778,6 +857,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                         0xFFB3B3B3),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -791,7 +872,14 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
@@ -842,6 +930,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -861,6 +950,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -917,7 +1007,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -929,6 +1025,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                         0xFFB3B3B3),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -942,7 +1040,14 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         validator: _model
                                                             .phonenumberControllerValidator
                                                             .asValidator(
@@ -988,6 +1093,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1007,6 +1113,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         color:
                                                             Color(0xFFFB0606),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -1066,7 +1173,13 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                           labelStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
-                                                                  .labelMedium,
+                                                                  .labelMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                           hintStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -1078,6 +1191,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                         0xFFB3B3B3),
                                                                     fontSize:
                                                                         15.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                           enabledBorder:
                                                               InputBorder.none,
@@ -1091,7 +1206,14 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
@@ -1284,6 +1406,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

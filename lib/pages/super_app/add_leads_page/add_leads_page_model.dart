@@ -42,8 +42,6 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
   // Stores action output result for [Backend Call - API (LeadManagementSave)] action in Button widget.
   ApiCallResponse? saveLeadApi;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -62,8 +60,4 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
     remarkFocusNode?.dispose();
     remarkController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

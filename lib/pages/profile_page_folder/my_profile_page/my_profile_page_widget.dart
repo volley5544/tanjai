@@ -168,6 +168,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -477,6 +478,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -497,6 +499,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -517,6 +520,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -537,6 +541,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -557,6 +562,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -577,6 +583,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -597,6 +604,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -617,6 +625,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF646464),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -643,6 +652,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF003063),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -671,6 +681,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                               fontFamily: 'Noto Sans Thai',
                                               color: Color(0xFF003063),
                                               fontSize: 15.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
@@ -751,6 +762,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -783,6 +796,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -815,6 +830,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -867,6 +884,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF003063),
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -952,6 +970,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
@@ -985,6 +1005,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1017,6 +1039,8 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                                       0xFF003063),
                                                                   fontSize:
                                                                       15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
@@ -1059,6 +1083,7 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                                           color:
                                                               Color(0xFFDB771A),
                                                           fontSize: 10.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(

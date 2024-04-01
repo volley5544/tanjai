@@ -21,8 +21,6 @@ class RenewHistoryModel extends FlutterFlowModel<RenewHistoryWidget> {
   // Stores action output result for [Backend Call - API (renewCallStatusGetHistory)] action in renewHistory widget.
   ApiCallResponse? historyAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class RenewHistoryModel extends FlutterFlowModel<RenewHistoryWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

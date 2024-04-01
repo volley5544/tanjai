@@ -20,8 +20,6 @@ class SearchOldVmiModel extends FlutterFlowModel<SearchOldVmiWidget> {
   // Stores action output result for [Backend Call - API (insuranceRequestListAPIDashBoard)] action in Button widget.
   ApiCallResponse? searchVmiOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class SearchOldVmiModel extends FlutterFlowModel<SearchOldVmiWidget> {
     searchFirstnameFocusNode?.dispose();
     searchFirstnameController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

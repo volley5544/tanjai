@@ -88,6 +88,7 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],

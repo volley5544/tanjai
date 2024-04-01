@@ -21,8 +21,6 @@ class MyAccountPageModel extends FlutterFlowModel<MyAccountPageWidget> {
   // Stores action output result for [Custom Action - deleteAccFirebase] action in Button widget.
   bool? deleteAccOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class MyAccountPageModel extends FlutterFlowModel<MyAccountPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

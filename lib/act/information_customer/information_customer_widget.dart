@@ -80,6 +80,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -122,6 +123,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF404040),
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                     ),
@@ -167,10 +169,20 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 labelText: '29/2/2024',
                                                 labelStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                 enabledBorder:
                                                     UnderlineInputBorder(
                                                   borderSide: BorderSide(
@@ -220,7 +232,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              minLines: null,
                                               validator: _model
                                                   .textController1Validator
                                                   .asValidator(context),
@@ -265,6 +283,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -282,6 +301,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -333,11 +353,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -388,7 +420,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController2Validator
                                                         .asValidator(context),
@@ -441,6 +479,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -458,6 +497,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -509,11 +549,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -564,7 +616,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController3Validator
                                                         .asValidator(context),
@@ -619,6 +677,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -636,6 +695,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -687,11 +747,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -742,7 +814,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController4Validator
                                                         .asValidator(context),
@@ -797,6 +875,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -814,6 +893,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -865,11 +945,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -920,7 +1012,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController5Validator
                                                         .asValidator(context),
@@ -975,6 +1073,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -992,6 +1091,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -1043,11 +1143,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1098,7 +1210,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController6Validator
                                                         .asValidator(context),
@@ -1150,6 +1268,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                 fontFamily: 'Noto Sans Thai',
                                                 color: Color(0xFF404040),
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -1165,6 +1284,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFFF40606),
                                                   fontSize: 10.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
                                           ),
@@ -1211,14 +1331,22 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   obscureText: false,
                                                   decoration: InputDecoration(
                                                     labelText: 'กุลมาส',
-                                                    labelStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
-                                                    hintStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMedium,
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                                     enabledBorder:
                                                         UnderlineInputBorder(
                                                       borderSide: BorderSide(
@@ -1272,7 +1400,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  minLines: null,
                                                   validator: _model
                                                       .textController7Validator
                                                       .asValidator(context),
@@ -1319,6 +1453,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1336,6 +1471,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -1387,11 +1523,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1442,7 +1590,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController8Validator
                                                         .asValidator(context),
@@ -1490,6 +1644,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                   fontFamily: 'Noto Sans Thai',
                                                   color: Color(0xFF404040),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -1507,6 +1662,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                         'Noto Sans Thai',
                                                     color: Color(0xFFF40606),
                                                     fontSize: 10.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                             ),
@@ -1558,11 +1714,23 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                       labelStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                       enabledBorder:
                                                           UnderlineInputBorder(
                                                         borderSide: BorderSide(
@@ -1613,7 +1781,13 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    minLines: null,
                                                     validator: _model
                                                         .textController9Validator
                                                         .asValidator(context),
@@ -1665,6 +1839,7 @@ class _InformationCustomerWidgetState extends State<InformationCustomerWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF2C2925),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),

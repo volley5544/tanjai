@@ -100,6 +100,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -111,8 +112,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -127,6 +132,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -148,6 +154,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -159,8 +166,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -175,6 +186,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -196,6 +208,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -207,8 +220,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -223,6 +240,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -244,6 +262,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -255,8 +274,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -273,6 +296,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -295,6 +319,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -306,8 +331,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -324,6 +353,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -346,6 +376,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -357,8 +388,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -375,6 +410,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -397,6 +433,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -408,8 +445,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -427,6 +468,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -449,6 +491,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -460,8 +503,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -478,6 +525,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -500,6 +548,7 @@ class _InfomationCustomerActWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -511,8 +560,12 @@ class _InfomationCustomerActWidgetState
                                 ),
                                 child: Text(
                                   ':',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Container(
@@ -529,6 +582,7 @@ class _InfomationCustomerActWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         fontSize: 15.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),

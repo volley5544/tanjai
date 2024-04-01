@@ -22,8 +22,6 @@ class PaywithQRcodeModel extends FlutterFlowModel<PaywithQRcodeWidget> {
   // Stores action output result for [Custom Action - capQrCode] action in Button widget.
   String? cap;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -31,8 +29,4 @@ class PaywithQRcodeModel extends FlutterFlowModel<PaywithQRcodeWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

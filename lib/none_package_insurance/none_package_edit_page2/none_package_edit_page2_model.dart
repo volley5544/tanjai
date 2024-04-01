@@ -103,8 +103,6 @@ class NonePackageEditPage2Model
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl17 = '';
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -112,8 +110,4 @@ class NonePackageEditPage2Model
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

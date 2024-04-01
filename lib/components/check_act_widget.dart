@@ -96,6 +96,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF003063),
                                       fontSize: 16.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -139,6 +140,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -146,6 +148,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       hintText: 'กรอกทะเบียนรถลูกค้า',
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -153,6 +156,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
@@ -164,8 +168,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
+                                    minLines: null,
                                     validator: _model
                                         .searchFirstnameController1Validator
                                         .asValidator(context),
@@ -212,6 +218,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -219,6 +226,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       hintText: 'กรอกบัตรประชาชนลูกค้า',
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -226,6 +234,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
@@ -237,8 +246,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
+                                    minLines: null,
                                     validator: _model
                                         .searchFirstnameController2Validator
                                         .asValidator(context),
@@ -328,6 +339,7 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Noto Sans Thai',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(

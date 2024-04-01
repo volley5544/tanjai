@@ -171,6 +171,7 @@ class _PageControllerComponentWidgetState
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     iconColor: FlutterFlowTheme.of(context).primaryText,
                     iconSize: 8.0,
@@ -182,6 +183,7 @@ class _PageControllerComponentWidgetState
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Noto Sans Thai',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     iconColor: FlutterFlowTheme.of(context).secondaryText,
                     iconSize: 18.0,

@@ -21,8 +21,6 @@ class HomepageRequest22Model extends FlutterFlowModel<HomepageRequest22Widget> {
   bool? sumValue;
   DateTime? datePicked;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class HomepageRequest22Model extends FlutterFlowModel<HomepageRequest22Widget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

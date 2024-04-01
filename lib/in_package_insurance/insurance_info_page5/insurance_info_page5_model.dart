@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'insurance_info_page5_widget.dart' show InsuranceInfoPage5Widget;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -46,8 +47,6 @@ class InsuranceInfoPage5Model
   // Stores action output result for [Backend Call - API (getFileCmiApi )] action in Button widget.
   ApiCallResponse? cmiAPIOutputCopyButton;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     infomationCustomerActModel =
@@ -59,8 +58,4 @@ class InsuranceInfoPage5Model
     unfocusNode.dispose();
     infomationCustomerActModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

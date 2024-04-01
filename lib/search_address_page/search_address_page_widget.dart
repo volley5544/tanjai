@@ -74,6 +74,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF204A77),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                   ),
             ),
             actions: [],
@@ -106,6 +107,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: FlutterFlowTheme.of(context).error,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ],
@@ -146,10 +148,15 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
+                                    autofocus: false,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
                                       hintText:
                                           'ระบุรหัสไปรษณีย์หรือตำบล,อำเภอ,จังหวัด',
                                       hintStyle: FlutterFlowTheme.of(context)
@@ -157,15 +164,21 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF878787),
+                                            letterSpacing: 0.0,
                                           ),
                                       enabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
                                       errorBorder: InputBorder.none,
                                       focusedErrorBorder: InputBorder.none,
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          letterSpacing: 0.0,
+                                        ),
                                     textAlign: TextAlign.start,
+                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),
@@ -215,6 +228,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -287,6 +301,7 @@ class _SearchAddressPageWidgetState extends State<SearchAddressPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Colors.white,
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,
                                 borderSide: BorderSide(

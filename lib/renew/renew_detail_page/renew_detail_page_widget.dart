@@ -167,6 +167,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF003063),
                   fontSize: 18.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -240,6 +241,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF002D5E),
                                       fontSize: 15.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -252,6 +254,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
                                       fontSize: 13.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -266,6 +269,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF646464),
                                           fontSize: 13.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                   ),
@@ -300,6 +304,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
                                       fontSize: 13.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -318,6 +323,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
                                       fontSize: 13.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -351,6 +357,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -365,6 +372,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -405,6 +413,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     fontFamily: 'Noto Sans Thai',
                                     color: Color(0xFF002D5E),
                                     fontSize: 15.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -431,6 +440,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -456,6 +466,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -485,6 +496,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -500,6 +512,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -529,6 +542,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -544,6 +558,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -573,6 +588,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -588,6 +604,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -620,6 +637,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF646464),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -630,6 +648,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     .override(
                                       fontFamily: 'Noto Sans Thai',
                                       color: Color(0xFF222424),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -656,6 +675,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -676,6 +696,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -705,6 +726,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -725,6 +747,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -754,6 +777,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -774,6 +798,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFFFF0000),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -803,6 +828,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -823,6 +849,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -852,6 +879,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -872,6 +900,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -901,6 +930,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -921,6 +951,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -950,6 +981,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -970,6 +1002,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -999,6 +1032,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF646464),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
                                 ),
                           ),
@@ -1019,6 +1053,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                 .override(
                                   fontFamily: 'Noto Sans Thai',
                                   color: Color(0xFF222424),
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
@@ -1061,7 +1096,11 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                         ),
                         Text(
                           'ต้องการจะใช้ข้อมูลที่อยู่และเบอร์โทรลูกค้าเดิม',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ]
                           .addToStart(SizedBox(width: 12.0))
@@ -1097,7 +1136,11 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                         ),
                         Text(
                           'ต้องการ พ.ร.บ',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ]
                           .addToStart(SizedBox(width: 12.0))
@@ -1304,6 +1347,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
@@ -1501,6 +1545,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,
@@ -1630,6 +1675,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             color: Colors.white,
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
                                           ),
                                       elevation: 3.0,
@@ -1701,6 +1747,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           fontFamily: 'Noto Sans Thai',
                                           color: Colors.white,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                         ),
                                     elevation: 3.0,

@@ -156,6 +156,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -214,7 +215,10 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
+                                        ),
                                       )
                                     ],
                                     borderRadius: BorderRadius.circular(20.0),
@@ -271,6 +275,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -289,7 +295,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -312,6 +324,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -346,6 +360,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -364,7 +380,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -387,6 +409,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -421,6 +445,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -439,7 +465,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -462,6 +494,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -496,6 +530,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -514,7 +550,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -542,6 +584,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -576,6 +620,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -594,7 +640,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -622,6 +674,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -656,6 +710,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -674,7 +730,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -704,6 +766,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -738,6 +802,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -756,7 +822,13 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               ':',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Noto Sans Thai',
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
                                                             ),
                                                           ),
                                                         ),
@@ -783,6 +855,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                         'Noto Sans Thai',
                                                                     fontSize:
                                                                         14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ),
@@ -839,6 +913,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               'Noto Sans Thai',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -883,6 +958,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                 .override(
                                                   fontFamily: 'Noto Sans Thai',
                                                   fontSize: 15.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
                                                 ),
                                           ),
@@ -903,6 +979,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     context)
                                                                 .alternate,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -941,7 +1018,12 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                           height: 50.0,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           hintText: 'เลือกสถานะการโทร',
                                           icon: Icon(
                                             Icons.keyboard_arrow_down_rounded,
@@ -999,7 +1081,12 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                             height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMedium,
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily:
+                                                          'Noto Sans Thai',
+                                                      letterSpacing: 0.0,
+                                                    ),
                                             hintText: 'เลือกสถานะย่อย',
                                             icon: Icon(
                                               Icons.keyboard_arrow_down_rounded,
@@ -1058,6 +1145,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           fontSize: 15.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -1079,6 +1167,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                     context)
                                                                 .alternate,
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -1117,6 +1206,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                         child: TextFormField(
                                           controller: _model.textController,
                                           focusNode: _model.textFieldFocusNode,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelStyle:
@@ -1126,6 +1216,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                       fontFamily:
                                                           'Noto Sans Thai',
                                                       fontSize: 14.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                             hintText: 'กรอกรายละเอียดการโทร',
                                             hintStyle: FlutterFlowTheme.of(
@@ -1137,6 +1228,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                           context)
                                                       .secondaryText,
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                             enabledBorder: InputBorder.none,
                                             focusedBorder: InputBorder.none,
@@ -1145,7 +1237,12 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                 InputBorder.none,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                letterSpacing: 0.0,
+                                              ),
+                                          minLines: null,
                                           validator: _model
                                               .textControllerValidator
                                               .asValidator(context),
@@ -1429,6 +1526,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                               'Noto Sans Thai',
                                                           color: Colors.white,
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),

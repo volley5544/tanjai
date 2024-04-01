@@ -34,8 +34,6 @@ class RenewSaveHistoryModel extends FlutterFlowModel<RenewSaveHistoryWidget> {
   // Stores action output result for [Backend Call - API (renewCallStatusSave)] action in Button widget.
   ApiCallResponse? callStatusSaveAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -45,8 +43,4 @@ class RenewSaveHistoryModel extends FlutterFlowModel<RenewSaveHistoryWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

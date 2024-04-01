@@ -58,8 +58,6 @@ class InformationCustomer2Model
   // Stores action output result for [Backend Call - API (cmiSaveLeads)] action in Button widget.
   ApiCallResponse? cmiSaveAPIOutput;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -78,8 +76,4 @@ class InformationCustomer2Model
     textFieldFocusNode?.dispose();
     textFieldController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -264,6 +264,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF003063),
                     fontSize: 18.0,
+                    letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
                   ),
             ),
@@ -292,7 +293,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -333,6 +337,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -344,6 +349,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -370,7 +376,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               BoxShadow(
                                 blurRadius: 0.0,
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                offset: Offset(0.0, 1.0),
+                                offset: Offset(
+                                  0.0,
+                                  1.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -411,6 +420,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w800,
                                         ),
                                   ),
@@ -422,6 +432,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF204A77),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -437,7 +448,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                               BoxShadow(
                                 blurRadius: 0.0,
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                offset: Offset(0.0, 1.0),
+                                offset: Offset(
+                                  0.0,
+                                  1.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -478,6 +492,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
                                           fontSize: 15.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w800,
                                         ),
                                   ),
@@ -489,6 +504,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         color: Color(0xFF204A77),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -547,7 +563,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -590,6 +609,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -601,6 +621,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -650,7 +671,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -691,6 +715,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -702,6 +727,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -761,7 +787,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -809,6 +838,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -820,6 +850,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -869,7 +900,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -910,6 +944,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -921,6 +956,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -980,7 +1016,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -1029,6 +1068,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -1040,6 +1080,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -1089,7 +1130,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -1137,6 +1181,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -1148,6 +1193,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -1207,7 +1253,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -1256,6 +1305,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -1267,6 +1317,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),
@@ -1316,7 +1367,10 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                 BoxShadow(
                                   blurRadius: 0.0,
                                   color: FlutterFlowTheme.of(context).lineColor,
-                                  offset: Offset(0.0, 1.0),
+                                  offset: Offset(
+                                    0.0,
+                                    1.0,
+                                  ),
                                 )
                               ],
                               borderRadius: BorderRadius.circular(8.0),
@@ -1368,6 +1422,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFF204A77),
                                             fontSize: 15.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w800,
                                           ),
                                     ),
@@ -1379,6 +1434,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           color: Color(0xFF204A77),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
                                         ),
                                   ),

@@ -17,8 +17,6 @@ class NotificationIBSModel extends FlutterFlowModel<NotificationIBSWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -26,8 +24,4 @@ class NotificationIBSModel extends FlutterFlowModel<NotificationIBSWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

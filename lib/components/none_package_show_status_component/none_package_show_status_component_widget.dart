@@ -206,6 +206,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                 'Noto Sans Thai',
                                                             color: Colors.black,
                                                             fontSize: 18.0,
+                                                            letterSpacing: 0.0,
                                                           ),
                                                     ),
                                                     Container(
@@ -243,6 +244,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                           'Noto Sans Thai',
                                                                       fontSize:
                                                                           15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                     ),
                                                               ),
                                                               Column(
@@ -273,6 +276,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                               Colors.black,
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                   Text(
@@ -293,6 +298,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                               Colors.black,
                                                                           fontSize:
                                                                               12.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -333,6 +340,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                               'Noto Sans Thai',
                                                                           color:
                                                                               Colors.black,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -437,6 +446,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                               'Noto Sans Thai',
                                                           color: Colors.black,
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                                   ),
                                                   collapsed: Container(
@@ -474,6 +484,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0x8A000000),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -509,6 +521,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -530,6 +544,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],
@@ -572,6 +588,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                       'Noto Sans Thai',
                                                                   color: Color(
                                                                       0x8A000000),
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                 ),
                                                           ),
                                                         ),
@@ -603,6 +621,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                             Text(
@@ -624,6 +644,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                                         0x8A000000),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                   ),
                                                             ),
                                                           ],

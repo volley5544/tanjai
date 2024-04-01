@@ -250,6 +250,7 @@ class _InsuranceWorkSelectPageWidgetState
                       fontFamily: 'Noto Sans Thai',
                       color: Color(0xFF003063),
                       fontSize: 18.0,
+                      letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
@@ -307,7 +308,10 @@ class _InsuranceWorkSelectPageWidgetState
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -361,6 +365,7 @@ class _InsuranceWorkSelectPageWidgetState
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
                                           fontSize: 16.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -777,6 +782,7 @@ class _InsuranceWorkSelectPageWidgetState
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
                                             color: Color(0xFFDB771A),
+                                            letterSpacing: 0.0,
                                           ),
                                       elevation: 3.0,
                                       borderSide: BorderSide(
@@ -805,7 +811,10 @@ class _InsuranceWorkSelectPageWidgetState
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(8.0),
@@ -858,6 +867,7 @@ class _InsuranceWorkSelectPageWidgetState
                                       .override(
                                         fontFamily: 'Noto Sans Thai',
                                         fontSize: 16.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -1234,6 +1244,7 @@ class _InsuranceWorkSelectPageWidgetState
                                           fontFamily: 'Noto Sans Thai',
                                           color: FlutterFlowTheme.of(context)
                                               .black600,
+                                          letterSpacing: 0.0,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
