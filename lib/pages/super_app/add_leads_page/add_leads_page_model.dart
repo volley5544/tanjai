@@ -20,21 +20,21 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for firstName widget.
   FocusNode? firstNameFocusNode;
-  TextEditingController? firstNameController;
-  String? Function(BuildContext, String?)? firstNameControllerValidator;
+  TextEditingController? firstNameTextController;
+  String? Function(BuildContext, String?)? firstNameTextControllerValidator;
   // State field(s) for lastName widget.
   FocusNode? lastNameFocusNode;
-  TextEditingController? lastNameController;
-  String? Function(BuildContext, String?)? lastNameControllerValidator;
+  TextEditingController? lastNameTextController;
+  String? Function(BuildContext, String?)? lastNameTextControllerValidator;
   // State field(s) for phoneNumber widget.
   FocusNode? phoneNumberFocusNode;
-  TextEditingController? phoneNumberController;
+  TextEditingController? phoneNumberTextController;
   final phoneNumberMask = MaskTextInputFormatter(mask: '###-###-####');
-  String? Function(BuildContext, String?)? phoneNumberControllerValidator;
+  String? Function(BuildContext, String?)? phoneNumberTextControllerValidator;
   // State field(s) for remark widget.
   FocusNode? remarkFocusNode;
-  TextEditingController? remarkController;
-  String? Function(BuildContext, String?)? remarkControllerValidator;
+  TextEditingController? remarkTextController;
+  String? Function(BuildContext, String?)? remarkTextControllerValidator;
   // Stores action output result for [Backend Call - API (GetTokenLeadManagement)] action in Button widget.
   ApiCallResponse? getToken;
   // Stores action output result for [Backend Call - API (LeadManagementCheckDuplicate)] action in Button widget.
@@ -49,15 +49,15 @@ class AddLeadsPageModel extends FlutterFlowModel<AddLeadsPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     firstNameFocusNode?.dispose();
-    firstNameController?.dispose();
+    firstNameTextController?.dispose();
 
     lastNameFocusNode?.dispose();
-    lastNameController?.dispose();
+    lastNameTextController?.dispose();
 
     phoneNumberFocusNode?.dispose();
-    phoneNumberController?.dispose();
+    phoneNumberTextController?.dispose();
 
     remarkFocusNode?.dispose();
-    remarkController?.dispose();
+    remarkTextController?.dispose();
   }
 }

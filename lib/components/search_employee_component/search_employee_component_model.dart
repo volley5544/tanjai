@@ -22,9 +22,9 @@ class SearchEmployeeComponentModel
 
   // State field(s) for employeeKeywordInput widget.
   FocusNode? employeeKeywordInputFocusNode;
-  TextEditingController? employeeKeywordInputController;
+  TextEditingController? employeeKeywordInputTextController;
   String? Function(BuildContext, String?)?
-      employeeKeywordInputControllerValidator;
+      employeeKeywordInputTextControllerValidator;
   // Stores action output result for [Backend Call - API (getEmployeeIdFromNicknameAPI)] action in IconButton widget.
   ApiCallResponse? getEmployeeSearched;
   // State field(s) for DropDown widget.
@@ -37,6 +37,6 @@ class SearchEmployeeComponentModel
   @override
   void dispose() {
     employeeKeywordInputFocusNode?.dispose();
-    employeeKeywordInputController?.dispose();
+    employeeKeywordInputTextController?.dispose();
   }
 }

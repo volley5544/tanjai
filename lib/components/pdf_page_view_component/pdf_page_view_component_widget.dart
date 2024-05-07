@@ -109,8 +109,8 @@ class _PdfPageViewComponentWidgetState
                             child: PageView.builder(
                               controller: _model.pageViewController ??=
                                   PageController(
-                                      initialPage:
-                                          min(0, pdfListItem.length - 1)),
+                                      initialPage: max(
+                                          0, min(0, pdfListItem.length - 1))),
                               scrollDirection: Axis.horizontal,
                               itemCount: pdfListItem.length,
                               itemBuilder: (context, pdfListItemIndex) {
@@ -138,8 +138,8 @@ class _PdfPageViewComponentWidgetState
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
-                                        initialPage:
-                                            min(0, pdfListItem.length - 1)),
+                                        initialPage: max(
+                                            0, min(0, pdfListItem.length - 1))),
                                 count: pdfListItem.length,
                                 axisDirection: Axis.horizontal,
                                 onDotClicked: (i) async {

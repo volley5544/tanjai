@@ -14,12 +14,14 @@ class CheckActModel extends FlutterFlowModel<CheckActWidget> {
 
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode1;
-  TextEditingController? searchFirstnameController1;
-  String? Function(BuildContext, String?)? searchFirstnameController1Validator;
+  TextEditingController? searchFirstnameTextController1;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextController1Validator;
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode2;
-  TextEditingController? searchFirstnameController2;
-  String? Function(BuildContext, String?)? searchFirstnameController2Validator;
+  TextEditingController? searchFirstnameTextController2;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextController2Validator;
 
   @override
   void initState(BuildContext context) {}
@@ -27,9 +29,9 @@ class CheckActModel extends FlutterFlowModel<CheckActWidget> {
   @override
   void dispose() {
     searchFirstnameFocusNode1?.dispose();
-    searchFirstnameController1?.dispose();
+    searchFirstnameTextController1?.dispose();
 
     searchFirstnameFocusNode2?.dispose();
-    searchFirstnameController2?.dispose();
+    searchFirstnameTextController2?.dispose();
   }
 }

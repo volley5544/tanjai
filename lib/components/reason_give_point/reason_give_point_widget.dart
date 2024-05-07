@@ -196,7 +196,6 @@ class _ReasonGivePointWidgetState extends State<ReasonGivePointWidget> {
                                           fontWeight: FontWeight.normal,
                                         ),
                                     maxLines: 4,
-                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),

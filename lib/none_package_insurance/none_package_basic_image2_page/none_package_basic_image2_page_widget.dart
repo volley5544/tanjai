@@ -1851,6 +1851,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                                   _model.privacyConsent1Value =
                                                                       newValue!);
                                                             },
+                                                            side: BorderSide(
+                                                              width: 2,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryText,
+                                                            ),
                                                             activeColor:
                                                                 FlutterFlowTheme.of(
                                                                         context)
@@ -1900,6 +1906,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     _model.privacyConsent2Value =
                                                                         newValue!);
                                                               },
+                                                              side: BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                              ),
                                                               activeColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1950,6 +1962,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                                     _model.privacyConsent3Value =
                                                                         newValue!);
                                                               },
+                                                              side: BorderSide(
+                                                                width: 2,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                              ),
                                                               activeColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -2056,6 +2074,12 @@ class _NonePackageBasicImage2PageWidgetState
                                                       });
                                                     }
                                                   },
+                                                  side: BorderSide(
+                                                    width: 2,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                  ),
                                                   activeColor:
                                                       FlutterFlowTheme.of(
                                                               context)

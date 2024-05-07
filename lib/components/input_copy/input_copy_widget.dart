@@ -130,7 +130,6 @@ class _InputCopyWidgetState extends State<InputCopyWidget> {
                     fontFamily: 'Noto Sans Thai',
                     letterSpacing: 0.0,
                   ),
-              minLines: null,
               keyboardType: TextInputType.number,
               validator: _model.textControllerValidator.asValidator(context),
             ),

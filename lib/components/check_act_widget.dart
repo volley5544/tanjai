@@ -31,10 +31,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
     super.initState();
     _model = createModel(context, () => CheckActModel());
 
-    _model.searchFirstnameController1 ??= TextEditingController();
+    _model.searchFirstnameTextController1 ??= TextEditingController();
     _model.searchFirstnameFocusNode1 ??= FocusNode();
 
-    _model.searchFirstnameController2 ??= TextEditingController();
+    _model.searchFirstnameTextController2 ??= TextEditingController();
     _model.searchFirstnameFocusNode2 ??= FocusNode();
   }
 
@@ -133,10 +133,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                       8.0, 0.5, 8.0, 0.5),
                                   child: TextFormField(
                                     controller:
-                                        _model.searchFirstnameController1,
+                                        _model.searchFirstnameTextController1,
                                     focusNode: _model.searchFirstnameFocusNode1,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.searchFirstnameController1',
+                                      '_model.searchFirstnameTextController1',
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
@@ -171,9 +171,8 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                    minLines: null,
                                     validator: _model
-                                        .searchFirstnameController1Validator
+                                        .searchFirstnameTextController1Validator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -211,10 +210,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                       8.0, 0.5, 8.0, 0.5),
                                   child: TextFormField(
                                     controller:
-                                        _model.searchFirstnameController2,
+                                        _model.searchFirstnameTextController2,
                                     focusNode: _model.searchFirstnameFocusNode2,
                                     onChanged: (_) => EasyDebounce.debounce(
-                                      '_model.searchFirstnameController2',
+                                      '_model.searchFirstnameTextController2',
                                       Duration(milliseconds: 100),
                                       () => setState(() {}),
                                     ),
@@ -249,9 +248,8 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                    minLines: null,
                                     validator: _model
-                                        .searchFirstnameController2Validator
+                                        .searchFirstnameTextController2Validator
                                         .asValidator(context),
                                   ),
                                 ),
@@ -266,9 +264,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 12.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          if (!(_model.searchFirstnameController1.text !=
+                          if (!(_model.searchFirstnameTextController1.text !=
                                   null &&
-                              _model.searchFirstnameController1.text != '')) {
+                              _model.searchFirstnameTextController1.text !=
+                                  '')) {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
@@ -288,9 +287,10 @@ class _CheckActWidgetState extends State<CheckActWidget> {
                             );
                             return;
                           }
-                          if (!(_model.searchFirstnameController2.text !=
+                          if (!(_model.searchFirstnameTextController2.text !=
                                   null &&
-                              _model.searchFirstnameController2.text != '')) {
+                              _model.searchFirstnameTextController2.text !=
+                                  '')) {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {

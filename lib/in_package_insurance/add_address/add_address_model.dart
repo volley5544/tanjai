@@ -22,24 +22,24 @@ class AddAddressModel extends FlutterFlowModel<AddAddressWidget> {
   ApiCallResponse? getAddressMaster;
   // State field(s) for address2 widget.
   FocusNode? address2FocusNode;
-  TextEditingController? address2Controller;
-  String? Function(BuildContext, String?)? address2ControllerValidator;
+  TextEditingController? address2TextController;
+  String? Function(BuildContext, String?)? address2TextControllerValidator;
   // State field(s) for address3 widget.
   FocusNode? address3FocusNode;
-  TextEditingController? address3Controller;
-  String? Function(BuildContext, String?)? address3ControllerValidator;
+  TextEditingController? address3TextController;
+  String? Function(BuildContext, String?)? address3TextControllerValidator;
   // State field(s) for addressAtIdCard widget.
   bool? addressAtIdCardValue;
   // State field(s) for addressForDoc widget.
   bool? addressForDocValue;
   // State field(s) for address4 widget.
   FocusNode? address4FocusNode;
-  TextEditingController? address4Controller;
-  String? Function(BuildContext, String?)? address4ControllerValidator;
+  TextEditingController? address4TextController;
+  String? Function(BuildContext, String?)? address4TextControllerValidator;
   // State field(s) for address5 widget.
   FocusNode? address5FocusNode;
-  TextEditingController? address5Controller;
-  String? Function(BuildContext, String?)? address5ControllerValidator;
+  TextEditingController? address5TextController;
+  String? Function(BuildContext, String?)? address5TextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -48,15 +48,15 @@ class AddAddressModel extends FlutterFlowModel<AddAddressWidget> {
   void dispose() {
     unfocusNode.dispose();
     address2FocusNode?.dispose();
-    address2Controller?.dispose();
+    address2TextController?.dispose();
 
     address3FocusNode?.dispose();
-    address3Controller?.dispose();
+    address3TextController?.dispose();
 
     address4FocusNode?.dispose();
-    address4Controller?.dispose();
+    address4TextController?.dispose();
 
     address5FocusNode?.dispose();
-    address5Controller?.dispose();
+    address5TextController?.dispose();
   }
 }

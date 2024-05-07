@@ -43,7 +43,8 @@ class _NonePackageShowStatusComponentWidgetState
     super.initState();
     _model = createModel(context, () => NonePackageShowStatusComponentModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -429,8 +430,8 @@ class _NonePackageShowStatusComponentWidgetState
                                               width: double.infinity,
                                               color: Colors.white,
                                               child: ExpandableNotifier(
-                                                controller:
-                                                    _model.expandableController,
+                                                controller: _model
+                                                    .expandableExpandableController,
                                                 child: ExpandablePanel(
                                                   header: Text(
                                                     valueOrDefault<String>(

@@ -11375,6 +11375,12 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                   .privacyConsent1Value =
                                                               newValue!);
                                                         },
+                                                        side: BorderSide(
+                                                          width: 2,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryText,
+                                                        ),
                                                         activeColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -11424,6 +11430,12 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     .privacyConsent2Value =
                                                                 newValue!);
                                                           },
+                                                          side: BorderSide(
+                                                            width: 2,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                          ),
                                                           activeColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -11474,6 +11486,12 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     .privacyConsent3Value =
                                                                 newValue!);
                                                           },
+                                                          side: BorderSide(
+                                                            width: 2,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryText,
+                                                          ),
                                                           activeColor:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -11574,6 +11592,12 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                   });
                                                 }
                                               },
+                                              side: BorderSide(
+                                                width: 2,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                              ),
                                               activeColor:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBtnText,

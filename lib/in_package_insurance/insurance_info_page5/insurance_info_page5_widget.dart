@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/custom_dialog_component_copy_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/step5_document_download/step5_document_download_widget.dart';
@@ -130,69 +131,6 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         FFAppState().page5DateNow = '${GetDateTimeAPICall.currentDateYMD(
           (_model.getDateTimeOutput?.jsonBody ?? ''),
         )}';
-      });
-      _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
-        apiUrl: FFAppState().apiUrlInsuranceAppState,
-      );
-      if ((_model.getInsurer?.statusCode ?? 200) != 200) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content:
-                    Text((_model.getInsurer?.statusCode ?? 200).toString()),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-        Navigator.pop(context);
-        return;
-      }
-      if (InsuranceRequestGetInsurerAPICall.statusLayer1(
-            (_model.getInsurer?.jsonBody ?? ''),
-          ) !=
-          200) {
-        await showDialog(
-          context: context,
-          builder: (alertDialogContext) {
-            return WebViewAware(
-              child: AlertDialog(
-                content: Text(InsuranceRequestGetInsurerAPICall.messageLayer1(
-                  (_model.getInsurer?.jsonBody ?? ''),
-                )!),
-                actions: [
-                  TextButton(
-                    onPressed: () => Navigator.pop(alertDialogContext),
-                    child: Text('Ok'),
-                  ),
-                ],
-              ),
-            );
-          },
-        );
-        Navigator.pop(context);
-        return;
-      }
-      setState(() {
-        FFAppState().insuranceInfoImgUrlInsurerList =
-            InsuranceRequestGetInsurerAPICall.insurerLogo(
-          (_model.getInsurer?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoCompanyIdList =
-            InsuranceRequestGetInsurerAPICall.companyShortName(
-          (_model.getInsurer?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
       });
       _model.applicationDetailOutput = await IbsApplicationsDetailCall.call(
         quotationId: widget.quotationId,
@@ -340,6 +278,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         )}';
         FFAppState().page5RefundRemark =
             '${IbsApplicationsDetailCall.refundremark(
+          (_model.applicationDetailOutput?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoQuotationType =
+            '${IbsApplicationsDetailCall.quotationtype(
           (_model.applicationDetailOutput?.jsonBody ?? ''),
         )}';
       });
@@ -4554,153 +4496,212 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                             MainAxisAlignment.center,
                                         children: [
                                           Expanded(
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 20.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  var _shouldSetState = false;
-                                                  _model.getFileVmi =
-                                                      await GetFileVmiApiCall
-                                                          .call(
-                                                    apiUrl: FFAppState()
-                                                        .apiUrlInsuranceAppState,
-                                                    token: FFAppState()
-                                                        .accessToken,
-                                                    quotationId: FFAppState()
-                                                        .insuranceInfoQuotationId,
-                                                    ownerId:
-                                                        FFAppState().employeeID,
-                                                  );
-                                                  _shouldSetState = true;
-                                                  if ((_model.getFileVmi
-                                                              ?.statusCode ??
-                                                          200) !=
-                                                      200) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                'พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
-                                                                child:
-                                                                    Text('Ok'),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
+                                            child: Builder(
+                                              builder: (context) => Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 20.0, 0.0, 0.0),
+                                                child: FFButtonWidget(
+                                                  onPressed: () async {
+                                                    var _shouldSetState = false;
+                                                    _model.getFileVmi =
+                                                        await GetFileVmiApiCall
+                                                            .call(
+                                                      apiUrl: FFAppState()
+                                                          .apiUrlInsuranceAppState,
+                                                      token: FFAppState()
+                                                          .accessToken,
+                                                      quotationId: FFAppState()
+                                                          .insuranceInfoQuotationId,
+                                                      ownerId: FFAppState()
+                                                          .employeeID,
                                                     );
-                                                    if (_shouldSetState)
-                                                      setState(() {});
-                                                    return;
-                                                  }
-                                                  if (GetFileVmiApiCall
-                                                          .statusLayer1(
+                                                    _shouldSetState = true;
+                                                    if ((_model.getFileVmi
+                                                                ?.statusCode ??
+                                                            200) !=
+                                                        200) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  'พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                      if (_shouldSetState)
+                                                        setState(() {});
+                                                      return;
+                                                    }
+                                                    if (GetFileVmiApiCall
+                                                            .statusLayer1(
+                                                          (_model.getFileVmi
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ) !=
+                                                        200) {
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return WebViewAware(
+                                                            child: AlertDialog(
+                                                              content: Text(
+                                                                  GetFileVmiApiCall
+                                                                      .messageLayer1(
+                                                                (_model.getFileVmi
+                                                                        ?.jsonBody ??
+                                                                    ''),
+                                                              )!),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext),
+                                                                  child: Text(
+                                                                      'Ok'),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          );
+                                                        },
+                                                      );
+                                                      if (_shouldSetState)
+                                                        setState(() {});
+                                                      return;
+                                                    }
+                                                    setState(() {
+                                                      FFAppState()
+                                                              .insuranceInfoPage5Document =
+                                                          '${GetFileVmiApiCall.vmiDocumentUrl(
                                                         (_model.getFileVmi
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ) !=
-                                                      200) {
-                                                    await showDialog(
-                                                      context: context,
-                                                      builder:
-                                                          (alertDialogContext) {
-                                                        return WebViewAware(
-                                                          child: AlertDialog(
-                                                            content: Text(
-                                                                GetFileVmiApiCall
-                                                                    .messageLayer1(
-                                                              (_model.getFileVmi
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!),
-                                                            actions: [
-                                                              TextButton(
-                                                                onPressed: () =>
-                                                                    Navigator.pop(
-                                                                        alertDialogContext),
+                                                      )}';
+                                                    });
+                                                    if ((FFAppState()
+                                                                .insuranceInfoCompayId ==
+                                                            'TNI') &&
+                                                        (FFAppState()
+                                                                .insuranceInfocoverType ==
+                                                            'ชั้น 1') &&
+                                                        (FFAppState()
+                                                                .insuranceInfoQuotationType ==
+                                                            'auto')) {
+                                                      if (!isAndroid) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (dialogContext) {
+                                                            return Dialog(
+                                                              elevation: 0,
+                                                              insetPadding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              backgroundColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              alignment: AlignmentDirectional(
+                                                                      0.0, 0.0)
+                                                                  .resolve(
+                                                                      Directionality.of(
+                                                                          context)),
+                                                              child:
+                                                                  WebViewAware(
                                                                 child:
-                                                                    Text('Ok'),
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
+                                                                  child:
+                                                                      CustomDialogComponentCopyWidget(
+                                                                    linkUrl:
+                                                                        FFAppState()
+                                                                            .insuranceInfoPage5Document,
+                                                                  ),
+                                                                ),
                                                               ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                    );
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            setState(() {}));
+
+                                                        if (_shouldSetState)
+                                                          setState(() {});
+                                                        return;
+                                                      }
+                                                      await actions
+                                                          .urlLauncherAction(
+                                                        FFAppState()
+                                                            .insuranceInfoPage5Document,
+                                                        'android',
+                                                      );
+                                                      if (_shouldSetState)
+                                                        setState(() {});
+                                                      return;
+                                                    }
+                                                    await launchURL(FFAppState()
+                                                        .insuranceInfoPage5Document);
                                                     if (_shouldSetState)
                                                       setState(() {});
-                                                    return;
-                                                  }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage5Document =
-                                                        '${GetFileVmiApiCall.vmiDocumentUrl(
-                                                      (_model.getFileVmi
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )}';
-                                                  });
-                                                  if (true) {
-                                                    await actions
-                                                        .openTableauBrowserCopy(
-                                                      '',
-                                                      FFAppState()
-                                                          .insuranceInfoPage5Document,
-                                                    );
-                                                    if (_shouldSetState)
-                                                      setState(() {});
-                                                    return;
-                                                  }
-                                                  await launchURL(FFAppState()
-                                                      .insuranceInfoPage5Document);
-                                                  if (_shouldSetState)
-                                                    setState(() {});
-                                                },
-                                                text: 'ดูกรมธรรม์',
-                                                options: FFButtonOptions(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 60.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Color(0xFFD9761A),
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                  elevation: 3.0,
-                                                  borderSide: BorderSide(
-                                                    color: Color(0xFFFCEFE4),
-                                                    width: 1.0,
+                                                  },
+                                                  text: 'ดูกรมธรรม์',
+                                                  options: FFButtonOptions(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: 60.0,
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(24.0, 0.0,
+                                                                24.0, 0.0),
+                                                    iconPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 0.0),
+                                                    color: Color(0xFFD9761A),
+                                                    textStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    elevation: 3.0,
+                                                    borderSide: BorderSide(
+                                                      color: Color(0xFFFCEFE4),
+                                                      width: 1.0,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            16.0),
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          16.0),
                                                 ),
                                               ),
                                             ),

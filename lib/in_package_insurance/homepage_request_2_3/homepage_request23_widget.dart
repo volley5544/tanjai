@@ -396,6 +396,11 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                               });
                                             }
                                           },
+                                          side: BorderSide(
+                                            width: 2,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                          ),
                                           activeColor:
                                               FlutterFlowTheme.of(context)
                                                   .success,
@@ -705,7 +710,6 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
-                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),

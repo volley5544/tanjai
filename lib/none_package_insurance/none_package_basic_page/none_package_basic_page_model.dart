@@ -37,70 +37,75 @@ class NonePackageBasicPageModel
   ApiCallResponse? getCoverTypeAPI;
   // State field(s) for CarryPurposeTextField widget.
   FocusNode? carryPurposeTextFieldFocusNode;
-  TextEditingController? carryPurposeTextFieldController;
+  TextEditingController? carryPurposeTextFieldTextController;
   String? Function(BuildContext, String?)?
-      carryPurposeTextFieldControllerValidator;
+      carryPurposeTextFieldTextControllerValidator;
   // State field(s) for CurrentPriceTextField widget.
   FocusNode? currentPriceTextFieldFocusNode;
-  TextEditingController? currentPriceTextFieldController;
+  TextEditingController? currentPriceTextFieldTextController;
   String? Function(BuildContext, String?)?
-      currentPriceTextFieldControllerValidator;
+      currentPriceTextFieldTextControllerValidator;
   // State field(s) for CarrierPriceTextField widget.
   FocusNode? carrierPriceTextFieldFocusNode;
-  TextEditingController? carrierPriceTextFieldController;
+  TextEditingController? carrierPriceTextFieldTextController;
   String? Function(BuildContext, String?)?
-      carrierPriceTextFieldControllerValidator;
+      carrierPriceTextFieldTextControllerValidator;
   // State field(s) for BrandNameTextField widget.
   final brandNameTextFieldKey = GlobalKey();
   FocusNode? brandNameTextFieldFocusNode;
-  TextEditingController? brandNameTextFieldController;
+  TextEditingController? brandNameTextFieldTextController;
   String? brandNameTextFieldSelectedOption;
   String? Function(BuildContext, String?)?
-      brandNameTextFieldControllerValidator;
+      brandNameTextFieldTextControllerValidator;
   // State field(s) for modelName widget.
   final modelNameKey = GlobalKey();
   FocusNode? modelNameFocusNode;
-  TextEditingController? modelNameController;
+  TextEditingController? modelNameTextController;
   String? modelNameSelectedOption;
-  String? Function(BuildContext, String?)? modelNameControllerValidator;
+  String? Function(BuildContext, String?)? modelNameTextControllerValidator;
   // State field(s) for OldVmiTextField widget.
   FocusNode? oldVmiTextFieldFocusNode;
-  TextEditingController? oldVmiTextFieldController;
-  String? Function(BuildContext, String?)? oldVmiTextFieldControllerValidator;
+  TextEditingController? oldVmiTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      oldVmiTextFieldTextControllerValidator;
   DateTime? datePicked;
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode;
-  TextEditingController? cusNameTextFieldController;
-  String? Function(BuildContext, String?)? cusNameTextFieldControllerValidator;
+  TextEditingController? cusNameTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      cusNameTextFieldTextControllerValidator;
   // State field(s) for CusPhoneTextField widget.
   FocusNode? cusPhoneTextFieldFocusNode;
-  TextEditingController? cusPhoneTextFieldController;
+  TextEditingController? cusPhoneTextFieldTextController;
   final cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
-  String? Function(BuildContext, String?)? cusPhoneTextFieldControllerValidator;
+  String? Function(BuildContext, String?)?
+      cusPhoneTextFieldTextControllerValidator;
   // State field(s) for PlateTextField widget.
   FocusNode? plateTextFieldFocusNode;
-  TextEditingController? plateTextFieldController;
-  String? Function(BuildContext, String?)? plateTextFieldControllerValidator;
+  TextEditingController? plateTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      plateTextFieldTextControllerValidator;
   // State field(s) for PlateAdditionalTextField widget.
   FocusNode? plateAdditionalTextFieldFocusNode;
-  TextEditingController? plateAdditionalTextFieldController;
+  TextEditingController? plateAdditionalTextFieldTextController;
   final plateAdditionalTextFieldMask = MaskTextInputFormatter(mask: '######');
   String? Function(BuildContext, String?)?
-      plateAdditionalTextFieldControllerValidator;
+      plateAdditionalTextFieldTextControllerValidator;
   // State field(s) for SumInsuredTextField widget.
   FocusNode? sumInsuredTextFieldFocusNode;
-  TextEditingController? sumInsuredTextFieldController;
+  TextEditingController? sumInsuredTextFieldTextController;
   String? Function(BuildContext, String?)?
-      sumInsuredTextFieldControllerValidator;
+      sumInsuredTextFieldTextControllerValidator;
   // State field(s) for TrailerSumInsuredTextField widget.
   FocusNode? trailerSumInsuredTextFieldFocusNode;
-  TextEditingController? trailerSumInsuredTextFieldController;
+  TextEditingController? trailerSumInsuredTextFieldTextController;
   String? Function(BuildContext, String?)?
-      trailerSumInsuredTextFieldControllerValidator;
+      trailerSumInsuredTextFieldTextControllerValidator;
   // State field(s) for RemarkTextField widget.
   FocusNode? remarkTextFieldFocusNode;
-  TextEditingController? remarkTextFieldController;
-  String? Function(BuildContext, String?)? remarkTextFieldControllerValidator;
+  TextEditingController? remarkTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      remarkTextFieldTextControllerValidator;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -123,40 +128,40 @@ class NonePackageBasicPageModel
   void dispose() {
     unfocusNode.dispose();
     carryPurposeTextFieldFocusNode?.dispose();
-    carryPurposeTextFieldController?.dispose();
+    carryPurposeTextFieldTextController?.dispose();
 
     currentPriceTextFieldFocusNode?.dispose();
-    currentPriceTextFieldController?.dispose();
+    currentPriceTextFieldTextController?.dispose();
 
     carrierPriceTextFieldFocusNode?.dispose();
-    carrierPriceTextFieldController?.dispose();
+    carrierPriceTextFieldTextController?.dispose();
 
     brandNameTextFieldFocusNode?.dispose();
 
     modelNameFocusNode?.dispose();
 
     oldVmiTextFieldFocusNode?.dispose();
-    oldVmiTextFieldController?.dispose();
+    oldVmiTextFieldTextController?.dispose();
 
     cusNameTextFieldFocusNode?.dispose();
-    cusNameTextFieldController?.dispose();
+    cusNameTextFieldTextController?.dispose();
 
     cusPhoneTextFieldFocusNode?.dispose();
-    cusPhoneTextFieldController?.dispose();
+    cusPhoneTextFieldTextController?.dispose();
 
     plateTextFieldFocusNode?.dispose();
-    plateTextFieldController?.dispose();
+    plateTextFieldTextController?.dispose();
 
     plateAdditionalTextFieldFocusNode?.dispose();
-    plateAdditionalTextFieldController?.dispose();
+    plateAdditionalTextFieldTextController?.dispose();
 
     sumInsuredTextFieldFocusNode?.dispose();
-    sumInsuredTextFieldController?.dispose();
+    sumInsuredTextFieldTextController?.dispose();
 
     trailerSumInsuredTextFieldFocusNode?.dispose();
-    trailerSumInsuredTextFieldController?.dispose();
+    trailerSumInsuredTextFieldTextController?.dispose();
 
     remarkTextFieldFocusNode?.dispose();
-    remarkTextFieldController?.dispose();
+    remarkTextFieldTextController?.dispose();
   }
 }

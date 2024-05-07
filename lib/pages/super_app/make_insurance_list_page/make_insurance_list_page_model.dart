@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/custom_dialog_component_copy_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/make_insurance_type_color/make_insurance_type_color_widget.dart';
 import '/components/none_package_show_status_component/none_package_show_status_component_widget.dart';
@@ -35,8 +36,9 @@ class MakeInsuranceListPageModel
   AuthorizationRecord? adminVersionQuery;
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode;
-  TextEditingController? searchFirstnameController;
-  String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
+  TextEditingController? searchFirstnameTextController;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextControllerValidator;
   // Stores action output result for [Backend Call - API (getFileVmiApi)] action in Button widget.
   ApiCallResponse? getFileVmiButton;
   // Stores action output result for [Backend Call - API (getFileCmiApi )] action in Button widget.
@@ -53,6 +55,6 @@ class MakeInsuranceListPageModel
   void dispose() {
     unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();
-    searchFirstnameController?.dispose();
+    searchFirstnameTextController?.dispose();
   }
 }

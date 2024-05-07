@@ -190,7 +190,6 @@ class _PlanningKPIComponentWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     letterSpacing: 0.0,
                                   ),
-                              minLines: null,
                               validator: _model.textController1Validator
                                   .asValidator(context),
                             ),
@@ -263,7 +262,6 @@ class _PlanningKPIComponentWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     letterSpacing: 0.0,
                                   ),
-                              minLines: null,
                               validator: _model.textController2Validator
                                   .asValidator(context),
                             ),

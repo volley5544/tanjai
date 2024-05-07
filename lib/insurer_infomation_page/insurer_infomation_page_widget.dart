@@ -208,7 +208,6 @@ class _InsurerInfomationPageWidgetState
                                     fontWeight: FontWeight.w600,
                                   ),
                               maxLines: null,
-                              minLines: null,
                               validator: _model.textControllerValidator
                                   .asValidator(context),
                             ),

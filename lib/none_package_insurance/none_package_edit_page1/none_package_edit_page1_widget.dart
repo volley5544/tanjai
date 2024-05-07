@@ -391,7 +391,6 @@ class _NonePackageEditPage1WidgetState
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                    minLines: null,
                                                     validator: _model
                                                         .textControllerValidator
                                                         .asValidator(context),

@@ -44,7 +44,7 @@ class _SearchEmployeeComponentWidgetState
     super.initState();
     _model = createModel(context, () => SearchEmployeeComponentModel());
 
-    _model.employeeKeywordInputController ??= TextEditingController();
+    _model.employeeKeywordInputTextController ??= TextEditingController();
     _model.employeeKeywordInputFocusNode ??= FocusNode();
   }
 
@@ -204,7 +204,7 @@ class _SearchEmployeeComponentWidgetState
                               flex: 5,
                               child: TextFormField(
                                 controller:
-                                    _model.employeeKeywordInputController,
+                                    _model.employeeKeywordInputTextController,
                                 focusNode: _model.employeeKeywordInputFocusNode,
                                 autofocus: false,
                                 obscureText: false,
@@ -270,9 +270,8 @@ class _SearchEmployeeComponentWidgetState
                                       letterSpacing: 0.0,
                                     ),
                                 textAlign: TextAlign.start,
-                                minLines: null,
                                 validator: _model
-                                    .employeeKeywordInputControllerValidator
+                                    .employeeKeywordInputTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -292,10 +291,10 @@ class _SearchEmployeeComponentWidgetState
                                 onPressed: () async {
                                   var _shouldSetState = false;
                                   HapticFeedback.mediumImpact();
-                                  if (!(_model.employeeKeywordInputController
+                                  if (!(_model.employeeKeywordInputTextController
                                               .text !=
                                           null &&
-                                      _model.employeeKeywordInputController
+                                      _model.employeeKeywordInputTextController
                                               .text !=
                                           '')) {
                                     await showDialog(
@@ -344,7 +343,8 @@ class _SearchEmployeeComponentWidgetState
                                           .call(
                                     token: FFAppState().accessToken,
                                     searchName: _model
-                                        .employeeKeywordInputController.text,
+                                        .employeeKeywordInputTextController
+                                        .text,
                                     apiUrl: FFAppState().apiURLLocalState,
                                   );
                                   _shouldSetState = true;

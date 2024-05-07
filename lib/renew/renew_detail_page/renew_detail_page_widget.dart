@@ -1090,6 +1090,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                               setState(
                                   () => _model.addressCheckValue = newValue!);
                             },
+                            side: BorderSide(
+                              width: 2,
+                              color: Color(0xFF969696),
+                            ),
                             activeColor: Color(0xFFEAEAEA),
                             checkColor: FlutterFlowTheme.of(context).info,
                           ),
@@ -1130,6 +1134,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                             onChanged: (newValue) async {
                               setState(() => _model.actCheckValue = newValue!);
                             },
+                            side: BorderSide(
+                              width: 2,
+                              color: Color(0xFF969696),
+                            ),
                             activeColor: Color(0xFFEAEAEA),
                             checkColor: FlutterFlowTheme.of(context).info,
                           ),

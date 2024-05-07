@@ -43,20 +43,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'listViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -225,8 +212,23 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
       Navigator.pop(context);
     });
 
-    _model.searchFirstnameController ??= TextEditingController();
+    _model.searchFirstnameTextController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -509,11 +511,11 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                         8.0, 0.5, 8.0, 0.5),
                                     child: TextFormField(
                                       controller:
-                                          _model.searchFirstnameController,
+                                          _model.searchFirstnameTextController,
                                       focusNode:
                                           _model.searchFirstnameFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.searchFirstnameController',
+                                        '_model.searchFirstnameTextController',
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
@@ -548,9 +550,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .searchFirstnameControllerValidator
+                                          .searchFirstnameTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -597,7 +598,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                 final listItem = list[listIndex];
                                 return Visibility(
                                   visible: (functions.containWordinStringUrl(
-                                              _model.searchFirstnameController
+                                              _model
+                                                  .searchFirstnameTextController
                                                   .text,
                                               InsuranceRequestListAPICall
                                                   .firstname(
@@ -605,10 +607,10 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                         ?.jsonBody ??
                                                     ''),
                                               )?[listIndex])! ||
-                                          (_model.searchFirstnameController
+                                          (_model.searchFirstnameTextController
                                                       .text ==
                                                   null ||
-                                              _model.searchFirstnameController
+                                              _model.searchFirstnameTextController
                                                       .text ==
                                                   '')) &&
                                       ((FFAppState().searchList1 == '0') ||

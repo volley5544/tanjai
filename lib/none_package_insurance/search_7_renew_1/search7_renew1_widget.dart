@@ -27,16 +27,16 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Search_7_Renew_1'});
-    _model.cusNameTextFieldController1 ??= TextEditingController();
+    _model.cusNameTextFieldTextController1 ??= TextEditingController();
     _model.cusNameTextFieldFocusNode1 ??= FocusNode();
 
-    _model.cusNameTextFieldController2 ??= TextEditingController();
+    _model.cusNameTextFieldTextController2 ??= TextEditingController();
     _model.cusNameTextFieldFocusNode2 ??= FocusNode();
 
-    _model.cusNameTextFieldController3 ??= TextEditingController();
+    _model.cusNameTextFieldTextController3 ??= TextEditingController();
     _model.cusNameTextFieldFocusNode3 ??= FocusNode();
 
-    _model.textFieldController ??= TextEditingController();
+    _model.textFieldTextController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }
 
@@ -381,7 +381,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
-                                      _model.cusNameTextFieldController1,
+                                      _model.cusNameTextFieldTextController1,
                                   focusNode: _model.cusNameTextFieldFocusNode1,
                                   autofocus: false,
                                   obscureText: false,
@@ -414,9 +414,8 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   validator: _model
-                                      .cusNameTextFieldController1Validator
+                                      .cusNameTextFieldTextController1Validator
                                       .asValidator(context),
                                 ),
                               ),
@@ -485,7 +484,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
-                                      _model.cusNameTextFieldController2,
+                                      _model.cusNameTextFieldTextController2,
                                   focusNode: _model.cusNameTextFieldFocusNode2,
                                   autofocus: false,
                                   obscureText: false,
@@ -518,9 +517,8 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   validator: _model
-                                      .cusNameTextFieldController2Validator
+                                      .cusNameTextFieldTextController2Validator
                                       .asValidator(context),
                                 ),
                               ),
@@ -694,7 +692,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
                                   controller:
-                                      _model.cusNameTextFieldController3,
+                                      _model.cusNameTextFieldTextController3,
                                   focusNode: _model.cusNameTextFieldFocusNode3,
                                   autofocus: false,
                                   obscureText: false,
@@ -727,9 +725,8 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   validator: _model
-                                      .cusNameTextFieldController3Validator
+                                      .cusNameTextFieldTextController3Validator
                                       .asValidator(context),
                                 ),
                               ),
@@ -1387,7 +1384,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textFieldController,
+                                  controller: _model.textFieldTextController,
                                   focusNode: _model.textFieldFocusNode,
                                   autofocus: false,
                                   obscureText: false,
@@ -1420,9 +1417,9 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   keyboardType: TextInputType.emailAddress,
-                                  validator: _model.textFieldControllerValidator
+                                  validator: _model
+                                      .textFieldTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),

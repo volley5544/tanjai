@@ -13,20 +13,23 @@ class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
   final unfocusNode = FocusNode();
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode1;
-  TextEditingController? cusNameTextFieldController1;
-  String? Function(BuildContext, String?)? cusNameTextFieldController1Validator;
+  TextEditingController? cusNameTextFieldTextController1;
+  String? Function(BuildContext, String?)?
+      cusNameTextFieldTextController1Validator;
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode2;
-  TextEditingController? cusNameTextFieldController2;
-  String? Function(BuildContext, String?)? cusNameTextFieldController2Validator;
+  TextEditingController? cusNameTextFieldTextController2;
+  String? Function(BuildContext, String?)?
+      cusNameTextFieldTextController2Validator;
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode3;
-  TextEditingController? cusNameTextFieldController3;
-  String? Function(BuildContext, String?)? cusNameTextFieldController3Validator;
+  TextEditingController? cusNameTextFieldTextController3;
+  String? Function(BuildContext, String?)?
+      cusNameTextFieldTextController3Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textFieldController;
-  String? Function(BuildContext, String?)? textFieldControllerValidator;
+  TextEditingController? textFieldTextController;
+  String? Function(BuildContext, String?)? textFieldTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -35,15 +38,15 @@ class Search7Renew1Model extends FlutterFlowModel<Search7Renew1Widget> {
   void dispose() {
     unfocusNode.dispose();
     cusNameTextFieldFocusNode1?.dispose();
-    cusNameTextFieldController1?.dispose();
+    cusNameTextFieldTextController1?.dispose();
 
     cusNameTextFieldFocusNode2?.dispose();
-    cusNameTextFieldController2?.dispose();
+    cusNameTextFieldTextController2?.dispose();
 
     cusNameTextFieldFocusNode3?.dispose();
-    cusNameTextFieldController3?.dispose();
+    cusNameTextFieldTextController3?.dispose();
 
     textFieldFocusNode?.dispose();
-    textFieldController?.dispose();
+    textFieldTextController?.dispose();
   }
 }

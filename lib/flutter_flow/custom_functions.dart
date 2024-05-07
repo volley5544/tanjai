@@ -5104,3 +5104,8 @@ DateTime? changeYearBDtoAD(String? inputDate) {
   // Construct a new DateTime object with the parsed components
   return DateTime(year, month, day);
 }
+
+bool? checkNumberInString(String? stringInput) {
+  bool containsNumber = RegExp(r'\d').hasMatch(stringInput!);
+  return containsNumber;
+}

@@ -431,7 +431,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
       Navigator.pop(context);
     });
 
-    _model.expandableController = ExpandableController(initialExpanded: true);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: true);
   }
 
   @override
@@ -999,7 +1000,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               if (!expandableListenerRegistered) {
                                                 expandableListenerRegistered =
                                                     true;
-                                                _model.expandableController
+                                                _model
+                                                    .expandableExpandableController
                                                     .addListener(
                                                   () async {
                                                     setState(() {
@@ -1016,7 +1018,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                 color: Color(0x00000000),
                                                 child: ExpandableNotifier(
                                                   controller: _model
-                                                      .expandableController,
+                                                      .expandableExpandableController,
                                                   child: ExpandablePanel(
                                                     header: Row(
                                                       mainAxisSize:
@@ -2721,8 +2723,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             controller: _model
                                                     .pageViewController1 ??=
                                                 PageController(
-                                                    initialPage: min(0,
-                                                        leadList.length - 1)),
+                                                    initialPage: max(
+                                                        0,
+                                                        min(
+                                                            0,
+                                                            leadList.length -
+                                                                1))),
                                             scrollDirection: Axis.horizontal,
                                             itemCount: leadList.length,
                                             itemBuilder:
@@ -3493,8 +3499,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             controller: _model
                                                     .pageViewController1 ??=
                                                 PageController(
-                                                    initialPage: min(0,
-                                                        leadList.length - 1)),
+                                                    initialPage: max(
+                                                        0,
+                                                        min(
+                                                            0,
+                                                            leadList.length -
+                                                                1))),
                                             count: leadList.length,
                                             axisDirection: Axis.horizontal,
                                             onDotClicked: (i) async {
@@ -3722,103 +3732,180 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 4.0, 20.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 18.0,
-                                child: VerticalDivider(
-                                  thickness: 3.0,
-                                  color: Color(0xFFE8903E),
-                                ),
+                  FutureBuilder<List<HideInAppContentRecord>>(
+                    future: queryHideInAppContentRecordOnce(
+                      queryBuilder: (hideInAppContentRecord) =>
+                          hideInAppContentRecord.where(
+                        'content_name',
+                        isEqualTo: 'one_price_auto_image',
+                      ),
+                      singleRecord: true,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                FlutterFlowTheme.of(context).primary,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    'ตารางแสดงประกันในเรท',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          color: Color(0xFF003063),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 15.0, 0.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 200.0,
-                            decoration: BoxDecoration(),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    await Navigator.push(
-                                      context,
-                                      PageTransition(
-                                        type: PageTransitionType.fade,
-                                        child: FlutterFlowExpandedImageView(
-                                          image: Image.asset(
-                                            'assets/images/S__15712417.jpg',
-                                            fit: BoxFit.contain,
+                        );
+                      }
+                      List<HideInAppContentRecord>
+                          columnHideInAppContentRecordList = snapshot.data!;
+                      final columnHideInAppContentRecord =
+                          columnHideInAppContentRecordList.isNotEmpty
+                              ? columnHideInAppContentRecordList.first
+                              : null;
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          if (columnHideInAppContentRecord?.isShowContent ??
+                              true)
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 12.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        20.0, 4.0, 20.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          height: 18.0,
+                                          child: VerticalDivider(
+                                            thickness: 3.0,
+                                            color: Color(0xFFE8903E),
                                           ),
-                                          allowRotation: false,
-                                          tag: 'imageTag5',
-                                          useHeroAnimation: true,
                                         ),
-                                      ),
-                                    );
-                                  },
-                                  child: Hero(
-                                    tag: 'imageTag5',
-                                    transitionOnUserGestures: true,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                      child: Image.asset(
-                                        'assets/images/S__15712417.jpg',
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.9,
-                                        height: 200.0,
-                                        fit: BoxFit.cover,
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'ตารางแสดงประกันในเรท',
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    color: Color(0xFF003063),
+                                                    fontSize: 16.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 15.0, 0.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 200.0,
+                                      decoration: BoxDecoration(),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              await Navigator.push(
+                                                context,
+                                                PageTransition(
+                                                  type: PageTransitionType.fade,
+                                                  child:
+                                                      FlutterFlowExpandedImageView(
+                                                    image: OctoImage(
+                                                      placeholderBuilder: (_) =>
+                                                          SizedBox.expand(
+                                                        child: Image(
+                                                          image: BlurHashImage(
+                                                              'LFN^_6}Qz.#9HqbbnPoJ4Tobninh'),
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                      image: NetworkImage(
+                                                        functions.stringToImgPath(
+                                                            columnHideInAppContentRecord
+                                                                ?.contentUrl)!,
+                                                      ),
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                    allowRotation: false,
+                                                    tag: functions.stringToImgPath(
+                                                        columnHideInAppContentRecord
+                                                            ?.contentUrl)!,
+                                                    useHeroAnimation: true,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                            child: Hero(
+                                              tag: functions.stringToImgPath(
+                                                  columnHideInAppContentRecord
+                                                      ?.contentUrl)!,
+                                              transitionOnUserGestures: true,
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20.0),
+                                                child: OctoImage(
+                                                  placeholderBuilder: (_) =>
+                                                      SizedBox.expand(
+                                                    child: Image(
+                                                      image: BlurHashImage(
+                                                          'LFN^_6}Qz.#9HqbbnPoJ4Tobninh'),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                  image: NetworkImage(
+                                                    functions.stringToImgPath(
+                                                        columnHideInAppContentRecord
+                                                            ?.contentUrl)!,
+                                                  ),
+                                                  width:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.9,
+                                                  height: 200.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      );
+                    },
                   ),
                   Padding(
                     padding:
@@ -4751,10 +4838,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             controller: _model
                                                     .pageViewController2 ??=
                                                 PageController(
-                                                    initialPage: min(
+                                                    initialPage: max(
                                                         0,
-                                                        imageListItem.length -
-                                                            1)),
+                                                        min(
+                                                            0,
+                                                            imageListItem
+                                                                    .length -
+                                                                1))),
                                             scrollDirection: Axis.horizontal,
                                             itemCount: imageListItem.length,
                                             itemBuilder:
@@ -4887,10 +4977,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                               controller: _model
                                                       .pageViewController2 ??=
                                                   PageController(
-                                                      initialPage: min(
+                                                      initialPage: max(
                                                           0,
-                                                          imageListItem.length -
-                                                              1)),
+                                                          min(
+                                                              0,
+                                                              imageListItem
+                                                                      .length -
+                                                                  1))),
                                               count: imageListItem.length,
                                               axisDirection: Axis.horizontal,
                                               onDotClicked: (i) async {

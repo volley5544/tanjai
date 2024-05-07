@@ -31,25 +31,25 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'LoginScreen_1'});
-    _model.emailController ??= TextEditingController();
+    _model.emailTextController ??= TextEditingController();
     _model.emailFocusNode ??= FocusNode();
 
-    _model.passwordController ??= TextEditingController();
+    _model.passwordTextController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
 
-    _model.confirmpasswordController ??= TextEditingController();
+    _model.confirmpasswordTextController ??= TextEditingController();
     _model.confirmpasswordFocusNode ??= FocusNode();
 
-    _model.nameController ??= TextEditingController();
+    _model.nameTextController ??= TextEditingController();
     _model.nameFocusNode ??= FocusNode();
 
-    _model.idCardController ??= TextEditingController();
+    _model.idCardTextController ??= TextEditingController();
     _model.idCardFocusNode ??= FocusNode();
 
-    _model.phonenumberController ??= TextEditingController();
+    _model.phonenumberTextController ??= TextEditingController();
     _model.phonenumberFocusNode ??= FocusNode();
 
-    _model.licenseIdController ??= TextEditingController();
+    _model.licenseIdTextController ??= TextEditingController();
     _model.licenseIdFocusNode ??= FocusNode();
   }
 
@@ -211,7 +211,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                 10.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .emailController,
+                                                          .emailTextController,
                                                       focusNode:
                                                           _model.emailFocusNode,
                                                       autofocus: true,
@@ -255,9 +255,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                 'Noto Sans Thai',
                                                             letterSpacing: 0.0,
                                                           ),
-                                                      minLines: null,
                                                       validator: _model
-                                                          .emailControllerValidator
+                                                          .emailTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -351,8 +350,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                     .fromSTEB(
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: TextFormField(
-                                                  controller:
-                                                      _model.passwordController,
+                                                  controller: _model
+                                                      .passwordTextController,
                                                   focusNode:
                                                       _model.passwordFocusNode,
                                                   autofocus: true,
@@ -410,9 +409,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                             'Noto Sans Thai',
                                                         letterSpacing: 0.0,
                                                       ),
-                                                  minLines: null,
                                                   validator: _model
-                                                      .passwordControllerValidator
+                                                      .passwordTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -501,7 +499,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .confirmpasswordController,
+                                                    .confirmpasswordTextController,
                                                 focusNode: _model
                                                     .confirmpasswordFocusNode,
                                                 autofocus: true,
@@ -560,9 +558,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .confirmpasswordControllerValidator
+                                                    .confirmpasswordTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -667,7 +664,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .nameController,
+                                                            .nameTextController,
                                                         focusNode: _model
                                                             .nameFocusNode,
                                                         autofocus: true,
@@ -717,9 +714,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        minLines: null,
                                                         validator: _model
-                                                            .nameControllerValidator
+                                                            .nameTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -829,7 +825,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .idCardController,
+                                                            .idCardTextController,
                                                         focusNode: _model
                                                             .idCardFocusNode,
                                                         autofocus: true,
@@ -879,12 +875,11 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
                                                         validator: _model
-                                                            .idCardControllerValidator
+                                                            .idCardTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                         inputFormatters: [
@@ -997,7 +992,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .phonenumberController,
+                                                            .phonenumberTextController,
                                                         focusNode: _model
                                                             .phonenumberFocusNode,
                                                         autofocus: true,
@@ -1047,9 +1042,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        minLines: null,
                                                         validator: _model
-                                                            .phonenumberControllerValidator
+                                                            .phonenumberTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1160,7 +1154,7 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .licenseIdController,
+                                                            .licenseIdTextController,
                                                         focusNode: _model
                                                             .licenseIdFocusNode,
                                                         autofocus: true,
@@ -1213,12 +1207,11 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
                                                         validator: _model
-                                                            .licenseIdControllerValidator
+                                                            .licenseIdTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1261,24 +1254,40 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
-                                if (!((_model.emailController.text != null &&
-                                        _model.emailController.text != '') &&
-                                    (_model.passwordController.text != null &&
-                                        _model.passwordController.text != '') &&
-                                    (_model.confirmpasswordController.text !=
+                                if (!((_model
+                                                .emailTextController.text !=
                                             null &&
-                                        _model.confirmpasswordController.text !=
+                                        _model
+                                                .emailTextController.text !=
                                             '') &&
-                                    (_model.nameController.text != null &&
-                                        _model.nameController.text != '') &&
-                                    (_model.idCardController.text != null &&
-                                        _model.idCardController.text != '') &&
-                                    (_model.phonenumberController.text !=
+                                    (_model
+                                                .passwordTextController.text !=
                                             null &&
-                                        _model.phonenumberController.text !=
+                                        _model
+                                                .passwordTextController.text !=
                                             '') &&
-                                    (_model.licenseIdController.text != null &&
-                                        _model.licenseIdController.text !=
+                                    (_model.confirmpasswordTextController.text !=
+                                            null &&
+                                        _model
+                                                .confirmpasswordTextController.text !=
+                                            '') &&
+                                    (_model
+                                                .nameTextController.text !=
+                                            null &&
+                                        _model.nameTextController.text != '') &&
+                                    (_model
+                                                .idCardTextController.text !=
+                                            null &&
+                                        _model
+                                                .idCardTextController.text !=
+                                            '') &&
+                                    (_model.phonenumberTextController.text !=
+                                            null &&
+                                        _model.phonenumberTextController.text !=
+                                            '') &&
+                                    (_model.licenseIdTextController.text !=
+                                            null &&
+                                        _model.licenseIdTextController.text !=
                                             ''))) {
                                   await showDialog(
                                     context: context,
@@ -1301,8 +1310,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                if (_model.passwordController.text !=
-                                    _model.confirmpasswordController.text) {
+                                if (_model.passwordTextController.text !=
+                                    _model.confirmpasswordTextController.text) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -1326,8 +1335,8 @@ class _LoginScreen1WidgetState extends State<LoginScreen1Widget> {
                                 await authManager.sendEmailVerification();
                                 _model.createFirebaseOutput =
                                     await actions.createFirebase(
-                                  _model.emailController.text,
-                                  _model.passwordController.text,
+                                  _model.emailTextController.text,
+                                  _model.passwordTextController.text,
                                 );
                                 _shouldSetState = true;
                                 await showDialog(

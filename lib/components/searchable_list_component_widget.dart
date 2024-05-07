@@ -108,7 +108,6 @@ class _SearchableListComponentWidgetState
                               fontFamily: 'Noto Sans Thai',
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
                         validator:
                             _model.textControllerValidator.asValidator(context),
                       ),

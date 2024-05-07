@@ -3,7 +3,6 @@ import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/components/showjson_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -135,26 +134,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 .toList()
                 .cast<String>();
       });
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text(
-                  (widget.quotationId != null && widget.quotationId != '') &&
-                          (widget.quotationId != '')
-                      ? widget.quotationId!
-                      : FFAppState().insuranceInfoQuotationId),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       _model.ibsDetailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: (widget.quotationId != null && widget.quotationId != '') &&
                 (widget.quotationId != '')
@@ -358,53 +337,6 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      await showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () => _model.unfocusNode.canRequestFocus
-                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                  : FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: Container(
-                  height: double.infinity,
-                  child: ShowjsonWidget(
-                    json: getJsonField(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.app_detail[:]''',
-                    ).toString().toString(),
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
-
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('${getJsonField(
-                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                r'''$.results.data.app_detail[:].net_premium_total''',
-              ).toString().toString()}'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       setState(() {
         FFAppState().insuranceInfoPage4PaymentType =
             '${IbsApplicationsDetailCall.paymenttype(
@@ -473,27 +405,27 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
       });
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
         setState(() {
-          _model.paymentTypeController?.text =
+          _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
         });
         setState(() {
-          _model.paymentChannelController?.text =
+          _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
         });
         setState(() {
-          _model.actTotalController?.text =
+          _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
         setState(() {
-          _model.grossNetTotalController?.text = functions
+          _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
         setState(() {
-          _model.netPremiumTotalController?.text =
+          _model.netPremiumTotalTextController?.text =
               functions.showNumberWithComma(
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -583,28 +515,28 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   .cast<String>();
         });
         setState(() {
-          _model.paymentTypeController?.text =
+          _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
         });
         setState(() {
-          _model.paymentChannelController?.text =
+          _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
         });
         setState(() {
-          _model.netPremiumTotalController?.text =
+          _model.netPremiumTotalTextController?.text =
               functions.showNumberWithComma(
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
         setState(() {
-          _model.actTotalController?.text =
+          _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
         });
         setState(() {
-          _model.grossNetTotalController?.text = functions
+          _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
@@ -613,25 +545,25 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
       }
     });
 
-    _model.paymentTypeController ??=
+    _model.paymentTypeTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoPage4PaymentType);
     _model.paymentTypeFocusNode ??= FocusNode();
 
-    _model.paymentChannelController ??= TextEditingController(
+    _model.paymentChannelTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoPage4PaymentChannel);
     _model.paymentChannelFocusNode ??= FocusNode();
 
-    _model.netPremiumTotalController ??= TextEditingController(
+    _model.netPremiumTotalTextController ??= TextEditingController(
         text: functions.showNumberWithComma(
             FFAppState().insuranceInfoPage4NetPremiumTotal));
     _model.netPremiumTotalFocusNode ??= FocusNode();
 
-    _model.actTotalController ??= TextEditingController(
+    _model.actTotalTextController ??= TextEditingController(
         text: functions
             .showNumberWithComma(FFAppState().insuranceInfoPage4ActTotal));
     _model.actTotalFocusNode ??= FocusNode();
 
-    _model.grossNetTotalController ??= TextEditingController(
+    _model.grossNetTotalTextController ??= TextEditingController(
         text: functions
             .showNumberWithComma(FFAppState().insuranceInfoPage4GrossTotalNet));
     _model.grossNetTotalFocusNode ??= FocusNode();
@@ -1556,7 +1488,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .paymentTypeController,
+                                                      .paymentTypeTextController,
                                                   focusNode: _model
                                                       .paymentTypeFocusNode,
                                                   autofocus: false,
@@ -1603,9 +1535,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             'Noto Sans Thai',
                                                         letterSpacing: 0.0,
                                                       ),
-                                                  minLines: null,
                                                   validator: _model
-                                                      .paymentTypeControllerValidator
+                                                      .paymentTypeTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -1679,7 +1610,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .paymentChannelController,
+                                                      .paymentChannelTextController,
                                                   focusNode: _model
                                                       .paymentChannelFocusNode,
                                                   autofocus: false,
@@ -1724,9 +1655,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             'Noto Sans Thai',
                                                         letterSpacing: 0.0,
                                                       ),
-                                                  minLines: null,
                                                   validator: _model
-                                                      .paymentChannelControllerValidator
+                                                      .paymentChannelTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -1803,7 +1733,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .netPremiumTotalController,
+                                                    .netPremiumTotalTextController,
                                                 focusNode: _model
                                                     .netPremiumTotalFocusNode,
                                                 autofocus: false,
@@ -1848,9 +1778,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .netPremiumTotalControllerValidator
+                                                    .netPremiumTotalTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -1930,7 +1859,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 10.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .actTotalController,
+                                                          .actTotalTextController,
                                                       focusNode: _model
                                                           .actTotalFocusNode,
                                                       autofocus: false,
@@ -1981,9 +1910,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 'Noto Sans Thai',
                                                             letterSpacing: 0.0,
                                                           ),
-                                                      minLines: null,
                                                       validator: _model
-                                                          .actTotalControllerValidator
+                                                          .actTotalTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),
@@ -2067,7 +1995,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 10.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .grossNetTotalController,
+                                                          .grossNetTotalTextController,
                                                       focusNode: _model
                                                           .grossNetTotalFocusNode,
                                                       autofocus: false,
@@ -2118,9 +2046,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 'Noto Sans Thai',
                                                             letterSpacing: 0.0,
                                                           ),
-                                                      minLines: null,
                                                       validator: _model
-                                                          .grossNetTotalControllerValidator
+                                                          .grossNetTotalTextControllerValidator
                                                           .asValidator(context),
                                                     ),
                                                   ),

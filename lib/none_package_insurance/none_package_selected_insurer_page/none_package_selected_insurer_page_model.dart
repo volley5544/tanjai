@@ -22,16 +22,17 @@ class NonePackageSelectedInsurerPageModel
   final unfocusNode = FocusNode();
   // State field(s) for netPremium widget.
   FocusNode? netPremiumFocusNode;
-  TextEditingController? netPremiumController;
-  String? Function(BuildContext, String?)? netPremiumControllerValidator;
+  TextEditingController? netPremiumTextController;
+  String? Function(BuildContext, String?)? netPremiumTextControllerValidator;
   // State field(s) for actAmount widget.
   FocusNode? actAmountFocusNode;
-  TextEditingController? actAmountController;
-  String? Function(BuildContext, String?)? actAmountControllerValidator;
+  TextEditingController? actAmountTextController;
+  String? Function(BuildContext, String?)? actAmountTextControllerValidator;
   // State field(s) for accessoryTotal widget.
   FocusNode? accessoryTotalFocusNode;
-  TextEditingController? accessoryTotalController;
-  String? Function(BuildContext, String?)? accessoryTotalControllerValidator;
+  TextEditingController? accessoryTotalTextController;
+  String? Function(BuildContext, String?)?
+      accessoryTotalTextControllerValidator;
   // Stores action output result for [Backend Call - API (saveInsurerAPI)] action in Button widget.
   ApiCallResponse? saveInirer;
 
@@ -42,12 +43,12 @@ class NonePackageSelectedInsurerPageModel
   void dispose() {
     unfocusNode.dispose();
     netPremiumFocusNode?.dispose();
-    netPremiumController?.dispose();
+    netPremiumTextController?.dispose();
 
     actAmountFocusNode?.dispose();
-    actAmountController?.dispose();
+    actAmountTextController?.dispose();
 
     accessoryTotalFocusNode?.dispose();
-    accessoryTotalController?.dispose();
+    accessoryTotalTextController?.dispose();
   }
 }

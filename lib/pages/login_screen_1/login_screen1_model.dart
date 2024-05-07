@@ -18,14 +18,14 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
   final formKey = GlobalKey<FormState>();
   // State field(s) for email widget.
   FocusNode? emailFocusNode;
-  TextEditingController? emailController;
-  String? Function(BuildContext, String?)? emailControllerValidator;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
-  TextEditingController? passwordController;
+  TextEditingController? passwordTextController;
   late bool passwordVisibility;
-  String? Function(BuildContext, String?)? passwordControllerValidator;
-  String? _passwordControllerValidator(BuildContext context, String? val) {
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  String? _passwordTextControllerValidator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return 'Field is required';
     }
@@ -42,33 +42,34 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
 
   // State field(s) for confirmpassword widget.
   FocusNode? confirmpasswordFocusNode;
-  TextEditingController? confirmpasswordController;
+  TextEditingController? confirmpasswordTextController;
   late bool confirmpasswordVisibility;
-  String? Function(BuildContext, String?)? confirmpasswordControllerValidator;
+  String? Function(BuildContext, String?)?
+      confirmpasswordTextControllerValidator;
   // State field(s) for name widget.
   FocusNode? nameFocusNode;
-  TextEditingController? nameController;
-  String? Function(BuildContext, String?)? nameControllerValidator;
+  TextEditingController? nameTextController;
+  String? Function(BuildContext, String?)? nameTextControllerValidator;
   // State field(s) for idCard widget.
   FocusNode? idCardFocusNode;
-  TextEditingController? idCardController;
+  TextEditingController? idCardTextController;
   final idCardMask = MaskTextInputFormatter(mask: '#-####-#####-##-#');
-  String? Function(BuildContext, String?)? idCardControllerValidator;
+  String? Function(BuildContext, String?)? idCardTextControllerValidator;
   // State field(s) for phonenumber widget.
   FocusNode? phonenumberFocusNode;
-  TextEditingController? phonenumberController;
-  String? Function(BuildContext, String?)? phonenumberControllerValidator;
+  TextEditingController? phonenumberTextController;
+  String? Function(BuildContext, String?)? phonenumberTextControllerValidator;
   // State field(s) for licenseId widget.
   FocusNode? licenseIdFocusNode;
-  TextEditingController? licenseIdController;
-  String? Function(BuildContext, String?)? licenseIdControllerValidator;
+  TextEditingController? licenseIdTextController;
+  String? Function(BuildContext, String?)? licenseIdTextControllerValidator;
   // Stores action output result for [Custom Action - createFirebase] action in Button widget.
   String? createFirebaseOutput;
 
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
-    passwordControllerValidator = _passwordControllerValidator;
+    passwordTextControllerValidator = _passwordTextControllerValidator;
     confirmpasswordVisibility = false;
   }
 
@@ -76,24 +77,24 @@ class LoginScreen1Model extends FlutterFlowModel<LoginScreen1Widget> {
   void dispose() {
     unfocusNode.dispose();
     emailFocusNode?.dispose();
-    emailController?.dispose();
+    emailTextController?.dispose();
 
     passwordFocusNode?.dispose();
-    passwordController?.dispose();
+    passwordTextController?.dispose();
 
     confirmpasswordFocusNode?.dispose();
-    confirmpasswordController?.dispose();
+    confirmpasswordTextController?.dispose();
 
     nameFocusNode?.dispose();
-    nameController?.dispose();
+    nameTextController?.dispose();
 
     idCardFocusNode?.dispose();
-    idCardController?.dispose();
+    idCardTextController?.dispose();
 
     phonenumberFocusNode?.dispose();
-    phonenumberController?.dispose();
+    phonenumberTextController?.dispose();
 
     licenseIdFocusNode?.dispose();
-    licenseIdController?.dispose();
+    licenseIdTextController?.dispose();
   }
 }

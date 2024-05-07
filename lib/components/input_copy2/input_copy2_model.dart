@@ -12,8 +12,8 @@ class InputCopy2Model extends FlutterFlowModel<InputCopy2Widget> {
 
   // State field(s) for reasonCancel widget.
   FocusNode? reasonCancelFocusNode;
-  TextEditingController? reasonCancelController;
-  String? Function(BuildContext, String?)? reasonCancelControllerValidator;
+  TextEditingController? reasonCancelTextController;
+  String? Function(BuildContext, String?)? reasonCancelTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -21,6 +21,6 @@ class InputCopy2Model extends FlutterFlowModel<InputCopy2Widget> {
   @override
   void dispose() {
     reasonCancelFocusNode?.dispose();
-    reasonCancelController?.dispose();
+    reasonCancelTextController?.dispose();
   }
 }

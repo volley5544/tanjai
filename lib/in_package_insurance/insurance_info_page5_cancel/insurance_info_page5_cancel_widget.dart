@@ -150,7 +150,6 @@ class _InsuranceInfoPage5CancelWidgetState
                               fontSize: 15.0,
                               letterSpacing: 0.0,
                             ),
-                        minLines: null,
                         validator:
                             _model.textControllerValidator.asValidator(context),
                       ),

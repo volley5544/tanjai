@@ -97,8 +97,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 apiURL: params.getParam(
                   'apiURL',
                   ParamType.DocumentReference,
-                  false,
-                  ['Key_Storage'],
+                  isList: false,
+                  collectionNamePath: ['Key_Storage'],
                 ),
                 token: params.getParam(
                   'token',
@@ -191,7 +191,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dataList: params.getParam<String>(
                   'dataList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 multiSelect: params.getParam(
                   'multiSelect',
@@ -216,7 +216,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   insurerFullName: params.getParam<String>(
                     'insurerFullName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   currentDate: params.getParam(
                     'currentDate',
@@ -249,77 +249,77 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   grossTotal: params.getParam<String>(
                     'grossTotal',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   sumInsured: params.getParam<String>(
                     'sumInsured',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   tpbiPerson: params.getParam<String>(
                     'tpbiPerson',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   tpbiAccident: params.getParam<String>(
                     'tpbiAccident',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   grossAct: params.getParam<String>(
                     'grossAct',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   expireDate: params.getParam<String>(
                     'expireDate',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   coverTypeId: params.getParam<String>(
                     'coverTypeId',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   coverTypeCode: params.getParam<String>(
                     'coverTypeCode',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   coverTypeName: params.getParam<String>(
                     'coverTypeName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   garageTypeId: params.getParam<String>(
                     'garageTypeId',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   garageTypeName: params.getParam<String>(
                     'garageTypeName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   insurerId: params.getParam<String>(
                     'insurerId',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   insurerShortName: params.getParam<String>(
                     'insurerShortName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   garageTypeCode: params.getParam<String>(
                     'garageTypeCode',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   insurerLogoUrl: params.getParam<String>(
                     'insurerLogoUrl',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   yearProduct: params.getParam(
                     'yearProduct',
@@ -328,97 +328,97 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   accessory: params.getParam<String>(
                     'accessory',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   pa: params.getParam<String>(
                     'pa',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   productId: params.getParam<String>(
                     'productId',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   packageId: params.getParam<String>(
                     'packageId',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   packageName: params.getParam<String>(
                     'packageName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   roadsideAssis: params.getParam<String>(
                     'roadsideAssis',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   flood: params.getParam<String>(
                     'flood',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   deductible: params.getParam<String>(
                     'deductible',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   me: params.getParam<String>(
                     'me',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   bb: params.getParam<String>(
                     'bb',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   seat: params.getParam<String>(
                     'seat',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   netPremium: params.getParam<String>(
                     'netPremium',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   vat: params.getParam<String>(
                     'vat',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   stamp: params.getParam<String>(
                     'stamp',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   insurerMaxName: params.getParam<String>(
                     'insurerMaxName',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   tppd: params.getParam<String>(
                     'tppd',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   contractProcessstate: params.getParam<String>(
                     'contractProcessstate',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   insurerCondition: params.getParam<String>(
                     'insurerCondition',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                   cc: params.getParam<String>(
                     'cc',
                     ParamType.String,
-                    true,
+                    isList: true,
                   ),
                 ),
               ),
@@ -484,12 +484,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 coverType: params.getParam<String>(
                   'coverType',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 garageType: params.getParam<String>(
                   'garageType',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 brandName: params.getParam(
                   'brandName',
@@ -1072,7 +1072,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 list: params.getParam<dynamic>(
                   'list',
                   ParamType.JSON,
-                  true,
+                  isList: true,
                 ),
                 checkPayment: params.getParam(
                   'checkPayment',
@@ -1099,152 +1099,152 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 insurerId: params.getParam<String>(
                   'insurerId',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 insurerCode: params.getParam<String>(
                   'insurerCode',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 insurerShortName: params.getParam<String>(
                   'insurerShortName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 insurerName: params.getParam<String>(
                   'insurerName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 coverTypeId: params.getParam<String>(
                   'coverTypeId',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 coverTypeCode: params.getParam<String>(
                   'coverTypeCode',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 coverTypeName: params.getParam<String>(
                   'coverTypeName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 garageTypeId: params.getParam<String>(
                   'garageTypeId',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 garageTypeCode: params.getParam<String>(
                   'garageTypeCode',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 garageTypeName: params.getParam<String>(
                   'garageTypeName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 productId: params.getParam<String>(
                   'productId',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 packageId: params.getParam<String>(
                   'packageId',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 packageName: params.getParam<String>(
                   'packageName',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 sumInsured: params.getParam<String>(
                   'sumInsured',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 workType: params.getParam<String>(
                   'workType',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 roadsideAssistance: params.getParam<String>(
                   'roadsideAssistance',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 tpbiPerson: params.getParam<String>(
                   'tpbiPerson',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 tpbiAccident: params.getParam<String>(
                   'tpbiAccident',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 tppd: params.getParam<String>(
                   'tppd',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 flood: params.getParam<String>(
                   'flood',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 deductible: params.getParam<String>(
                   'deductible',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 pa: params.getParam<String>(
                   'pa',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 me: params.getParam<String>(
                   'me',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 bb: params.getParam<String>(
                   'bb',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 assessory: params.getParam<String>(
                   'assessory',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 seat: params.getParam<String>(
                   'seat',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 netPremium: params.getParam<String>(
                   'netPremium',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 vat: params.getParam<String>(
                   'vat',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 stamp: params.getParam<String>(
                   'stamp',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 grossTotal: params.getParam<String>(
                   'grossTotal',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 carType: params.getParam(
                   'carType',
@@ -1289,7 +1289,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 contractProcessstate: params.getParam<String>(
                   'contractProcessstate',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 fromPage: params.getParam(
                   'fromPage',
@@ -1310,7 +1310,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 cc: params.getParam<String>(
                   'cc',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -1421,7 +1421,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dataList: params.getParam<String>(
                   'dataList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 multiSelect: params.getParam(
                   'multiSelect',
@@ -1507,7 +1507,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 quotation: params.getParam<String>(
                   'quotation',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
               ),
             ),
@@ -1541,7 +1541,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dataList: params.getParam<String>(
                   'dataList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 multiSelect: params.getParam(
                   'multiSelect',
@@ -1572,7 +1572,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dataList: params.getParam<String>(
                   'dataList',
                   ParamType.String,
-                  true,
+                  isList: true,
                 ),
                 multiSelect: params.getParam(
                   'multiSelect',
@@ -1609,7 +1609,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 list: params.getParam<dynamic>(
                   'list',
                   ParamType.JSON,
-                  true,
+                  isList: true,
                 ),
                 checkPayment: params.getParam(
                   'checkPayment',
@@ -1823,7 +1823,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    ..addAll(queryParameters)
+    ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -1842,7 +1842,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -1863,11 +1863,11 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
     StructBuilder<T>? structBuilder,
-  ]) {
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }
@@ -1918,7 +1918,7 @@ class FFRoute {
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
+            appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
             return '/loginPage';
           }
           return null;
@@ -1993,7 +1993,7 @@ class RootPageContext {
   static bool isInactiveRootPage(BuildContext context) {
     final rootPageContext = context.read<RootPageContext?>();
     final isRootPage = rootPageContext?.isRootPage ?? false;
-    final location = GoRouter.of(context).location;
+    final location = GoRouterState.of(context).uri.toString();
     return isRootPage &&
         location != '/' &&
         location != rootPageContext?.errorRoute;

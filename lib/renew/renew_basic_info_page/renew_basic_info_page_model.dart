@@ -39,8 +39,8 @@ class RenewBasicInfoPageModel
 
   // State field(s) for licenseCode widget.
   FocusNode? licenseCodeFocusNode;
-  TextEditingController? licenseCodeController;
-  String? Function(BuildContext, String?)? licenseCodeControllerValidator;
+  TextEditingController? licenseCodeTextController;
+  String? Function(BuildContext, String?)? licenseCodeTextControllerValidator;
   // Stores action output result for [Backend Call - API (getProfileImage)] action in Container widget.
   ApiCallResponse? profileImgOutput;
 
@@ -51,6 +51,6 @@ class RenewBasicInfoPageModel
   void dispose() {
     unfocusNode.dispose();
     licenseCodeFocusNode?.dispose();
-    licenseCodeController?.dispose();
+    licenseCodeTextController?.dispose();
   }
 }

@@ -209,31 +209,31 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
       Navigator.pop(context);
     });
 
-    _model.oldVmiTextFieldController ??=
+    _model.oldVmiTextFieldTextController ??=
         TextEditingController(text: FFAppState().nonePackageOldVmi);
     _model.oldVmiTextFieldFocusNode ??= FocusNode();
 
-    _model.vehicleregistrationController1 ??=
+    _model.vehicleregistrationTextController1 ??=
         TextEditingController(text: FFAppState().insuranceInfoCarRegis);
     _model.vehicleregistrationFocusNode1 ??= FocusNode();
 
-    _model.vehicleregistrationController2 ??=
+    _model.vehicleregistrationTextController2 ??=
         TextEditingController(text: FFAppState().nonePackagePlateAdditional);
     _model.vehicleregistrationFocusNode2 ??= FocusNode();
 
-    _model.carBodyNoTextFieldController ??=
+    _model.carBodyNoTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoBodyNumber);
     _model.carBodyNoTextFieldFocusNode ??= FocusNode();
 
-    _model.enginNoTextFieldController ??=
+    _model.enginNoTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoEngineNumber);
     _model.enginNoTextFieldFocusNode ??= FocusNode();
 
-    _model.seatAmountTextFieldController ??=
+    _model.seatAmountTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoCarSeat);
     _model.seatAmountTextFieldFocusNode ??= FocusNode();
 
-    _model.sizeTextFieldController ??= TextEditingController(
+    _model.sizeTextFieldTextController ??= TextEditingController(
         text: (FFAppState().insuranceInfoSizeCar != null &&
                     FFAppState().insuranceInfoSizeCar != '') &&
                 (FFAppState().insuranceInfoSizeCar != '') &&
@@ -242,7 +242,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
             : FFAppState().insuranceInfoSizeCar);
     _model.sizeTextFieldFocusNode ??= FocusNode();
 
-    _model.weightTextFieldController ??= TextEditingController(
+    _model.weightTextFieldTextController ??= TextEditingController(
         text: (FFAppState().insuranceInfoWeightCar != null &&
                     FFAppState().insuranceInfoWeightCar != '') &&
                 (FFAppState().insuranceInfoWeightCar != '') &&
@@ -2308,7 +2308,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .oldVmiTextFieldController,
+                                                      .oldVmiTextFieldTextController,
                                                   focusNode: _model
                                                       .oldVmiTextFieldFocusNode,
                                                   autofocus: false,
@@ -2358,9 +2358,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                                  minLines: null,
                                                   validator: _model
-                                                      .oldVmiTextFieldControllerValidator
+                                                      .oldVmiTextFieldTextControllerValidator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -3089,7 +3088,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .vehicleregistrationController1,
+                                                    .vehicleregistrationTextController1,
                                                 focusNode: _model
                                                     .vehicleregistrationFocusNode1,
                                                 autofocus: false,
@@ -3182,9 +3181,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .vehicleregistrationController1Validator
+                                                    .vehicleregistrationTextController1Validator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -3263,7 +3261,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         10.0, 0.0, 10.0, 0.0),
                                                 child: TextFormField(
                                                   controller: _model
-                                                      .vehicleregistrationController2,
+                                                      .vehicleregistrationTextController2,
                                                   focusNode: _model
                                                       .vehicleregistrationFocusNode2,
                                                   autofocus: false,
@@ -3359,9 +3357,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         fontWeight:
                                                             FontWeight.w600,
                                                       ),
-                                                  minLines: null,
                                                   validator: _model
-                                                      .vehicleregistrationController2Validator
+                                                      .vehicleregistrationTextController2Validator
                                                       .asValidator(context),
                                                 ),
                                               ),
@@ -4186,12 +4183,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           10.0, 0.0, 10.0, 0.0),
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .carBodyNoTextFieldController,
+                                                        .carBodyNoTextFieldTextController,
                                                     focusNode: _model
                                                         .carBodyNoTextFieldFocusNode,
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
-                                                      '_model.carBodyNoTextFieldController',
+                                                      '_model.carBodyNoTextFieldTextController',
                                                       Duration(
                                                           milliseconds: 100),
                                                       () => setState(() {}),
@@ -4257,9 +4254,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    minLines: null,
                                                     validator: _model
-                                                        .carBodyNoTextFieldControllerValidator
+                                                        .carBodyNoTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4275,7 +4271,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     functions
                                                         .removeDatAndMakeUpperCase(
                                                             _model
-                                                                .carBodyNoTextFieldController
+                                                                .carBodyNoTextFieldTextController
                                                                 .text)!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -4375,12 +4371,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           10.0, 0.0, 10.0, 0.0),
                                                   child: TextFormField(
                                                     controller: _model
-                                                        .enginNoTextFieldController,
+                                                        .enginNoTextFieldTextController,
                                                     focusNode: _model
                                                         .enginNoTextFieldFocusNode,
                                                     onChanged: (_) =>
                                                         EasyDebounce.debounce(
-                                                      '_model.enginNoTextFieldController',
+                                                      '_model.enginNoTextFieldTextController',
                                                       Duration(
                                                           milliseconds: 100),
                                                       () => setState(() {}),
@@ -4446,9 +4442,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    minLines: null,
                                                     validator: _model
-                                                        .enginNoTextFieldControllerValidator
+                                                        .enginNoTextFieldTextControllerValidator
                                                         .asValidator(context),
                                                   ),
                                                 ),
@@ -4464,7 +4459,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     functions
                                                         .removeDatAndMakeUpperCase(
                                                             _model
-                                                                .enginNoTextFieldController
+                                                                .enginNoTextFieldTextController
                                                                 .text)!,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -4562,7 +4557,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .seatAmountTextFieldController,
+                                                    .seatAmountTextFieldTextController,
                                                 focusNode: _model
                                                     .seatAmountTextFieldFocusNode,
                                                 autofocus: false,
@@ -4622,11 +4617,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 keyboardType:
                                                     TextInputType.number,
                                                 validator: _model
-                                                    .seatAmountTextFieldControllerValidator
+                                                    .seatAmountTextFieldTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   _model.seatAmountTextFieldMask
@@ -4720,7 +4714,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .sizeTextFieldController,
+                                                    .sizeTextFieldTextController,
                                                 focusNode: _model
                                                     .sizeTextFieldFocusNode,
                                                 autofocus: false,
@@ -4777,11 +4771,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 keyboardType:
                                                     TextInputType.number,
                                                 validator: _model
-                                                    .sizeTextFieldControllerValidator
+                                                    .sizeTextFieldTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -4869,7 +4862,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .weightTextFieldController,
+                                                    .weightTextFieldTextController,
                                                 focusNode: _model
                                                     .weightTextFieldFocusNode,
                                                 autofocus: false,
@@ -4928,13 +4921,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 keyboardType:
                                                     const TextInputType
                                                         .numberWithOptions(
                                                         decimal: true),
                                                 validator: _model
-                                                    .weightTextFieldControllerValidator
+                                                    .weightTextFieldTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   _model.weightTextFieldMask
@@ -5767,10 +5759,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.vehicleregistrationController1
+                                                if (!(_model.vehicleregistrationTextController1
                                                             .text !=
                                                         null &&
-                                                    _model.vehicleregistrationController1
+                                                    _model.vehicleregistrationTextController1
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -5797,10 +5789,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.carBodyNoTextFieldController
+                                                if (!(_model.carBodyNoTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.carBodyNoTextFieldController
+                                                    _model.carBodyNoTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -5827,10 +5819,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.enginNoTextFieldController
+                                                if (!(_model.enginNoTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.enginNoTextFieldController
+                                                    _model.enginNoTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -5857,10 +5849,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.seatAmountTextFieldController
+                                                if (!(_model.seatAmountTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.seatAmountTextFieldController
+                                                    _model.seatAmountTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -5890,32 +5882,44 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 if (FFAppState()
                                                         .insuranceInfoVehicleType !=
                                                     'รถบรรทุก หัวลาก หางพ่วง') {
-                                                  if (_model.sizeTextFieldController
+                                                  if (_model.sizeTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.sizeTextFieldController
+                                                      _model.sizeTextFieldTextController
                                                               .text !=
                                                           '') {
                                                     if (functions
                                                         .checkDoubleBool(_model
-                                                            .sizeTextFieldController
+                                                            .sizeTextFieldTextController
                                                             .text)!) {
-                                                      if (!(((double.parse(_model
-                                                                      .sizeTextFieldController
-                                                                      .text) <=
-                                                                  1.0) &&
-                                                              (double.parse(_model
-                                                                      .sizeTextFieldController
-                                                                      .text) >=
-                                                                  0.0)) ||
-                                                          ((double.parse(_model
-                                                                      .sizeTextFieldController
-                                                                      .text) >=
-                                                                  1000.0) &&
-                                                              (double.parse(_model
-                                                                      .sizeTextFieldController
-                                                                      .text) <=
-                                                                  99999.0)))) {
+                                                      if (!((((String var1) {
+                                                                return double.parse(
+                                                                        var1) <=
+                                                                    1.0;
+                                                              }(_model
+                                                                  .sizeTextFieldTextController
+                                                                  .text)) &&
+                                                              ((String var1) {
+                                                                return double.parse(
+                                                                        var1) >=
+                                                                    0.0;
+                                                              }(_model
+                                                                  .sizeTextFieldTextController
+                                                                  .text))) ||
+                                                          (((String var1) {
+                                                                return double.parse(
+                                                                        var1) >=
+                                                                    1000.0;
+                                                              }(_model
+                                                                  .sizeTextFieldTextController
+                                                                  .text)) &&
+                                                              ((String var1) {
+                                                                return double.parse(
+                                                                        var1) <=
+                                                                    99999.0;
+                                                              }(_model
+                                                                  .sizeTextFieldTextController
+                                                                  .text))))) {
                                                         await showDialog(
                                                           context: context,
                                                           builder:
@@ -5995,10 +5999,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     return;
                                                   }
                                                 }
-                                                if (!(_model.weightTextFieldController
+                                                if (!(_model.weightTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.weightTextFieldController
+                                                    _model.weightTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6117,7 +6121,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 }
                                                 if (functions.countCharInString(
                                                         _model
-                                                            .vehicleregistrationController1
+                                                            .vehicleregistrationTextController1
                                                             .text)! >
                                                     10) {
                                                   await showDialog(
@@ -6331,10 +6335,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.vehicleregistrationController1
+                                                if (!(_model.vehicleregistrationTextController1
                                                             .text !=
                                                         null &&
-                                                    _model.vehicleregistrationController1
+                                                    _model.vehicleregistrationTextController1
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6361,10 +6365,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.carBodyNoTextFieldController
+                                                if (!(_model.carBodyNoTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.carBodyNoTextFieldController
+                                                    _model.carBodyNoTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6391,10 +6395,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.enginNoTextFieldController
+                                                if (!(_model.enginNoTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.enginNoTextFieldController
+                                                    _model.enginNoTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6421,10 +6425,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.seatAmountTextFieldController
+                                                if (!(_model.seatAmountTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.seatAmountTextFieldController
+                                                    _model.seatAmountTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6451,10 +6455,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.sizeTextFieldController
+                                                if (!(_model.sizeTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.sizeTextFieldController
+                                                    _model.sizeTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6481,10 +6485,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.weightTextFieldController
+                                                if (!(_model.weightTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.weightTextFieldController
+                                                    _model.weightTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6543,7 +6547,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 }
                                                 if (functions.countCharInString(
                                                         _model
-                                                            .vehicleregistrationController1
+                                                            .vehicleregistrationTextController1
                                                             .text)! >
                                                     10) {
                                                   await showDialog(
@@ -6727,10 +6731,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (!(_model.vehicleregistrationController1
+                                              if (!(_model.vehicleregistrationTextController1
                                                           .text !=
                                                       null &&
-                                                  _model.vehicleregistrationController1
+                                                  _model.vehicleregistrationTextController1
                                                           .text !=
                                                       '')) {
                                                 await showDialog(
@@ -6757,10 +6761,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (!(_model.enginNoTextFieldController
+                                              if (!(_model.enginNoTextFieldTextController
                                                           .text !=
                                                       null &&
-                                                  _model.enginNoTextFieldController
+                                                  _model.enginNoTextFieldTextController
                                                           .text !=
                                                       '')) {
                                                 await showDialog(
@@ -6787,10 +6791,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   setState(() {});
                                                 return;
                                               }
-                                              if (!(_model.seatAmountTextFieldController
+                                              if (!(_model.seatAmountTextFieldTextController
                                                           .text !=
                                                       null &&
-                                                  _model.seatAmountTextFieldController
+                                                  _model.seatAmountTextFieldTextController
                                                           .text !=
                                                       '')) {
                                                 await showDialog(
@@ -6820,32 +6824,44 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                               if (FFAppState()
                                                       .insuranceInfoVehicleType !=
                                                   'รถบรรทุก หัวลาก หางพ่วง') {
-                                                if (_model.sizeTextFieldController
+                                                if (_model.sizeTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.sizeTextFieldController
+                                                    _model.sizeTextFieldTextController
                                                             .text !=
                                                         '') {
                                                   if (functions.checkDoubleBool(
                                                       _model
-                                                          .sizeTextFieldController
+                                                          .sizeTextFieldTextController
                                                           .text)!) {
-                                                    if (!(((double.parse(_model
-                                                                    .sizeTextFieldController
-                                                                    .text) <=
-                                                                1.0) &&
-                                                            (double.parse(_model
-                                                                    .sizeTextFieldController
-                                                                    .text) >=
-                                                                0.0)) ||
-                                                        ((double.parse(_model
-                                                                    .sizeTextFieldController
-                                                                    .text) >=
-                                                                1000.0) &&
-                                                            (double.parse(_model
-                                                                    .sizeTextFieldController
-                                                                    .text) <=
-                                                                99999.0)))) {
+                                                    if (!((((String var1) {
+                                                              return double.parse(
+                                                                      var1) <=
+                                                                  1.0;
+                                                            }(_model
+                                                                .sizeTextFieldTextController
+                                                                .text)) &&
+                                                            ((String var1) {
+                                                              return double.parse(
+                                                                      var1) >=
+                                                                  0.0;
+                                                            }(_model
+                                                                .sizeTextFieldTextController
+                                                                .text))) ||
+                                                        (((String var1) {
+                                                              return double.parse(
+                                                                      var1) >=
+                                                                  1000.0;
+                                                            }(_model
+                                                                .sizeTextFieldTextController
+                                                                .text)) &&
+                                                            ((String var1) {
+                                                              return double.parse(
+                                                                      var1) <=
+                                                                  99999.0;
+                                                            }(_model
+                                                                .sizeTextFieldTextController
+                                                                .text))))) {
                                                       await showDialog(
                                                         context: context,
                                                         builder:
@@ -6923,10 +6939,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   return;
                                                 }
                                               }
-                                              if (!(_model.weightTextFieldController
+                                              if (!(_model.weightTextFieldTextController
                                                           .text !=
                                                       null &&
-                                                  _model.weightTextFieldController
+                                                  _model.weightTextFieldTextController
                                                           .text !=
                                                       '')) {
                                                 await showDialog(
@@ -6954,7 +6970,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 return;
                                               }
                                               if (functions.countCharInString(_model
-                                                      .vehicleregistrationController1
+                                                      .vehicleregistrationTextController1
                                                       .text)! >
                                                   10) {
                                                 await showDialog(
@@ -7109,39 +7125,40 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   functions
                                                       .removeSpacialLetterFromText(
                                                           _model
-                                                              .vehicleregistrationController1
+                                                              .vehicleregistrationTextController1
                                                               .text);
                                               FFAppState()
                                                       .insuranceInfoBodyNumber =
                                                   functions
                                                       .removeDatAndMakeUpperCase(
                                                           _model
-                                                              .carBodyNoTextFieldController
+                                                              .carBodyNoTextFieldTextController
                                                               .text)!;
                                               FFAppState()
                                                       .insuranceInfoEngineNumber =
                                                   functions
                                                       .removeDatAndMakeUpperCase(
                                                           _model
-                                                              .enginNoTextFieldController
+                                                              .enginNoTextFieldTextController
                                                               .text)!;
                                               FFAppState()
                                                       .insuranceInfoCarSeat =
                                                   _model
-                                                      .seatAmountTextFieldController
+                                                      .seatAmountTextFieldTextController
                                                       .text;
                                               FFAppState()
                                                       .insuranceInfoSizeCar =
-                                                  _model.sizeTextFieldController
+                                                  _model
+                                                      .sizeTextFieldTextController
                                                       .text;
                                               FFAppState()
                                                       .insuranceInfoWeightCar =
                                                   _model
-                                                      .weightTextFieldController
+                                                      .weightTextFieldTextController
                                                       .text;
                                               FFAppState().nonePackageOldVmi =
                                                   _model
-                                                      .oldVmiTextFieldController
+                                                      .oldVmiTextFieldTextController
                                                       .text;
                                             });
                                             _model.ibsAppAPIOutput =
@@ -7582,10 +7599,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 if (FFAppState()
                                                         .insuranceinfoActType !=
                                                     'CMI') {
-                                                  if (!(_model.vehicleregistrationController1
+                                                  if (!(_model.vehicleregistrationTextController1
                                                               .text !=
                                                           null &&
-                                                      _model.vehicleregistrationController1
+                                                      _model.vehicleregistrationTextController1
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7611,10 +7628,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.carBodyNoTextFieldController
+                                                  if (!(_model.carBodyNoTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.carBodyNoTextFieldController
+                                                      _model.carBodyNoTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7640,10 +7657,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.enginNoTextFieldController
+                                                  if (!(_model.enginNoTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.enginNoTextFieldController
+                                                      _model.enginNoTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7669,10 +7686,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.seatAmountTextFieldController
+                                                  if (!(_model.seatAmountTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.seatAmountTextFieldController
+                                                      _model.seatAmountTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7698,10 +7715,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.sizeTextFieldController
+                                                  if (!(_model.sizeTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.sizeTextFieldController
+                                                      _model.sizeTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7727,10 +7744,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.weightTextFieldController
+                                                  if (!(_model.weightTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.weightTextFieldController
+                                                      _model.weightTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -7789,32 +7806,32 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     FFAppState()
                                                             .insuranceInfoCarRegis =
                                                         _model
-                                                            .vehicleregistrationController1
+                                                            .vehicleregistrationTextController1
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoBodyNumber =
                                                         _model
-                                                            .carBodyNoTextFieldController
+                                                            .carBodyNoTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoEngineNumber =
                                                         _model
-                                                            .enginNoTextFieldController
+                                                            .enginNoTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoCarSeat =
                                                         _model
-                                                            .seatAmountTextFieldController
+                                                            .seatAmountTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoSizeCar =
                                                         _model
-                                                            .sizeTextFieldController
+                                                            .sizeTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoWeightCar =
                                                         _model
-                                                            .weightTextFieldController
+                                                            .weightTextFieldTextController
                                                             .text;
                                                   });
                                                   if (FFAppState()
@@ -7833,32 +7850,32 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     FFAppState()
                                                             .insuranceInfoCarRegis =
                                                         _model
-                                                            .vehicleregistrationController1
+                                                            .vehicleregistrationTextController1
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoBodyNumber =
                                                         _model
-                                                            .carBodyNoTextFieldController
+                                                            .carBodyNoTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoEngineNumber =
                                                         _model
-                                                            .enginNoTextFieldController
+                                                            .enginNoTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoCarSeat =
                                                         _model
-                                                            .seatAmountTextFieldController
+                                                            .seatAmountTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoSizeCar =
                                                         _model
-                                                            .sizeTextFieldController
+                                                            .sizeTextFieldTextController
                                                             .text;
                                                     FFAppState()
                                                             .insuranceInfoWeightCar =
                                                         _model
-                                                            .weightTextFieldController
+                                                            .weightTextFieldTextController
                                                             .text;
                                                   });
                                                   if (FFAppState()

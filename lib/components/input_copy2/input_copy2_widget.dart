@@ -40,7 +40,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
     super.initState();
     _model = createModel(context, () => InputCopy2Model());
 
-    _model.reasonCancelController ??= TextEditingController();
+    _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
   }
 
@@ -167,7 +167,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                   child: Padding(
                                     padding: EdgeInsets.all(10.0),
                                     child: TextFormField(
-                                      controller: _model.reasonCancelController,
+                                      controller:
+                                          _model.reasonCancelTextController,
                                       focusNode: _model.reasonCancelFocusNode,
                                       autofocus: true,
                                       obscureText: false,
@@ -228,9 +229,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                                             fontWeight: FontWeight.normal,
                                           ),
                                       maxLines: 4,
-                                      minLines: null,
                                       validator: _model
-                                          .reasonCancelControllerValidator
+                                          .reasonCancelTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),

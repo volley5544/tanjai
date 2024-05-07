@@ -18,21 +18,21 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for firstname widget.
   FocusNode? firstnameFocusNode;
-  TextEditingController? firstnameController;
-  String? Function(BuildContext, String?)? firstnameControllerValidator;
+  TextEditingController? firstnameTextController;
+  String? Function(BuildContext, String?)? firstnameTextControllerValidator;
   // State field(s) for lastname widget.
   FocusNode? lastnameFocusNode;
-  TextEditingController? lastnameController;
-  String? Function(BuildContext, String?)? lastnameControllerValidator;
+  TextEditingController? lastnameTextController;
+  String? Function(BuildContext, String?)? lastnameTextControllerValidator;
   // State field(s) for phonenumber widget.
   FocusNode? phonenumberFocusNode;
-  TextEditingController? phonenumberController;
+  TextEditingController? phonenumberTextController;
   final phonenumberMask = MaskTextInputFormatter(mask: '###-###-####');
-  String? Function(BuildContext, String?)? phonenumberControllerValidator;
+  String? Function(BuildContext, String?)? phonenumberTextControllerValidator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
-  TextEditingController? textFieldController;
-  String? Function(BuildContext, String?)? textFieldControllerValidator;
+  TextEditingController? textFieldTextController;
+  String? Function(BuildContext, String?)? textFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsQuotationsSave)] action in Button widget.
   ApiCallResponse? aPIQuotationSaveOutput;
 
@@ -43,15 +43,15 @@ class AddCustomerNameModel extends FlutterFlowModel<AddCustomerNameWidget> {
   void dispose() {
     unfocusNode.dispose();
     firstnameFocusNode?.dispose();
-    firstnameController?.dispose();
+    firstnameTextController?.dispose();
 
     lastnameFocusNode?.dispose();
-    lastnameController?.dispose();
+    lastnameTextController?.dispose();
 
     phonenumberFocusNode?.dispose();
-    phonenumberController?.dispose();
+    phonenumberTextController?.dispose();
 
     textFieldFocusNode?.dispose();
-    textFieldController?.dispose();
+    textFieldTextController?.dispose();
   }
 }

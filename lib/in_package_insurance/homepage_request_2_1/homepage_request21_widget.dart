@@ -342,6 +342,12 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                       });
                                                     }
                                                   },
+                                                  side: BorderSide(
+                                                    width: 2,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                  ),
                                                   activeColor:
                                                       Color(0xFF00FD76),
                                                   checkColor:
@@ -559,6 +565,12 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                       });
                                                     }
                                                   },
+                                                  side: BorderSide(
+                                                    width: 2,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                  ),
                                                   activeColor:
                                                       Color(0xFF00FD76),
                                                   checkColor:

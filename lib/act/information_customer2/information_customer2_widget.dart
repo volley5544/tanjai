@@ -41,27 +41,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(0.0, -20.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -488,17 +468,39 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
       Navigator.pop(context);
     });
 
-    _model.firstnameController ??= TextEditingController();
+    _model.firstnameTextController ??= TextEditingController();
     _model.firstnameFocusNode ??= FocusNode();
 
-    _model.lastnameController ??= TextEditingController();
+    _model.lastnameTextController ??= TextEditingController();
     _model.lastnameFocusNode ??= FocusNode();
 
-    _model.phonenumberController ??= TextEditingController();
+    _model.phonenumberTextController ??= TextEditingController();
     _model.phonenumberFocusNode ??= FocusNode();
 
-    _model.textFieldController ??= TextEditingController();
+    _model.textFieldTextController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, -20.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -1402,7 +1404,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .firstnameController,
+                                                            .firstnameTextController,
                                                         focusNode: _model
                                                             .firstnameFocusNode,
                                                         autofocus: false,
@@ -1518,9 +1520,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        minLines: null,
                                                         validator: _model
-                                                            .firstnameControllerValidator
+                                                            .firstnameTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1634,7 +1635,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .lastnameController,
+                                                            .lastnameTextController,
                                                         focusNode: _model
                                                             .lastnameFocusNode,
                                                         autofocus: false,
@@ -1750,9 +1751,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                       FontWeight
                                                                           .w600,
                                                                 ),
-                                                        minLines: null,
                                                         validator: _model
-                                                            .lastnameControllerValidator
+                                                            .lastnameTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -1852,7 +1852,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                                 10.0, 0.0),
                                                     child: TextFormField(
                                                       controller: _model
-                                                          .phonenumberController,
+                                                          .phonenumberTextController,
                                                       focusNode: _model
                                                           .phonenumberFocusNode,
                                                       autofocus: false,
@@ -1964,11 +1964,10 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                           ),
-                                                      minLines: null,
                                                       keyboardType:
                                                           TextInputType.number,
                                                       validator: _model
-                                                          .phonenumberControllerValidator
+                                                          .phonenumberTextControllerValidator
                                                           .asValidator(context),
                                                       inputFormatters: [
                                                         _model.phonenumberMask
@@ -2056,8 +2055,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
-                                              controller:
-                                                  _model.textFieldController,
+                                              controller: _model
+                                                  .textFieldTextController,
                                               focusNode:
                                                   _model.textFieldFocusNode,
                                               autofocus: false,
@@ -2110,9 +2109,8 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              minLines: null,
                                               validator: _model
-                                                  .textFieldControllerValidator
+                                                  .textFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -2261,8 +2259,9 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 if (_shouldSetState) setState(() {});
                                 return;
                               }
-                              if (!(_model.firstnameController.text != null &&
-                                  _model.firstnameController.text != '')) {
+                              if (!(_model.firstnameTextController.text !=
+                                      null &&
+                                  _model.firstnameTextController.text != '')) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -2283,11 +2282,12 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 if (_shouldSetState) setState(() {});
                                 return;
                               }
-                              if (_model.phonenumberController.text != null &&
-                                  _model.phonenumberController.text != '') {
+                              if (_model.phonenumberTextController.text !=
+                                      null &&
+                                  _model.phonenumberTextController.text != '') {
                                 if (!functions.checkIsStringPhoneLength(
                                     functions.removeCommaFromNumText(
-                                        _model.phonenumberController.text),
+                                        _model.phonenumberTextController.text),
                                     10)!) {
                                   ScaffoldMessenger.of(context)
                                       .clearSnackBars();
@@ -2308,7 +2308,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 }
                                 if (!((String var1) {
                                   return var1.startsWith('0');
-                                }(_model.phonenumberController.text))) {
+                                }(_model.phonenumberTextController.text))) {
                                   ScaffoldMessenger.of(context)
                                       .clearSnackBars();
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -2349,10 +2349,10 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 return;
                               }
 
-                              if (_model.textFieldController.text != null &&
-                                  _model.textFieldController.text != '') {
+                              if (_model.textFieldTextController.text != null &&
+                                  _model.textFieldTextController.text != '') {
                                 if (!functions.checkIsStringLengthInLength(
-                                    _model.textFieldController.text, 10)!) {
+                                    _model.textFieldTextController.text, 10)!) {
                                   ScaffoldMessenger.of(context)
                                       .clearSnackBars();
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -2439,13 +2439,14 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                 carModelName:
                                     FFAppState().insuranceBasicModelName,
                                 carRegistration:
-                                    _model.textFieldController.text,
+                                    _model.textFieldTextController.text,
                                 carRegistrationYear: (int.parse(
                                             FFAppState().insuranceBasicYear) -
                                         543)
                                     .toString(),
-                                firstName: _model.firstnameController.text,
-                                phoneNumber: _model.phonenumberController.text,
+                                firstName: _model.firstnameTextController.text,
+                                phoneNumber:
+                                    _model.phonenumberTextController.text,
                                 carType:
                                     FFAppState().insuranceVehicleTypeDropDown,
                                 vehicleId: () {
@@ -2470,7 +2471,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                   locale:
                                       FFLocalizations.of(context).languageCode,
                                 ),
-                                lastName: _model.lastnameController.text,
+                                lastName: _model.lastnameTextController.text,
                                 ownerName:
                                     '${functions.replaceAllTabAndSpace(FFAppState().profileFirstName)} ${functions.replaceAllTabAndSpace(FFAppState().profileLastName)}',
                                 ownerPhone: functions.replaceAllTabAndSpace(

@@ -100,7 +100,8 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                       PageView.builder(
                         controller: _model.pageViewController ??=
                             PageController(
-                                initialPage: min(0, pdfListItem.length - 1)),
+                                initialPage:
+                                    max(0, min(0, pdfListItem.length - 1))),
                         scrollDirection: Axis.vertical,
                         itemCount: pdfListItem.length,
                         itemBuilder: (context, pdfListItemIndex) {
@@ -142,7 +143,7 @@ class _QuotationWidgetState extends State<QuotationWidget> {
                             controller: _model.pageViewController ??=
                                 PageController(
                                     initialPage:
-                                        min(0, pdfListItem.length - 1)),
+                                        max(0, min(0, pdfListItem.length - 1))),
                             count: pdfListItem.length,
                             axisDirection: Axis.vertical,
                             onDotClicked: (i) async {

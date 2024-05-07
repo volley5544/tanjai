@@ -14,6 +14,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -813,9 +814,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
         FFAppState().insuranceInfoPage4NetPremiumTotal =
-            '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
+            '${(IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '0') && (IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) : '${IbsApplicationsDetailCall.netpremium(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                  true,
+                )).toList(), widget.leadDtailId)]}'}';
         FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
@@ -872,6 +883,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             '${IbsApplicationsDetailCall.subproductname(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
+        FFAppState().InsuranceInfoVedioCallFile = '${''}';
       });
       setState(() {
         FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
@@ -1268,37 +1280,38 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               )}';
       });
       setState(() {
-        _model.idCardTextFieldController1?.text =
+        _model.idCardTextFieldTextController1?.text =
             FFAppState().insuranceInfoIdCard;
       });
       setState(() {
-        _model.cusNameTextFieldController?.text =
+        _model.cusNameTextFieldTextController?.text =
             FFAppState().insuranceInfoFirstName;
       });
       setState(() {
-        _model.cusLastnameTextFieldController?.text =
+        _model.cusLastnameTextFieldTextController?.text =
             FFAppState().insuranceInfoLastName;
       });
       setState(() {
-        _model.cusOcputationTextFieldController?.text =
+        _model.cusOcputationTextFieldTextController?.text =
             FFAppState().insuranceInfoSelectOccupationSubNameChoose;
       });
       setState(() {
-        _model.cusPhoneTextFieldController?.text =
+        _model.cusPhoneTextFieldTextController?.text =
             FFAppState().insuranceInfoPhonenumber;
       });
       setState(() {
-        _model.cusPhoneOtherTextFieldController?.text =
+        _model.cusPhoneOtherTextFieldTextController?.text =
             FFAppState().insuranceInfoOtherPhone;
       });
       setState(() {
-        _model.emailTextFieldController?.text = FFAppState().insuranceInfoEmail;
+        _model.emailTextFieldTextController?.text =
+            FFAppState().insuranceInfoEmail;
       });
       setState(() {
-        _model.ageTextFieldController?.text = FFAppState().insuranceInfoAge;
+        _model.ageTextFieldTextController?.text = FFAppState().insuranceInfoAge;
       });
       setState(() {
-        _model.licenseCodeController?.text =
+        _model.licenseCodeTextController?.text =
             FFAppState().insuranceInfoLicenseEmployeeId;
       });
       if (FFAppState().insuranceInfoSelectOccupationName != null &&
@@ -1455,54 +1468,58 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
         });
         setState(() {
-          _model.licenseCodeController?.text =
+          _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
         });
         Navigator.pop(context);
       }
     });
 
-    _model.idCardTextFieldController1 ??=
+    _model.idCardTextFieldTextController1 ??=
         TextEditingController(text: FFAppState().insuranceInfoIdCard);
     _model.idCardTextFieldFocusNode1 ??= FocusNode();
 
-    _model.idCardTextFieldController2 ??= TextEditingController();
+    _model.idCardTextFieldTextController2 ??= TextEditingController();
     _model.idCardTextFieldFocusNode2 ??= FocusNode();
 
-    _model.cusNameTextFieldController ??=
+    _model.cusNameTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoFirstName);
     _model.cusNameTextFieldFocusNode ??= FocusNode();
 
-    _model.cusLastnameTextFieldController ??=
+    _model.cusLastnameTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoLastName);
     _model.cusLastnameTextFieldFocusNode ??= FocusNode();
 
-    _model.ageTextFieldController ??=
+    _model.ageTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoAge);
     _model.ageTextFieldFocusNode ??= FocusNode();
 
-    _model.cusOcputationTextFieldController ??= TextEditingController(
+    _model.cusOcputationTextFieldTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoSelectOccupationSubNameChoose != null &&
                 FFAppState().insuranceInfoSelectOccupationSubNameChoose != ''
             ? FFAppState().insuranceInfoSelectOccupationSubNameChoose
             : '');
     _model.cusOcputationTextFieldFocusNode ??= FocusNode();
 
-    _model.cusPhoneTextFieldController ??=
+    _model.cusPhoneTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoPhonenumber);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
-    _model.cusPhoneOtherTextFieldController ??=
+    _model.cusPhoneOtherTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoOtherPhone);
     _model.cusPhoneOtherTextFieldFocusNode ??= FocusNode();
 
-    _model.emailTextFieldController ??=
+    _model.emailTextFieldTextController ??=
         TextEditingController(text: FFAppState().insuranceInfoEmail);
     _model.emailTextFieldFocusNode ??= FocusNode();
 
-    _model.licenseCodeController ??= TextEditingController(
+    _model.licenseCodeTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoLicenseEmployeeId);
     _model.licenseCodeFocusNode ??= FocusNode();
+
+    _model.vedioCallLinkTextController ??=
+        TextEditingController(text: FFAppState().InsuranceInfoVedioCallFile);
+    _model.vedioCallLinkFocusNode ??= FocusNode();
   }
 
   @override
@@ -2343,7 +2360,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .idCardTextFieldController1,
+                                                              .idCardTextFieldTextController1,
                                                           focusNode: _model
                                                               .idCardTextFieldFocusNode1,
                                                           autofocus: false,
@@ -2405,12 +2422,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          minLines: null,
                                                           keyboardType:
                                                               TextInputType
                                                                   .number,
                                                           validator: _model
-                                                              .idCardTextFieldController1Validator
+                                                              .idCardTextFieldTextController1Validator
                                                               .asValidator(
                                                                   context),
                                                           inputFormatters: [
@@ -2507,7 +2523,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       .checkIdCardInput(functions
                                                           .removeCommaFromNumText(
                                                               _model
-                                                                  .idCardTextFieldController1
+                                                                  .idCardTextFieldTextController1
                                                                   .text))) {
                                                     await showDialog(
                                                       context: context,
@@ -2536,7 +2552,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   }
                                                   if (!functions.checkIdCard(functions
                                                       .removeCommaFromNumText(_model
-                                                          .idCardTextFieldController1
+                                                          .idCardTextFieldTextController1
                                                           .text))!) {
                                                     await showDialog(
                                                       context: context,
@@ -2606,7 +2622,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     nationalThaiId: functions
                                                         .removeCommaFromNumText(
                                                             _model
-                                                                .idCardTextFieldController1
+                                                                .idCardTextFieldTextController1
                                                                 .text),
                                                     insuranceUrl: FFAppState()
                                                         .apiUrlInsuranceAppState,
@@ -2868,7 +2884,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .idCardTextFieldController2,
+                                                              .idCardTextFieldTextController2,
                                                           focusNode: _model
                                                               .idCardTextFieldFocusNode2,
                                                           autofocus: false,
@@ -2930,9 +2946,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          minLines: null,
                                                           validator: _model
-                                                              .idCardTextFieldController2Validator
+                                                              .idCardTextFieldTextController2Validator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -3064,7 +3079,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     nationalThaiId: functions
                                                         .removeCommaFromNumText(
                                                             _model
-                                                                .idCardTextFieldController2
+                                                                .idCardTextFieldTextController2
                                                                 .text),
                                                     insuranceUrl: FFAppState()
                                                         .apiUrlInsuranceAppState,
@@ -3661,12 +3676,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .cusNameTextFieldController,
+                                                  .cusNameTextFieldTextController,
                                               focusNode: _model
                                                   .cusNameTextFieldFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.cusNameTextFieldController',
+                                                '_model.cusNameTextFieldTextController',
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
@@ -3713,9 +3728,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
-                                                  .cusNameTextFieldControllerValidator
+                                                  .cusNameTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3800,12 +3814,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .cusLastnameTextFieldController,
+                                                  .cusLastnameTextFieldTextController,
                                               focusNode: _model
                                                   .cusLastnameTextFieldFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.cusLastnameTextFieldController',
+                                                '_model.cusLastnameTextFieldTextController',
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
@@ -3852,9 +3866,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
-                                                  .cusLastnameTextFieldControllerValidator
+                                                  .cusLastnameTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -3963,7 +3976,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 );
 
                                                 setState(() {
-                                                  _model.ageTextFieldController
+                                                  _model.ageTextFieldTextController
                                                           ?.text =
                                                       functions
                                                           .calculateAgeFromDatetime(
@@ -4173,7 +4186,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   0.0),
                                                       child: TextFormField(
                                                         controller: _model
-                                                            .ageTextFieldController,
+                                                            .ageTextFieldTextController,
                                                         focusNode: _model
                                                             .ageTextFieldFocusNode,
                                                         autofocus: false,
@@ -4233,12 +4246,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                        minLines: null,
                                                         keyboardType:
                                                             TextInputType
                                                                 .number,
                                                         validator: _model
-                                                            .ageTextFieldControllerValidator
+                                                            .ageTextFieldTextControllerValidator
                                                             .asValidator(
                                                                 context),
                                                       ),
@@ -4692,7 +4704,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .cusOcputationTextFieldController,
+                                                    .cusOcputationTextFieldTextController,
                                                 focusNode: _model
                                                     .cusOcputationTextFieldFocusNode,
                                                 autofocus: false,
@@ -4740,9 +4752,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           fontSize: 15.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .cusOcputationTextFieldControllerValidator
+                                                    .cusOcputationTextFieldTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -4827,12 +4838,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .cusPhoneTextFieldController,
+                                                  .cusPhoneTextFieldTextController,
                                               focusNode: _model
                                                   .cusPhoneTextFieldFocusNode,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.cusPhoneTextFieldController',
+                                                '_model.cusPhoneTextFieldTextController',
                                                 Duration(milliseconds: 500),
                                                 () => setState(() {}),
                                               ),
@@ -4880,11 +4891,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
-                                                  .cusPhoneTextFieldControllerValidator
+                                                  .cusPhoneTextFieldTextControllerValidator
                                                   .asValidator(context),
                                               inputFormatters: [
                                                 _model.cusPhoneTextFieldMask
@@ -4953,7 +4963,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .cusPhoneOtherTextFieldController,
+                                                  .cusPhoneOtherTextFieldTextController,
                                               focusNode: _model
                                                   .cusPhoneOtherTextFieldFocusNode,
                                               autofocus: false,
@@ -5000,10 +5010,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               keyboardType: TextInputType.phone,
                                               validator: _model
-                                                  .cusPhoneOtherTextFieldControllerValidator
+                                                  .cusPhoneOtherTextFieldTextControllerValidator
                                                   .asValidator(context),
                                               inputFormatters: [
                                                 _model
@@ -5073,7 +5082,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .emailTextFieldController,
+                                                  .emailTextFieldTextController,
                                               focusNode: _model
                                                   .emailTextFieldFocusNode,
                                               autofocus: false,
@@ -5119,11 +5128,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.emailAddress,
                                               validator: _model
-                                                  .emailTextFieldControllerValidator
+                                                  .emailTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -5442,7 +5450,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             child:
                                                                 TextFormField(
                                                               controller: _model
-                                                                  .licenseCodeController,
+                                                                  .licenseCodeTextController,
                                                               focusNode: _model
                                                                   .licenseCodeFocusNode,
                                                               autofocus: false,
@@ -5503,12 +5511,11 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
-                                                              minLines: null,
                                                               keyboardType:
                                                                   TextInputType
                                                                       .number,
                                                               validator: _model
-                                                                  .licenseCodeControllerValidator
+                                                                  .licenseCodeTextControllerValidator
                                                                   .asValidator(
                                                                       context),
                                                             ),
@@ -5584,10 +5591,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             safeSetState(
                                                                 () {}));
 
-                                                        if (!(_model.licenseCodeController
+                                                        if (!(_model.licenseCodeTextController
                                                                     .text !=
                                                                 null &&
-                                                            _model.licenseCodeController
+                                                            _model.licenseCodeTextController
                                                                     .text !=
                                                                 '')) {
                                                           await showDialog(
@@ -5621,7 +5628,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         if (FFAppState()
                                                             .addAddressLicenseEmployeeId
                                                             .contains(_model
-                                                                .licenseCodeController
+                                                                .licenseCodeTextController
                                                                 .text)) {
                                                           setState(() {
                                                             FFAppState()
@@ -5687,7 +5694,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             await GetProfileImageCall
                                                                 .call(
                                                           employeeCode: _model
-                                                              .licenseCodeController
+                                                              .licenseCodeTextController
                                                               .text,
                                                           insuranceUrl: FFAppState()
                                                               .apiUrlInsuranceAppState,
@@ -5768,25 +5775,25 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         setState(() {
                                                           FFAppState()
                                                                   .insuranceInfoLicenseEmployeeId =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseTitle =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseFirstName =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseLastName =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseLicenseId =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseExpiredDate =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseMobilePhone =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseImg =
                                                               '${GetProfileImageCall.imgProfile(
@@ -5796,7 +5803,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           )}';
                                                           FFAppState()
                                                                   .insuranceInfoLicenseBranch =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeController.text)}';
+                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
                                                         });
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
@@ -6225,6 +6232,214 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                     ),
                                 ],
                               ),
+                            if (false)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 5.0, 0.0, 0.0),
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  decoration: BoxDecoration(),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.45,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.08,
+                                          decoration: BoxDecoration(),
+                                          child: Visibility(
+                                            visible: FFAppState()
+                                                        .InsuranceInfoVedioCallUrl !=
+                                                    null &&
+                                                FFAppState()
+                                                        .InsuranceInfoVedioCallUrl !=
+                                                    '',
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 15.0, 0.0, 0.0),
+                                              child: FFButtonWidget(
+                                                onPressed: () async {
+                                                  await Clipboard.setData(
+                                                      ClipboardData(
+                                                          text: FFAppState()
+                                                              .InsuranceInfoVedioCallUrl));
+                                                },
+                                                text: 'meeting url',
+                                                icon: Icon(
+                                                  Icons.content_copy_sharp,
+                                                  size: 15.0,
+                                                ),
+                                                options: FFButtonOptions(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: Color(0xFFFCEFE4),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFD9761A),
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  elevation: 3.0,
+                                                  borderSide: BorderSide(
+                                                    color: Colors.transparent,
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 15.0, 12.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Text(
+                                              'ลิ้งวิดีโอ',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                '(บังคับกรอก)',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFFB0606),
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .vedioCallLinkTextController,
+                                                focusNode: _model
+                                                    .vedioCallLinkFocusNode,
+                                                autofocus: false,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  hintText:
+                                                      'กรุณากรอกลิ้งวีดีโอ',
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFB3B3B3),
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  enabledBorder:
+                                                      InputBorder.none,
+                                                  focusedBorder:
+                                                      InputBorder.none,
+                                                  errorBorder: InputBorder.none,
+                                                  focusedErrorBorder:
+                                                      InputBorder.none,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .black600,
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                keyboardType:
+                                                    TextInputType.emailAddress,
+                                                validator: _model
+                                                    .vedioCallLinkTextControllerValidator
+                                                    .asValidator(context),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
@@ -6260,7 +6475,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     FFAppState()
                                                             .insuranceInfoSelectOccupationSubNameChoose =
                                                         _model
-                                                            .cusOcputationTextFieldController
+                                                            .cusOcputationTextFieldTextController
                                                             .text;
                                                   });
                                                 }
@@ -6276,10 +6491,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     (FFAppState()
                                                             .insuranceInfoLicenseLicenseId !=
                                                         '') &&
-                                                    (_model.licenseCodeController
+                                                    (_model.licenseCodeTextController
                                                                 .text !=
                                                             null &&
-                                                        _model.licenseCodeController
+                                                        _model.licenseCodeTextController
                                                                 .text !=
                                                             ''))) {
                                                   await showDialog(
@@ -6342,16 +6557,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!((_model.idCardTextFieldController1
+                                                if (!((_model.idCardTextFieldTextController1
                                                                 .text !=
                                                             null &&
-                                                        _model.idCardTextFieldController1
+                                                        _model.idCardTextFieldTextController1
                                                                 .text !=
                                                             '') ||
-                                                    (_model.idCardTextFieldController2
+                                                    (_model.idCardTextFieldTextController2
                                                                 .text !=
                                                             null &&
-                                                        _model.idCardTextFieldController2
+                                                        _model.idCardTextFieldTextController2
                                                                 .text !=
                                                             ''))) {
                                                   await showDialog(
@@ -6488,10 +6703,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusNameTextFieldController
+                                                if (!(_model.cusNameTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusNameTextFieldController
+                                                    _model.cusNameTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6518,10 +6733,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusLastnameTextFieldController
+                                                if (!(_model.cusLastnameTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusLastnameTextFieldController
+                                                    _model.cusLastnameTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6578,10 +6793,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusPhoneTextFieldController
+                                                if (!(_model.cusPhoneTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusPhoneTextFieldController
+                                                    _model.cusPhoneTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6608,10 +6823,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.ageTextFieldController
+                                                if (!(_model.ageTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.ageTextFieldController
+                                                    _model.ageTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -6702,7 +6917,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         functions
                                                             .removeCommaFromNumText(
                                                                 _model
-                                                                    .idCardTextFieldController1
+                                                                    .idCardTextFieldTextController1
                                                                     .text)) ||
                                                     ((FFAppState()
                                                                 .insuranceInfoCardType !=
@@ -6772,15 +6987,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (_model.emailTextFieldController
+                                                if (_model.emailTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.emailTextFieldController
+                                                    _model.emailTextFieldTextController
                                                             .text !=
                                                         '') {
                                                   if (!functions.validateEmail(
                                                       _model
-                                                          .emailTextFieldController
+                                                          .emailTextFieldTextController
                                                           .text)!) {
                                                     await showDialog(
                                                       context: context,
@@ -6848,20 +7063,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           (FFAppState().insuranceInfoCardType ==
                                                               '1')
                                                       ? _model
-                                                          .idCardTextFieldController1
+                                                          .idCardTextFieldTextController1
                                                           .text
                                                       : _model
-                                                          .idCardTextFieldController2
+                                                          .idCardTextFieldTextController2
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoFirstName =
                                                       _model
-                                                          .cusNameTextFieldController
+                                                          .cusNameTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoLastName =
                                                       _model
-                                                          .cusLastnameTextFieldController
+                                                          .cusLastnameTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoBirthDate =
@@ -6894,22 +7109,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   FFAppState()
                                                           .insuranceInfoPhonenumber =
                                                       _model
-                                                          .cusPhoneTextFieldController
+                                                          .cusPhoneTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoOtherPhone =
                                                       _model
-                                                          .cusPhoneOtherTextFieldController
+                                                          .cusPhoneOtherTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoEmail =
                                                       _model
-                                                          .emailTextFieldController
+                                                          .emailTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoAge =
                                                       _model
-                                                          .ageTextFieldController
+                                                          .ageTextFieldTextController
                                                           .text;
                                                 });
                                                 _model.ibsAppSaveAPIoutput =
@@ -7259,7 +7474,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     FFAppState()
                                                             .insuranceInfoSelectOccupationSubNameChoose =
                                                         _model
-                                                            .cusOcputationTextFieldController
+                                                            .cusOcputationTextFieldTextController
                                                             .text;
                                                   });
                                                 }
@@ -7299,16 +7514,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!((_model.idCardTextFieldController1
+                                                if (!((_model.idCardTextFieldTextController1
                                                                 .text !=
                                                             null &&
-                                                        _model.idCardTextFieldController1
+                                                        _model.idCardTextFieldTextController1
                                                                 .text !=
                                                             '') ||
-                                                    (_model.idCardTextFieldController2
+                                                    (_model.idCardTextFieldTextController2
                                                                 .text !=
                                                             null &&
-                                                        _model.idCardTextFieldController2
+                                                        _model.idCardTextFieldTextController2
                                                                 .text !=
                                                             ''))) {
                                                   await showDialog(
@@ -7445,10 +7660,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusNameTextFieldController
+                                                if (!(_model.cusNameTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusNameTextFieldController
+                                                    _model.cusNameTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -7475,10 +7690,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusLastnameTextFieldController
+                                                if (!(_model.cusLastnameTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusLastnameTextFieldController
+                                                    _model.cusLastnameTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -7535,10 +7750,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (!(_model.cusPhoneTextFieldController
+                                                if (!(_model.cusPhoneTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.cusPhoneTextFieldController
+                                                    _model.cusPhoneTextFieldTextController
                                                             .text !=
                                                         '')) {
                                                   await showDialog(
@@ -7629,7 +7844,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         functions
                                                             .removeCommaFromNumText(
                                                                 _model
-                                                                    .idCardTextFieldController1
+                                                                    .idCardTextFieldTextController1
                                                                     .text)) ||
                                                     ((FFAppState()
                                                                 .insuranceInfoCardType !=
@@ -7699,15 +7914,15 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                if (_model.emailTextFieldController
+                                                if (_model.emailTextFieldTextController
                                                             .text !=
                                                         null &&
-                                                    _model.emailTextFieldController
+                                                    _model.emailTextFieldTextController
                                                             .text !=
                                                         '') {
                                                   if (!functions.validateEmail(
                                                       _model
-                                                          .emailTextFieldController
+                                                          .emailTextFieldTextController
                                                           .text)!) {
                                                     await showDialog(
                                                       context: context,
@@ -7775,20 +7990,20 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                           (FFAppState().insuranceInfoCardType ==
                                                               '1')
                                                       ? _model
-                                                          .idCardTextFieldController1
+                                                          .idCardTextFieldTextController1
                                                           .text
                                                       : _model
-                                                          .idCardTextFieldController2
+                                                          .idCardTextFieldTextController2
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoFirstName =
                                                       _model
-                                                          .cusNameTextFieldController
+                                                          .cusNameTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoLastName =
                                                       _model
-                                                          .cusLastnameTextFieldController
+                                                          .cusLastnameTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoBirthDate =
@@ -7821,22 +8036,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   FFAppState()
                                                           .insuranceInfoPhonenumber =
                                                       _model
-                                                          .cusPhoneTextFieldController
+                                                          .cusPhoneTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoOtherPhone =
                                                       _model
-                                                          .cusPhoneOtherTextFieldController
+                                                          .cusPhoneOtherTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoEmail =
                                                       _model
-                                                          .emailTextFieldController
+                                                          .emailTextFieldTextController
                                                           .text;
                                                   FFAppState()
                                                           .insuranceInfoAge =
                                                       _model
-                                                          .ageTextFieldController
+                                                          .ageTextFieldTextController
                                                           .text;
                                                 });
                                                 _model.ibsAppSaveAPIoutputCMI =
@@ -8256,16 +8471,16 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                     return;
                                                   }
-                                                  if (!((_model.idCardTextFieldController1
+                                                  if (!((_model.idCardTextFieldTextController1
                                                                   .text !=
                                                               null &&
-                                                          _model.idCardTextFieldController1
+                                                          _model.idCardTextFieldTextController1
                                                                   .text !=
                                                               '') ||
-                                                      (_model.idCardTextFieldController2
+                                                      (_model.idCardTextFieldTextController2
                                                                   .text !=
                                                               null &&
-                                                          _model.idCardTextFieldController2
+                                                          _model.idCardTextFieldTextController2
                                                                   .text !=
                                                               ''))) {
                                                     await showDialog(
@@ -8396,10 +8611,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.cusNameTextFieldController
+                                                  if (!(_model.cusNameTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.cusNameTextFieldController
+                                                      _model.cusNameTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -8425,10 +8640,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.cusLastnameTextFieldController
+                                                  if (!(_model.cusLastnameTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.cusLastnameTextFieldController
+                                                      _model.cusLastnameTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(
@@ -8483,10 +8698,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                     return;
                                                   }
-                                                  if (!(_model.cusPhoneTextFieldController
+                                                  if (!(_model.cusPhoneTextFieldTextController
                                                               .text !=
                                                           null &&
-                                                      _model.cusPhoneTextFieldController
+                                                      _model.cusPhoneTextFieldTextController
                                                               .text !=
                                                           '')) {
                                                     await showDialog(

@@ -239,7 +239,6 @@ class _Email1WidgetState extends State<Email1Widget>
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                    minLines: null,
                                     validator: _model.textControllerValidator
                                         .asValidator(context),
                                   ),

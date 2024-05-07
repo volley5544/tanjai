@@ -424,7 +424,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
               '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
         });
         setState(() {
-          _model.licenseCodeController?.text =
+          _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
         });
         Navigator.pop(context);
@@ -433,7 +433,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
       }
     });
 
-    _model.licenseCodeController ??= TextEditingController(
+    _model.licenseCodeTextController ??= TextEditingController(
         text: FFAppState().insuranceInfoLicenseEmployeeId);
     _model.licenseCodeFocusNode ??= FocusNode();
   }
@@ -2274,7 +2274,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                       0.0),
                                                           child: TextFormField(
                                                             controller: _model
-                                                                .licenseCodeController,
+                                                                .licenseCodeTextController,
                                                             focusNode: _model
                                                                 .licenseCodeFocusNode,
                                                             autofocus: false,
@@ -2336,12 +2336,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
-                                                            minLines: null,
                                                             keyboardType:
                                                                 TextInputType
                                                                     .number,
                                                             validator: _model
-                                                                .licenseCodeControllerValidator
+                                                                .licenseCodeTextControllerValidator
                                                                 .asValidator(
                                                                     context),
                                                           ),
@@ -2415,10 +2414,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       ).then((value) =>
                                                           safeSetState(() {}));
 
-                                                      if (!(_model.licenseCodeController
+                                                      if (!(_model.licenseCodeTextController
                                                                   .text !=
                                                               null &&
-                                                          _model.licenseCodeController
+                                                          _model.licenseCodeTextController
                                                                   .text !=
                                                               '')) {
                                                         await showDialog(
@@ -2451,7 +2450,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       if (FFAppState()
                                                           .addAddressLicenseEmployeeId
                                                           .contains(_model
-                                                              .licenseCodeController
+                                                              .licenseCodeTextController
                                                               .text)) {
                                                         setState(() {
                                                           FFAppState()
@@ -2516,7 +2515,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           await GetProfileImageCall
                                                               .call(
                                                         employeeCode: _model
-                                                            .licenseCodeController
+                                                            .licenseCodeTextController
                                                             .text,
                                                         insuranceUrl: FFAppState()
                                                             .apiUrlInsuranceAppState,
@@ -2595,25 +2594,25 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       setState(() {
                                                         FFAppState()
                                                                 .insuranceInfoLicenseEmployeeId =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseTitle =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseFirstName =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseLastName =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseLicenseId =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseExpiredDate =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseMobilePhone =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseImg =
                                                             '${GetProfileImageCall.imgProfile(
@@ -2623,7 +2622,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         )}';
                                                         FFAppState()
                                                                 .insuranceInfoLicenseBranch =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeController.text)}';
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
                                                       });
                                                       Navigator.pop(context);
                                                       if (_shouldSetState)
@@ -3183,10 +3182,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                       (FFAppState()
                                                               .insuranceInfoLicenseLicenseId !=
                                                           '') &&
-                                                      (_model.licenseCodeController
+                                                      (_model.licenseCodeTextController
                                                                   .text !=
                                                               null &&
-                                                          _model.licenseCodeController
+                                                          _model.licenseCodeTextController
                                                                   .text !=
                                                               ''))) {
                                                     await showDialog(

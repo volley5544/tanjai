@@ -14,13 +14,13 @@ class NonePackageShowStatusComponentModel
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    expandableController.dispose();
+    expandableExpandableController.dispose();
   }
 }

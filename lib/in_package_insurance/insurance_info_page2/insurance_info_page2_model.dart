@@ -35,45 +35,48 @@ class InsuranceInfoPage2Model
   late InfomationCustomerActModel infomationCustomerActModel;
   // State field(s) for OldVmiTextField widget.
   FocusNode? oldVmiTextFieldFocusNode;
-  TextEditingController? oldVmiTextFieldController;
-  String? Function(BuildContext, String?)? oldVmiTextFieldControllerValidator;
+  TextEditingController? oldVmiTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      oldVmiTextFieldTextControllerValidator;
   DateTime? datePicked1;
   DateTime? datePicked2;
   DateTime? datePicked3;
   // State field(s) for Vehicleregistration widget.
   FocusNode? vehicleregistrationFocusNode1;
-  TextEditingController? vehicleregistrationController1;
+  TextEditingController? vehicleregistrationTextController1;
   String? Function(BuildContext, String?)?
-      vehicleregistrationController1Validator;
+      vehicleregistrationTextController1Validator;
   // State field(s) for Vehicleregistration widget.
   FocusNode? vehicleregistrationFocusNode2;
-  TextEditingController? vehicleregistrationController2;
+  TextEditingController? vehicleregistrationTextController2;
   String? Function(BuildContext, String?)?
-      vehicleregistrationController2Validator;
+      vehicleregistrationTextController2Validator;
   // State field(s) for CarBodyNoTextField widget.
   FocusNode? carBodyNoTextFieldFocusNode;
-  TextEditingController? carBodyNoTextFieldController;
+  TextEditingController? carBodyNoTextFieldTextController;
   String? Function(BuildContext, String?)?
-      carBodyNoTextFieldControllerValidator;
+      carBodyNoTextFieldTextControllerValidator;
   // State field(s) for EnginNoTextField widget.
   FocusNode? enginNoTextFieldFocusNode;
-  TextEditingController? enginNoTextFieldController;
-  String? Function(BuildContext, String?)? enginNoTextFieldControllerValidator;
+  TextEditingController? enginNoTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      enginNoTextFieldTextControllerValidator;
   // State field(s) for SeatAmountTextField widget.
   FocusNode? seatAmountTextFieldFocusNode;
-  TextEditingController? seatAmountTextFieldController;
+  TextEditingController? seatAmountTextFieldTextController;
   final seatAmountTextFieldMask = MaskTextInputFormatter(mask: '##');
   String? Function(BuildContext, String?)?
-      seatAmountTextFieldControllerValidator;
+      seatAmountTextFieldTextControllerValidator;
   // State field(s) for SizeTextField widget.
   FocusNode? sizeTextFieldFocusNode;
-  TextEditingController? sizeTextFieldController;
-  String? Function(BuildContext, String?)? sizeTextFieldControllerValidator;
+  TextEditingController? sizeTextFieldTextController;
+  String? Function(BuildContext, String?)? sizeTextFieldTextControllerValidator;
   // State field(s) for WeightTextField widget.
   FocusNode? weightTextFieldFocusNode;
-  TextEditingController? weightTextFieldController;
+  TextEditingController? weightTextFieldTextController;
   final weightTextFieldMask = MaskTextInputFormatter(mask: '#####');
-  String? Function(BuildContext, String?)? weightTextFieldControllerValidator;
+  String? Function(BuildContext, String?)?
+      weightTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Button widget.
@@ -93,27 +96,27 @@ class InsuranceInfoPage2Model
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
     oldVmiTextFieldFocusNode?.dispose();
-    oldVmiTextFieldController?.dispose();
+    oldVmiTextFieldTextController?.dispose();
 
     vehicleregistrationFocusNode1?.dispose();
-    vehicleregistrationController1?.dispose();
+    vehicleregistrationTextController1?.dispose();
 
     vehicleregistrationFocusNode2?.dispose();
-    vehicleregistrationController2?.dispose();
+    vehicleregistrationTextController2?.dispose();
 
     carBodyNoTextFieldFocusNode?.dispose();
-    carBodyNoTextFieldController?.dispose();
+    carBodyNoTextFieldTextController?.dispose();
 
     enginNoTextFieldFocusNode?.dispose();
-    enginNoTextFieldController?.dispose();
+    enginNoTextFieldTextController?.dispose();
 
     seatAmountTextFieldFocusNode?.dispose();
-    seatAmountTextFieldController?.dispose();
+    seatAmountTextFieldTextController?.dispose();
 
     sizeTextFieldFocusNode?.dispose();
-    sizeTextFieldController?.dispose();
+    sizeTextFieldTextController?.dispose();
 
     weightTextFieldFocusNode?.dispose();
-    weightTextFieldController?.dispose();
+    weightTextFieldTextController?.dispose();
   }
 }

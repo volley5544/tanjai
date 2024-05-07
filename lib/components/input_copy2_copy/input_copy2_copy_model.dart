@@ -14,8 +14,8 @@ class InputCopy2CopyModel extends FlutterFlowModel<InputCopy2CopyWidget> {
 
   // State field(s) for reasonCancel widget.
   FocusNode? reasonCancelFocusNode;
-  TextEditingController? reasonCancelController;
-  String? Function(BuildContext, String?)? reasonCancelControllerValidator;
+  TextEditingController? reasonCancelTextController;
+  String? Function(BuildContext, String?)? reasonCancelTextControllerValidator;
   // Stores action output result for [Backend Call - API (sendResignFormEmailAPI)] action in Button widget.
   ApiCallResponse? sendEmail;
 
@@ -25,6 +25,6 @@ class InputCopy2CopyModel extends FlutterFlowModel<InputCopy2CopyWidget> {
   @override
   void dispose() {
     reasonCancelFocusNode?.dispose();
-    reasonCancelController?.dispose();
+    reasonCancelTextController?.dispose();
   }
 }

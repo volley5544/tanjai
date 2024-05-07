@@ -295,7 +295,8 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                           PageView.builder(
                             controller: _model.pageViewController ??=
                                 PageController(
-                                    initialPage: min(0, listPdf.length - 1)),
+                                    initialPage:
+                                        max(0, min(0, listPdf.length - 1))),
                             scrollDirection: Axis.vertical,
                             itemCount: listPdf.length,
                             itemBuilder: (context, listPdfIndex) {
@@ -386,7 +387,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 controller: _model.pageViewController ??=
                                     PageController(
                                         initialPage:
-                                            min(0, listPdf.length - 1)),
+                                            max(0, min(0, listPdf.length - 1))),
                                 count: listPdf.length,
                                 axisDirection: Axis.vertical,
                                 onDotClicked: (i) async {

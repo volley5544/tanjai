@@ -56,74 +56,75 @@ class _NonePackageSelectedInsurerPageWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
-    _model.netPremiumController ??= TextEditingController();
+    _model.netPremiumTextController ??= TextEditingController();
     _model.netPremiumFocusNode ??= FocusNode();
     _model.netPremiumFocusNode!.addListener(
       () async {
         if ((_model.netPremiumFocusNode?.hasFocus ?? false)) {
-          if (_model.netPremiumController.text == '') {
+          if (_model.netPremiumTextController.text == '') {
             return;
           }
           setState(() {
-            _model.netPremiumController?.text = functions
-                .removeCommaFromNumText(_model.netPremiumController.text);
+            _model.netPremiumTextController?.text = functions
+                .removeCommaFromNumText(_model.netPremiumTextController.text);
           });
         } else {
-          if (_model.netPremiumController.text == '') {
+          if (_model.netPremiumTextController.text == '') {
             return;
           }
           setState(() {
-            _model.netPremiumController?.text =
+            _model.netPremiumTextController?.text =
                 functions.returnNumberWithComma2Decimal(
-                    _model.netPremiumController.text)!;
+                    _model.netPremiumTextController.text)!;
           });
         }
       },
     );
-    _model.actAmountController ??= TextEditingController();
+    _model.actAmountTextController ??= TextEditingController();
     _model.actAmountFocusNode ??= FocusNode();
     _model.actAmountFocusNode!.addListener(
       () async {
         if ((_model.actAmountFocusNode?.hasFocus ?? false)) {
-          if (_model.actAmountController.text == '') {
+          if (_model.actAmountTextController.text == '') {
             return;
           }
           setState(() {
-            _model.actAmountController?.text = functions
-                .removeCommaFromNumText(_model.actAmountController.text);
+            _model.actAmountTextController?.text = functions
+                .removeCommaFromNumText(_model.actAmountTextController.text);
           });
         } else {
-          if (_model.actAmountController.text == '') {
+          if (_model.actAmountTextController.text == '') {
             return;
           }
           setState(() {
-            _model.actAmountController?.text =
+            _model.actAmountTextController?.text =
                 functions.returnNumberWithComma2Decimal(
-                    _model.actAmountController.text)!;
+                    _model.actAmountTextController.text)!;
           });
         }
       },
     );
-    _model.accessoryTotalController ??= TextEditingController();
+    _model.accessoryTotalTextController ??= TextEditingController();
     _model.accessoryTotalFocusNode ??= FocusNode();
     _model.accessoryTotalFocusNode!.addListener(
       () async {
         if ((_model.accessoryTotalFocusNode?.hasFocus ?? false)) {
-          if (_model.accessoryTotalController.text == '') {
+          if (_model.accessoryTotalTextController.text == '') {
             return;
           }
           setState(() {
-            _model.accessoryTotalController?.text = functions
-                .removeCommaFromNumText(_model.accessoryTotalController.text);
+            _model.accessoryTotalTextController?.text =
+                functions.removeCommaFromNumText(
+                    _model.accessoryTotalTextController.text);
           });
         } else {
-          if (_model.accessoryTotalController.text == '') {
+          if (_model.accessoryTotalTextController.text == '') {
             return;
           }
           setState(() {
-            _model.accessoryTotalController?.text =
+            _model.accessoryTotalTextController?.text =
                 functions.returnNumberWithComma2Decimal(
-                    _model.accessoryTotalController.text)!;
+                    _model.accessoryTotalTextController.text)!;
           });
         }
       },
@@ -732,13 +733,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .netPremiumController,
+                                                              .netPremiumTextController,
                                                           focusNode: _model
                                                               .netPremiumFocusNode,
                                                           onChanged: (_) =>
                                                               EasyDebounce
                                                                   .debounce(
-                                                            '_model.netPremiumController',
+                                                            '_model.netPremiumTextController',
                                                             Duration(
                                                                 milliseconds:
                                                                     100),
@@ -799,14 +800,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
                                                                   decimal:
                                                                       true),
                                                           validator: _model
-                                                              .netPremiumControllerValidator
+                                                              .netPremiumTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -893,13 +893,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .actAmountController,
+                                                              .actAmountTextController,
                                                           focusNode: _model
                                                               .actAmountFocusNode,
                                                           onChanged: (_) =>
                                                               EasyDebounce
                                                                   .debounce(
-                                                            '_model.actAmountController',
+                                                            '_model.actAmountTextController',
                                                             Duration(
                                                                 milliseconds:
                                                                     100),
@@ -960,14 +960,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
                                                                   decimal:
                                                                       true),
                                                           validator: _model
-                                                              .actAmountControllerValidator
+                                                              .actAmountTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -1054,13 +1053,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                     0.0),
                                                         child: TextFormField(
                                                           controller: _model
-                                                              .accessoryTotalController,
+                                                              .accessoryTotalTextController,
                                                           focusNode: _model
                                                               .accessoryTotalFocusNode,
                                                           onChanged: (_) =>
                                                               EasyDebounce
                                                                   .debounce(
-                                                            '_model.accessoryTotalController',
+                                                            '_model.accessoryTotalTextController',
                                                             Duration(
                                                                 milliseconds:
                                                                     100),
@@ -1121,14 +1120,13 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                          minLines: null,
                                                           keyboardType:
                                                               const TextInputType
                                                                   .numberWithOptions(
                                                                   decimal:
                                                                       true),
                                                           validator: _model
-                                                              .accessoryTotalControllerValidator
+                                                              .accessoryTotalTextControllerValidator
                                                               .asValidator(
                                                                   context),
                                                         ),
@@ -1171,9 +1169,10 @@ class _NonePackageSelectedInsurerPageWidgetState
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
-                                    if (!(_model.netPremiumController.text !=
+                                    if (!(_model.netPremiumTextController
+                                                .text !=
                                             null &&
-                                        _model.netPremiumController.text !=
+                                        _model.netPremiumTextController.text !=
                                             '')) {
                                       await showDialog(
                                         context: context,
@@ -1198,7 +1197,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                     }
                                     if (!(double.parse(functions
                                             .removeLetterShowonlyNumber(_model
-                                                .netPremiumController.text)) >
+                                                .netPremiumTextController
+                                                .text)) >
                                         999)) {
                                       await showDialog(
                                         context: context,
@@ -1289,45 +1289,47 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           FFAppState().apiUrlInsuranceAppState,
                                       token: FFAppState().accessToken,
                                       insurerShortName: widget.insurerShortName,
-                                      netPremium: _model.netPremiumController
+                                      netPremium: _model
+                                                      .netPremiumTextController
                                                       .text !=
                                                   null &&
-                                              _model.netPremiumController
+                                              _model.netPremiumTextController
                                                       .text !=
                                                   ''
                                           ? functions
                                               .removeLetterShowonlyNumber(_model
-                                                  .netPremiumController.text)
+                                                  .netPremiumTextController
+                                                  .text)
                                           : '0',
                                       accessoryTotal: functions
                                                       .removeLetterShowonlyNumber(
                                                           _model
-                                                              .accessoryTotalController
+                                                              .accessoryTotalTextController
                                                               .text) !=
                                                   null &&
                                               functions.removeLetterShowonlyNumber(
                                                       _model
-                                                          .accessoryTotalController
+                                                          .accessoryTotalTextController
                                                           .text) !=
                                                   ''
                                           ? functions
                                               .removeLetterShowonlyNumber(_model
-                                                  .accessoryTotalController
+                                                  .accessoryTotalTextController
                                                   .text)
                                           : '0',
-                                      actAmount: functions
-                                                      .removeLetterShowonlyNumber(
-                                                          _model
-                                                              .actAmountController
-                                                              .text) !=
+                                      actAmount: functions.removeLetterShowonlyNumber(
+                                                      _model
+                                                          .actAmountTextController
+                                                          .text) !=
                                                   null &&
                                               functions.removeLetterShowonlyNumber(
-                                                      _model.actAmountController
+                                                      _model
+                                                          .actAmountTextController
                                                           .text) !=
                                                   ''
                                           ? functions
                                               .removeLetterShowonlyNumber(_model
-                                                  .actAmountController.text)
+                                                  .actAmountTextController.text)
                                           : '0',
                                       leadId: widget.leadID,
                                       type: 'insurerShortName',

@@ -3685,7 +3685,7 @@ class FFAppState extends ChangeNotifier {
     _welfareKpiStatusTextColorList.insert(_index, _value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool _value) {
     _isProduction = _value;
@@ -13125,6 +13125,32 @@ class FFAppState extends ChangeNotifier {
   String get page5RefundRemark => _page5RefundRemark;
   set page5RefundRemark(String _value) {
     _page5RefundRemark = _value;
+  }
+
+  String _insuranceInfoQuotationType = '';
+  String get insuranceInfoQuotationType => _insuranceInfoQuotationType;
+  set insuranceInfoQuotationType(String _value) {
+    _insuranceInfoQuotationType = _value;
+  }
+
+  DocumentReference? _insurerConfig2InactiveInsurer =
+      FirebaseFirestore.instance.doc('/InsurerConfig2/hvT7Gz16JBaY3J2HE4SW');
+  DocumentReference? get insurerConfig2InactiveInsurer =>
+      _insurerConfig2InactiveInsurer;
+  set insurerConfig2InactiveInsurer(DocumentReference? _value) {
+    _insurerConfig2InactiveInsurer = _value;
+  }
+
+  String _InsuranceInfoVedioCallUrl = '';
+  String get InsuranceInfoVedioCallUrl => _InsuranceInfoVedioCallUrl;
+  set InsuranceInfoVedioCallUrl(String _value) {
+    _InsuranceInfoVedioCallUrl = _value;
+  }
+
+  String _InsuranceInfoVedioCallFile = '';
+  String get InsuranceInfoVedioCallFile => _InsuranceInfoVedioCallFile;
+  set InsuranceInfoVedioCallFile(String _value) {
+    _InsuranceInfoVedioCallFile = _value;
   }
 }
 

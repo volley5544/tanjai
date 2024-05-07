@@ -15,6 +15,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -44,59 +45,68 @@ class InsuranceInfoPage1Model
   late InfomationCustomerActModel infomationCustomerActModel;
   // State field(s) for IdCardTextField widget.
   FocusNode? idCardTextFieldFocusNode1;
-  TextEditingController? idCardTextFieldController1;
+  TextEditingController? idCardTextFieldTextController1;
   final idCardTextFieldMask1 =
       MaskTextInputFormatter(mask: '#-####-#####-##-#');
-  String? Function(BuildContext, String?)? idCardTextFieldController1Validator;
+  String? Function(BuildContext, String?)?
+      idCardTextFieldTextController1Validator;
   // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
   ApiCallResponse? checkBlackListOutput;
   // State field(s) for IdCardTextField widget.
   FocusNode? idCardTextFieldFocusNode2;
-  TextEditingController? idCardTextFieldController2;
-  String? Function(BuildContext, String?)? idCardTextFieldController2Validator;
+  TextEditingController? idCardTextFieldTextController2;
+  String? Function(BuildContext, String?)?
+      idCardTextFieldTextController2Validator;
   // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
   ApiCallResponse? checkBlackListOutput2;
   // State field(s) for CusNameTextField widget.
   FocusNode? cusNameTextFieldFocusNode;
-  TextEditingController? cusNameTextFieldController;
-  String? Function(BuildContext, String?)? cusNameTextFieldControllerValidator;
+  TextEditingController? cusNameTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      cusNameTextFieldTextControllerValidator;
   // State field(s) for CusLastnameTextField widget.
   FocusNode? cusLastnameTextFieldFocusNode;
-  TextEditingController? cusLastnameTextFieldController;
+  TextEditingController? cusLastnameTextFieldTextController;
   String? Function(BuildContext, String?)?
-      cusLastnameTextFieldControllerValidator;
+      cusLastnameTextFieldTextControllerValidator;
   DateTime? datePicked;
   // State field(s) for AgeTextField widget.
   FocusNode? ageTextFieldFocusNode;
-  TextEditingController? ageTextFieldController;
-  String? Function(BuildContext, String?)? ageTextFieldControllerValidator;
+  TextEditingController? ageTextFieldTextController;
+  String? Function(BuildContext, String?)? ageTextFieldTextControllerValidator;
   // State field(s) for CusOcputationTextField widget.
   FocusNode? cusOcputationTextFieldFocusNode;
-  TextEditingController? cusOcputationTextFieldController;
+  TextEditingController? cusOcputationTextFieldTextController;
   String? Function(BuildContext, String?)?
-      cusOcputationTextFieldControllerValidator;
+      cusOcputationTextFieldTextControllerValidator;
   // State field(s) for CusPhoneTextField widget.
   FocusNode? cusPhoneTextFieldFocusNode;
-  TextEditingController? cusPhoneTextFieldController;
+  TextEditingController? cusPhoneTextFieldTextController;
   final cusPhoneTextFieldMask = MaskTextInputFormatter(mask: '###-###-####');
-  String? Function(BuildContext, String?)? cusPhoneTextFieldControllerValidator;
+  String? Function(BuildContext, String?)?
+      cusPhoneTextFieldTextControllerValidator;
   // State field(s) for CusPhoneOtherTextField widget.
   FocusNode? cusPhoneOtherTextFieldFocusNode;
-  TextEditingController? cusPhoneOtherTextFieldController;
+  TextEditingController? cusPhoneOtherTextFieldTextController;
   final cusPhoneOtherTextFieldMask =
       MaskTextInputFormatter(mask: '###-###-####');
   String? Function(BuildContext, String?)?
-      cusPhoneOtherTextFieldControllerValidator;
+      cusPhoneOtherTextFieldTextControllerValidator;
   // State field(s) for EmailTextField widget.
   FocusNode? emailTextFieldFocusNode;
-  TextEditingController? emailTextFieldController;
-  String? Function(BuildContext, String?)? emailTextFieldControllerValidator;
+  TextEditingController? emailTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      emailTextFieldTextControllerValidator;
   // State field(s) for licenseCode widget.
   FocusNode? licenseCodeFocusNode;
-  TextEditingController? licenseCodeController;
-  String? Function(BuildContext, String?)? licenseCodeControllerValidator;
+  TextEditingController? licenseCodeTextController;
+  String? Function(BuildContext, String?)? licenseCodeTextControllerValidator;
   // Stores action output result for [Backend Call - API (getProfileImage)] action in Container widget.
   ApiCallResponse? profileImgOutput;
+  // State field(s) for vedioCallLink widget.
+  FocusNode? vedioCallLinkFocusNode;
+  TextEditingController? vedioCallLinkTextController;
+  String? Function(BuildContext, String?)? vedioCallLinkTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppSaveAPIoutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
@@ -116,33 +126,36 @@ class InsuranceInfoPage1Model
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
     idCardTextFieldFocusNode1?.dispose();
-    idCardTextFieldController1?.dispose();
+    idCardTextFieldTextController1?.dispose();
 
     idCardTextFieldFocusNode2?.dispose();
-    idCardTextFieldController2?.dispose();
+    idCardTextFieldTextController2?.dispose();
 
     cusNameTextFieldFocusNode?.dispose();
-    cusNameTextFieldController?.dispose();
+    cusNameTextFieldTextController?.dispose();
 
     cusLastnameTextFieldFocusNode?.dispose();
-    cusLastnameTextFieldController?.dispose();
+    cusLastnameTextFieldTextController?.dispose();
 
     ageTextFieldFocusNode?.dispose();
-    ageTextFieldController?.dispose();
+    ageTextFieldTextController?.dispose();
 
     cusOcputationTextFieldFocusNode?.dispose();
-    cusOcputationTextFieldController?.dispose();
+    cusOcputationTextFieldTextController?.dispose();
 
     cusPhoneTextFieldFocusNode?.dispose();
-    cusPhoneTextFieldController?.dispose();
+    cusPhoneTextFieldTextController?.dispose();
 
     cusPhoneOtherTextFieldFocusNode?.dispose();
-    cusPhoneOtherTextFieldController?.dispose();
+    cusPhoneOtherTextFieldTextController?.dispose();
 
     emailTextFieldFocusNode?.dispose();
-    emailTextFieldController?.dispose();
+    emailTextFieldTextController?.dispose();
 
     licenseCodeFocusNode?.dispose();
-    licenseCodeController?.dispose();
+    licenseCodeTextController?.dispose();
+
+    vedioCallLinkFocusNode?.dispose();
+    vedioCallLinkTextController?.dispose();
   }
 }

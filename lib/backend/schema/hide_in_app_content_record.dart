@@ -26,9 +26,15 @@ class HideInAppContentRecord extends FirestoreRecord {
   bool get isShowContent => _isShowContent ?? false;
   bool hasIsShowContent() => _isShowContent != null;
 
+  // "content_url" field.
+  String? _contentUrl;
+  String get contentUrl => _contentUrl ?? '';
+  bool hasContentUrl() => _contentUrl != null;
+
   void _initializeFields() {
     _contentName = snapshotData['content_name'] as String?;
     _isShowContent = snapshotData['isShowContent'] as bool?;
+    _contentUrl = snapshotData['content_url'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -69,11 +75,13 @@ class HideInAppContentRecord extends FirestoreRecord {
 Map<String, dynamic> createHideInAppContentRecordData({
   String? contentName,
   bool? isShowContent,
+  String? contentUrl,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'content_name': contentName,
       'isShowContent': isShowContent,
+      'content_url': contentUrl,
     }.withoutNulls,
   );
 
@@ -87,12 +95,13 @@ class HideInAppContentRecordDocumentEquality
   @override
   bool equals(HideInAppContentRecord? e1, HideInAppContentRecord? e2) {
     return e1?.contentName == e2?.contentName &&
-        e1?.isShowContent == e2?.isShowContent;
+        e1?.isShowContent == e2?.isShowContent &&
+        e1?.contentUrl == e2?.contentUrl;
   }
 
   @override
-  int hash(HideInAppContentRecord? e) =>
-      const ListEquality().hash([e?.contentName, e?.isShowContent]);
+  int hash(HideInAppContentRecord? e) => const ListEquality()
+      .hash([e?.contentName, e?.isShowContent, e?.contentUrl]);
 
   @override
   bool isValidKey(Object? o) => o is HideInAppContentRecord;

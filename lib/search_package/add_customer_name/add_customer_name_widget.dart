@@ -127,28 +127,28 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AddCustomerName'});
-    _model.firstnameController ??= TextEditingController(
+    _model.firstnameTextController ??= TextEditingController(
         text: FFAppState().AddCustomerPageFirstname != null &&
                 FFAppState().AddCustomerPageFirstname != ''
             ? FFAppState().AddCustomerPageFirstname
             : '');
     _model.firstnameFocusNode ??= FocusNode();
 
-    _model.lastnameController ??= TextEditingController(
+    _model.lastnameTextController ??= TextEditingController(
         text: FFAppState().AddCustomerPageLastname != null &&
                 FFAppState().AddCustomerPageLastname != ''
             ? FFAppState().AddCustomerPageLastname
             : '');
     _model.lastnameFocusNode ??= FocusNode();
 
-    _model.phonenumberController ??= TextEditingController(
+    _model.phonenumberTextController ??= TextEditingController(
         text: FFAppState().AddCustomerPagePhone != null &&
                 FFAppState().AddCustomerPagePhone != ''
             ? FFAppState().AddCustomerPagePhone
             : '');
     _model.phonenumberFocusNode ??= FocusNode();
 
-    _model.textFieldController ??= TextEditingController(
+    _model.textFieldTextController ??= TextEditingController(
         text: FFAppState().AddCustomerPageCarRegistration != null &&
                 FFAppState().AddCustomerPageCarRegistration != ''
             ? FFAppState().AddCustomerPageCarRegistration
@@ -294,8 +294,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.firstnameController,
+                                                controller: _model
+                                                    .firstnameTextController,
                                                 focusNode:
                                                     _model.firstnameFocusNode,
                                                 autofocus: false,
@@ -391,9 +391,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .firstnameControllerValidator
+                                                    .firstnameTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -485,8 +484,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.lastnameController,
+                                                controller: _model
+                                                    .lastnameTextController,
                                                 focusNode:
                                                     _model.lastnameFocusNode,
                                                 autofocus: false,
@@ -582,9 +581,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .lastnameControllerValidator
+                                                    .lastnameTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -670,8 +668,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
-                                              controller:
-                                                  _model.phonenumberController,
+                                              controller: _model
+                                                  .phonenumberTextController,
                                               focusNode:
                                                   _model.phonenumberFocusNode,
                                               autofocus: false,
@@ -763,11 +761,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              minLines: null,
                                               keyboardType:
                                                   TextInputType.number,
                                               validator: _model
-                                                  .phonenumberControllerValidator
+                                                  .phonenumberTextControllerValidator
                                                   .asValidator(context),
                                               inputFormatters: [
                                                 _model.phonenumberMask
@@ -845,7 +842,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
-                                      controller: _model.textFieldController,
+                                      controller:
+                                          _model.textFieldTextController,
                                       focusNode: _model.textFieldFocusNode,
                                       autofocus: false,
                                       obscureText: false,
@@ -886,9 +884,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .textFieldControllerValidator
+                                          .textFieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -915,8 +912,10 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                             FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
-                                if (!(_model.firstnameController.text != null &&
-                                    _model.firstnameController.text != '')) {
+                                if (!(_model.firstnameTextController.text !=
+                                        null &&
+                                    _model.firstnameTextController.text !=
+                                        '')) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -937,11 +936,13 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                if (_model.phonenumberController.text != null &&
-                                    _model.phonenumberController.text != '') {
+                                if (_model.phonenumberTextController.text !=
+                                        null &&
+                                    _model.phonenumberTextController.text !=
+                                        '') {
                                   if (!functions.checkIsStringPhoneLength(
-                                      functions.removeCommaFromNumText(
-                                          _model.phonenumberController.text),
+                                      functions.removeCommaFromNumText(_model
+                                          .phonenumberTextController.text),
                                       10)!) {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
@@ -962,7 +963,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   }
                                   if (!((String var1) {
                                     return var1.startsWith('0');
-                                  }(_model.phonenumberController.text))) {
+                                  }(_model.phonenumberTextController.text))) {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1003,10 +1004,12 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   return;
                                 }
 
-                                if (_model.textFieldController.text != null &&
-                                    _model.textFieldController.text != '') {
+                                if (_model.textFieldTextController.text !=
+                                        null &&
+                                    _model.textFieldTextController.text != '') {
                                   if (!functions.checkIsStringLengthInLength(
-                                      _model.textFieldController.text, 10)!) {
+                                      _model.textFieldTextController.text,
+                                      10)!) {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -1024,6 +1027,52 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     if (_shouldSetState) setState(() {});
                                     return;
                                   }
+                                }
+                                if (functions.checkNumberInString(
+                                    _model.firstnameTextController.text)!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'ชื่อห้ามมีตัวเลข กรุณากรอกใหม่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
+                                }
+                                if (functions.checkNumberInString(
+                                    _model.lastnameTextController.text)!) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content: Text(
+                                              'นามสกุลห้ามมีตัวเลข กรุณากรอกใหม่'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  if (_shouldSetState) setState(() {});
+                                  return;
                                 }
                                 var confirmDialogResponse =
                                     await showDialog<bool>(
@@ -1084,13 +1133,14 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
 
                                 _model.aPIQuotationSaveOutput =
                                     await IbsQuotationsSaveCall.call(
-                                  firstName: _model.firstnameController.text,
+                                  firstName:
+                                      _model.firstnameTextController.text,
                                   carType: widget.carType,
                                   phoneNumber: functions.removeCommaFromNumText(
-                                      _model.phonenumberController.text),
+                                      _model.phonenumberTextController.text),
                                   carRegistration:
                                       functions.removeSpacialLetterFromText(
-                                          _model.textFieldController.text),
+                                          _model.textFieldTextController.text),
                                   driverType: widget.driverType,
                                   carRegistrationYear: (int.parse(
                                               (widget.carRegistrationYear!)) -
@@ -1148,7 +1198,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   ),
                                   insuranceUrl:
                                       FFAppState().apiUrlInsuranceAppState,
-                                  lastName: _model.lastnameController.text,
+                                  lastName: _model.lastnameTextController.text,
                                   token: FFAppState().accessToken,
                                   ownerId: FFAppState().employeeID,
                                   oldVMIExpriedDate: widget.oldVMIExpDate,
@@ -1222,13 +1272,13 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 }
                                 setState(() {
                                   FFAppState().AddCustomerPageFirstname =
-                                      _model.firstnameController.text;
+                                      _model.firstnameTextController.text;
                                   FFAppState().AddCustomerPageLastname =
-                                      _model.lastnameController.text;
+                                      _model.lastnameTextController.text;
                                   FFAppState().AddCustomerPagePhone =
-                                      _model.phonenumberController.text;
+                                      _model.phonenumberTextController.text;
                                   FFAppState().AddCustomerPageCarRegistration =
-                                      _model.textFieldController.text;
+                                      _model.textFieldTextController.text;
                                   FFAppState().addCustomerQuotationSaveSuccess =
                                       true;
                                   FFAppState().insurarerQuotationPdf =

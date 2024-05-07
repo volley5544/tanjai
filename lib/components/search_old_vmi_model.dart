@@ -15,8 +15,9 @@ class SearchOldVmiModel extends FlutterFlowModel<SearchOldVmiWidget> {
 
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode;
-  TextEditingController? searchFirstnameController;
-  String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
+  TextEditingController? searchFirstnameTextController;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextControllerValidator;
   // Stores action output result for [Backend Call - API (insuranceRequestListAPIDashBoard)] action in Button widget.
   ApiCallResponse? searchVmiOutput;
 
@@ -26,6 +27,6 @@ class SearchOldVmiModel extends FlutterFlowModel<SearchOldVmiWidget> {
   @override
   void dispose() {
     searchFirstnameFocusNode?.dispose();
-    searchFirstnameController?.dispose();
+    searchFirstnameTextController?.dispose();
   }
 }

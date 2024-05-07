@@ -1018,8 +1018,13 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await launchURL(
-                                  'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2F%E0%B9%83%E0%B8%9A%E0%B8%84%E0%B8%B3%E0%B8%82%E0%B8%AD%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%20%E0%B9%80%E0%B8%9B%E0%B9%89%E0%B8%B2%20%E0%B8%87%20%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%2024.11.2023.pdf?alt=media&token=5b740c1a-0082-4a31-8927-299103cbd1c8');
+                              if (FFAppState().insuranceinfoActType == 'MC') {
+                                await launchURL(
+                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2FEdit_%E0%B8%84%E0%B8%B3%E0%B8%82%E0%B8%AD%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%80%E0%B8%9E%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%8A%E0%B8%B3%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%B5%E0%B9%89%E0%B8%A2%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%A0%E0%B8%B1%E0%B8%A2.pdf?alt=media&token=ba6b7185-238b-47fb-8cff-46e08e151f0e');
+                              } else {
+                                await launchURL(
+                                    'https://firebasestorage.googleapis.com/v0/b/sawad-new-ibs.appspot.com/o/filePDF%2F%E0%B9%83%E0%B8%9A%E0%B8%84%E0%B8%B3%E0%B8%82%E0%B8%AD%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B9%80%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%20%E0%B9%80%E0%B8%9B%E0%B9%89%E0%B8%B2%20%E0%B8%87%20%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%2024.11.2023.pdf?alt=media&token=5b740c1a-0082-4a31-8927-299103cbd1c8');
+                              }
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,

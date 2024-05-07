@@ -28,9 +28,9 @@ class SavedLeadCalledStatusModel
   FormFieldController<String>? reasonDropDownValueController;
   // State field(s) for calledRemarkTextField widget.
   FocusNode? calledRemarkTextFieldFocusNode;
-  TextEditingController? calledRemarkTextFieldController;
+  TextEditingController? calledRemarkTextFieldTextController;
   String? Function(BuildContext, String?)?
-      calledRemarkTextFieldControllerValidator;
+      calledRemarkTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (saveCallStatusAPI)] action in Button widget.
   ApiCallResponse? saveCallOutput;
 
@@ -40,6 +40,6 @@ class SavedLeadCalledStatusModel
   @override
   void dispose() {
     calledRemarkTextFieldFocusNode?.dispose();
-    calledRemarkTextFieldController?.dispose();
+    calledRemarkTextFieldTextController?.dispose();
   }
 }

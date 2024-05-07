@@ -32,7 +32,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
     super.initState();
     _model = createModel(context, () => SearchOldVmiModel());
 
-    _model.searchFirstnameController ??= TextEditingController();
+    _model.searchFirstnameTextController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
   }
 
@@ -137,10 +137,11 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     8.0, 0.5, 8.0, 0.5),
                                 child: TextFormField(
-                                  controller: _model.searchFirstnameController,
+                                  controller:
+                                      _model.searchFirstnameTextController,
                                   focusNode: _model.searchFirstnameFocusNode,
                                   onChanged: (_) => EasyDebounce.debounce(
-                                    '_model.searchFirstnameController',
+                                    '_model.searchFirstnameTextController',
                                     Duration(milliseconds: 100),
                                     () => setState(() {}),
                                   ),
@@ -175,9 +176,8 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
-                                  minLines: null,
                                   validator: _model
-                                      .searchFirstnameControllerValidator
+                                      .searchFirstnameTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -189,9 +189,10 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                             child: FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
-                                if (!(_model.searchFirstnameController.text !=
+                                if (!(_model.searchFirstnameTextController
+                                            .text !=
                                         null &&
-                                    _model.searchFirstnameController.text !=
+                                    _model.searchFirstnameTextController.text !=
                                         '')) {
                                   await showDialog(
                                     context: context,
@@ -222,7 +223,8 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                   list: 'list',
                                   searchBy: 'car_registration',
                                   search: functions.removeSpacialLetterFromText(
-                                      _model.searchFirstnameController.text),
+                                      _model
+                                          .searchFirstnameTextController.text),
                                 );
                                 _shouldSetState = true;
                                 if ((_model.searchVmiOutput?.statusCode ??
@@ -309,7 +311,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                       ParamType.String,
                                     ),
                                     'carRegistration': serializeParam(
-                                      _model.searchFirstnameController.text,
+                                      _model.searchFirstnameTextController.text,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

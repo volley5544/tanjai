@@ -37,16 +37,16 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {});
 
-    _model.firstNameController ??= TextEditingController();
+    _model.firstNameTextController ??= TextEditingController();
     _model.firstNameFocusNode ??= FocusNode();
 
-    _model.lastNameController ??= TextEditingController();
+    _model.lastNameTextController ??= TextEditingController();
     _model.lastNameFocusNode ??= FocusNode();
 
-    _model.phoneNumberController ??= TextEditingController();
+    _model.phoneNumberTextController ??= TextEditingController();
     _model.phoneNumberFocusNode ??= FocusNode();
 
-    _model.remarkController ??= TextEditingController();
+    _model.remarkTextController ??= TextEditingController();
     _model.remarkFocusNode ??= FocusNode();
   }
 
@@ -226,8 +226,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.firstNameController,
+                                                controller: _model
+                                                    .firstNameTextController,
                                                 focusNode:
                                                     _model.firstNameFocusNode,
                                                 autofocus: true,
@@ -269,9 +269,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .firstNameControllerValidator
+                                                    .firstNameTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -339,8 +338,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                   .fromSTEB(
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
-                                                controller:
-                                                    _model.lastNameController,
+                                                controller: _model
+                                                    .lastNameTextController,
                                                 focusNode:
                                                     _model.lastNameFocusNode,
                                                 autofocus: true,
@@ -382,9 +381,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
-                                                    .lastNameControllerValidator
+                                                    .lastNameTextControllerValidator
                                                     .asValidator(context),
                                               ),
                                             ),
@@ -472,7 +470,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                       10.0, 0.0, 10.0, 0.0),
                                               child: TextFormField(
                                                 controller: _model
-                                                    .phoneNumberController,
+                                                    .phoneNumberTextController,
                                                 focusNode:
                                                     _model.phoneNumberFocusNode,
                                                 autofocus: true,
@@ -514,11 +512,10 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 keyboardType:
                                                     TextInputType.phone,
                                                 validator: _model
-                                                    .phoneNumberControllerValidator
+                                                    .phoneNumberTextControllerValidator
                                                     .asValidator(context),
                                                 inputFormatters: [
                                                   _model.phoneNumberMask
@@ -589,7 +586,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: TextFormField(
                                               controller:
-                                                  _model.remarkController,
+                                                  _model.remarkTextController,
                                               focusNode: _model.remarkFocusNode,
                                               autofocus: true,
                                               obscureText: false,
@@ -624,9 +621,8 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                                             'Noto Sans Thai',
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
-                                                  .remarkControllerValidator
+                                                  .remarkTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -659,9 +655,9 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     var _shouldSetState = false;
-                                    if (!(_model.firstNameController.text !=
+                                    if (!(_model.firstNameTextController.text !=
                                             null &&
-                                        _model.firstNameController.text !=
+                                        _model.firstNameTextController.text !=
                                             '')) {
                                       await showDialog(
                                         context: context,
@@ -685,9 +681,10 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (!(_model.phoneNumberController.text !=
+                                    if (!(_model.phoneNumberTextController
+                                                .text !=
                                             null &&
-                                        _model.phoneNumberController.text !=
+                                        _model.phoneNumberTextController.text !=
                                             '')) {
                                       await showDialog(
                                         context: context,
@@ -711,13 +708,15 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (!((_model.phoneNumberController.text !=
+                                    if (!((_model.phoneNumberTextController
+                                                    .text !=
                                                 null &&
-                                            _model.phoneNumberController.text !=
+                                            _model.phoneNumberTextController
+                                                    .text !=
                                                 '') &&
                                         functions.checkPhoneNumberInput(
                                             functions.removeCommaFromNumText(
-                                                _model.phoneNumberController
+                                                _model.phoneNumberTextController
                                                     .text))!)) {
                                       await showDialog(
                                         context: context,
@@ -812,12 +811,13 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                         await LeadManagementCheckDuplicateCall
                                             .call(
                                       firstName:
-                                          _model.firstNameController.text,
-                                      lastName: _model.lastNameController.text,
+                                          _model.firstNameTextController.text,
+                                      lastName:
+                                          _model.lastNameTextController.text,
                                       phoneNumber: functions
                                           .removeCommaFromNumText(_model
-                                              .phoneNumberController.text),
-                                      remark: _model.remarkController.text,
+                                              .phoneNumberTextController.text),
+                                      remark: _model.remarkTextController.text,
                                       insuranceJson: getJsonField(
                                         functions.sendJsonDataSaveLead(
                                             functions
@@ -941,12 +941,13 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                     _model.saveLeadApi =
                                         await LeadManagementSaveCall.call(
                                       firstName:
-                                          _model.firstNameController.text,
-                                      lastName: _model.lastNameController.text,
+                                          _model.firstNameTextController.text,
+                                      lastName:
+                                          _model.lastNameTextController.text,
                                       phoneNumber: functions
                                           .removeCommaFromNumText(_model
-                                              .phoneNumberController.text),
-                                      remark: _model.remarkController.text,
+                                              .phoneNumberTextController.text),
+                                      remark: _model.remarkTextController.text,
                                       insuranceJson: getJsonField(
                                         functions.sendJsonDataSaveLead(
                                             functions

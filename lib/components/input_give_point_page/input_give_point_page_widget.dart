@@ -131,7 +131,6 @@ class _InputGivePointPageWidgetState extends State<InputGivePointPageWidget> {
                     fontFamily: 'Noto Sans Thai',
                     letterSpacing: 0.0,
                   ),
-              minLines: null,
               keyboardType: TextInputType.number,
               validator: _model.textControllerValidator.asValidator(context),
             ),

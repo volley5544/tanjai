@@ -49,7 +49,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
     super.initState();
     _model = createModel(context, () => CallHistoryModel());
 
-    _model.expandableController = ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
   }
 
   @override
@@ -453,8 +454,8 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                               width: double.infinity,
                                               color: Colors.white,
                                               child: ExpandableNotifier(
-                                                controller:
-                                                    _model.expandableController,
+                                                controller: _model
+                                                    .expandableExpandableController,
                                                 child: ExpandablePanel(
                                                   header: Text(
                                                     'เปิดลีด',

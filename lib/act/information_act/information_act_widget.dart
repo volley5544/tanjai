@@ -743,7 +743,6 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                         ),
-                                                    minLines: null,
                                                     validator: _model
                                                         .textControllerValidator
                                                         .asValidator(context),

@@ -37,8 +37,9 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   ApiCallResponse? getRequestList;
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode;
-  TextEditingController? searchFirstnameController;
-  String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
+  TextEditingController? searchFirstnameTextController;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextControllerValidator;
   // Stores action output result for [Backend Call - API (insuranceRequestDetailAPI)] action in Button widget.
   ApiCallResponse? getDetailAPIEdit;
   // Stores action output result for [Backend Call - API (insuranceRequestDetailAPI)] action in Button widget.
@@ -53,6 +54,6 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   void dispose() {
     unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();
-    searchFirstnameController?.dispose();
+    searchFirstnameTextController?.dispose();
   }
 }

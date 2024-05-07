@@ -52,7 +52,7 @@ class _SavedLeadCalledStatusWidgetState
     super.initState();
     _model = createModel(context, () => SavedLeadCalledStatusModel());
 
-    _model.calledRemarkTextFieldController ??= TextEditingController();
+    _model.calledRemarkTextFieldTextController ??= TextEditingController();
     _model.calledRemarkTextFieldFocusNode ??= FocusNode();
   }
 
@@ -327,7 +327,7 @@ class _SavedLeadCalledStatusWidgetState
                             width: double.infinity,
                             child: TextFormField(
                               controller:
-                                  _model.calledRemarkTextFieldController,
+                                  _model.calledRemarkTextFieldTextController,
                               focusNode: _model.calledRemarkTextFieldFocusNode,
                               autofocus: false,
                               obscureText: false,
@@ -387,9 +387,8 @@ class _SavedLeadCalledStatusWidgetState
                                     letterSpacing: 0.0,
                                   ),
                               textAlign: TextAlign.start,
-                              minLines: null,
                               validator: _model
-                                  .calledRemarkTextFieldControllerValidator
+                                  .calledRemarkTextFieldTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -455,7 +454,7 @@ class _SavedLeadCalledStatusWidgetState
                           statusCallID: _model.callStatusDropDownValue,
                           reasonID: _model.reasonDropDownValue,
                           reasonDetail:
-                              _model.calledRemarkTextFieldController.text,
+                              _model.calledRemarkTextFieldTextController.text,
                         );
                         _shouldSetState = true;
                         if ((_model.saveCallOutput?.statusCode ?? 200) != 200) {

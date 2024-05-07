@@ -47,7 +47,7 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Backend Call - API (GetVMI)] action in SuperAppPage widget.
   ApiCallResponse? getVMIApi;
   // State field(s) for Expandable widget.
-  late ExpandableController expandableController;
+  late ExpandableController expandableExpandableController;
 
   // Stores action output result for [Firestore Query - Query a collection] action in Container widget.
   UrlLinkStorageRecord? getCmiApiUrl;
@@ -81,6 +81,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   @override
   void dispose() {
     unfocusNode.dispose();
-    expandableController.dispose();
+    expandableExpandableController.dispose();
   }
 }

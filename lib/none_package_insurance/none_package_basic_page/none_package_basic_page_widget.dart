@@ -536,63 +536,63 @@ class _NonePackageBasicPageWidgetState
       Navigator.pop(context);
     });
 
-    _model.carryPurposeTextFieldController ??=
+    _model.carryPurposeTextFieldTextController ??=
         TextEditingController(text: widget.carrierPurpose);
     _model.carryPurposeTextFieldFocusNode ??= FocusNode();
 
-    _model.currentPriceTextFieldController ??=
+    _model.currentPriceTextFieldTextController ??=
         TextEditingController(text: widget.truckCurrentPrice);
     _model.currentPriceTextFieldFocusNode ??= FocusNode();
     _model.currentPriceTextFieldFocusNode!.addListener(
       () async {
         if ((_model.currentPriceTextFieldFocusNode?.hasFocus ?? false)) {
-          if (_model.carrierPriceTextFieldController.text == '') {
+          if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.currentPriceTextFieldController?.text =
+            _model.currentPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
-                    _model.currentPriceTextFieldController.text);
+                    _model.currentPriceTextFieldTextController.text);
           });
         } else {
-          if (_model.currentPriceTextFieldController.text == '') {
+          if (_model.currentPriceTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.currentPriceTextFieldController?.text =
+            _model.currentPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
-                    _model.currentPriceTextFieldController.text)!;
+                    _model.currentPriceTextFieldTextController.text)!;
           });
         }
       },
     );
-    _model.carrierPriceTextFieldController ??=
+    _model.carrierPriceTextFieldTextController ??=
         TextEditingController(text: widget.carrierPrice);
     _model.carrierPriceTextFieldFocusNode ??= FocusNode();
     _model.carrierPriceTextFieldFocusNode!.addListener(
       () async {
         if ((_model.carrierPriceTextFieldFocusNode?.hasFocus ?? false)) {
-          if (_model.carrierPriceTextFieldController.text == '') {
+          if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.carrierPriceTextFieldController?.text =
+            _model.carrierPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
-                    _model.carrierPriceTextFieldController.text);
+                    _model.carrierPriceTextFieldTextController.text);
           });
         } else {
-          if (_model.carrierPriceTextFieldController.text == '') {
+          if (_model.carrierPriceTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.carrierPriceTextFieldController?.text =
+            _model.carrierPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
-                    _model.carrierPriceTextFieldController.text)!;
+                    _model.carrierPriceTextFieldTextController.text)!;
           });
         }
       },
     );
-    _model.brandNameTextFieldController ??= TextEditingController(
+    _model.brandNameTextFieldTextController ??= TextEditingController(
         text: functions.containWordinStringUrl(
                     'กรุณา', FFAppState().nonePackageBrandName)! ||
                 functions.containWordinStringUrl(
@@ -600,7 +600,7 @@ class _NonePackageBasicPageWidgetState
             ? ''
             : FFAppState().nonePackageBrandName);
 
-    _model.modelNameController ??= TextEditingController(
+    _model.modelNameTextController ??= TextEditingController(
         text: functions.containWordinStringUrl(
                     'กรุณา', FFAppState().nonePackageModelName)! ||
                 functions.containWordinStringUrl(
@@ -608,79 +608,79 @@ class _NonePackageBasicPageWidgetState
             ? ''
             : FFAppState().nonePackageModelName);
 
-    _model.oldVmiTextFieldController ??=
+    _model.oldVmiTextFieldTextController ??=
         TextEditingController(text: widget.oldVmi);
     _model.oldVmiTextFieldFocusNode ??= FocusNode();
 
-    _model.cusNameTextFieldController ??=
+    _model.cusNameTextFieldTextController ??=
         TextEditingController(text: widget.cusName);
     _model.cusNameTextFieldFocusNode ??= FocusNode();
 
-    _model.cusPhoneTextFieldController ??=
+    _model.cusPhoneTextFieldTextController ??=
         TextEditingController(text: widget.cusPhone);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
-    _model.plateTextFieldController ??=
+    _model.plateTextFieldTextController ??=
         TextEditingController(text: widget.plate);
     _model.plateTextFieldFocusNode ??= FocusNode();
 
-    _model.plateAdditionalTextFieldController ??=
+    _model.plateAdditionalTextFieldTextController ??=
         TextEditingController(text: widget.plateAdditional);
     _model.plateAdditionalTextFieldFocusNode ??= FocusNode();
 
-    _model.sumInsuredTextFieldController ??=
+    _model.sumInsuredTextFieldTextController ??=
         TextEditingController(text: widget.sumInsured);
     _model.sumInsuredTextFieldFocusNode ??= FocusNode();
     _model.sumInsuredTextFieldFocusNode!.addListener(
       () async {
         if ((_model.sumInsuredTextFieldFocusNode?.hasFocus ?? false)) {
-          if (_model.sumInsuredTextFieldController.text == '') {
+          if (_model.sumInsuredTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.sumInsuredTextFieldController?.text =
+            _model.sumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
-                    _model.sumInsuredTextFieldController.text);
+                    _model.sumInsuredTextFieldTextController.text);
           });
         } else {
-          if (_model.sumInsuredTextFieldController.text == '') {
+          if (_model.sumInsuredTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.sumInsuredTextFieldController?.text =
+            _model.sumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
-                    _model.sumInsuredTextFieldController.text)!;
+                    _model.sumInsuredTextFieldTextController.text)!;
           });
         }
       },
     );
-    _model.trailerSumInsuredTextFieldController ??=
+    _model.trailerSumInsuredTextFieldTextController ??=
         TextEditingController(text: widget.trailerSumInsured);
     _model.trailerSumInsuredTextFieldFocusNode ??= FocusNode();
     _model.trailerSumInsuredTextFieldFocusNode!.addListener(
       () async {
         if ((_model.trailerSumInsuredTextFieldFocusNode?.hasFocus ?? false)) {
-          if (_model.trailerSumInsuredTextFieldController.text == '') {
+          if (_model.trailerSumInsuredTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.trailerSumInsuredTextFieldController?.text =
+            _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
-                    _model.trailerSumInsuredTextFieldController.text);
+                    _model.trailerSumInsuredTextFieldTextController.text);
           });
         } else {
-          if (_model.trailerSumInsuredTextFieldController.text == '') {
+          if (_model.trailerSumInsuredTextFieldTextController.text == '') {
             return;
           }
           setState(() {
-            _model.trailerSumInsuredTextFieldController?.text =
+            _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
-                    _model.trailerSumInsuredTextFieldController.text)!;
+                    _model.trailerSumInsuredTextFieldTextController.text)!;
           });
         }
       },
     );
-    _model.remarkTextFieldController ??=
+    _model.remarkTextFieldTextController ??=
         TextEditingController(text: widget.remark);
     _model.remarkTextFieldFocusNode ??= FocusNode();
   }
@@ -1372,7 +1372,7 @@ class _NonePackageBasicPageWidgetState
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
                                       controller: _model
-                                          .carryPurposeTextFieldController,
+                                          .carryPurposeTextFieldTextController,
                                       focusNode:
                                           _model.carryPurposeTextFieldFocusNode,
                                       autofocus: false,
@@ -1407,9 +1407,8 @@ class _NonePackageBasicPageWidgetState
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .carryPurposeTextFieldControllerValidator
+                                          .carryPurposeTextFieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -1466,11 +1465,11 @@ class _NonePackageBasicPageWidgetState
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
                                       controller: _model
-                                          .currentPriceTextFieldController,
+                                          .currentPriceTextFieldTextController,
                                       focusNode:
                                           _model.currentPriceTextFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.currentPriceTextFieldController',
+                                        '_model.currentPriceTextFieldTextController',
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
@@ -1510,10 +1509,9 @@ class _NonePackageBasicPageWidgetState
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       keyboardType: TextInputType.number,
                                       validator: _model
-                                          .currentPriceTextFieldControllerValidator
+                                          .currentPriceTextFieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -1986,12 +1984,12 @@ class _NonePackageBasicPageWidgetState
                                             10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
                                           controller: _model
-                                              .carrierPriceTextFieldController,
+                                              .carrierPriceTextFieldTextController,
                                           focusNode: _model
                                               .carrierPriceTextFieldFocusNode,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.carrierPriceTextFieldController',
+                                            '_model.carrierPriceTextFieldTextController',
                                             Duration(milliseconds: 100),
                                             () => setState(() {}),
                                           ),
@@ -2034,10 +2032,9 @@ class _NonePackageBasicPageWidgetState
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                          minLines: null,
                                           keyboardType: TextInputType.number,
                                           validator: _model
-                                              .carrierPriceTextFieldControllerValidator
+                                              .carrierPriceTextFieldTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -2150,7 +2147,7 @@ class _NonePackageBasicPageWidgetState
                                               textFieldKey:
                                                   _model.brandNameTextFieldKey,
                                               textController: _model
-                                                  .brandNameTextFieldController!,
+                                                  .brandNameTextFieldTextController!,
                                               options: options.toList(),
                                               onSelected: onSelected,
                                               textStyle:
@@ -2187,7 +2184,7 @@ class _NonePackageBasicPageWidgetState
                                             _model.brandNameTextFieldFocusNode =
                                                 focusNode;
 
-                                            _model.brandNameTextFieldController =
+                                            _model.brandNameTextFieldTextController =
                                                 textEditingController;
                                             return TextFormField(
                                               key: _model.brandNameTextFieldKey,
@@ -2197,7 +2194,7 @@ class _NonePackageBasicPageWidgetState
                                                   onEditingComplete,
                                               onChanged: (_) =>
                                                   EasyDebounce.debounce(
-                                                '_model.brandNameTextFieldController',
+                                                '_model.brandNameTextFieldTextController',
                                                 Duration(milliseconds: 1000),
                                                 () async {
                                                   if (FFAppState()
@@ -2220,7 +2217,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .insuranceBasicBrandNameList
                                                                       .toList(),
                                                                   functions.toUpperCase(_model
-                                                                      .brandNameTextFieldController
+                                                                      .brandNameTextFieldTextController
                                                                       .text)),
                                                               FFAppState()
                                                                   .insuranceBasicVehicleGroupList
@@ -2255,7 +2252,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .insuranceBasicBrandNameList
                                                                       .toList(),
                                                                   functions.toUpperCase(_model
-                                                                      .brandNameTextFieldController
+                                                                      .brandNameTextFieldTextController
                                                                       .text)),
                                                               FFAppState()
                                                                   .insuranceBasicVehicleGroupList
@@ -2293,7 +2290,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .insuranceBasicBrandNameList
                                                                       .toList(),
                                                                   functions.toUpperCase(_model
-                                                                      .brandNameTextFieldController
+                                                                      .brandNameTextFieldTextController
                                                                       .text)),
                                                               FFAppState()
                                                                   .insuranceBasicVehicleGroupList
@@ -2318,7 +2315,7 @@ class _NonePackageBasicPageWidgetState
                                                                       .insuranceBasicBrandNameList
                                                                       .toList(),
                                                                   functions.toUpperCase(_model
-                                                                      .brandNameTextFieldController
+                                                                      .brandNameTextFieldTextController
                                                                       .text)),
                                                               FFAppState()
                                                                   .insuranceBasicVehicleGroupList
@@ -2348,7 +2345,7 @@ class _NonePackageBasicPageWidgetState
                                                                     .toList(),
                                                                 functions.toUpperCase(
                                                                     _model
-                                                                        .brandNameTextFieldController
+                                                                        .brandNameTextFieldTextController
                                                                         .text)),
                                                             FFAppState()
                                                                 .insuranceBasicVehicleGroupList
@@ -2384,7 +2381,7 @@ class _NonePackageBasicPageWidgetState
                                                                     .toList(),
                                                                 functions.toUpperCase(
                                                                     _model
-                                                                        .brandNameTextFieldController
+                                                                        .brandNameTextFieldTextController
                                                                         .text)),
                                                             FFAppState()
                                                                 .insuranceBasicVehicleGroupList
@@ -2452,9 +2449,8 @@ class _NonePackageBasicPageWidgetState
                                                         fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
-                                              minLines: null,
                                               validator: _model
-                                                  .brandNameTextFieldControllerValidator
+                                                  .brandNameTextFieldTextControllerValidator
                                                   .asValidator(context),
                                             );
                                           },
@@ -2561,7 +2557,7 @@ class _NonePackageBasicPageWidgetState
                                       return AutocompleteOptionsList(
                                         textFieldKey: _model.modelNameKey,
                                         textController:
-                                            _model.modelNameController!,
+                                            _model.modelNameTextController!,
                                         options: options.toList(),
                                         onSelected: onSelected,
                                         textStyle: FlutterFlowTheme.of(context)
@@ -2594,7 +2590,7 @@ class _NonePackageBasicPageWidgetState
                                     ) {
                                       _model.modelNameFocusNode = focusNode;
 
-                                      _model.modelNameController =
+                                      _model.modelNameTextController =
                                           textEditingController;
                                       return TextFormField(
                                         key: _model.modelNameKey,
@@ -2642,9 +2638,8 @@ class _NonePackageBasicPageWidgetState
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
-                                        minLines: null,
                                         validator: _model
-                                            .modelNameControllerValidator
+                                            .modelNameTextControllerValidator
                                             .asValidator(context),
                                       );
                                     },
@@ -2875,7 +2870,7 @@ class _NonePackageBasicPageWidgetState
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
                                       controller:
-                                          _model.oldVmiTextFieldController,
+                                          _model.oldVmiTextFieldTextController,
                                       focusNode:
                                           _model.oldVmiTextFieldFocusNode,
                                       autofocus: false,
@@ -2910,9 +2905,8 @@ class _NonePackageBasicPageWidgetState
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       validator: _model
-                                          .oldVmiTextFieldControllerValidator
+                                          .oldVmiTextFieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -3658,8 +3652,8 @@ class _NonePackageBasicPageWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
-                                          controller:
-                                              _model.cusNameTextFieldController,
+                                          controller: _model
+                                              .cusNameTextFieldTextController,
                                           focusNode:
                                               _model.cusNameTextFieldFocusNode,
                                           autofocus: false,
@@ -3700,9 +3694,8 @@ class _NonePackageBasicPageWidgetState
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                          minLines: null,
                                           validator: _model
-                                              .cusNameTextFieldControllerValidator
+                                              .cusNameTextFieldTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -3784,7 +3777,7 @@ class _NonePackageBasicPageWidgetState
                                             10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
                                           controller: _model
-                                              .cusPhoneTextFieldController,
+                                              .cusPhoneTextFieldTextController,
                                           focusNode:
                                               _model.cusPhoneTextFieldFocusNode,
                                           autofocus: false,
@@ -3825,10 +3818,9 @@ class _NonePackageBasicPageWidgetState
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                          minLines: null,
                                           keyboardType: TextInputType.phone,
                                           validator: _model
-                                              .cusPhoneTextFieldControllerValidator
+                                              .cusPhoneTextFieldTextControllerValidator
                                               .asValidator(context),
                                           inputFormatters: [
                                             _model.cusPhoneTextFieldMask
@@ -3911,8 +3903,8 @@ class _NonePackageBasicPageWidgetState
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
-                                          controller:
-                                              _model.plateTextFieldController,
+                                          controller: _model
+                                              .plateTextFieldTextController,
                                           focusNode:
                                               _model.plateTextFieldFocusNode,
                                           autofocus: false,
@@ -3952,9 +3944,8 @@ class _NonePackageBasicPageWidgetState
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
                                               ),
-                                          minLines: null,
                                           validator: _model
-                                              .plateTextFieldControllerValidator
+                                              .plateTextFieldTextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -4040,7 +4031,7 @@ class _NonePackageBasicPageWidgetState
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
-                                                .plateAdditionalTextFieldController,
+                                                .plateAdditionalTextFieldTextController,
                                             focusNode: _model
                                                 .plateAdditionalTextFieldFocusNode,
                                             autofocus: false,
@@ -4081,9 +4072,8 @@ class _NonePackageBasicPageWidgetState
                                                   fontSize: 15.0,
                                                   letterSpacing: 0.0,
                                                 ),
-                                            minLines: null,
                                             validator: _model
-                                                .plateAdditionalTextFieldControllerValidator
+                                                .plateAdditionalTextFieldTextControllerValidator
                                                 .asValidator(context),
                                             inputFormatters: [
                                               _model
@@ -4299,12 +4289,12 @@ class _NonePackageBasicPageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: TextFormField(
-                                      controller:
-                                          _model.sumInsuredTextFieldController,
+                                      controller: _model
+                                          .sumInsuredTextFieldTextController,
                                       focusNode:
                                           _model.sumInsuredTextFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.sumInsuredTextFieldController',
+                                        '_model.sumInsuredTextFieldTextController',
                                         Duration(milliseconds: 100),
                                         () => setState(() {}),
                                       ),
@@ -4346,10 +4336,9 @@ class _NonePackageBasicPageWidgetState
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       keyboardType: TextInputType.number,
                                       validator: _model
-                                          .sumInsuredTextFieldControllerValidator
+                                          .sumInsuredTextFieldTextControllerValidator
                                           .asValidator(context),
                                     ),
                                   ),
@@ -4426,11 +4415,11 @@ class _NonePackageBasicPageWidgetState
                                           10.0, 0.0, 10.0, 0.0),
                                       child: TextFormField(
                                         controller: _model
-                                            .trailerSumInsuredTextFieldController,
+                                            .trailerSumInsuredTextFieldTextController,
                                         focusNode: _model
                                             .trailerSumInsuredTextFieldFocusNode,
                                         onChanged: (_) => EasyDebounce.debounce(
-                                          '_model.trailerSumInsuredTextFieldController',
+                                          '_model.trailerSumInsuredTextFieldTextController',
                                           Duration(milliseconds: 100),
                                           () => setState(() {}),
                                         ),
@@ -4477,10 +4466,9 @@ class _NonePackageBasicPageWidgetState
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
-                                        minLines: null,
                                         keyboardType: TextInputType.number,
                                         validator: _model
-                                            .trailerSumInsuredTextFieldControllerValidator
+                                            .trailerSumInsuredTextFieldTextControllerValidator
                                             .asValidator(context),
                                         inputFormatters: [
                                           FilteringTextInputFormatter.allow(
@@ -4539,7 +4527,8 @@ class _NonePackageBasicPageWidgetState
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.remarkTextFieldController,
+                                  controller:
+                                      _model.remarkTextFieldTextController,
                                   focusNode: _model.remarkTextFieldFocusNode,
                                   autofocus: false,
                                   textCapitalization: TextCapitalization.none,
@@ -4575,9 +4564,8 @@ class _NonePackageBasicPageWidgetState
                                         fontSize: 15.0,
                                         letterSpacing: 0.0,
                                       ),
-                                  minLines: null,
                                   validator: _model
-                                      .remarkTextFieldControllerValidator
+                                      .remarkTextFieldTextControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -5921,10 +5909,10 @@ class _NonePackageBasicPageWidgetState
                                     );
                                     return;
                                   }
-                                  if (_model.brandNameTextFieldController
+                                  if (_model.brandNameTextFieldTextController
                                               .text ==
                                           null ||
-                                      _model.brandNameTextFieldController
+                                      _model.brandNameTextFieldTextController
                                               .text ==
                                           '') {
                                     ScaffoldMessenger.of(context)
@@ -5943,8 +5931,10 @@ class _NonePackageBasicPageWidgetState
                                     );
                                     return;
                                   }
-                                  if (_model.modelNameController.text == null ||
-                                      _model.modelNameController.text == '') {
+                                  if (_model.modelNameTextController.text ==
+                                          null ||
+                                      _model.modelNameTextController.text ==
+                                          '') {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
                                     ScaffoldMessenger.of(context).showSnackBar(
@@ -6041,9 +6031,11 @@ class _NonePackageBasicPageWidgetState
                                     );
                                     return;
                                   }
-                                  if (_model.plateTextFieldController.text ==
+                                  if (_model.plateTextFieldTextController
+                                              .text ==
                                           null ||
-                                      _model.plateTextFieldController.text ==
+                                      _model.plateTextFieldTextController
+                                              .text ==
                                           '') {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
@@ -6062,7 +6054,8 @@ class _NonePackageBasicPageWidgetState
                                     return;
                                   } else {
                                     if (!functions.checkIsStringLengthInLength(
-                                        _model.plateTextFieldController.text,
+                                        _model
+                                            .plateTextFieldTextController.text,
                                         10)!) {
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
@@ -6102,9 +6095,11 @@ class _NonePackageBasicPageWidgetState
                                     );
                                     return;
                                   }
-                                  if (_model.cusNameTextFieldController.text ==
+                                  if (_model.cusNameTextFieldTextController
+                                              .text ==
                                           null ||
-                                      _model.cusNameTextFieldController.text ==
+                                      _model.cusNameTextFieldTextController
+                                              .text ==
                                           '') {
                                     ScaffoldMessenger.of(context)
                                         .clearSnackBars();
@@ -6125,10 +6120,10 @@ class _NonePackageBasicPageWidgetState
                                     return;
                                   }
                                   if (FFAppState().nonePackageFlagRenew) {
-                                    if (_model.cusPhoneTextFieldController
+                                    if (_model.cusPhoneTextFieldTextController
                                                 .text ==
                                             null ||
-                                        _model.cusPhoneTextFieldController
+                                        _model.cusPhoneTextFieldTextController
                                                 .text ==
                                             '') {
                                       ScaffoldMessenger.of(context)
@@ -6150,9 +6145,9 @@ class _NonePackageBasicPageWidgetState
                                       return;
                                     } else {
                                       if (!functions.checkPhoneNumberInput(
-                                          functions.removeCommaFromNumText(
-                                              _model.cusPhoneTextFieldController
-                                                  .text))!) {
+                                          functions.removeCommaFromNumText(_model
+                                              .cusPhoneTextFieldTextController
+                                              .text))!) {
                                         ScaffoldMessenger.of(context)
                                             .clearSnackBars();
                                         ScaffoldMessenger.of(context)
@@ -6173,9 +6168,11 @@ class _NonePackageBasicPageWidgetState
                                       }
                                     }
 
-                                    if (_model.oldVmiTextFieldController.text ==
+                                    if (_model.oldVmiTextFieldTextController
+                                                .text ==
                                             null ||
-                                        _model.oldVmiTextFieldController.text ==
+                                        _model.oldVmiTextFieldTextController
+                                                .text ==
                                             '') {
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
@@ -6244,10 +6241,10 @@ class _NonePackageBasicPageWidgetState
                                       }
                                       if (FFAppState().nonePackageCarrierType ==
                                           'ตู้เย็น') {
-                                        if (_model.carrierPriceTextFieldController
+                                        if (_model.carrierPriceTextFieldTextController
                                                     .text ==
                                                 null ||
-                                            _model.carrierPriceTextFieldController
+                                            _model.carrierPriceTextFieldTextController
                                                     .text ==
                                                 '') {
                                           ScaffoldMessenger.of(context)
@@ -6271,7 +6268,7 @@ class _NonePackageBasicPageWidgetState
                                         } else {
                                           if (!functions.checkIsIntValue(functions
                                               .removeCommaFromNumText(_model
-                                                  .carrierPriceTextFieldController
+                                                  .carrierPriceTextFieldTextController
                                                   .text))!) {
                                             ScaffoldMessenger.of(context)
                                                 .clearSnackBars();
@@ -6341,10 +6338,10 @@ class _NonePackageBasicPageWidgetState
                                       );
                                       return;
                                     }
-                                    if (_model.carryPurposeTextFieldController
+                                    if (_model.carryPurposeTextFieldTextController
                                                 .text ==
                                             null ||
-                                        _model.carryPurposeTextFieldController
+                                        _model.carryPurposeTextFieldTextController
                                                 .text ==
                                             '') {
                                       ScaffoldMessenger.of(context)
@@ -6367,10 +6364,10 @@ class _NonePackageBasicPageWidgetState
                                     }
                                     if (FFAppState().nonePackageTruckPart ==
                                         'หัวลาก + หางพ่วง') {
-                                      if (_model.plateAdditionalTextFieldController
+                                      if (_model.plateAdditionalTextFieldTextController
                                                   .text ==
                                               null ||
-                                          _model.plateAdditionalTextFieldController
+                                          _model.plateAdditionalTextFieldTextController
                                                   .text ==
                                               '') {
                                         ScaffoldMessenger.of(context)
@@ -6469,45 +6466,47 @@ class _NonePackageBasicPageWidgetState
                                   }
                                   setState(() {
                                     FFAppState().nonePackageModelName =
-                                        functions.toUpperCase(
-                                            _model.modelNameController.text)!;
+                                        functions.toUpperCase(_model
+                                            .modelNameTextController.text)!;
                                     FFAppState()
                                         .nonePackageModelCode = FFAppState()
                                             .nonePackageSearchModelList
-                                            .contains(functions.toUpperCase(_model
-                                                .modelNameController.text))
+                                            .contains(
+                                                functions.toUpperCase(
+                                                    _model.modelNameTextController
+                                                        .text))
                                         ? FFAppState()
                                                 .nonePackageSearchModelIdList[
                                             functions.getIndexOfSomethingList(
                                                 FFAppState()
                                                     .nonePackageSearchModelList
                                                     .toList(),
-                                                _model
-                                                    .modelNameController.text)]
+                                                _model.modelNameTextController
+                                                    .text)]
                                         : '';
-                                    FFAppState().nonePackageCusFullname =
-                                        _model.cusNameTextFieldController.text;
+                                    FFAppState().nonePackageCusFullname = _model
+                                        .cusNameTextFieldTextController.text;
                                     FFAppState().nonePackageCusPhone =
                                         functions.removeCommaFromNumText(_model
-                                            .cusPhoneTextFieldController.text);
+                                            .cusPhoneTextFieldTextController
+                                            .text);
                                     FFAppState().nonePackagePlate = functions
                                         .removeSpacialLetterFromText(_model
-                                            .plateTextFieldController.text);
+                                            .plateTextFieldTextController.text);
                                     FFAppState().nonePackageSumInsured =
                                         functions.removeCommaFromNumText(_model
-                                            .sumInsuredTextFieldController
+                                            .sumInsuredTextFieldTextController
                                             .text);
                                     FFAppState().nonePackageBrandName =
                                         functions.toUpperCase(_model
-                                            .brandNameTextFieldController
+                                            .brandNameTextFieldTextController
                                             .text)!;
                                     FFAppState()
                                         .nonePackageBrandId = FFAppState()
                                             .insuranceBasicBrandNameList
-                                            .contains(functions.toUpperCase(
-                                                _model
-                                                    .brandNameTextFieldController
-                                                    .text))
+                                            .contains(functions.toUpperCase(_model
+                                                .brandNameTextFieldTextController
+                                                .text))
                                         ? functions.getValueWithMappedList(
                                             FFAppState()
                                                 .insuranceBasicBrandIdList
@@ -6516,14 +6515,14 @@ class _NonePackageBasicPageWidgetState
                                                 .insuranceBasicBrandNameList
                                                 .toList(),
                                             functions.toUpperCase(_model
-                                                .brandNameTextFieldController
+                                                .brandNameTextFieldTextController
                                                 .text))!
                                         : '';
                                   });
                                   setState(() {
                                     FFAppState().nonePackageCarrierPrice =
                                         functions.removeCommaFromNumText(_model
-                                            .carrierPriceTextFieldController
+                                            .carrierPriceTextFieldTextController
                                             .text);
                                   });
                                   setState(() {
@@ -6533,22 +6532,22 @@ class _NonePackageBasicPageWidgetState
                                         FFAppState().nonePackageCusMembership;
                                     FFAppState().nonePackageTruckCurrentPrice =
                                         functions.removeCommaFromNumText(_model
-                                            .currentPriceTextFieldController
+                                            .currentPriceTextFieldTextController
                                             .text);
                                     FFAppState().nonePackagePlateAdditional =
-                                        functions.removeSpacialLetterFromText(
-                                            _model
-                                                .plateAdditionalTextFieldController
-                                                .text);
+                                        functions.removeSpacialLetterFromText(_model
+                                            .plateAdditionalTextFieldTextController
+                                            .text);
                                     FFAppState().nonePackageTruckCarryPurpose =
-                                        _model.carryPurposeTextFieldController
+                                        _model
+                                            .carryPurposeTextFieldTextController
                                             .text;
                                     FFAppState().nonePackageTrailerSumInsured =
                                         functions.removeCommaFromNumText(_model
-                                            .trailerSumInsuredTextFieldController
+                                            .trailerSumInsuredTextFieldTextController
                                             .text);
-                                    FFAppState().nonePackageRemark =
-                                        _model.remarkTextFieldController.text;
+                                    FFAppState().nonePackageRemark = _model
+                                        .remarkTextFieldTextController.text;
                                   });
                                   if (FFAppState().nonePackageFlagRenew) {
                                     setState(() {
@@ -6557,8 +6556,8 @@ class _NonePackageBasicPageWidgetState
                                               ? functions.getDateFormat(
                                                   _model.datePicked)!
                                               : widget.oldVmiExpireDate!;
-                                      FFAppState().nonePackageOldVmi =
-                                          _model.oldVmiTextFieldController.text;
+                                      FFAppState().nonePackageOldVmi = _model
+                                          .oldVmiTextFieldTextController.text;
                                     });
                                     setState(() {
                                       FFAppState().nonePackageOldVmiImageUrl =

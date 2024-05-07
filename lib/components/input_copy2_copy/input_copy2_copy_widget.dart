@@ -36,7 +36,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
     super.initState();
     _model = createModel(context, () => InputCopy2CopyModel());
 
-    _model.reasonCancelController ??= TextEditingController();
+    _model.reasonCancelTextController ??= TextEditingController();
     _model.reasonCancelFocusNode ??= FocusNode();
   }
 
@@ -102,7 +102,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                           child: Padding(
                             padding: EdgeInsets.all(10.0),
                             child: TextFormField(
-                              controller: _model.reasonCancelController,
+                              controller: _model.reasonCancelTextController,
                               focusNode: _model.reasonCancelFocusNode,
                               autofocus: true,
                               obscureText: false,
@@ -157,8 +157,8 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                     fontWeight: FontWeight.normal,
                                   ),
                               maxLines: 4,
-                              minLines: null,
-                              validator: _model.reasonCancelControllerValidator
+                              validator: _model
+                                  .reasonCancelTextControllerValidator
                                   .asValidator(context),
                             ),
                           ),
@@ -213,9 +213,10 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                             FFButtonWidget(
                               onPressed: () async {
                                 var _shouldSetState = false;
-                                if (!(_model.reasonCancelController.text !=
+                                if (!(_model.reasonCancelTextController.text !=
                                         null &&
-                                    _model.reasonCancelController.text != '')) {
+                                    _model.reasonCancelTextController.text !=
+                                        '')) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -295,7 +296,7 @@ class _InputCopy2CopyWidgetState extends State<InputCopy2CopyWidget> {
                                   token: FFAppState().accessToken,
                                   apiUrl: FFAppState().apiURLLocalState,
                                   leaveDocId: widget.leaveID,
-                                  email: _model.reasonCancelController.text,
+                                  email: _model.reasonCancelTextController.text,
                                 );
                                 _shouldSetState = true;
                                 if ((_model.sendEmail?.statusCode ?? 200) !=

@@ -3,7 +3,6 @@ import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
-import '/components/showjson_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -37,24 +36,26 @@ class InsuranceInfoPage42Model
   ApiCallResponse? ibsDetailAPIOutputCopyRefresh;
   // State field(s) for paymentType widget.
   FocusNode? paymentTypeFocusNode;
-  TextEditingController? paymentTypeController;
-  String? Function(BuildContext, String?)? paymentTypeControllerValidator;
+  TextEditingController? paymentTypeTextController;
+  String? Function(BuildContext, String?)? paymentTypeTextControllerValidator;
   // State field(s) for paymentChannel widget.
   FocusNode? paymentChannelFocusNode;
-  TextEditingController? paymentChannelController;
-  String? Function(BuildContext, String?)? paymentChannelControllerValidator;
+  TextEditingController? paymentChannelTextController;
+  String? Function(BuildContext, String?)?
+      paymentChannelTextControllerValidator;
   // State field(s) for NetPremiumTotal widget.
   FocusNode? netPremiumTotalFocusNode;
-  TextEditingController? netPremiumTotalController;
-  String? Function(BuildContext, String?)? netPremiumTotalControllerValidator;
+  TextEditingController? netPremiumTotalTextController;
+  String? Function(BuildContext, String?)?
+      netPremiumTotalTextControllerValidator;
   // State field(s) for ActTotal widget.
   FocusNode? actTotalFocusNode;
-  TextEditingController? actTotalController;
-  String? Function(BuildContext, String?)? actTotalControllerValidator;
+  TextEditingController? actTotalTextController;
+  String? Function(BuildContext, String?)? actTotalTextControllerValidator;
   // State field(s) for grossNetTotal widget.
   FocusNode? grossNetTotalFocusNode;
-  TextEditingController? grossNetTotalController;
-  String? Function(BuildContext, String?)? grossNetTotalControllerValidator;
+  TextEditingController? grossNetTotalTextController;
+  String? Function(BuildContext, String?)? grossNetTotalTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsPaymentRegenerateCode)] action in Icon widget.
   ApiCallResponse? regenQRCodeOutput;
   // Stores action output result for [Backend Call - API (ibsPaymentRegenerateCode)] action in Icon widget.
@@ -84,18 +85,18 @@ class InsuranceInfoPage42Model
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
     paymentTypeFocusNode?.dispose();
-    paymentTypeController?.dispose();
+    paymentTypeTextController?.dispose();
 
     paymentChannelFocusNode?.dispose();
-    paymentChannelController?.dispose();
+    paymentChannelTextController?.dispose();
 
     netPremiumTotalFocusNode?.dispose();
-    netPremiumTotalController?.dispose();
+    netPremiumTotalTextController?.dispose();
 
     actTotalFocusNode?.dispose();
-    actTotalController?.dispose();
+    actTotalTextController?.dispose();
 
     grossNetTotalFocusNode?.dispose();
-    grossNetTotalController?.dispose();
+    grossNetTotalTextController?.dispose();
   }
 }

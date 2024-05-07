@@ -199,6 +199,11 @@ class _MakeInsuranceTypeColorWidgetState
                                   Navigator.pop(context);
                                 }
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
                               activeColor: Color(0xFF39EF4E),
                               checkColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -284,6 +289,11 @@ class _MakeInsuranceTypeColorWidgetState
                                   Navigator.pop(context);
                                 }
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                              ),
                               activeColor: Color(0xFF39EF4E),
                               checkColor: FlutterFlowTheme.of(context)
                                   .primaryBackground,

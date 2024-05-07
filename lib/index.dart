@@ -1,6 +1,6 @@
 // Export pages
 export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/pages/super_app_page/super_app_page_widget.dart'
+export '/pages/super_app/super_app_page/super_app_page_widget.dart'
     show SuperAppPageWidget;
 export '/pages/profile_page_folder/my_profile_page/my_profile_page_widget.dart'
     show MyProfilePageWidget;

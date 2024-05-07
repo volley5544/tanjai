@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/custom_dialog_component_copy_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/step5_document_download/step5_document_download_widget.dart';
@@ -26,8 +27,6 @@ class InsuranceInfoPage5Model
   final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getDateTimeAPI)] action in insuranceInfoPage5 widget.
   ApiCallResponse? getDateTimeOutput;
-  // Stores action output result for [Backend Call - API (insuranceRequestGetInsurerAPI)] action in insuranceInfoPage5 widget.
-  ApiCallResponse? getInsurer;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in insuranceInfoPage5 widget.
   ApiCallResponse? applicationDetailOutput;
   // Stores action output result for [Backend Call - API (getInsurancePolicyApi)] action in insuranceInfoPage5 widget.

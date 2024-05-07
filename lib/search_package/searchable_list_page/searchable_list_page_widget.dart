@@ -207,7 +207,6 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                             fontFamily: 'Noto Sans Thai',
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       validator: _model.textControllerValidator
                                           .asValidator(context),
                                     ),

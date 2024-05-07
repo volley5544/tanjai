@@ -73,7 +73,7 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
       Navigator.pop(context);
     });
 
-    _model.searchFirstnameController ??= TextEditingController();
+    _model.searchFirstnameTextController ??= TextEditingController();
     _model.searchFirstnameFocusNode ??= FocusNode();
   }
 
@@ -173,10 +173,11 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.5, 8.0, 0.5),
                               child: TextFormField(
-                                controller: _model.searchFirstnameController,
+                                controller:
+                                    _model.searchFirstnameTextController,
                                 focusNode: _model.searchFirstnameFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
-                                  '_model.searchFirstnameController',
+                                  '_model.searchFirstnameTextController',
                                   Duration(milliseconds: 100),
                                   () => setState(() {}),
                                 ),
@@ -211,9 +212,8 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
-                                minLines: null,
                                 validator: _model
-                                    .searchFirstnameControllerValidator
+                                    .searchFirstnameTextControllerValidator
                                     .asValidator(context),
                               ),
                             ),
@@ -269,11 +269,11 @@ class _InboxEmailWidgetState extends State<InboxEmailWidget> {
                                       emailList[emailListIndex];
                                   return Visibility(
                                     visible: functions.containWordinStringUrl(
-                                            _model
-                                                .searchFirstnameController.text,
+                                            _model.searchFirstnameTextController
+                                                .text,
                                             _model.subjectEmailOutput?[
                                                 emailListIndex])! ||
-                                        (_model.searchFirstnameController
+                                        (_model.searchFirstnameTextController
                                                 .text ==
                                             ''),
                                     child: Container(

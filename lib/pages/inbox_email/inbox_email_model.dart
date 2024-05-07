@@ -26,8 +26,9 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   List<String>? fromEmailOutput;
   // State field(s) for searchFirstname widget.
   FocusNode? searchFirstnameFocusNode;
-  TextEditingController? searchFirstnameController;
-  String? Function(BuildContext, String?)? searchFirstnameControllerValidator;
+  TextEditingController? searchFirstnameTextController;
+  String? Function(BuildContext, String?)?
+      searchFirstnameTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
@@ -36,6 +37,6 @@ class InboxEmailModel extends FlutterFlowModel<InboxEmailWidget> {
   void dispose() {
     unfocusNode.dispose();
     searchFirstnameFocusNode?.dispose();
-    searchFirstnameController?.dispose();
+    searchFirstnameTextController?.dispose();
   }
 }

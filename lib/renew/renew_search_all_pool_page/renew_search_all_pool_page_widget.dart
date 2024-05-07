@@ -325,7 +325,6 @@ class _RenewSearchAllPoolPageWidgetState
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
-                                                minLines: null,
                                                 validator: _model
                                                     .textController1Validator
                                                     .asValidator(context),
@@ -2753,7 +2752,6 @@ class _RenewSearchAllPoolPageWidgetState
                                             fontFamily: 'Noto Sans Thai',
                                             letterSpacing: 0.0,
                                           ),
-                                      minLines: null,
                                       maxLength: 13,
                                       maxLengthEnforcement:
                                           MaxLengthEnforcement.enforced,

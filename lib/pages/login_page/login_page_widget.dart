@@ -1,8 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,7 +8,6 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -66,10 +63,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       await requestPermission(notificationsPermission);
     });
 
-    _model.usernameTextFieldController ??= TextEditingController();
+    _model.usernameTextFieldTextController ??= TextEditingController();
     _model.usernameTextFieldFocusNode ??= FocusNode();
 
-    _model.passwordTextFieldController ??= TextEditingController();
+    _model.passwordTextFieldTextController ??= TextEditingController();
     _model.passwordTextFieldFocusNode ??= FocusNode();
   }
 
@@ -407,45 +404,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             Colors.transparent,
                                                                         onTap:
                                                                             () async {
-                                                                          try {
-                                                                            final result =
-                                                                                await FirebaseFunctions.instanceFor(region: 'asia-southeast1').httpsCallable('getServerTimestamp').call({});
-                                                                            _model.getFirebaseServerTime =
-                                                                                GetServerTimestampCloudFunctionCallResponse(
-                                                                              data: result.data,
-                                                                              succeeded: true,
-                                                                              resultAsString: result.data.toString(),
-                                                                              jsonBody: result.data,
-                                                                            );
-                                                                          } on FirebaseFunctionsException catch (error) {
-                                                                            _model.getFirebaseServerTime =
-                                                                                GetServerTimestampCloudFunctionCallResponse(
-                                                                              errorCode: error.code,
-                                                                              succeeded: false,
-                                                                            );
-                                                                          }
-
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  content: Text(_model.getFirebaseServerTime!.data!),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
+                                                                          await actions
+                                                                              .urlLauncherAction(
+                                                                            'https://tniservice-uat.thanachartinsurance.co.th/ExBrokerLandingPage/download/epolicy?m9ZDB3yt9vkBAJv7DeoavqBAqho4EN8LysE8ycsUtdCkdvFTQUsTQIGUUqxioIU83L1jvlwATOH92qv31b/etWt2KPfTnrkbTCgH92CoDUOipf+E1gUyfC7UX3weudY5',
+                                                                            'android',
                                                                           );
-
-                                                                          setState(
-                                                                              () {});
                                                                         },
                                                                         child:
                                                                             Text(
@@ -526,7 +489,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .usernameTextFieldController,
+                                                                              .usernameTextFieldTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .usernameTextFieldFocusNode,
@@ -618,10 +581,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             fontWeight:
                                                                                 FontWeight.w600,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .usernameTextFieldControllerValidator
+                                                                          .usernameTextFieldTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -690,7 +651,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         TextFormField(
                                                                       controller:
                                                                           _model
-                                                                              .passwordTextFieldController,
+                                                                              .passwordTextFieldTextController,
                                                                       focusNode:
                                                                           _model
                                                                               .passwordTextFieldFocusNode,
@@ -797,10 +758,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
-                                                                      minLines:
-                                                                          null,
                                                                       validator: _model
-                                                                          .passwordTextFieldControllerValidator
+                                                                          .passwordTextFieldTextControllerValidator
                                                                           .asValidator(
                                                                               context),
                                                                     ),
@@ -981,12 +940,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
                                                                         var _shouldSetState =
                                                                             false;
-                                                                        if (!((_model.usernameTextFieldController.text == '31622') ||
-                                                                            (_model.usernameTextFieldController.text ==
+                                                                        if (!((_model.usernameTextFieldTextController.text == '31622') ||
+                                                                            (_model.usernameTextFieldTextController.text ==
                                                                                 '33511') ||
-                                                                            (_model.usernameTextFieldController.text ==
+                                                                            (_model.usernameTextFieldTextController.text ==
                                                                                 '36270') ||
-                                                                            (_model.usernameTextFieldController.text ==
+                                                                            (_model.usernameTextFieldTextController.text ==
                                                                                 '32758'))) {}
                                                                         setState(
                                                                             () {
@@ -996,9 +955,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                               ? stackUrlLinkStorageRecord!.urlLink
                                                                               : columnKeyStorage3Record!.uat2ApiUrl;
                                                                         });
-                                                                        if (!(_model.usernameTextFieldController.text !=
+                                                                        if (!(_model.usernameTextFieldTextController.text !=
                                                                                 null &&
-                                                                            _model.usernameTextFieldController.text !=
+                                                                            _model.usernameTextFieldTextController.text !=
                                                                                 '')) {
                                                                           ScaffoldMessenger.of(context)
                                                                               .showSnackBar(
@@ -1017,9 +976,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             setState(() {});
                                                                           return;
                                                                         }
-                                                                        if (!(_model.passwordTextFieldController.text !=
+                                                                        if (!(_model.passwordTextFieldTextController.text !=
                                                                                 null &&
-                                                                            _model.passwordTextFieldController.text !=
+                                                                            _model.passwordTextFieldTextController.text !=
                                                                                 '')) {
                                                                           ScaffoldMessenger.of(context)
                                                                               .showSnackBar(
@@ -1046,10 +1005,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         _model.authernApiOutput =
                                                                             await AuthenAPICall.call(
                                                                           username: _model
-                                                                              .usernameTextFieldController
+                                                                              .usernameTextFieldTextController
                                                                               .text,
                                                                           password: _model
-                                                                              .passwordTextFieldController
+                                                                              .passwordTextFieldTextController
                                                                               .text,
                                                                           apiUrl:
                                                                               FFAppState().apiURLLocalState,
@@ -1399,7 +1358,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         _model.customFirebaseAuthen =
                                                                             await actions.a13(
                                                                           functions.generateStuffFirebaseEmail(functions.toUpperCase(_model
-                                                                              .usernameTextFieldController
+                                                                              .usernameTextFieldTextController
                                                                               .text)),
                                                                         );
                                                                         _shouldSetState =

@@ -161,19 +161,19 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
       Navigator.pop(context);
     });
 
-    _model.address2Controller ??=
+    _model.address2TextController ??=
         TextEditingController(text: FFAppState().addAddressAtIdCard2);
     _model.address2FocusNode ??= FocusNode();
 
-    _model.address3Controller ??=
+    _model.address3TextController ??=
         TextEditingController(text: FFAppState().addAddressAtIdCard3);
     _model.address3FocusNode ??= FocusNode();
 
-    _model.address4Controller ??=
+    _model.address4TextController ??=
         TextEditingController(text: FFAppState().addAddressForDoc2);
     _model.address4FocusNode ??= FocusNode();
 
-    _model.address5Controller ??=
+    _model.address5TextController ??=
         TextEditingController(text: FFAppState().addAddressForDoc3);
     _model.address5FocusNode ??= FocusNode();
   }
@@ -458,7 +458,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: TextFormField(
                                             controller:
-                                                _model.address2Controller,
+                                                _model.address2TextController,
                                             focusNode: _model.address2FocusNode,
                                             autofocus: false,
                                             obscureText: false,
@@ -505,9 +505,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
-                                            minLines: null,
                                             validator: _model
-                                                .address2ControllerValidator
+                                                .address2TextControllerValidator
                                                 .asValidator(context),
                                           ),
                                         ),
@@ -569,7 +568,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: TextFormField(
-                                          controller: _model.address3Controller,
+                                          controller:
+                                              _model.address3TextController,
                                           focusNode: _model.address3FocusNode,
                                           autofocus: false,
                                           obscureText: false,
@@ -614,9 +614,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
-                                          minLines: null,
                                           validator: _model
-                                              .address3ControllerValidator
+                                              .address3TextControllerValidator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -838,6 +837,12 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     });
                                                   }
                                                 },
+                                                side: BorderSide(
+                                                  width: 2,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                ),
                                                 activeColor: Color(0xFF00B505),
                                                 checkColor:
                                                     FlutterFlowTheme.of(context)
@@ -1016,6 +1021,12 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     });
                                                   }
                                                 },
+                                                side: BorderSide(
+                                                  width: 2,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                ),
                                                 activeColor: Color(0xFF00B505),
                                                 checkColor:
                                                     FlutterFlowTheme.of(context)
@@ -1266,7 +1277,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller:
-                                                  _model.address4Controller,
+                                                  _model.address4TextController,
                                               focusNode:
                                                   _model.address4FocusNode,
                                               autofocus: false,
@@ -1320,9 +1331,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              minLines: null,
                                               validator: _model
-                                                  .address4ControllerValidator
+                                                  .address4TextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1396,7 +1406,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: TextFormField(
                                               controller:
-                                                  _model.address5Controller,
+                                                  _model.address5TextController,
                                               focusNode:
                                                   _model.address5FocusNode,
                                               autofocus: false,
@@ -1450,9 +1460,8 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                   ),
-                                              minLines: null,
                                               validator: _model
-                                                  .address5ControllerValidator
+                                                  .address5TextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1487,16 +1496,17 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 if ((FFAppState().addAddressAtIdCard !=
                                         'กรุณากรอกที่อยู่') &&
                                     (FFAppState().addAddressAtIdCard != '') &&
-                                    (_model.address2Controller.text !=
+                                    (_model.address2TextController.text !=
                                         'กรุณากรอกที่อยู่') &&
-                                    (_model.address2Controller.text != '')) {
+                                    (_model.address2TextController.text !=
+                                        '')) {
                                   if (_model.addressAtIdCardValue! &&
                                       !_model.addressForDocValue!) {
                                     setState(() {
                                       FFAppState().addAddressAtIdCard2 =
-                                          _model.address2Controller.text;
+                                          _model.address2TextController.text;
                                       FFAppState().addAddressAtIdCard3 =
-                                          _model.address3Controller.text;
+                                          _model.address3TextController.text;
                                       FFAppState().addAddressAtIdCardBool =
                                           _model.addressAtIdCardValue!;
                                       FFAppState().addAddressForDocBool =
@@ -1509,9 +1519,9 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   }
                                   setState(() {
                                     FFAppState().addAddressAtIdCard2 =
-                                        _model.address2Controller.text;
+                                        _model.address2TextController.text;
                                     FFAppState().addAddressAtIdCard3 =
-                                        _model.address3Controller.text;
+                                        _model.address3TextController.text;
                                     FFAppState().addAddressAtIdCardBool =
                                         _model.addressAtIdCardValue!;
                                     FFAppState().addAddressForDocBool =
@@ -1542,9 +1552,10 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 if (!((FFAppState().addAddressForDoc !=
                                         'กรุณากรอกที่อยู่') &&
                                     (FFAppState().addAddressForDoc != '') &&
-                                    (_model.address4Controller.text !=
+                                    (_model.address4TextController.text !=
                                         'กรุณากรอกที่อยู่') &&
-                                    (_model.address4Controller.text != ''))) {
+                                    (_model.address4TextController.text !=
+                                        ''))) {
                                   await showDialog(
                                     context: context,
                                     builder: (alertDialogContext) {
@@ -1567,13 +1578,13 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                 }
                                 setState(() {
                                   FFAppState().addAddressAtIdCard2 =
-                                      _model.address2Controller.text;
+                                      _model.address2TextController.text;
                                   FFAppState().addAddressAtIdCard3 =
-                                      _model.address3Controller.text;
+                                      _model.address3TextController.text;
                                   FFAppState().addAddressForDoc2 =
-                                      _model.address4Controller.text;
+                                      _model.address4TextController.text;
                                   FFAppState().addAddressForDoc3 =
-                                      _model.address5Controller.text;
+                                      _model.address5TextController.text;
                                 });
                                 context.safePop();
                               },
