@@ -88,7 +88,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
       });
       _model.leadNotiOutput = await actions.a14();
       setDarkModeSetting(context, ThemeMode.light);
-      _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -100,8 +101,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -125,8 +126,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(

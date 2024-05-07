@@ -26,6 +26,8 @@ class SearchInsurancePageModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in SearchInsurancePage widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in SearchInsurancePage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in SearchInsurancePage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in SearchInsurancePage widget.

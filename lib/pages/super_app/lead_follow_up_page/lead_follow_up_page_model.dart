@@ -25,6 +25,8 @@ class LeadFollowUpPageModel extends FlutterFlowModel<LeadFollowUpPageWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in LeadFollowUpPage widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in LeadFollowUpPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in LeadFollowUpPage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in LeadFollowUpPage widget.

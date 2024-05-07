@@ -67,6 +67,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
       ).then((value) => safeSetState(() {}));
 
       _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -78,8 +79,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -103,8 +104,8 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberIos <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(

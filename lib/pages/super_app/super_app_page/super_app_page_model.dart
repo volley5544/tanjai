@@ -39,7 +39,9 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
   String? leadNotiOutput;
   // Stores action output result for [Custom Action - getBuildVersion1] action in SuperAppPage widget.
-  String? getBuildVersion;
+  String? deviceBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in SuperAppPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in SuperAppPage widget.
