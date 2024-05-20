@@ -9,11 +9,11 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'splash_page_model.dart';
-export 'splash_page_model.dart';
+import 'splash_page_holiday_model.dart';
+export 'splash_page_holiday_model.dart';
 
-class SplashPageWidget extends StatefulWidget {
-  const SplashPageWidget({
+class SplashPageHolidayWidget extends StatefulWidget {
+  const SplashPageHolidayWidget({
     super.key,
     this.dailyText,
   });
@@ -21,11 +21,12 @@ class SplashPageWidget extends StatefulWidget {
   final String? dailyText;
 
   @override
-  State<SplashPageWidget> createState() => _SplashPageWidgetState();
+  State<SplashPageHolidayWidget> createState() =>
+      _SplashPageHolidayWidgetState();
 }
 
-class _SplashPageWidgetState extends State<SplashPageWidget> {
-  late SplashPageModel _model;
+class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
+  late SplashPageHolidayModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,7 +37,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SplashPageModel());
+    _model = createModel(context, () => SplashPageHolidayModel());
   }
 
   @override
@@ -48,8 +49,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -97,38 +96,6 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                     fit: BoxFit.fitHeight,
                                   ),
                                 ),
-                                Align(
-                                  alignment: AlignmentDirectional(0.0, 0.5),
-                                  child: Container(
-                                    width: 280.0,
-                                    height: 200.0,
-                                    decoration: BoxDecoration(),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.all(8.0),
-                                          child: Text(
-                                            FFAppState().dailyText,
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'FC Home Italic',
-                                                  fontSize: 22.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                  fontStyle: FontStyle.italic,
-                                                  useGoogleFonts: false,
-                                                ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
                           ],
@@ -149,6 +116,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
+                                setState(() {});
                               },
                               effect: smooth_page_indicator.SlideEffect(
                                 spacing: 8.0,
@@ -210,7 +178,7 @@ class _SplashPageWidgetState extends State<SplashPageWidget> {
                             onPressed: () async {
                               if (_model.checkboxGroupValues?.length == 1) {
                                 FFAppState().update(() {
-                                  FFAppState().dateDoNotShowAgain =
+                                  FFAppState().DateHolidayNotShow =
                                       functions.addDoNotShowAgainDate(
                                           getCurrentTimestamp);
                                 });

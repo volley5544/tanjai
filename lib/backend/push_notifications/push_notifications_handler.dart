@@ -500,6 +500,12 @@ final parametersBuilderMap =
         },
       ),
   'webViewPolicy': ParameterData.none(),
+  'SearchInsurancePageCopy': (data) async => ParameterData(
+        allParams: {
+          'fromIcon': getParameter<String>(data, 'fromIcon'),
+        },
+      ),
+  'forDupeUi': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

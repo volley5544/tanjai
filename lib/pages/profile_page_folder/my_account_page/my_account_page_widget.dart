@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/components/qr_code_show_component_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';

@@ -1745,6 +1745,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'webViewPolicy',
               path: 'webViewPolicy',
               builder: (context, params) => WebViewPolicyWidget(),
+            ),
+            FFRoute(
+              name: 'SearchInsurancePageCopy',
+              path: 'searchInsurancePageCopy',
+              builder: (context, params) => SearchInsurancePageCopyWidget(
+                fromIcon: params.getParam(
+                  'fromIcon',
+                  ParamType.String,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'forDupeUi',
+              path: 'forDupeUi',
+              builder: (context, params) => ForDupeUiWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -2003,4 +2018,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

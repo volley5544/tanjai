@@ -2,14 +2,15 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/custom_dialog_component_widget.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
-import '/components/pdf_page_view_component/pdf_page_view_component_widget.dart';
-import '/components/search_employee_component/search_employee_component_widget.dart';
+import '/components/license_select_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import '/pages/super_app/components/pdf_page_view_component/pdf_page_view_component_widget.dart';
+import '/pages/super_app/components/search_employee_component/search_employee_component_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -3362,33 +3363,75 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           return;
                                                                         }
 
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'MakeInsuranceListPage',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'checkTotal':
-                                                                                serializeParam(
-                                                                              InsuranceRequestListAPIDashBoardCall.waitingInfo(
-                                                                                (_model.listFromDash?.jsonBody ?? ''),
+                                                                        setState(
+                                                                            () {
+                                                                          FFAppState().licenseSelectBeforeStep1 =
+                                                                              InsuranceRequestListAPIDashBoardCall.employeecodelicense(
+                                                                            (_model.listFromDash?.jsonBody ??
+                                                                                ''),
+                                                                          )!;
+                                                                        });
+                                                                        if (FFAppState().profileIsHaveInsuranceCard ||
+                                                                            (InsuranceRequestListAPIDashBoardCall.videourl(
+                                                                                  (_model.listFromDash?.jsonBody ?? ''),
+                                                                                ) !=
+                                                                                '')) {
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'MakeInsuranceListPage',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'checkTotal': serializeParam(
+                                                                                InsuranceRequestListAPIDashBoardCall.waitingInfo(
+                                                                                  (_model.listFromDash?.jsonBody ?? ''),
+                                                                                ),
+                                                                                ParamType.int,
                                                                               ),
-                                                                              ParamType.int,
-                                                                            ),
-                                                                            'list':
-                                                                                serializeParam(
-                                                                              InsuranceRequestListAPIDashBoardCall.waitingInfoList(
-                                                                                (_model.listFromDash?.jsonBody ?? ''),
+                                                                              'list': serializeParam(
+                                                                                InsuranceRequestListAPIDashBoardCall.waitingInfoList(
+                                                                                  (_model.listFromDash?.jsonBody ?? ''),
+                                                                                ),
+                                                                                ParamType.JSON,
+                                                                                true,
                                                                               ),
-                                                                              ParamType.JSON,
-                                                                              true,
-                                                                            ),
-                                                                            'checkPayment':
-                                                                                serializeParam(
-                                                                              '0',
-                                                                              ParamType.String,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                        );
+                                                                              'checkPayment': serializeParam(
+                                                                                '0',
+                                                                                ParamType.String,
+                                                                              ),
+                                                                            }.withoutNulls,
+                                                                          );
+                                                                        } else {
+                                                                          await showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            enableDrag:
+                                                                                false,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                  child: Padding(
+                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                    child: LicenseSelectComponentWidget(
+                                                                                      leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
+                                                                                        (_model.listFromDash?.jsonBody ?? ''),
+                                                                                      )!,
+                                                                                      quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
+                                                                                        (_model.listFromDash?.jsonBody ?? ''),
+                                                                                      )!,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() {}));
+                                                                        }
                                                                       } else {
                                                                         await showDialog(
                                                                           context:
@@ -3516,6 +3559,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                     Duration(milliseconds: 500),
                                                 curve: Curves.ease,
                                               );
+                                              setState(() {});
                                             },
                                             effect: smooth_page_indicator
                                                 .ExpandingDotsEffect(
@@ -4699,15 +4743,17 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         .carouselController ??=
                                                     CarouselController(),
                                                 options: CarouselOptions(
-                                                  initialPage: min(
-                                                      valueOrDefault<int>(
-                                                        rowHideInAppContentRecord
-                                                                .isShowContent
-                                                            ? 0
-                                                            : 1,
-                                                        0,
-                                                      ),
-                                                      2),
+                                                  initialPage: max(
+                                                      0,
+                                                      min(
+                                                          valueOrDefault<int>(
+                                                            rowHideInAppContentRecord
+                                                                    .isShowContent
+                                                                ? 0
+                                                                : 1,
+                                                            0,
+                                                          ),
+                                                          2)),
                                                   viewportFraction: 0.75,
                                                   disableCenter: true,
                                                   enlargeCenterPage: true,
@@ -4996,6 +5042,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                       milliseconds: 500),
                                                   curve: Curves.ease,
                                                 );
+                                                setState(() {});
                                               },
                                               effect: smooth_page_indicator
                                                   .ExpandingDotsEffect(

@@ -2,19 +2,19 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6232,7 +6232,9 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                     ),
                                 ],
                               ),
-                            if (false)
+                            if (FFAppState().InsuranceInfoVedioCallFile !=
+                                    null &&
+                                FFAppState().InsuranceInfoVedioCallFile != '')
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 5.0, 0.0, 0.0),
@@ -6242,73 +6244,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(-1.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.45,
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.08,
-                                          decoration: BoxDecoration(),
-                                          child: Visibility(
-                                            visible: FFAppState()
-                                                        .InsuranceInfoVedioCallUrl !=
-                                                    null &&
-                                                FFAppState()
-                                                        .InsuranceInfoVedioCallUrl !=
-                                                    '',
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 15.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () async {
-                                                  await Clipboard.setData(
-                                                      ClipboardData(
-                                                          text: FFAppState()
-                                                              .InsuranceInfoVedioCallUrl));
-                                                },
-                                                text: 'meeting url',
-                                                icon: Icon(
-                                                  Icons.content_copy_sharp,
-                                                  size: 15.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          24.0, 0.0, 24.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: Color(0xFFFCEFE4),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFFD9761A),
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  elevation: 3.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 15.0, 12.0, 0.0),
@@ -6381,6 +6316,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 focusNode: _model
                                                     .vedioCallLinkFocusNode,
                                                 autofocus: false,
+                                                readOnly: true,
                                                 obscureText: false,
                                                 decoration: InputDecoration(
                                                   labelStyle:

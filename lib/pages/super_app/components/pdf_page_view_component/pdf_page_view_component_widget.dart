@@ -149,6 +149,7 @@ class _PdfPageViewComponentWidgetState
                                     duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
+                                  setState(() {});
                                 },
                                 effect:
                                     smooth_page_indicator.ExpandingDotsEffect(

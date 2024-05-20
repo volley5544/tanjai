@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -1299,27 +1299,32 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 Navigator.pop(context);
                                 if (widget.fromPage == 'compare') {
                                   if (widget.fromBtn == 'saveBtn') {
-                                    context.pushNamed(
-                                      'insuranceInfoPage1',
-                                      queryParameters: {
-                                        'quotationId': serializeParam(
-                                          '${IbsQuotationsSaveCall.quotationid(
-                                            (_model.aPIQuotationSaveOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toString()}',
-                                          ParamType.String,
-                                        ),
-                                        'leadDtailId': serializeParam(
-                                          IbsQuotationsSaveCall.leaddtlid(
-                                            (_model.aPIQuotationSaveOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?[widget.indexPage!],
-                                          ParamType.int,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    if (FFAppState()
+                                        .profileIsHaveInsuranceCard) {
+                                      context.pushNamed(
+                                        'insuranceInfoPage1',
+                                        queryParameters: {
+                                          'quotationId': serializeParam(
+                                            '${IbsQuotationsSaveCall.quotationid(
+                                              (_model.aPIQuotationSaveOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toString()}',
+                                            ParamType.String,
+                                          ),
+                                          'leadDtailId': serializeParam(
+                                            IbsQuotationsSaveCall.leaddtlid(
+                                              (_model.aPIQuotationSaveOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?[0],
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      context.goNamed('insuranceListPage');
+                                    }
                                   } else {
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
@@ -1328,27 +1333,32 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   }
                                 } else {
                                   if (widget.fromBtn == 'saveBtn') {
-                                    context.pushNamed(
-                                      'insuranceInfoPage1',
-                                      queryParameters: {
-                                        'quotationId': serializeParam(
-                                          '${IbsQuotationsSaveCall.quotationid(
-                                            (_model.aPIQuotationSaveOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?.toString()}',
-                                          ParamType.String,
-                                        ),
-                                        'leadDtailId': serializeParam(
-                                          IbsQuotationsSaveCall.leaddtlid(
-                                            (_model.aPIQuotationSaveOutput
-                                                    ?.jsonBody ??
-                                                ''),
-                                          )?[0],
-                                          ParamType.int,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    if (FFAppState()
+                                        .profileIsHaveInsuranceCard) {
+                                      context.pushNamed(
+                                        'insuranceInfoPage1',
+                                        queryParameters: {
+                                          'quotationId': serializeParam(
+                                            '${IbsQuotationsSaveCall.quotationid(
+                                              (_model.aPIQuotationSaveOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?.toString()}',
+                                            ParamType.String,
+                                          ),
+                                          'leadDtailId': serializeParam(
+                                            IbsQuotationsSaveCall.leaddtlid(
+                                              (_model.aPIQuotationSaveOutput
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )?[0],
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      context.goNamed('insuranceListPage');
+                                    }
                                   } else {
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();

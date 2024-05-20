@@ -1,6 +1,6 @@
 // Export pages
 export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
-export '/pages/super_app/super_app_page/super_app_page_widget.dart'
+export '/pages/super_app_page/super_app_page_widget.dart'
     show SuperAppPageWidget;
 export '/pages/profile_page_folder/my_profile_page/my_profile_page_widget.dart'
     show MyProfilePageWidget;
@@ -155,3 +155,7 @@ export '/act/information_customer/information_customer_widget.dart'
 export '/act/information_customer2/information_customer2_widget.dart'
     show InformationCustomer2Widget;
 export '/web_view_policy/web_view_policy_widget.dart' show WebViewPolicyWidget;
+export '/search_package/search_insurance_page_copy/search_insurance_page_copy_widget.dart'
+    show SearchInsurancePageCopyWidget;
+export '/search_package/for_dupe_ui/for_dupe_ui_widget.dart'
+    show ForDupeUiWidget;

@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:typed_data';
 import '../schema/structs/index.dart';
 
+import 'package:flutter/foundation.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
@@ -9769,6 +9771,24 @@ class InsuranceRequestListAPICall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static List<String>? employeecodelicense(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].employee_code_license''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? videourl(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.info[:].video_url''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class InsuranceRequestListAPIDashBoardCall {
@@ -10171,6 +10191,25 @@ class InsuranceRequestListAPIDashBoardCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static String? employeecodelicense(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.watingInfo[:].employee_code_license''',
+      ));
+  static String? videourl(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.watingInfo[:].video_url''',
+      ));
+  static String? watingInfoleadid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.watingInfo[:].lead_id''',
+      ));
+  static String? watingInfoquotationid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.info.watingInfo[:].quotation_id''',
+      ));
 }
 
 class SaveInsurerAPICall {
@@ -15962,6 +16001,155 @@ class CmiSaveLeadsCall {
       ));
 }
 
+class ApiLicenseGetLicenseCall {
+  static Future<ApiCallResponse> call({
+    String? insuranceUrl = '',
+    String? token = '',
+    String? employeeCodeLicense = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "employee_code_license":"${employeeCodeLicense}" 
+  
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'apiLicenseGetLicense',
+      apiUrl: '${insuranceUrl}/api/license/get-license',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static String? title(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data[:].title''',
+      ));
+  static String? firstname(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data[:].firstname''',
+      ));
+  static String? lastName(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data[:].lastName''',
+      ));
+  static String? licenseid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.data[:].license_id''',
+      ));
+  static String? check(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.results.check''',
+      ));
+}
+
+class ApiLicenseSaveLicenseCall {
+  static Future<ApiCallResponse> call({
+    String? insuranceUrl = '',
+    String? token = '',
+    String? employeeCodeLicense = '',
+    String? quotationId = '',
+    String? leadId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "employee_code_license": "${employeeCodeLicense}",
+  "quotation_id": "${quotationId}",
+  "lead_id": "${leadId}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'apiLicenseSaveLicense',
+      apiUrl: '${insuranceUrl}/api/license/save-license',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
+class ApiLicenseCancelLicenseCall {
+  static Future<ApiCallResponse> call({
+    String? insuranceUrl = '',
+    String? token = '',
+    String? employeeCodeLicense = '',
+    String? quotationId = '',
+    String? leadId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "employee_code_license": "${employeeCodeLicense}",
+  "quotation_id": "${quotationId}",
+  "lead_id": "${leadId}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'apiLicenseCancelLicense',
+      apiUrl: '${insuranceUrl}/api/license/cancel-license',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? messageLayer1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+}
+
 class GetOccupationCall {
   static Future<ApiCallResponse> call({
     String? insuranceUrl = '',
@@ -16375,6 +16563,9 @@ String _serializeList(List? list) {
   try {
     return json.encode(list);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -16384,6 +16575,9 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   try {
     return json.encode(jsonVar);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

@@ -1,13 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/insurance_type_color/insurance_type_color_widget.dart';
-import '/components/loading_scene/loading_scene_widget.dart';
+import '/components/license_select_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/insurance_type_color/insurance_type_color_widget.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -477,87 +479,113 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 0.9,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
-                            border: Border.all(
-                              color: Colors.black,
-                              width: 0.1,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.search,
-                                  color: Color(0xFF878787),
-                                  size: 24.0,
-                                ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 20.0, 0.0),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.9,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: Colors.black,
+                                width: 0.1,
                               ),
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 0.5, 8.0, 0.5),
-                                    child: TextFormField(
-                                      controller:
-                                          _model.searchFirstnameTextController,
-                                      focusNode:
-                                          _model.searchFirstnameFocusNode,
-                                      onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.searchFirstnameTextController',
-                                        Duration(milliseconds: 100),
-                                        () => setState(() {}),
-                                      ),
-                                      autofocus: false,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: Icon(
+                                    Icons.search,
+                                    color: Color(0xFF878787),
+                                    size: 24.0,
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.5, 8.0, 0.5),
+                                      child: TextFormField(
+                                        controller: _model
+                                            .searchFirstnameTextController,
+                                        focusNode:
+                                            _model.searchFirstnameFocusNode,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.searchFirstnameTextController',
+                                          Duration(milliseconds: 100),
+                                          () => setState(() {}),
+                                        ),
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          hintText: 'ค้นหาชื่อลูกค้า',
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily:
+                                                        'Noto Sans Thai',
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              fontSize: 14.0,
+                                              fontSize: 15.0,
                                               letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
                                             ),
-                                        hintText: 'ค้นหาชื่อลูกค้า',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                              fontFamily: 'Noto Sans Thai',
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        enabledBorder: InputBorder.none,
-                                        focusedBorder: InputBorder.none,
-                                        errorBorder: InputBorder.none,
-                                        focusedErrorBorder: InputBorder.none,
+                                        validator: _model
+                                            .searchFirstnameTextControllerValidator
+                                            .asValidator(context),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Noto Sans Thai',
-                                            fontSize: 15.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                      validator: _model
-                                          .searchFirstnameTextControllerValidator
-                                          .asValidator(context),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.goNamed('insuranceListPage');
+                          },
+                          child: Icon(
+                            Icons.refresh_sharp,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
                           ),
                         ),
                       ),
@@ -4676,42 +4704,100 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       () {});
                                                                 return;
                                                               }
-
-                                                              context.pushNamed(
-                                                                'MakeInsuranceListPage',
-                                                                queryParameters:
-                                                                    {
-                                                                  'checkTotal':
-                                                                      serializeParam(
+                                                              setState(() {
+                                                                FFAppState()
+                                                                        .licenseSelectBeforeStep1 =
                                                                     InsuranceRequestListAPIDashBoardCall
-                                                                        .waitingInfo(
-                                                                      (_model.listFromDash
-                                                                              ?.jsonBody ??
-                                                                          ''),
+                                                                        .employeecodelicense(
+                                                                  (_model.listFromDash
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!;
+                                                              });
+                                                              if (FFAppState()
+                                                                      .profileIsHaveInsuranceCard ||
+                                                                  (InsuranceRequestListAPIDashBoardCall
+                                                                          .videourl(
+                                                                        (_model.listFromDash?.jsonBody ??
+                                                                            ''),
+                                                                      ) !=
+                                                                      '')) {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'MakeInsuranceListPage',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'checkTotal':
+                                                                        serializeParam(
+                                                                      InsuranceRequestListAPIDashBoardCall
+                                                                          .waitingInfo(
+                                                                        (_model.listFromDash?.jsonBody ??
+                                                                            ''),
+                                                                      ),
+                                                                      ParamType
+                                                                          .int,
                                                                     ),
-                                                                    ParamType
-                                                                        .int,
-                                                                  ),
-                                                                  'list':
-                                                                      serializeParam(
-                                                                    InsuranceRequestListAPIDashBoardCall
-                                                                        .waitingInfoList(
-                                                                      (_model.listFromDash
-                                                                              ?.jsonBody ??
-                                                                          ''),
+                                                                    'list':
+                                                                        serializeParam(
+                                                                      InsuranceRequestListAPIDashBoardCall
+                                                                          .waitingInfoList(
+                                                                        (_model.listFromDash?.jsonBody ??
+                                                                            ''),
+                                                                      ),
+                                                                      ParamType
+                                                                          .JSON,
+                                                                      true,
                                                                     ),
-                                                                    ParamType
-                                                                        .JSON,
-                                                                    true,
-                                                                  ),
-                                                                  'checkPayment':
-                                                                      serializeParam(
-                                                                    '0',
-                                                                    ParamType
-                                                                        .String,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                              );
+                                                                    'checkPayment':
+                                                                        serializeParam(
+                                                                      '0',
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              } else {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          GestureDetector(
+                                                                        onTap: () => _model.unfocusNode.canRequestFocus
+                                                                            ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                            : FocusScope.of(context).unfocus(),
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              LicenseSelectComponentWidget(
+                                                                            leadID:
+                                                                                InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
+                                                                              (_model.listFromDash?.jsonBody ?? ''),
+                                                                            )!,
+                                                                            quotationID:
+                                                                                InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
+                                                                              (_model.listFromDash?.jsonBody ?? ''),
+                                                                            )!,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              }
                                                             } else {
                                                               await showDialog(
                                                                 context:

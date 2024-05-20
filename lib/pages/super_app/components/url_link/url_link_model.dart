@@ -1,9 +1,9 @@
-import '/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
-import '/components/showimgurl/showimgurl_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/super_app/components/p_d_f_viewer/p_d_f_viewer_widget.dart';
+import '/pages/super_app/components/showimgurl/showimgurl_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'url_link_widget.dart' show UrlLinkWidget;
 import 'package:flutter/material.dart';
