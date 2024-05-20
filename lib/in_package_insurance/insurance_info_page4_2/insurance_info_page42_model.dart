@@ -34,28 +34,6 @@ class InsuranceInfoPage42Model
   late InfomationCustomerActModel infomationCustomerActModel;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Icon widget.
   ApiCallResponse? ibsDetailAPIOutputCopyRefresh;
-  // State field(s) for paymentType widget.
-  FocusNode? paymentTypeFocusNode;
-  TextEditingController? paymentTypeTextController;
-  String? Function(BuildContext, String?)? paymentTypeTextControllerValidator;
-  // State field(s) for paymentChannel widget.
-  FocusNode? paymentChannelFocusNode;
-  TextEditingController? paymentChannelTextController;
-  String? Function(BuildContext, String?)?
-      paymentChannelTextControllerValidator;
-  // State field(s) for NetPremiumTotal widget.
-  FocusNode? netPremiumTotalFocusNode;
-  TextEditingController? netPremiumTotalTextController;
-  String? Function(BuildContext, String?)?
-      netPremiumTotalTextControllerValidator;
-  // State field(s) for ActTotal widget.
-  FocusNode? actTotalFocusNode;
-  TextEditingController? actTotalTextController;
-  String? Function(BuildContext, String?)? actTotalTextControllerValidator;
-  // State field(s) for grossNetTotal widget.
-  FocusNode? grossNetTotalFocusNode;
-  TextEditingController? grossNetTotalTextController;
-  String? Function(BuildContext, String?)? grossNetTotalTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsPaymentRegenerateCode)] action in Icon widget.
   ApiCallResponse? regenQRCodeOutput;
   // Stores action output result for [Backend Call - API (ibsPaymentRegenerateCode)] action in Icon widget.
@@ -84,19 +62,5 @@ class InsuranceInfoPage42Model
     unfocusNode.dispose();
     infomationCustomerModel.dispose();
     infomationCustomerActModel.dispose();
-    paymentTypeFocusNode?.dispose();
-    paymentTypeTextController?.dispose();
-
-    paymentChannelFocusNode?.dispose();
-    paymentChannelTextController?.dispose();
-
-    netPremiumTotalFocusNode?.dispose();
-    netPremiumTotalTextController?.dispose();
-
-    actTotalFocusNode?.dispose();
-    actTotalTextController?.dispose();
-
-    grossNetTotalFocusNode?.dispose();
-    grossNetTotalTextController?.dispose();
   }
 }
