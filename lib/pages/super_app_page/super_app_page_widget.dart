@@ -3363,6 +3363,20 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                           return;
                                                                         }
 
+                                                                        _model.isShowVideoFirebaseBool =
+                                                                            await queryHideInAppContentRecordOnce(
+                                                                          queryBuilder: (hideInAppContentRecord) =>
+                                                                              hideInAppContentRecord.where(
+                                                                            'content_name',
+                                                                            isEqualTo:
+                                                                                'video_call',
+                                                                          ),
+                                                                          singleRecord:
+                                                                              true,
+                                                                        ).then((s) =>
+                                                                                s.firstOrNull);
+                                                                        _shouldSetState =
+                                                                            true;
                                                                         setState(
                                                                             () {
                                                                           FFAppState().licenseSelectBeforeStep1 =
@@ -3371,11 +3385,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 ''),
                                                                           )!;
                                                                         });
-                                                                        if (FFAppState().profileIsHaveInsuranceCard ||
-                                                                            (InsuranceRequestListAPIDashBoardCall.videourl(
-                                                                                  (_model.listFromDash?.jsonBody ?? ''),
-                                                                                ) !=
-                                                                                '')) {
+                                                                        if (_model.isShowVideoFirebaseBool!.isShowContent
+                                                                            ? (FFAppState().profileIsHaveInsuranceCard ||
+                                                                                (InsuranceRequestListAPIDashBoardCall.videourl(
+                                                                                      (_model.listFromDash?.jsonBody ?? ''),
+                                                                                    ) !=
+                                                                                    ''))
+                                                                            : true) {
                                                                           context
                                                                               .pushNamed(
                                                                             'MakeInsuranceListPage',
@@ -4926,59 +4942,91 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                     onTap: () async {
                                                       if ((pageViewTanjaiBannerRecord
                                                                   ?.contentLink?[
-                                                              imageListItemIndex]) !=
-                                                          'ThaiPaiBoon') {
-                                                        return;
-                                                      }
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Color(0xC0000000),
-                                                        enableDrag: false,
-                                                        useSafeArea: true,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
+                                                              functions.getIndexOfIntList(
+                                                                  pageViewTanjaiBannerRecord
+                                                                      ?.order
+                                                                      ?.toList(),
+                                                                  imageListItemIndex +
+                                                                      1)]) ==
+                                                          'Hello World') {
+                                                        if (pageViewTanjaiBannerRecord!
+                                                                .isHavePdf[
+                                                            functions
+                                                                .getIndexOfIntList(
+                                                                    pageViewTanjaiBannerRecord
+                                                                        ?.order
+                                                                        ?.toList(),
+                                                                    imageListItemIndex +
+                                                                        1)]) {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Color(
+                                                                    0xC0000000),
+                                                            enableDrag: false,
+                                                            useSafeArea: true,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
                                                                 child:
-                                                                    Container(
-                                                                  height: double
-                                                                      .infinity,
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      PdfPageViewComponentWidget(
-                                                                    pdfUrlList:
-                                                                        pageViewTanjaiBannerRecord!
-                                                                            .pdfUrl[imageListItemIndex],
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          PdfPageViewComponentWidget(
+                                                                        pdfUrlList: functions.getBannerDataByOrder(
+                                                                            pageViewTanjaiBannerRecord?.pdfUrl
+                                                                                ?.toList(),
+                                                                            pageViewTanjaiBannerRecord?.order?[functions.getIndexOfIntList(pageViewTanjaiBannerRecord?.order?.toList(),
+                                                                                imageListItemIndex + 1)])!,
+                                                                      ),
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        }
+                                                        return;
+                                                      }
+                                                      await launchURL(pageViewTanjaiBannerRecord!
+                                                              .contentLink[
+                                                          functions.getIndexOfIntList(
+                                                              pageViewTanjaiBannerRecord
+                                                                  ?.order
+                                                                  ?.toList(),
+                                                              imageListItemIndex +
+                                                                  1)]);
                                                     },
                                                     child: Hero(
                                                       tag: pageViewTanjaiBannerRecord!
                                                               .imageUrl[
-                                                          imageListItemIndex],
+                                                          functions.getIndexOfIntList(
+                                                              pageViewTanjaiBannerRecord
+                                                                  ?.order
+                                                                  ?.toList(),
+                                                              imageListItemIndex +
+                                                                  1)],
                                                       transitionOnUserGestures:
                                                           true,
                                                       child: ClipRRect(
@@ -4990,15 +5038,25 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                               (_) => SizedBox
                                                                   .expand(
                                                             child: Image(
-                                                              image: BlurHashImage(
-                                                                  'LCH_NU=jE-b;0ZysS2My03D,s+o~'),
+                                                              image: BlurHashImage(pageViewTanjaiBannerRecord!
+                                                                      .blurHash[
+                                                                  functions.getIndexOfIntList(
+                                                                      pageViewTanjaiBannerRecord
+                                                                          ?.order
+                                                                          ?.toList(),
+                                                                      imageListItemIndex +
+                                                                          1)]),
                                                               fit: BoxFit.cover,
                                                             ),
                                                           ),
                                                           image: NetworkImage(
-                                                            pageViewTanjaiBannerRecord!
-                                                                    .imageUrl[
-                                                                imageListItemIndex],
+                                                            pageViewTanjaiBannerRecord!.imageUrl[
+                                                                functions.getIndexOfIntList(
+                                                                    pageViewTanjaiBannerRecord
+                                                                        ?.order
+                                                                        ?.toList(),
+                                                                    imageListItemIndex +
+                                                                        1)],
                                                           ),
                                                           width: 300.0,
                                                           height: 227.0,

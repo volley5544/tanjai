@@ -1653,26 +1653,6 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               .toList(),
                                                           true)];
                                                 });
-                                                await showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (alertDialogContext) {
-                                                    return WebViewAware(
-                                                      child: AlertDialog(
-                                                        content: Text(
-                                                            'จำนวนงวดที่เลือก ${FFAppState().insuranceInfoPage4SelectTenor} งวด'),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () =>
-                                                                Navigator.pop(
-                                                                    alertDialogContext),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  },
-                                                );
                                                 context.safePop();
                                                 return;
                                               }

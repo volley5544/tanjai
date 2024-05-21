@@ -5109,3 +5109,31 @@ bool? checkNumberInString(String? stringInput) {
   bool containsNumber = RegExp(r'\d').hasMatch(stringInput!);
   return containsNumber;
 }
+
+BannerDataStruct? getBannerDataByOrder(
+  List<BannerDataStruct>? inputBannerData,
+  int? order,
+) {
+  for (int i = 0; i < inputBannerData!.length; i++) {
+    if (order! == inputBannerData![i].order) {
+      return inputBannerData![i];
+    }
+  }
+}
+
+bool? checkDateMoreThenAnotherDate(
+  int? days,
+  DateTime? date,
+) {
+  DateTime currentDate = DateTime.now();
+
+  // Add 180 days to the current date
+  DateTime futureDate = currentDate.add(Duration(days: days!));
+
+  // Check if the date to check is less than or equal to the future date
+  if (date!.isBefore(futureDate) || date!.isAtSameMomentAs(futureDate)) {
+    return true;
+  } else {
+    return false;
+  }
+}

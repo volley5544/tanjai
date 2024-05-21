@@ -4704,6 +4704,22 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       () {});
                                                                 return;
                                                               }
+                                                              _model.isShowVideoFirebaseBool =
+                                                                  await queryHideInAppContentRecordOnce(
+                                                                queryBuilder:
+                                                                    (hideInAppContentRecord) =>
+                                                                        hideInAppContentRecord
+                                                                            .where(
+                                                                  'content_name',
+                                                                  isEqualTo:
+                                                                      'video_call',
+                                                                ),
+                                                                singleRecord:
+                                                                    true,
+                                                              ).then((s) => s
+                                                                      .firstOrNull);
+                                                              _shouldSetState =
+                                                                  true;
                                                               setState(() {
                                                                 FFAppState()
                                                                         .licenseSelectBeforeStep1 =
@@ -4714,14 +4730,18 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       ''),
                                                                 )!;
                                                               });
-                                                              if (FFAppState()
-                                                                      .profileIsHaveInsuranceCard ||
-                                                                  (InsuranceRequestListAPIDashBoardCall
-                                                                          .videourl(
-                                                                        (_model.listFromDash?.jsonBody ??
-                                                                            ''),
-                                                                      ) !=
-                                                                      '')) {
+                                                              if (_model
+                                                                      .isShowVideoFirebaseBool!
+                                                                      .isShowContent
+                                                                  ? (FFAppState()
+                                                                          .profileIsHaveInsuranceCard ||
+                                                                      (InsuranceRequestListAPIDashBoardCall
+                                                                              .videourl(
+                                                                            (_model.listFromDash?.jsonBody ??
+                                                                                ''),
+                                                                          ) !=
+                                                                          ''))
+                                                                  : true) {
                                                                 context
                                                                     .pushNamed(
                                                                   'MakeInsuranceListPage',

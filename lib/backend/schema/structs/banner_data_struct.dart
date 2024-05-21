@@ -11,8 +11,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 class BannerDataStruct extends FFFirebaseStruct {
   BannerDataStruct({
     List<String>? pdfUrl,
+    int? order,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _pdfUrl = pdfUrl,
+        _order = order,
         super(firestoreUtilData);
 
   // "pdf_url" field.
@@ -23,9 +25,17 @@ class BannerDataStruct extends FFFirebaseStruct {
       updateFn(_pdfUrl ??= []);
   bool hasPdfUrl() => _pdfUrl != null;
 
+  // "order" field.
+  int? _order;
+  int get order => _order ?? 0;
+  set order(int? val) => _order = val;
+  void incrementOrder(int amount) => _order = order + amount;
+  bool hasOrder() => _order != null;
+
   static BannerDataStruct fromMap(Map<String, dynamic> data) =>
       BannerDataStruct(
         pdfUrl: getDataList(data['pdf_url']),
+        order: castToType<int>(data['order']),
       );
 
   static BannerDataStruct? maybeFromMap(dynamic data) => data is Map
@@ -34,6 +44,7 @@ class BannerDataStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'pdf_url': _pdfUrl,
+        'order': _order,
       }.withoutNulls;
 
   @override
@@ -42,6 +53,10 @@ class BannerDataStruct extends FFFirebaseStruct {
           _pdfUrl,
           ParamType.String,
           true,
+        ),
+        'order': serializeParam(
+          _order,
+          ParamType.int,
         ),
       }.withoutNulls;
 
@@ -52,6 +67,11 @@ class BannerDataStruct extends FFFirebaseStruct {
           ParamType.String,
           true,
         ),
+        order: deserializeParam(
+          data['order'],
+          ParamType.int,
+          false,
+        ),
       );
 
   @override
@@ -61,20 +81,23 @@ class BannerDataStruct extends FFFirebaseStruct {
   bool operator ==(Object other) {
     const listEquality = ListEquality();
     return other is BannerDataStruct &&
-        listEquality.equals(pdfUrl, other.pdfUrl);
+        listEquality.equals(pdfUrl, other.pdfUrl) &&
+        order == other.order;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([pdfUrl]);
+  int get hashCode => const ListEquality().hash([pdfUrl, order]);
 }
 
 BannerDataStruct createBannerDataStruct({
+  int? order,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     BannerDataStruct(
+      order: order,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

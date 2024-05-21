@@ -64,6 +64,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
       : 0;
   // Stores action output result for [Backend Call - API (insuranceRequestListAPIDashBoard)] action in Button widget.
   ApiCallResponse? listFromDash;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  HideInAppContentRecord? isShowVideoFirebaseBool;
   // State field(s) for Carousel widget.
   CarouselController? carouselController;
 

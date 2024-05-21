@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -404,6 +405,33 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         )}';
       });
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
+        setState(() {
+          _model.paymentTypeTextController?.text =
+              FFAppState().insuranceInfoPage4PaymentType;
+        });
+        setState(() {
+          _model.paymentChannelTextController?.text =
+              FFAppState().insuranceInfoPage4PaymentChannel;
+        });
+        setState(() {
+          _model.actTotalTextController?.text =
+              functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
+        setState(() {
+          _model.grossNetTotalTextController?.text = functions
+              .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
+        setState(() {
+          _model.netPremiumTotalTextController?.text =
+              functions.showNumberWithComma(
+                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
         Navigator.pop(context);
       } else {
         _model.calInstallmentAPIOutput = await IbsCalculateInstallmentCall.call(
@@ -487,9 +515,59 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   .toList()
                   .cast<String>();
         });
+        setState(() {
+          _model.paymentTypeTextController?.text =
+              FFAppState().insuranceInfoPage4PaymentType;
+        });
+        setState(() {
+          _model.paymentChannelTextController?.text =
+              FFAppState().insuranceInfoPage4PaymentChannel;
+        });
+        setState(() {
+          _model.netPremiumTotalTextController?.text =
+              functions.showNumberWithComma(
+                  IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
+        setState(() {
+          _model.actTotalTextController?.text =
+              functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
+        setState(() {
+          _model.grossNetTotalTextController?.text = functions
+              .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
+            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+          ))!;
+        });
         Navigator.pop(context);
       }
     });
+
+    _model.paymentTypeTextController ??=
+        TextEditingController(text: FFAppState().insuranceInfoPage4PaymentType);
+    _model.paymentTypeFocusNode ??= FocusNode();
+
+    _model.paymentChannelTextController ??= TextEditingController(
+        text: FFAppState().insuranceInfoPage4PaymentChannel);
+    _model.paymentChannelFocusNode ??= FocusNode();
+
+    _model.netPremiumTotalTextController ??= TextEditingController(
+        text: functions.showNumberWithComma(
+            FFAppState().insuranceInfoPage4NetPremiumTotal));
+    _model.netPremiumTotalFocusNode ??= FocusNode();
+
+    _model.actTotalTextController ??= TextEditingController(
+        text: functions
+            .showNumberWithComma(FFAppState().insuranceInfoPage4ActTotal));
+    _model.actTotalFocusNode ??= FocusNode();
+
+    _model.grossNetTotalTextController ??= TextEditingController(
+        text: functions
+            .showNumberWithComma(FFAppState().insuranceInfoPage4GrossTotalNet));
+    _model.grossNetTotalFocusNode ??= FocusNode();
   }
 
   @override
@@ -1404,21 +1482,64 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFAppState()
-                                                    .insuranceInfoPage4PaymentType,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .paymentTypeTextController,
+                                                  focusNode: _model
+                                                      .paymentTypeFocusNode,
+                                                  autofocus: false,
+                                                  readOnly: true,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
+                                                    hintText: FFAppState()
+                                                        .insuranceInfoPage4PaymentType,
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFB3B3B3),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                    enabledBorder:
+                                                        InputBorder.none,
+                                                    focusedBorder:
+                                                        InputBorder.none,
+                                                    errorBorder:
+                                                        InputBorder.none,
+                                                    focusedErrorBorder:
+                                                        InputBorder.none,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  validator: _model
+                                                      .paymentTypeTextControllerValidator
+                                                      .asValidator(context),
+                                                ),
                                               ),
                                             ),
                                           ],
@@ -1483,21 +1604,62 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFAppState()
-                                                    .insuranceInfoPage4PaymentChannel,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 10.0, 0.0),
+                                                child: TextFormField(
+                                                  controller: _model
+                                                      .paymentChannelTextController,
+                                                  focusNode: _model
+                                                      .paymentChannelFocusNode,
+                                                  autofocus: false,
+                                                  readOnly: true,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
                                                         .override(
                                                           fontFamily:
                                                               'Noto Sans Thai',
                                                           letterSpacing: 0.0,
                                                         ),
+                                                    hintText: FFAppState()
+                                                        .insuranceInfoPage4PaymentChannel,
+                                                    hintStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          color:
+                                                              Color(0xFFB3B3B3),
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                    enabledBorder:
+                                                        InputBorder.none,
+                                                    focusedBorder:
+                                                        InputBorder.none,
+                                                    errorBorder:
+                                                        InputBorder.none,
+                                                    focusedErrorBorder:
+                                                        InputBorder.none,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                  validator: _model
+                                                      .paymentChannelTextControllerValidator
+                                                      .asValidator(context),
+                                                ),
                                               ),
                                             ),
                                           ],
@@ -1563,31 +1725,65 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                               color: Color(0xFFB3B3B3),
                                             ),
                                           ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    functions.showNumberWithComma(
-                                                        FFAppState()
-                                                            .insuranceInfoPage4NetPremiumTotal),
-                                                    '.',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 10.0, 0.0),
+                                              child: TextFormField(
+                                                controller: _model
+                                                    .netPremiumTotalTextController,
+                                                focusNode: _model
+                                                    .netPremiumTotalFocusNode,
+                                                autofocus: false,
+                                                readOnly: true,
+                                                obscureText: false,
+                                                decoration: InputDecoration(
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                  hintText: FFAppState()
+                                                      .insuranceInfoPage4NetPremiumTotal,
+                                                  hintStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .labelMedium
                                                       .override(
                                                         fontFamily:
                                                             'Noto Sans Thai',
+                                                        color:
+                                                            Color(0xFFB3B3B3),
+                                                        fontSize: 15.0,
                                                         letterSpacing: 0.0,
                                                       ),
+                                                  enabledBorder:
+                                                      InputBorder.none,
+                                                  focusedBorder:
+                                                      InputBorder.none,
+                                                  errorBorder: InputBorder.none,
+                                                  focusedErrorBorder:
+                                                      InputBorder.none,
                                                 ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                validator: _model
+                                                    .netPremiumTotalTextControllerValidator
+                                                    .asValidator(context),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -1652,25 +1848,74 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    functions.showNumberWithComma(
-                                                        FFAppState()
-                                                            .insuranceInfoPage4ActTotal),
-                                                    '.',
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        letterSpacing: 0.0,
+                                              Expanded(
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .actTotalTextController,
+                                                      focusNode: _model
+                                                          .actTotalFocusNode,
+                                                      autofocus: false,
+                                                      readOnly: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText: FFAppState()
+                                                            .insuranceInfoPage4ActTotal,
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFB3B3B3),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .actTotalTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ],
@@ -1740,25 +1985,72 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
                                               Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    valueOrDefault<String>(
-                                                      functions.showNumberWithComma(
-                                                          FFAppState()
-                                                              .insuranceInfoPage4GrossTotalNet),
-                                                      '.',
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .grossNetTotalTextController,
+                                                      focusNode: _model
+                                                          .grossNetTotalFocusNode,
+                                                      autofocus: false,
+                                                      readOnly: true,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        labelStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        hintText: FFAppState()
+                                                            .insuranceInfoPage4GrossTotalNet,
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: Color(
+                                                                      0xFFB3B3B3),
+                                                                  fontSize:
+                                                                      15.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .grossNetTotalTextControllerValidator
+                                                          .asValidator(context),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          letterSpacing: 0.0,
-                                                        ),
                                                   ),
                                                 ),
                                               ),
@@ -2106,6 +2398,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   ParamType.int,
                                                 ),
                                               }.withoutNulls,
+                                            );
+
+                                            await actions.hideKeyboardAction(
+                                              context,
                                             );
                                           },
                                           child: Container(

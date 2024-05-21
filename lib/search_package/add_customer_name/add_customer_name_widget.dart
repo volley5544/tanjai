@@ -1,10 +1,14 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -1296,11 +1300,24 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                         ''),
                                   )}');
                                 });
+                                _model.isShowVideoFirebaseBool =
+                                    await queryHideInAppContentRecordOnce(
+                                  queryBuilder: (hideInAppContentRecord) =>
+                                      hideInAppContentRecord.where(
+                                    'content_name',
+                                    isEqualTo: 'video_call',
+                                  ),
+                                  singleRecord: true,
+                                ).then((s) => s.firstOrNull);
+                                _shouldSetState = true;
                                 Navigator.pop(context);
                                 if (widget.fromPage == 'compare') {
                                   if (widget.fromBtn == 'saveBtn') {
-                                    if (FFAppState()
-                                        .profileIsHaveInsuranceCard) {
+                                    if (_model.isShowVideoFirebaseBool!
+                                            .isShowContent
+                                        ? FFAppState()
+                                            .profileIsHaveInsuranceCard
+                                        : true) {
                                       context.pushNamed(
                                         'insuranceInfoPage1',
                                         queryParameters: {
@@ -1333,8 +1350,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   }
                                 } else {
                                   if (widget.fromBtn == 'saveBtn') {
-                                    if (FFAppState()
-                                        .profileIsHaveInsuranceCard) {
+                                    if (_model.isShowVideoFirebaseBool!
+                                            .isShowContent
+                                        ? FFAppState()
+                                            .profileIsHaveInsuranceCard
+                                        : true) {
                                       context.pushNamed(
                                         'insuranceInfoPage1',
                                         queryParameters: {

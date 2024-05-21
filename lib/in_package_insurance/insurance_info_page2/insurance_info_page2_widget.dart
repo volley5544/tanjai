@@ -2712,12 +2712,40 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 );
                                                 return;
                                               }
-                                              setState(() {
-                                                FFAppState()
-                                                        .insuranceInfoEffectiveDateInsure =
-                                                    functions.getDateFormat(
-                                                        _model.datePicked2)!;
-                                              });
+                                              if (functions
+                                                  .checkDateMoreThenAnotherDate(
+                                                      180,
+                                                      _model.datePicked2)!) {
+                                                setState(() {
+                                                  FFAppState()
+                                                          .insuranceInfoEffectiveDateInsure =
+                                                      functions.getDateFormat(
+                                                          _model.datePicked2)!;
+                                                });
+                                              } else {
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return WebViewAware(
+                                                      child: AlertDialog(
+                                                        content: Text(
+                                                            'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  },
+                                                );
+                                                return;
+                                              }
+
                                               await actions.hideKeyboardAction(
                                                 context,
                                               );

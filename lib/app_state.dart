@@ -3685,7 +3685,7 @@ class FFAppState extends ChangeNotifier {
     _welfareKpiStatusTextColorList.insert(_index, _value);
   }
 
-  bool _isProduction = false;
+  bool _isProduction = true;
   bool get isProduction => _isProduction;
   set isProduction(bool _value) {
     _isProduction = _value;
@@ -13157,6 +13157,12 @@ class FFAppState extends ChangeNotifier {
   String get licenseSelectBeforeStep1 => _licenseSelectBeforeStep1;
   set licenseSelectBeforeStep1(String _value) {
     _licenseSelectBeforeStep1 = _value;
+  }
+
+  bool _isShowVideoCall = false;
+  bool get isShowVideoCall => _isShowVideoCall;
+  set isShowVideoCall(bool _value) {
+    _isShowVideoCall = _value;
   }
 }
 

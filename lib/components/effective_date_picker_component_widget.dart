@@ -319,6 +319,28 @@ class _EffectiveDatePickerComponentWidgetState
                                     );
                                     return;
                                   }
+                                  if (!functions.checkDateMoreThenAnotherDate(
+                                      180, _model.datePicked1)!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
                                   setState(() {
                                     FFAppState()
                                             .insuranceInfoEffectiveDateInsure =
@@ -434,6 +456,28 @@ class _EffectiveDatePickerComponentWidgetState
                                     );
                                     return;
                                   }
+                                  if (!functions.checkDateMoreThenAnotherDate(
+                                      180, _model.datePicked1)!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
                                   setState(() {
                                     FFAppState()
                                             .insuranceInfoEffectiveDateInsure =
@@ -522,6 +566,28 @@ class _EffectiveDatePickerComponentWidgetState
                                           child: AlertDialog(
                                             content: Text(
                                                 'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    return;
+                                  }
+                                  if (!functions.checkDateMoreThenAnotherDate(
+                                      180, _model.datePicked1)!) {
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            content: Text(
+                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
                                             actions: [
                                               TextButton(
                                                 onPressed: () => Navigator.pop(

@@ -48,6 +48,8 @@ class InsuranceListPageModel extends FlutterFlowModel<InsuranceListPageWidget> {
   ApiCallResponse? getDetailApiDup;
   // Stores action output result for [Backend Call - API (insuranceRequestListAPIDashBoard)] action in Button widget.
   ApiCallResponse? listFromDash;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  HideInAppContentRecord? isShowVideoFirebaseBool;
 
   @override
   void initState(BuildContext context) {}
