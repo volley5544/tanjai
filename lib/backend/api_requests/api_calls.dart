@@ -10191,25 +10191,42 @@ class InsuranceRequestListAPIDashBoardCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
-  static String? employeecodelicense(dynamic response) =>
-      castToType<String>(getJsonField(
+  static List<String>? employeecodelicense(dynamic response) => (getJsonField(
         response,
         r'''$.results.info.watingInfo[:].employee_code_license''',
-      ));
-  static String? videourl(dynamic response) => castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? videourl(dynamic response) => (getJsonField(
         response,
         r'''$.results.info.watingInfo[:].video_url''',
-      ));
-  static String? watingInfoleadid(dynamic response) =>
-      castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? watingInfoleadid(dynamic response) => (getJsonField(
         response,
         r'''$.results.info.watingInfo[:].lead_id''',
-      ));
-  static String? watingInfoquotationid(dynamic response) =>
-      castToType<String>(getJsonField(
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? watingInfoquotationid(dynamic response) => (getJsonField(
         response,
         r'''$.results.info.watingInfo[:].quotation_id''',
-      ));
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class SaveInsurerAPICall {

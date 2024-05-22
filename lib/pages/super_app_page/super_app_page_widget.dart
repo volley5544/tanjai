@@ -3377,19 +3377,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 s.firstOrNull);
                                                                         _shouldSetState =
                                                                             true;
-                                                                        setState(
-                                                                            () {
-                                                                          FFAppState().licenseSelectBeforeStep1 =
-                                                                              InsuranceRequestListAPIDashBoardCall.employeecodelicense(
-                                                                            (_model.listFromDash?.jsonBody ??
-                                                                                ''),
-                                                                          )!;
-                                                                        });
                                                                         if (_model.isShowVideoFirebaseBool!.isShowContent
                                                                             ? (FFAppState().profileIsHaveInsuranceCard ||
                                                                                 (InsuranceRequestListAPIDashBoardCall.videourl(
                                                                                       (_model.listFromDash?.jsonBody ?? ''),
-                                                                                    ) !=
+                                                                                    )?.first !=
                                                                                     ''))
                                                                             : true) {
                                                                           context
@@ -3417,6 +3409,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             }.withoutNulls,
                                                                           );
                                                                         } else {
+                                                                          setState(
+                                                                              () {
+                                                                            FFAppState().licenseSelectBeforeStep1 =
+                                                                                '${InsuranceRequestListAPIDashBoardCall.employeecodelicense(
+                                                                              (_model.listFromDash?.jsonBody ?? ''),
+                                                                            )?.first}';
+                                                                          });
                                                                           await showModalBottomSheet(
                                                                             isScrollControlled:
                                                                                 true,
@@ -3436,10 +3435,12 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                     child: LicenseSelectComponentWidget(
                                                                                       leadID: InsuranceRequestListAPIDashBoardCall.watingInfoleadid(
                                                                                         (_model.listFromDash?.jsonBody ?? ''),
-                                                                                      )!,
+                                                                                      )!
+                                                                                          .first,
                                                                                       quotationID: InsuranceRequestListAPIDashBoardCall.watingInfoquotationid(
                                                                                         (_model.listFromDash?.jsonBody ?? ''),
-                                                                                      )!,
+                                                                                      )!
+                                                                                          .first,
                                                                                     ),
                                                                                   ),
                                                                                 ),
