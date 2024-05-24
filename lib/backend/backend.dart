@@ -31,6 +31,7 @@ import 'schema/insurer_data_record.dart';
 import 'schema/text_content_record.dart';
 import 'schema/insurer_config_record.dart';
 import 'schema/insurer_config2_record.dart';
+import 'schema/effective_day_config_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -65,6 +66,7 @@ export 'schema/insurer_data_record.dart';
 export 'schema/text_content_record.dart';
 export 'schema/insurer_config_record.dart';
 export 'schema/insurer_config2_record.dart';
+export 'schema/effective_day_config_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1031,6 +1033,43 @@ Future<List<InsurerConfig2Record>> queryInsurerConfig2RecordOnce({
     queryCollectionOnce(
       InsurerConfig2Record.collection,
       InsurerConfig2Record.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query EffectiveDayConfigRecords (as a Stream and as a Future).
+Future<int> queryEffectiveDayConfigRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      EffectiveDayConfigRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<EffectiveDayConfigRecord>> queryEffectiveDayConfigRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      EffectiveDayConfigRecord.collection,
+      EffectiveDayConfigRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<EffectiveDayConfigRecord>> queryEffectiveDayConfigRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      EffectiveDayConfigRecord.collection,
+      EffectiveDayConfigRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

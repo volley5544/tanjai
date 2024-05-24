@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -69,563 +70,92 @@ class _EffectiveDatePickerComponentWidgetState
           decoration: BoxDecoration(
             color: Colors.white,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              if (!widget.effectiveDateInsurerFlag!)
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 24.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'เลือกวันคุ้มครองประกัน',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
+          child: FutureBuilder<List<EffectiveDayConfigRecord>>(
+            future: queryEffectiveDayConfigRecordOnce(
+              singleRecord: true,
+            ),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(
+                        FlutterFlowTheme.of(context).primary,
                       ),
-                      Expanded(
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await DatePicker.showDatePicker(
-                              context,
-                              showTitleActions: true,
-                              onConfirm: (date) {
-                                safeSetState(() {
-                                  _model.datePicked1 = date;
-                                });
-                              },
-                              currentTime: functions
-                                  .parseStringToDatetime(widget.currentDate)!,
-                              minTime: functions
-                                  .parseStringToDatetime(widget.currentDate)!,
-                              locale: LocaleType.values.firstWhere(
-                                (l) =>
-                                    l.name ==
-                                    FFLocalizations.of(context).languageCode,
-                                orElse: () => LocaleType.en,
-                              ),
-                            );
-                          },
-                          text: _model.datePicked1 != null
-                              ? functions
-                                  .showDateBE(_model.datePicked1?.toString())!
-                              : 'เลือกวันคุ้มครอง',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Noto Sans Thai',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              if (widget.actFlag! ? !widget.effectiveDateActFlag! : false)
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'เลือกวันคุ้มครอง พ.ร.บ.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    letterSpacing: 0.0,
-                                  ),
-                        ),
-                      ),
-                      Expanded(
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await DatePicker.showDatePicker(
-                              context,
-                              showTitleActions: true,
-                              onConfirm: (date) {
-                                safeSetState(() {
-                                  _model.datePicked2 = date;
-                                });
-                              },
-                              currentTime: functions
-                                  .parseStringToDatetime(widget.currentDate)!,
-                              minTime: functions
-                                  .parseStringToDatetime(widget.currentDate)!,
-                              locale: LocaleType.values.firstWhere(
-                                (l) =>
-                                    l.name ==
-                                    FFLocalizations.of(context).languageCode,
-                                orElse: () => LocaleType.en,
-                              ),
-                            );
-                          },
-                          text: _model.datePicked2 != null
-                              ? functions
-                                  .showDateBE(_model.datePicked2?.toString())!
-                              : 'เลือกวันคุ้มครอง',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Noto Sans Thai',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              if (() {
-                if (!widget.effectiveDateInsurerFlag! && !widget.actFlag!) {
-                  return (_model.datePicked1 != null
-                      ? (functions.checkCurrentDateIsBeforeInputDate(
-                              widget.currentDate,
-                              functions.getDateFormat(_model.datePicked1))!
-                          ? true
-                          : false)
-                      : false);
-                } else if (widget.actFlag!
-                    ? (widget.effectiveDateInsurerFlag! &&
-                        !widget.effectiveDateActFlag!)
-                    : false) {
-                  return (_model.datePicked2 != null
-                      ? (functions.checkCurrentDateIsBeforeInputDate(
-                              widget.currentDate,
-                              functions.getDateFormat(_model.datePicked2))!
-                          ? true
-                          : false)
-                      : false);
-                } else if (widget.actFlag!
-                    ? (!widget.effectiveDateInsurerFlag! &&
-                        widget.effectiveDateActFlag!)
-                    : false) {
-                  return (_model.datePicked1 != null
-                      ? (functions.checkCurrentDateIsBeforeInputDate(
-                              widget.currentDate,
-                              functions.getDateFormat(_model.datePicked1))!
-                          ? true
-                          : false)
-                      : false);
-                } else {
-                  return ((_model.datePicked1 != null) &&
-                          (_model.datePicked2 != null)
-                      ? (functions.checkCurrentDateIsBeforeInputDate(
-                                  widget.currentDate,
-                                  functions
-                                      .getDateFormat(_model.datePicked1))! &&
-                              functions.checkCurrentDateIsBeforeInputDate(
-                                  widget.currentDate,
-                                  functions.getDateFormat(_model.datePicked2))!
-                          ? true
-                          : false)
-                      : false);
-                }
-              }())
-                Expanded(
-                  child: Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
+                );
+              }
+              List<EffectiveDayConfigRecord>
+                  columnEffectiveDayConfigRecordList = snapshot.data!;
+              // Return an empty Container when the item does not exist.
+              if (snapshot.data!.isEmpty) {
+                return Container();
+              }
+              final columnEffectiveDayConfigRecord =
+                  columnEffectiveDayConfigRecordList.isNotEmpty
+                      ? columnEffectiveDayConfigRecordList.first
+                      : null;
+              return Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  if (!widget.effectiveDateInsurerFlag!)
+                    Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 24.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Expanded(
+                            child: Text(
+                              'เลือกวันคุ้มครองประกัน',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
                           Expanded(
                             child: FFButtonWidget(
                               onPressed: () async {
-                                if (!widget.effectiveDateInsurerFlag! &&
-                                    !widget.actFlag!) {
-                                  if (!(_model.datePicked1 != null)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions
-                                      .checkCurrentDateIsBeforeInputDate(
-                                          widget.currentDate,
-                                          functions.getDateFormat(
-                                              _model.datePicked1))!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions.checkDateMoreThenAnotherDate(
-                                      180, _model.datePicked1)!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  setState(() {
-                                    FFAppState()
-                                            .insuranceInfoEffectiveDateInsure =
-                                        functions.getDateFormat(
-                                            functions.parseStringToDatetime(
-                                                _model.datePicked1
-                                                    ?.toString()))!;
-                                  });
-                                } else if (widget.actFlag!
-                                    ? (widget.effectiveDateInsurerFlag! &&
-                                        !widget.effectiveDateActFlag!)
-                                    : false) {
-                                  if (!(_model.datePicked2 != null)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions
-                                      .checkCurrentDateIsBeforeInputDate(
-                                          widget.currentDate,
-                                          functions.getDateFormat(
-                                              _model.datePicked2))!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  setState(() {
-                                    FFAppState().insuranceInfoEffectiveDateAct =
-                                        functions.getDateFormat(
-                                            functions.parseStringToDatetime(
-                                                _model.datePicked2
-                                                    ?.toString()))!;
-                                  });
-                                } else if (widget.actFlag!
-                                    ? (!widget.effectiveDateInsurerFlag! &&
-                                        widget.effectiveDateActFlag!)
-                                    : false) {
-                                  if (!(_model.datePicked1 != null)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions
-                                      .checkCurrentDateIsBeforeInputDate(
-                                          widget.currentDate,
-                                          functions.getDateFormat(
-                                              _model.datePicked1))!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions.checkDateMoreThenAnotherDate(
-                                      180, _model.datePicked1)!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  setState(() {
-                                    FFAppState()
-                                            .insuranceInfoEffectiveDateInsure =
-                                        functions.getDateFormat(
-                                            functions.parseStringToDatetime(
-                                                _model.datePicked1
-                                                    ?.toString()))!;
-                                  });
-                                } else {
-                                  if (!(_model.datePicked1 != null)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกวันที่คุ้มครองประกัน'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions
-                                      .checkCurrentDateIsBeforeInputDate(
-                                          widget.currentDate,
-                                          functions.getDateFormat(
-                                              _model.datePicked1))!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!(_model.datePicked2 != null)) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions
-                                      .checkCurrentDateIsBeforeInputDate(
-                                          widget.currentDate,
-                                          functions.getDateFormat(
-                                              _model.datePicked2))!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  if (!functions.checkDateMoreThenAnotherDate(
-                                      180, _model.datePicked1)!) {
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            content: Text(
-                                                'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    return;
-                                  }
-                                  setState(() {
-                                    FFAppState()
-                                            .insuranceInfoEffectiveDateInsure =
-                                        functions.getDateFormat(
-                                            functions.parseStringToDatetime(
-                                                _model.datePicked1
-                                                    ?.toString()))!;
-                                    FFAppState().insuranceInfoEffectiveDateAct =
-                                        functions.getDateFormat(
-                                            functions.parseStringToDatetime(
-                                                _model.datePicked2
-                                                    ?.toString()))!;
-                                  });
-                                }
-
-                                Navigator.pop(context);
+                                await DatePicker.showDatePicker(
+                                  context,
+                                  showTitleActions: true,
+                                  onConfirm: (date) {
+                                    safeSetState(() {
+                                      _model.datePicked1 = date;
+                                    });
+                                  },
+                                  currentTime: functions.parseStringToDatetime(
+                                      widget.currentDate)!,
+                                  minTime: functions.parseStringToDatetime(
+                                      widget.currentDate)!,
+                                  locale: LocaleType.values.firstWhere(
+                                    (l) =>
+                                        l.name ==
+                                        FFLocalizations.of(context)
+                                            .languageCode,
+                                    orElse: () => LocaleType.en,
+                                  ),
+                                );
                               },
-                              text: 'ตกลง',
+                              text: _model.datePicked1 != null
+                                  ? functions.showDateBE(
+                                      _model.datePicked1?.toString())!
+                                  : 'เลือกวันคุ้มครอง',
                               options: FFButtonOptions(
-                                height: 50.0,
+                                height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0xFFD9761A),
+                                color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
@@ -645,11 +175,588 @@ class _EffectiveDatePickerComponentWidgetState
                         ],
                       ),
                     ),
-                  ),
-                ),
-            ]
-                .addToStart(SizedBox(height: 24.0))
-                .addToEnd(SizedBox(height: 24.0)),
+                  if (widget.actFlag! ? !widget.effectiveDateActFlag! : false)
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'เลือกวันคุ้มครอง พ.ร.บ.',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                          Expanded(
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                await DatePicker.showDatePicker(
+                                  context,
+                                  showTitleActions: true,
+                                  onConfirm: (date) {
+                                    safeSetState(() {
+                                      _model.datePicked2 = date;
+                                    });
+                                  },
+                                  currentTime: functions.parseStringToDatetime(
+                                      widget.currentDate)!,
+                                  minTime: functions.parseStringToDatetime(
+                                      widget.currentDate)!,
+                                  locale: LocaleType.values.firstWhere(
+                                    (l) =>
+                                        l.name ==
+                                        FFLocalizations.of(context)
+                                            .languageCode,
+                                    orElse: () => LocaleType.en,
+                                  ),
+                                );
+                              },
+                              text: _model.datePicked2 != null
+                                  ? functions.showDateBE(
+                                      _model.datePicked2?.toString())!
+                                  : 'เลือกวันคุ้มครอง',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (() {
+                    if (!widget.effectiveDateInsurerFlag! && !widget.actFlag!) {
+                      return (_model.datePicked1 != null
+                          ? (functions.checkCurrentDateIsBeforeInputDate(
+                                  widget.currentDate,
+                                  functions.getDateFormat(_model.datePicked1))!
+                              ? true
+                              : false)
+                          : false);
+                    } else if (widget.actFlag!
+                        ? (widget.effectiveDateInsurerFlag! &&
+                            !widget.effectiveDateActFlag!)
+                        : false) {
+                      return (_model.datePicked2 != null
+                          ? (functions.checkCurrentDateIsBeforeInputDate(
+                                  widget.currentDate,
+                                  functions.getDateFormat(_model.datePicked2))!
+                              ? true
+                              : false)
+                          : false);
+                    } else if (widget.actFlag!
+                        ? (!widget.effectiveDateInsurerFlag! &&
+                            widget.effectiveDateActFlag!)
+                        : false) {
+                      return (_model.datePicked1 != null
+                          ? (functions.checkCurrentDateIsBeforeInputDate(
+                                  widget.currentDate,
+                                  functions.getDateFormat(_model.datePicked1))!
+                              ? true
+                              : false)
+                          : false);
+                    } else {
+                      return ((_model.datePicked1 != null) &&
+                              (_model.datePicked2 != null)
+                          ? (functions.checkCurrentDateIsBeforeInputDate(
+                                      widget.currentDate,
+                                      functions.getDateFormat(
+                                          _model.datePicked1))! &&
+                                  functions.checkCurrentDateIsBeforeInputDate(
+                                      widget.currentDate,
+                                      functions
+                                          .getDateFormat(_model.datePicked2))!
+                              ? true
+                              : false)
+                          : false);
+                    }
+                  }())
+                    Expanded(
+                      child: Align(
+                        alignment: AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 12.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    if (!widget.effectiveDateInsurerFlag! &&
+                                        !widget.actFlag!) {
+                                      if (!(_model.datePicked1 != null)) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions
+                                          .checkCurrentDateIsBeforeInputDate(
+                                              widget.currentDate,
+                                              functions.getDateFormat(
+                                                  _model.datePicked1))!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions.checkDateBeforeAnotherDate(
+                                          columnEffectiveDayConfigRecord
+                                              ?.effectiveDaysInsure,
+                                          _model.datePicked1)!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันเกิน  ${columnEffectiveDayConfigRecord?.effectiveDaysInsure?.toString()}  วันได้กรุณาเลือกใหม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      setState(() {
+                                        FFAppState()
+                                                .insuranceInfoEffectiveDateInsure =
+                                            functions.getDateFormat(
+                                                functions.parseStringToDatetime(
+                                                    _model.datePicked1
+                                                        ?.toString()))!;
+                                      });
+                                    } else if (widget.actFlag!
+                                        ? (widget.effectiveDateInsurerFlag! &&
+                                            !widget.effectiveDateActFlag!)
+                                        : false) {
+                                      if (!(_model.datePicked2 != null)) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions
+                                          .checkCurrentDateIsBeforeInputDate(
+                                              widget.currentDate,
+                                              functions.getDateFormat(
+                                                  _model.datePicked2))!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions.checkDateBeforeAnotherDate(
+                                          columnEffectiveDayConfigRecord
+                                              ?.effectiveDaysAct,
+                                          _model.datePicked2)!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันเกิน  ${columnEffectiveDayConfigRecord?.effectiveDaysAct?.toString()}  วันได้กรุณาเลือกใหม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      setState(() {
+                                        FFAppState()
+                                                .insuranceInfoEffectiveDateAct =
+                                            functions.getDateFormat(
+                                                functions.parseStringToDatetime(
+                                                    _model.datePicked2
+                                                        ?.toString()))!;
+                                      });
+                                    } else if (widget.actFlag!
+                                        ? (!widget.effectiveDateInsurerFlag! &&
+                                            widget.effectiveDateActFlag!)
+                                        : false) {
+                                      if (!(_model.datePicked1 != null)) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions
+                                          .checkCurrentDateIsBeforeInputDate(
+                                              widget.currentDate,
+                                              functions.getDateFormat(
+                                                  _model.datePicked1))!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions.checkDateBeforeAnotherDate(
+                                          180, _model.datePicked1)!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันเกิน 180 วันได้กรุณาเลือกใหม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      setState(() {
+                                        FFAppState()
+                                                .insuranceInfoEffectiveDateInsure =
+                                            functions.getDateFormat(
+                                                functions.parseStringToDatetime(
+                                                    _model.datePicked1
+                                                        ?.toString()))!;
+                                      });
+                                    } else {
+                                      if (!(_model.datePicked1 != null)) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกวันที่คุ้มครองประกัน'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions
+                                          .checkCurrentDateIsBeforeInputDate(
+                                              widget.currentDate,
+                                              functions.getDateFormat(
+                                                  _model.datePicked1))!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันที่คุ้มครองประกันย้อนหลังได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!(_model.datePicked2 != null)) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'กรุณาเลือกวันที่คุ้มครอง พ.ร.บ.'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions
+                                          .checkCurrentDateIsBeforeInputDate(
+                                              widget.currentDate,
+                                              functions.getDateFormat(
+                                                  _model.datePicked2))!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันที่คุ้มครอง พ.ร.บ. ย้อนหลังได้'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions.checkDateBeforeAnotherDate(
+                                          columnEffectiveDayConfigRecord
+                                              ?.effectiveDaysInsure,
+                                          _model.datePicked1)!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันเกิน  ${columnEffectiveDayConfigRecord?.effectiveDaysInsure?.toString()}  วันได้กรุณาเลือกใหม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      if (!functions.checkDateBeforeAnotherDate(
+                                          columnEffectiveDayConfigRecord
+                                              ?.effectiveDaysAct,
+                                          _model.datePicked2)!) {
+                                        await showDialog(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return WebViewAware(
+                                              child: AlertDialog(
+                                                content: Text(
+                                                    'ไม่สามารถเลือกวันเกิน  ${columnEffectiveDayConfigRecord?.effectiveDaysAct?.toString()}  วันได้กรุณาเลือกใหม่'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext),
+                                                    child: Text('Ok'),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                        );
+                                        return;
+                                      }
+                                      setState(() {
+                                        FFAppState()
+                                                .insuranceInfoEffectiveDateInsure =
+                                            functions.getDateFormat(
+                                                functions.parseStringToDatetime(
+                                                    _model.datePicked1
+                                                        ?.toString()))!;
+                                        FFAppState()
+                                                .insuranceInfoEffectiveDateAct =
+                                            functions.getDateFormat(
+                                                functions.parseStringToDatetime(
+                                                    _model.datePicked2
+                                                        ?.toString()))!;
+                                      });
+                                    }
+
+                                    Navigator.pop(context);
+                                  },
+                                  text: 'ตกลง',
+                                  options: FFButtonOptions(
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFFD9761A),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ]
+                    .addToStart(SizedBox(height: 24.0))
+                    .addToEnd(SizedBox(height: 24.0)),
+              );
+            },
           ),
         ),
       ],

@@ -84,6 +84,13 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
+      _model.getHideContentTableauDoc =
+          await HideInAppContentRecord.getDocumentOnce(
+              FFAppState().hideContentTableauDocRef!);
+      setState(() {
+        FFAppState().isOpenAndroidTableauBrowser =
+            _model.getHideContentTableauDoc!.isShowContent;
+      });
       setState(() {
         FFAppState().homeMenuIsExpanded = true;
       });
@@ -4680,6 +4687,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     .accessToken,
                                                                 containerUrlLinkStorageRecord
                                                                     ?.urlLink,
+                                                                FFAppState()
+                                                                    .isOpenAndroidTableauBrowser,
                                                               );
                                                             }
                                                           },

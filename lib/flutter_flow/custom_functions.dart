@@ -5121,7 +5121,7 @@ BannerDataStruct? getBannerDataByOrder(
   }
 }
 
-bool? checkDateMoreThenAnotherDate(
+bool? checkDateBeforeAnotherDate(
   int? days,
   DateTime? date,
 ) {

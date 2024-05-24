@@ -37,6 +37,8 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - Read Document] action in SuperAppPage widget.
+  HideInAppContentRecord? getHideContentTableauDoc;
   // Stores action output result for [Custom Action - a14] action in SuperAppPage widget.
   String? leadNotiOutput;
   // Stores action output result for [Custom Action - getBuildVersion1] action in SuperAppPage widget.

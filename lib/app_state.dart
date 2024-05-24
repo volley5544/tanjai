@@ -13164,6 +13164,19 @@ class FFAppState extends ChangeNotifier {
   set isShowVideoCall(bool _value) {
     _isShowVideoCall = _value;
   }
+
+  bool _isOpenAndroidTableauBrowser = true;
+  bool get isOpenAndroidTableauBrowser => _isOpenAndroidTableauBrowser;
+  set isOpenAndroidTableauBrowser(bool _value) {
+    _isOpenAndroidTableauBrowser = _value;
+  }
+
+  DocumentReference? _hideContentTableauDocRef =
+      FirebaseFirestore.instance.doc('/hideInAppContent/nCJPSG8ZMj2bNB5CehIX');
+  DocumentReference? get hideContentTableauDocRef => _hideContentTableauDocRef;
+  set hideContentTableauDocRef(DocumentReference? _value) {
+    _hideContentTableauDocRef = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
