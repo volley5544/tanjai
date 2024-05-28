@@ -159,3 +159,5 @@ export '/search_package/search_insurance_page_copy/search_insurance_page_copy_wi
     show SearchInsurancePageCopyWidget;
 export '/search_package/for_dupe_ui/for_dupe_ui_widget.dart'
     show ForDupeUiWidget;
+export '/in_package_insurance/add_driver_page/add_driver_page_widget.dart'
+    show AddDriverPageWidget;

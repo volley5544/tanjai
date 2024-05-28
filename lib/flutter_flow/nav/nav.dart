@@ -1760,6 +1760,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'forDupeUi',
               path: 'forDupeUi',
               builder: (context, params) => ForDupeUiWidget(),
+            ),
+            FFRoute(
+              name: 'AddDriverPage',
+              path: 'addDriverPage',
+              builder: (context, params) => AddDriverPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

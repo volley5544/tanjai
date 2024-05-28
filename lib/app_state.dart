@@ -13177,6 +13177,35 @@ class FFAppState extends ChangeNotifier {
   set hideContentTableauDocRef(DocumentReference? _value) {
     _hideContentTableauDocRef = _value;
   }
+
+  List<DriverDataStruct> _DriverList = [];
+  List<DriverDataStruct> get DriverList => _DriverList;
+  set DriverList(List<DriverDataStruct> _value) {
+    _DriverList = _value;
+  }
+
+  void addToDriverList(DriverDataStruct _value) {
+    _DriverList.add(_value);
+  }
+
+  void removeFromDriverList(DriverDataStruct _value) {
+    _DriverList.remove(_value);
+  }
+
+  void removeAtIndexFromDriverList(int _index) {
+    _DriverList.removeAt(_index);
+  }
+
+  void updateDriverListAtIndex(
+    int _index,
+    DriverDataStruct Function(DriverDataStruct) updateFn,
+  ) {
+    _DriverList[_index] = updateFn(_DriverList[_index]);
+  }
+
+  void insertAtIndexInDriverList(int _index, DriverDataStruct _value) {
+    _DriverList.insert(_index, _value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

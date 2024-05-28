@@ -506,6 +506,7 @@ final parametersBuilderMap =
         },
       ),
   'forDupeUi': ParameterData.none(),
+  'AddDriverPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
