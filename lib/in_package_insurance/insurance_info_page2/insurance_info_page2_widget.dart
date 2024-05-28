@@ -5446,101 +5446,125 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 10.0),
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          border: Border.all(
-                                            color: Color(0xFFB3B3B3),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'AddDriverPage',
+                                            queryParameters: {
+                                              'firestoreDataConfigList':
+                                                  serializeParam(
+                                                widget.masterDataFirebase,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'firestoreDataConfigList':
+                                                  widget.masterDataFirebase,
+                                            },
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
                                           ),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                'ไม่ระบุผู้ขับขี่',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Noto Sans Thai',
-                                                          color: Colors.black,
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'ไม่ระบุผู้ขับขี่',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Noto Sans Thai',
+                                                        color: Colors.black,
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
                                               ),
-                                            ),
-                                            if (false)
+                                              if (false)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Container(
+                                                    width: 25.0,
+                                                    height: 25.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFF9F9F9F),
+                                                        width: 1.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (false)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Container(
+                                                    width: 25.0,
+                                                    height: 25.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .success,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Icon(
+                                                        Icons.check,
+                                                        color: Colors.white,
+                                                        size: 18.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
-                                                child: Container(
-                                                  width: 25.0,
-                                                  height: 25.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(
-                                                      color: Color(0xFF9F9F9F),
-                                                      width: 1.0,
-                                                    ),
-                                                  ),
+                                                child: Icon(
+                                                  Icons.gpp_good_outlined,
+                                                  color: Color(0xFF00B505),
+                                                  size: 24.0,
                                                 ),
                                               ),
-                                            if (false)
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 10.0, 0.0),
-                                                child: Container(
-                                                  width: 25.0,
-                                                  height: 25.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .success,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Icon(
-                                                      Icons.check,
-                                                      color: Colors.white,
-                                                      size: 18.0,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Icon(
-                                                Icons.gpp_good_outlined,
-                                                color: Color(0xFF00B505),
-                                                size: 24.0,
-                                              ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
