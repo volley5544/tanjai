@@ -8665,7 +8665,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   }
 
                                                   context.pushNamed(
-                                                      'insuranceInfoPage2');
+                                                    'insuranceInfoPage2',
+                                                    queryParameters: {
+                                                      'masterDataFirebase':
+                                                          serializeParam(
+                                                        columnDataListRecord,
+                                                        ParamType.Document,
+                                                      ),
+                                                    }.withoutNulls,
+                                                    extra: <String, dynamic>{
+                                                      'masterDataFirebase':
+                                                          columnDataListRecord,
+                                                    },
+                                                  );
                                                 },
                                                 text: 'ถัดไป',
                                                 options: FFButtonOptions(

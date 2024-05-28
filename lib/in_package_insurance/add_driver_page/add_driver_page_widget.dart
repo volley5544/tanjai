@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/driver_infomation_form_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -16,7 +17,12 @@ import 'add_driver_page_model.dart';
 export 'add_driver_page_model.dart';
 
 class AddDriverPageWidget extends StatefulWidget {
-  const AddDriverPageWidget({super.key});
+  const AddDriverPageWidget({
+    super.key,
+    required this.firestoreDataConfigList,
+  });
+
+  final DataListRecord? firestoreDataConfigList;
 
   @override
   State<AddDriverPageWidget> createState() => _AddDriverPageWidgetState();
@@ -170,8 +176,9 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                       .DriverList[driverListItemIndex]
                                       .licenseNo,
                                   index: driverListItemIndex + 1,
-                                  namePrefixList: FFAppState().defaultList1,
                                   occupationList: FFAppState().defaultList1,
+                                  firestoreDataConfigList:
+                                      widget.firestoreDataConfigList!,
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'driverInfomationFormComponentOnPageLoadAnimation']!);

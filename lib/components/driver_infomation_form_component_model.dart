@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/show_image_component_widget.dart';
@@ -13,6 +14,7 @@ import 'driver_infomation_form_component_widget.dart'
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -34,6 +36,7 @@ class DriverInfomationFormComponentModel
   FocusNode? address4FocusNode2;
   TextEditingController? address4TextController2;
   String? Function(BuildContext, String?)? address4TextController2Validator;
+  DateTime? datePicked;
   // State field(s) for ThaiIdTextfield widget.
   FocusNode? thaiIdTextfieldFocusNode;
   TextEditingController? thaiIdTextfieldTextController;

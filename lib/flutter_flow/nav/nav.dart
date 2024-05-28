@@ -205,6 +205,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'fromPage',
                   ParamType.String,
                 ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
               ),
             ),
             FFRoute(
@@ -436,7 +440,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'insuranceInfoPage2',
               path: 'insuranceInfoPage2',
-              builder: (context, params) => InsuranceInfoPage2Widget(),
+              asyncParams: {
+                'masterDataFirebase':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => InsuranceInfoPage2Widget(
+                masterDataFirebase: params.getParam(
+                  'masterDataFirebase',
+                  ParamType.Document,
+                ),
+              ),
             ),
             FFRoute(
               name: 'insuranceInfoPage1',
@@ -1764,7 +1777,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'AddDriverPage',
               path: 'addDriverPage',
-              builder: (context, params) => AddDriverPageWidget(),
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => AddDriverPageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
+                ),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

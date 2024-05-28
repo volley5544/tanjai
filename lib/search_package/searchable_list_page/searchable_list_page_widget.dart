@@ -1,3 +1,4 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -20,6 +21,7 @@ class SearchableListPageWidget extends StatefulWidget {
     bool? multiSelect,
     int? maxSelected,
     String? fromPage,
+    this.index,
   })  : this.titleText = titleText ?? 'เลือก...',
         this.multiSelect = multiSelect ?? false,
         this.maxSelected = maxSelected ?? 0,
@@ -31,6 +33,7 @@ class SearchableListPageWidget extends StatefulWidget {
   final bool multiSelect;
   final int maxSelected;
   final String fromPage;
+  final int? index;
 
   @override
   State<SearchableListPageWidget> createState() =>
@@ -1222,33 +1225,79 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 return;
                                               }
                                               if (widget.titleText == 'เพศ') {
+                                                if (widget.fromPage !=
+                                                    'AddDriverPage') {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoGender =
+                                                        widget.dataList![functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)];
+                                                    FFAppState()
+                                                            .insuranceInfoTitle =
+                                                        'เลือกคำนำหน้าชื่อ';
+                                                  });
+                                                  context.safePop();
+                                                  return;
+                                                }
                                                 setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoGender =
-                                                      widget.dataList![functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .searchableListComponentSelectedList
-                                                                  .toList(),
-                                                              true)];
                                                   FFAppState()
                                                           .insuranceInfoTitle =
                                                       'เลือกคำนำหน้าชื่อ';
+                                                  FFAppState()
+                                                      .updateDriverListAtIndex(
+                                                    widget.index!,
+                                                    (e) => e
+                                                      ..gender = (widget
+                                                                      .dataList?[
+                                                                  functions.getIndexOfBoolList(
+                                                                      FFAppState()
+                                                                          .searchableListComponentSelectedList
+                                                                          .toList(),
+                                                                      true)]) ==
+                                                              'ชาย'
+                                                          ? 'MALE'
+                                                          : 'FEMALE',
+                                                  );
                                                 });
                                                 context.safePop();
                                                 return;
                                               }
                                               if (widget.titleText ==
                                                   'คำนำหน้า') {
+                                                if (widget.fromPage !=
+                                                    'AddDriverPage') {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoTitle =
+                                                        widget.dataList![functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)];
+                                                  });
+                                                  context.safePop();
+                                                  return;
+                                                }
                                                 setState(() {
                                                   FFAppState()
-                                                          .insuranceInfoTitle =
-                                                      widget.dataList![functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .searchableListComponentSelectedList
-                                                                  .toList(),
-                                                              true)];
+                                                      .updateDriverListAtIndex(
+                                                    widget.index!,
+                                                    (e) => e
+                                                      ..titleThId = ''
+                                                      ..titleTh = widget
+                                                              .dataList?[
+                                                          functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                  );
                                                 });
                                                 context.safePop();
                                                 return;
@@ -1733,6 +1782,21 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 }
                                               }
                                               if (widget.titleText == 'อาชีพ') {
+                                                if (widget.fromPage !=
+                                                    'AddDriverPage') {
+                                                  setState(() {
+                                                    FFAppState()
+                                                            .insuranceInfoSelectOccupationSubNameChoose =
+                                                        widget.dataList![functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)];
+                                                  });
+                                                  context.safePop();
+                                                  return;
+                                                }
                                                 setState(() {
                                                   FFAppState()
                                                           .insuranceInfoSelectOccupationSubNameChoose =
@@ -1742,6 +1806,37 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                   .searchableListComponentSelectedList
                                                                   .toList(),
                                                               true)];
+                                                  FFAppState()
+                                                      .updateDriverListAtIndex(
+                                                    widget.index!,
+                                                    (e) => e
+                                                      ..occupationId = ''
+                                                      ..occupationCode = FFAppState()
+                                                              .insuranceInfoOccupationCode[
+                                                          functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)]
+                                                      ..occupationName = FFAppState()
+                                                              .insuranceInfoOccupationName[
+                                                          functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)]
+                                                      ..occupationSubcode = ''
+                                                      ..occupationSubname = FFAppState()
+                                                              .insuranceInfoOccupationSubName[
+                                                          functions
+                                                              .getIndexOfBoolList(
+                                                                  FFAppState()
+                                                                      .searchableListComponentSelectedList
+                                                                      .toList(),
+                                                                  true)],
+                                                  );
                                                 });
                                                 context.safePop();
                                                 return;

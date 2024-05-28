@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/show_image_component_widget.dart';
@@ -11,6 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -23,7 +25,6 @@ class DriverInfomationFormComponentWidget extends StatefulWidget {
   const DriverInfomationFormComponentWidget({
     super.key,
     required this.namePrefix,
-    required this.namePrefixList,
     required this.firstname,
     required this.lastname,
     required this.gender,
@@ -33,10 +34,10 @@ class DriverInfomationFormComponentWidget extends StatefulWidget {
     required this.thaiId,
     required this.driverLicense,
     required this.index,
+    required this.firestoreDataConfigList,
   });
 
   final String? namePrefix;
-  final List<String>? namePrefixList;
   final String? firstname;
   final String? lastname;
   final String? gender;
@@ -46,6 +47,7 @@ class DriverInfomationFormComponentWidget extends StatefulWidget {
   final String? thaiId;
   final String? driverLicense;
   final int? index;
+  final DataListRecord? firestoreDataConfigList;
 
   @override
   State<DriverInfomationFormComponentWidget> createState() =>
@@ -220,7 +222,7 @@ class _DriverInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'คำนำหน้าชื่อ',
+                              'เพศ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -228,7 +230,7 @@ class _DriverInfomationFormComponentWidgetState
                                     color: Color(0xFF1D4774),
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
+                                    fontWeight: FontWeight.normal,
                                   ),
                             ),
                             Padding(
@@ -263,15 +265,15 @@ class _DriverInfomationFormComponentWidgetState
                               'SearchableListPage',
                               queryParameters: {
                                 'titleText': serializeParam(
-                                  'ค้นหาที่อยู่',
+                                  'เพศ',
                                   ParamType.String,
                                 ),
                                 'searchLabel': serializeParam(
-                                  'ระบุรหัสไปรษณีย์หรือตำบล,อำเภอ,จังหวัด',
+                                  'ระบุเพศ',
                                   ParamType.String,
                                 ),
                                 'dataList': serializeParam(
-                                  FFAppState().addAddressKeyWord,
+                                  widget.firestoreDataConfigList?.gender,
                                   ParamType.String,
                                   true,
                                 ),
@@ -279,9 +281,17 @@ class _DriverInfomationFormComponentWidgetState
                                   false,
                                   ParamType.bool,
                                 ),
+                                'maxSelected': serializeParam(
+                                  0,
+                                  ParamType.int,
+                                ),
                                 'fromPage': serializeParam(
-                                  'addAddressIdCard',
+                                  'AddDriverPage',
                                   ParamType.String,
+                                ),
+                                'index': serializeParam(
+                                  (widget.index!) - 1,
+                                  ParamType.int,
                                 ),
                               }.withoutNulls,
                             );
@@ -310,9 +320,9 @@ class _DriverInfomationFormComponentWidgetState
                                       10.0, 0.0, 0.0, 0.0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
-                                      widget.namePrefix != ''
-                                          ? widget.namePrefix
-                                          : 'กรุณาเลือกคำนำหน้าชื่อ',
+                                      widget.gender != ''
+                                          ? widget.gender
+                                          : 'กรุณาเลือกเพศ',
                                       '-',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -343,6 +353,160 @@ class _DriverInfomationFormComponentWidgetState
                     ],
                   ),
                 ),
+                if (widget.gender != null && widget.gender != '')
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 4.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Text(
+                                  'คำนำหน้าชื่อ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Noto Sans Thai',
+                                        color: Color(0xFF1D4774),
+                                        fontSize: 15.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    'บังคับเลือก',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Noto Sans Thai',
+                                          color: Color(0xFFFB0606),
+                                          fontSize: 12.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'SearchableListPage',
+                                  queryParameters: {
+                                    'titleText': serializeParam(
+                                      'คำนำหน้า',
+                                      ParamType.String,
+                                    ),
+                                    'searchLabel': serializeParam(
+                                      'ระบุคำนำหน้า',
+                                      ParamType.String,
+                                    ),
+                                    'dataList': serializeParam(
+                                      (widget.gender == 'MALE') ||
+                                              (widget.gender == 'ชาย')
+                                          ? widget
+                                              .firestoreDataConfigList?.title
+                                          : widget
+                                              .firestoreDataConfigList?.title2,
+                                      ParamType.String,
+                                      true,
+                                    ),
+                                    'multiSelect': serializeParam(
+                                      false,
+                                      ParamType.bool,
+                                    ),
+                                    'maxSelected': serializeParam(
+                                      0,
+                                      ParamType.int,
+                                    ),
+                                    'fromPage': serializeParam(
+                                      'AddDriverPage',
+                                      ParamType.String,
+                                    ),
+                                    'index': serializeParam(
+                                      (widget.index!) - 1,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
+
+                                await actions.hideKeyboardAction(
+                                  context,
+                                );
+                              },
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFB3B3B3),
+                                  ),
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: AutoSizeText(
+                                        valueOrDefault<String>(
+                                          widget.namePrefix != ''
+                                              ? widget.namePrefix
+                                              : 'กรุณาเลือกคำนำหน้าชื่อ',
+                                          '-',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: Colors.black,
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 10.0, 0.0),
+                                      child: Icon(
+                                        Icons.navigate_next,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 24.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Container(
@@ -702,7 +866,7 @@ class _DriverInfomationFormComponentWidgetState
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'เพศ',
+                                'วันเดือนปีเกิด (พ.ศ.)',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -740,7 +904,40 @@ class _DriverInfomationFormComponentWidgetState
                             focusColor: Colors.transparent,
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
-                            onTap: () async {},
+                            onTap: () async {
+                              await DatePicker.showDatePicker(
+                                context,
+                                showTitleActions: true,
+                                onConfirm: (date) {
+                                  safeSetState(() {
+                                    _model.datePicked = date;
+                                  });
+                                },
+                                currentTime: functions.currentDate18YearsAgo(
+                                    getCurrentTimestamp)!,
+                                minTime: DateTime(0, 0, 0),
+                                maxTime: functions.currentDate18YearsAgo(
+                                    getCurrentTimestamp)!,
+                                locale: LocaleType.values.firstWhere(
+                                  (l) =>
+                                      l.name ==
+                                      FFLocalizations.of(context).languageCode,
+                                  orElse: () => LocaleType.en,
+                                ),
+                              );
+
+                              setState(() {
+                                FFAppState().updateDriverListAtIndex(
+                                  (widget.index!) - 1,
+                                  (e) => e
+                                    ..birthDay = functions
+                                        .getDateFormat(_model.datePicked),
+                                );
+                              });
+                              await actions.hideKeyboardAction(
+                                context,
+                              );
+                            },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: 60.0,
@@ -762,9 +959,10 @@ class _DriverInfomationFormComponentWidgetState
                                         10.0, 0.0, 0.0, 0.0),
                                     child: AutoSizeText(
                                       valueOrDefault<String>(
-                                        widget.gender != ''
-                                            ? widget.gender
-                                            : 'กรุณาเลือกเพศ',
+                                        widget.dateOfBirth != ''
+                                            ? functions
+                                                .showDateBE(widget.dateOfBirth)
+                                            : 'กรุณาเลือกวันเดือนปีเกิด',
                                         '-',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -789,108 +987,6 @@ class _DriverInfomationFormComponentWidgetState
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    decoration: BoxDecoration(),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              24.0, 0.0, 24.0, 4.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'วันเดือนปีเกิด (พ.ศ.)',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Noto Sans Thai',
-                                      color: Color(0xFF1D4774),
-                                      fontSize: 15.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'บังคับเลือก',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Color(0xFFFB0606),
-                                        fontSize: 12.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: Color(0xFFB3B3B3),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: AutoSizeText(
-                                    valueOrDefault<String>(
-                                      widget.dateOfBirth != ''
-                                          ? functions
-                                              .showDateBE(widget.dateOfBirth)
-                                          : 'กรุณาเลือกวันเดือนปีเกิด',
-                                      '-',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          color: Colors.black,
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.navigate_next,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                ),
-                              ],
                             ),
                           ),
                         ),
@@ -946,52 +1042,100 @@ class _DriverInfomationFormComponentWidgetState
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: 60.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: Color(0xFFB3B3B3),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'SearchableListPage',
+                                queryParameters: {
+                                  'titleText': serializeParam(
+                                    'อาชีพ',
+                                    ParamType.String,
+                                  ),
+                                  'searchLabel': serializeParam(
+                                    'ระบุอาชีพ',
+                                    ParamType.String,
+                                  ),
+                                  'dataList': serializeParam(
+                                    FFAppState()
+                                        .insuranceInfoSelectOccupationSubName,
+                                    ParamType.String,
+                                    true,
+                                  ),
+                                  'multiSelect': serializeParam(
+                                    false,
+                                    ParamType.bool,
+                                  ),
+                                  'maxSelected': serializeParam(
+                                    0,
+                                    ParamType.int,
+                                  ),
+                                  'fromPage': serializeParam(
+                                    'AddDriverPage',
+                                    ParamType.String,
+                                  ),
+                                  'index': serializeParam(
+                                    (widget.index!) - 1,
+                                    ParamType.int,
+                                  ),
+                                }.withoutNulls,
+                              );
+
+                              await actions.hideKeyboardAction(
+                                context,
+                              );
+                            },
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(8.0),
+                                border: Border.all(
+                                  color: Color(0xFFB3B3B3),
+                                ),
                               ),
-                            ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 0.0, 0.0, 0.0),
-                                  child: AutoSizeText(
-                                    valueOrDefault<String>(
-                                      widget.dateOfBirth != ''
-                                          ? widget.dateOfBirth
-                                          : 'กรุณาเลือกวันเดือนปีเกิด',
-                                      '-',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 0.0, 0.0, 0.0),
+                                    child: AutoSizeText(
+                                      valueOrDefault<String>(
+                                        widget.dateOfBirth != ''
+                                            ? widget.dateOfBirth
+                                            : 'กรุณาเลือกวันเดือนปีเกิด',
+                                        '-',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            color: Colors.black,
+                                            fontSize: 15.0,
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          color: Colors.black,
-                                          fontSize: 15.0,
-                                          letterSpacing: 0.0,
-                                        ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.navigate_next,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Icon(
+                                      Icons.navigate_next,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

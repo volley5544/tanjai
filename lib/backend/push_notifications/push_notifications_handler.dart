@@ -140,6 +140,7 @@ final parametersBuilderMap =
           'multiSelect': getParameter<bool>(data, 'multiSelect'),
           'maxSelected': getParameter<int>(data, 'maxSelected'),
           'fromPage': getParameter<String>(data, 'fromPage'),
+          'index': getParameter<int>(data, 'index'),
         },
       ),
   'compareInsurancePage': (data) async => ParameterData(
@@ -157,7 +158,12 @@ final parametersBuilderMap =
   'insuranceListPage': (data) async => ParameterData(
         allParams: {},
       ),
-  'insuranceInfoPage2': ParameterData.none(),
+  'insuranceInfoPage2': (data) async => ParameterData(
+        allParams: {
+          'masterDataFirebase': await getDocumentParameter<DataListRecord>(
+              data, 'masterDataFirebase', DataListRecord.fromSnapshot),
+        },
+      ),
   'insuranceInfoPage1': (data) async => ParameterData(
         allParams: {
           'quotationId': getParameter<String>(data, 'quotationId'),
@@ -506,7 +512,12 @@ final parametersBuilderMap =
         },
       ),
   'forDupeUi': ParameterData.none(),
-  'AddDriverPage': ParameterData.none(),
+  'AddDriverPage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

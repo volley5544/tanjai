@@ -22,7 +22,12 @@ import 'insurance_info_page2_model.dart';
 export 'insurance_info_page2_model.dart';
 
 class InsuranceInfoPage2Widget extends StatefulWidget {
-  const InsuranceInfoPage2Widget({super.key});
+  const InsuranceInfoPage2Widget({
+    super.key,
+    required this.masterDataFirebase,
+  });
+
+  final DataListRecord? masterDataFirebase;
 
   @override
   State<InsuranceInfoPage2Widget> createState() =>
