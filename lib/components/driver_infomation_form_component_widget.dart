@@ -54,39 +54,27 @@ class _DriverInfomationFormComponentWidgetState
     _model.expandableExpandableController =
         ExpandableController(initialExpanded: false);
     _model.address4TextController1 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().DriverList[widget.index!].firstNameTh != ''
-          ? FFAppState().DriverList[widget.index!].firstNameTh
-          : '',
-      '-',
-    ));
+        text: FFAppState().DriverList[widget.index!].firstNameTh != ''
+            ? FFAppState().DriverList[widget.index!].firstNameTh
+            : '');
     _model.address4FocusNode1 ??= FocusNode();
 
     _model.address4TextController2 ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().DriverList[widget.index!].lastNameTh != ''
-          ? FFAppState().DriverList[widget.index!].lastNameTh
-          : '',
-      '-',
-    ));
+        text: FFAppState().DriverList[widget.index!].lastNameTh != ''
+            ? FFAppState().DriverList[widget.index!].lastNameTh
+            : '');
     _model.address4FocusNode2 ??= FocusNode();
 
     _model.thaiIdTextfieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().DriverList[widget.index!].nationalThaiId != ''
-          ? FFAppState().DriverList[widget.index!].nationalThaiId
-          : '',
-      '-',
-    ));
+        text: FFAppState().DriverList[widget.index!].nationalThaiId != ''
+            ? FFAppState().DriverList[widget.index!].nationalThaiId
+            : '');
     _model.thaiIdTextfieldFocusNode ??= FocusNode();
 
     _model.driverLicenseTextfieldTextController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      FFAppState().DriverList[widget.index!].licenseNo != ''
-          ? FFAppState().DriverList[widget.index!].licenseNo
-          : '',
-      '-',
-    ));
+        text: FFAppState().DriverList[widget.index!].licenseNo != ''
+            ? FFAppState().DriverList[widget.index!].licenseNo
+            : '');
     _model.driverLicenseTextfieldFocusNode ??= FocusNode();
   }
 
@@ -278,7 +266,7 @@ class _DriverInfomationFormComponentWidgetState
                                   ParamType.String,
                                 ),
                                 'index': serializeParam(
-                                  (widget.index!) - 1,
+                                  widget.index,
                                   ParamType.int,
                                 ),
                               }.withoutNulls,
@@ -441,7 +429,7 @@ class _DriverInfomationFormComponentWidgetState
                                       ParamType.String,
                                     ),
                                     'index': serializeParam(
-                                      (widget.index!) - 1,
+                                      widget.index,
                                       ParamType.int,
                                     ),
                                   }.withoutNulls,
@@ -559,105 +547,37 @@ class _DriverInfomationFormComponentWidgetState
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'SearchableListPage',
-                                queryParameters: {
-                                  'titleText': serializeParam(
-                                    'ค้นหาที่อยู่',
-                                    ParamType.String,
-                                  ),
-                                  'searchLabel': serializeParam(
-                                    'ระบุรหัสไปรษณีย์หรือตำบล,อำเภอ,จังหวัด',
-                                    ParamType.String,
-                                  ),
-                                  'dataList': serializeParam(
-                                    FFAppState().addAddressKeyWord,
-                                    ParamType.String,
-                                    true,
-                                  ),
-                                  'multiSelect': serializeParam(
-                                    false,
-                                    ParamType.bool,
-                                  ),
-                                  'fromPage': serializeParam(
-                                    'addAddressIdCard',
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-
-                              await actions.hideKeyboardAction(
-                                context,
-                              );
-                            },
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: Color(0xFFB3B3B3),
-                                ),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: Color(0xFFB3B3B3),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.address4TextController1,
-                                          focusNode: _model.address4FocusNode1,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                            hintText: 'กรุณากรอกชื่อ',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                            enabledBorder: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            focusedErrorBorder:
-                                                InputBorder.none,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: TextFormField(
+                                        controller:
+                                            _model.address4TextController1,
+                                        focusNode: _model.address4FocusNode1,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color:
@@ -665,17 +585,45 @@ class _DriverInfomationFormComponentWidgetState
                                                         .primaryText,
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                          hintText: 'กรุณากรอกชื่อ',
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
-                                          validator: _model
-                                              .address4TextController1Validator
-                                              .asValidator(context),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        validator: _model
+                                            .address4TextController1Validator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -731,105 +679,37 @@ class _DriverInfomationFormComponentWidgetState
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed(
-                                'SearchableListPage',
-                                queryParameters: {
-                                  'titleText': serializeParam(
-                                    'ค้นหาที่อยู่',
-                                    ParamType.String,
-                                  ),
-                                  'searchLabel': serializeParam(
-                                    'ระบุรหัสไปรษณีย์หรือตำบล,อำเภอ,จังหวัด',
-                                    ParamType.String,
-                                  ),
-                                  'dataList': serializeParam(
-                                    FFAppState().addAddressKeyWord,
-                                    ParamType.String,
-                                    true,
-                                  ),
-                                  'multiSelect': serializeParam(
-                                    false,
-                                    ParamType.bool,
-                                  ),
-                                  'fromPage': serializeParam(
-                                    'addAddressIdCard',
-                                    ParamType.String,
-                                  ),
-                                }.withoutNulls,
-                              );
-
-                              await actions.hideKeyboardAction(
-                                context,
-                              );
-                            },
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                borderRadius: BorderRadius.circular(8.0),
-                                border: Border.all(
-                                  color: Color(0xFFB3B3B3),
-                                ),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: Color(0xFFB3B3B3),
                               ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Expanded(
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller:
-                                              _model.address4TextController2,
-                                          focusNode: _model.address4FocusNode2,
-                                          autofocus: false,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                            hintText: 'กรุณากรอกสกุล',
-                                            hintStyle: FlutterFlowTheme.of(
-                                                    context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Noto Sans Thai',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  fontSize: 15.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
-                                            enabledBorder: InputBorder.none,
-                                            focusedBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            focusedErrorBorder:
-                                                InputBorder.none,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 10.0, 0.0),
+                                      child: TextFormField(
+                                        controller:
+                                            _model.address4TextController2,
+                                        focusNode: _model.address4FocusNode2,
+                                        autofocus: false,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
                                               .override(
                                                 fontFamily: 'Noto Sans Thai',
                                                 color:
@@ -837,17 +717,45 @@ class _DriverInfomationFormComponentWidgetState
                                                         .primaryText,
                                                 fontSize: 15.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                          hintText: 'กรุณากรอกสกุล',
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                fontFamily: 'Noto Sans Thai',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 15.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
-                                          validator: _model
-                                              .address4TextController2Validator
-                                              .asValidator(context),
+                                          enabledBorder: InputBorder.none,
+                                          focusedBorder: InputBorder.none,
+                                          errorBorder: InputBorder.none,
+                                          focusedErrorBorder: InputBorder.none,
                                         ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        validator: _model
+                                            .address4TextController2Validator
+                                            .asValidator(context),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -932,7 +840,7 @@ class _DriverInfomationFormComponentWidgetState
 
                               setState(() {
                                 FFAppState().updateDriverListAtIndex(
-                                  (widget.index!) - 1,
+                                  widget.index!,
                                   (e) => e
                                     ..birthDay = functions
                                         .getDateFormat(_model.datePicked),
@@ -1095,7 +1003,7 @@ class _DriverInfomationFormComponentWidgetState
                                     ParamType.String,
                                   ),
                                   'index': serializeParam(
-                                    (widget.index!) - 1,
+                                    widget.index,
                                     ParamType.int,
                                   ),
                                 }.withoutNulls,
@@ -1602,7 +1510,7 @@ class _DriverInfomationFormComponentWidgetState
                                       }
                                       setState(() {
                                         FFAppState().updateDriverListAtIndex(
-                                          (widget.index!) - 1,
+                                          widget.index!,
                                           (e) => e
                                             ..imageIdcard =
                                                 _model.uploadedFileUrl1,
@@ -1903,7 +1811,7 @@ class _DriverInfomationFormComponentWidgetState
                                       }
                                       setState(() {
                                         FFAppState().updateDriverListAtIndex(
-                                          (widget.index!) - 1,
+                                          widget.index!,
                                           (e) => e
                                             ..imageLicenseNo =
                                                 _model.uploadedFileUrl2,
