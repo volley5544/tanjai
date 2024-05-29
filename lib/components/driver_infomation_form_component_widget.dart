@@ -24,28 +24,10 @@ export 'driver_infomation_form_component_model.dart';
 class DriverInfomationFormComponentWidget extends StatefulWidget {
   const DriverInfomationFormComponentWidget({
     super.key,
-    required this.namePrefix,
-    required this.firstname,
-    required this.lastname,
-    required this.gender,
-    required this.dateOfBirth,
-    required this.occupation,
-    required this.occupationList,
-    required this.thaiId,
-    required this.driverLicense,
     required this.index,
     required this.firestoreDataConfigList,
   });
 
-  final String? namePrefix;
-  final String? firstname;
-  final String? lastname;
-  final String? gender;
-  final String? dateOfBirth;
-  final String? occupation;
-  final List<String>? occupationList;
-  final String? thaiId;
-  final String? driverLicense;
   final int? index;
   final DataListRecord? firestoreDataConfigList;
 
@@ -73,30 +55,36 @@ class _DriverInfomationFormComponentWidgetState
         ExpandableController(initialExpanded: false);
     _model.address4TextController1 ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.firstname != '' ? widget.firstname : 'กรุณากรอกชื่อ',
+      FFAppState().DriverList[widget.index!].firstNameTh != ''
+          ? FFAppState().DriverList[widget.index!].firstNameTh
+          : '',
       '-',
     ));
     _model.address4FocusNode1 ??= FocusNode();
 
     _model.address4TextController2 ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.lastname != '' ? widget.lastname : 'กรุณากรอกสกุล',
+      FFAppState().DriverList[widget.index!].lastNameTh != ''
+          ? FFAppState().DriverList[widget.index!].lastNameTh
+          : '',
       '-',
     ));
     _model.address4FocusNode2 ??= FocusNode();
 
     _model.thaiIdTextfieldTextController ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.thaiId != '' ? widget.thaiId : 'กรุณากรอกเลขที่บัตรประชาชน',
+      FFAppState().DriverList[widget.index!].nationalThaiId != ''
+          ? FFAppState().DriverList[widget.index!].nationalThaiId
+          : '',
       '-',
     ));
     _model.thaiIdTextfieldFocusNode ??= FocusNode();
 
     _model.driverLicenseTextfieldTextController ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.driverLicense != ''
-          ? widget.driverLicense
-          : 'กรุณากรอกเลขที่ใบอนุญาตขับขี่',
+      FFAppState().DriverList[widget.index!].licenseNo != ''
+          ? FFAppState().DriverList[widget.index!].licenseNo
+          : '',
       '-',
     ));
     _model.driverLicenseTextfieldFocusNode ??= FocusNode();
@@ -230,7 +218,7 @@ class _DriverInfomationFormComponentWidgetState
                                     color: Color(0xFF1D4774),
                                     fontSize: 15.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
                             Padding(
@@ -320,8 +308,13 @@ class _DriverInfomationFormComponentWidgetState
                                       10.0, 0.0, 0.0, 0.0),
                                   child: AutoSizeText(
                                     valueOrDefault<String>(
-                                      widget.gender != ''
-                                          ? widget.gender
+                                      FFAppState()
+                                                  .DriverList[widget.index!]
+                                                  .gender !=
+                                              ''
+                                          ? FFAppState()
+                                              .DriverList[widget.index!]
+                                              .gender
                                           : 'กรุณาเลือกเพศ',
                                       '-',
                                     ),
@@ -353,7 +346,7 @@ class _DriverInfomationFormComponentWidgetState
                     ],
                   ),
                 ),
-                if (widget.gender != null && widget.gender != '')
+                if (FFAppState().DriverList[widget.index!].gender != '')
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                     child: Container(
@@ -420,8 +413,14 @@ class _DriverInfomationFormComponentWidgetState
                                       ParamType.String,
                                     ),
                                     'dataList': serializeParam(
-                                      (widget.gender == 'MALE') ||
-                                              (widget.gender == 'ชาย')
+                                      (FFAppState()
+                                                      .DriverList[widget.index!]
+                                                      .gender ==
+                                                  'MALE') ||
+                                              (FFAppState()
+                                                      .DriverList[widget.index!]
+                                                      .gender ==
+                                                  'ชาย')
                                           ? widget
                                               .firestoreDataConfigList?.title
                                           : widget
@@ -473,8 +472,13 @@ class _DriverInfomationFormComponentWidgetState
                                           10.0, 0.0, 0.0, 0.0),
                                       child: AutoSizeText(
                                         valueOrDefault<String>(
-                                          widget.namePrefix != ''
-                                              ? widget.namePrefix
+                                          FFAppState()
+                                                      .DriverList[widget.index!]
+                                                      .titleTh !=
+                                                  ''
+                                              ? FFAppState()
+                                                  .DriverList[widget.index!]
+                                                  .titleTh
                                               : 'กรุณาเลือกคำนำหน้าชื่อ',
                                           '-',
                                         ),
@@ -874,7 +878,7 @@ class _DriverInfomationFormComponentWidgetState
                                       color: Color(0xFF1D4774),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
+                                      fontWeight: FontWeight.w600,
                                     ),
                               ),
                               Padding(
@@ -959,9 +963,22 @@ class _DriverInfomationFormComponentWidgetState
                                         10.0, 0.0, 0.0, 0.0),
                                     child: AutoSizeText(
                                       valueOrDefault<String>(
-                                        widget.dateOfBirth != ''
+                                        FFAppState()
+                                                    .DriverList[widget.index!]
+                                                    .birthDay !=
+                                                ''
                                             ? functions
-                                                .showDateBE(widget.dateOfBirth)
+                                                .showDateBE(dateTimeFormat(
+                                                'd/M/y',
+                                                functions.parseStringToDatetime(
+                                                    FFAppState()
+                                                        .DriverList[
+                                                            widget.index!]
+                                                        .birthDay),
+                                                locale:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                              ))
                                             : 'กรุณาเลือกวันเดือนปีเกิด',
                                         '-',
                                       ),
@@ -1109,9 +1126,14 @@ class _DriverInfomationFormComponentWidgetState
                                         10.0, 0.0, 0.0, 0.0),
                                     child: AutoSizeText(
                                       valueOrDefault<String>(
-                                        widget.dateOfBirth != ''
-                                            ? widget.dateOfBirth
-                                            : 'กรุณาเลือกวันเดือนปีเกิด',
+                                        FFAppState()
+                                                    .DriverList[widget.index!]
+                                                    .occupationSubname !=
+                                                ''
+                                            ? FFAppState()
+                                                .DriverList[widget.index!]
+                                                .occupationSubname
+                                            : 'กรุณาเลือกอาชีพ',
                                         '-',
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -1344,7 +1366,7 @@ class _DriverInfomationFormComponentWidgetState
                                       color: Color(0xFF1D4774),
                                       fontSize: 15.0,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
+                                      fontWeight: FontWeight.w600,
                                     ),
                               ),
                               Padding(

@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -146,37 +145,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   key: Key(
                                     'Key12c_${driverListItemIndex.toString()}',
                                   ),
-                                  namePrefix: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .titleTh,
-                                  firstname: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .firstNameTh,
-                                  lastname: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .lastNameTh,
-                                  gender: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .gender,
-                                  dateOfBirth: dateTimeFormat(
-                                    'd/M/y',
-                                    functions.parseStringToDatetime(FFAppState()
-                                        .DriverList[driverListItemIndex]
-                                        .birthDay),
-                                    locale: FFLocalizations.of(context)
-                                        .languageCode,
-                                  ),
-                                  occupation: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .occupationName,
-                                  thaiId: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .nationalThaiId,
-                                  driverLicense: FFAppState()
-                                      .DriverList[driverListItemIndex]
-                                      .licenseNo,
                                   index: driverListItemIndex + 1,
-                                  occupationList: FFAppState().defaultList1,
                                   firestoreDataConfigList:
                                       widget.firestoreDataConfigList!,
                                 ),
