@@ -114,7 +114,7 @@ class _DriverInfomationFormComponentWidgetState
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'ผู้ขับขี่ที่ ${widget.index?.toString()}',
+                  'ผู้ขับขี่ที่ ${((widget.index!) + 1).toString()}',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF1D4774),
