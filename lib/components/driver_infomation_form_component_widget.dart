@@ -875,18 +875,13 @@ class _DriverInfomationFormComponentWidgetState
                                                     .DriverList[widget.index!]
                                                     .birthDay !=
                                                 ''
-                                            ? functions
-                                                .showDateBE(dateTimeFormat(
-                                                'd/M/y',
-                                                functions.parseStringToDatetime(
+                                            ? functions.showDateBE(functions
+                                                .parseStringToDatetime(
                                                     FFAppState()
                                                         .DriverList[
                                                             widget.index!]
-                                                        .birthDay),
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              ))
+                                                        .birthDay)
+                                                ?.toString())
                                             : 'กรุณาเลือกวันเดือนปีเกิด',
                                         '-',
                                       ),
