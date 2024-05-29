@@ -145,7 +145,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   key: Key(
                                     'Key12c_${driverListItemIndex.toString()}',
                                   ),
-                                  index: driverListItemIndex + 1,
+                                  index: driverListItemIndex,
                                   firestoreDataConfigList:
                                       widget.firestoreDataConfigList!,
                                 ),

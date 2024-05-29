@@ -1660,14 +1660,12 @@ class _DriverInfomationFormComponentWidgetState
                                         child: Text(
                                           FFAppState()
                                                           .DriverList[
-                                                              (widget.index!) -
-                                                                  1]
+                                                              widget.index!]
                                                           .imageIdcard !=
                                                       null &&
                                                   FFAppState()
                                                           .DriverList[
-                                                              (widget.index!) -
-                                                                  1]
+                                                              widget.index!]
                                                           .imageIdcard !=
                                                       ''
                                               ? 'สถานะ : อัพโหลดแล้ว'
@@ -1681,13 +1679,11 @@ class _DriverInfomationFormComponentWidgetState
                                         ),
                                       ),
                                       if (FFAppState()
-                                                  .DriverList[
-                                                      (widget.index!) - 1]
+                                                  .DriverList[widget.index!]
                                                   .imageIdcard !=
                                               null &&
                                           FFAppState()
-                                                  .DriverList[
-                                                      (widget.index!) - 1]
+                                                  .DriverList[widget.index!]
                                                   .imageIdcard !=
                                               '')
                                         Padding(
@@ -1741,11 +1737,11 @@ class _DriverInfomationFormComponentWidgetState
                                     ],
                                   ),
                                   if (FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageIdcard !=
                                           null &&
                                       FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageIdcard !=
                                           '')
                                     Icon(
@@ -1754,11 +1750,11 @@ class _DriverInfomationFormComponentWidgetState
                                       size: 24.0,
                                     ),
                                   if (FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageIdcard ==
                                           null ||
                                       FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageIdcard ==
                                           '')
                                     Icon(
@@ -1965,14 +1961,12 @@ class _DriverInfomationFormComponentWidgetState
                                         child: Text(
                                           FFAppState()
                                                           .DriverList[
-                                                              (widget.index!) -
-                                                                  1]
+                                                              widget.index!]
                                                           .imageLicenseNo !=
                                                       null &&
                                                   FFAppState()
                                                           .DriverList[
-                                                              (widget.index!) -
-                                                                  1]
+                                                              widget.index!]
                                                           .imageLicenseNo !=
                                                       ''
                                               ? 'สถานะ : อัพโหลดแล้ว'
@@ -1986,13 +1980,11 @@ class _DriverInfomationFormComponentWidgetState
                                         ),
                                       ),
                                       if (FFAppState()
-                                                  .DriverList[
-                                                      (widget.index!) - 1]
+                                                  .DriverList[widget.index!]
                                                   .imageLicenseNo !=
                                               null &&
                                           FFAppState()
-                                                  .DriverList[
-                                                      (widget.index!) - 1]
+                                                  .DriverList[widget.index!]
                                                   .imageLicenseNo !=
                                               '')
                                         Padding(
@@ -2046,11 +2038,11 @@ class _DriverInfomationFormComponentWidgetState
                                     ],
                                   ),
                                   if (FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageLicenseNo !=
                                           null &&
                                       FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageLicenseNo !=
                                           '')
                                     Icon(
@@ -2059,11 +2051,11 @@ class _DriverInfomationFormComponentWidgetState
                                       size: 24.0,
                                     ),
                                   if (FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageLicenseNo ==
                                           null ||
                                       FFAppState()
-                                              .DriverList[(widget.index!) - 1]
+                                              .DriverList[widget.index!]
                                               .imageLicenseNo ==
                                           '')
                                     Icon(
