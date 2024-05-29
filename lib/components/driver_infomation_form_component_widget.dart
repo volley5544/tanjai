@@ -117,9 +117,8 @@ class _DriverInfomationFormComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    setState(() {
-                      FFAppState()
-                          .removeAtIndexFromDriverList((widget.index!) - 1);
+                    _model.updatePage(() {
+                      FFAppState().removeAtIndexFromDriverList(widget.index!);
                     });
                   },
                   child: Row(
