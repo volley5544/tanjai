@@ -43,7 +43,55 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AddDriverPage'});
     animationsMap.addAll({
-      'driverInfomationFormComponentOnPageLoadAnimation': AnimationInfo(
+      'driverInfomationFormComponentOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'driverInfomationFormComponentOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'driverInfomationFormComponentOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'driverInfomationFormComponentOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'driverInfomationFormComponentOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           MoveEffect(
@@ -112,43 +160,92 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: Builder(
-                  builder: (context) {
-                    final driverListItem =
-                        FFAppState().DriverList.toList().take(5).toList();
-                    return ListView.builder(
-                      padding: EdgeInsets.fromLTRB(
-                        0,
-                        12.0,
-                        0,
-                        30.0,
-                      ),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: driverListItem.length,
-                      itemBuilder: (context, driverListItemIndex) {
-                        final driverListItemItem =
-                            driverListItem[driverListItemIndex];
-                        return wrapWithModel(
-                          model: _model.driverInfomationFormComponentModels
-                              .getModel(
-                            driverListItemIndex.toString(),
-                            driverListItemIndex,
-                          ),
+                child: ListView(
+                  padding: EdgeInsets.fromLTRB(
+                    0,
+                    12.0,
+                    0,
+                    30.0,
+                  ),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    if (FFAppState().DriverList.length > 0)
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.driverInfomationFormComponentModel1,
                           updateCallback: () => setState(() {}),
+                          updateOnChange: true,
                           child: DriverInfomationFormComponentWidget(
-                            key: Key(
-                              'Key12c_${driverListItemIndex.toString()}',
-                            ),
-                            index: driverListItemIndex,
+                            index: 0,
                             firestoreDataConfigList:
                                 widget.firestoreDataConfigList!,
                           ),
                         ).animateOnPageLoad(animationsMap[
-                            'driverInfomationFormComponentOnPageLoadAnimation']!);
-                      },
-                    );
-                  },
+                            'driverInfomationFormComponentOnPageLoadAnimation1']!),
+                      ),
+                    if (FFAppState().DriverList.length > 1)
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.driverInfomationFormComponentModel2,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: DriverInfomationFormComponentWidget(
+                            index: 1,
+                            firestoreDataConfigList:
+                                widget.firestoreDataConfigList!,
+                          ),
+                        ).animateOnPageLoad(animationsMap[
+                            'driverInfomationFormComponentOnPageLoadAnimation2']!),
+                      ),
+                    if (FFAppState().DriverList.length > 2)
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.driverInfomationFormComponentModel3,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: DriverInfomationFormComponentWidget(
+                            index: 2,
+                            firestoreDataConfigList:
+                                widget.firestoreDataConfigList!,
+                          ),
+                        ).animateOnPageLoad(animationsMap[
+                            'driverInfomationFormComponentOnPageLoadAnimation3']!),
+                      ),
+                    if (FFAppState().DriverList.length > 3)
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.driverInfomationFormComponentModel4,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: DriverInfomationFormComponentWidget(
+                            index: 3,
+                            firestoreDataConfigList:
+                                widget.firestoreDataConfigList!,
+                          ),
+                        ).animateOnPageLoad(animationsMap[
+                            'driverInfomationFormComponentOnPageLoadAnimation4']!),
+                      ),
+                    if (FFAppState().DriverList.length > 4)
+                      Container(
+                        decoration: BoxDecoration(),
+                        child: wrapWithModel(
+                          model: _model.driverInfomationFormComponentModel5,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: DriverInfomationFormComponentWidget(
+                            index: 4,
+                            firestoreDataConfigList:
+                                widget.firestoreDataConfigList!,
+                          ),
+                        ).animateOnPageLoad(animationsMap[
+                            'driverInfomationFormComponentOnPageLoadAnimation5']!),
+                      ),
+                  ],
                 ),
               ),
               if (FFAppState().DriverList.length < 5)
