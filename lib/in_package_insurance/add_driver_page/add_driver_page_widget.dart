@@ -327,7 +327,60 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                               16.0, 0.0, 16.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (FFAppState().DriverList.length <= 0) {
+                              if (FFAppState().DriverList.length > 0) {
+                                if (!((_model
+                                                .driverInfomationFormComponentModel1
+                                                .firstnameTextfieldTextController
+                                                .text !=
+                                            null &&
+                                        _model
+                                                .driverInfomationFormComponentModel1
+                                                .firstnameTextfieldTextController
+                                                .text !=
+                                            '') &&
+                                    (_model.driverInfomationFormComponentModel1.address4LastnameTextfieldTextController.text != null &&
+                                        _model
+                                                .driverInfomationFormComponentModel1
+                                                .address4LastnameTextfieldTextController
+                                                .text !=
+                                            '') &&
+                                    (_model.driverInfomationFormComponentModel1.datePicked !=
+                                        null) &&
+                                    (_model.driverInfomationFormComponentModel1.thaiIdTextfieldTextController.text != null &&
+                                        _model
+                                                .driverInfomationFormComponentModel1
+                                                .thaiIdTextfieldTextController
+                                                .text !=
+                                            '') &&
+                                    (_model.driverInfomationFormComponentModel1.driverLicenseTextfieldTextController.text != null &&
+                                        _model.driverInfomationFormComponentModel1.driverLicenseTextfieldTextController.text !=
+                                            '') &&
+                                    (_model.driverInfomationFormComponentModel1.uploadedFileUrl1 != null &&
+                                        _model.driverInfomationFormComponentModel1.uploadedFileUrl1 !=
+                                            '') &&
+                                    (_model.driverInfomationFormComponentModel1.uploadedFileUrl2 != null &&
+                                        _model.driverInfomationFormComponentModel1.uploadedFileUrl2 != ''))) {
+                                  await showDialog(
+                                    context: context,
+                                    builder: (alertDialogContext) {
+                                      return WebViewAware(
+                                        child: AlertDialog(
+                                          content:
+                                              Text('กรุณากรอกข้อมูลให้ครบ'),
+                                          actions: [
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  alertDialogContext),
+                                              child: Text('Ok'),
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                  return;
+                                }
+                              } else {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -348,13 +401,14 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                 );
                                 return;
                               }
+
                               if (FFAppState().DriverList.length <= 1) {
                                 setState(() {
                                   FFAppState().updateDriverListAtIndex(
                                     0,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '1'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -409,7 +463,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     0,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '1'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -460,7 +514,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     1,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '2'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -515,7 +569,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     0,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '1'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -566,7 +620,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     1,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '2'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -617,7 +671,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     2,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '3'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -672,7 +726,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     0,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '1'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -723,7 +777,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     1,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '2'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -774,7 +828,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     2,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '3'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -825,7 +879,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                     3,
                                     (e) => e
                                       ..driverId = ''
-                                      ..driverNo = ''
+                                      ..driverNo = '4'
                                       ..applicationId = FFAppState()
                                           .insuranceInfoApplicationId
                                       ..idTypeId = '1'
@@ -879,7 +933,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   0,
                                   (e) => e
                                     ..driverId = ''
-                                    ..driverNo = ''
+                                    ..driverNo = '1'
                                     ..applicationId =
                                         FFAppState().insuranceInfoApplicationId
                                     ..idTypeId = '1'
@@ -929,7 +983,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   1,
                                   (e) => e
                                     ..driverId = ''
-                                    ..driverNo = ''
+                                    ..driverNo = '2'
                                     ..applicationId =
                                         FFAppState().insuranceInfoApplicationId
                                     ..idTypeId = '1'
@@ -979,7 +1033,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   2,
                                   (e) => e
                                     ..driverId = ''
-                                    ..driverNo = ''
+                                    ..driverNo = '3'
                                     ..applicationId =
                                         FFAppState().insuranceInfoApplicationId
                                     ..idTypeId = '1'
@@ -1029,7 +1083,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   3,
                                   (e) => e
                                     ..driverId = ''
-                                    ..driverNo = ''
+                                    ..driverNo = '4'
                                     ..applicationId =
                                         FFAppState().insuranceInfoApplicationId
                                     ..idTypeId = '1'
@@ -1079,7 +1133,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   4,
                                   (e) => e
                                     ..driverId = ''
-                                    ..driverNo = ''
+                                    ..driverNo = '5'
                                     ..applicationId =
                                         FFAppState().insuranceInfoApplicationId
                                     ..idTypeId = '1'

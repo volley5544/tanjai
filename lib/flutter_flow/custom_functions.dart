@@ -5137,3 +5137,7 @@ bool? checkDateBeforeAnotherDate(
     return false;
   }
 }
+
+List<dynamic>? changeDataTypeToJson(List<DriverDataStruct>? dataType) {
+  return dataType!;
+}

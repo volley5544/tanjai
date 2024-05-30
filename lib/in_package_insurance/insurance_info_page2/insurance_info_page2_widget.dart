@@ -5452,20 +5452,24 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed(
-                                            'AddDriverPage',
-                                            queryParameters: {
-                                              'firestoreDataConfigList':
-                                                  serializeParam(
-                                                widget.masterDataFirebase,
-                                                ParamType.Document,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              'firestoreDataConfigList':
+                                          if (FFAppState()
+                                                  .insuranceInfoEvFlag ==
+                                              'Y') {
+                                            context.pushNamed(
+                                              'AddDriverPage',
+                                              queryParameters: {
+                                                'firestoreDataConfigList':
+                                                    serializeParam(
                                                   widget.masterDataFirebase,
-                                            },
-                                          );
+                                                  ParamType.Document,
+                                                ),
+                                              }.withoutNulls,
+                                              extra: <String, dynamic>{
+                                                'firestoreDataConfigList':
+                                                    widget.masterDataFirebase,
+                                              },
+                                            );
+                                          }
                                         },
                                         child: Container(
                                           width:
@@ -8018,6 +8022,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       .insuranceInfoEffectiveDateInsure,
                                                   subProduct: FFAppState()
                                                       .insuranceinfoActType,
+                                                  appDriverJson: FFAppState()
+                                                      .DriverList
+                                                      .map((e) => e.toMap())
+                                                      .toList(),
                                                 );
                                                 _shouldSetState = true;
                                                 if ((_model.ibsAppAPIOutput

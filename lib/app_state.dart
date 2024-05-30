@@ -13218,6 +13218,12 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoApplicationId(String _value) {
     _insuranceInfoApplicationId = _value;
   }
+
+  String _insuranceInfoEvFlag = '';
+  String get insuranceInfoEvFlag => _insuranceInfoEvFlag;
+  set insuranceInfoEvFlag(String _value) {
+    _insuranceInfoEvFlag = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

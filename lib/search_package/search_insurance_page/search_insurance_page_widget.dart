@@ -541,7 +541,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           FFAppState().searchPackageSubProduct = 'MC';
           FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
         });
-      } else if (widget.fromIcon == 'motor') {
+      } else if (widget.fromIcon == 'moto') {
         if (!FFAppState().insuranceRequestIsLoadedData) {
           _model.getBrandAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,

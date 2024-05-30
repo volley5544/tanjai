@@ -11974,7 +11974,7 @@ class IbsApplicationsSaveCall {
     dynamic? appDriverJson,
   }) async {
     final address = _serializeJson(addressJson);
-    final appDriver = _serializeJson(appDriverJson);
+    final appDriver = _serializeJson(appDriverJson, true);
     final ffApiRequestBody = '''
 {
 "app_driver":${appDriver},
@@ -13302,6 +13302,15 @@ class IbsApplicationsDetailCall {
       ) as List?)
           ?.withoutNulls
           .map((x) => DriverDataStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
+  static List<String>? evflag(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads[:].ev_flag''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
 }

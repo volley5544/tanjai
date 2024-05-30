@@ -896,6 +896,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         )!
             .toList()
             .cast<DriverDataStruct>();
+        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .first;
       });
       setState(() {
         FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
