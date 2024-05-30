@@ -541,7 +541,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           FFAppState().searchPackageSubProduct = 'MC';
           FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
         });
-      } else {
+      } else if (widget.fromIcon == 'motor') {
         if (!FFAppState().insuranceRequestIsLoadedData) {
           _model.getBrandAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -928,6 +928,397 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         Navigator.pop(context);
         setState(() {
           FFAppState().searchPackageSubProduct = 'Motor';
+        });
+      } else {
+        if (!FFAppState().insuranceRequestisLoadDataEV) {
+          _model.getBrandEVAPI = await TeleGetBrandAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            vehicleGroup: 'EV',
+          );
+          if ((_model.getBrandEVAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getBrandEVAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetBrandAPICall.statusLevel1(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            setState(() {
+              FFAppState().insuranceBasicBrandNameList =
+                  TeleGetBrandAPICall.brandName(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdList =
+                  TeleGetBrandAPICall.brandID(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandNameListOriginal =
+                  TeleGetBrandAPICall.brandName(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicBrandIdListOriginal =
+                  TeleGetBrandAPICall.brandID(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupBrandList =
+                  TeleGetBrandAPICall.carGroup(
+                (_model.getBrandEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetBrandAPICall.messageLayer1(
+                      (_model.getBrandEVAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getModelEVAPI = await TeleGetModelAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            vehicleGroup: 'EV',
+          );
+          if ((_model.getModelEVAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getModelEVAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetModelAPICall.statusLevel1(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicModelIdListOriginal =
+                  TeleGetModelAPICall.modelCode(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelNameListOriginal =
+                  TeleGetModelAPICall.modelName(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicModelBrandIdListOriginal =
+                  TeleGetModelAPICall.brandID(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleGroupList =
+                  TeleGetModelAPICall.carGroup(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarGroupDetail =
+                  TeleGetModelAPICall.carGroupDetail(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCarDoorList =
+                  TeleGetModelAPICall.carDoors(
+                (_model.getModelEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetModelAPICall.messageLayer1(
+                      (_model.getModelEVAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getCoverTypeEVAPI = await TeleGetCoverTypeAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getCoverTypeEVAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getCoverTypeEVAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (TeleGetCoverTypeAPICall.statusLevel1(
+                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicCoverTypeNameList =
+                  TeleGetCoverTypeAPICall.coverTypeName(
+                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeCodeList =
+                  TeleGetCoverTypeAPICall.coverTypeCode(
+                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicCoverTypeIdList =
+                  TeleGetCoverTypeAPICall.coverTypeId(
+                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(TeleGetCoverTypeAPICall.statusLevel1(
+                      (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+                    )!
+                        .toString()),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          _model.getVehicleUsedTypeEVAPI =
+              await InsuranceRequestGetVehicleAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+            vehicleCategory: 'auto',
+          );
+          if ((_model.getVehicleUsedTypeEVAPI?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getVehicleUsedTypeEVAPI?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+          if (InsuranceRequestGetVehicleAPICall.statusLayer1(
+                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+              ) ==
+              200) {
+            FFAppState().update(() {
+              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                  InsuranceRequestGetVehicleAPICall.vehicleCode(
+                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                  InsuranceRequestGetVehicleAPICall.vehicleName(
+                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                  InsuranceRequestGetVehicleAPICall.vehicletype(
+                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+              FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                  InsuranceRequestGetVehicleAPICall.vehicleId(
+                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+              )!
+                      .toList()
+                      .cast<String>();
+            });
+          } else {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content:
+                        Text(InsuranceRequestGetVehicleAPICall.messageLayer1(
+                      (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+                    )!),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            return;
+          }
+
+          setState(() {
+            FFAppState().insuranceRequestisLoadDataEV = true;
+          });
+          _model.getProvince2 = await TeleGetProvinceAPICall.call(
+            apiUrl: FFAppState().apiUrlInsuranceAppState,
+          );
+          if ((_model.getProvince2?.statusCode ?? 200) != 200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text(
+                        'พบข้อผิดพลาด (${(_model.getProvince2?.statusCode ?? 200).toString()})'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          if (TeleGetProvinceAPICall.statusLevel1(
+                (_model.getProvince2?.jsonBody ?? ''),
+              ) !=
+              200) {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('${TeleGetProvinceAPICall.statusLevel1(
+                      (_model.getProvince2?.jsonBody ?? ''),
+                    )?.toString()}'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+            Navigator.pop(context);
+            return;
+          }
+          setState(() {
+            FFAppState().insuranceInfoRegistrationCodeList =
+                TeleGetProvinceAPICall.provinceID(
+              (_model.getProvince2?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceInfoRegistrationprovinceList =
+                TeleGetProvinceAPICall.provinceNameTH(
+              (_model.getProvince2?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+          });
+        }
+        Navigator.pop(context);
+        setState(() {
+          FFAppState().searchPackageSubProduct = 'EV';
         });
       }
     });

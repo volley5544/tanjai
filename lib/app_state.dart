@@ -13206,6 +13206,18 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInDriverList(int _index, DriverDataStruct _value) {
     _DriverList.insert(_index, _value);
   }
+
+  bool _insuranceRequestisLoadDataEV = false;
+  bool get insuranceRequestisLoadDataEV => _insuranceRequestisLoadDataEV;
+  set insuranceRequestisLoadDataEV(bool _value) {
+    _insuranceRequestisLoadDataEV = _value;
+  }
+
+  String _insuranceInfoApplicationId = '';
+  String get insuranceInfoApplicationId => _insuranceInfoApplicationId;
+  set insuranceInfoApplicationId(String _value) {
+    _insuranceInfoApplicationId = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

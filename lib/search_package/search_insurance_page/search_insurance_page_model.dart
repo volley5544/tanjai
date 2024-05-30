@@ -53,6 +53,16 @@ class SearchInsurancePageModel
   ApiCallResponse? getVehicleUsedTypeAPI;
   // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
   ApiCallResponse? getProvince;
+  // Stores action output result for [Backend Call - API (teleGetBrandAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getBrandEVAPI;
+  // Stores action output result for [Backend Call - API (teleGetModelAPI )] action in SearchInsurancePage widget.
+  ApiCallResponse? getModelEVAPI;
+  // Stores action output result for [Backend Call - API (teleGetCoverTypeAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getCoverTypeEVAPI;
+  // Stores action output result for [Backend Call - API (insuranceRequestGetVehicleAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getVehicleUsedTypeEVAPI;
+  // Stores action output result for [Backend Call - API (teleGetProvinceAPI)] action in SearchInsurancePage widget.
+  ApiCallResponse? getProvince2;
   DateTime? datePicked;
 
   @override

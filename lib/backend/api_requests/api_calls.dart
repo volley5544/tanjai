@@ -5649,11 +5649,12 @@ class TelePackageSearchAPICopyCall {
 class TeleGetBrandAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
+    String? vehicleGroup = '',
   }) async {
     final ffApiRequestBody = '''
 {
-  "api_url": "${apiUrl}"
-
+  "api_url": "${apiUrl}",
+  "vehicle_group": "${vehicleGroup}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetBrandAPI',
@@ -5805,9 +5806,12 @@ class TeleGetBrandMCAPICall {
 class TeleGetModelAPICall {
   static Future<ApiCallResponse> call({
     String? apiUrl = '',
+    String? vehicleGroup = '',
   }) async {
     final ffApiRequestBody = '''
-{"api_url":"${apiUrl}"
+{
+  "api_url": "${apiUrl}",
+  "vehicle_group": "${vehicleGroup}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'teleGetModelAPI ',
@@ -11710,10 +11714,12 @@ class IbsQuotationsSaveCall {
     String? carProvinceName = '',
     String? carProvinceCode = '',
     String? subProduct = '',
+    String? evFlag = '',
   }) async {
     final insurerPackage = _serializeJson(insurerPackageJson);
     final ffApiRequestBody = '''
 {
+"ev_flag":"${evFlag}",
 "sub_product":"${subProduct}",
 "car_province_name":"${carProvinceName}",
 "car_province_code":"${carProvinceCode}",
@@ -11965,10 +11971,13 @@ class IbsApplicationsSaveCall {
     String? effectiveDateInsure = '',
     String? imageQuotationInsurer = '',
     String? subProduct = '',
+    dynamic? appDriverJson,
   }) async {
     final address = _serializeJson(addressJson);
+    final appDriver = _serializeJson(appDriverJson);
     final ffApiRequestBody = '''
 {
+"app_driver":${appDriver},
 "sub_product":"${subProduct}",
   "image_quotation_insurer": "${imageQuotationInsurer}",
   "effective_date_insure": "${effectiveDateInsure}",
@@ -13281,6 +13290,20 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.leads[:].flg_renew''',
       ));
+  static String? applicationId(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.application_id''',
+      ));
+  static List<DriverDataStruct>? appdriver(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.app_driver[:]''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => DriverDataStruct.maybeFromMap(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {

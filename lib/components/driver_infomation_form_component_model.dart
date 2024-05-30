@@ -28,14 +28,16 @@ class DriverInfomationFormComponentModel
   // State field(s) for Expandable widget.
   late ExpandableController expandableExpandableController;
 
-  // State field(s) for address4 widget.
-  FocusNode? address4FocusNode1;
-  TextEditingController? address4TextController1;
-  String? Function(BuildContext, String?)? address4TextController1Validator;
-  // State field(s) for address4 widget.
-  FocusNode? address4FocusNode2;
-  TextEditingController? address4TextController2;
-  String? Function(BuildContext, String?)? address4TextController2Validator;
+  // State field(s) for FirstnameTextfield widget.
+  FocusNode? firstnameTextfieldFocusNode;
+  TextEditingController? firstnameTextfieldTextController;
+  String? Function(BuildContext, String?)?
+      firstnameTextfieldTextControllerValidator;
+  // State field(s) for address4LastnameTextfield widget.
+  FocusNode? address4LastnameTextfieldFocusNode;
+  TextEditingController? address4LastnameTextfieldTextController;
+  String? Function(BuildContext, String?)?
+      address4LastnameTextfieldTextControllerValidator;
   DateTime? datePicked;
   // State field(s) for ThaiIdTextfield widget.
   FocusNode? thaiIdTextfieldFocusNode;
@@ -64,11 +66,11 @@ class DriverInfomationFormComponentModel
   @override
   void dispose() {
     expandableExpandableController.dispose();
-    address4FocusNode1?.dispose();
-    address4TextController1?.dispose();
+    firstnameTextfieldFocusNode?.dispose();
+    firstnameTextfieldTextController?.dispose();
 
-    address4FocusNode2?.dispose();
-    address4TextController2?.dispose();
+    address4LastnameTextfieldFocusNode?.dispose();
+    address4LastnameTextfieldTextController?.dispose();
 
     thaiIdTextfieldFocusNode?.dispose();
     thaiIdTextfieldTextController?.dispose();

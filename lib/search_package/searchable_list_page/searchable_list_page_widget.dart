@@ -1799,14 +1799,6 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 }
                                                 setState(() {
                                                   FFAppState()
-                                                          .insuranceInfoSelectOccupationSubNameChoose =
-                                                      widget.dataList![functions
-                                                          .getIndexOfBoolList(
-                                                              FFAppState()
-                                                                  .searchableListComponentSelectedList
-                                                                  .toList(),
-                                                              true)];
-                                                  FFAppState()
                                                       .updateDriverListAtIndex(
                                                     widget.index!,
                                                     (e) => e

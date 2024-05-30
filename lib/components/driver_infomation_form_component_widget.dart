@@ -53,17 +53,17 @@ class _DriverInfomationFormComponentWidgetState
 
     _model.expandableExpandableController =
         ExpandableController(initialExpanded: false);
-    _model.address4TextController1 ??= TextEditingController(
+    _model.firstnameTextfieldTextController ??= TextEditingController(
         text: FFAppState().DriverList[widget.index!].firstNameTh != ''
             ? FFAppState().DriverList[widget.index!].firstNameTh
             : '');
-    _model.address4FocusNode1 ??= FocusNode();
+    _model.firstnameTextfieldFocusNode ??= FocusNode();
 
-    _model.address4TextController2 ??= TextEditingController(
+    _model.address4LastnameTextfieldTextController ??= TextEditingController(
         text: FFAppState().DriverList[widget.index!].lastNameTh != ''
             ? FFAppState().DriverList[widget.index!].lastNameTh
             : '');
-    _model.address4FocusNode2 ??= FocusNode();
+    _model.address4LastnameTextfieldFocusNode ??= FocusNode();
 
     _model.thaiIdTextfieldTextController ??= TextEditingController(
         text: FFAppState().DriverList[widget.index!].nationalThaiId != ''
@@ -300,9 +300,12 @@ class _DriverInfomationFormComponentWidgetState
                                                   .DriverList[widget.index!]
                                                   .gender !=
                                               ''
-                                          ? FFAppState()
-                                              .DriverList[widget.index!]
-                                              .gender
+                                          ? (FFAppState()
+                                                      .DriverList[widget.index!]
+                                                      .gender ==
+                                                  'MALE'
+                                              ? 'ชาย'
+                                              : 'หญิง')
                                           : 'กรุณาเลือกเพศ',
                                       '-',
                                     ),
@@ -310,7 +313,14 @@ class _DriverInfomationFormComponentWidgetState
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Noto Sans Thai',
-                                          color: Colors.black,
+                                          color: FFAppState()
+                                                      .DriverList[widget.index!]
+                                                      .gender !=
+                                                  ''
+                                              ? FlutterFlowTheme.of(context)
+                                                  .primaryText
+                                              : FlutterFlowTheme.of(context)
+                                                  .secondaryText,
                                           fontSize: 15.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -474,7 +484,15 @@ class _DriverInfomationFormComponentWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Noto Sans Thai',
-                                              color: Colors.black,
+                                              color: FFAppState()
+                                                          .DriverList[
+                                                              widget.index!]
+                                                          .titleTh !=
+                                                      ''
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .primaryText
+                                                  : FlutterFlowTheme.of(context)
+                                                      .secondaryText,
                                               fontSize: 15.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -569,9 +587,10 @@ class _DriverInfomationFormComponentWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 0.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.address4TextController1,
-                                        focusNode: _model.address4FocusNode1,
+                                        controller: _model
+                                            .firstnameTextfieldTextController,
+                                        focusNode:
+                                            _model.firstnameTextfieldFocusNode,
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -617,7 +636,7 @@ class _DriverInfomationFormComponentWidgetState
                                               fontWeight: FontWeight.w600,
                                             ),
                                         validator: _model
-                                            .address4TextController1Validator
+                                            .firstnameTextfieldTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -701,9 +720,10 @@ class _DriverInfomationFormComponentWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 0.0),
                                       child: TextFormField(
-                                        controller:
-                                            _model.address4TextController2,
-                                        focusNode: _model.address4FocusNode2,
+                                        controller: _model
+                                            .address4LastnameTextfieldTextController,
+                                        focusNode: _model
+                                            .address4LastnameTextfieldFocusNode,
                                         autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -749,7 +769,7 @@ class _DriverInfomationFormComponentWidgetState
                                               fontWeight: FontWeight.w600,
                                             ),
                                         validator: _model
-                                            .address4TextController2Validator
+                                            .address4LastnameTextfieldTextControllerValidator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -889,7 +909,15 @@ class _DriverInfomationFormComponentWidgetState
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            color: Colors.black,
+                                            color: FFAppState()
+                                                        .DriverList[
+                                                            widget.index!]
+                                                        .birthDay !=
+                                                    ''
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -980,8 +1008,7 @@ class _DriverInfomationFormComponentWidgetState
                                     ParamType.String,
                                   ),
                                   'dataList': serializeParam(
-                                    FFAppState()
-                                        .insuranceInfoSelectOccupationSubName,
+                                    FFAppState().insuranceInfoOccupationSubName,
                                     ParamType.String,
                                     true,
                                   ),
@@ -1043,7 +1070,15 @@ class _DriverInfomationFormComponentWidgetState
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Noto Sans Thai',
-                                            color: Colors.black,
+                                            color: FFAppState()
+                                                        .DriverList[
+                                                            widget.index!]
+                                                        .occupationSubname !=
+                                                    ''
+                                                ? FlutterFlowTheme.of(context)
+                                                    .primaryText
+                                                : FlutterFlowTheme.of(context)
+                                                    .secondaryText,
                                             fontSize: 15.0,
                                             letterSpacing: 0.0,
                                           ),
@@ -1618,8 +1653,8 @@ class _DriverInfomationFormComponentWidgetState
                                                             .stringToImgPath(
                                                                 FFAppState()
                                                                     .DriverList[
-                                                                        (widget.index!) -
-                                                                            1]
+                                                                        widget
+                                                                            .index!]
                                                                     .imageIdcard)!,
                                                       ),
                                                     ),
@@ -1919,8 +1954,8 @@ class _DriverInfomationFormComponentWidgetState
                                                             .stringToImgPath(
                                                                 FFAppState()
                                                                     .DriverList[
-                                                                        (widget.index!) -
-                                                                            1]
+                                                                        widget
+                                                                            .index!]
                                                                     .imageLicenseNo)!,
                                                       ),
                                                     ),

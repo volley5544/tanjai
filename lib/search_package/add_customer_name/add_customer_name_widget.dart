@@ -1214,6 +1214,11 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       .insuranceInfoRegistrationCodeSelect,
                                   subProduct:
                                       FFAppState().searchPackageSubProduct,
+                                  evFlag:
+                                      FFAppState().searchPackageSubProduct ==
+                                              'EV'
+                                          ? 'Y'
+                                          : 'N',
                                 );
                                 _shouldSetState = true;
                                 if ((_model.aPIQuotationSaveOutput
