@@ -12,7 +12,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'driver_infomation_form_component_widget.dart'
     show DriverInfomationFormComponentWidget;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,9 +23,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class DriverInfomationFormComponentModel
     extends FlutterFlowModel<DriverInfomationFormComponentWidget> {
   ///  State fields for stateful widgets in this component.
-
-  // State field(s) for Expandable widget.
-  late ExpandableController expandableExpandableController;
 
   // State field(s) for FirstnameTextfield widget.
   FocusNode? firstnameTextfieldFocusNode;
@@ -65,7 +61,6 @@ class DriverInfomationFormComponentModel
 
   @override
   void dispose() {
-    expandableExpandableController.dispose();
     firstnameTextfieldFocusNode?.dispose();
     firstnameTextfieldTextController?.dispose();
 
