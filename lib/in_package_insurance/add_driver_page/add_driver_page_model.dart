@@ -20,38 +20,19 @@ class AddDriverPageModel extends FlutterFlowModel<AddDriverPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Model for DriverInfomationFormComponent component.
-  late DriverInfomationFormComponentModel driverInfomationFormComponentModel1;
-  // Model for DriverInfomationFormComponent component.
-  late DriverInfomationFormComponentModel driverInfomationFormComponentModel2;
-  // Model for DriverInfomationFormComponent component.
-  late DriverInfomationFormComponentModel driverInfomationFormComponentModel3;
-  // Model for DriverInfomationFormComponent component.
-  late DriverInfomationFormComponentModel driverInfomationFormComponentModel4;
-  // Model for DriverInfomationFormComponent component.
-  late DriverInfomationFormComponentModel driverInfomationFormComponentModel5;
+  // Models for DriverInfomationFormComponent dynamic component.
+  late FlutterFlowDynamicModels<DriverInfomationFormComponentModel>
+      driverInfomationFormComponentModels;
 
   @override
   void initState(BuildContext context) {
-    driverInfomationFormComponentModel1 =
-        createModel(context, () => DriverInfomationFormComponentModel());
-    driverInfomationFormComponentModel2 =
-        createModel(context, () => DriverInfomationFormComponentModel());
-    driverInfomationFormComponentModel3 =
-        createModel(context, () => DriverInfomationFormComponentModel());
-    driverInfomationFormComponentModel4 =
-        createModel(context, () => DriverInfomationFormComponentModel());
-    driverInfomationFormComponentModel5 =
-        createModel(context, () => DriverInfomationFormComponentModel());
+    driverInfomationFormComponentModels =
+        FlutterFlowDynamicModels(() => DriverInfomationFormComponentModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
-    driverInfomationFormComponentModel1.dispose();
-    driverInfomationFormComponentModel2.dispose();
-    driverInfomationFormComponentModel3.dispose();
-    driverInfomationFormComponentModel4.dispose();
-    driverInfomationFormComponentModel5.dispose();
+    driverInfomationFormComponentModels.dispose();
   }
 }

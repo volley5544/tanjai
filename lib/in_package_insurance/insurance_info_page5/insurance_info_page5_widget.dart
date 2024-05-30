@@ -75,9 +75,8 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().isProcessing = false;
-      });
+      FFAppState().isProcessing = false;
+      setState(() {});
       _model.getDateTimeOutput = await GetDateTimeAPICall.call(
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
@@ -128,11 +127,10 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().page5DateNow = '${GetDateTimeAPICall.currentDateYMD(
-          (_model.getDateTimeOutput?.jsonBody ?? ''),
-        )}';
-      });
+      FFAppState().page5DateNow = '${GetDateTimeAPICall.currentDateYMD(
+        (_model.getDateTimeOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
       _model.applicationDetailOutput = await IbsApplicationsDetailCall.call(
         quotationId: widget.quotationId,
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -182,110 +180,108 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         );
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoFirstName =
-            '${IbsApplicationsDetailCall.firstnameth(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLastName =
-            '${IbsApplicationsDetailCall.lastnameth(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPhonenumber =
-            '${IbsApplicationsDetailCall.phonenumber(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoGarageType =
-            '${IbsApplicationsDetailCall.garagetypename(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.applicationDetailOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtlId)]}';
-        FFAppState().insuranceInfocoverType =
-            '${IbsApplicationsDetailCall.covertypename(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.applicationDetailOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtlId)]}';
-        FFAppState().insuranceInfoGrossTotal =
-            '${IbsApplicationsDetailCall.grosstotalnet(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoApplicationType =
-            '${IbsApplicationsDetailCall.quotationtype(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().nonePackageWorkType =
-            '${IbsApplicationsDetailCall.workType(
-                  (_model.applicationDetailOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.workType(
+      FFAppState().insuranceInfoFirstName =
+          '${IbsApplicationsDetailCall.firstnameth(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLastName =
+          '${IbsApplicationsDetailCall.lastnameth(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPhonenumber =
+          '${IbsApplicationsDetailCall.phonenumber(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoGarageType =
+          '${IbsApplicationsDetailCall.garagetypename(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.applicationDetailOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
-        FFAppState().insuranceInfoCompayId =
-            '${IbsApplicationsDetailCall.insurershortname(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.applicationDetailOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtlId)]}';
-        FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoApplicationNo =
-            '${IbsApplicationsDetailCall.applicationNo(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoInsuranceLogo =
-            '${IbsApplicationsDetailCall.insurerlogo(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.applicationDetailOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtlId)]}';
-        FFAppState().nonePackageOldVmiExpDate =
-            '${IbsApplicationsDetailCall.expiryDateInsure(
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtlId)]}';
+      FFAppState().insuranceInfocoverType =
+          '${IbsApplicationsDetailCall.covertypename(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.applicationDetailOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtlId)]}';
+      FFAppState().insuranceInfoGrossTotal =
+          '${IbsApplicationsDetailCall.grosstotalnet(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoApplicationType =
+          '${IbsApplicationsDetailCall.quotationtype(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().nonePackageWorkType = '${IbsApplicationsDetailCall.workType(
+            (_model.applicationDetailOutput?.jsonBody ?? ''),
+          ) == '' ? '' : IbsApplicationsDetailCall.workType(
           (_model.applicationDetailOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoPage5QuotationType =
-            '${IbsApplicationsDetailCall.quotationtypebak(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoPage3PdfFileapplication =
-            '${IbsApplicationsDetailCall.fileApplication(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoActType =
-            '${IbsApplicationsDetailCall.subProduct(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoQuotationTypeName =
-            '${IbsApplicationsDetailCall.quotationtypename(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoQuotationTypeBakName =
-            '${IbsApplicationsDetailCall.quotationtypebakname(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoSubProductName =
-            '${IbsApplicationsDetailCall.subproductname(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().page5RefundRemark =
-            '${IbsApplicationsDetailCall.refundremark(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoQuotationType =
-            '${IbsApplicationsDetailCall.quotationtype(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-      });
+      FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
+      FFAppState().insuranceInfoCompayId =
+          '${IbsApplicationsDetailCall.insurershortname(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.applicationDetailOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtlId)]}';
+      FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoApplicationNo =
+          '${IbsApplicationsDetailCall.applicationNo(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoInsuranceLogo =
+          '${IbsApplicationsDetailCall.insurerlogo(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.applicationDetailOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtlId)]}';
+      FFAppState().nonePackageOldVmiExpDate =
+          '${IbsApplicationsDetailCall.expiryDateInsure(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage5QuotationType =
+          '${IbsApplicationsDetailCall.quotationtypebak(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoPage3PdfFileapplication =
+          '${IbsApplicationsDetailCall.fileApplication(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoActType =
+          '${IbsApplicationsDetailCall.subProduct(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeName =
+          '${IbsApplicationsDetailCall.quotationtypename(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeBakName =
+          '${IbsApplicationsDetailCall.quotationtypebakname(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoSubProductName =
+          '${IbsApplicationsDetailCall.subproductname(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().page5RefundRemark =
+          '${IbsApplicationsDetailCall.refundremark(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoQuotationType =
+          '${IbsApplicationsDetailCall.quotationtype(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
       _model.getPolicy = await GetInsurancePolicyApiCall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
@@ -335,134 +331,130 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         );
         return;
       }
-      setState(() {
-        FFAppState().page5QuotationStatus =
-            '${IbsApplicationsDetailCall.quotationstatus(
-          (_model.applicationDetailOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().page5CreatedDate = '${GetInsurancePolicyApiCall.createDate(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.createDate(
+      FFAppState().page5QuotationStatus =
+          '${IbsApplicationsDetailCall.quotationstatus(
+        (_model.applicationDetailOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().page5CreatedDate = '${GetInsurancePolicyApiCall.createDate(
             (_model.getPolicy?.jsonBody ?? ''),
-          )) : '-'}';
-        FFAppState().page5CompletedDate = '${GetInsurancePolicyApiCall.completeDate(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.completeDate(
+          ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.createDate(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
+      FFAppState().page5CompletedDate = '${GetInsurancePolicyApiCall.completeDate(
             (_model.getPolicy?.jsonBody ?? ''),
-          )) : '-'}';
-        FFAppState().page5ContractId = '${GetInsurancePolicyApiCall.contractId(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? GetInsurancePolicyApiCall.contractId(
+          ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.completeDate(
+          (_model.getPolicy?.jsonBody ?? ''),
+        )) : '-'}';
+      FFAppState().page5ContractId = '${GetInsurancePolicyApiCall.contractId(
             (_model.getPolicy?.jsonBody ?? ''),
-          ) : '-'}';
-        FFAppState().page5VmiPolicyNo =
-            '${GetInsurancePolicyApiCall.policyNumber(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.policyNumber(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5Reason = '${() {
-          if (GetInsurancePolicyApiCall.cancelReason(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) !=
-              '') {
-            return GetInsurancePolicyApiCall.cancelReason(
-              (_model.getPolicy?.jsonBody ?? ''),
-            );
-          } else if (GetInsurancePolicyApiCall.vmiMessage(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) !=
-              '') {
-            return GetInsurancePolicyApiCall.vmiMessage(
-              (_model.getPolicy?.jsonBody ?? ''),
-            );
-          } else if (GetInsurancePolicyApiCall.cmiMessage(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) !=
-              '') {
-            return GetInsurancePolicyApiCall.cmiMessage(
-              (_model.getPolicy?.jsonBody ?? ''),
-            );
-          } else {
-            return '-';
-          }
-        }()}';
-        FFAppState().page5PaymentStatus =
-            '${GetInsurancePolicyApiCall.paymenttatus(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.paymenttatus(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5PaymentType = '${GetInsurancePolicyApiCall.paymentype(
-              (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? GetInsurancePolicyApiCall.paymentype(
+          ) != '' ? GetInsurancePolicyApiCall.contractId(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5VmiPolicyNo = '${GetInsurancePolicyApiCall.policyNumber(
             (_model.getPolicy?.jsonBody ?? ''),
-          ) : '-'}';
-        FFAppState().page5PaymentChannel =
-            '${GetInsurancePolicyApiCall.paymentChannel(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.paymentChannel(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5NetPremium =
-            '${GetInsurancePolicyApiCall.netPremiumTotal(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5ActPrice = '${GetInsurancePolicyApiCall.actTotal(
+          ) != '' ? GetInsurancePolicyApiCall.policyNumber(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5Reason = '${() {
+        if (GetInsurancePolicyApiCall.cancelReason(
               (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? GetInsurancePolicyApiCall.actTotal(
+            ) !=
+            '') {
+          return GetInsurancePolicyApiCall.cancelReason(
             (_model.getPolicy?.jsonBody ?? ''),
-          ) : '-'}';
-        FFAppState().page5GrossTotalNet =
-            '${GetInsurancePolicyApiCall.grossTotalNet(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5FirstDue =
-            '${GetInsurancePolicyApiCall.installmentFirstDue(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5LastDue =
-            '${GetInsurancePolicyApiCall.installmentLastDue(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5VloneContNo =
-            '${GetInsurancePolicyApiCall.vloneContNo(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.vloneContNo(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5CusIdCardNo =
-            '${GetInsurancePolicyApiCall.vloanCuscod(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.vloanCuscod(
-                (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().page5Tenor = '${GetInsurancePolicyApiCall.tenor(
+          );
+        } else if (GetInsurancePolicyApiCall.vmiMessage(
               (_model.getPolicy?.jsonBody ?? ''),
-            ) != '' ? GetInsurancePolicyApiCall.tenor(
+            ) !=
+            '') {
+          return GetInsurancePolicyApiCall.vmiMessage(
             (_model.getPolicy?.jsonBody ?? ''),
-          ) : '-'}';
-        FFAppState().insuranceInfoPage5Document =
-            '${GetInsurancePolicyApiCall.vmiDocumentUrl(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.vmiDocumentUrl(
+          );
+        } else if (GetInsurancePolicyApiCall.cmiMessage(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) !=
+            '') {
+          return GetInsurancePolicyApiCall.cmiMessage(
+            (_model.getPolicy?.jsonBody ?? ''),
+          );
+        } else {
+          return '-';
+        }
+      }()}';
+      FFAppState().page5PaymentStatus =
+          '${GetInsurancePolicyApiCall.paymenttatus(
                 (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-        FFAppState().insuranceInfoPage5CMIDocUrl =
-            '${GetInsurancePolicyApiCall.cMIdocumentUrl(
-                  (_model.getPolicy?.jsonBody ?? ''),
-                ) != '' ? GetInsurancePolicyApiCall.cMIdocumentUrl(
+              ) != '' ? GetInsurancePolicyApiCall.paymenttatus(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5PaymentType = '${GetInsurancePolicyApiCall.paymentype(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? GetInsurancePolicyApiCall.paymentype(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5PaymentChannel =
+          '${GetInsurancePolicyApiCall.paymentChannel(
                 (_model.getPolicy?.jsonBody ?? ''),
-              ) : '-'}';
-      });
+              ) != '' ? GetInsurancePolicyApiCall.paymentChannel(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5NetPremium =
+          '${GetInsurancePolicyApiCall.netPremiumTotal(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5ActPrice = '${GetInsurancePolicyApiCall.actTotal(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? GetInsurancePolicyApiCall.actTotal(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5GrossTotalNet =
+          '${GetInsurancePolicyApiCall.grossTotalNet(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5FirstDue =
+          '${GetInsurancePolicyApiCall.installmentFirstDue(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5LastDue =
+          '${GetInsurancePolicyApiCall.installmentLastDue(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().page5VloneContNo = '${GetInsurancePolicyApiCall.vloneContNo(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? GetInsurancePolicyApiCall.vloneContNo(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5CusIdCardNo = '${GetInsurancePolicyApiCall.vloanCuscod(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? GetInsurancePolicyApiCall.vloanCuscod(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().page5Tenor = '${GetInsurancePolicyApiCall.tenor(
+            (_model.getPolicy?.jsonBody ?? ''),
+          ) != '' ? GetInsurancePolicyApiCall.tenor(
+          (_model.getPolicy?.jsonBody ?? ''),
+        ) : '-'}';
+      FFAppState().insuranceInfoPage5Document =
+          '${GetInsurancePolicyApiCall.vmiDocumentUrl(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.vmiDocumentUrl(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      FFAppState().insuranceInfoPage5CMIDocUrl =
+          '${GetInsurancePolicyApiCall.cMIdocumentUrl(
+                (_model.getPolicy?.jsonBody ?? ''),
+              ) != '' ? GetInsurancePolicyApiCall.cMIdocumentUrl(
+              (_model.getPolicy?.jsonBody ?? ''),
+            ) : '-'}';
+      setState(() {});
       Navigator.pop(context);
     });
   }
@@ -2191,10 +2183,9 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     setState(() {});
                                                   return;
                                                 } else {
-                                                  setState(() {
-                                                    FFAppState().isProcessing =
-                                                        true;
-                                                  });
+                                                  FFAppState().isProcessing =
+                                                      true;
+                                                  setState(() {});
                                                 }
 
                                                 showModalBottomSheet(
@@ -2271,14 +2262,13 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState().page5DateNow =
-                                                      '${GetDateTimeAPICall.currentDateYMD(
-                                                    (_model.getDateTimeOutput2
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                });
+                                                FFAppState().page5DateNow =
+                                                    '${GetDateTimeAPICall.currentDateYMD(
+                                                  (_model.getDateTimeOutput2
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                setState(() {});
                                                 _model.getPolicyRefreshButton =
                                                     await GetInsurancePolicyApiCall
                                                         .call(
@@ -2353,236 +2343,229 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     setState(() {});
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .page5QuotationStatus =
-                                                      '${GetInsurancePolicyApiCall.quotationStatus(
-                                                    (_model.getPolicyRefreshButton
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .page5CreatedDate =
-                                                      '${GetInsurancePolicyApiCall.createDate(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.createDate(
+                                                FFAppState()
+                                                        .page5QuotationStatus =
+                                                    '${GetInsurancePolicyApiCall.quotationStatus(
+                                                  (_model.getPolicyRefreshButton
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState().page5CreatedDate =
+                                                    '${GetInsurancePolicyApiCall.createDate(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        )) : '-'}';
-                                                  FFAppState()
-                                                          .page5CompletedDate =
-                                                      '${GetInsurancePolicyApiCall.completeDate(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.completeDate(
+                                                        ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.createDate(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )) : '-'}';
+                                                FFAppState()
+                                                        .page5CompletedDate =
+                                                    '${GetInsurancePolicyApiCall.completeDate(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        )) : '-'}';
-                                                  FFAppState().page5ContractId =
-                                                      '${GetInsurancePolicyApiCall.contractId(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.contractId(
+                                                        ) != '' ? functions.convertToBDYearAndTime(GetInsurancePolicyApiCall.completeDate(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )) : '-'}';
+                                                FFAppState().page5ContractId =
+                                                    '${GetInsurancePolicyApiCall.contractId(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5VmiPolicyNo =
-                                                      '${GetInsurancePolicyApiCall.policyNumber(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.policyNumber(
+                                                        ) != '' ? GetInsurancePolicyApiCall.contractId(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5VmiPolicyNo =
+                                                    '${GetInsurancePolicyApiCall.policyNumber(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5Reason =
-                                                      '${() {
-                                                    if (GetInsurancePolicyApiCall
-                                                            .vmiMessage(
-                                                          (_model.getPolicyRefreshButton
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        '') {
-                                                      return GetInsurancePolicyApiCall
+                                                        ) != '' ? GetInsurancePolicyApiCall.policyNumber(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5Reason =
+                                                    '${() {
+                                                  if (GetInsurancePolicyApiCall
                                                           .vmiMessage(
                                                         (_model.getPolicyRefreshButton
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      );
-                                                    } else if (GetInsurancePolicyApiCall
-                                                            .cmiMessage(
-                                                          (_model.getPolicyRefreshButton
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        ) !=
-                                                        '') {
-                                                      return GetInsurancePolicyApiCall
+                                                      ) !=
+                                                      '') {
+                                                    return GetInsurancePolicyApiCall
+                                                        .vmiMessage(
+                                                      (_model.getPolicyRefreshButton
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    );
+                                                  } else if (GetInsurancePolicyApiCall
                                                           .cmiMessage(
                                                         (_model.getPolicyRefreshButton
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      );
-                                                    } else {
-                                                      return '-';
-                                                    }
-                                                  }()}';
-                                                  FFAppState()
-                                                          .page5PaymentStatus =
-                                                      '${GetInsurancePolicyApiCall.paymenttatus(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.paymenttatus(
+                                                      ) !=
+                                                      '') {
+                                                    return GetInsurancePolicyApiCall
+                                                        .cmiMessage(
+                                                      (_model.getPolicyRefreshButton
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    );
+                                                  } else {
+                                                    return '-';
+                                                  }
+                                                }()}';
+                                                FFAppState()
+                                                        .page5PaymentStatus =
+                                                    '${GetInsurancePolicyApiCall.paymenttatus(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5PaymentType =
-                                                      '${GetInsurancePolicyApiCall.paymentype(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.paymentype(
+                                                        ) != '' ? GetInsurancePolicyApiCall.paymenttatus(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5PaymentType =
+                                                    '${GetInsurancePolicyApiCall.paymentype(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5PaymentChannel =
-                                                      '${GetInsurancePolicyApiCall.paymentChannel(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.paymentChannel(
+                                                        ) != '' ? GetInsurancePolicyApiCall.paymentype(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState()
+                                                        .page5PaymentChannel =
+                                                    '${GetInsurancePolicyApiCall.paymentChannel(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5NetPremium =
-                                                      '${GetInsurancePolicyApiCall.netPremiumTotal(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
+                                                        ) != '' ? GetInsurancePolicyApiCall.paymentChannel(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5NetPremium =
+                                                    '${GetInsurancePolicyApiCall.netPremiumTotal(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5ActPrice =
-                                                      '${GetInsurancePolicyApiCall.actTotal(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.actTotal(
+                                                        ) != '' ? GetInsurancePolicyApiCall.netPremiumTotal(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5ActPrice =
+                                                    '${GetInsurancePolicyApiCall.actTotal(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5GrossTotalNet =
-                                                      '${GetInsurancePolicyApiCall.grossTotalNet(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
+                                                        ) != '' ? GetInsurancePolicyApiCall.actTotal(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState()
+                                                        .page5GrossTotalNet =
+                                                    '${GetInsurancePolicyApiCall.grossTotalNet(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5FirstDue =
-                                                      '${GetInsurancePolicyApiCall.installmentFirstDue(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
+                                                        ) != '' ? GetInsurancePolicyApiCall.grossTotalNet(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5FirstDue =
+                                                    '${GetInsurancePolicyApiCall.installmentFirstDue(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5LastDue =
-                                                      '${GetInsurancePolicyApiCall.installmentLastDue(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
+                                                        ) != '' ? GetInsurancePolicyApiCall.installmentFirstDue(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5LastDue =
+                                                    '${GetInsurancePolicyApiCall.installmentLastDue(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5VloneContNo =
-                                                      '${GetInsurancePolicyApiCall.vloneContNo(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.vloneContNo(
+                                                        ) != '' ? GetInsurancePolicyApiCall.installmentLastDue(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5VloneContNo =
+                                                    '${GetInsurancePolicyApiCall.vloneContNo(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .page5CusIdCardNo =
-                                                      '${GetInsurancePolicyApiCall.vloanCuscod(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.vloanCuscod(
+                                                        ) != '' ? GetInsurancePolicyApiCall.vloneContNo(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5CusIdCardNo =
+                                                    '${GetInsurancePolicyApiCall.vloanCuscod(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState().page5Tenor =
-                                                      '${GetInsurancePolicyApiCall.tenor(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.tenor(
+                                                        ) != '' ? GetInsurancePolicyApiCall.vloanCuscod(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState().page5Tenor =
+                                                    '${GetInsurancePolicyApiCall.tenor(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage5Document =
-                                                      '${GetInsurancePolicyApiCall.vmiDocumentUrl(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.vmiDocumentUrl(
+                                                        ) != '' ? GetInsurancePolicyApiCall.tenor(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState()
+                                                        .insuranceInfoPage5Document =
+                                                    '${GetInsurancePolicyApiCall.vmiDocumentUrl(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage5CMIDocUrl =
-                                                      '${GetInsurancePolicyApiCall.cMIdocumentUrl(
-                                                            (_model.getPolicyRefreshButton
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          ) != '' ? GetInsurancePolicyApiCall.cMIdocumentUrl(
+                                                        ) != '' ? GetInsurancePolicyApiCall.vmiDocumentUrl(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                FFAppState()
+                                                        .insuranceInfoPage5CMIDocUrl =
+                                                    '${GetInsurancePolicyApiCall.cMIdocumentUrl(
                                                           (_model.getPolicyRefreshButton
                                                                   ?.jsonBody ??
                                                               ''),
-                                                        ) : '-'}';
-                                                });
+                                                        ) != '' ? GetInsurancePolicyApiCall.cMIdocumentUrl(
+                                                        (_model.getPolicyRefreshButton
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ) : '-'}';
+                                                setState(() {});
                                                 Navigator.pop(context);
                                                 await Future.delayed(
                                                     const Duration(
                                                         milliseconds: 10000));
-                                                setState(() {
-                                                  FFAppState().isProcessing =
-                                                      false;
-                                                });
+                                                FFAppState().isProcessing =
+                                                    false;
+                                                setState(() {});
                                                 if (_shouldSetState)
                                                   setState(() {});
                                               },
@@ -4584,15 +4567,14 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                         setState(() {});
                                                       return;
                                                     }
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .insuranceInfoPage5Document =
-                                                          '${GetFileVmiApiCall.vmiDocumentUrl(
-                                                        (_model.getFileVmi
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                    });
+                                                    FFAppState()
+                                                            .insuranceInfoPage5Document =
+                                                        '${GetFileVmiApiCall.vmiDocumentUrl(
+                                                      (_model.getFileVmi
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    setState(() {});
                                                     if ((FFAppState()
                                                                 .insuranceInfoCompayId ==
                                                             'TNI') &&
@@ -4794,16 +4776,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage5Document =
-                                                        GetFileVmiApiCall
-                                                            .vmiDocumentUrl(
-                                                      (_model.getFileVmiCopyButton
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage5Document =
+                                                      GetFileVmiApiCall
+                                                          .vmiDocumentUrl(
+                                                    (_model.getFileVmiCopyButton
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!;
+                                                  setState(() {});
                                                   await Clipboard.setData(
                                                       ClipboardData(
                                                           text: FFAppState()
@@ -4969,16 +4950,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage5CMIDocUrl =
-                                                        GetFileCmiApiCall
-                                                            .cMIdocumentUrl(
-                                                      (_model.cmiAPIOutput
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage5CMIDocUrl =
+                                                      GetFileCmiApiCall
+                                                          .cMIdocumentUrl(
+                                                    (_model.cmiAPIOutput
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!;
+                                                  setState(() {});
                                                   await launchURL(FFAppState()
                                                       .insuranceInfoPage5CMIDocUrl);
                                                   if (_shouldSetState)
@@ -5110,16 +5090,15 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       setState(() {});
                                                     return;
                                                   }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage5CMIDocUrl =
-                                                        GetFileCmiApiCall
-                                                            .cMIdocumentUrl(
-                                                      (_model.cmiAPIOutputCopyButton
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage5CMIDocUrl =
+                                                      GetFileCmiApiCall
+                                                          .cMIdocumentUrl(
+                                                    (_model.cmiAPIOutputCopyButton
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )!;
+                                                  setState(() {});
                                                   await Clipboard.setData(
                                                       ClipboardData(
                                                           text: GetFileCmiApiCall

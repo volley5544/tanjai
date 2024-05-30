@@ -1279,32 +1279,30 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   if (_shouldSetState) setState(() {});
                                   return;
                                 }
-                                setState(() {
-                                  FFAppState().AddCustomerPageFirstname =
-                                      _model.firstnameTextController.text;
-                                  FFAppState().AddCustomerPageLastname =
-                                      _model.lastnameTextController.text;
-                                  FFAppState().AddCustomerPagePhone =
-                                      _model.phonenumberTextController.text;
-                                  FFAppState().AddCustomerPageCarRegistration =
-                                      _model.textFieldTextController.text;
-                                  FFAppState().addCustomerQuotationSaveSuccess =
-                                      true;
-                                  FFAppState().insurarerQuotationPdf =
-                                      IbsQuotationsSaveCall.url(
-                                    (_model.aPIQuotationSaveOutput?.jsonBody ??
-                                        ''),
-                                  )!
-                                          .toList()
-                                          .cast<String>();
-                                });
-                                setState(() {
-                                  FFAppState().addToInsurarerQuotationPdf(
-                                      '${IbsQuotationsSaveCall.urlCompare(
-                                    (_model.aPIQuotationSaveOutput?.jsonBody ??
-                                        ''),
-                                  )}');
-                                });
+                                FFAppState().AddCustomerPageFirstname =
+                                    _model.firstnameTextController.text;
+                                FFAppState().AddCustomerPageLastname =
+                                    _model.lastnameTextController.text;
+                                FFAppState().AddCustomerPagePhone =
+                                    _model.phonenumberTextController.text;
+                                FFAppState().AddCustomerPageCarRegistration =
+                                    _model.textFieldTextController.text;
+                                FFAppState().addCustomerQuotationSaveSuccess =
+                                    true;
+                                FFAppState().insurarerQuotationPdf =
+                                    IbsQuotationsSaveCall.url(
+                                  (_model.aPIQuotationSaveOutput?.jsonBody ??
+                                      ''),
+                                )!
+                                        .toList()
+                                        .cast<String>();
+                                setState(() {});
+                                FFAppState().addToInsurarerQuotationPdf(
+                                    '${IbsQuotationsSaveCall.urlCompare(
+                                  (_model.aPIQuotationSaveOutput?.jsonBody ??
+                                      ''),
+                                )}');
+                                setState(() {});
                                 _model.isShowVideoFirebaseBool =
                                     await queryHideInAppContentRecordOnce(
                                   queryBuilder: (hideInAppContentRecord) =>

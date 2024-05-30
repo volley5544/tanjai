@@ -36,13 +36,12 @@ class _NonePackageEditPage1WidgetState
         parameters: {'screen_name': 'NonePackageEditPage1'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().nonePackageInsurerSelectedList = functions
-            .createFalseListByItemNumber(
-                false, FFAppState().nonePackageInsurerDisplayName.length)!
-            .toList()
-            .cast<bool>();
-      });
+      FFAppState().nonePackageInsurerSelectedList = functions
+          .createFalseListByItemNumber(
+              false, FFAppState().nonePackageInsurerDisplayName.length)!
+          .toList()
+          .cast<bool>();
+      setState(() {});
     });
 
     _model.textController ??= TextEditingController(
@@ -555,20 +554,19 @@ class _NonePackageEditPage1WidgetState
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
-                                                    setState(() {
-                                                      FFAppState().nonePackageInsurerSelectedList = functions
-                                                          .setBoolValueListAtIndex(
-                                                              functions
-                                                                  .createFalseListByItemNumber(
-                                                                      false,
-                                                                      FFAppState()
-                                                                          .nonePackageInsurerDisplayName
-                                                                          .length)
-                                                                  ?.toList(),
-                                                              dataListIndex)!
-                                                          .toList()
-                                                          .cast<bool>();
-                                                    });
+                                                    FFAppState().nonePackageInsurerSelectedList = functions
+                                                        .setBoolValueListAtIndex(
+                                                            functions
+                                                                .createFalseListByItemNumber(
+                                                                    false,
+                                                                    FFAppState()
+                                                                        .nonePackageInsurerDisplayName
+                                                                        .length)
+                                                                ?.toList(),
+                                                            dataListIndex)!
+                                                        .toList()
+                                                        .cast<bool>();
+                                                    setState(() {});
                                                   },
                                                   child: Container(
                                                     width: MediaQuery.sizeOf(
@@ -872,23 +870,23 @@ class _NonePackageEditPage1WidgetState
                                             );
                                             return;
                                           }
-                                          setState(() {
-                                            FFAppState()
-                                                .nonePackageInsurerDisplayNameOutput = FFAppState()
-                                                    .nonePackageInsurerDisplayName[
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .nonePackageInsurerSelectedList
-                                                        .toList(),
-                                                    true)];
-                                            FFAppState()
-                                                    .nonePackageInsurerOutputIndex =
-                                                functions.getIndexOfBoolList(
-                                                    FFAppState()
-                                                        .nonePackageInsurerSelectedList
-                                                        .toList(),
-                                                    true);
-                                          });
+                                          FFAppState()
+                                                  .nonePackageInsurerDisplayNameOutput =
+                                              FFAppState()
+                                                      .nonePackageInsurerDisplayName[
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .nonePackageInsurerSelectedList
+                                                          .toList(),
+                                                      true)];
+                                          FFAppState()
+                                                  .nonePackageInsurerOutputIndex =
+                                              functions.getIndexOfBoolList(
+                                                  FFAppState()
+                                                      .nonePackageInsurerSelectedList
+                                                      .toList(),
+                                                  true);
+                                          setState(() {});
                                           if (FFAppState()
                                               .nonePackageFlagRenew) {
                                             context.pushNamed(

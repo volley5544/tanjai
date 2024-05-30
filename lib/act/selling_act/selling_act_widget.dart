@@ -97,15 +97,13 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            setState(() {
-                              FFAppState().actCarType = 'รถยนต์นั่ง';
-                              FFAppState().actCoverType = '110';
-                              FFAppState().actActAmount = '645.21';
-                              FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
-                            });
-                            setState(() {
-                              FFAppState().actSelected = true;
-                            });
+                            FFAppState().actCarType = 'รถยนต์นั่ง';
+                            FFAppState().actCoverType = '110';
+                            FFAppState().actActAmount = '645.21';
+                            FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
+                            setState(() {});
+                            FFAppState().actSelected = true;
+                            setState(() {});
                             context.safePop();
                           },
                           child: Container(
@@ -295,15 +293,13 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            setState(() {
-                              FFAppState().actCarType = 'รถยนต์โดยสาร';
-                              FFAppState().actCoverType = '210';
-                              FFAppState().actActAmount = '1,182.35';
-                              FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
-                            });
-                            setState(() {
-                              FFAppState().actSelected = true;
-                            });
+                            FFAppState().actCarType = 'รถยนต์โดยสาร';
+                            FFAppState().actCoverType = '210';
+                            FFAppState().actActAmount = '1,182.35';
+                            FFAppState().actCoverTypeName = 'การใช้ส่วนบุคคล';
+                            setState(() {});
+                            FFAppState().actSelected = true;
+                            setState(() {});
                             context.safePop();
                           },
                           child: Container(
@@ -475,16 +471,14 @@ class _SellingActWidgetState extends State<SellingActWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            setState(() {
-                              FFAppState().actCarType = 'รถยนต์บรรทุก';
-                              FFAppState().actCoverType = '320';
-                              FFAppState().actActAmount = '967.82';
-                              FFAppState().actCoverTypeName =
-                                  'การใช้เพื่อพาณิชย์';
-                            });
-                            setState(() {
-                              FFAppState().actSelected = true;
-                            });
+                            FFAppState().actCarType = 'รถยนต์บรรทุก';
+                            FFAppState().actCoverType = '320';
+                            FFAppState().actActAmount = '967.82';
+                            FFAppState().actCoverTypeName =
+                                'การใช้เพื่อพาณิชย์';
+                            setState(() {});
+                            FFAppState().actSelected = true;
+                            setState(() {});
                             context.safePop();
                           },
                           child: Container(

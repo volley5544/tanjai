@@ -71,12 +71,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().insuranceInfoEffectiveDateAct = '';
-        FFAppState().insuranceInfoHaveLicenseBool = false;
-        FFAppState().insuranceInfoPage3ImageIdCard = '';
-        FFAppState().renewPaymentType = '';
-      });
+      FFAppState().insuranceInfoEffectiveDateAct = '';
+      FFAppState().insuranceInfoHaveLicenseBool = false;
+      FFAppState().insuranceInfoPage3ImageIdCard = '';
+      FFAppState().renewPaymentType = '';
+      setState(() {});
       if (!true) {
         _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -127,20 +126,19 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().insuranceInfoImgUrlInsurerList =
-              InsuranceRequestGetInsurerAPICall.insurerLogo(
-            (_model.getInsurer?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().insuranceInfoCompanyIdList =
-              InsuranceRequestGetInsurerAPICall.companyShortName(
-            (_model.getInsurer?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
+        FFAppState().insuranceInfoImgUrlInsurerList =
+            InsuranceRequestGetInsurerAPICall.insurerLogo(
+          (_model.getInsurer?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().insuranceInfoCompanyIdList =
+            InsuranceRequestGetInsurerAPICall.companyShortName(
+          (_model.getInsurer?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        setState(() {});
       }
       _model.getAppDetailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: widget.quotationId,
@@ -193,65 +191,60 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoQuotationId =
-            IbsApplicationsDetailCall.quotationId(
+      FFAppState().insuranceInfoQuotationId =
+          IbsApplicationsDetailCall.quotationId(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoFirstName =
+          IbsApplicationsDetailCall.firstnameth(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoLastName = IbsApplicationsDetailCall.lastnameth(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoPhonenumber = IbsApplicationsDetailCall.mobile1(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoGarageType =
+          IbsApplicationsDetailCall.garagetypename(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .first;
+      FFAppState().insuranceInfocoverType =
+          IbsApplicationsDetailCall.covertypename(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .first;
+      FFAppState().insuranceInfoPage4NetPremiumTotal =
+          IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoActAmount = IbsApplicationsDetailCall.actAmount(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!
+          .first;
+      FFAppState().insuranceInfoGrosstotalNet =
+          IbsApplicationsDetailCall.grosstotalnet(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoApplicationType =
+          IbsApplicationsDetailCall.quotationtypebak(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().nonePackageWorkType = '${IbsApplicationsDetailCall.workType(
+            (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+          ) == '' ? '' : IbsApplicationsDetailCall.workType(
           (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoFirstName =
-            IbsApplicationsDetailCall.firstnameth(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoLastName =
-            IbsApplicationsDetailCall.lastnameth(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoPhonenumber =
-            IbsApplicationsDetailCall.mobile1(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoGarageType =
-            IbsApplicationsDetailCall.garagetypename(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!
-                .first;
-        FFAppState().insuranceInfocoverType =
-            IbsApplicationsDetailCall.covertypename(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!
-                .first;
-        FFAppState().insuranceInfoPage4NetPremiumTotal =
-            IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoActAmount =
-            IbsApplicationsDetailCall.actAmount(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!
-                .first;
-        FFAppState().insuranceInfoGrosstotalNet =
-            IbsApplicationsDetailCall.grosstotalnet(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoApplicationType =
-            IbsApplicationsDetailCall.quotationtypebak(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().nonePackageWorkType =
-            '${IbsApplicationsDetailCall.workType(
-                  (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.workType(
-                (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoInsuranceLogo =
-            IbsApplicationsDetailCall.insurerlogo(
-          (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
-        )!
-                .first;
-      });
+        )}';
+      FFAppState().insuranceInfoInsuranceLogo =
+          IbsApplicationsDetailCall.insurerlogo(
+        (_model.getAppDetailAPIOutput?.jsonBody ?? ''),
+      )!
+              .first;
+      setState(() {});
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
@@ -301,57 +294,54 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().addAddressLicenseEmployeeId =
-            GetLicenseListCall.employeeid(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addAddressLicenseTitle = GetLicenseListCall.title(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseFirstName = GetLicenseListCall.firstname(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseLastName = GetLicenseListCall.lastName(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseLicenseId = GetLicenseListCall.licenseid(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseExpiredDate =
-            GetLicenseListCall.expireddate(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addAddressLicenseMobilePhone =
-            GetLicenseListCall.mobilephone(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addaddresslicensenBranch = GetLicenseListCall.branchcode(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().addAddressLicenseEmployeeId = GetLicenseListCall.employeeid(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseTitle = GetLicenseListCall.title(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseFirstName = GetLicenseListCall.firstname(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseLastName = GetLicenseListCall.lastName(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseLicenseId = GetLicenseListCall.licenseid(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseExpiredDate =
+          GetLicenseListCall.expireddate(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().addAddressLicenseMobilePhone =
+          GetLicenseListCall.mobilephone(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().addaddresslicensenBranch = GetLicenseListCall.branchcode(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      setState(() {});
       if (FFAppState()
           .addAddressLicenseEmployeeId
           .contains(FFAppState().employeeID)) {
-        setState(() {
-          FFAppState().insuranceInfoHaveLicenseBool = true;
-        });
+        FFAppState().insuranceInfoHaveLicenseBool = true;
+        setState(() {});
         _model.profileImgOutputPage = await GetProfileImageCall.call(
           employeeCode: FFAppState().employeeID,
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -402,28 +392,27 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().insuranceInfoLicenseEmployeeId =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseTitle =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseFirstName =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseLastName =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseLicenseId =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseExpiredDate =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseMobilePhone =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseImg =
-              '${GetProfileImageCall.imgProfile(
-            (_model.profileImgOutputPage?.jsonBody ?? ''),
-          )}';
-          FFAppState().insuranceInfoLicenseBranch =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
-        });
+        FFAppState().insuranceInfoLicenseEmployeeId =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseTitle =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseFirstName =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseLastName =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseLicenseId =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseExpiredDate =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseMobilePhone =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseImg =
+            '${GetProfileImageCall.imgProfile(
+          (_model.profileImgOutputPage?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoLicenseBranch =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
+        setState(() {});
         setState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
@@ -1548,12 +1537,11 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             }
                                                           }
 
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .insuranceInfoPage3ImageIdCard =
-                                                                _model
-                                                                    .uploadedFileUrl;
-                                                          });
+                                                          FFAppState()
+                                                                  .insuranceInfoPage3ImageIdCard =
+                                                              _model
+                                                                  .uploadedFileUrl;
+                                                          setState(() {});
                                                           if (_model.uploadedFileUrl !=
                                                                   null &&
                                                               _model.uploadedFileUrl !=
@@ -2375,11 +2363,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           .hideKeyboardAction(
                                                         context,
                                                       );
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoHaveLicenseBool =
-                                                            false;
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoHaveLicenseBool =
+                                                          false;
+                                                      setState(() {});
                                                       showModalBottomSheet(
                                                         isScrollControlled:
                                                             true,
@@ -2453,11 +2440,10 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           .contains(_model
                                                               .licenseCodeTextController
                                                               .text)) {
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoHaveLicenseBool =
-                                                              true;
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoHaveLicenseBool =
+                                                            true;
+                                                        setState(() {});
                                                       } else {
                                                         await showDialog(
                                                           context: context,
@@ -2481,31 +2467,29 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                             );
                                                           },
                                                         );
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoHaveLicenseBool =
-                                                              false;
-                                                        });
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseEmployeeId = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseTitle = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseFirstName = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseLastName = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseLicenseId = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseExpiredDate = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseMobilePhone = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseImg = '';
-                                                          FFAppState()
-                                                              .insuranceInfoLicenseBranch = '';
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoHaveLicenseBool =
+                                                            false;
+                                                        setState(() {});
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseEmployeeId = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseTitle = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseFirstName = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseLastName = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseLicenseId = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseExpiredDate = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseMobilePhone = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseImg = '';
+                                                        FFAppState()
+                                                            .insuranceInfoLicenseBranch = '';
+                                                        setState(() {});
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
                                                           setState(() {});
@@ -2592,39 +2576,38 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                           setState(() {});
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseEmployeeId =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseTitle =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseFirstName =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseLastName =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseLicenseId =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseExpiredDate =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseMobilePhone =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseImg =
-                                                            '${GetProfileImageCall.imgProfile(
-                                                          (_model.profileImgOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                        FFAppState()
-                                                                .insuranceInfoLicenseBranch =
-                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseEmployeeId =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseTitle =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseFirstName =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseLastName =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseLicenseId =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseExpiredDate =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseMobilePhone =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseImg =
+                                                          '${GetProfileImageCall.imgProfile(
+                                                        (_model.profileImgOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      FFAppState()
+                                                              .insuranceInfoLicenseBranch =
+                                                          '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
+                                                      setState(() {});
                                                       Navigator.pop(context);
                                                       if (_shouldSetState)
                                                         setState(() {});

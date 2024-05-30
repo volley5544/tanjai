@@ -62,11 +62,10 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().filterInsurerList = [];
-        FFAppState().filterCoverTypeList = [];
-        FFAppState().filterGarageTypeList = [];
-      });
+      FFAppState().filterInsurerList = [];
+      FFAppState().filterCoverTypeList = [];
+      FFAppState().filterGarageTypeList = [];
+      setState(() {});
       Navigator.pop(context);
     });
 
@@ -122,13 +121,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                setState(() {
-                  FFAppState().selectInsurerList = functions
-                      .createFalseListByItemNumber(
-                          false, FFAppState().searchSerialName.length)!
-                      .toList()
-                      .cast<bool>();
-                });
+                FFAppState().selectInsurerList = functions
+                    .createFalseListByItemNumber(
+                        false, FFAppState().searchSerialName.length)!
+                    .toList()
+                    .cast<bool>();
+                setState(() {});
                 context.safePop();
               },
               child: Icon(
@@ -634,13 +632,12 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                               20.0, 0.0, 20.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().selectInsurerList = functions
-                                    .createFalseListByItemNumber(false,
-                                        FFAppState().searchSerialName.length)!
-                                    .toList()
-                                    .cast<bool>();
-                              });
+                              FFAppState().selectInsurerList = functions
+                                  .createFalseListByItemNumber(false,
+                                      FFAppState().searchSerialName.length)!
+                                  .toList()
+                                  .cast<bool>();
+                              setState(() {});
                               context.safePop();
                             },
                             text: 'ค้นหา',

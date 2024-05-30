@@ -382,14 +382,13 @@ class _EffectiveDatePickerComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoEffectiveDateInsure =
-                                            functions.getDateFormat(
-                                                functions.parseStringToDatetime(
-                                                    _model.datePicked1
-                                                        ?.toString()))!;
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoEffectiveDateInsure =
+                                          functions.getDateFormat(
+                                              functions.parseStringToDatetime(
+                                                  _model.datePicked1
+                                                      ?.toString()))!;
+                                      setState(() {});
                                     } else if (widget.actFlag!
                                         ? (widget.effectiveDateInsurerFlag! &&
                                             !widget.effectiveDateActFlag!)
@@ -467,14 +466,13 @@ class _EffectiveDatePickerComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoEffectiveDateAct =
-                                            functions.getDateFormat(
-                                                functions.parseStringToDatetime(
-                                                    _model.datePicked2
-                                                        ?.toString()))!;
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoEffectiveDateAct =
+                                          functions.getDateFormat(
+                                              functions.parseStringToDatetime(
+                                                  _model.datePicked2
+                                                      ?.toString()))!;
+                                      setState(() {});
                                     } else if (widget.actFlag!
                                         ? (!widget.effectiveDateInsurerFlag! &&
                                             widget.effectiveDateActFlag!)
@@ -550,14 +548,13 @@ class _EffectiveDatePickerComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoEffectiveDateInsure =
-                                            functions.getDateFormat(
-                                                functions.parseStringToDatetime(
-                                                    _model.datePicked1
-                                                        ?.toString()))!;
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoEffectiveDateInsure =
+                                          functions.getDateFormat(
+                                              functions.parseStringToDatetime(
+                                                  _model.datePicked1
+                                                      ?.toString()))!;
+                                      setState(() {});
                                     } else {
                                       if (!(_model.datePicked1 != null)) {
                                         await showDialog(
@@ -705,20 +702,19 @@ class _EffectiveDatePickerComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoEffectiveDateInsure =
-                                            functions.getDateFormat(
-                                                functions.parseStringToDatetime(
-                                                    _model.datePicked1
-                                                        ?.toString()))!;
-                                        FFAppState()
-                                                .insuranceInfoEffectiveDateAct =
-                                            functions.getDateFormat(
-                                                functions.parseStringToDatetime(
-                                                    _model.datePicked2
-                                                        ?.toString()))!;
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoEffectiveDateInsure =
+                                          functions.getDateFormat(
+                                              functions.parseStringToDatetime(
+                                                  _model.datePicked1
+                                                      ?.toString()))!;
+                                      FFAppState()
+                                              .insuranceInfoEffectiveDateAct =
+                                          functions.getDateFormat(
+                                              functions.parseStringToDatetime(
+                                                  _model.datePicked2
+                                                      ?.toString()))!;
+                                      setState(() {});
                                     }
 
                                     Navigator.pop(context);

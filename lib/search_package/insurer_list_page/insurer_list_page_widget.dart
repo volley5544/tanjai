@@ -166,209 +166,204 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().searchSerialName = TelePackageSearchMCAPICall.serialName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchSumInsured = TelePackageSearchMCAPICall.sumInsured(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchCoverType = TelePackageSearchMCAPICall.coverType(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchGrossTotal = TelePackageSearchMCAPICall.grossTotal(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchExpDate = TelePackageSearchMCAPICall.expiryDate(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().tpbiAccident = TelePackageSearchMCAPICall.tpbiAccident(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().tpbiPerson = TelePackageSearchMCAPICall.tpbiPerson(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleModelName = TelePackageSearchMCAPICall.modelName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleBrandName = TelePackageSearchMCAPICall.brandName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchGarageType = TelePackageSearchMCAPICall.garageType(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchRegisYearList =
-              TelePackageSearchMCAPICall.registrationYear(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchFullName = TelePackageSearchMCAPICall.fullName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchTppd = TelePackageSearchMCAPICall.tppd(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchPa = TelePackageSearchMCAPICall.pa(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().companyId = TelePackageSearchMCAPICall.companyId(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleBrandID = TelePackageSearchMCAPICall.brandCode(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleModelCode = TelePackageSearchMCAPICall.modelCode(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchActAmount = TelePackageSearchMCAPICall.actAmount(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchShortName = TelePackageSearchMCAPICall.shortName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchLogo = TelePackageSearchMCAPICall.logo(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchAccessoryList =
-              TelePackageSearchMCAPICall.accessory(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchInsurerCondition =
-              TelePackageSearchMCAPICall.insurerCondition(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
-        setState(() {
-          FFAppState().effectiveDate = TelePackageSearchMCAPICall.effectiveDate(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchId = TelePackageSearchMCAPICall.id(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<int>();
-          FFAppState().searchPackageId = TelePackageSearchMCAPICall.packageId(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().serachPackageName =
-              TelePackageSearchMCAPICall.packageName(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchStamp = TelePackageSearchMCAPICall.stamp(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchVat = TelePackageSearchMCAPICall.vat(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchNetPremium = TelePackageSearchMCAPICall.netPremium(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchSeat = TelePackageSearchMCAPICall.seat(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchRoadsideAssistance =
-              TelePackageSearchMCAPICall.roadsideAssistance(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchbb = TelePackageSearchMCAPICall.bb(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchme = TelePackageSearchMCAPICall.me(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchFlood = TelePackageSearchMCAPICall.flood(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchDeductible = TelePackageSearchMCAPICall.deductible(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchContractProcessstate =
-              TelePackageSearchMCAPICall.contractProcessstate(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchcc = TelePackageSearchMCAPICall.cc(
-            (_model.packageAPIMCOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
-        setState(() {
-          FFAppState().selectInsurerList = functions
-              .createFalseListByItemNumber(
-                  false, FFAppState().searchSerialName.length)!
-              .toList()
-              .cast<bool>();
-          FFAppState().addCustomerQuotationSaveSuccess = false;
-        });
+        FFAppState().searchSerialName = TelePackageSearchMCAPICall.serialName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchSumInsured = TelePackageSearchMCAPICall.sumInsured(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchCoverType = TelePackageSearchMCAPICall.coverType(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchGrossTotal = TelePackageSearchMCAPICall.grossTotal(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchExpDate = TelePackageSearchMCAPICall.expiryDate(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().tpbiAccident = TelePackageSearchMCAPICall.tpbiAccident(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().tpbiPerson = TelePackageSearchMCAPICall.tpbiPerson(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleModelName = TelePackageSearchMCAPICall.modelName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleBrandName = TelePackageSearchMCAPICall.brandName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchGarageType = TelePackageSearchMCAPICall.garageType(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchRegisYearList =
+            TelePackageSearchMCAPICall.registrationYear(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchFullName = TelePackageSearchMCAPICall.fullName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchTppd = TelePackageSearchMCAPICall.tppd(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchPa = TelePackageSearchMCAPICall.pa(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().companyId = TelePackageSearchMCAPICall.companyId(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleBrandID = TelePackageSearchMCAPICall.brandCode(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleModelCode = TelePackageSearchMCAPICall.modelCode(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchActAmount = TelePackageSearchMCAPICall.actAmount(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchShortName = TelePackageSearchMCAPICall.shortName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchLogo = TelePackageSearchMCAPICall.logo(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchAccessoryList = TelePackageSearchMCAPICall.accessory(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchInsurerCondition =
+            TelePackageSearchMCAPICall.insurerCondition(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        setState(() {});
+        FFAppState().effectiveDate = TelePackageSearchMCAPICall.effectiveDate(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchId = TelePackageSearchMCAPICall.id(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<int>();
+        FFAppState().searchPackageId = TelePackageSearchMCAPICall.packageId(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().serachPackageName = TelePackageSearchMCAPICall.packageName(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchStamp = TelePackageSearchMCAPICall.stamp(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchVat = TelePackageSearchMCAPICall.vat(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchNetPremium = TelePackageSearchMCAPICall.netPremium(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchSeat = TelePackageSearchMCAPICall.seat(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchRoadsideAssistance =
+            TelePackageSearchMCAPICall.roadsideAssistance(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchbb = TelePackageSearchMCAPICall.bb(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchme = TelePackageSearchMCAPICall.me(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchFlood = TelePackageSearchMCAPICall.flood(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchDeductible = TelePackageSearchMCAPICall.deductible(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchContractProcessstate =
+            TelePackageSearchMCAPICall.contractProcessstate(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchcc = TelePackageSearchMCAPICall.cc(
+          (_model.packageAPIMCOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        setState(() {});
+        FFAppState().selectInsurerList = functions
+            .createFalseListByItemNumber(
+                false, FFAppState().searchSerialName.length)!
+            .toList()
+            .cast<bool>();
+        FFAppState().addCustomerQuotationSaveSuccess = false;
+        setState(() {});
         Navigator.pop(context);
       } else {
         _model.packageAPIOutput = await TelePackageSearchAPICall.call(
@@ -448,207 +443,204 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().searchSerialName = TelePackageSearchAPICall.serialName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchSumInsured = TelePackageSearchAPICall.sumInsured(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchCoverType = TelePackageSearchAPICall.coverType(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchGrossTotal = TelePackageSearchAPICall.grossTotal(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchExpDate = TelePackageSearchAPICall.expiryDate(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().tpbiAccident = TelePackageSearchAPICall.tpbiAccident(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().tpbiPerson = TelePackageSearchAPICall.tpbiPerson(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleModelName = TelePackageSearchAPICall.modelName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleBrandName = TelePackageSearchAPICall.brandName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchGarageType = TelePackageSearchAPICall.garageType(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchRegisYearList =
-              TelePackageSearchAPICall.registrationYear(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchFullName = TelePackageSearchAPICall.fullName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchTppd = TelePackageSearchAPICall.tppd(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchPa = TelePackageSearchAPICall.pa(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().companyId = TelePackageSearchAPICall.companyId(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleBrandID = TelePackageSearchAPICall.brandCode(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().teleModelCode = TelePackageSearchAPICall.modelCode(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchActAmount = TelePackageSearchAPICall.actAmount(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchShortName = TelePackageSearchAPICall.shortName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchLogo = TelePackageSearchAPICall.logo(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchAccessoryList = TelePackageSearchAPICall.accessory(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchInsurerCondition =
-              TelePackageSearchAPICall.insurerCondition(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
-        setState(() {
-          FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchId = TelePackageSearchAPICall.id(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<int>();
-          FFAppState().searchPackageId = TelePackageSearchAPICall.packageId(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().serachPackageName = TelePackageSearchAPICall.packageName(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchStamp = TelePackageSearchAPICall.stamp(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchVat = TelePackageSearchAPICall.vat(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchNetPremium = TelePackageSearchAPICall.netPremium(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchSeat = TelePackageSearchAPICall.seat(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchRoadsideAssistance =
-              TelePackageSearchAPICall.roadsideAssistance(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchbb = TelePackageSearchAPICall.bb(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchme = TelePackageSearchAPICall.me(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchFlood = TelePackageSearchAPICall.flood(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchDeductible = TelePackageSearchAPICall.deductible(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().searchContractProcessstate =
-              TelePackageSearchAPICall.contractProcessstate(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().searchcc = TelePackageSearchAPICall.cc(
-            (_model.packageAPIOutput?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-        });
-        setState(() {
-          FFAppState().selectInsurerList = functions
-              .createFalseListByItemNumber(
-                  false, FFAppState().searchSerialName.length)!
-              .toList()
-              .cast<bool>();
-          FFAppState().addCustomerQuotationSaveSuccess = false;
-        });
+        FFAppState().searchSerialName = TelePackageSearchAPICall.serialName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchSumInsured = TelePackageSearchAPICall.sumInsured(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchCoverType = TelePackageSearchAPICall.coverType(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchGrossTotal = TelePackageSearchAPICall.grossTotal(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchExpDate = TelePackageSearchAPICall.expiryDate(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().tpbiAccident = TelePackageSearchAPICall.tpbiAccident(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().tpbiPerson = TelePackageSearchAPICall.tpbiPerson(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleModelName = TelePackageSearchAPICall.modelName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleBrandName = TelePackageSearchAPICall.brandName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchGarageType = TelePackageSearchAPICall.garageType(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchRegisYearList =
+            TelePackageSearchAPICall.registrationYear(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchFullName = TelePackageSearchAPICall.fullName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchTppd = TelePackageSearchAPICall.tppd(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchPa = TelePackageSearchAPICall.pa(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().companyId = TelePackageSearchAPICall.companyId(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleBrandID = TelePackageSearchAPICall.brandCode(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().teleModelCode = TelePackageSearchAPICall.modelCode(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchActAmount = TelePackageSearchAPICall.actAmount(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchShortName = TelePackageSearchAPICall.shortName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchLogo = TelePackageSearchAPICall.logo(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchAccessoryList = TelePackageSearchAPICall.accessory(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchInsurerCondition =
+            TelePackageSearchAPICall.insurerCondition(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        setState(() {});
+        FFAppState().effectiveDate = TelePackageSearchAPICall.effectiveDate(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchId = TelePackageSearchAPICall.id(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<int>();
+        FFAppState().searchPackageId = TelePackageSearchAPICall.packageId(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().serachPackageName = TelePackageSearchAPICall.packageName(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchStamp = TelePackageSearchAPICall.stamp(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchVat = TelePackageSearchAPICall.vat(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchNetPremium = TelePackageSearchAPICall.netPremium(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchSeat = TelePackageSearchAPICall.seat(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchRoadsideAssistance =
+            TelePackageSearchAPICall.roadsideAssistance(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchbb = TelePackageSearchAPICall.bb(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchme = TelePackageSearchAPICall.me(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchFlood = TelePackageSearchAPICall.flood(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchDeductible = TelePackageSearchAPICall.deductible(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().searchContractProcessstate =
+            TelePackageSearchAPICall.contractProcessstate(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().searchcc = TelePackageSearchAPICall.cc(
+          (_model.packageAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        setState(() {});
+        FFAppState().selectInsurerList = functions
+            .createFalseListByItemNumber(
+                false, FFAppState().searchSerialName.length)!
+            .toList()
+            .cast<bool>();
+        FFAppState().addCustomerQuotationSaveSuccess = false;
+        setState(() {});
         Navigator.pop(context);
       }
     });
@@ -1054,18 +1046,17 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                         }
                                                         HapticFeedback
                                                             .mediumImpact();
-                                                        setState(() {
-                                                          FFAppState()
-                                                              .updateSelectInsurerListAtIndex(
-                                                            listinsuranceIndex,
-                                                            (_) => FFAppState()
-                                                                            .selectInsurerList[
-                                                                        listinsuranceIndex] ==
-                                                                    true
-                                                                ? false
-                                                                : true,
-                                                          );
-                                                        });
+                                                        FFAppState()
+                                                            .updateSelectInsurerListAtIndex(
+                                                          listinsuranceIndex,
+                                                          (_) => FFAppState()
+                                                                          .selectInsurerList[
+                                                                      listinsuranceIndex] ==
+                                                                  true
+                                                              ? false
+                                                              : true,
+                                                        );
+                                                        setState(() {});
                                                       },
                                                       child: Container(
                                                         width: 100.0,
@@ -1703,11 +1694,11 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                                                         }.withoutNulls,
                                                                       );
 
+                                                                      FFAppState()
+                                                                              .addCustomerQuotationSaveSuccess =
+                                                                          false;
                                                                       setState(
-                                                                          () {
-                                                                        FFAppState().addCustomerQuotationSaveSuccess =
-                                                                            false;
-                                                                      });
+                                                                          () {});
                                                                     },
                                                                     text:
                                                                         'รายละเอียด',
@@ -2225,10 +2216,9 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                               }.withoutNulls,
                             );
 
-                            setState(() {
-                              FFAppState().addCustomerQuotationSaveSuccess =
-                                  false;
-                            });
+                            FFAppState().addCustomerQuotationSaveSuccess =
+                                false;
+                            setState(() {});
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
@@ -2360,399 +2350,388 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                             onPressed: () async {
                                               if (columnHideInAppContentRecord!
                                                   .isShowContent) {}
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageFlagCarrier =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageVehicleType =
-                                                    'กรุณาเลือกประเภทรถ';
-                                                FFAppState()
-                                                        .nonePackageBrandName =
-                                                    'กรุณาเลือกยี่ห้อรถ';
-                                                FFAppState()
-                                                    .nonePackageBrandId = '';
-                                                FFAppState()
-                                                        .nonePackageModelName =
-                                                    'กรุณากรอกรุ่นรถ';
-                                                FFAppState()
-                                                    .nonePackageModelCode = '';
-                                                FFAppState().nonePackageYear =
-                                                    'กรุณาเลือกปีจดทะเบียน';
-                                                FFAppState()
-                                                    .nonePackageUsedTypeId = '';
-                                                FFAppState()
-                                                    .nonePackageSearchModelList = [];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageUsedTypeName =
-                                                    'กรุณาเลือกลักษณะการใช้รถ';
-                                                FFAppState()
-                                                        .nonePackageCusFullname =
-                                                    'กรุณากรอกชื่อ';
-                                                FFAppState()
-                                                        .nonePackageCusPhone =
-                                                    'กรุณากรอกเบอร์โทรศัพท์';
-                                                FFAppState().nonePackagePlate =
-                                                    '';
-                                                FFAppState()
-                                                        .nonePackageProvince =
-                                                    'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                FFAppState()
-                                                    .nonePackageProvinceId = '';
-                                                FFAppState()
-                                                        .nonePackageSumInsured =
-                                                    'กรุณากรอกทุนประกัน';
-                                                FFAppState()
-                                                    .nonePackageFlagAct = true;
-                                                FFAppState()
-                                                        .nonePackageIsBrandSelect =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageSearchModelIdList = [];
-                                                FFAppState()
-                                                        .nonePackageCarrierType =
-                                                    'กรุณาเลือกประเภทตู้เหล็ก';
-                                                FFAppState()
-                                                        .nonePackageFlagCoop =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageTruckPart =
-                                                    'กรุณาเลือกส่วนของรถบรรทุก';
-                                                FFAppState()
-                                                        .nonePackageCusMembership =
-                                                    'กรุณาเลือกประเภทลูกค้า';
-                                                FFAppState()
-                                                        .nonePackageTruckCurrentPrice =
-                                                    'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                FFAppState()
-                                                        .nonePackagePlateAdditional =
-                                                    'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                FFAppState()
-                                                        .nonePackageTruckCarryPurpose =
-                                                    'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                FFAppState()
-                                                        .nonePackageTrailerSumInsured =
-                                                    'กรุณากรอกทุนประกันหางพ่วง';
-                                                FFAppState()
-                                                    .nonePackageCarrierPrice = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerIdList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerCodeList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerNameList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerDisplayName = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerIdOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerCodeOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerNameOutputList = [];
-                                                FFAppState().nonePackageReason =
-                                                    [];
-                                                FFAppState()
-                                                    .nonePackageInsurerSelectedList = [];
-                                                FFAppState()
-                                                    .nonePackageCoverTypeId = '';
-                                                FFAppState()
-                                                    .nonePackageCoverTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageCoverTypeName =
-                                                    'กรุณาเลือกประเภทชั้นประกัน';
-                                                FFAppState()
-                                                    .nonePackageGarageTypeId = '';
-                                                FFAppState()
-                                                        .nonePackageGarageTypeName =
-                                                    'กรุณาเลือกประเภทการซ่อม';
-                                                FFAppState()
-                                                    .nonePackageGarageTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageFlagRenew =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageOldVmiExpDate =
-                                                    'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                FFAppState().nonePackageOldVmi =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageOldVmiImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageIdCardImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageRenewImageUrlList = [];
-                                                FFAppState()
-                                                    .nonePackageRenewImageCheckList = [];
-                                                FFAppState()
-                                                        .nonePackageOldVmiImageUploadedCheck =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageIdCardWatermarkUploadedCheck =
-                                                    false;
-                                                FFAppState().buttonOrdinary =
-                                                    false;
-                                                FFAppState().buttonCorporation =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageCustomerType = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerDisplayNameOutput = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther = [];
-                                                FFAppState()
-                                                    .nonePackageImageFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRightFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRight = [];
-                                                FFAppState()
-                                                    .nonePackageImageRightRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeftRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeft = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeftFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRoof = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFront = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFront = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRight = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeft = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFront = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerOutputIndex = 0;
-                                                FFAppState().nonePackageLeadId =
-                                                    '';
-                                                FFAppState().nonePackageLeadNo =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageCarImageUploadedList = [];
-                                                FFAppState()
-                                                    .nonePackageImageOldVmi = [];
-                                                FFAppState()
-                                                    .nonePackageImageCompanyBook = [];
-                                                FFAppState()
-                                                    .nonePackageImageIdCard = [];
-                                                FFAppState()
-                                                    .nonePackageImageBlueBook = [];
-                                                FFAppState()
-                                                        .nonePackageCompanyBookImageUploadedCheck =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageCompanyBookImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRoofUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageBlueBookUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther1 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther2 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther3 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther4 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther5 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOtherNameList = [];
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerShortName = '';
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerName = '';
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerShortNameList = [];
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerNameList = [];
-                                                FFAppState()
-                                                    .nonePackageFlagOldVmi = '';
-                                                FFAppState()
-                                                    .nonePackageWorkType = '';
-                                                FFAppState().nonePackageRemark =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageBranchCode = '';
-                                                FFAppState()
-                                                    .nonePackageBranchName = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameDupList = [];
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageFlagRenew =
-                                                    true;
-                                                FFAppState()
-                                                        .nonePackageOldVmiImageUploadedCheck =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageIdCardWatermarkUploadedCheck =
-                                                    false;
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageVehicleType =
-                                                    FFAppState()
-                                                        .insuranceVehicleTypeDropDown;
-                                                FFAppState()
-                                                        .nonePackageBrandName =
-                                                    FFAppState()
-                                                        .insuranceBasicBrandName;
-                                                FFAppState()
-                                                        .nonePackageBrandId =
-                                                    FFAppState()
-                                                        .insuranceBasicBrandId;
-                                                FFAppState()
-                                                        .nonePackageModelName =
-                                                    FFAppState()
-                                                        .insuranceBasicModelName;
-                                                FFAppState()
-                                                        .nonePackageModelCode =
-                                                    FFAppState()
-                                                        .insuranceBasicModelId;
-                                                FFAppState().nonePackageYear =
-                                                    FFAppState()
-                                                        .insuranceBasicYear;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeId =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeId;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeCode =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeCode;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeName =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeName;
-                                                FFAppState()
-                                                        .nonePackageSearchModelList =
-                                                    FFAppState()
-                                                        .insuranceBasicModelNameList
-                                                        .toList()
-                                                        .cast<String>();
-                                                FFAppState()
-                                                        .nonePackageSearchModelIdList =
-                                                    FFAppState()
-                                                        .insuranceBasicModelIdList
-                                                        .toList()
-                                                        .cast<String>();
-                                                FFAppState()
-                                                        .nonePackageIsBrandSelect =
-                                                    FFAppState()
-                                                        .searchPackageCheckFilled[1];
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageOldVmiExpDate =
-                                                    FFAppState()
-                                                        .insuranceBasicOldVmiExpDate;
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                    .nonePackageImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRoofUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageBlueBookUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther1 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther2 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther3 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther4 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther5 = '';
-                                                FFAppState()
-                                                    .nonePackageIdCardImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageOldVmiImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageCompanyBookImageUrl = '';
-                                              });
+                                              FFAppState()
+                                                      .nonePackageFlagCarrier =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageVehicleType =
+                                                  'กรุณาเลือกประเภทรถ';
+                                              FFAppState()
+                                                      .nonePackageBrandName =
+                                                  'กรุณาเลือกยี่ห้อรถ';
+                                              FFAppState().nonePackageBrandId =
+                                                  '';
+                                              FFAppState()
+                                                      .nonePackageModelName =
+                                                  'กรุณากรอกรุ่นรถ';
+                                              FFAppState()
+                                                  .nonePackageModelCode = '';
+                                              FFAppState().nonePackageYear =
+                                                  'กรุณาเลือกปีจดทะเบียน';
+                                              FFAppState()
+                                                  .nonePackageUsedTypeId = '';
+                                              FFAppState()
+                                                  .nonePackageSearchModelList = [];
+                                              FFAppState()
+                                                  .nonePackageUsedTypeCode = '';
+                                              FFAppState()
+                                                      .nonePackageUsedTypeName =
+                                                  'กรุณาเลือกลักษณะการใช้รถ';
+                                              FFAppState()
+                                                      .nonePackageCusFullname =
+                                                  'กรุณากรอกชื่อ';
+                                              FFAppState().nonePackageCusPhone =
+                                                  'กรุณากรอกเบอร์โทรศัพท์';
+                                              FFAppState().nonePackagePlate =
+                                                  '';
+                                              FFAppState().nonePackageProvince =
+                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
+                                              FFAppState()
+                                                  .nonePackageProvinceId = '';
+                                              FFAppState()
+                                                      .nonePackageSumInsured =
+                                                  'กรุณากรอกทุนประกัน';
+                                              FFAppState().nonePackageFlagAct =
+                                                  true;
+                                              FFAppState()
+                                                      .nonePackageIsBrandSelect =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageSearchModelIdList = [];
+                                              FFAppState()
+                                                      .nonePackageCarrierType =
+                                                  'กรุณาเลือกประเภทตู้เหล็ก';
+                                              FFAppState().nonePackageFlagCoop =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageTruckPart =
+                                                  'กรุณาเลือกส่วนของรถบรรทุก';
+                                              FFAppState()
+                                                      .nonePackageCusMembership =
+                                                  'กรุณาเลือกประเภทลูกค้า';
+                                              FFAppState()
+                                                      .nonePackageTruckCurrentPrice =
+                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                              FFAppState()
+                                                      .nonePackagePlateAdditional =
+                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                              FFAppState()
+                                                      .nonePackageTruckCarryPurpose =
+                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
+                                              FFAppState()
+                                                      .nonePackageTrailerSumInsured =
+                                                  'กรุณากรอกทุนประกันหางพ่วง';
+                                              FFAppState()
+                                                  .nonePackageCarrierPrice = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerIdList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerCodeList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerNameList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerDisplayName = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerIdOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerCodeOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerNameOutputList = [];
+                                              FFAppState().nonePackageReason =
+                                                  [];
+                                              FFAppState()
+                                                  .nonePackageInsurerSelectedList = [];
+                                              FFAppState()
+                                                  .nonePackageCoverTypeId = '';
+                                              FFAppState()
+                                                  .nonePackageCoverTypeCode = '';
+                                              FFAppState()
+                                                      .nonePackageCoverTypeName =
+                                                  'กรุณาเลือกประเภทชั้นประกัน';
+                                              FFAppState()
+                                                  .nonePackageGarageTypeId = '';
+                                              FFAppState()
+                                                      .nonePackageGarageTypeName =
+                                                  'กรุณาเลือกประเภทการซ่อม';
+                                              FFAppState()
+                                                  .nonePackageGarageTypeCode = '';
+                                              FFAppState()
+                                                  .nonePackageFlagRenew = false;
+                                              FFAppState()
+                                                      .nonePackageOldVmiExpDate =
+                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                              FFAppState().nonePackageOldVmi =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageOldVmiImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageIdCardImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageRenewImageUrlList = [];
+                                              FFAppState()
+                                                  .nonePackageRenewImageCheckList = [];
+                                              FFAppState()
+                                                      .nonePackageOldVmiImageUploadedCheck =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageIdCardWatermarkUploadedCheck =
+                                                  false;
+                                              FFAppState().buttonOrdinary =
+                                                  false;
+                                              FFAppState().buttonCorporation =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageCustomerType = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerDisplayNameOutput = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther = [];
+                                              FFAppState()
+                                                  .nonePackageImageFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRightFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRight = [];
+                                              FFAppState()
+                                                  .nonePackageImageRightRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeftRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeft = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeftFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRoof = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFront = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFront = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRight = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeft = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFront = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerOutputIndex = 0;
+                                              FFAppState().nonePackageLeadId =
+                                                  '';
+                                              FFAppState().nonePackageLeadNo =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageCarImageUploadedList = [];
+                                              FFAppState()
+                                                  .nonePackageImageOldVmi = [];
+                                              FFAppState()
+                                                  .nonePackageImageCompanyBook = [];
+                                              FFAppState()
+                                                  .nonePackageImageIdCard = [];
+                                              FFAppState()
+                                                  .nonePackageImageBlueBook = [];
+                                              FFAppState()
+                                                      .nonePackageCompanyBookImageUploadedCheck =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageCompanyBookImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRoofUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageBlueBookUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther1 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther2 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther3 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther4 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther5 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOtherNameList = [];
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerShortName = '';
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerName = '';
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerShortNameList = [];
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerNameList = [];
+                                              FFAppState()
+                                                  .nonePackageFlagOldVmi = '';
+                                              FFAppState().nonePackageWorkType =
+                                                  '';
+                                              FFAppState().nonePackageRemark =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageBranchCode = '';
+                                              FFAppState()
+                                                  .nonePackageBranchName = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameDupList = [];
+                                              setState(() {});
+                                              FFAppState()
+                                                  .nonePackageFlagRenew = true;
+                                              FFAppState()
+                                                      .nonePackageOldVmiImageUploadedCheck =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageIdCardWatermarkUploadedCheck =
+                                                  false;
+                                              setState(() {});
+                                              FFAppState()
+                                                      .nonePackageVehicleType =
+                                                  FFAppState()
+                                                      .insuranceVehicleTypeDropDown;
+                                              FFAppState()
+                                                      .nonePackageBrandName =
+                                                  FFAppState()
+                                                      .insuranceBasicBrandName;
+                                              FFAppState().nonePackageBrandId =
+                                                  FFAppState()
+                                                      .insuranceBasicBrandId;
+                                              FFAppState()
+                                                      .nonePackageModelName =
+                                                  FFAppState()
+                                                      .insuranceBasicModelName;
+                                              FFAppState()
+                                                      .nonePackageModelCode =
+                                                  FFAppState()
+                                                      .insuranceBasicModelId;
+                                              FFAppState().nonePackageYear =
+                                                  FFAppState()
+                                                      .insuranceBasicYear;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeId =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeId;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeCode =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeCode;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeName =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeName;
+                                              FFAppState()
+                                                      .nonePackageSearchModelList =
+                                                  FFAppState()
+                                                      .insuranceBasicModelNameList
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .nonePackageSearchModelIdList =
+                                                  FFAppState()
+                                                      .insuranceBasicModelIdList
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .nonePackageIsBrandSelect =
+                                                  FFAppState()
+                                                      .searchPackageCheckFilled[1];
+                                              setState(() {});
+                                              FFAppState()
+                                                      .nonePackageOldVmiExpDate =
+                                                  FFAppState()
+                                                      .insuranceBasicOldVmiExpDate;
+                                              setState(() {});
+                                              FFAppState()
+                                                  .nonePackageImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRoofUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageBlueBookUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther1 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther2 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther3 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther4 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther5 = '';
+                                              FFAppState()
+                                                  .nonePackageIdCardImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageOldVmiImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageCompanyBookImageUrl = '';
+                                              setState(() {});
 
                                               context.pushNamed(
                                                 'NonePackageRenewPage',
@@ -2892,395 +2871,384 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
                                             onPressed: () async {
                                               if (columnHideInAppContentRecord!
                                                   .isShowContent) {}
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageFlagCarrier =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageVehicleType =
-                                                    'กรุณาเลือกประเภทรถ';
-                                                FFAppState()
-                                                        .nonePackageBrandName =
-                                                    'กรุณาเลือกยี่ห้อรถ';
-                                                FFAppState()
-                                                    .nonePackageBrandId = '';
-                                                FFAppState()
-                                                        .nonePackageModelName =
-                                                    'กรุณากรอกรุ่นรถ';
-                                                FFAppState()
-                                                    .nonePackageModelCode = '';
-                                                FFAppState().nonePackageYear =
-                                                    'กรุณาเลือกปีจดทะเบียน';
-                                                FFAppState()
-                                                    .nonePackageUsedTypeId = '';
-                                                FFAppState()
-                                                    .nonePackageSearchModelList = [];
-                                                FFAppState()
-                                                    .nonePackageUsedTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageUsedTypeName =
-                                                    'กรุณาเลือกลักษณะการใช้รถ';
-                                                FFAppState()
-                                                        .nonePackageCusFullname =
-                                                    'กรุณากรอกชื่อ';
-                                                FFAppState()
-                                                        .nonePackageCusPhone =
-                                                    'กรุณากรอกเบอร์โทรศัพท์';
-                                                FFAppState().nonePackagePlate =
-                                                    '';
-                                                FFAppState()
-                                                        .nonePackageProvince =
-                                                    'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                FFAppState()
-                                                    .nonePackageProvinceId = '';
-                                                FFAppState()
-                                                        .nonePackageSumInsured =
-                                                    'กรุณากรอกทุนประกัน';
-                                                FFAppState()
-                                                    .nonePackageFlagAct = true;
-                                                FFAppState()
-                                                        .nonePackageIsBrandSelect =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageSearchModelIdList = [];
-                                                FFAppState()
-                                                        .nonePackageCarrierType =
-                                                    'กรุณาเลือกประเภทตู้เหล็ก';
-                                                FFAppState()
-                                                        .nonePackageFlagCoop =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageTruckPart =
-                                                    'กรุณาเลือกส่วนของรถบรรทุก';
-                                                FFAppState()
-                                                        .nonePackageCusMembership =
-                                                    'กรุณาเลือกประเภทลูกค้า';
-                                                FFAppState()
-                                                        .nonePackageTruckCurrentPrice =
-                                                    'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                FFAppState()
-                                                        .nonePackagePlateAdditional =
-                                                    'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                FFAppState()
-                                                        .nonePackageTruckCarryPurpose =
-                                                    'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                FFAppState()
-                                                        .nonePackageTrailerSumInsured =
-                                                    'กรุณากรอกทุนประกันหางพ่วง';
-                                                FFAppState()
-                                                    .nonePackageCarrierPrice = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerIdList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerCodeList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerNameList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerDisplayName = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerIdOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerCodeOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameOutputList = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerNameOutputList = [];
-                                                FFAppState().nonePackageReason =
-                                                    [];
-                                                FFAppState()
-                                                    .nonePackageInsurerSelectedList = [];
-                                                FFAppState()
-                                                    .nonePackageCoverTypeId = '';
-                                                FFAppState()
-                                                    .nonePackageCoverTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageCoverTypeName =
-                                                    'กรุณาเลือกประเภทชั้นประกัน';
-                                                FFAppState()
-                                                    .nonePackageGarageTypeId = '';
-                                                FFAppState()
-                                                        .nonePackageGarageTypeName =
-                                                    'กรุณาเลือกประเภทการซ่อม';
-                                                FFAppState()
-                                                    .nonePackageGarageTypeCode = '';
-                                                FFAppState()
-                                                        .nonePackageFlagRenew =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageOldVmiExpDate =
-                                                    'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                FFAppState().nonePackageOldVmi =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageOldVmiImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageIdCardImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageRenewImageUrlList = [];
-                                                FFAppState()
-                                                    .nonePackageRenewImageCheckList = [];
-                                                FFAppState()
-                                                        .nonePackageOldVmiImageUploadedCheck =
-                                                    false;
-                                                FFAppState()
-                                                        .nonePackageIdCardWatermarkUploadedCheck =
-                                                    false;
-                                                FFAppState().buttonOrdinary =
-                                                    false;
-                                                FFAppState().buttonCorporation =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageCustomerType = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerDisplayNameOutput = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther = [];
-                                                FFAppState()
-                                                    .nonePackageImageFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRightFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRight = [];
-                                                FFAppState()
-                                                    .nonePackageImageRightRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeftRear = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeft = [];
-                                                FFAppState()
-                                                    .nonePackageImageLeftFront = [];
-                                                FFAppState()
-                                                    .nonePackageImageRoof = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFront = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFront = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRight = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRear = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeft = [];
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFront = [];
-                                                FFAppState()
-                                                    .nonePackageInsurerOutputIndex = 0;
-                                                FFAppState().nonePackageLeadId =
-                                                    '';
-                                                FFAppState().nonePackageLeadNo =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageCarImageUploadedList = [];
-                                                FFAppState()
-                                                    .nonePackageImageOldVmi = [];
-                                                FFAppState()
-                                                    .nonePackageImageCompanyBook = [];
-                                                FFAppState()
-                                                    .nonePackageImageIdCard = [];
-                                                FFAppState()
-                                                    .nonePackageImageBlueBook = [];
-                                                FFAppState()
-                                                        .nonePackageCompanyBookImageUploadedCheck =
-                                                    false;
-                                                FFAppState()
-                                                    .nonePackageCompanyBookImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRoofUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageBlueBookUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther1 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther2 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther3 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther4 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther5 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOtherNameList = [];
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerShortName = '';
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerName = '';
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerShortNameList = [];
-                                                FFAppState()
-                                                    .nonePackageSelectedInsurerNameList = [];
-                                                FFAppState()
-                                                    .nonePackageFlagOldVmi = '';
-                                                FFAppState()
-                                                    .nonePackageWorkType = '';
-                                                FFAppState().nonePackageRemark =
-                                                    '';
-                                                FFAppState()
-                                                    .nonePackageBranchCode = '';
-                                                FFAppState()
-                                                    .nonePackageBranchName = '';
-                                                FFAppState()
-                                                    .nonePackageInsurerShortNameDupList = [];
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageFlagRenew =
-                                                    false;
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageVehicleType =
-                                                    FFAppState()
-                                                        .insuranceVehicleTypeDropDown;
-                                                FFAppState()
-                                                        .nonePackageBrandName =
-                                                    FFAppState()
-                                                        .insuranceBasicBrandName;
-                                                FFAppState()
-                                                        .nonePackageBrandId =
-                                                    FFAppState()
-                                                        .insuranceBasicBrandId;
-                                                FFAppState()
-                                                        .nonePackageModelName =
-                                                    FFAppState()
-                                                        .insuranceBasicModelName;
-                                                FFAppState()
-                                                        .nonePackageModelCode =
-                                                    FFAppState()
-                                                        .insuranceBasicModelId;
-                                                FFAppState().nonePackageYear =
-                                                    FFAppState()
-                                                        .insuranceBasicYear;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeId =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeId;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeCode =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeCode;
-                                                FFAppState()
-                                                        .nonePackageUsedTypeName =
-                                                    FFAppState()
-                                                        .insuranceBasicVehicleUsedTypeName;
-                                                FFAppState()
-                                                        .nonePackageSearchModelList =
-                                                    FFAppState()
-                                                        .insuranceBasicModelNameList
-                                                        .toList()
-                                                        .cast<String>();
-                                                FFAppState()
-                                                        .nonePackageSearchModelIdList =
-                                                    FFAppState()
-                                                        .insuranceBasicModelIdList
-                                                        .toList()
-                                                        .cast<String>();
-                                                FFAppState()
-                                                        .nonePackageIsBrandSelect =
-                                                    FFAppState()
-                                                        .searchPackageCheckFilled[1];
-                                                FFAppState()
-                                                    .nonePackageOldVmiExpDate = '';
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageOldVmiExpDate =
-                                                    FFAppState()
-                                                        .insuranceBasicOldVmiExpDate;
-                                              });
-                                              setState(() {
-                                                FFAppState()
-                                                    .nonePackageImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageRoofUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRightRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftRearUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageBlueBookUploaded = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther1 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther2 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther3 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther4 = '';
-                                                FFAppState()
-                                                    .nonePackageImageOther5 = '';
-                                                FFAppState()
-                                                    .nonePackageIdCardImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageOldVmiImageUrl = '';
-                                                FFAppState()
-                                                    .nonePackageCompanyBookImageUrl = '';
-                                              });
+                                              FFAppState()
+                                                      .nonePackageFlagCarrier =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageVehicleType =
+                                                  'กรุณาเลือกประเภทรถ';
+                                              FFAppState()
+                                                      .nonePackageBrandName =
+                                                  'กรุณาเลือกยี่ห้อรถ';
+                                              FFAppState().nonePackageBrandId =
+                                                  '';
+                                              FFAppState()
+                                                      .nonePackageModelName =
+                                                  'กรุณากรอกรุ่นรถ';
+                                              FFAppState()
+                                                  .nonePackageModelCode = '';
+                                              FFAppState().nonePackageYear =
+                                                  'กรุณาเลือกปีจดทะเบียน';
+                                              FFAppState()
+                                                  .nonePackageUsedTypeId = '';
+                                              FFAppState()
+                                                  .nonePackageSearchModelList = [];
+                                              FFAppState()
+                                                  .nonePackageUsedTypeCode = '';
+                                              FFAppState()
+                                                      .nonePackageUsedTypeName =
+                                                  'กรุณาเลือกลักษณะการใช้รถ';
+                                              FFAppState()
+                                                      .nonePackageCusFullname =
+                                                  'กรุณากรอกชื่อ';
+                                              FFAppState().nonePackageCusPhone =
+                                                  'กรุณากรอกเบอร์โทรศัพท์';
+                                              FFAppState().nonePackagePlate =
+                                                  '';
+                                              FFAppState().nonePackageProvince =
+                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
+                                              FFAppState()
+                                                  .nonePackageProvinceId = '';
+                                              FFAppState()
+                                                      .nonePackageSumInsured =
+                                                  'กรุณากรอกทุนประกัน';
+                                              FFAppState().nonePackageFlagAct =
+                                                  true;
+                                              FFAppState()
+                                                      .nonePackageIsBrandSelect =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageSearchModelIdList = [];
+                                              FFAppState()
+                                                      .nonePackageCarrierType =
+                                                  'กรุณาเลือกประเภทตู้เหล็ก';
+                                              FFAppState().nonePackageFlagCoop =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageTruckPart =
+                                                  'กรุณาเลือกส่วนของรถบรรทุก';
+                                              FFAppState()
+                                                      .nonePackageCusMembership =
+                                                  'กรุณาเลือกประเภทลูกค้า';
+                                              FFAppState()
+                                                      .nonePackageTruckCurrentPrice =
+                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                              FFAppState()
+                                                      .nonePackagePlateAdditional =
+                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                              FFAppState()
+                                                      .nonePackageTruckCarryPurpose =
+                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
+                                              FFAppState()
+                                                      .nonePackageTrailerSumInsured =
+                                                  'กรุณากรอกทุนประกันหางพ่วง';
+                                              FFAppState()
+                                                  .nonePackageCarrierPrice = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerIdList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerCodeList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerNameList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerDisplayName = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerIdOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerCodeOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameOutputList = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerNameOutputList = [];
+                                              FFAppState().nonePackageReason =
+                                                  [];
+                                              FFAppState()
+                                                  .nonePackageInsurerSelectedList = [];
+                                              FFAppState()
+                                                  .nonePackageCoverTypeId = '';
+                                              FFAppState()
+                                                  .nonePackageCoverTypeCode = '';
+                                              FFAppState()
+                                                      .nonePackageCoverTypeName =
+                                                  'กรุณาเลือกประเภทชั้นประกัน';
+                                              FFAppState()
+                                                  .nonePackageGarageTypeId = '';
+                                              FFAppState()
+                                                      .nonePackageGarageTypeName =
+                                                  'กรุณาเลือกประเภทการซ่อม';
+                                              FFAppState()
+                                                  .nonePackageGarageTypeCode = '';
+                                              FFAppState()
+                                                  .nonePackageFlagRenew = false;
+                                              FFAppState()
+                                                      .nonePackageOldVmiExpDate =
+                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                              FFAppState().nonePackageOldVmi =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageOldVmiImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageIdCardImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageRenewImageUrlList = [];
+                                              FFAppState()
+                                                  .nonePackageRenewImageCheckList = [];
+                                              FFAppState()
+                                                      .nonePackageOldVmiImageUploadedCheck =
+                                                  false;
+                                              FFAppState()
+                                                      .nonePackageIdCardWatermarkUploadedCheck =
+                                                  false;
+                                              FFAppState().buttonOrdinary =
+                                                  false;
+                                              FFAppState().buttonCorporation =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageCustomerType = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerDisplayNameOutput = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther = [];
+                                              FFAppState()
+                                                  .nonePackageImageFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRightFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRight = [];
+                                              FFAppState()
+                                                  .nonePackageImageRightRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeftRear = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeft = [];
+                                              FFAppState()
+                                                  .nonePackageImageLeftFront = [];
+                                              FFAppState()
+                                                  .nonePackageImageRoof = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFront = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFront = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRight = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRear = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeft = [];
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFront = [];
+                                              FFAppState()
+                                                  .nonePackageInsurerOutputIndex = 0;
+                                              FFAppState().nonePackageLeadId =
+                                                  '';
+                                              FFAppState().nonePackageLeadNo =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageCarImageUploadedList = [];
+                                              FFAppState()
+                                                  .nonePackageImageOldVmi = [];
+                                              FFAppState()
+                                                  .nonePackageImageCompanyBook = [];
+                                              FFAppState()
+                                                  .nonePackageImageIdCard = [];
+                                              FFAppState()
+                                                  .nonePackageImageBlueBook = [];
+                                              FFAppState()
+                                                      .nonePackageCompanyBookImageUploadedCheck =
+                                                  false;
+                                              FFAppState()
+                                                  .nonePackageCompanyBookImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRoofUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageBlueBookUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther1 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther2 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther3 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther4 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther5 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOtherNameList = [];
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerShortName = '';
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerName = '';
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerShortNameList = [];
+                                              FFAppState()
+                                                  .nonePackageSelectedInsurerNameList = [];
+                                              FFAppState()
+                                                  .nonePackageFlagOldVmi = '';
+                                              FFAppState().nonePackageWorkType =
+                                                  '';
+                                              FFAppState().nonePackageRemark =
+                                                  '';
+                                              FFAppState()
+                                                  .nonePackageBranchCode = '';
+                                              FFAppState()
+                                                  .nonePackageBranchName = '';
+                                              FFAppState()
+                                                  .nonePackageInsurerShortNameDupList = [];
+                                              setState(() {});
+                                              FFAppState()
+                                                  .nonePackageFlagRenew = false;
+                                              setState(() {});
+                                              FFAppState()
+                                                      .nonePackageVehicleType =
+                                                  FFAppState()
+                                                      .insuranceVehicleTypeDropDown;
+                                              FFAppState()
+                                                      .nonePackageBrandName =
+                                                  FFAppState()
+                                                      .insuranceBasicBrandName;
+                                              FFAppState().nonePackageBrandId =
+                                                  FFAppState()
+                                                      .insuranceBasicBrandId;
+                                              FFAppState()
+                                                      .nonePackageModelName =
+                                                  FFAppState()
+                                                      .insuranceBasicModelName;
+                                              FFAppState()
+                                                      .nonePackageModelCode =
+                                                  FFAppState()
+                                                      .insuranceBasicModelId;
+                                              FFAppState().nonePackageYear =
+                                                  FFAppState()
+                                                      .insuranceBasicYear;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeId =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeId;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeCode =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeCode;
+                                              FFAppState()
+                                                      .nonePackageUsedTypeName =
+                                                  FFAppState()
+                                                      .insuranceBasicVehicleUsedTypeName;
+                                              FFAppState()
+                                                      .nonePackageSearchModelList =
+                                                  FFAppState()
+                                                      .insuranceBasicModelNameList
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .nonePackageSearchModelIdList =
+                                                  FFAppState()
+                                                      .insuranceBasicModelIdList
+                                                      .toList()
+                                                      .cast<String>();
+                                              FFAppState()
+                                                      .nonePackageIsBrandSelect =
+                                                  FFAppState()
+                                                      .searchPackageCheckFilled[1];
+                                              FFAppState()
+                                                  .nonePackageOldVmiExpDate = '';
+                                              setState(() {});
+                                              FFAppState()
+                                                      .nonePackageOldVmiExpDate =
+                                                  FFAppState()
+                                                      .insuranceBasicOldVmiExpDate;
+                                              setState(() {});
+                                              FFAppState()
+                                                  .nonePackageImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageRoofUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRightRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftRearUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageBlueBookUploaded = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther1 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther2 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther3 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther4 = '';
+                                              FFAppState()
+                                                  .nonePackageImageOther5 = '';
+                                              FFAppState()
+                                                  .nonePackageIdCardImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageOldVmiImageUrl = '';
+                                              FFAppState()
+                                                  .nonePackageCompanyBookImageUrl = '';
+                                              setState(() {});
 
                                               context.pushNamed(
                                                   'SelectReasonPage');

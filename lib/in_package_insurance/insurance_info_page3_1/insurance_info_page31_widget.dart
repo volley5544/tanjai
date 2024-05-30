@@ -777,12 +777,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                   return;
                                                                 }
 
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .insuranceInfoPage3ImageExamination =
-                                                                      _model
-                                                                          .uploadedFileUrl1;
-                                                                });
+                                                                FFAppState()
+                                                                        .insuranceInfoPage3ImageExamination =
+                                                                    _model
+                                                                        .uploadedFileUrl1;
+                                                                setState(() {});
                                                               },
                                                               child: Container(
                                                                 width: MediaQuery.sizeOf(
@@ -1310,12 +1309,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                   );
                                                                   return;
                                                                 }
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .nonePackageImageBlueBookUploaded =
-                                                                      _model
-                                                                          .uploadedFileUrl2;
-                                                                });
+                                                                FFAppState()
+                                                                        .nonePackageImageBlueBookUploaded =
+                                                                    _model
+                                                                        .uploadedFileUrl2;
+                                                                setState(() {});
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .clearSnackBars();
@@ -1867,12 +1865,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                   );
                                                                   return;
                                                                 }
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .nonePackageIdCardImageUrl =
-                                                                      _model
-                                                                          .uploadedFileUrl3;
-                                                                });
+                                                                FFAppState()
+                                                                        .nonePackageIdCardImageUrl =
+                                                                    _model
+                                                                        .uploadedFileUrl3;
+                                                                setState(() {});
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .clearSnackBars();
@@ -2418,12 +2415,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                   );
                                                                   return;
                                                                 }
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .nonePackageImageQuotationPdfUploaded =
-                                                                      _model
-                                                                          .uploadedFileUrl4;
-                                                                });
+                                                                FFAppState()
+                                                                        .nonePackageImageQuotationPdfUploaded =
+                                                                    _model
+                                                                        .uploadedFileUrl4;
+                                                                setState(() {});
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .clearSnackBars();
@@ -4108,12 +4104,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                 );
                                                                 return;
                                                               }
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageOldVmiImageUrl =
-                                                                    _model
-                                                                        .uploadedFileUrl5;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageOldVmiImageUrl =
+                                                                  _model
+                                                                      .uploadedFileUrl5;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -4534,12 +4529,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                 );
                                                                 return;
                                                               }
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageCompanyBookImageUrl =
-                                                                    _model
-                                                                        .uploadedFileUrl6;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageCompanyBookImageUrl =
+                                                                  _model
+                                                                      .uploadedFileUrl6;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5018,12 +5012,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl7 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageFrontUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl7;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageFrontUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl7;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5205,12 +5198,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl8 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageRightFrontUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl8;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageRightFrontUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl8;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5392,12 +5384,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl9 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageRightUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl9;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageRightUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl9;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5579,12 +5570,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl10 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageRightRearUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl10;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageRightRearUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl10;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5766,12 +5756,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl11 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageRearUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl11;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageRearUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl11;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -5953,12 +5942,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl12 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageLeftRearUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl12;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageLeftRearUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl12;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -6140,12 +6128,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl13 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageLeftUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl13;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageLeftUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl13;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -6327,12 +6314,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                     null &&
                                                                 _model.uploadedFileUrl14 !=
                                                                     '') {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .nonePackageImageLeftFrontUploaded =
-                                                                    _model
-                                                                        .uploadedFileUrl14;
-                                                              });
+                                                              FFAppState()
+                                                                      .nonePackageImageLeftFrontUploaded =
+                                                                  _model
+                                                                      .uploadedFileUrl14;
+                                                              setState(() {});
                                                               ScaffoldMessenger
                                                                       .of(context)
                                                                   .clearSnackBars();
@@ -6520,12 +6506,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                                       null &&
                                                                   _model.uploadedFileUrl15 !=
                                                                       '') {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .nonePackageImageRoofUploaded =
-                                                                      _model
-                                                                          .uploadedFileUrl15;
-                                                                });
+                                                                FFAppState()
+                                                                        .nonePackageImageRoofUploaded =
+                                                                    _model
+                                                                        .uploadedFileUrl15;
+                                                                setState(() {});
                                                                 ScaffoldMessenger.of(
                                                                         context)
                                                                     .clearSnackBars();
@@ -8411,12 +8396,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl16 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageFrontUploaded =
-                                                            _model
-                                                                .uploadedFileUrl16;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageFrontUploaded =
+                                                          _model
+                                                              .uploadedFileUrl16;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -8600,12 +8584,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl17 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageRightFrontUploaded =
-                                                            _model
-                                                                .uploadedFileUrl17;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageRightFrontUploaded =
+                                                          _model
+                                                              .uploadedFileUrl17;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -8789,12 +8772,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl18 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageRightUploaded =
-                                                            _model
-                                                                .uploadedFileUrl18;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageRightUploaded =
+                                                          _model
+                                                              .uploadedFileUrl18;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -8978,12 +8960,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl19 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageRightRearUploaded =
-                                                            _model
-                                                                .uploadedFileUrl19;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageRightRearUploaded =
+                                                          _model
+                                                              .uploadedFileUrl19;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -9167,12 +9148,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl20 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageRearUploaded =
-                                                            _model
-                                                                .uploadedFileUrl20;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageRearUploaded =
+                                                          _model
+                                                              .uploadedFileUrl20;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -9356,12 +9336,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl21 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageLeftRearUploaded =
-                                                            _model
-                                                                .uploadedFileUrl21;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageLeftRearUploaded =
+                                                          _model
+                                                              .uploadedFileUrl21;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -9545,12 +9524,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl22 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageLeftUploaded =
-                                                            _model
-                                                                .uploadedFileUrl22;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageLeftUploaded =
+                                                          _model
+                                                              .uploadedFileUrl22;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -9734,12 +9712,11 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                                             null &&
                                                         _model.uploadedFileUrl23 !=
                                                             '') {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageTrailerImageLeftFrontUploaded =
-                                                            _model
-                                                                .uploadedFileUrl23;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageTrailerImageLeftFrontUploaded =
+                                                          _model
+                                                              .uploadedFileUrl23;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -12157,18 +12134,16 @@ class _InsuranceInfoPage31WidgetState extends State<InsuranceInfoPage31Widget> {
                                         );
                                       },
                                     );
-                                    setState(() {
-                                      FFAppState()
-                                              .insuranceInfoPage3SaveDataCheckBool =
-                                          true;
-                                      FFAppState()
-                                              .insuranceinfoPage3PdfFileapplication =
-                                          '${IbsApplicationsSaveCall.fileapplication(
-                                        (_model.ibsAppSaveAPIOutput2
-                                                ?.jsonBody ??
-                                            ''),
-                                      ).toString()}';
-                                    });
+                                    FFAppState()
+                                            .insuranceInfoPage3SaveDataCheckBool =
+                                        true;
+                                    FFAppState()
+                                            .insuranceinfoPage3PdfFileapplication =
+                                        '${IbsApplicationsSaveCall.fileapplication(
+                                      (_model.ibsAppSaveAPIOutput2?.jsonBody ??
+                                          ''),
+                                    ).toString()}';
+                                    setState(() {});
                                     if (_shouldSetState) setState(() {});
                                   },
                                   text: 'บันทึกเตรียมข้อมูล',

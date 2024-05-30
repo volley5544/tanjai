@@ -302,11 +302,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                                 return;
                                               }
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageImageBlueBookUploaded =
-                                                    _model.uploadedFileUrl1;
-                                              });
+                                              FFAppState()
+                                                      .nonePackageImageBlueBookUploaded =
+                                                  _model.uploadedFileUrl1;
+                                              setState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
                                               ScaffoldMessenger.of(context)
@@ -570,12 +569,11 @@ class _NonePackageBasicImage2PageWidgetState
                                                         );
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .nonePackageIdCardImageUrl =
-                                                            _model
-                                                                .uploadedFileUrl2;
-                                                      });
+                                                      FFAppState()
+                                                              .nonePackageIdCardImageUrl =
+                                                          _model
+                                                              .uploadedFileUrl2;
+                                                      setState(() {});
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .clearSnackBars();
@@ -838,11 +836,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                 );
                                                 return;
                                               }
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageImageOther1 =
-                                                    _model.uploadedFileUrl3;
-                                              });
+                                              FFAppState()
+                                                      .nonePackageImageOther1 =
+                                                  _model.uploadedFileUrl3;
+                                              setState(() {});
                                               ScaffoldMessenger.of(context)
                                                   .clearSnackBars();
                                               ScaffoldMessenger.of(context)
@@ -1043,11 +1040,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                   );
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .nonePackageImageOther2 =
-                                                      _model.uploadedFileUrl4;
-                                                });
+                                                FFAppState()
+                                                        .nonePackageImageOther2 =
+                                                    _model.uploadedFileUrl4;
+                                                setState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1253,11 +1249,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                   );
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .nonePackageImageOther3 =
-                                                      _model.uploadedFileUrl5;
-                                                });
+                                                FFAppState()
+                                                        .nonePackageImageOther3 =
+                                                    _model.uploadedFileUrl5;
+                                                setState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1463,11 +1458,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                   );
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .nonePackageImageOther4 =
-                                                      _model.uploadedFileUrl6;
-                                                });
+                                                FFAppState()
+                                                        .nonePackageImageOther4 =
+                                                    _model.uploadedFileUrl6;
+                                                setState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)
@@ -1673,11 +1667,10 @@ class _NonePackageBasicImage2PageWidgetState
                                                   );
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .nonePackageImageOther5 =
-                                                      _model.uploadedFileUrl7;
-                                                });
+                                                FFAppState()
+                                                        .nonePackageImageOther5 =
+                                                    _model.uploadedFileUrl7;
+                                                setState(() {});
                                                 ScaffoldMessenger.of(context)
                                                     .clearSnackBars();
                                                 ScaffoldMessenger.of(context)

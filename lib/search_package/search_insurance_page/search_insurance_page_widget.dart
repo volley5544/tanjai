@@ -138,18 +138,16 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         }
       }
 
-      setState(() {
-        FFAppState().AddCustomerPageFirstname = '';
-        FFAppState().AddCustomerPageLastname = '';
-        FFAppState().AddCustomerPagePhone = '';
-        FFAppState().AddCustomerPageCarRegistration = '';
-        FFAppState().addCustomerQuotationSaveSuccess = false;
-        FFAppState().insurarerQuotationPdf = [];
-      });
-      setState(() {
-        FFAppState().insuranceInfoRegistrationCodeSelect = '';
-        FFAppState().insuranceInfoRegistrationProvinceSelect = '';
-      });
+      FFAppState().AddCustomerPageFirstname = '';
+      FFAppState().AddCustomerPageLastname = '';
+      FFAppState().AddCustomerPagePhone = '';
+      FFAppState().AddCustomerPageCarRegistration = '';
+      FFAppState().addCustomerQuotationSaveSuccess = false;
+      FFAppState().insurarerQuotationPdf = [];
+      setState(() {});
+      FFAppState().insuranceInfoRegistrationCodeSelect = '';
+      FFAppState().insuranceInfoRegistrationProvinceSelect = '';
+      setState(() {});
       if (widget.fromIcon == 'MC') {
         if (!FFAppState().insuranceRequestIsLoadDataMc) {
           _model.getBrandMCAPI = await TeleGetBrandMCAPICall.call(
@@ -179,38 +177,37 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getBrandMCAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            setState(() {
-              FFAppState().insuranceBasicBrandNameList =
-                  TeleGetBrandMCAPICall.brandName(
-                (_model.getBrandMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdList =
-                  TeleGetBrandMCAPICall.brandID(
-                (_model.getBrandMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandNameListOriginal =
-                  TeleGetBrandMCAPICall.brandName(
-                (_model.getBrandMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdListOriginal =
-                  TeleGetBrandMCAPICall.brandID(
-                (_model.getBrandMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupBrandList =
-                  TeleGetBrandMCAPICall.carGroup(
-                (_model.getBrandMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicBrandNameList =
+                TeleGetBrandMCAPICall.brandName(
+              (_model.getBrandMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdList =
+                TeleGetBrandMCAPICall.brandID(
+              (_model.getBrandMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandNameListOriginal =
+                TeleGetBrandMCAPICall.brandName(
+              (_model.getBrandMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdListOriginal =
+                TeleGetBrandMCAPICall.brandID(
+              (_model.getBrandMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupBrandList =
+                TeleGetBrandMCAPICall.carGroup(
+              (_model.getBrandMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            setState(() {});
           } else {
             await showDialog(
               context: context,
@@ -260,44 +257,43 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getModelMCAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicModelIdListOriginal =
-                  TeleGetModelMCAPICall.modelCode(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelNameListOriginal =
-                  TeleGetModelMCAPICall.modelName(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelBrandIdListOriginal =
-                  TeleGetModelMCAPICall.brandID(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupList =
-                  TeleGetModelMCAPICall.carGroup(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarGroupDetail =
-                  TeleGetModelMCAPICall.carGroupDetail(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarDoorList =
-                  TeleGetModelMCAPICall.carDoors(
-                (_model.getModelMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicModelIdListOriginal =
+                TeleGetModelMCAPICall.modelCode(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelNameListOriginal =
+                TeleGetModelMCAPICall.modelName(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelBrandIdListOriginal =
+                TeleGetModelMCAPICall.brandID(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupList =
+                TeleGetModelMCAPICall.carGroup(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarGroupDetail =
+                TeleGetModelMCAPICall.carGroupDetail(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarDoorList =
+                TeleGetModelMCAPICall.carDoors(
+              (_model.getModelMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -348,26 +344,25 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicCoverTypeNameList =
-                  TeleGetCoverTypeAPICall.coverTypeName(
-                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeCodeList =
-                  TeleGetCoverTypeAPICall.coverTypeCode(
-                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeIdList =
-                  TeleGetCoverTypeAPICall.coverTypeId(
-                (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicCoverTypeNameList =
+                TeleGetCoverTypeAPICall.coverTypeName(
+              (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeCodeList =
+                TeleGetCoverTypeAPICall.coverTypeCode(
+              (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeIdList =
+                TeleGetCoverTypeAPICall.coverTypeId(
+              (_model.getCoverTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -420,32 +415,31 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
-                  InsuranceRequestGetVehicleAPICall.vehicleCode(
-                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeNameList =
-                  InsuranceRequestGetVehicleAPICall.vehicleName(
-                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
-                  InsuranceRequestGetVehicleAPICall.vehicletype(
-                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeIdList =
-                  InsuranceRequestGetVehicleAPICall.vehicleId(
-                (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                InsuranceRequestGetVehicleAPICall.vehicleCode(
+              (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                InsuranceRequestGetVehicleAPICall.vehicleName(
+              (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                InsuranceRequestGetVehicleAPICall.vehicletype(
+              (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                InsuranceRequestGetVehicleAPICall.vehicleId(
+              (_model.getVehicleUsedTypeMCAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -469,9 +463,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             return;
           }
 
-          setState(() {
-            FFAppState().insuranceRequestIsLoadDataMc = true;
-          });
+          FFAppState().insuranceRequestIsLoadDataMc = true;
+          setState(() {});
           _model.getProvinceMC = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
@@ -521,27 +514,25 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             Navigator.pop(context);
             return;
           }
-          setState(() {
-            FFAppState().insuranceInfoRegistrationCodeList =
-                TeleGetProvinceAPICall.provinceID(
-              (_model.getProvinceMC?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceInfoRegistrationprovinceList =
-                TeleGetProvinceAPICall.provinceNameTH(
-              (_model.getProvinceMC?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceInfoRegistrationCodeList =
+              TeleGetProvinceAPICall.provinceID(
+            (_model.getProvinceMC?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceInfoRegistrationprovinceList =
+              TeleGetProvinceAPICall.provinceNameTH(
+            (_model.getProvinceMC?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         }
         Navigator.pop(context);
-        setState(() {
-          FFAppState().searchPackageSubProduct = 'MC';
-          FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
-        });
-      } else if (widget.fromIcon == 'moto') {
+        FFAppState().searchPackageSubProduct = 'MC';
+        FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
+        setState(() {});
+      } else if (widget.fromIcon == 'motor') {
         if (!FFAppState().insuranceRequestIsLoadedData) {
           _model.getBrandAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -570,38 +561,37 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getBrandAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            setState(() {
-              FFAppState().insuranceBasicBrandNameList =
-                  TeleGetBrandAPICall.brandName(
-                (_model.getBrandAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdList =
-                  TeleGetBrandAPICall.brandID(
-                (_model.getBrandAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandNameListOriginal =
-                  TeleGetBrandAPICall.brandName(
-                (_model.getBrandAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdListOriginal =
-                  TeleGetBrandAPICall.brandID(
-                (_model.getBrandAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupBrandList =
-                  TeleGetBrandAPICall.carGroup(
-                (_model.getBrandAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicBrandNameList =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdList =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandNameListOriginal =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdListOriginal =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupBrandList =
+                TeleGetBrandAPICall.carGroup(
+              (_model.getBrandAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            setState(() {});
           } else {
             await showDialog(
               context: context,
@@ -651,44 +641,43 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getModelAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicModelIdListOriginal =
-                  TeleGetModelAPICall.modelCode(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelNameListOriginal =
-                  TeleGetModelAPICall.modelName(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelBrandIdListOriginal =
-                  TeleGetModelAPICall.brandID(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupList =
-                  TeleGetModelAPICall.carGroup(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarGroupDetail =
-                  TeleGetModelAPICall.carGroupDetail(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarDoorList =
-                  TeleGetModelAPICall.carDoors(
-                (_model.getModelAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicModelIdListOriginal =
+                TeleGetModelAPICall.modelCode(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelNameListOriginal =
+                TeleGetModelAPICall.modelName(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelBrandIdListOriginal =
+                TeleGetModelAPICall.brandID(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupList =
+                TeleGetModelAPICall.carGroup(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarGroupDetail =
+                TeleGetModelAPICall.carGroupDetail(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarDoorList =
+                TeleGetModelAPICall.carDoors(
+              (_model.getModelAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -738,26 +727,25 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getCoverTypeAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicCoverTypeNameList =
-                  TeleGetCoverTypeAPICall.coverTypeName(
-                (_model.getCoverTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeCodeList =
-                  TeleGetCoverTypeAPICall.coverTypeCode(
-                (_model.getCoverTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeIdList =
-                  TeleGetCoverTypeAPICall.coverTypeId(
-                (_model.getCoverTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicCoverTypeNameList =
+                TeleGetCoverTypeAPICall.coverTypeName(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeCodeList =
+                TeleGetCoverTypeAPICall.coverTypeCode(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeIdList =
+                TeleGetCoverTypeAPICall.coverTypeId(
+              (_model.getCoverTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -809,32 +797,31 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
-                  InsuranceRequestGetVehicleAPICall.vehicleCode(
-                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeNameList =
-                  InsuranceRequestGetVehicleAPICall.vehicleName(
-                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
-                  InsuranceRequestGetVehicleAPICall.vehicletype(
-                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeIdList =
-                  InsuranceRequestGetVehicleAPICall.vehicleId(
-                (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                InsuranceRequestGetVehicleAPICall.vehicleCode(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                InsuranceRequestGetVehicleAPICall.vehicleName(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                InsuranceRequestGetVehicleAPICall.vehicletype(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                InsuranceRequestGetVehicleAPICall.vehicleId(
+              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -858,9 +845,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             return;
           }
 
-          setState(() {
-            FFAppState().insuranceRequestIsLoadedData = true;
-          });
+          FFAppState().insuranceRequestIsLoadedData = true;
+          setState(() {});
           _model.getProvince = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
@@ -910,25 +896,23 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             Navigator.pop(context);
             return;
           }
-          setState(() {
-            FFAppState().insuranceInfoRegistrationCodeList =
-                TeleGetProvinceAPICall.provinceID(
-              (_model.getProvince?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceInfoRegistrationprovinceList =
-                TeleGetProvinceAPICall.provinceNameTH(
-              (_model.getProvince?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceInfoRegistrationCodeList =
+              TeleGetProvinceAPICall.provinceID(
+            (_model.getProvince?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceInfoRegistrationprovinceList =
+              TeleGetProvinceAPICall.provinceNameTH(
+            (_model.getProvince?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         }
         Navigator.pop(context);
-        setState(() {
-          FFAppState().searchPackageSubProduct = 'Motor';
-        });
+        FFAppState().searchPackageSubProduct = 'Motor';
+        setState(() {});
       } else {
         if (!FFAppState().insuranceRequestisLoadDataEV) {
           _model.getBrandEVAPI = await TeleGetBrandAPICall.call(
@@ -959,38 +943,37 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getBrandEVAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            setState(() {
-              FFAppState().insuranceBasicBrandNameList =
-                  TeleGetBrandAPICall.brandName(
-                (_model.getBrandEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdList =
-                  TeleGetBrandAPICall.brandID(
-                (_model.getBrandEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandNameListOriginal =
-                  TeleGetBrandAPICall.brandName(
-                (_model.getBrandEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicBrandIdListOriginal =
-                  TeleGetBrandAPICall.brandID(
-                (_model.getBrandEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupBrandList =
-                  TeleGetBrandAPICall.carGroup(
-                (_model.getBrandEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicBrandNameList =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdList =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandNameListOriginal =
+                TeleGetBrandAPICall.brandName(
+              (_model.getBrandEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicBrandIdListOriginal =
+                TeleGetBrandAPICall.brandID(
+              (_model.getBrandEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupBrandList =
+                TeleGetBrandAPICall.carGroup(
+              (_model.getBrandEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            setState(() {});
           } else {
             await showDialog(
               context: context,
@@ -1041,44 +1024,43 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getModelEVAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicModelIdListOriginal =
-                  TeleGetModelAPICall.modelCode(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelNameListOriginal =
-                  TeleGetModelAPICall.modelName(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicModelBrandIdListOriginal =
-                  TeleGetModelAPICall.brandID(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleGroupList =
-                  TeleGetModelAPICall.carGroup(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarGroupDetail =
-                  TeleGetModelAPICall.carGroupDetail(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCarDoorList =
-                  TeleGetModelAPICall.carDoors(
-                (_model.getModelEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicModelIdListOriginal =
+                TeleGetModelAPICall.modelCode(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelNameListOriginal =
+                TeleGetModelAPICall.modelName(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicModelBrandIdListOriginal =
+                TeleGetModelAPICall.brandID(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleGroupList =
+                TeleGetModelAPICall.carGroup(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarGroupDetail =
+                TeleGetModelAPICall.carGroupDetail(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCarDoorList =
+                TeleGetModelAPICall.carDoors(
+              (_model.getModelEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -1128,26 +1110,25 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicCoverTypeNameList =
-                  TeleGetCoverTypeAPICall.coverTypeName(
-                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeCodeList =
-                  TeleGetCoverTypeAPICall.coverTypeCode(
-                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicCoverTypeIdList =
-                  TeleGetCoverTypeAPICall.coverTypeId(
-                (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicCoverTypeNameList =
+                TeleGetCoverTypeAPICall.coverTypeName(
+              (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeCodeList =
+                TeleGetCoverTypeAPICall.coverTypeCode(
+              (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicCoverTypeIdList =
+                TeleGetCoverTypeAPICall.coverTypeId(
+              (_model.getCoverTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -1200,32 +1181,31 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                 (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
               ) ==
               200) {
-            FFAppState().update(() {
-              FFAppState().insuranceBasicVehicleUsedTypeCodeList =
-                  InsuranceRequestGetVehicleAPICall.vehicleCode(
-                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeNameList =
-                  InsuranceRequestGetVehicleAPICall.vehicleName(
-                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeTypeList =
-                  InsuranceRequestGetVehicleAPICall.vehicletype(
-                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-              FFAppState().insuranceBasicVehicleUsedTypeIdList =
-                  InsuranceRequestGetVehicleAPICall.vehicleId(
-                (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
-              )!
-                      .toList()
-                      .cast<String>();
-            });
+            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+                InsuranceRequestGetVehicleAPICall.vehicleCode(
+              (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeNameList =
+                InsuranceRequestGetVehicleAPICall.vehicleName(
+              (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+                InsuranceRequestGetVehicleAPICall.vehicletype(
+              (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().insuranceBasicVehicleUsedTypeIdList =
+                InsuranceRequestGetVehicleAPICall.vehicleId(
+              (_model.getVehicleUsedTypeEVAPI?.jsonBody ?? ''),
+            )!
+                    .toList()
+                    .cast<String>();
+            FFAppState().update(() {});
           } else {
             await showDialog(
               context: context,
@@ -1249,9 +1229,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             return;
           }
 
-          setState(() {
-            FFAppState().insuranceRequestisLoadDataEV = true;
-          });
+          FFAppState().insuranceRequestisLoadDataEV = true;
+          setState(() {});
           _model.getProvince2 = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
@@ -1301,25 +1280,23 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             Navigator.pop(context);
             return;
           }
-          setState(() {
-            FFAppState().insuranceInfoRegistrationCodeList =
-                TeleGetProvinceAPICall.provinceID(
-              (_model.getProvince2?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceInfoRegistrationprovinceList =
-                TeleGetProvinceAPICall.provinceNameTH(
-              (_model.getProvince2?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceInfoRegistrationCodeList =
+              TeleGetProvinceAPICall.provinceID(
+            (_model.getProvince2?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceInfoRegistrationprovinceList =
+              TeleGetProvinceAPICall.provinceNameTH(
+            (_model.getProvince2?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         }
         Navigator.pop(context);
-        setState(() {
-          FFAppState().searchPackageSubProduct = 'EV';
-        });
+        FFAppState().searchPackageSubProduct = 'EV';
+        setState(() {});
       }
     });
 
@@ -1375,20 +1352,19 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                setState(() {
-                  FFAppState().insuranceVehicleTypeDropDown = 'เลือกประเภทรถ';
-                  FFAppState().insuranceBasicBrandName = 'เลือกยี่ห้อรถ';
-                  FFAppState().insuranceBasicBrandId = '';
-                  FFAppState().isSelectBrandInPackage = false;
-                  FFAppState().insuranceBasicModelName = 'เลือกรุ่นรถ';
-                  FFAppState().insuranceBasicModelId = '';
-                  FFAppState().insuranceBasicYear = 'เลือกปีจดทะเบียน พ.ศ.';
-                  FFAppState().insuranceBasicVehicleUsedTypeName =
-                      'เลือกการใช้งาน';
-                  FFAppState().insuranceBasicCoverTypeNameOutputList = [];
-                  FFAppState().insuranceBasicGarageTypeInPackage = [];
-                  FFAppState().insuranceCarTypeDetailSelected = '';
-                });
+                FFAppState().insuranceVehicleTypeDropDown = 'เลือกประเภทรถ';
+                FFAppState().insuranceBasicBrandName = 'เลือกยี่ห้อรถ';
+                FFAppState().insuranceBasicBrandId = '';
+                FFAppState().isSelectBrandInPackage = false;
+                FFAppState().insuranceBasicModelName = 'เลือกรุ่นรถ';
+                FFAppState().insuranceBasicModelId = '';
+                FFAppState().insuranceBasicYear = 'เลือกปีจดทะเบียน พ.ศ.';
+                FFAppState().insuranceBasicVehicleUsedTypeName =
+                    'เลือกการใช้งาน';
+                FFAppState().insuranceBasicCoverTypeNameOutputList = [];
+                FFAppState().insuranceBasicGarageTypeInPackage = [];
+                FFAppState().insuranceCarTypeDetailSelected = '';
+                setState(() {});
 
                 context.goNamed('SuperAppPage');
               },
@@ -2724,12 +2700,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicOldVmiExpDate =
-                                            functions.getDateFormat(
-                                                _model.datePicked)!;
-                                      });
+                                      FFAppState().insuranceBasicOldVmiExpDate =
+                                          functions.getDateFormat(
+                                              _model.datePicked)!;
+                                      setState(() {});
                                       await actions.hideKeyboardAction(
                                         context,
                                       );
@@ -3065,11 +3039,10 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                 );
                                 return;
                               }
-                              setState(() {
-                                FFAppState().filterInsurerList = [];
-                                FFAppState().filterGarageTypeList = [];
-                                FFAppState().filterCoverTypeList = [];
-                              });
+                              FFAppState().filterInsurerList = [];
+                              FFAppState().filterGarageTypeList = [];
+                              FFAppState().filterCoverTypeList = [];
+                              setState(() {});
 
                               context.pushNamed(
                                 'insurerListPage',

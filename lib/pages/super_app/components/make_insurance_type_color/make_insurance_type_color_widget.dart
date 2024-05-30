@@ -34,9 +34,8 @@ class _MakeInsuranceTypeColorWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().searchQuotationStatus = '';
-      });
+      FFAppState().searchQuotationStatus = '';
+      setState(() {});
     });
   }
 
@@ -103,9 +102,8 @@ class _MakeInsuranceTypeColorWidgetState
                               size: 30.0,
                             ),
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().searchQuotationStatus = '0';
-                              });
+                              FFAppState().searchQuotationStatus = '0';
+                              setState(() {});
                               Navigator.pop(context);
                             },
                           ),
@@ -192,10 +190,9 @@ class _MakeInsuranceTypeColorWidgetState
                                 setState(() =>
                                     _model.noRateCheckboxValue1 = newValue!);
                                 if (newValue!) {
-                                  setState(() {
-                                    FFAppState().searchQuotationStatus =
-                                        'รอชำระเงิน';
-                                  });
+                                  FFAppState().searchQuotationStatus =
+                                      'รอชำระเงิน';
+                                  setState(() {});
                                   Navigator.pop(context);
                                 }
                               },
@@ -282,10 +279,9 @@ class _MakeInsuranceTypeColorWidgetState
                                 setState(() =>
                                     _model.noRateCheckboxValue2 = newValue!);
                                 if (newValue!) {
-                                  setState(() {
-                                    FFAppState().searchQuotationStatus =
-                                        'ชำระแล้ว';
-                                  });
+                                  FFAppState().searchQuotationStatus =
+                                      'ชำระแล้ว';
+                                  setState(() {});
                                   Navigator.pop(context);
                                 }
                               },

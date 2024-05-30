@@ -888,12 +888,11 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                 );
                                                 return;
                                               }
-                                              setState(() {
-                                                FFAppState()
-                                                        .insuranceInfoEffectiveDateAct =
-                                                    functions.getDateFormat(
-                                                        _model.datePicked)!;
-                                              });
+                                              FFAppState()
+                                                      .insuranceInfoEffectiveDateAct =
+                                                  functions.getDateFormat(
+                                                      _model.datePicked)!;
+                                              setState(() {});
                                               await actions.hideKeyboardAction(
                                                 context,
                                               );
@@ -1038,17 +1037,15 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                           return;
                                         }
                                         if (_model.noSumValue!) {
-                                          setState(() {
-                                            FFAppState()
-                                                    .insuranceInfoActOflLegislation =
-                                                'ราคาไม่รวม พ.ร.บ';
-                                          });
+                                          FFAppState()
+                                                  .insuranceInfoActOflLegislation =
+                                              'ราคาไม่รวม พ.ร.บ';
+                                          setState(() {});
                                         } else {
-                                          setState(() {
-                                            FFAppState()
-                                                    .insuranceInfoActOflLegislation =
-                                                'ราคารวม พ.ร.บ';
-                                          });
+                                          FFAppState()
+                                                  .insuranceInfoActOflLegislation =
+                                              'ราคารวม พ.ร.บ';
+                                          setState(() {});
                                         }
 
                                         context.safePop();

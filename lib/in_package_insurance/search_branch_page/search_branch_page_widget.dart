@@ -361,21 +361,19 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                   ''),
                                             ) ==
                                             200)) {
-                                      setState(() {
-                                        FFAppState()
-                                                .searchableListComponentSelectedList =
-                                            functions
-                                                .createFalseListByItemNumber(
-                                                    false,
-                                                    GetlocationAPICall
-                                                        .branchCode(
-                                                      (_model.getBranchSearched2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )?.length)!
-                                                .toList()
-                                                .cast<bool>();
-                                      });
+                                      FFAppState()
+                                              .searchableListComponentSelectedList =
+                                          functions
+                                              .createFalseListByItemNumber(
+                                                  false,
+                                                  GetlocationAPICall.branchCode(
+                                                    (_model.getBranchSearched2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )?.length)!
+                                              .toList()
+                                              .cast<bool>();
+                                      setState(() {});
                                     } else {
                                       if ((_model.getBranchSearched2
                                                   ?.statusCode ??
@@ -548,53 +546,27 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           onTap: () async {
                                             if (widget.fromPage ==
                                                 'RenewBasic') {
-                                              setState(() {
-                                                FFAppState().renewBranchCode =
-                                                    GetlocationAPICall
-                                                            .branchCode(
-                                                  (_model.getBranchSearched
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )![branchListItemIndex]
-                                                        .toUpperCase();
-                                                FFAppState().renewBranchName =
-                                                    GetlocationAPICall
-                                                        .branchName(
-                                                  (_model.getBranchSearched
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )![branchListItemIndex];
-                                              });
+                                              FFAppState().renewBranchCode =
+                                                  GetlocationAPICall.branchCode(
+                                                (_model.getBranchSearched
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )![branchListItemIndex]
+                                                      .toUpperCase();
+                                              FFAppState().renewBranchName =
+                                                  GetlocationAPICall.branchName(
+                                                (_model.getBranchSearched
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              )![branchListItemIndex];
+                                              setState(() {});
                                               context.safePop();
                                               return;
                                             }
                                             if (widget.fromPage ==
                                                 'NonePackage') {
-                                              setState(() {
-                                                FFAppState()
-                                                        .nonePackageBranchCode =
-                                                    GetlocationAPICall
-                                                            .branchCode(
-                                                  (_model.getBranchSearched
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )![branchListItemIndex]
-                                                        .toUpperCase();
-                                                FFAppState()
-                                                        .nonePackageBranchName =
-                                                    GetlocationAPICall
-                                                        .branchName(
-                                                  (_model.getBranchSearched
-                                                          ?.jsonBody ??
-                                                      ''),
-                                                )![branchListItemIndex];
-                                              });
-                                              context.safePop();
-                                              return;
-                                            }
-                                            setState(() {
                                               FFAppState()
-                                                      .insuranceInfoBranchCode =
+                                                      .nonePackageBranchCode =
                                                   GetlocationAPICall.branchCode(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
@@ -602,13 +574,32 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                               )![branchListItemIndex]
                                                       .toUpperCase();
                                               FFAppState()
-                                                      .insuranceInfoBranchNameOutput =
+                                                      .nonePackageBranchName =
                                                   GetlocationAPICall.branchName(
                                                 (_model.getBranchSearched
                                                         ?.jsonBody ??
                                                     ''),
                                               )![branchListItemIndex];
-                                            });
+                                              setState(() {});
+                                              context.safePop();
+                                              return;
+                                            }
+                                            FFAppState()
+                                                    .insuranceInfoBranchCode =
+                                                GetlocationAPICall.branchCode(
+                                              (_model.getBranchSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )![branchListItemIndex]
+                                                    .toUpperCase();
+                                            FFAppState()
+                                                    .insuranceInfoBranchNameOutput =
+                                                GetlocationAPICall.branchName(
+                                              (_model.getBranchSearched
+                                                      ?.jsonBody ??
+                                                  ''),
+                                            )![branchListItemIndex];
+                                            setState(() {});
                                             context.safePop();
                                           },
                                           child: Container(

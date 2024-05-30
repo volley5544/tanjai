@@ -189,12 +189,11 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            setState(() {
-                                              FFAppState().maxCurrentSelected =
-                                                  true;
-                                              FFAppState().installmentSelected =
-                                                  false;
-                                            });
+                                            FFAppState().maxCurrentSelected =
+                                                true;
+                                            FFAppState().installmentSelected =
+                                                false;
+                                            setState(() {});
                                           },
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -308,10 +307,9 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  setState(() {
-                                    FFAppState().maxCurrentSelected = false;
-                                    FFAppState().installmentSelected = true;
-                                  });
+                                  FFAppState().maxCurrentSelected = false;
+                                  FFAppState().installmentSelected = true;
+                                  setState(() {});
                                 },
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
@@ -446,12 +444,11 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         return;
                                       }
                                       if (widget.fromPage == 'RenewBasic') {
-                                        setState(() {
-                                          FFAppState().renewPaymentType =
-                                              FFAppState().maxCurrentSelected
-                                                  ? 'จ่ายเต็ม'
-                                                  : 'ผ่อนชำระ';
-                                        });
+                                        FFAppState().renewPaymentType =
+                                            FFAppState().maxCurrentSelected
+                                                ? 'จ่ายเต็ม'
+                                                : 'ผ่อนชำระ';
+                                        setState(() {});
                                         context.safePop();
                                       } else {
                                         showModalBottomSheet(
@@ -569,150 +566,128 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                                   ''),
                                             ) ==
                                             'ผ่อนชำระ') {
-                                          setState(() {
-                                            FFAppState()
-                                                    .insuranceInfoPage4NetPremiumTotal =
-                                                '${IbsApplicationsSaveCall.netpremiumtotal(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4GrossTotalNet =
-                                                '${IbsApplicationsSaveCall.grosstotalnet(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4ActTotal =
-                                                '${IbsApplicationsSaveCall.acttotal(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4PaymentChannel =
-                                                '${IbsApplicationsSaveCall.paymentchannel(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4PaymentType =
-                                                '${IbsApplicationsSaveCall.paymenttype(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfo4pagePaymentStatus =
-                                                '${IbsApplicationsSaveCall.paymentstatus(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfo4pageStatus =
-                                                '${IbsApplicationsSaveCall.status(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                          });
-                                          setState(() {
-                                            FFAppState()
-                                                    .InsuranceInfoPage4PaymentFirst =
-                                                IbsApplicationsSaveCall
-                                                        .paymentfirst(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .InsuranceInfoPage4InstallmentFirstDue =
-                                                IbsApplicationsSaveCall
-                                                        .installmentfirstdue(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .InsuranceInfoPage4InstallmentLastDue =
-                                                IbsApplicationsSaveCall
-                                                        .installmentlastdue(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                            FFAppState()
-                                                    .InsuranceInfoPage4Tenor =
-                                                IbsApplicationsSaveCall.tenor(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )!
-                                                    .toList()
-                                                    .cast<String>();
-                                          });
+                                          FFAppState()
+                                                  .insuranceInfoPage4NetPremiumTotal =
+                                              '${IbsApplicationsSaveCall.netpremiumtotal(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4GrossTotalNet =
+                                              '${IbsApplicationsSaveCall.grosstotalnet(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4ActTotal =
+                                              '${IbsApplicationsSaveCall.acttotal(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4PaymentChannel =
+                                              '${IbsApplicationsSaveCall.paymentchannel(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4PaymentType =
+                                              '${IbsApplicationsSaveCall.paymenttype(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfo4pagePaymentStatus =
+                                              '${IbsApplicationsSaveCall.paymentstatus(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfo4pageStatus =
+                                              '${IbsApplicationsSaveCall.status(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          setState(() {});
+                                          FFAppState()
+                                                  .InsuranceInfoPage4PaymentFirst =
+                                              IbsApplicationsSaveCall
+                                                      .paymentfirst(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState()
+                                                  .InsuranceInfoPage4InstallmentFirstDue =
+                                              IbsApplicationsSaveCall
+                                                      .installmentfirstdue(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState()
+                                                  .InsuranceInfoPage4InstallmentLastDue =
+                                              IbsApplicationsSaveCall
+                                                      .installmentlastdue(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          FFAppState().InsuranceInfoPage4Tenor =
+                                              IbsApplicationsSaveCall.tenor(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )!
+                                                  .toList()
+                                                  .cast<String>();
+                                          setState(() {});
                                         } else {
-                                          setState(() {
-                                            FFAppState()
-                                                    .insuranceInfoPage4NetPremiumTotal =
-                                                '${IbsApplicationsSaveCall.netpremiumtotal(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4GrossTotalNet =
-                                                '${IbsApplicationsSaveCall.grosstotalnet(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4ActTotal =
-                                                '${IbsApplicationsSaveCall.acttotal(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4PaymentChannel =
-                                                '${IbsApplicationsSaveCall.paymentchannel(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfoPage4PaymentType =
-                                                '${IbsApplicationsSaveCall.paymenttype(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfo4pagePaymentStatus =
-                                                '${IbsApplicationsSaveCall.paymentstatus(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                            FFAppState()
-                                                    .insuranceInfo4pageStatus =
-                                                '${IbsApplicationsSaveCall.status(
-                                              (_model.save4APIOutput
-                                                      ?.jsonBody ??
-                                                  ''),
-                                            )}';
-                                          });
+                                          FFAppState()
+                                                  .insuranceInfoPage4NetPremiumTotal =
+                                              '${IbsApplicationsSaveCall.netpremiumtotal(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4GrossTotalNet =
+                                              '${IbsApplicationsSaveCall.grosstotalnet(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4ActTotal =
+                                              '${IbsApplicationsSaveCall.acttotal(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4PaymentChannel =
+                                              '${IbsApplicationsSaveCall.paymentchannel(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfoPage4PaymentType =
+                                              '${IbsApplicationsSaveCall.paymenttype(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfo4pagePaymentStatus =
+                                              '${IbsApplicationsSaveCall.paymentstatus(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          FFAppState()
+                                                  .insuranceInfo4pageStatus =
+                                              '${IbsApplicationsSaveCall.status(
+                                            (_model.save4APIOutput?.jsonBody ??
+                                                ''),
+                                          )}';
+                                          setState(() {});
                                         }
 
                                         await showDialog(

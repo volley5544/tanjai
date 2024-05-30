@@ -605,12 +605,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               }
                                                             }
 
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .insuranceInfoPage3ImageExamination =
-                                                                  _model
-                                                                      .uploadedFileUrl1;
-                                                            });
+                                                            FFAppState()
+                                                                    .insuranceInfoPage3ImageExamination =
+                                                                _model
+                                                                    .uploadedFileUrl1;
+                                                            setState(() {});
                                                             if (_model.uploadedFileUrl1 !=
                                                                     null &&
                                                                 _model.uploadedFileUrl1 !=
@@ -1102,12 +1101,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                               }
                                                             }
 
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .insuranceInfoPage3ImageBluebook =
-                                                                  _model
-                                                                      .uploadedFileUrl2;
-                                                            });
+                                                            FFAppState()
+                                                                    .insuranceInfoPage3ImageBluebook =
+                                                                _model
+                                                                    .uploadedFileUrl2;
+                                                            setState(() {});
                                                             if (_model.uploadedFileUrl2 !=
                                                                     null &&
                                                                 _model.uploadedFileUrl2 !=
@@ -1599,12 +1597,11 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             }
                                                           }
 
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .insuranceInfoPage3ImageIdCard =
-                                                                _model
-                                                                    .uploadedFileUrl3;
-                                                          });
+                                                          FFAppState()
+                                                                  .insuranceInfoPage3ImageIdCard =
+                                                              _model
+                                                                  .uploadedFileUrl3;
+                                                          setState(() {});
                                                           if (_model.uploadedFileUrl3 !=
                                                                   null &&
                                                               _model.uploadedFileUrl3 !=
@@ -3183,11 +3180,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageFront =
-                                              _model.uploadedFileUrl4;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageFront =
+                                            _model.uploadedFileUrl4;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl4 != null &&
                                             _model.uploadedFileUrl4 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3333,11 +3329,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageRightFront =
-                                              _model.uploadedFileUrl5;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageRightFront =
+                                            _model.uploadedFileUrl5;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl5 != null &&
                                             _model.uploadedFileUrl5 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3482,11 +3477,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageRight =
-                                              _model.uploadedFileUrl6;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageRight =
+                                            _model.uploadedFileUrl6;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl6 != null &&
                                             _model.uploadedFileUrl6 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3631,11 +3625,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageRightRear =
-                                              _model.uploadedFileUrl7;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageRightRear =
+                                            _model.uploadedFileUrl7;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl7 != null &&
                                             _model.uploadedFileUrl7 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3779,11 +3772,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPageImageRear =
-                                              _model.uploadedFileUrl8;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPageImageRear =
+                                            _model.uploadedFileUrl8;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl8 != null &&
                                             _model.uploadedFileUrl8 != '') {
                                           ScaffoldMessenger.of(context)
@@ -3929,11 +3921,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageLeftRear =
-                                              _model.uploadedFileUrl9;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageLeftRear =
+                                            _model.uploadedFileUrl9;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl9 != null &&
                                             _model.uploadedFileUrl9 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4077,11 +4068,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageLeft =
-                                              _model.uploadedFileUrl10;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageLeft =
+                                            _model.uploadedFileUrl10;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl10 != null &&
                                             _model.uploadedFileUrl10 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4227,11 +4217,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageLeftFront =
-                                              _model.uploadedFileUrl11;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageLeftFront =
+                                            _model.uploadedFileUrl11;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl11 != null &&
                                             _model.uploadedFileUrl11 != '') {
                                           ScaffoldMessenger.of(context)
@@ -4381,11 +4370,10 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                           }
                                         }
 
-                                        setState(() {
-                                          FFAppState()
-                                                  .insuranceInfoPage3ImageRoof =
-                                              _model.uploadedFileUrl12;
-                                        });
+                                        FFAppState()
+                                                .insuranceInfoPage3ImageRoof =
+                                            _model.uploadedFileUrl12;
+                                        setState(() {});
                                         if (_model.uploadedFileUrl12 != null &&
                                             _model.uploadedFileUrl12 != '') {
                                           ScaffoldMessenger.of(context)
@@ -7197,18 +7185,17 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       );
                                                     },
                                                   );
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage3SaveDataCheckBool =
-                                                        true;
-                                                    FFAppState()
-                                                            .insuranceinfoPage3PdfFileapplication =
-                                                        '${IbsApplicationsSaveCall.fileapplication(
-                                                      (_model.ibsAppSaveAPIOutput2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()}';
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage3SaveDataCheckBool =
+                                                      true;
+                                                  FFAppState()
+                                                          .insuranceinfoPage3PdfFileapplication =
+                                                      '${IbsApplicationsSaveCall.fileapplication(
+                                                    (_model.ibsAppSaveAPIOutput2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ).toString()}';
+                                                  setState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -7537,18 +7524,17 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       );
                                                     },
                                                   );
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage3SaveDataCheckBool =
-                                                        true;
-                                                    FFAppState()
-                                                            .insuranceinfoPage3PdfFileapplication =
-                                                        '${IbsApplicationsSaveCall.fileapplication(
-                                                      (_model.ibsAppSaveAPIOutputOther2
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()}';
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage3SaveDataCheckBool =
+                                                      true;
+                                                  FFAppState()
+                                                          .insuranceinfoPage3PdfFileapplication =
+                                                      '${IbsApplicationsSaveCall.fileapplication(
+                                                    (_model.ibsAppSaveAPIOutputOther2
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ).toString()}';
+                                                  setState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -7870,18 +7856,17 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                       );
                                                     },
                                                   );
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoPage3SaveDataCheckBool =
-                                                        true;
-                                                    FFAppState()
-                                                            .insuranceinfoPage3PdfFileapplication =
-                                                        '${IbsApplicationsSaveCall.fileapplication(
-                                                      (_model.ibsAppSaveAPIOutputOtherRenew
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    ).toString()}';
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoPage3SaveDataCheckBool =
+                                                      true;
+                                                  FFAppState()
+                                                          .insuranceinfoPage3PdfFileapplication =
+                                                      '${IbsApplicationsSaveCall.fileapplication(
+                                                    (_model.ibsAppSaveAPIOutputOtherRenew
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  ).toString()}';
+                                                  setState(() {});
                                                   Navigator.pop(context);
                                                 } else {
                                                   await showDialog(
@@ -8082,57 +8067,56 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                     setState(() {});
                                                   return;
                                                 }
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoPage4NetPremiumTotal =
-                                                      '${IbsApplicationsSaveCall.netpremiumtotal(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage4GrossTotalNet =
-                                                      '${IbsApplicationsSaveCall.grosstotalnet(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage4ActTotal =
-                                                      '${IbsApplicationsSaveCall.acttotal(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage4PaymentChannel =
-                                                      '${IbsApplicationsSaveCall.paymentchannel(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage4PaymentType =
-                                                      '${IbsApplicationsSaveCall.paymenttype(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfo4pagePaymentStatus =
-                                                      '${IbsApplicationsSaveCall.paymentstatus(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfo4pageStatus =
-                                                      '${IbsApplicationsSaveCall.status(
-                                                    (_model.save4APIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                });
+                                                FFAppState()
+                                                        .insuranceInfoPage4NetPremiumTotal =
+                                                    '${IbsApplicationsSaveCall.netpremiumtotal(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoPage4GrossTotalNet =
+                                                    '${IbsApplicationsSaveCall.grosstotalnet(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoPage4ActTotal =
+                                                    '${IbsApplicationsSaveCall.acttotal(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoPage4PaymentChannel =
+                                                    '${IbsApplicationsSaveCall.paymentchannel(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoPage4PaymentType =
+                                                    '${IbsApplicationsSaveCall.paymenttype(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfo4pagePaymentStatus =
+                                                    '${IbsApplicationsSaveCall.paymentstatus(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfo4pageStatus =
+                                                    '${IbsApplicationsSaveCall.status(
+                                                  (_model.save4APIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                setState(() {});
 
                                                 context.pushNamed(
                                                   'insuranceInfoPage4_2',

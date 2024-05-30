@@ -43,9 +43,8 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
         parameters: {'screen_name': 'uploadImgPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().insuranceInfoCheckUploadImgBoolList = [];
-      });
+      FFAppState().insuranceInfoCheckUploadImgBoolList = [];
+      setState(() {});
     });
   }
 
@@ -2264,45 +2263,41 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                 }
 
                                 if (widget.titleText == 'รูปเอกสารอื่นๆ') {
-                                  setState(() {
-                                    FFAppState().insuranceInfoUploadImgOther =
-                                        _model.uploadedFileUrls7
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState().insuranceInfoPage3ImageOther =
-                                        functions.imgFirebaseListToString(
-                                            _model.uploadedFileUrls7.toList())!;
-                                  });
+                                  FFAppState().insuranceInfoUploadImgOther =
+                                      _model.uploadedFileUrls7
+                                          .toList()
+                                          .cast<String>();
+                                  FFAppState().insuranceInfoPage3ImageOther =
+                                      functions.imgFirebaseListToString(
+                                          _model.uploadedFileUrls7.toList())!;
+                                  setState(() {});
                                   context.safePop();
                                   return;
                                 }
                                 if (widget.titleText == 'รูปอุปกรณ์เสริม') {
-                                  setState(() {
-                                    FFAppState()
-                                            .insuranceInfoUploadImgAccessory =
-                                        _model.uploadedFileUrls7
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState()
-                                            .insuranceInfoPage3ImageAccessories =
-                                        _model.uploadedFileUrls7
-                                            .toList()
-                                            .cast<String>();
-                                  });
+                                  FFAppState().insuranceInfoUploadImgAccessory =
+                                      _model.uploadedFileUrls7
+                                          .toList()
+                                          .cast<String>();
+                                  FFAppState()
+                                          .insuranceInfoPage3ImageAccessories =
+                                      _model.uploadedFileUrls7
+                                          .toList()
+                                          .cast<String>();
+                                  setState(() {});
                                   context.safePop();
                                   return;
                                 }
                                 if (widget.titleText == 'รูปรอยแผล') {
-                                  setState(() {
-                                    FFAppState().insuranceInfoUploadImgScar =
-                                        _model.uploadedFileUrls7
-                                            .toList()
-                                            .cast<String>();
-                                    FFAppState().insuranceInfoPage3ImageWound =
-                                        _model.uploadedFileUrls7
-                                            .toList()
-                                            .cast<String>();
-                                  });
+                                  FFAppState().insuranceInfoUploadImgScar =
+                                      _model.uploadedFileUrls7
+                                          .toList()
+                                          .cast<String>();
+                                  FFAppState().insuranceInfoPage3ImageWound =
+                                      _model.uploadedFileUrls7
+                                          .toList()
+                                          .cast<String>();
+                                  setState(() {});
                                   context.safePop();
                                   return;
                                 }

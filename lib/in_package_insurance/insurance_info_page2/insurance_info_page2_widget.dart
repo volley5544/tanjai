@@ -117,20 +117,19 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoRegistrationCodeList =
-            TeleGetProvinceAPICall.provinceID(
-          (_model.getProvince?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoRegistrationprovinceList =
-            TeleGetProvinceAPICall.provinceNameTH(
-          (_model.getProvince?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-      });
+      FFAppState().insuranceInfoRegistrationCodeList =
+          TeleGetProvinceAPICall.provinceID(
+        (_model.getProvince?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().insuranceInfoRegistrationprovinceList =
+          TeleGetProvinceAPICall.provinceNameTH(
+        (_model.getProvince?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      setState(() {});
       if (FFAppState().flagRenew == '1') {
         _model.getVehicleUsedTypeAPI =
             await InsuranceRequestGetVehicleAPICall.call(
@@ -161,34 +160,33 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
             ) ==
             200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicVehicleUsedTypeCodeList =
-                InsuranceRequestGetVehicleAPICall.vehicleCode(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeNameList =
-                InsuranceRequestGetVehicleAPICall.vehicleName(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeTypeList =
-                InsuranceRequestGetVehicleAPICall.vehicletype(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleUsedTypeIdList =
-                InsuranceRequestGetVehicleAPICall.vehicleId(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceRequestIsLoadedData = false;
-            FFAppState().insuranceRequestIsLoadDataMc = false;
-          });
+          FFAppState().insuranceBasicVehicleUsedTypeCodeList =
+              InsuranceRequestGetVehicleAPICall.vehicleCode(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleUsedTypeNameList =
+              InsuranceRequestGetVehicleAPICall.vehicleName(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleUsedTypeTypeList =
+              InsuranceRequestGetVehicleAPICall.vehicletype(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleUsedTypeIdList =
+              InsuranceRequestGetVehicleAPICall.vehicleId(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceRequestIsLoadedData = false;
+          FFAppState().insuranceRequestIsLoadDataMc = false;
+          FFAppState().update(() {});
         } else {
           await showDialog(
             context: context,
@@ -2709,13 +2707,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .nonePackageOldVmiExpDate =
-                                                        functions.getDateFormat(
-                                                            _model
-                                                                .datePicked1)!;
-                                                  });
+                                                  FFAppState()
+                                                          .nonePackageOldVmiExpDate =
+                                                      functions.getDateFormat(
+                                                          _model.datePicked1)!;
+                                                  setState(() {});
                                                   await actions
                                                       .hideKeyboardAction(
                                                     context,
@@ -2946,13 +2942,12 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               ?.effectiveDaysInsure,
                                                           _model
                                                               .datePicked2)!) {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .insuranceInfoEffectiveDateInsure =
-                                                          functions.getDateFormat(
-                                                              _model
-                                                                  .datePicked2)!;
-                                                    });
+                                                    FFAppState()
+                                                            .insuranceInfoEffectiveDateInsure =
+                                                        functions.getDateFormat(
+                                                            _model
+                                                                .datePicked2)!;
+                                                    setState(() {});
                                                   } else {
                                                     await showDialog(
                                                       context: context,
@@ -3216,13 +3211,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                     return;
                                                   }
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoEffectiveDateAct =
-                                                        functions.getDateFormat(
-                                                            _model
-                                                                .datePicked3)!;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoEffectiveDateAct =
+                                                      functions.getDateFormat(
+                                                          _model.datePicked3)!;
+                                                  setState(() {});
                                                   await actions
                                                       .hideKeyboardAction(
                                                     context,
@@ -7791,49 +7784,47 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                 ).then((value) =>
                                                     safeSetState(() {}));
 
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoCarRegis =
-                                                      functions
-                                                          .removeSpacialLetterFromText(
-                                                              _model
-                                                                  .vehicleregistrationTextController1
-                                                                  .text);
-                                                  FFAppState()
-                                                          .insuranceInfoBodyNumber =
-                                                      functions
-                                                          .removeDatAndMakeUpperCase(
-                                                              _model
-                                                                  .carBodyNoTextFieldTextController
-                                                                  .text)!;
-                                                  FFAppState()
-                                                          .insuranceInfoEngineNumber =
-                                                      functions
-                                                          .removeDatAndMakeUpperCase(
-                                                              _model
-                                                                  .enginNoTextFieldTextController
-                                                                  .text)!;
-                                                  FFAppState()
-                                                          .insuranceInfoCarSeat =
-                                                      _model
-                                                          .seatAmountTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoSizeCar =
-                                                      _model
-                                                          .sizeTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoWeightCar =
-                                                      _model
-                                                          .weightTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .nonePackageOldVmi =
-                                                      _model
-                                                          .oldVmiTextFieldTextController
-                                                          .text;
-                                                });
+                                                FFAppState()
+                                                        .insuranceInfoCarRegis =
+                                                    functions
+                                                        .removeSpacialLetterFromText(
+                                                            _model
+                                                                .vehicleregistrationTextController1
+                                                                .text);
+                                                FFAppState()
+                                                        .insuranceInfoBodyNumber =
+                                                    functions
+                                                        .removeDatAndMakeUpperCase(
+                                                            _model
+                                                                .carBodyNoTextFieldTextController
+                                                                .text)!;
+                                                FFAppState()
+                                                        .insuranceInfoEngineNumber =
+                                                    functions
+                                                        .removeDatAndMakeUpperCase(
+                                                            _model
+                                                                .enginNoTextFieldTextController
+                                                                .text)!;
+                                                FFAppState()
+                                                        .insuranceInfoCarSeat =
+                                                    _model
+                                                        .seatAmountTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoSizeCar =
+                                                    _model
+                                                        .sizeTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoWeightCar =
+                                                    _model
+                                                        .weightTextFieldTextController
+                                                        .text;
+                                                FFAppState().nonePackageOldVmi =
+                                                    _model
+                                                        .oldVmiTextFieldTextController
+                                                        .text;
+                                                setState(() {});
                                                 _model.ibsAppAPIOutput =
                                                     await IbsApplicationsSaveCall
                                                         .call(
@@ -8194,52 +8185,51 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                     );
                                                   },
                                                 );
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoPage2SaveDataCheckBool =
-                                                      true;
-                                                  FFAppState()
-                                                          .insuranceInfoActFlag =
-                                                      '${IbsApplicationsDetailCall.actflg(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoGrosstotalNet =
-                                                      '${IbsApplicationsDetailCall.grosstotalnet(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoPage4NetPremiumTotal =
-                                                      '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .insuranceInfoActAmount =
-                                                      '${IbsApplicationsDetailCall.acttotal(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState()
-                                                          .nonePackageWorkType =
-                                                      '${IbsApplicationsDetailCall.workType(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                  FFAppState().flagRenew =
-                                                      '${IbsApplicationsDetailCall.flgrenew(
-                                                    (_model.detailAPIOutput
-                                                            ?.jsonBody ??
-                                                        ''),
-                                                  )}';
-                                                });
+                                                FFAppState()
+                                                        .insuranceInfoPage2SaveDataCheckBool =
+                                                    true;
+                                                FFAppState()
+                                                        .insuranceInfoActFlag =
+                                                    '${IbsApplicationsDetailCall.actflg(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoGrosstotalNet =
+                                                    '${IbsApplicationsDetailCall.grosstotalnet(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoPage4NetPremiumTotal =
+                                                    '${IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .insuranceInfoActAmount =
+                                                    '${IbsApplicationsDetailCall.acttotal(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState()
+                                                        .nonePackageWorkType =
+                                                    '${IbsApplicationsDetailCall.workType(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                FFAppState().flagRenew =
+                                                    '${IbsApplicationsDetailCall.flgrenew(
+                                                  (_model.detailAPIOutput
+                                                          ?.jsonBody ??
+                                                      ''),
+                                                )}';
+                                                setState(() {});
                                                 Navigator.pop(context);
                                                 if (_shouldSetState)
                                                   setState(() {});
@@ -8501,38 +8491,37 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                         );
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoCarRegis =
-                                                            _model
-                                                                .vehicleregistrationTextController1
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoBodyNumber =
-                                                            _model
-                                                                .carBodyNoTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoEngineNumber =
-                                                            _model
-                                                                .enginNoTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoCarSeat =
-                                                            _model
-                                                                .seatAmountTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoSizeCar =
-                                                            _model
-                                                                .sizeTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoWeightCar =
-                                                            _model
-                                                                .weightTextFieldTextController
-                                                                .text;
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoCarRegis =
+                                                          _model
+                                                              .vehicleregistrationTextController1
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoBodyNumber =
+                                                          _model
+                                                              .carBodyNoTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoEngineNumber =
+                                                          _model
+                                                              .enginNoTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoCarSeat =
+                                                          _model
+                                                              .seatAmountTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoSizeCar =
+                                                          _model
+                                                              .sizeTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoWeightCar =
+                                                          _model
+                                                              .weightTextFieldTextController
+                                                              .text;
+                                                      setState(() {});
                                                       if (FFAppState()
                                                               .insuranceInfoApplicationType !=
                                                           'auto') {
@@ -8545,38 +8534,37 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       context.pushNamed(
                                                           'insuranceInfoPage3');
                                                     } else {
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoCarRegis =
-                                                            _model
-                                                                .vehicleregistrationTextController1
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoBodyNumber =
-                                                            _model
-                                                                .carBodyNoTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoEngineNumber =
-                                                            _model
-                                                                .enginNoTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoCarSeat =
-                                                            _model
-                                                                .seatAmountTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoSizeCar =
-                                                            _model
-                                                                .sizeTextFieldTextController
-                                                                .text;
-                                                        FFAppState()
-                                                                .insuranceInfoWeightCar =
-                                                            _model
-                                                                .weightTextFieldTextController
-                                                                .text;
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoCarRegis =
+                                                          _model
+                                                              .vehicleregistrationTextController1
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoBodyNumber =
+                                                          _model
+                                                              .carBodyNoTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoEngineNumber =
+                                                          _model
+                                                              .enginNoTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoCarSeat =
+                                                          _model
+                                                              .seatAmountTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoSizeCar =
+                                                          _model
+                                                              .sizeTextFieldTextController
+                                                              .text;
+                                                      FFAppState()
+                                                              .insuranceInfoWeightCar =
+                                                          _model
+                                                              .weightTextFieldTextController
+                                                              .text;
+                                                      setState(() {});
                                                       if (FFAppState()
                                                               .insuranceInfoApplicationType !=
                                                           'auto') {

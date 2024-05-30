@@ -669,17 +669,15 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     if (_model.protectValue == true) {
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoAccessoryProtect =
-                                            'คุ้มครองอุปกรณ์เสริม';
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoAccessoryProtect =
+                                          'คุ้มครองอุปกรณ์เสริม';
+                                      setState(() {});
                                     } else {
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceInfoAccessoryProtect =
-                                            'ไม่คุ้มครองอุปกรณ์เสริม';
-                                      });
+                                      FFAppState()
+                                              .insuranceInfoAccessoryProtect =
+                                          'ไม่คุ้มครองอุปกรณ์เสริม';
+                                      setState(() {});
                                     }
 
                                     context.safePop();

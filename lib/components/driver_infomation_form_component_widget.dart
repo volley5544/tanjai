@@ -118,9 +118,8 @@ class _DriverInfomationFormComponentWidgetState
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onTap: () async {
-                    FFAppState().update(() {
-                      FFAppState().removeAtIndexFromDriverList(widget.index!);
-                    });
+                    FFAppState().removeAtIndexFromDriverList(widget.index!);
+                    _model.updatePage(() {});
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
@@ -858,14 +857,13 @@ class _DriverInfomationFormComponentWidgetState
                                 ),
                               );
 
-                              setState(() {
-                                FFAppState().updateDriverListAtIndex(
-                                  widget.index!,
-                                  (e) => e
-                                    ..birthDay = functions
-                                        .getDateFormat(_model.datePicked),
-                                );
-                              });
+                              FFAppState().updateDriverListAtIndex(
+                                widget.index!,
+                                (e) => e
+                                  ..birthDay = functions
+                                      .getDateFormat(_model.datePicked),
+                              );
+                              setState(() {});
                               await actions.hideKeyboardAction(
                                 context,
                               );
@@ -1538,14 +1536,13 @@ class _DriverInfomationFormComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState().updateDriverListAtIndex(
-                                          widget.index!,
-                                          (e) => e
-                                            ..imageIdcard =
-                                                _model.uploadedFileUrl1,
-                                        );
-                                      });
+                                      FFAppState().updateDriverListAtIndex(
+                                        widget.index!,
+                                        (e) => e
+                                          ..imageIdcard =
+                                              _model.uploadedFileUrl1,
+                                      );
+                                      setState(() {});
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
                                       ScaffoldMessenger.of(context)
@@ -1839,14 +1836,13 @@ class _DriverInfomationFormComponentWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState().updateDriverListAtIndex(
-                                          widget.index!,
-                                          (e) => e
-                                            ..imageLicenseNo =
-                                                _model.uploadedFileUrl2,
-                                        );
-                                      });
+                                      FFAppState().updateDriverListAtIndex(
+                                        widget.index!,
+                                        (e) => e
+                                          ..imageLicenseNo =
+                                              _model.uploadedFileUrl2,
+                                      );
+                                      setState(() {});
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
                                       ScaffoldMessenger.of(context)

@@ -259,10 +259,9 @@ class _CompareInsurancePageWidgetState
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    setState(() {
-                                      _model.indexDataCompare =
-                                          insurerListItemIndex;
-                                    });
+                                    _model.indexDataCompare =
+                                        insurerListItemIndex;
+                                    setState(() {});
                                   },
                                   child: Container(
                                     width: 130.0,

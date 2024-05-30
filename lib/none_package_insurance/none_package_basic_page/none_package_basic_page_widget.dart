@@ -172,20 +172,19 @@ class _NonePackageBasicPageWidgetState
               (_model.getProvince?.jsonBody ?? ''),
             ) ==
             200) {
-          setState(() {
-            FFAppState().insuranceBasicProvinceIdList =
-                TeleGetProvinceAPICall.provinceID(
-              (_model.getProvince?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicProvinceNameList =
-                TeleGetProvinceAPICall.provinceNameTH(
-              (_model.getProvince?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceBasicProvinceIdList =
+              TeleGetProvinceAPICall.provinceID(
+            (_model.getProvince?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicProvinceNameList =
+              TeleGetProvinceAPICall.provinceNameTH(
+            (_model.getProvince?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         } else {
           await showDialog(
             context: context,
@@ -236,32 +235,31 @@ class _NonePackageBasicPageWidgetState
               (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
             ) ==
             200) {
-          FFAppState().update(() {
-            FFAppState().nonePackageUsedTypeIdList =
-                InsuranceRequestGetVehicleAPICall.vehicleId(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().nonePackageUsedTypeCodeList =
-                InsuranceRequestGetVehicleAPICall.vehicleCode(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().nonePackageUsedTypeNameList =
-                InsuranceRequestGetVehicleAPICall.vehicleName(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().nonePackageUsedTypeTypeList =
-                InsuranceRequestGetVehicleAPICall.vehicletype(
-              (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().nonePackageUsedTypeIdList =
+              InsuranceRequestGetVehicleAPICall.vehicleId(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().nonePackageUsedTypeCodeList =
+              InsuranceRequestGetVehicleAPICall.vehicleCode(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().nonePackageUsedTypeNameList =
+              InsuranceRequestGetVehicleAPICall.vehicleName(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().nonePackageUsedTypeTypeList =
+              InsuranceRequestGetVehicleAPICall.vehicletype(
+            (_model.getVehicleUsedTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().update(() {});
         } else {
           await showDialog(
             context: context,
@@ -284,9 +282,8 @@ class _NonePackageBasicPageWidgetState
           return;
         }
 
-        setState(() {
-          FFAppState().nonePackageIsLoadedData = true;
-        });
+        FFAppState().nonePackageIsLoadedData = true;
+        setState(() {});
       }
       if (FFAppState().insuranceRequestIsLoadedData &&
           (FFAppState().insuranceBasicBrandNameListOriginal.length > 0)) {
@@ -318,38 +315,36 @@ class _NonePackageBasicPageWidgetState
               (_model.getBrandAPI?.jsonBody ?? ''),
             ) ==
             200) {
-          setState(() {
-            FFAppState().insuranceBasicBrandNameList =
-                TeleGetBrandAPICall.brandName(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicBrandIdList =
-                TeleGetBrandAPICall.brandID(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicBrandNameListOriginal =
-                TeleGetBrandAPICall.brandName(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicBrandIdListOriginal =
-                TeleGetBrandAPICall.brandID(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleGroupBrandList =
-                TeleGetBrandAPICall.carGroup(
-              (_model.getBrandAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceBasicBrandNameList =
+              TeleGetBrandAPICall.brandName(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicBrandIdList = TeleGetBrandAPICall.brandID(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().insuranceBasicBrandNameListOriginal =
+              TeleGetBrandAPICall.brandName(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicBrandIdListOriginal =
+              TeleGetBrandAPICall.brandID(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleGroupBrandList =
+              TeleGetBrandAPICall.carGroup(
+            (_model.getBrandAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          setState(() {});
         } else {
           await showDialog(
             context: context,
@@ -399,44 +394,42 @@ class _NonePackageBasicPageWidgetState
               (_model.getModelAPI?.jsonBody ?? ''),
             ) ==
             200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicModelIdListOriginal =
-                TeleGetModelAPICall.modelCode(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicModelNameListOriginal =
-                TeleGetModelAPICall.modelName(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicModelBrandIdListOriginal =
-                TeleGetModelAPICall.brandID(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicVehicleGroupList =
-                TeleGetModelAPICall.carGroup(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCarGroupDetail =
-                TeleGetModelAPICall.carGroupDetail(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCarDoorList =
-                TeleGetModelAPICall.carDoors(
-              (_model.getModelAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceBasicModelIdListOriginal =
+              TeleGetModelAPICall.modelCode(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicModelNameListOriginal =
+              TeleGetModelAPICall.modelName(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicModelBrandIdListOriginal =
+              TeleGetModelAPICall.brandID(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicVehicleGroupList =
+              TeleGetModelAPICall.carGroup(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCarGroupDetail =
+              TeleGetModelAPICall.carGroupDetail(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCarDoorList = TeleGetModelAPICall.carDoors(
+            (_model.getModelAPI?.jsonBody ?? ''),
+          )!
+              .toList()
+              .cast<String>();
+          FFAppState().update(() {});
         } else {
           await showDialog(
             context: context,
@@ -486,26 +479,25 @@ class _NonePackageBasicPageWidgetState
               (_model.getCoverTypeAPI?.jsonBody ?? ''),
             ) ==
             200) {
-          FFAppState().update(() {
-            FFAppState().insuranceBasicCoverTypeNameList =
-                TeleGetCoverTypeAPICall.coverTypeName(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCoverTypeCodeList =
-                TeleGetCoverTypeAPICall.coverTypeCode(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-            FFAppState().insuranceBasicCoverTypeIdList =
-                TeleGetCoverTypeAPICall.coverTypeId(
-              (_model.getCoverTypeAPI?.jsonBody ?? ''),
-            )!
-                    .toList()
-                    .cast<String>();
-          });
+          FFAppState().insuranceBasicCoverTypeNameList =
+              TeleGetCoverTypeAPICall.coverTypeName(
+            (_model.getCoverTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCoverTypeCodeList =
+              TeleGetCoverTypeAPICall.coverTypeCode(
+            (_model.getCoverTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().insuranceBasicCoverTypeIdList =
+              TeleGetCoverTypeAPICall.coverTypeId(
+            (_model.getCoverTypeAPI?.jsonBody ?? ''),
+          )!
+                  .toList()
+                  .cast<String>();
+          FFAppState().update(() {});
         } else {
           await showDialog(
             context: context,
@@ -528,9 +520,8 @@ class _NonePackageBasicPageWidgetState
           return;
         }
 
-        setState(() {
-          FFAppState().insuranceRequestIsLoadedData = true;
-        });
+        FFAppState().insuranceRequestIsLoadedData = true;
+        setState(() {});
       }
 
       Navigator.pop(context);
@@ -1542,15 +1533,11 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (FFAppState().nonePackageFlagCarrier) {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagCarrier =
-                                          false;
-                                    });
+                                    FFAppState().nonePackageFlagCarrier = false;
+                                    setState(() {});
                                   } else {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagCarrier =
-                                          true;
-                                    });
+                                    FFAppState().nonePackageFlagCarrier = true;
+                                    setState(() {});
                                   }
 
                                   await actions.hideKeyboardAction(
@@ -1669,13 +1656,11 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (FFAppState().nonePackageFlagCoop) {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagCoop = false;
-                                    });
+                                    FFAppState().nonePackageFlagCoop = false;
+                                    setState(() {});
                                   } else {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagCoop = true;
-                                    });
+                                    FFAppState().nonePackageFlagCoop = true;
+                                    setState(() {});
                                   }
 
                                   await actions.hideKeyboardAction(
@@ -2200,134 +2185,6 @@ class _NonePackageBasicPageWidgetState
                                                   if (FFAppState()
                                                           .insuranceBasicVehicleGroup ==
                                                       'PICKUP') {
-                                                    setState(() {
-                                                      FFAppState().nonePackageSearchModelList = functions
-                                                          .returnMappedListFrom3List(
-                                                              FFAppState()
-                                                                  .insuranceBasicModelNameListOriginal
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicModelBrandIdListOriginal
-                                                                  .toList(),
-                                                              functions.getValueWithMappedList(
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandIdList
-                                                                      .toList(),
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandNameList
-                                                                      .toList(),
-                                                                  functions.toUpperCase(_model
-                                                                      .brandNameTextFieldTextController
-                                                                      .text)),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroupList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroup,
-                                                              FFAppState()
-                                                                  .insuranceBasicCarGroupDetail
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicCarTypeContain,
-                                                              FFAppState()
-                                                                  .insuranceBasicCarDoorList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicCarTypeDoors)
-                                                          .toList()
-                                                          .cast<String>();
-                                                      FFAppState().nonePackageSearchModelIdList = functions
-                                                          .returnMappedListFrom3List(
-                                                              FFAppState()
-                                                                  .insuranceBasicModelIdListOriginal
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicModelBrandIdListOriginal
-                                                                  .toList(),
-                                                              functions.getValueWithMappedList(
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandIdList
-                                                                      .toList(),
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandNameList
-                                                                      .toList(),
-                                                                  functions.toUpperCase(_model
-                                                                      .brandNameTextFieldTextController
-                                                                      .text)),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroupList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroup,
-                                                              FFAppState()
-                                                                  .insuranceBasicCarGroupDetail
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicCarTypeContain,
-                                                              FFAppState()
-                                                                  .insuranceBasicCarDoorList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicCarTypeDoors)
-                                                          .toList()
-                                                          .cast<String>();
-                                                    });
-                                                  } else {
-                                                    setState(() {
-                                                      FFAppState().nonePackageSearchModelList = functions
-                                                          .returnMappedListFrom3ListOther(
-                                                              FFAppState()
-                                                                  .insuranceBasicModelNameListOriginal
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicModelBrandIdListOriginal
-                                                                  .toList(),
-                                                              functions.getValueWithMappedList(
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandIdList
-                                                                      .toList(),
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandNameList
-                                                                      .toList(),
-                                                                  functions.toUpperCase(_model
-                                                                      .brandNameTextFieldTextController
-                                                                      .text)),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroupList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroup)
-                                                          .toList()
-                                                          .cast<String>();
-                                                      FFAppState().nonePackageSearchModelIdList = functions
-                                                          .returnMappedListFrom3ListOther(
-                                                              FFAppState()
-                                                                  .insuranceBasicModelIdListOriginal
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicModelBrandIdListOriginal
-                                                                  .toList(),
-                                                              functions.getValueWithMappedList(
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandIdList
-                                                                      .toList(),
-                                                                  FFAppState()
-                                                                      .insuranceBasicBrandNameList
-                                                                      .toList(),
-                                                                  functions.toUpperCase(_model
-                                                                      .brandNameTextFieldTextController
-                                                                      .text)),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroupList
-                                                                  .toList(),
-                                                              FFAppState()
-                                                                  .insuranceBasicVehicleGroup)
-                                                          .toList()
-                                                          .cast<String>();
-                                                    });
-                                                  }
-
-                                                  setState(() {
                                                     FFAppState().nonePackageSearchModelList = functions
                                                         .returnMappedListFrom3List(
                                                             FFAppState()
@@ -2400,7 +2257,136 @@ class _NonePackageBasicPageWidgetState
                                                                 .insuranceBasicCarTypeDoors)
                                                         .toList()
                                                         .cast<String>();
-                                                  });
+                                                    setState(() {});
+                                                  } else {
+                                                    FFAppState().nonePackageSearchModelList = functions
+                                                        .returnMappedListFrom3ListOther(
+                                                            FFAppState()
+                                                                .insuranceBasicModelNameListOriginal
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                .toList(),
+                                                            functions.getValueWithMappedList(
+                                                                FFAppState()
+                                                                    .insuranceBasicBrandIdList
+                                                                    .toList(),
+                                                                FFAppState()
+                                                                    .insuranceBasicBrandNameList
+                                                                    .toList(),
+                                                                functions.toUpperCase(
+                                                                    _model
+                                                                        .brandNameTextFieldTextController
+                                                                        .text)),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroupList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroup)
+                                                        .toList()
+                                                        .cast<String>();
+                                                    FFAppState().nonePackageSearchModelIdList = functions
+                                                        .returnMappedListFrom3ListOther(
+                                                            FFAppState()
+                                                                .insuranceBasicModelIdListOriginal
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicModelBrandIdListOriginal
+                                                                .toList(),
+                                                            functions.getValueWithMappedList(
+                                                                FFAppState()
+                                                                    .insuranceBasicBrandIdList
+                                                                    .toList(),
+                                                                FFAppState()
+                                                                    .insuranceBasicBrandNameList
+                                                                    .toList(),
+                                                                functions.toUpperCase(
+                                                                    _model
+                                                                        .brandNameTextFieldTextController
+                                                                        .text)),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroupList
+                                                                .toList(),
+                                                            FFAppState()
+                                                                .insuranceBasicVehicleGroup)
+                                                        .toList()
+                                                        .cast<String>();
+                                                    setState(() {});
+                                                  }
+
+                                                  FFAppState().nonePackageSearchModelList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelNameListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  FFAppState().nonePackageSearchModelIdList = functions
+                                                      .returnMappedListFrom3List(
+                                                          FFAppState()
+                                                              .insuranceBasicModelIdListOriginal
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicModelBrandIdListOriginal
+                                                              .toList(),
+                                                          functions.getValueWithMappedList(
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandIdList
+                                                                  .toList(),
+                                                              FFAppState()
+                                                                  .insuranceBasicBrandNameList
+                                                                  .toList(),
+                                                              functions.toUpperCase(
+                                                                  _model
+                                                                      .brandNameTextFieldTextController
+                                                                      .text)),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroupList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicVehicleGroup,
+                                                          FFAppState()
+                                                              .insuranceBasicCarGroupDetail
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeContain,
+                                                          FFAppState()
+                                                              .insuranceBasicCarDoorList
+                                                              .toList(),
+                                                          FFAppState()
+                                                              .insuranceBasicCarTypeDoors)
+                                                      .toList()
+                                                      .cast<String>();
+                                                  setState(() {});
                                                 },
                                               ),
                                               onFieldSubmitted: (_) async {
@@ -4595,13 +4581,11 @@ class _NonePackageBasicPageWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   if (FFAppState().nonePackageFlagAct) {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagAct = false;
-                                    });
+                                    FFAppState().nonePackageFlagAct = false;
+                                    setState(() {});
                                   } else {
-                                    setState(() {
-                                      FFAppState().nonePackageFlagAct = true;
-                                    });
+                                    FFAppState().nonePackageFlagAct = true;
+                                    setState(() {});
                                   }
 
                                   await actions.hideKeyboardAction(
@@ -5675,12 +5659,11 @@ class _NonePackageBasicPageWidgetState
                                                             );
                                                             return;
                                                           }
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageCompanyBookImageUrl =
-                                                                _model
-                                                                    .uploadedFileUrl3;
-                                                          });
+                                                          FFAppState()
+                                                                  .nonePackageCompanyBookImageUrl =
+                                                              _model
+                                                                  .uploadedFileUrl3;
+                                                          setState(() {});
                                                           ScaffoldMessenger.of(
                                                                   context)
                                                               .clearSnackBars();
@@ -6464,118 +6447,108 @@ class _NonePackageBasicPageWidgetState
                                       }
                                     }
                                   }
-                                  setState(() {
-                                    FFAppState().nonePackageModelName =
-                                        functions.toUpperCase(_model
-                                            .modelNameTextController.text)!;
-                                    FFAppState()
-                                        .nonePackageModelCode = FFAppState()
-                                            .nonePackageSearchModelList
-                                            .contains(
-                                                functions.toUpperCase(
-                                                    _model.modelNameTextController
-                                                        .text))
-                                        ? FFAppState()
-                                                .nonePackageSearchModelIdList[
-                                            functions.getIndexOfSomethingList(
-                                                FFAppState()
-                                                    .nonePackageSearchModelList
-                                                    .toList(),
-                                                _model.modelNameTextController
-                                                    .text)]
-                                        : '';
-                                    FFAppState().nonePackageCusFullname = _model
-                                        .cusNameTextFieldTextController.text;
-                                    FFAppState().nonePackageCusPhone =
-                                        functions.removeCommaFromNumText(_model
-                                            .cusPhoneTextFieldTextController
-                                            .text);
-                                    FFAppState().nonePackagePlate = functions
-                                        .removeSpacialLetterFromText(_model
-                                            .plateTextFieldTextController.text);
-                                    FFAppState().nonePackageSumInsured =
-                                        functions.removeCommaFromNumText(_model
-                                            .sumInsuredTextFieldTextController
-                                            .text);
-                                    FFAppState().nonePackageBrandName =
-                                        functions.toUpperCase(_model
-                                            .brandNameTextFieldTextController
-                                            .text)!;
-                                    FFAppState()
-                                        .nonePackageBrandId = FFAppState()
-                                            .insuranceBasicBrandNameList
-                                            .contains(functions.toUpperCase(_model
-                                                .brandNameTextFieldTextController
-                                                .text))
-                                        ? functions.getValueWithMappedList(
-                                            FFAppState()
-                                                .insuranceBasicBrandIdList
-                                                .toList(),
-                                            FFAppState()
-                                                .insuranceBasicBrandNameList
-                                                .toList(),
-                                            functions.toUpperCase(_model
-                                                .brandNameTextFieldTextController
-                                                .text))!
-                                        : '';
-                                  });
-                                  setState(() {
-                                    FFAppState().nonePackageCarrierPrice =
-                                        functions.removeCommaFromNumText(_model
-                                            .carrierPriceTextFieldTextController
-                                            .text);
-                                  });
-                                  setState(() {
-                                    FFAppState().nonePackageTruckPart =
-                                        FFAppState().nonePackageTruckPart;
-                                    FFAppState().nonePackageCusMembership =
-                                        FFAppState().nonePackageCusMembership;
-                                    FFAppState().nonePackageTruckCurrentPrice =
-                                        functions.removeCommaFromNumText(_model
-                                            .currentPriceTextFieldTextController
-                                            .text);
-                                    FFAppState().nonePackagePlateAdditional =
-                                        functions.removeSpacialLetterFromText(_model
-                                            .plateAdditionalTextFieldTextController
-                                            .text);
-                                    FFAppState().nonePackageTruckCarryPurpose =
-                                        _model
-                                            .carryPurposeTextFieldTextController
-                                            .text;
-                                    FFAppState().nonePackageTrailerSumInsured =
-                                        functions.removeCommaFromNumText(_model
-                                            .trailerSumInsuredTextFieldTextController
-                                            .text);
-                                    FFAppState().nonePackageRemark = _model
-                                        .remarkTextFieldTextController.text;
-                                  });
+                                  FFAppState().nonePackageModelName =
+                                      functions.toUpperCase(
+                                          _model.modelNameTextController.text)!;
+                                  FFAppState()
+                                      .nonePackageModelCode = FFAppState()
+                                          .nonePackageSearchModelList
+                                          .contains(functions.toUpperCase(_model
+                                              .modelNameTextController.text))
+                                      ? FFAppState()
+                                              .nonePackageSearchModelIdList[
+                                          functions.getIndexOfSomethingList(
+                                              FFAppState()
+                                                  .nonePackageSearchModelList
+                                                  .toList(),
+                                              _model.modelNameTextController
+                                                  .text)]
+                                      : '';
+                                  FFAppState().nonePackageCusFullname = _model
+                                      .cusNameTextFieldTextController.text;
+                                  FFAppState().nonePackageCusPhone =
+                                      functions.removeCommaFromNumText(_model
+                                          .cusPhoneTextFieldTextController
+                                          .text);
+                                  FFAppState().nonePackagePlate = functions
+                                      .removeSpacialLetterFromText(_model
+                                          .plateTextFieldTextController.text);
+                                  FFAppState().nonePackageSumInsured =
+                                      functions.removeCommaFromNumText(_model
+                                          .sumInsuredTextFieldTextController
+                                          .text);
+                                  FFAppState().nonePackageBrandName =
+                                      functions.toUpperCase(_model
+                                          .brandNameTextFieldTextController
+                                          .text)!;
+                                  FFAppState().nonePackageBrandId = FFAppState()
+                                          .insuranceBasicBrandNameList
+                                          .contains(functions.toUpperCase(_model
+                                              .brandNameTextFieldTextController
+                                              .text))
+                                      ? functions.getValueWithMappedList(
+                                          FFAppState()
+                                              .insuranceBasicBrandIdList
+                                              .toList(),
+                                          FFAppState()
+                                              .insuranceBasicBrandNameList
+                                              .toList(),
+                                          functions.toUpperCase(_model
+                                              .brandNameTextFieldTextController
+                                              .text))!
+                                      : '';
+                                  setState(() {});
+                                  FFAppState().nonePackageCarrierPrice =
+                                      functions.removeCommaFromNumText(_model
+                                          .carrierPriceTextFieldTextController
+                                          .text);
+                                  setState(() {});
+                                  FFAppState().nonePackageTruckPart =
+                                      FFAppState().nonePackageTruckPart;
+                                  FFAppState().nonePackageCusMembership =
+                                      FFAppState().nonePackageCusMembership;
+                                  FFAppState().nonePackageTruckCurrentPrice =
+                                      functions.removeCommaFromNumText(_model
+                                          .currentPriceTextFieldTextController
+                                          .text);
+                                  FFAppState().nonePackagePlateAdditional =
+                                      functions.removeSpacialLetterFromText(_model
+                                          .plateAdditionalTextFieldTextController
+                                          .text);
+                                  FFAppState().nonePackageTruckCarryPurpose =
+                                      _model.carryPurposeTextFieldTextController
+                                          .text;
+                                  FFAppState().nonePackageTrailerSumInsured =
+                                      functions.removeCommaFromNumText(_model
+                                          .trailerSumInsuredTextFieldTextController
+                                          .text);
+                                  FFAppState().nonePackageRemark =
+                                      _model.remarkTextFieldTextController.text;
+                                  setState(() {});
                                   if (FFAppState().nonePackageFlagRenew) {
-                                    setState(() {
-                                      FFAppState().nonePackageOldVmiExpDate =
-                                          _model.datePicked != null
-                                              ? functions.getDateFormat(
-                                                  _model.datePicked)!
-                                              : widget.oldVmiExpireDate!;
-                                      FFAppState().nonePackageOldVmi = _model
-                                          .oldVmiTextFieldTextController.text;
-                                    });
-                                    setState(() {
-                                      FFAppState().nonePackageOldVmiImageUrl =
-                                          _model.uploadedFileUrl1;
-                                      FFAppState().nonePackageIdCardImageUrl =
-                                          _model.uploadedFileUrl2;
-                                      FFAppState()
-                                              .nonePackageCompanyBookImageUrl =
-                                          _model.uploadedFileUrl3;
-                                    });
+                                    FFAppState().nonePackageOldVmiExpDate =
+                                        _model.datePicked != null
+                                            ? functions.getDateFormat(
+                                                _model.datePicked)!
+                                            : widget.oldVmiExpireDate!;
+                                    FFAppState().nonePackageOldVmi = _model
+                                        .oldVmiTextFieldTextController.text;
+                                    setState(() {});
+                                    FFAppState().nonePackageOldVmiImageUrl =
+                                        _model.uploadedFileUrl1;
+                                    FFAppState().nonePackageIdCardImageUrl =
+                                        _model.uploadedFileUrl2;
+                                    FFAppState()
+                                            .nonePackageCompanyBookImageUrl =
+                                        _model.uploadedFileUrl3;
+                                    setState(() {});
                                   } else {
-                                    setState(() {
-                                      FFAppState().nonePackageOldVmiExpDate =
-                                          _model.datePicked != null
-                                              ? functions.getDateFormat(
-                                                  _model.datePicked)!
-                                              : '';
-                                    });
+                                    FFAppState().nonePackageOldVmiExpDate =
+                                        _model.datePicked != null
+                                            ? functions.getDateFormat(
+                                                _model.datePicked)!
+                                            : '';
+                                    setState(() {});
                                   }
 
                                   if (FFAppState().nonePackageFlagRenew ||

@@ -250,19 +250,17 @@ class _NonePackageRenewPageWidgetState
                                           onTap: () async {
                                             if (FFAppState().buttonOrdinary ==
                                                 true) {
-                                              setState(() {
-                                                FFAppState().buttonCorporation =
-                                                    false;
-                                                FFAppState().buttonOrdinary =
-                                                    false;
-                                              });
+                                              FFAppState().buttonCorporation =
+                                                  false;
+                                              FFAppState().buttonOrdinary =
+                                                  false;
+                                              setState(() {});
                                             } else {
-                                              setState(() {
-                                                FFAppState().buttonCorporation =
-                                                    false;
-                                                FFAppState().buttonOrdinary =
-                                                    true;
-                                              });
+                                              FFAppState().buttonCorporation =
+                                                  false;
+                                              FFAppState().buttonOrdinary =
+                                                  true;
+                                              setState(() {});
                                             }
                                           },
                                           child: Material(
@@ -364,19 +362,17 @@ class _NonePackageRenewPageWidgetState
                                             if (FFAppState()
                                                     .buttonCorporation ==
                                                 true) {
-                                              setState(() {
-                                                FFAppState().buttonCorporation =
-                                                    false;
-                                                FFAppState().buttonOrdinary =
-                                                    false;
-                                              });
+                                              FFAppState().buttonCorporation =
+                                                  false;
+                                              FFAppState().buttonOrdinary =
+                                                  false;
+                                              setState(() {});
                                             } else {
-                                              setState(() {
-                                                FFAppState().buttonCorporation =
-                                                    true;
-                                                FFAppState().buttonOrdinary =
-                                                    false;
-                                              });
+                                              FFAppState().buttonCorporation =
+                                                  true;
+                                              FFAppState().buttonOrdinary =
+                                                  false;
+                                              setState(() {});
                                             }
                                           },
                                           child: Material(

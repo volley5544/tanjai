@@ -106,16 +106,14 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoFinance = GetFinanceCall.beneficiaryname(
-          (_model.getFinanceAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
-      setState(() {
-        FFAppState().addToInsuranceInfoFinance('อื่นๆ');
-      });
+      FFAppState().insuranceInfoFinance = GetFinanceCall.beneficiaryname(
+        (_model.getFinanceAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      setState(() {});
+      FFAppState().addToInsuranceInfoFinance('อื่นๆ');
+      setState(() {});
       Navigator.pop(context);
     });
 
@@ -384,16 +382,14 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                             setState(() => _model
                                                 .checkbox1Value = newValue!);
                                             if (newValue!) {
-                                              setState(() {
-                                                FFAppState()
-                                                        .insuranceInfoBeneficiaryName =
-                                                    '${FFAppState().insuranceInfoFirstName} ${FFAppState().insuranceInfoLastName}';
-                                              });
+                                              FFAppState()
+                                                      .insuranceInfoBeneficiaryName =
+                                                  '${FFAppState().insuranceInfoFirstName} ${FFAppState().insuranceInfoLastName}';
+                                              setState(() {});
                                             } else {
-                                              setState(() {
-                                                FFAppState()
-                                                    .insuranceInfoBeneficiaryName = '';
-                                              });
+                                              FFAppState()
+                                                  .insuranceInfoBeneficiaryName = '';
+                                              setState(() {});
                                             }
                                           },
                                           side: BorderSide(
@@ -486,11 +482,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                                   options: FFAppState().insuranceInfoFinance,
                                   onChanged: (val) async {
                                     setState(() => _model.dropDownValue = val);
-                                    setState(() {
-                                      FFAppState()
-                                              .insuranceInfoBeneficiaryName =
-                                          _model.dropDownValue!;
-                                    });
+                                    FFAppState().insuranceInfoBeneficiaryName =
+                                        _model.dropDownValue!;
+                                    setState(() {});
                                   },
                                   width: 300.0,
                                   height: 50.0,
@@ -729,10 +723,9 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             if (_model.dropDownValue == 'อื่นๆ') {
-                              setState(() {
-                                FFAppState().insuranceInfoBeneficiaryName =
-                                    _model.textController.text;
-                              });
+                              FFAppState().insuranceInfoBeneficiaryName =
+                                  _model.textController.text;
+                              setState(() {});
                             }
                             context.safePop();
                           },

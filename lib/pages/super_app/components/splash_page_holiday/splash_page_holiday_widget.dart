@@ -177,11 +177,9 @@ class _SplashPageHolidayWidgetState extends State<SplashPageHolidayWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.checkboxGroupValues?.length == 1) {
-                                FFAppState().update(() {
-                                  FFAppState().DateHolidayNotShow =
-                                      functions.addDoNotShowAgainDate(
-                                          getCurrentTimestamp);
-                                });
+                                FFAppState().DateHolidayNotShow = functions
+                                    .addDoNotShowAgainDate(getCurrentTimestamp);
+                                FFAppState().update(() {});
                               }
                               Navigator.pop(context);
                             },

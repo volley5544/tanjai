@@ -92,9 +92,8 @@ class _MakeInsuranceListPageSearchWidgetState
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
-      setState(() {
-        FFAppState().searchQuotationStatus = '0';
-      });
+      FFAppState().searchQuotationStatus = '0';
+      setState(() {});
       Navigator.pop(context);
     });
   }
@@ -835,9 +834,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              setState(() {
-                                                                                FFAppState().jsonTemp = widget.list![leadListItemIndex];
-                                                                              });
+                                                                              FFAppState().jsonTemp = widget.list![leadListItemIndex];
+                                                                              setState(() {});
 
                                                                               context.pushNamed(
                                                                                 'QuotationCopy',

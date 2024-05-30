@@ -818,56 +818,49 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                     },
                                   ).then((value) => safeSetState(() {}));
 
-                                  setState(() {
-                                    FFAppState().deleteAccessToken();
-                                    FFAppState().accessToken = 'access_token';
+                                  FFAppState().deleteAccessToken();
+                                  FFAppState().accessToken = 'access_token';
 
-                                    FFAppState().deleteEmployeeID();
-                                    FFAppState().employeeID = 'employee_id';
-                                  });
-                                  setState(() {
-                                    FFAppState().deleteBranchCode();
-                                    FFAppState().branchCode = 'branch_code';
+                                  FFAppState().deleteEmployeeID();
+                                  FFAppState().employeeID = 'employee_id';
 
-                                    FFAppState().deleteUserNickname();
-                                    FFAppState().userNickname =
-                                        '[user_nickname]';
+                                  setState(() {});
+                                  FFAppState().deleteBranchCode();
+                                  FFAppState().branchCode = 'branch_code';
 
-                                    FFAppState().profileFullName =
-                                        '[full_name]';
-                                    FFAppState().profileBirthDate =
-                                        '[birth_date]';
-                                    FFAppState().profileParentUnit =
-                                        '[parent_unit]';
-                                    FFAppState().profileRegion = '[region]';
-                                  });
-                                  setState(() {
-                                    FFAppState().profileHiredDate =
-                                        '[hired_date]';
-                                    FFAppState().profileServiceDuration =
-                                        '[service_duration]';
-                                  });
-                                  setState(() {
-                                    FFAppState().profilePositionAge =
-                                        '[position_age]';
-                                    FFAppState().profilePositionAgeCheck =
-                                        '[position_age_check]';
-                                    FFAppState().profilePositionName =
-                                        '[position_name]';
-                                    FFAppState().ProfilePhoneNumber = '';
-                                    FFAppState().profileFirstBossEmpID = '';
-                                    FFAppState().profileSecondBossEmpID = '';
-                                    FFAppState().insurancePlanNumber = '';
-                                    FFAppState().profileLevel = '';
-                                    FFAppState().profileBranch = '';
-                                  });
-                                  setState(() {
-                                    FFAppState().profileFirstName =
-                                        '[first_name]';
-                                    FFAppState().profileLastName =
-                                        '[last_name]';
-                                    FFAppState().departmentProfile = '';
-                                  });
+                                  FFAppState().deleteUserNickname();
+                                  FFAppState().userNickname = '[user_nickname]';
+
+                                  FFAppState().profileFullName = '[full_name]';
+                                  FFAppState().profileBirthDate =
+                                      '[birth_date]';
+                                  FFAppState().profileParentUnit =
+                                      '[parent_unit]';
+                                  FFAppState().profileRegion = '[region]';
+                                  setState(() {});
+                                  FFAppState().profileHiredDate =
+                                      '[hired_date]';
+                                  FFAppState().profileServiceDuration =
+                                      '[service_duration]';
+                                  setState(() {});
+                                  FFAppState().profilePositionAge =
+                                      '[position_age]';
+                                  FFAppState().profilePositionAgeCheck =
+                                      '[position_age_check]';
+                                  FFAppState().profilePositionName =
+                                      '[position_name]';
+                                  FFAppState().ProfilePhoneNumber = '';
+                                  FFAppState().profileFirstBossEmpID = '';
+                                  FFAppState().profileSecondBossEmpID = '';
+                                  FFAppState().insurancePlanNumber = '';
+                                  FFAppState().profileLevel = '';
+                                  FFAppState().profileBranch = '';
+                                  setState(() {});
+                                  FFAppState().profileFirstName =
+                                      '[first_name]';
+                                  FFAppState().profileLastName = '[last_name]';
+                                  FFAppState().departmentProfile = '';
+                                  setState(() {});
                                   await actions.a22();
                                   Navigator.pop(context);
 

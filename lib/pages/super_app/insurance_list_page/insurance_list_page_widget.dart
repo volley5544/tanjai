@@ -143,9 +143,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         }
       }
 
-      setState(() {
-        FFAppState().searchList1 = '0';
-      });
+      FFAppState().searchList1 = '0';
+      setState(() {});
       _model.getRequestList = await InsuranceRequestListAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
@@ -204,13 +203,12 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         );
         return;
       }
-      setState(() {
-        FFAppState().insuranceOperationChoiceChips = 'งานใหม่          ';
-        FFAppState().insuranceCustomerTypeChoiceChips = 'บุคคลธรรมดา';
-        FFAppState().insuranceBoxCheckbokValue = false;
-        FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
-        FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
-      });
+      FFAppState().insuranceOperationChoiceChips = 'งานใหม่          ';
+      FFAppState().insuranceCustomerTypeChoiceChips = 'บุคคลธรรมดา';
+      FFAppState().insuranceBoxCheckbokValue = false;
+      FFAppState().insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
+      FFAppState().insuranceVehicleTypeDropDown = 'กรุณาเลือก';
+      setState(() {});
       Navigator.pop(context);
     });
 
@@ -267,141 +265,138 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                 size: 30.0,
               ),
               onPressed: () async {
-                setState(() {
-                  FFAppState().nonePackageFlagCarrier = false;
-                  FFAppState().nonePackageVehicleType = 'กรุณาเลือกประเภทรถ';
-                  FFAppState().nonePackageBrandName = 'กรุณาเลือกยี่ห้อรถ';
-                  FFAppState().nonePackageBrandId = '';
-                  FFAppState().nonePackageModelName = 'กรุณากรอกรุ่นรถ';
-                  FFAppState().nonePackageModelCode = '';
-                  FFAppState().nonePackageYear = 'กรุณาเลือกปีจดทะเบียน';
-                  FFAppState().nonePackageUsedTypeId = '';
-                  FFAppState().nonePackageSearchModelList = [];
-                  FFAppState().nonePackageUsedTypeCode = '';
-                  FFAppState().nonePackageUsedTypeName =
-                      'กรุณาเลือกลักษณะการใช้รถ';
-                  FFAppState().nonePackageCusFullname = 'กรุณากรอกชื่อ';
-                  FFAppState().nonePackageCusPhone = 'กรุณากรอกเบอร์โทรศัพท์';
-                  FFAppState().nonePackagePlate = '';
-                  FFAppState().nonePackageProvince =
-                      'กรุณาเลือกจังหวัดจดทะเบียน';
-                  FFAppState().nonePackageProvinceId = '';
-                  FFAppState().nonePackageSumInsured = 'กรุณากรอกทุนประกัน';
-                  FFAppState().nonePackageFlagAct = true;
-                  FFAppState().nonePackageIsBrandSelect = false;
-                  FFAppState().nonePackageSearchModelIdList = [];
-                  FFAppState().nonePackageCarrierType =
-                      'กรุณาเลือกประเภทตู้เหล็ก';
-                  FFAppState().nonePackageFlagCoop = false;
-                  FFAppState().nonePackageTruckPart =
-                      'กรุณาเลือกส่วนของรถบรรทุก';
-                  FFAppState().nonePackageCusMembership =
-                      'กรุณาเลือกประเภทลูกค้า';
-                  FFAppState().nonePackageTruckCurrentPrice =
-                      'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                  FFAppState().nonePackagePlateAdditional =
-                      'กรุณากรอกเลขทะเบียนหางพ่วง';
-                  FFAppState().nonePackageTruckCarryPurpose =
-                      'กรุณากรอกรถใช้บรรทุกอะไร';
-                  FFAppState().nonePackageTrailerSumInsured =
-                      'กรุณากรอกทุนประกันหางพ่วง';
-                  FFAppState().nonePackageCarrierPrice = '';
-                  FFAppState().nonePackageInsurerIdList = [];
-                  FFAppState().nonePackageInsurerCodeList = [];
-                  FFAppState().nonePackageInsurerShortNameList = [];
-                  FFAppState().nonePackageInsurerNameList = [];
-                  FFAppState().nonePackageInsurerDisplayName = [];
-                  FFAppState().nonePackageInsurerIdOutputList = [];
-                  FFAppState().nonePackageInsurerCodeOutputList = [];
-                  FFAppState().nonePackageInsurerShortNameOutputList = [];
-                  FFAppState().nonePackageInsurerNameOutputList = [];
-                  FFAppState().nonePackageReason = [];
-                  FFAppState().nonePackageInsurerSelectedList = [];
-                  FFAppState().nonePackageCoverTypeId = '';
-                  FFAppState().nonePackageCoverTypeCode = '';
-                  FFAppState().nonePackageCoverTypeName =
-                      'กรุณาเลือกประเภทชั้นประกัน';
-                  FFAppState().nonePackageGarageTypeId = '';
-                  FFAppState().nonePackageGarageTypeName =
-                      'กรุณาเลือกประเภทการซ่อม';
-                  FFAppState().nonePackageGarageTypeCode = '';
-                  FFAppState().nonePackageFlagRenew = false;
-                  FFAppState().nonePackageOldVmiExpDate =
-                      'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                  FFAppState().nonePackageOldVmi = '';
-                  FFAppState().nonePackageOldVmiImageUrl = '';
-                  FFAppState().nonePackageIdCardImageUrl = '';
-                  FFAppState().nonePackageRenewImageUrlList = [];
-                  FFAppState().nonePackageRenewImageCheckList = [];
-                  FFAppState().nonePackageOldVmiImageUploadedCheck = false;
-                  FFAppState().nonePackageIdCardWatermarkUploadedCheck = false;
-                  FFAppState().buttonOrdinary = false;
-                  FFAppState().buttonCorporation = false;
-                  FFAppState().nonePackageCustomerType = '';
-                  FFAppState().nonePackageInsurerDisplayNameOutput = '';
-                  FFAppState().nonePackageImageOther = [];
-                  FFAppState().nonePackageImageFront = [];
-                  FFAppState().nonePackageImageRightFront = [];
-                  FFAppState().nonePackageImageRight = [];
-                  FFAppState().nonePackageImageRightRear = [];
-                  FFAppState().nonePackageImageRear = [];
-                  FFAppState().nonePackageImageLeftRear = [];
-                  FFAppState().nonePackageImageLeft = [];
-                  FFAppState().nonePackageImageLeftFront = [];
-                  FFAppState().nonePackageImageRoof = [];
-                  FFAppState().nonePackageTrailerImageFront = [];
-                  FFAppState().nonePackageTrailerImageRightFront = [];
-                  FFAppState().nonePackageTrailerImageRight = [];
-                  FFAppState().nonePackageTrailerImageRightRear = [];
-                  FFAppState().nonePackageTrailerImageRear = [];
-                  FFAppState().nonePackageTrailerImageLeftRear = [];
-                  FFAppState().nonePackageTrailerImageLeft = [];
-                  FFAppState().nonePackageTrailerImageLeftFront = [];
-                  FFAppState().nonePackageInsurerOutputIndex = 0;
-                  FFAppState().nonePackageLeadId = '';
-                  FFAppState().nonePackageLeadNo = '';
-                  FFAppState().nonePackageCarImageUploadedList = [];
-                  FFAppState().nonePackageImageOldVmi = [];
-                  FFAppState().nonePackageImageCompanyBook = [];
-                  FFAppState().nonePackageImageIdCard = [];
-                  FFAppState().nonePackageImageBlueBook = [];
-                  FFAppState().nonePackageCompanyBookImageUploadedCheck = false;
-                  FFAppState().nonePackageCompanyBookImageUrl = '';
-                  FFAppState().nonePackageImageFrontUploaded = '';
-                  FFAppState().nonePackageImageRightFrontUploaded = '';
-                  FFAppState().nonePackageImageRightUploaded = '';
-                  FFAppState().nonePackageImageRightRearUploaded = '';
-                  FFAppState().nonePackageImageRearUploaded = '';
-                  FFAppState().nonePackageImageLeftRearUploaded = '';
-                  FFAppState().nonePackageImageLeftUploaded = '';
-                  FFAppState().nonePackageImageLeftFrontUploaded = '';
-                  FFAppState().nonePackageImageRoofUploaded = '';
-                  FFAppState().nonePackageTrailerImageFrontUploaded = '';
-                  FFAppState().nonePackageTrailerImageRightFrontUploaded = '';
-                  FFAppState().nonePackageTrailerImageRightUploaded = '';
-                  FFAppState().nonePackageTrailerImageRightRearUploaded = '';
-                  FFAppState().nonePackageTrailerImageRearUploaded = '';
-                  FFAppState().nonePackageTrailerImageLeftRearUploaded = '';
-                  FFAppState().nonePackageTrailerImageLeftUploaded = '';
-                  FFAppState().nonePackageTrailerImageLeftFrontUploaded = '';
-                  FFAppState().nonePackageImageBlueBookUploaded = '';
-                  FFAppState().nonePackageImageOther1 = '';
-                  FFAppState().nonePackageImageOther2 = '';
-                  FFAppState().nonePackageImageOther3 = '';
-                  FFAppState().nonePackageImageOther4 = '';
-                  FFAppState().nonePackageImageOther5 = '';
-                  FFAppState().nonePackageImageOtherNameList = [];
-                  FFAppState().nonePackageSelectedInsurerShortName = '';
-                  FFAppState().nonePackageSelectedInsurerName = '';
-                  FFAppState().nonePackageSelectedInsurerShortNameList = [];
-                  FFAppState().nonePackageSelectedInsurerNameList = [];
-                  FFAppState().nonePackageFlagOldVmi = '';
-                  FFAppState().nonePackageWorkType = '';
-                  FFAppState().nonePackageRemark = '';
-                  FFAppState().nonePackageBranchCode = '';
-                  FFAppState().nonePackageBranchName = '';
-                  FFAppState().nonePackageInsurerShortNameDupList = [];
-                });
+                FFAppState().nonePackageFlagCarrier = false;
+                FFAppState().nonePackageVehicleType = 'กรุณาเลือกประเภทรถ';
+                FFAppState().nonePackageBrandName = 'กรุณาเลือกยี่ห้อรถ';
+                FFAppState().nonePackageBrandId = '';
+                FFAppState().nonePackageModelName = 'กรุณากรอกรุ่นรถ';
+                FFAppState().nonePackageModelCode = '';
+                FFAppState().nonePackageYear = 'กรุณาเลือกปีจดทะเบียน';
+                FFAppState().nonePackageUsedTypeId = '';
+                FFAppState().nonePackageSearchModelList = [];
+                FFAppState().nonePackageUsedTypeCode = '';
+                FFAppState().nonePackageUsedTypeName =
+                    'กรุณาเลือกลักษณะการใช้รถ';
+                FFAppState().nonePackageCusFullname = 'กรุณากรอกชื่อ';
+                FFAppState().nonePackageCusPhone = 'กรุณากรอกเบอร์โทรศัพท์';
+                FFAppState().nonePackagePlate = '';
+                FFAppState().nonePackageProvince = 'กรุณาเลือกจังหวัดจดทะเบียน';
+                FFAppState().nonePackageProvinceId = '';
+                FFAppState().nonePackageSumInsured = 'กรุณากรอกทุนประกัน';
+                FFAppState().nonePackageFlagAct = true;
+                FFAppState().nonePackageIsBrandSelect = false;
+                FFAppState().nonePackageSearchModelIdList = [];
+                FFAppState().nonePackageCarrierType =
+                    'กรุณาเลือกประเภทตู้เหล็ก';
+                FFAppState().nonePackageFlagCoop = false;
+                FFAppState().nonePackageTruckPart = 'กรุณาเลือกส่วนของรถบรรทุก';
+                FFAppState().nonePackageCusMembership =
+                    'กรุณาเลือกประเภทลูกค้า';
+                FFAppState().nonePackageTruckCurrentPrice =
+                    'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                FFAppState().nonePackagePlateAdditional =
+                    'กรุณากรอกเลขทะเบียนหางพ่วง';
+                FFAppState().nonePackageTruckCarryPurpose =
+                    'กรุณากรอกรถใช้บรรทุกอะไร';
+                FFAppState().nonePackageTrailerSumInsured =
+                    'กรุณากรอกทุนประกันหางพ่วง';
+                FFAppState().nonePackageCarrierPrice = '';
+                FFAppState().nonePackageInsurerIdList = [];
+                FFAppState().nonePackageInsurerCodeList = [];
+                FFAppState().nonePackageInsurerShortNameList = [];
+                FFAppState().nonePackageInsurerNameList = [];
+                FFAppState().nonePackageInsurerDisplayName = [];
+                FFAppState().nonePackageInsurerIdOutputList = [];
+                FFAppState().nonePackageInsurerCodeOutputList = [];
+                FFAppState().nonePackageInsurerShortNameOutputList = [];
+                FFAppState().nonePackageInsurerNameOutputList = [];
+                FFAppState().nonePackageReason = [];
+                FFAppState().nonePackageInsurerSelectedList = [];
+                FFAppState().nonePackageCoverTypeId = '';
+                FFAppState().nonePackageCoverTypeCode = '';
+                FFAppState().nonePackageCoverTypeName =
+                    'กรุณาเลือกประเภทชั้นประกัน';
+                FFAppState().nonePackageGarageTypeId = '';
+                FFAppState().nonePackageGarageTypeName =
+                    'กรุณาเลือกประเภทการซ่อม';
+                FFAppState().nonePackageGarageTypeCode = '';
+                FFAppState().nonePackageFlagRenew = false;
+                FFAppState().nonePackageOldVmiExpDate =
+                    'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                FFAppState().nonePackageOldVmi = '';
+                FFAppState().nonePackageOldVmiImageUrl = '';
+                FFAppState().nonePackageIdCardImageUrl = '';
+                FFAppState().nonePackageRenewImageUrlList = [];
+                FFAppState().nonePackageRenewImageCheckList = [];
+                FFAppState().nonePackageOldVmiImageUploadedCheck = false;
+                FFAppState().nonePackageIdCardWatermarkUploadedCheck = false;
+                FFAppState().buttonOrdinary = false;
+                FFAppState().buttonCorporation = false;
+                FFAppState().nonePackageCustomerType = '';
+                FFAppState().nonePackageInsurerDisplayNameOutput = '';
+                FFAppState().nonePackageImageOther = [];
+                FFAppState().nonePackageImageFront = [];
+                FFAppState().nonePackageImageRightFront = [];
+                FFAppState().nonePackageImageRight = [];
+                FFAppState().nonePackageImageRightRear = [];
+                FFAppState().nonePackageImageRear = [];
+                FFAppState().nonePackageImageLeftRear = [];
+                FFAppState().nonePackageImageLeft = [];
+                FFAppState().nonePackageImageLeftFront = [];
+                FFAppState().nonePackageImageRoof = [];
+                FFAppState().nonePackageTrailerImageFront = [];
+                FFAppState().nonePackageTrailerImageRightFront = [];
+                FFAppState().nonePackageTrailerImageRight = [];
+                FFAppState().nonePackageTrailerImageRightRear = [];
+                FFAppState().nonePackageTrailerImageRear = [];
+                FFAppState().nonePackageTrailerImageLeftRear = [];
+                FFAppState().nonePackageTrailerImageLeft = [];
+                FFAppState().nonePackageTrailerImageLeftFront = [];
+                FFAppState().nonePackageInsurerOutputIndex = 0;
+                FFAppState().nonePackageLeadId = '';
+                FFAppState().nonePackageLeadNo = '';
+                FFAppState().nonePackageCarImageUploadedList = [];
+                FFAppState().nonePackageImageOldVmi = [];
+                FFAppState().nonePackageImageCompanyBook = [];
+                FFAppState().nonePackageImageIdCard = [];
+                FFAppState().nonePackageImageBlueBook = [];
+                FFAppState().nonePackageCompanyBookImageUploadedCheck = false;
+                FFAppState().nonePackageCompanyBookImageUrl = '';
+                FFAppState().nonePackageImageFrontUploaded = '';
+                FFAppState().nonePackageImageRightFrontUploaded = '';
+                FFAppState().nonePackageImageRightUploaded = '';
+                FFAppState().nonePackageImageRightRearUploaded = '';
+                FFAppState().nonePackageImageRearUploaded = '';
+                FFAppState().nonePackageImageLeftRearUploaded = '';
+                FFAppState().nonePackageImageLeftUploaded = '';
+                FFAppState().nonePackageImageLeftFrontUploaded = '';
+                FFAppState().nonePackageImageRoofUploaded = '';
+                FFAppState().nonePackageTrailerImageFrontUploaded = '';
+                FFAppState().nonePackageTrailerImageRightFrontUploaded = '';
+                FFAppState().nonePackageTrailerImageRightUploaded = '';
+                FFAppState().nonePackageTrailerImageRightRearUploaded = '';
+                FFAppState().nonePackageTrailerImageRearUploaded = '';
+                FFAppState().nonePackageTrailerImageLeftRearUploaded = '';
+                FFAppState().nonePackageTrailerImageLeftUploaded = '';
+                FFAppState().nonePackageTrailerImageLeftFrontUploaded = '';
+                FFAppState().nonePackageImageBlueBookUploaded = '';
+                FFAppState().nonePackageImageOther1 = '';
+                FFAppState().nonePackageImageOther2 = '';
+                FFAppState().nonePackageImageOther3 = '';
+                FFAppState().nonePackageImageOther4 = '';
+                FFAppState().nonePackageImageOther5 = '';
+                FFAppState().nonePackageImageOtherNameList = [];
+                FFAppState().nonePackageSelectedInsurerShortName = '';
+                FFAppState().nonePackageSelectedInsurerName = '';
+                FFAppState().nonePackageSelectedInsurerShortNameList = [];
+                FFAppState().nonePackageSelectedInsurerNameList = [];
+                FFAppState().nonePackageFlagOldVmi = '';
+                FFAppState().nonePackageWorkType = '';
+                FFAppState().nonePackageRemark = '';
+                FFAppState().nonePackageBranchCode = '';
+                FFAppState().nonePackageBranchName = '';
+                FFAppState().nonePackageInsurerShortNameDupList = [];
+                setState(() {});
                 await Future.delayed(const Duration(milliseconds: 500));
 
                 context.goNamed('SuperAppPage');
@@ -1826,282 +1821,281 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               safeSetState(
                                                                   () {}));
 
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageFlagCarrier =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageVehicleType =
-                                                                'กรุณาเลือกประเภทรถ';
-                                                            FFAppState()
-                                                                    .nonePackageBrandName =
-                                                                'กรุณาเลือกยี่ห้อรถ';
-                                                            FFAppState()
-                                                                .nonePackageBrandId = '';
-                                                            FFAppState()
-                                                                    .nonePackageModelName =
-                                                                'กรุณากรอกรุ่นรถ';
-                                                            FFAppState()
-                                                                .nonePackageModelCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageYear =
-                                                                'กรุณาเลือกปีจดทะเบียน';
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeId = '';
-                                                            FFAppState()
-                                                                .nonePackageSearchModelList = [];
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageUsedTypeName =
-                                                                'กรุณาเลือกลักษณะการใช้รถ';
-                                                            FFAppState()
-                                                                    .nonePackageCusFullname =
-                                                                'กรุณากรอกชื่อ';
-                                                            FFAppState()
-                                                                    .nonePackageCusPhone =
-                                                                'กรุณากรอกเบอร์โทรศัพท์';
-                                                            FFAppState()
-                                                                .nonePackagePlate = '';
-                                                            FFAppState()
-                                                                    .nonePackageProvince =
-                                                                'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                            FFAppState()
-                                                                .nonePackageProvinceId = '';
-                                                            FFAppState()
-                                                                    .nonePackageSumInsured =
-                                                                'กรุณากรอกทุนประกัน';
-                                                            FFAppState()
-                                                                    .nonePackageFlagAct =
-                                                                true;
-                                                            FFAppState()
-                                                                    .nonePackageIsBrandSelect =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageSearchModelIdList = [];
-                                                            FFAppState()
-                                                                    .nonePackageCarrierType =
-                                                                'กรุณาเลือกประเภทตู้เหล็ก';
-                                                            FFAppState()
-                                                                    .nonePackageFlagCoop =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageTruckPart =
-                                                                'กรุณาเลือกส่วนของรถบรรทุก';
-                                                            FFAppState()
-                                                                    .nonePackageCusMembership =
-                                                                'กรุณาเลือกประเภทลูกค้า';
-                                                            FFAppState()
-                                                                    .nonePackageTruckCurrentPrice =
-                                                                'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                            FFAppState()
-                                                                    .nonePackagePlateAdditional =
-                                                                'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                            FFAppState()
-                                                                    .nonePackageTruckCarryPurpose =
-                                                                'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                            FFAppState()
-                                                                    .nonePackageTrailerSumInsured =
-                                                                'กรุณากรอกทุนประกันหางพ่วง';
-                                                            FFAppState()
-                                                                .nonePackageCarrierPrice = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerIdList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerCodeList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerDisplayName = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerIdOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerCodeOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerNameOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageReason = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerSelectedList = [];
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeId = '';
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageCoverTypeName =
-                                                                'กรุณาเลือกประเภทชั้นประกัน';
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeId = '';
-                                                            FFAppState()
-                                                                    .nonePackageGarageTypeName =
-                                                                'กรุณาเลือกประเภทการซ่อม';
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageFlagRenew =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiExpDate =
-                                                                'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                            FFAppState()
-                                                                .nonePackageOldVmi = '';
-                                                            FFAppState()
-                                                                .nonePackageOldVmiImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageIdCardImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageRenewImageUrlList = [];
-                                                            FFAppState()
-                                                                .nonePackageRenewImageCheckList = [];
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiImageUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageIdCardWatermarkUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                    .buttonOrdinary =
-                                                                false;
-                                                            FFAppState()
-                                                                    .buttonCorporation =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageCustomerType = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerDisplayNameOutput = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther = [];
-                                                            FFAppState()
-                                                                .nonePackageImageFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRightFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRight = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRightRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeftRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeft = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeftFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRoof = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageFront = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightFront = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRight = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeft = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftFront = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerOutputIndex = 0;
-                                                            FFAppState()
-                                                                .nonePackageLeadId = '';
-                                                            FFAppState()
-                                                                .nonePackageLeadNo = '';
-                                                            FFAppState()
-                                                                .nonePackageCarImageUploadedList = [];
-                                                            FFAppState()
-                                                                .nonePackageImageOldVmi = [];
-                                                            FFAppState()
-                                                                .nonePackageImageCompanyBook = [];
-                                                            FFAppState()
-                                                                .nonePackageImageIdCard = [];
-                                                            FFAppState()
-                                                                .nonePackageImageBlueBook = [];
-                                                            FFAppState()
-                                                                    .nonePackageCompanyBookImageUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageCompanyBookImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageImageFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRoofUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageBlueBookUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther1 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther2 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther3 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther4 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther5 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOtherNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerShortName = '';
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerName = '';
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerShortNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageFlagOldVmi = '';
-                                                            FFAppState()
-                                                                .nonePackageWorkType = '';
-                                                            FFAppState()
-                                                                .nonePackageRemark = '';
-                                                            FFAppState()
-                                                                .nonePackageBranchCode = '';
-                                                            FFAppState()
-                                                                .nonePackageBranchName = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameDupList = [];
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiFlag =
-                                                                false;
-                                                          });
+                                                          FFAppState()
+                                                                  .nonePackageFlagCarrier =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageVehicleType =
+                                                              'กรุณาเลือกประเภทรถ';
+                                                          FFAppState()
+                                                                  .nonePackageBrandName =
+                                                              'กรุณาเลือกยี่ห้อรถ';
+                                                          FFAppState()
+                                                              .nonePackageBrandId = '';
+                                                          FFAppState()
+                                                                  .nonePackageModelName =
+                                                              'กรุณากรอกรุ่นรถ';
+                                                          FFAppState()
+                                                              .nonePackageModelCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageYear =
+                                                              'กรุณาเลือกปีจดทะเบียน';
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeId = '';
+                                                          FFAppState()
+                                                              .nonePackageSearchModelList = [];
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageUsedTypeName =
+                                                              'กรุณาเลือกลักษณะการใช้รถ';
+                                                          FFAppState()
+                                                                  .nonePackageCusFullname =
+                                                              'กรุณากรอกชื่อ';
+                                                          FFAppState()
+                                                                  .nonePackageCusPhone =
+                                                              'กรุณากรอกเบอร์โทรศัพท์';
+                                                          FFAppState()
+                                                              .nonePackagePlate = '';
+                                                          FFAppState()
+                                                                  .nonePackageProvince =
+                                                              'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                          FFAppState()
+                                                              .nonePackageProvinceId = '';
+                                                          FFAppState()
+                                                                  .nonePackageSumInsured =
+                                                              'กรุณากรอกทุนประกัน';
+                                                          FFAppState()
+                                                                  .nonePackageFlagAct =
+                                                              true;
+                                                          FFAppState()
+                                                                  .nonePackageIsBrandSelect =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageSearchModelIdList = [];
+                                                          FFAppState()
+                                                                  .nonePackageCarrierType =
+                                                              'กรุณาเลือกประเภทตู้เหล็ก';
+                                                          FFAppState()
+                                                                  .nonePackageFlagCoop =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageTruckPart =
+                                                              'กรุณาเลือกส่วนของรถบรรทุก';
+                                                          FFAppState()
+                                                                  .nonePackageCusMembership =
+                                                              'กรุณาเลือกประเภทลูกค้า';
+                                                          FFAppState()
+                                                                  .nonePackageTruckCurrentPrice =
+                                                              'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                          FFAppState()
+                                                                  .nonePackagePlateAdditional =
+                                                              'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                          FFAppState()
+                                                                  .nonePackageTruckCarryPurpose =
+                                                              'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                          FFAppState()
+                                                                  .nonePackageTrailerSumInsured =
+                                                              'กรุณากรอกทุนประกันหางพ่วง';
+                                                          FFAppState()
+                                                              .nonePackageCarrierPrice = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerIdList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerCodeList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerDisplayName = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerIdOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerCodeOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerNameOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageReason = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerSelectedList = [];
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeId = '';
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageCoverTypeName =
+                                                              'กรุณาเลือกประเภทชั้นประกัน';
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeId = '';
+                                                          FFAppState()
+                                                                  .nonePackageGarageTypeName =
+                                                              'กรุณาเลือกประเภทการซ่อม';
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageFlagRenew =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiExpDate =
+                                                              'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                          FFAppState()
+                                                              .nonePackageOldVmi = '';
+                                                          FFAppState()
+                                                              .nonePackageOldVmiImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageIdCardImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageRenewImageUrlList = [];
+                                                          FFAppState()
+                                                              .nonePackageRenewImageCheckList = [];
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiImageUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageIdCardWatermarkUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                                  .buttonOrdinary =
+                                                              false;
+                                                          FFAppState()
+                                                                  .buttonCorporation =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageCustomerType = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerDisplayNameOutput = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther = [];
+                                                          FFAppState()
+                                                              .nonePackageImageFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRightFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRight = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRightRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeftRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeft = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeftFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRoof = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageFront = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightFront = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRight = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeft = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftFront = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerOutputIndex = 0;
+                                                          FFAppState()
+                                                              .nonePackageLeadId = '';
+                                                          FFAppState()
+                                                              .nonePackageLeadNo = '';
+                                                          FFAppState()
+                                                              .nonePackageCarImageUploadedList = [];
+                                                          FFAppState()
+                                                              .nonePackageImageOldVmi = [];
+                                                          FFAppState()
+                                                              .nonePackageImageCompanyBook = [];
+                                                          FFAppState()
+                                                              .nonePackageImageIdCard = [];
+                                                          FFAppState()
+                                                              .nonePackageImageBlueBook = [];
+                                                          FFAppState()
+                                                                  .nonePackageCompanyBookImageUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageCompanyBookImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageImageFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRoofUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageBlueBookUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther1 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther2 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther3 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther4 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther5 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOtherNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerShortName = '';
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerName = '';
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerShortNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageFlagOldVmi = '';
+                                                          FFAppState()
+                                                              .nonePackageWorkType = '';
+                                                          FFAppState()
+                                                              .nonePackageRemark = '';
+                                                          FFAppState()
+                                                              .nonePackageBranchCode = '';
+                                                          FFAppState()
+                                                              .nonePackageBranchName = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameDupList = [];
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiFlag =
+                                                              false;
+                                                          setState(() {});
                                                           _model.getDetailAPIEdit =
                                                               await InsuranceRequestDetailAPICall
                                                                   .call(
@@ -2202,617 +2196,615 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageFlagCarrier =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagCarrier(
-                                                                          (_model.getDetailAPIEdit?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageVehicleType =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carType(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageBrandName =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.brandName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageModelName =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.modelName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageYear =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.year(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageUsedTypeId =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleId(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.toString()}');
-                                                            FFAppState()
-                                                                    .nonePackageUsedTypeCode =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleCode(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageUsedTypeName =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageCusFullname =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.firstname(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )} ${InsuranceRequestDetailAPICall.lastname(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageCusPhone =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.phoneNumber(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackagePlate =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.plateNo(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageProvince =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall.province(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ))}');
-                                                            FFAppState()
-                                                                    .nonePackageSumInsured =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.sumInsured(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagAct =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagAct(
-                                                                          (_model.getDetailAPIEdit?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageCarrierType =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierType(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagCoop =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagCoop(
-                                                                          (_model.getDetailAPIEdit?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageTruckPart =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.truckPart(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageCusMembership =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.customerMemberchip(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageTruckCurrentPrice =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.truckCurrentPrice(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackagePlateAdditional =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.trailerPlateNo(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ).toString()}');
-                                                            FFAppState()
-                                                                    .nonePackageTruckCarryPurpose =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierPropose(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageTrailerSumInsured =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.trailerSumInsured(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            ).toString()}');
-                                                            FFAppState()
-                                                                    .nonePackageCarrierPrice =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierPrice(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageInsurerDisplayName =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .insurerNameList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageCoverTypeName =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.coverTypeNameList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.first}');
-                                                            FFAppState()
-                                                                    .nonePackageGarageTypeName =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.garageTypeNameList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.first}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagRenew =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagRenew(
-                                                                          (_model.getDetailAPIEdit?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiExpDate =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageOldVmi =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageCustomerType =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.customerType(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageLeadId =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.leadId(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )?.toString()}');
-                                                            FFAppState()
-                                                                    .nonePackageLeadNo =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.leadNo(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageInsurerShortNameList =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .insurerShortName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .buttonOrdinary =
-                                                                FFAppState().nonePackageCustomerType ==
-                                                                        'บุคคลธรรมดา'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .buttonCorporation =
-                                                                FFAppState().nonePackageCustomerType !=
-                                                                        'บุคคลธรรมดา'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageRemark =
-                                                                functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.remark(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}');
-                                                            FFAppState()
-                                                                    .nonePackageBranchCode =
-                                                                '${InsuranceRequestDetailAPICall.branchCode(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}';
-                                                            FFAppState()
-                                                                    .nonePackageBranchName =
-                                                                '${InsuranceRequestDetailAPICall.branchName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )}';
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiFlag =
-                                                                '${InsuranceRequestDetailAPICall.oldVmiFlg(
-                                                                          (_model.getDetailAPIEdit?.jsonBody ??
-                                                                              ''),
-                                                                        )}' ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageImageOther =
-                                                                getJsonField(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                              r'''$.results.info[:].leads_detail[:].image_other''',
-                                                              true,
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        dynamic>();
-                                                            FFAppState()
-                                                                    .nonePackageImageFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageFrontList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageRightFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightFrontList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageRight =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageRightRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightRearList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRearList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageLeftRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftRearList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageLeft =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageLeftFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftFrontList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageRoof =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRoofList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageFrontTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageRightFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightFrontTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageRight =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageRightRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRightRearTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageRearTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageLeftRear =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftRearTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageLeft =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageTrailerImageLeftFront =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageLeftFrontTrailerList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageOldVmi =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageOldVmi(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageCompanyBook =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageCompanyBook(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageIdCard =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageIdCardList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageBlueBook =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageBluebookList(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageImageOtherNameList =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .imageOtherName(
-                                                              (_model.getDetailAPIEdit
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                          });
+                                                          FFAppState()
+                                                                  .nonePackageFlagCarrier =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagCarrier(
+                                                                        (_model.getDetailAPIEdit?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageVehicleType =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carType(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageBrandName =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.brandName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageModelName =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.modelName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageYear =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.year(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageUsedTypeId =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleId(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.toString()}');
+                                                          FFAppState()
+                                                                  .nonePackageUsedTypeCode =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleCode(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageUsedTypeName =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageCusFullname =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.firstname(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )} ${InsuranceRequestDetailAPICall.lastname(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageCusPhone =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.phoneNumber(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackagePlate =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.plateNo(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageProvince =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${functions.checkNullValueAndReturn(InsuranceRequestDetailAPICall.province(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ))}');
+                                                          FFAppState()
+                                                                  .nonePackageSumInsured =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.sumInsured(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagAct =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagAct(
+                                                                        (_model.getDetailAPIEdit?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageCarrierType =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierType(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagCoop =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagCoop(
+                                                                        (_model.getDetailAPIEdit?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageTruckPart =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.truckPart(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageCusMembership =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.customerMemberchip(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageTruckCurrentPrice =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.truckCurrentPrice(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackagePlateAdditional =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.trailerPlateNo(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ).toString()}');
+                                                          FFAppState()
+                                                                  .nonePackageTruckCarryPurpose =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierPropose(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageTrailerSumInsured =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.trailerSumInsured(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ).toString()}');
+                                                          FFAppState()
+                                                                  .nonePackageCarrierPrice =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierPrice(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageInsurerDisplayName =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .insurerNameList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageCoverTypeName =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.coverTypeNameList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.first}');
+                                                          FFAppState()
+                                                                  .nonePackageGarageTypeName =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.garageTypeNameList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.first}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagRenew =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagRenew(
+                                                                        (_model.getDetailAPIEdit?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiExpDate =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageOldVmi =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageCustomerType =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.customerType(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageLeadId =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.leadId(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )?.toString()}');
+                                                          FFAppState()
+                                                                  .nonePackageLeadNo =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.leadNo(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageInsurerShortNameList =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .insurerShortName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .buttonOrdinary =
+                                                              FFAppState().nonePackageCustomerType ==
+                                                                      'บุคคลธรรมดา'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .buttonCorporation =
+                                                              FFAppState().nonePackageCustomerType !=
+                                                                      'บุคคลธรรมดา'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageRemark =
+                                                              functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.remark(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}');
+                                                          FFAppState()
+                                                                  .nonePackageBranchCode =
+                                                              '${InsuranceRequestDetailAPICall.branchCode(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}';
+                                                          FFAppState()
+                                                                  .nonePackageBranchName =
+                                                              '${InsuranceRequestDetailAPICall.branchName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )}';
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiFlag =
+                                                              '${InsuranceRequestDetailAPICall.oldVmiFlg(
+                                                                        (_model.getDetailAPIEdit?.jsonBody ??
+                                                                            ''),
+                                                                      )}' ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          setState(() {});
+                                                          FFAppState()
+                                                                  .nonePackageImageOther =
+                                                              getJsonField(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                            r'''$.results.info[:].leads_detail[:].image_other''',
+                                                            true,
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      dynamic>();
+                                                          FFAppState()
+                                                                  .nonePackageImageFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageFrontList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageRightFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightFrontList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageRight =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageRightRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightRearList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRearList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageLeftRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftRearList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageLeft =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageLeftFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftFrontList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageRoof =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRoofList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageFrontTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageRightFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightFrontTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageRight =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageRightRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRightRearTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageRearTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageLeftRear =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftRearTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageLeft =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageTrailerImageLeftFront =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageLeftFrontTrailerList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageOldVmi =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageOldVmi(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageCompanyBook =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageCompanyBook(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageIdCard =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageIdCardList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageBlueBook =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageBluebookList(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageImageOtherNameList =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .imageOtherName(
+                                                            (_model.getDetailAPIEdit
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          setState(() {});
                                                           Navigator.pop(
                                                               context);
 
@@ -2949,279 +2941,278 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               safeSetState(
                                                                   () {}));
 
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageFlagCarrier =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageVehicleType =
-                                                                'กรุณาเลือกประเภทรถ';
-                                                            FFAppState()
-                                                                    .nonePackageBrandName =
-                                                                'กรุณาเลือกยี่ห้อรถ';
-                                                            FFAppState()
-                                                                .nonePackageBrandId = '';
-                                                            FFAppState()
-                                                                    .nonePackageModelName =
-                                                                'กรุณากรอกรุ่นรถ';
-                                                            FFAppState()
-                                                                .nonePackageModelCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageYear =
-                                                                'กรุณาเลือกปีจดทะเบียน';
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeId = '';
-                                                            FFAppState()
-                                                                .nonePackageSearchModelList = [];
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageUsedTypeName =
-                                                                'กรุณาเลือกลักษณะการใช้รถ';
-                                                            FFAppState()
-                                                                    .nonePackageCusFullname =
-                                                                'กรุณากรอกชื่อ';
-                                                            FFAppState()
-                                                                    .nonePackageCusPhone =
-                                                                'กรุณากรอกเบอร์โทรศัพท์';
-                                                            FFAppState()
-                                                                .nonePackagePlate = '';
-                                                            FFAppState()
-                                                                    .nonePackageProvince =
-                                                                'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                            FFAppState()
-                                                                .nonePackageProvinceId = '';
-                                                            FFAppState()
-                                                                    .nonePackageSumInsured =
-                                                                'กรุณากรอกทุนประกัน';
-                                                            FFAppState()
-                                                                    .nonePackageFlagAct =
-                                                                true;
-                                                            FFAppState()
-                                                                    .nonePackageIsBrandSelect =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageSearchModelIdList = [];
-                                                            FFAppState()
-                                                                    .nonePackageCarrierType =
-                                                                'กรุณาเลือกประเภทตู้เหล็ก';
-                                                            FFAppState()
-                                                                    .nonePackageFlagCoop =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageTruckPart =
-                                                                'กรุณาเลือกส่วนของรถบรรทุก';
-                                                            FFAppState()
-                                                                    .nonePackageCusMembership =
-                                                                'กรุณาเลือกประเภทลูกค้า';
-                                                            FFAppState()
-                                                                    .nonePackageTruckCurrentPrice =
-                                                                'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                            FFAppState()
-                                                                    .nonePackagePlateAdditional =
-                                                                'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                            FFAppState()
-                                                                    .nonePackageTruckCarryPurpose =
-                                                                'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                            FFAppState()
-                                                                    .nonePackageTrailerSumInsured =
-                                                                'กรุณากรอกทุนประกันหางพ่วง';
-                                                            FFAppState()
-                                                                .nonePackageCarrierPrice = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerIdList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerCodeList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerDisplayName = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerIdOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerCodeOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerNameOutputList = [];
-                                                            FFAppState()
-                                                                .nonePackageReason = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerSelectedList = [];
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeId = '';
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageCoverTypeName =
-                                                                'กรุณาเลือกประเภทชั้นประกัน';
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeId = '';
-                                                            FFAppState()
-                                                                    .nonePackageGarageTypeName =
-                                                                'กรุณาเลือกประเภทการซ่อม';
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeCode = '';
-                                                            FFAppState()
-                                                                    .nonePackageFlagRenew =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiExpDate =
-                                                                'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                            FFAppState()
-                                                                .nonePackageOldVmi = '';
-                                                            FFAppState()
-                                                                .nonePackageOldVmiImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageIdCardImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageRenewImageUrlList = [];
-                                                            FFAppState()
-                                                                .nonePackageRenewImageCheckList = [];
-                                                            FFAppState()
-                                                                    .nonePackageOldVmiImageUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                    .nonePackageIdCardWatermarkUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                    .buttonOrdinary =
-                                                                false;
-                                                            FFAppState()
-                                                                    .buttonCorporation =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageCustomerType = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerDisplayNameOutput = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther = [];
-                                                            FFAppState()
-                                                                .nonePackageImageFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRightFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRight = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRightRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeftRear = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeft = [];
-                                                            FFAppState()
-                                                                .nonePackageImageLeftFront = [];
-                                                            FFAppState()
-                                                                .nonePackageImageRoof = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageFront = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightFront = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRight = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftRear = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeft = [];
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftFront = [];
-                                                            FFAppState()
-                                                                .nonePackageInsurerOutputIndex = 0;
-                                                            FFAppState()
-                                                                .nonePackageLeadId = '';
-                                                            FFAppState()
-                                                                .nonePackageLeadNo = '';
-                                                            FFAppState()
-                                                                .nonePackageCarImageUploadedList = [];
-                                                            FFAppState()
-                                                                .nonePackageImageOldVmi = [];
-                                                            FFAppState()
-                                                                .nonePackageImageCompanyBook = [];
-                                                            FFAppState()
-                                                                .nonePackageImageIdCard = [];
-                                                            FFAppState()
-                                                                .nonePackageImageBlueBook = [];
-                                                            FFAppState()
-                                                                    .nonePackageCompanyBookImageUploadedCheck =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageCompanyBookImageUrl = '';
-                                                            FFAppState()
-                                                                .nonePackageImageFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRightRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageLeftFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageRoofUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRightRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftRearUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageBlueBookUploaded = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther1 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther2 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther3 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther4 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOther5 = '';
-                                                            FFAppState()
-                                                                .nonePackageImageOtherNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerShortName = '';
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerName = '';
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerShortNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageSelectedInsurerNameList = [];
-                                                            FFAppState()
-                                                                .nonePackageFlagOldVmi = '';
-                                                            FFAppState()
-                                                                .nonePackageWorkType = '';
-                                                            FFAppState()
-                                                                .nonePackageRemark = '';
-                                                            FFAppState()
-                                                                .nonePackageBranchCode = '';
-                                                            FFAppState()
-                                                                .nonePackageBranchName = '';
-                                                            FFAppState()
-                                                                .nonePackageInsurerShortNameDupList = [];
-                                                          });
+                                                          FFAppState()
+                                                                  .nonePackageFlagCarrier =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageVehicleType =
+                                                              'กรุณาเลือกประเภทรถ';
+                                                          FFAppState()
+                                                                  .nonePackageBrandName =
+                                                              'กรุณาเลือกยี่ห้อรถ';
+                                                          FFAppState()
+                                                              .nonePackageBrandId = '';
+                                                          FFAppState()
+                                                                  .nonePackageModelName =
+                                                              'กรุณากรอกรุ่นรถ';
+                                                          FFAppState()
+                                                              .nonePackageModelCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageYear =
+                                                              'กรุณาเลือกปีจดทะเบียน';
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeId = '';
+                                                          FFAppState()
+                                                              .nonePackageSearchModelList = [];
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageUsedTypeName =
+                                                              'กรุณาเลือกลักษณะการใช้รถ';
+                                                          FFAppState()
+                                                                  .nonePackageCusFullname =
+                                                              'กรุณากรอกชื่อ';
+                                                          FFAppState()
+                                                                  .nonePackageCusPhone =
+                                                              'กรุณากรอกเบอร์โทรศัพท์';
+                                                          FFAppState()
+                                                              .nonePackagePlate = '';
+                                                          FFAppState()
+                                                                  .nonePackageProvince =
+                                                              'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                          FFAppState()
+                                                              .nonePackageProvinceId = '';
+                                                          FFAppState()
+                                                                  .nonePackageSumInsured =
+                                                              'กรุณากรอกทุนประกัน';
+                                                          FFAppState()
+                                                                  .nonePackageFlagAct =
+                                                              true;
+                                                          FFAppState()
+                                                                  .nonePackageIsBrandSelect =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageSearchModelIdList = [];
+                                                          FFAppState()
+                                                                  .nonePackageCarrierType =
+                                                              'กรุณาเลือกประเภทตู้เหล็ก';
+                                                          FFAppState()
+                                                                  .nonePackageFlagCoop =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageTruckPart =
+                                                              'กรุณาเลือกส่วนของรถบรรทุก';
+                                                          FFAppState()
+                                                                  .nonePackageCusMembership =
+                                                              'กรุณาเลือกประเภทลูกค้า';
+                                                          FFAppState()
+                                                                  .nonePackageTruckCurrentPrice =
+                                                              'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                          FFAppState()
+                                                                  .nonePackagePlateAdditional =
+                                                              'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                          FFAppState()
+                                                                  .nonePackageTruckCarryPurpose =
+                                                              'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                          FFAppState()
+                                                                  .nonePackageTrailerSumInsured =
+                                                              'กรุณากรอกทุนประกันหางพ่วง';
+                                                          FFAppState()
+                                                              .nonePackageCarrierPrice = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerIdList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerCodeList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerDisplayName = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerIdOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerCodeOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerNameOutputList = [];
+                                                          FFAppState()
+                                                              .nonePackageReason = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerSelectedList = [];
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeId = '';
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageCoverTypeName =
+                                                              'กรุณาเลือกประเภทชั้นประกัน';
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeId = '';
+                                                          FFAppState()
+                                                                  .nonePackageGarageTypeName =
+                                                              'กรุณาเลือกประเภทการซ่อม';
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeCode = '';
+                                                          FFAppState()
+                                                                  .nonePackageFlagRenew =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiExpDate =
+                                                              'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                          FFAppState()
+                                                              .nonePackageOldVmi = '';
+                                                          FFAppState()
+                                                              .nonePackageOldVmiImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageIdCardImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageRenewImageUrlList = [];
+                                                          FFAppState()
+                                                              .nonePackageRenewImageCheckList = [];
+                                                          FFAppState()
+                                                                  .nonePackageOldVmiImageUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                                  .nonePackageIdCardWatermarkUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                                  .buttonOrdinary =
+                                                              false;
+                                                          FFAppState()
+                                                                  .buttonCorporation =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageCustomerType = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerDisplayNameOutput = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther = [];
+                                                          FFAppState()
+                                                              .nonePackageImageFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRightFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRight = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRightRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeftRear = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeft = [];
+                                                          FFAppState()
+                                                              .nonePackageImageLeftFront = [];
+                                                          FFAppState()
+                                                              .nonePackageImageRoof = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageFront = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightFront = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRight = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftRear = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeft = [];
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftFront = [];
+                                                          FFAppState()
+                                                              .nonePackageInsurerOutputIndex = 0;
+                                                          FFAppState()
+                                                              .nonePackageLeadId = '';
+                                                          FFAppState()
+                                                              .nonePackageLeadNo = '';
+                                                          FFAppState()
+                                                              .nonePackageCarImageUploadedList = [];
+                                                          FFAppState()
+                                                              .nonePackageImageOldVmi = [];
+                                                          FFAppState()
+                                                              .nonePackageImageCompanyBook = [];
+                                                          FFAppState()
+                                                              .nonePackageImageIdCard = [];
+                                                          FFAppState()
+                                                              .nonePackageImageBlueBook = [];
+                                                          FFAppState()
+                                                                  .nonePackageCompanyBookImageUploadedCheck =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageCompanyBookImageUrl = '';
+                                                          FFAppState()
+                                                              .nonePackageImageFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRightRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageLeftFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageRoofUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRightRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftRearUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageBlueBookUploaded = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther1 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther2 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther3 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther4 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOther5 = '';
+                                                          FFAppState()
+                                                              .nonePackageImageOtherNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerShortName = '';
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerName = '';
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerShortNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageSelectedInsurerNameList = [];
+                                                          FFAppState()
+                                                              .nonePackageFlagOldVmi = '';
+                                                          FFAppState()
+                                                              .nonePackageWorkType = '';
+                                                          FFAppState()
+                                                              .nonePackageRemark = '';
+                                                          FFAppState()
+                                                              .nonePackageBranchCode = '';
+                                                          FFAppState()
+                                                              .nonePackageBranchName = '';
+                                                          FFAppState()
+                                                              .nonePackageInsurerShortNameDupList = [];
+                                                          setState(() {});
                                                           _model.getDetailApiDup =
                                                               await InsuranceRequestDetailAPICall
                                                                   .call(
@@ -3322,696 +3313,692 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                               setState(() {});
                                                             return;
                                                           }
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .nonePackageFlagCarrier =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagCarrier(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                .nonePackageVehicleType = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carType(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกประเภทรถ'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carType(
+                                                          FFAppState()
+                                                                  .nonePackageFlagCarrier =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagCarrier(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                              .nonePackageVehicleType = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carType(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageBrandName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.brandName(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.brandName(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกประเภทรถ'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carType(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageBrandName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.brandName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageBrandId = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carBrandId(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carBrandId(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.brandName(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageBrandId = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carBrandId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageModelName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.modelName(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.modelName(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carBrandId(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageModelName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.modelName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageModelCode = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carModelId(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carModelId(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.modelName(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageModelCode = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carModelId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageYear = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.year(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกปีจดทะเบียน'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.year(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carModelId(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageYear = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.year(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeId = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.vehicleId(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.toString()}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleId(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกปีจดทะเบียน'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.year(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeId = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.vehicleId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.toString()}');
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeCode = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.vehicleCode(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleCode(
+                                                                  )?.toString()}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleId(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.toString()}');
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeCode = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.vehicleCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageUsedTypeName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.vehicleName(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกลักษณะการใช้รถ'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.vehicleName(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleCode(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageUsedTypeName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.vehicleName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageCusFullname = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.firstname(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.firstname(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกลักษณะการใช้รถ'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.vehicleName(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageCusFullname = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.firstname(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageCusPhone = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.phoneNumber(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.phoneNumber(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.firstname(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageCusPhone = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.phoneNumber(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackagePlate = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.plateNo(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.plateNo(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.phoneNumber(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackagePlate = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.plateNo(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageProvince = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.province(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกจังหวัดจดทะเบียน'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.province(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.plateNo(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageProvince = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.province(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageProvinceId = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carProvinceCode(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carProvinceCode(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกจังหวัดจดทะเบียน'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.province(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageProvinceId = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carProvinceCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageSumInsured = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.sumInsured(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.sumInsured(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carProvinceCode(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageSumInsured = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.sumInsured(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagAct =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagAct(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .nonePackageIsBrandSelect =
-                                                                false;
-                                                            FFAppState()
-                                                                .nonePackageCarrierType = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carrierType(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกประเภทตู้เหล็ก'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierType(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.sumInsured(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagAct =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagAct(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .nonePackageIsBrandSelect =
+                                                              false;
+                                                          FFAppState()
+                                                              .nonePackageCarrierType = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carrierType(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagCoop =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagCoop(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                .nonePackageTruckPart = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.truckPart(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกส่วนของรถบรรทุก'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.truckPart(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกประเภทตู้เหล็ก'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierType(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagCoop =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagCoop(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                              .nonePackageTruckPart = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.truckPart(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageCusMembership = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.customerMemberchip(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกประเภทลูกค้า'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.customerMemberchip(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกส่วนของรถบรรทุก'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.truckPart(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageCusMembership = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.customerMemberchip(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageTruckCurrentPrice = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.truckCurrentPrice(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.truckCurrentPrice(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกประเภทลูกค้า'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.customerMemberchip(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageTruckCurrentPrice = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.truckCurrentPrice(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackagePlateAdditional = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.trailerPlateNo(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.trailerPlateNo(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.truckCurrentPrice(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackagePlateAdditional = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.trailerPlateNo(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString()}');
-                                                            FFAppState()
-                                                                .nonePackageTruckCarryPurpose = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carrierPropose(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierPropose(
+                                                                  ).toString()}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.trailerPlateNo(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ).toString()}');
+                                                          FFAppState()
+                                                              .nonePackageTruckCarryPurpose = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carrierPropose(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageTrailerSumInsured = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.trailerSumInsured(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ).toString()}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.trailerSumInsured(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierPropose(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageTrailerSumInsured = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.trailerSumInsured(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  ).toString()}');
-                                                            FFAppState()
-                                                                .nonePackageCarrierPrice = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.carrierPrice(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.carrierPrice(
+                                                                  ).toString()}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.trailerSumInsured(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                ).toString()}');
+                                                          FFAppState()
+                                                              .nonePackageCarrierPrice = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.carrierPrice(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeId = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.coverTypeId(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.coverTypeId(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.carrierPrice(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeId = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.coverTypeId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeCode = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.coverTypeCode(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.coverTypeCode(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.coverTypeId(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeCode = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.coverTypeCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                .nonePackageCoverTypeName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.coverTypeNameList(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกประเภทชั้นประกัน'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.coverTypeNameList(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.coverTypeCode(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                              .nonePackageCoverTypeName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.coverTypeNameList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeId = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.garageTypeId(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.garageTypeId(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกประเภทชั้นประกัน'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.coverTypeNameList(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeId = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.garageTypeId(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.garageTypeNameList(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกประเภทการซ่อม'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.garageTypeNameList(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.garageTypeId(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.garageTypeNameList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                .nonePackageGarageTypeCode = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.garageTypeCodeList(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )?.first}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.garageTypeCodeList(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกประเภทการซ่อม'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.garageTypeNameList(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                              .nonePackageGarageTypeCode = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.garageTypeCodeList(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )?.first}');
-                                                            FFAppState()
-                                                                    .nonePackageFlagRenew =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .flagRenew(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        '1'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                .nonePackageOldVmiExpDate = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? 'กรุณาเลือกวันที่หมดอายุประกันเดิม'
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
+                                                                  )?.first}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.garageTypeCodeList(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )?.first}');
+                                                          FFAppState()
+                                                                  .nonePackageFlagRenew =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .flagRenew(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      '1'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                              .nonePackageOldVmiExpDate = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageOldVmi = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? 'กรุณาเลือกวันที่หมดอายุประกันเดิม'
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.oldVmiExpriedDate(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageOldVmi = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageBranchCode = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.branchCode(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.branchCode(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.oldVmiPolicyNumber(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageBranchCode = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.branchCode(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                .nonePackageRemark = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.remark(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.remark(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.branchCode(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                              .nonePackageRemark = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.remark(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                            FFAppState()
-                                                                    .nonePackageInsurerShortNameDupList =
-                                                                InsuranceRequestDetailAPICall
-                                                                        .insurerShortName(
-                                                              (_model.getDetailApiDup
-                                                                      ?.jsonBody ??
-                                                                  ''),
-                                                            )!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        String>();
-                                                            FFAppState()
-                                                                    .nonePackageReason =
-                                                                functions
-                                                                    .createFalseListByItemNumber(
-                                                                        false,
-                                                                        3)!
-                                                                    .toList()
-                                                                    .cast<
-                                                                        bool>();
-                                                            FFAppState()
-                                                                    .buttonOrdinary =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .customerType(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        'บุคคลธรรมดา'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                    .buttonCorporation =
-                                                                InsuranceRequestDetailAPICall
-                                                                            .customerType(
-                                                                          (_model.getDetailApiDup?.jsonBody ??
-                                                                              ''),
-                                                                        ) ==
-                                                                        'นิติบุคคล'
-                                                                    ? true
-                                                                    : false;
-                                                            FFAppState()
-                                                                .nonePackageBranchName = functions
-                                                                        .checkNullValueAndReturn(
-                                                                            '${InsuranceRequestDetailAPICall.branchName(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    )}') ==
-                                                                    '-'
-                                                                ? ''
-                                                                : functions
-                                                                    .checkNullValueAndReturn(
-                                                                        '${InsuranceRequestDetailAPICall.branchName(
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.remark(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          FFAppState()
+                                                                  .nonePackageInsurerShortNameDupList =
+                                                              InsuranceRequestDetailAPICall
+                                                                      .insurerShortName(
+                                                            (_model.getDetailApiDup
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          )!
+                                                                  .toList()
+                                                                  .cast<
+                                                                      String>();
+                                                          FFAppState()
+                                                                  .nonePackageReason =
+                                                              functions
+                                                                  .createFalseListByItemNumber(
+                                                                      false, 3)!
+                                                                  .toList()
+                                                                  .cast<bool>();
+                                                          FFAppState()
+                                                                  .buttonOrdinary =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .customerType(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      'บุคคลธรรมดา'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                                  .buttonCorporation =
+                                                              InsuranceRequestDetailAPICall
+                                                                          .customerType(
+                                                                        (_model.getDetailApiDup?.jsonBody ??
+                                                                            ''),
+                                                                      ) ==
+                                                                      'นิติบุคคล'
+                                                                  ? true
+                                                                  : false;
+                                                          FFAppState()
+                                                              .nonePackageBranchName = functions
+                                                                      .checkNullValueAndReturn(
+                                                                          '${InsuranceRequestDetailAPICall.branchName(
                                                                     (_model.getDetailApiDup
                                                                             ?.jsonBody ??
                                                                         ''),
-                                                                  )}');
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .updateNonePackageReasonAtIndex(
-                                                              () {
-                                                                if (InsuranceRequestDetailAPICall
-                                                                        .reason(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ) ==
-                                                                    'ไม่มีในเรท') {
-                                                                  return 0;
-                                                                } else if (InsuranceRequestDetailAPICall
-                                                                        .reason(
-                                                                      (_model.getDetailApiDup
-                                                                              ?.jsonBody ??
-                                                                          ''),
-                                                                    ) ==
-                                                                    'ไม่พอใจในทุนประกัน') {
-                                                                  return 1;
-                                                                } else {
-                                                                  return 2;
-                                                                }
-                                                              }(),
-                                                              (_) => true,
-                                                            );
-                                                          });
+                                                                  )}') ==
+                                                                  '-'
+                                                              ? ''
+                                                              : functions
+                                                                  .checkNullValueAndReturn(
+                                                                      '${InsuranceRequestDetailAPICall.branchName(
+                                                                  (_model.getDetailApiDup
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )}');
+                                                          setState(() {});
+                                                          FFAppState()
+                                                              .updateNonePackageReasonAtIndex(
+                                                            () {
+                                                              if (InsuranceRequestDetailAPICall
+                                                                      .reason(
+                                                                    (_model.getDetailApiDup
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ) ==
+                                                                  'ไม่มีในเรท') {
+                                                                return 0;
+                                                              } else if (InsuranceRequestDetailAPICall
+                                                                      .reason(
+                                                                    (_model.getDetailApiDup
+                                                                            ?.jsonBody ??
+                                                                        ''),
+                                                                  ) ==
+                                                                  'ไม่พอใจในทุนประกัน') {
+                                                                return 1;
+                                                              } else {
+                                                                return 2;
+                                                              }
+                                                            }(),
+                                                            (_) => true,
+                                                          );
+                                                          setState(() {});
                                                           Navigator.pop(
                                                               context);
 
@@ -4367,279 +4354,278 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   ) ??
                                                                   false;
                                                           if (confirmDialogResponse) {
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .nonePackageFlagCarrier =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .nonePackageVehicleType =
-                                                                  'กรุณาเลือกประเภทรถ';
-                                                              FFAppState()
-                                                                      .nonePackageBrandName =
-                                                                  'กรุณาเลือกยี่ห้อรถ';
-                                                              FFAppState()
-                                                                  .nonePackageBrandId = '';
-                                                              FFAppState()
-                                                                      .nonePackageModelName =
-                                                                  'กรุณากรอกรุ่นรถ';
-                                                              FFAppState()
-                                                                  .nonePackageModelCode = '';
-                                                              FFAppState()
-                                                                      .nonePackageYear =
-                                                                  'กรุณาเลือกปีจดทะเบียน';
-                                                              FFAppState()
-                                                                  .nonePackageUsedTypeId = '';
-                                                              FFAppState()
-                                                                  .nonePackageSearchModelList = [];
-                                                              FFAppState()
-                                                                  .nonePackageUsedTypeCode = '';
-                                                              FFAppState()
-                                                                      .nonePackageUsedTypeName =
-                                                                  'กรุณาเลือกลักษณะการใช้รถ';
-                                                              FFAppState()
-                                                                      .nonePackageCusFullname =
-                                                                  'กรุณากรอกชื่อ';
-                                                              FFAppState()
-                                                                      .nonePackageCusPhone =
-                                                                  'กรุณากรอกเบอร์โทรศัพท์';
-                                                              FFAppState()
-                                                                  .nonePackagePlate = '';
-                                                              FFAppState()
-                                                                      .nonePackageProvince =
-                                                                  'กรุณาเลือกจังหวัดจดทะเบียน';
-                                                              FFAppState()
-                                                                  .nonePackageProvinceId = '';
-                                                              FFAppState()
-                                                                      .nonePackageSumInsured =
-                                                                  'กรุณากรอกทุนประกัน';
-                                                              FFAppState()
-                                                                      .nonePackageFlagAct =
-                                                                  true;
-                                                              FFAppState()
-                                                                      .nonePackageIsBrandSelect =
-                                                                  false;
-                                                              FFAppState()
-                                                                  .nonePackageSearchModelIdList = [];
-                                                              FFAppState()
-                                                                      .nonePackageCarrierType =
-                                                                  'กรุณาเลือกประเภทตู้เหล็ก';
-                                                              FFAppState()
-                                                                      .nonePackageFlagCoop =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .nonePackageTruckPart =
-                                                                  'กรุณาเลือกส่วนของรถบรรทุก';
-                                                              FFAppState()
-                                                                      .nonePackageCusMembership =
-                                                                  'กรุณาเลือกประเภทลูกค้า';
-                                                              FFAppState()
-                                                                      .nonePackageTruckCurrentPrice =
-                                                                  'กรุณากรอกราคาซื้อขายปัจจุบัน';
-                                                              FFAppState()
-                                                                      .nonePackagePlateAdditional =
-                                                                  'กรุณากรอกเลขทะเบียนหางพ่วง';
-                                                              FFAppState()
-                                                                      .nonePackageTruckCarryPurpose =
-                                                                  'กรุณากรอกรถใช้บรรทุกอะไร';
-                                                              FFAppState()
-                                                                      .nonePackageTrailerSumInsured =
-                                                                  'กรุณากรอกทุนประกันหางพ่วง';
-                                                              FFAppState()
-                                                                  .nonePackageCarrierPrice = '';
-                                                              FFAppState()
-                                                                  .nonePackageInsurerIdList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerCodeList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerShortNameList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerNameList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerDisplayName = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerIdOutputList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerCodeOutputList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerShortNameOutputList = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerNameOutputList = [];
-                                                              FFAppState()
-                                                                  .nonePackageReason = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerSelectedList = [];
-                                                              FFAppState()
-                                                                  .nonePackageCoverTypeId = '';
-                                                              FFAppState()
-                                                                  .nonePackageCoverTypeCode = '';
-                                                              FFAppState()
-                                                                      .nonePackageCoverTypeName =
-                                                                  'กรุณาเลือกประเภทชั้นประกัน';
-                                                              FFAppState()
-                                                                  .nonePackageGarageTypeId = '';
-                                                              FFAppState()
-                                                                      .nonePackageGarageTypeName =
-                                                                  'กรุณาเลือกประเภทการซ่อม';
-                                                              FFAppState()
-                                                                  .nonePackageGarageTypeCode = '';
-                                                              FFAppState()
-                                                                      .nonePackageFlagRenew =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .nonePackageOldVmiExpDate =
-                                                                  'กรุณาเลือกวันที่หมดอายุประกันเดิม';
-                                                              FFAppState()
-                                                                  .nonePackageOldVmi = '';
-                                                              FFAppState()
-                                                                  .nonePackageOldVmiImageUrl = '';
-                                                              FFAppState()
-                                                                  .nonePackageIdCardImageUrl = '';
-                                                              FFAppState()
-                                                                  .nonePackageRenewImageUrlList = [];
-                                                              FFAppState()
-                                                                  .nonePackageRenewImageCheckList = [];
-                                                              FFAppState()
-                                                                      .nonePackageOldVmiImageUploadedCheck =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .nonePackageIdCardWatermarkUploadedCheck =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .buttonOrdinary =
-                                                                  false;
-                                                              FFAppState()
-                                                                      .buttonCorporation =
-                                                                  false;
-                                                              FFAppState()
-                                                                  .nonePackageCustomerType = '';
-                                                              FFAppState()
-                                                                  .nonePackageInsurerDisplayNameOutput = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageRightFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageRight = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageRightRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageLeftRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageLeft = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageLeftFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageRoof = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRightFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRight = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRightRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeftRear = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeft = [];
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeftFront = [];
-                                                              FFAppState()
-                                                                  .nonePackageInsurerOutputIndex = 0;
-                                                              FFAppState()
-                                                                  .nonePackageLeadId = '';
-                                                              FFAppState()
-                                                                  .nonePackageLeadNo = '';
-                                                              FFAppState()
-                                                                  .nonePackageCarImageUploadedList = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageOldVmi = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageCompanyBook = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageIdCard = [];
-                                                              FFAppState()
-                                                                  .nonePackageImageBlueBook = [];
-                                                              FFAppState()
-                                                                      .nonePackageCompanyBookImageUploadedCheck =
-                                                                  false;
-                                                              FFAppState()
-                                                                  .nonePackageCompanyBookImageUrl = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageRightFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageRightUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageRightRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageLeftRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageLeftUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageLeftFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageRoofUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRightFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRightUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRightRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeftRearUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeftUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageTrailerImageLeftFrontUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageBlueBookUploaded = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther1 = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther2 = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther3 = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther4 = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOther5 = '';
-                                                              FFAppState()
-                                                                  .nonePackageImageOtherNameList = [];
-                                                              FFAppState()
-                                                                  .nonePackageSelectedInsurerShortName = '';
-                                                              FFAppState()
-                                                                  .nonePackageSelectedInsurerName = '';
-                                                              FFAppState()
-                                                                  .nonePackageSelectedInsurerShortNameList = [];
-                                                              FFAppState()
-                                                                  .nonePackageSelectedInsurerNameList = [];
-                                                              FFAppState()
-                                                                  .nonePackageFlagOldVmi = '';
-                                                              FFAppState()
-                                                                  .nonePackageWorkType = '';
-                                                              FFAppState()
-                                                                  .nonePackageRemark = '';
-                                                              FFAppState()
-                                                                  .nonePackageBranchCode = '';
-                                                              FFAppState()
-                                                                  .nonePackageBranchName = '';
-                                                              FFAppState()
-                                                                  .nonePackageInsurerShortNameDupList = [];
-                                                            });
+                                                            FFAppState()
+                                                                    .nonePackageFlagCarrier =
+                                                                false;
+                                                            FFAppState()
+                                                                    .nonePackageVehicleType =
+                                                                'กรุณาเลือกประเภทรถ';
+                                                            FFAppState()
+                                                                    .nonePackageBrandName =
+                                                                'กรุณาเลือกยี่ห้อรถ';
+                                                            FFAppState()
+                                                                .nonePackageBrandId = '';
+                                                            FFAppState()
+                                                                    .nonePackageModelName =
+                                                                'กรุณากรอกรุ่นรถ';
+                                                            FFAppState()
+                                                                .nonePackageModelCode = '';
+                                                            FFAppState()
+                                                                    .nonePackageYear =
+                                                                'กรุณาเลือกปีจดทะเบียน';
+                                                            FFAppState()
+                                                                .nonePackageUsedTypeId = '';
+                                                            FFAppState()
+                                                                .nonePackageSearchModelList = [];
+                                                            FFAppState()
+                                                                .nonePackageUsedTypeCode = '';
+                                                            FFAppState()
+                                                                    .nonePackageUsedTypeName =
+                                                                'กรุณาเลือกลักษณะการใช้รถ';
+                                                            FFAppState()
+                                                                    .nonePackageCusFullname =
+                                                                'กรุณากรอกชื่อ';
+                                                            FFAppState()
+                                                                    .nonePackageCusPhone =
+                                                                'กรุณากรอกเบอร์โทรศัพท์';
+                                                            FFAppState()
+                                                                .nonePackagePlate = '';
+                                                            FFAppState()
+                                                                    .nonePackageProvince =
+                                                                'กรุณาเลือกจังหวัดจดทะเบียน';
+                                                            FFAppState()
+                                                                .nonePackageProvinceId = '';
+                                                            FFAppState()
+                                                                    .nonePackageSumInsured =
+                                                                'กรุณากรอกทุนประกัน';
+                                                            FFAppState()
+                                                                    .nonePackageFlagAct =
+                                                                true;
+                                                            FFAppState()
+                                                                    .nonePackageIsBrandSelect =
+                                                                false;
+                                                            FFAppState()
+                                                                .nonePackageSearchModelIdList = [];
+                                                            FFAppState()
+                                                                    .nonePackageCarrierType =
+                                                                'กรุณาเลือกประเภทตู้เหล็ก';
+                                                            FFAppState()
+                                                                    .nonePackageFlagCoop =
+                                                                false;
+                                                            FFAppState()
+                                                                    .nonePackageTruckPart =
+                                                                'กรุณาเลือกส่วนของรถบรรทุก';
+                                                            FFAppState()
+                                                                    .nonePackageCusMembership =
+                                                                'กรุณาเลือกประเภทลูกค้า';
+                                                            FFAppState()
+                                                                    .nonePackageTruckCurrentPrice =
+                                                                'กรุณากรอกราคาซื้อขายปัจจุบัน';
+                                                            FFAppState()
+                                                                    .nonePackagePlateAdditional =
+                                                                'กรุณากรอกเลขทะเบียนหางพ่วง';
+                                                            FFAppState()
+                                                                    .nonePackageTruckCarryPurpose =
+                                                                'กรุณากรอกรถใช้บรรทุกอะไร';
+                                                            FFAppState()
+                                                                    .nonePackageTrailerSumInsured =
+                                                                'กรุณากรอกทุนประกันหางพ่วง';
+                                                            FFAppState()
+                                                                .nonePackageCarrierPrice = '';
+                                                            FFAppState()
+                                                                .nonePackageInsurerIdList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerCodeList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerShortNameList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerNameList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerDisplayName = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerIdOutputList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerCodeOutputList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerShortNameOutputList = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerNameOutputList = [];
+                                                            FFAppState()
+                                                                .nonePackageReason = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerSelectedList = [];
+                                                            FFAppState()
+                                                                .nonePackageCoverTypeId = '';
+                                                            FFAppState()
+                                                                .nonePackageCoverTypeCode = '';
+                                                            FFAppState()
+                                                                    .nonePackageCoverTypeName =
+                                                                'กรุณาเลือกประเภทชั้นประกัน';
+                                                            FFAppState()
+                                                                .nonePackageGarageTypeId = '';
+                                                            FFAppState()
+                                                                    .nonePackageGarageTypeName =
+                                                                'กรุณาเลือกประเภทการซ่อม';
+                                                            FFAppState()
+                                                                .nonePackageGarageTypeCode = '';
+                                                            FFAppState()
+                                                                    .nonePackageFlagRenew =
+                                                                false;
+                                                            FFAppState()
+                                                                    .nonePackageOldVmiExpDate =
+                                                                'กรุณาเลือกวันที่หมดอายุประกันเดิม';
+                                                            FFAppState()
+                                                                .nonePackageOldVmi = '';
+                                                            FFAppState()
+                                                                .nonePackageOldVmiImageUrl = '';
+                                                            FFAppState()
+                                                                .nonePackageIdCardImageUrl = '';
+                                                            FFAppState()
+                                                                .nonePackageRenewImageUrlList = [];
+                                                            FFAppState()
+                                                                .nonePackageRenewImageCheckList = [];
+                                                            FFAppState()
+                                                                    .nonePackageOldVmiImageUploadedCheck =
+                                                                false;
+                                                            FFAppState()
+                                                                    .nonePackageIdCardWatermarkUploadedCheck =
+                                                                false;
+                                                            FFAppState()
+                                                                    .buttonOrdinary =
+                                                                false;
+                                                            FFAppState()
+                                                                    .buttonCorporation =
+                                                                false;
+                                                            FFAppState()
+                                                                .nonePackageCustomerType = '';
+                                                            FFAppState()
+                                                                .nonePackageInsurerDisplayNameOutput = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther = [];
+                                                            FFAppState()
+                                                                .nonePackageImageFront = [];
+                                                            FFAppState()
+                                                                .nonePackageImageRightFront = [];
+                                                            FFAppState()
+                                                                .nonePackageImageRight = [];
+                                                            FFAppState()
+                                                                .nonePackageImageRightRear = [];
+                                                            FFAppState()
+                                                                .nonePackageImageRear = [];
+                                                            FFAppState()
+                                                                .nonePackageImageLeftRear = [];
+                                                            FFAppState()
+                                                                .nonePackageImageLeft = [];
+                                                            FFAppState()
+                                                                .nonePackageImageLeftFront = [];
+                                                            FFAppState()
+                                                                .nonePackageImageRoof = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageFront = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRightFront = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRight = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRightRear = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRear = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeftRear = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeft = [];
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeftFront = [];
+                                                            FFAppState()
+                                                                .nonePackageInsurerOutputIndex = 0;
+                                                            FFAppState()
+                                                                .nonePackageLeadId = '';
+                                                            FFAppState()
+                                                                .nonePackageLeadNo = '';
+                                                            FFAppState()
+                                                                .nonePackageCarImageUploadedList = [];
+                                                            FFAppState()
+                                                                .nonePackageImageOldVmi = [];
+                                                            FFAppState()
+                                                                .nonePackageImageCompanyBook = [];
+                                                            FFAppState()
+                                                                .nonePackageImageIdCard = [];
+                                                            FFAppState()
+                                                                .nonePackageImageBlueBook = [];
+                                                            FFAppState()
+                                                                    .nonePackageCompanyBookImageUploadedCheck =
+                                                                false;
+                                                            FFAppState()
+                                                                .nonePackageCompanyBookImageUrl = '';
+                                                            FFAppState()
+                                                                .nonePackageImageFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageRightFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageRightUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageRightRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageLeftRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageLeftUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageLeftFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageRoofUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRightFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRightUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRightRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeftRearUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeftUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageTrailerImageLeftFrontUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageBlueBookUploaded = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther1 = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther2 = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther3 = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther4 = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOther5 = '';
+                                                            FFAppState()
+                                                                .nonePackageImageOtherNameList = [];
+                                                            FFAppState()
+                                                                .nonePackageSelectedInsurerShortName = '';
+                                                            FFAppState()
+                                                                .nonePackageSelectedInsurerName = '';
+                                                            FFAppState()
+                                                                .nonePackageSelectedInsurerShortNameList = [];
+                                                            FFAppState()
+                                                                .nonePackageSelectedInsurerNameList = [];
+                                                            FFAppState()
+                                                                .nonePackageFlagOldVmi = '';
+                                                            FFAppState()
+                                                                .nonePackageWorkType = '';
+                                                            FFAppState()
+                                                                .nonePackageRemark = '';
+                                                            FFAppState()
+                                                                .nonePackageBranchCode = '';
+                                                            FFAppState()
+                                                                .nonePackageBranchName = '';
+                                                            FFAppState()
+                                                                .nonePackageInsurerShortNameDupList = [];
+                                                            setState(() {});
                                                             _model.listFromDash =
                                                                 await InsuranceRequestListAPIDashBoardCall
                                                                     .call(
@@ -4767,17 +4753,16 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   }.withoutNulls,
                                                                 );
                                                               } else {
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .licenseSelectBeforeStep1 =
-                                                                      InsuranceRequestListAPIDashBoardCall
-                                                                              .employeecodelicense(
-                                                                    (_model.listFromDash
-                                                                            ?.jsonBody ??
-                                                                        ''),
-                                                                  )!
-                                                                          .first;
-                                                                });
+                                                                FFAppState()
+                                                                        .licenseSelectBeforeStep1 =
+                                                                    InsuranceRequestListAPIDashBoardCall
+                                                                            .employeecodelicense(
+                                                                  (_model.listFromDash
+                                                                          ?.jsonBody ??
+                                                                      ''),
+                                                                )!
+                                                                        .first;
+                                                                setState(() {});
                                                                 await showModalBottomSheet(
                                                                   isScrollControlled:
                                                                       true,

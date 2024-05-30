@@ -64,10 +64,9 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().indexPdfQuotation = 0;
-        FFAppState().lengthListPdfQuotation = widget.quotation!.length;
-      });
+      FFAppState().indexPdfQuotation = 0;
+      FFAppState().lengthListPdfQuotation = widget.quotation!.length;
+      setState(() {});
       Navigator.pop(context);
     });
   }
@@ -151,10 +150,9 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 duration: Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
-                              setState(() {
-                                FFAppState().indexPdfQuotation =
-                                    FFAppState().indexPdfQuotation + -1;
-                              });
+                              FFAppState().indexPdfQuotation =
+                                  FFAppState().indexPdfQuotation + -1;
+                              setState(() {});
                             },
                             child: Container(
                               width: 100.0,
@@ -240,10 +238,9 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 duration: Duration(milliseconds: 300),
                                 curve: Curves.ease,
                               );
-                              setState(() {
-                                FFAppState().indexPdfQuotation =
-                                    FFAppState().indexPdfQuotation + 1;
-                              });
+                              FFAppState().indexPdfQuotation =
+                                  FFAppState().indexPdfQuotation + 1;
+                              setState(() {});
                             },
                             child: Container(
                               width: 100.0,

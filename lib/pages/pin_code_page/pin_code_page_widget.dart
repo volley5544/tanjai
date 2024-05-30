@@ -53,21 +53,18 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
       }
       if (isAndroid) {
         _model.androidIMEI1st = await actions.a3();
-        FFAppState().update(() {
-          FFAppState().imei = _model.androidIMEI1st!;
-        });
+        FFAppState().imei = _model.androidIMEI1st!;
+        FFAppState().update(() {});
       } else {
         _model.iOSidentifierForVendor1st = await actions.a4();
-        FFAppState().update(() {
-          FFAppState().imei = _model.iOSidentifierForVendor1st!;
-        });
+        FFAppState().imei = _model.iOSidentifierForVendor1st!;
+        FFAppState().update(() {});
       }
 
       _model.checkDeviceLocSer = await actions.a1();
       _model.checkDeviceLocPer = await actions.a2();
-      FFAppState().update(() {
-        FFAppState().isLoadedInsuranceData = false;
-      });
+      FFAppState().isLoadedInsuranceData = false;
+      FFAppState().update(() {});
       _model.checkFirebaseOutput = await actions.checkStatusFirebase(
         FFAppState().employeeID,
       );
@@ -88,81 +85,70 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
             );
           },
         );
-        FFAppState().update(() {
-          FFAppState().loginStateFirebase = '[loginStateFirebase]';
-          FFAppState().deleteAccessToken();
-          FFAppState().accessToken = 'access_token';
-        });
-        FFAppState().update(() {
-          FFAppState().deleteEmployeeID();
-          FFAppState().employeeID = 'employee_id';
-        });
-        FFAppState().update(() {
-          FFAppState().deleteApiURLLocalState();
-          FFAppState().apiURLLocalState = 'api_url';
+        FFAppState().loginStateFirebase = '[loginStateFirebase]';
+        FFAppState().deleteAccessToken();
+        FFAppState().accessToken = 'access_token';
 
-          FFAppState().deleteBranchCode();
-          FFAppState().branchCode = 'branch_code';
-        });
-        FFAppState().update(() {
-          FFAppState().isFromSetPinPage = false;
-          FFAppState().leadChannelColor = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadChannelList = [];
-          FFAppState().isFromLoginPage = false;
-        });
-        FFAppState().update(() {
-          FFAppState().deletePinCodeAuthen();
-          FFAppState().pinCodeAuthen = '013972';
+        FFAppState().update(() {});
+        FFAppState().deleteEmployeeID();
+        FFAppState().employeeID = 'employee_id';
 
-          FFAppState().isFromAuthenPage = false;
-        });
-        FFAppState().update(() {
-          FFAppState().deleteDateDoNotShowAgain();
-          FFAppState().dateDoNotShowAgain = null;
+        FFAppState().update(() {});
+        FFAppState().deleteApiURLLocalState();
+        FFAppState().apiURLLocalState = 'api_url';
 
-          FFAppState().deleteDoNotShowAgain();
-          FFAppState().doNotShowAgain = false;
-        });
-        FFAppState().update(() {
-          FFAppState().inAppViaNotification = true;
-          FFAppState().isInApp = false;
-        });
-        FFAppState().update(() {
-          FFAppState().deleteFcmToken();
-          FFAppState().fcmToken = 'fcm_token';
+        FFAppState().deleteBranchCode();
+        FFAppState().branchCode = 'branch_code';
 
-          FFAppState().isPassLoginSection = false;
-        });
-        FFAppState().update(() {
-          FFAppState().leadID = [];
-          FFAppState().leadCreatedTimeList = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadCustomerNameList = [];
-          FFAppState().leadChannelList = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadChannelColor = [];
-          FFAppState().leadCallStatus = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadPhoneNumberList = [];
-          FFAppState().leadEmployeeID = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadChannelLabelColor = [];
-          FFAppState().deleteLeadIdCalledInApp();
-          FFAppState().leadIdCalledInApp = [];
-        });
-        FFAppState().update(() {
-          FFAppState().leadBranchCode = [];
-          FFAppState().leadUserLevel = 'lead_user_level';
-        });
-        FFAppState().update(() {
-          FFAppState().leadChannelAmountList = [];
-        });
+        FFAppState().update(() {});
+        FFAppState().isFromSetPinPage = false;
+        FFAppState().leadChannelColor = [];
+        FFAppState().update(() {});
+        FFAppState().leadChannelList = [];
+        FFAppState().isFromLoginPage = false;
+        FFAppState().update(() {});
+        FFAppState().deletePinCodeAuthen();
+        FFAppState().pinCodeAuthen = '013972';
+
+        FFAppState().isFromAuthenPage = false;
+        FFAppState().update(() {});
+        FFAppState().deleteDateDoNotShowAgain();
+        FFAppState().dateDoNotShowAgain = null;
+
+        FFAppState().deleteDoNotShowAgain();
+        FFAppState().doNotShowAgain = false;
+
+        FFAppState().update(() {});
+        FFAppState().inAppViaNotification = true;
+        FFAppState().isInApp = false;
+        FFAppState().update(() {});
+        FFAppState().deleteFcmToken();
+        FFAppState().fcmToken = 'fcm_token';
+
+        FFAppState().isPassLoginSection = false;
+        FFAppState().update(() {});
+        FFAppState().leadID = [];
+        FFAppState().leadCreatedTimeList = [];
+        FFAppState().update(() {});
+        FFAppState().leadCustomerNameList = [];
+        FFAppState().leadChannelList = [];
+        FFAppState().update(() {});
+        FFAppState().leadChannelColor = [];
+        FFAppState().leadCallStatus = [];
+        FFAppState().update(() {});
+        FFAppState().leadPhoneNumberList = [];
+        FFAppState().leadEmployeeID = [];
+        FFAppState().update(() {});
+        FFAppState().leadChannelLabelColor = [];
+        FFAppState().deleteLeadIdCalledInApp();
+        FFAppState().leadIdCalledInApp = [];
+
+        FFAppState().update(() {});
+        FFAppState().leadBranchCode = [];
+        FFAppState().leadUserLevel = 'lead_user_level';
+        FFAppState().update(() {});
+        FFAppState().leadChannelAmountList = [];
+        FFAppState().update(() {});
 
         context.goNamed('LoginPage');
 
@@ -592,151 +578,156 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                               _shouldSetState =
                                                                   true;
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                        .loginStateFirebase =
-                                                                    '[loginStateFirebase]';
-                                                                FFAppState()
-                                                                    .deleteAccessToken();
-                                                                FFAppState()
-                                                                        .accessToken =
-                                                                    'access_token';
-                                                              });
+                                                                      .loginStateFirebase =
+                                                                  '[loginStateFirebase]';
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .deleteEmployeeID();
-                                                                FFAppState()
-                                                                        .employeeID =
-                                                                    'employee_id';
-                                                              });
+                                                                  .deleteAccessToken();
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .deleteApiURLLocalState();
-                                                                FFAppState()
-                                                                        .apiURLLocalState =
-                                                                    'api_url';
+                                                                      .accessToken =
+                                                                  'access_token';
 
-                                                                FFAppState()
-                                                                    .deleteBranchCode();
-                                                                FFAppState()
-                                                                        .branchCode =
-                                                                    'branch_code';
-                                                              });
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                        .isFromSetPinPage =
-                                                                    false;
-                                                                FFAppState()
-                                                                    .leadChannelColor = [];
-                                                              });
+                                                                  .update(
+                                                                      () {});
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadChannelList = [];
-                                                                FFAppState()
-                                                                        .isFromLoginPage =
-                                                                    false;
-                                                              });
+                                                                  .deleteEmployeeID();
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .deletePinCodeAuthen();
-                                                                FFAppState()
-                                                                        .pinCodeAuthen =
-                                                                    '013972';
+                                                                      .employeeID =
+                                                                  'employee_id';
 
-                                                                FFAppState()
-                                                                        .isFromAuthenPage =
-                                                                    false;
-                                                              });
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .deleteDateDoNotShowAgain();
-                                                                FFAppState()
-                                                                        .dateDoNotShowAgain =
-                                                                    null;
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .deleteApiURLLocalState();
+                                                              FFAppState()
+                                                                      .apiURLLocalState =
+                                                                  'api_url';
 
-                                                                FFAppState()
-                                                                    .deleteDoNotShowAgain();
-                                                                FFAppState()
-                                                                        .doNotShowAgain =
-                                                                    false;
-                                                              });
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                        .inAppViaNotification =
-                                                                    true;
-                                                                FFAppState()
-                                                                        .isInApp =
-                                                                    false;
-                                                              });
+                                                                  .deleteBranchCode();
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .deleteFcmToken();
-                                                                FFAppState()
-                                                                        .fcmToken =
-                                                                    'fcm_token';
+                                                                      .branchCode =
+                                                                  'branch_code';
 
-                                                                FFAppState()
-                                                                        .isPassLoginSection =
-                                                                    false;
-                                                              });
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadID = [];
-                                                                FFAppState()
-                                                                    .leadCreatedTimeList = [];
-                                                              });
+                                                                  .update(
+                                                                      () {});
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadCustomerNameList = [];
-                                                                FFAppState()
-                                                                    .leadChannelList = [];
-                                                              });
+                                                                      .isFromSetPinPage =
+                                                                  false;
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadChannelColor = [];
-                                                                FFAppState()
-                                                                    .leadCallStatus = [];
-                                                              });
+                                                                  .leadChannelColor = [];
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadPhoneNumberList = [];
-                                                                FFAppState()
-                                                                    .leadEmployeeID = [];
-                                                              });
+                                                                  .update(
+                                                                      () {});
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadChannelLabelColor = [];
-                                                                FFAppState()
-                                                                    .deleteLeadIdCalledInApp();
-                                                                FFAppState()
-                                                                    .leadIdCalledInApp = [];
-                                                              });
+                                                                  .leadChannelList = [];
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadBranchCode = [];
-                                                                FFAppState()
-                                                                        .leadUserLevel =
-                                                                    'lead_user_level';
-                                                              });
+                                                                      .isFromLoginPage =
+                                                                  false;
                                                               FFAppState()
-                                                                  .update(() {
-                                                                FFAppState()
-                                                                    .leadChannelAmountList = [];
-                                                              });
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .deletePinCodeAuthen();
+                                                              FFAppState()
+                                                                      .pinCodeAuthen =
+                                                                  '013972';
+
+                                                              FFAppState()
+                                                                      .isFromAuthenPage =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .deleteDateDoNotShowAgain();
+                                                              FFAppState()
+                                                                      .dateDoNotShowAgain =
+                                                                  null;
+
+                                                              FFAppState()
+                                                                  .deleteDoNotShowAgain();
+                                                              FFAppState()
+                                                                      .doNotShowAgain =
+                                                                  false;
+
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                      .inAppViaNotification =
+                                                                  true;
+                                                              FFAppState()
+                                                                      .isInApp =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .deleteFcmToken();
+                                                              FFAppState()
+                                                                      .fcmToken =
+                                                                  'fcm_token';
+
+                                                              FFAppState()
+                                                                      .isPassLoginSection =
+                                                                  false;
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadID = [];
+                                                              FFAppState()
+                                                                  .leadCreatedTimeList = [];
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadCustomerNameList = [];
+                                                              FFAppState()
+                                                                  .leadChannelList = [];
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadChannelColor = [];
+                                                              FFAppState()
+                                                                  .leadCallStatus = [];
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadPhoneNumberList = [];
+                                                              FFAppState()
+                                                                  .leadEmployeeID = [];
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadChannelLabelColor = [];
+                                                              FFAppState()
+                                                                  .deleteLeadIdCalledInApp();
+                                                              FFAppState()
+                                                                  .leadIdCalledInApp = [];
+
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadBranchCode = [];
+                                                              FFAppState()
+                                                                      .leadUserLevel =
+                                                                  'lead_user_level';
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              FFAppState()
+                                                                  .leadChannelAmountList = [];
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
                                                               Navigator.pop(
                                                                   context);
                                                               await actions
@@ -1154,153 +1145,141 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 },
                                                                               ).then((value) => safeSetState(() {}));
 
-                                                                              setState(() {
-                                                                                FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
-                                                                              });
+                                                                              FFAppState().userRef = columnfourUserCustomRecord?.reference;
+                                                                              FFAppState().profileImage = columnfourUserCustomRecord!.imgProfile;
                                                                               setState(() {});
-                                                                              FFAppState().update(() {
-                                                                                FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
-                                                                              });
+
+                                                                              setState(() {});
+                                                                              FFAppState().apiURLLocalState = columntriKeyStorageRecord!.apiURL;
+                                                                              FFAppState().update(() {});
                                                                               _model.getUserProfilePin = await GetUserProfileAPICall.call(
                                                                                 token: FFAppState().accessToken,
                                                                                 apiUrl: FFAppState().apiURLLocalState,
                                                                               );
                                                                               _shouldSetState = true;
                                                                               if ((_model.getUserProfilePin?.statusCode ?? 200) == 200) {
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileFullName = '${GetUserProfileAPICall.profileFullName(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().profileBirthDate = '${GetUserProfileAPICall.profileBirthDate(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileUnitCodeName = '${GetUserProfileAPICall.profileBranchName(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().profileParentUnit = '${GetUserProfileAPICall.profileArea(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileRegion = '${GetUserProfileAPICall.profileRegion(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().profileHiredDate = '${GetUserProfileAPICall.profileHiredDate(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}', '${GetUserProfileAPICall.profileServiceDurationMM(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}', '${GetUserProfileAPICall.profileServiceDurationDD(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}')}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}', '${GetUserProfileAPICall.profilePositionAgeMM(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}', '${GetUserProfileAPICall.profilePositionAgeDD(
-                                                                                        (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                      )}')}';
-                                                                                  FFAppState().profilePositionAgeCheck = '${GetUserProfileAPICall.profilePositionAgeCheck(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().profilePositionName = '${GetUserProfileAPICall.profliePositionName(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().ProfilePhoneNumber = '${GetUserProfileAPICall.profilePhoneNumber(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileLevel = '${GetUserProfileAPICall.profileLevel(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().profileBranch = '${GetUserProfileAPICall.profileBranch(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
-                                                                                setState(() {
-                                                                                  FFAppState().branchCode = '${GetUserProfileAPICall.branchCode(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                  FFAppState().userRef = columnfourUserCustomRecord?.reference;
-                                                                                });
-                                                                                setState(() {
-                                                                                  FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
-                                                                                  FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                                });
-                                                                                setState(() {
-                                                                                  FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
-                                                                                    (_model.getUserProfilePin?.jsonBody ?? ''),
-                                                                                  )}';
-                                                                                });
+                                                                                FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileFullName = '${GetUserProfileAPICall.profileFullName(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().profileBirthDate = '${GetUserProfileAPICall.profileBirthDate(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileUnitCodeName = '${GetUserProfileAPICall.profileBranchName(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().profileParentUnit = '${GetUserProfileAPICall.profileArea(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileRegion = '${GetUserProfileAPICall.profileRegion(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().profileHiredDate = '${GetUserProfileAPICall.profileHiredDate(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}', '${GetUserProfileAPICall.profileServiceDurationMM(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}', '${GetUserProfileAPICall.profileServiceDurationDD(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}')}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}', '${GetUserProfileAPICall.profilePositionAgeMM(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}', '${GetUserProfileAPICall.profilePositionAgeDD(
+                                                                                      (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                    )}')}';
+                                                                                FFAppState().profilePositionAgeCheck = '${GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().profilePositionName = '${GetUserProfileAPICall.profliePositionName(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().ProfilePhoneNumber = '${GetUserProfileAPICall.profilePhoneNumber(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileLevel = '${GetUserProfileAPICall.profileLevel(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().profileBranch = '${GetUserProfileAPICall.profileBranch(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().branchCode = '${GetUserProfileAPICall.branchCode(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                FFAppState().userRef = columnfourUserCustomRecord?.reference;
+                                                                                setState(() {});
+                                                                                FFAppState().profileFirstName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                                FFAppState().profileLastName = '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
+                                                                                setState(() {});
+                                                                                FFAppState().departmentProfile = '${GetUserProfileAPICall.department(
+                                                                                  (_model.getUserProfilePin?.jsonBody ?? ''),
+                                                                                )}';
+                                                                                setState(() {});
                                                                                 _model.getUserInsuranceLicensePin = await GetUserInsuranceLicenseCall.call(
                                                                                   token: FFAppState().accessToken,
                                                                                   apiUrl: FFAppState().apiURLLocalState,
                                                                                 );
                                                                                 _shouldSetState = true;
                                                                                 if ((_model.getUserInsuranceLicensePin?.statusCode ?? 200) == 200) {
-                                                                                  setState(() {
-                                                                                    FFAppState().profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                                  FFAppState().profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                             (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                          )}'
-                                                                                        : FFAppState().profileInsuranceLicenseFullName;
-                                                                                    FFAppState().profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                                          (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                        )}'
+                                                                                      : FFAppState().profileInsuranceLicenseFullName;
+                                                                                  FFAppState().profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                             (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                          )}'
-                                                                                        : FFAppState().profileInsuranceLicenseIdCard;
-                                                                                    FFAppState().profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                                          (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                        )}'
+                                                                                      : FFAppState().profileInsuranceLicenseIdCard;
+                                                                                  FFAppState().profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                             (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                          )}'
-                                                                                        : FFAppState().profileInsuranceLicenseLicenseNo;
-                                                                                    FFAppState().profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                                          (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                        )}'
+                                                                                      : FFAppState().profileInsuranceLicenseLicenseNo;
+                                                                                  FFAppState().profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                             (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                          )}'
-                                                                                        : FFAppState().profileInsuranceLicenseStartDate;
-                                                                                    FFAppState().profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                                          (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                        )}'
+                                                                                      : FFAppState().profileInsuranceLicenseStartDate;
+                                                                                  FFAppState().profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
                                                                                             (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                          )}'
-                                                                                        : FFAppState().profileInsuranceLicenseExpireDate;
-                                                                                    FFAppState().profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                              (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
-                                                                                            ) ==
-                                                                                            200
-                                                                                        ? true
-                                                                                        : false;
-                                                                                  });
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                                          (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                        )}'
+                                                                                      : FFAppState().profileInsuranceLicenseExpireDate;
+                                                                                  FFAppState().profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                            (_model.getUserInsuranceLicensePin?.jsonBody ?? ''),
+                                                                                          ) ==
+                                                                                          200
+                                                                                      ? true
+                                                                                      : false;
+                                                                                  setState(() {});
                                                                                 } else {
                                                                                   if (_shouldSetState) setState(() {});
                                                                                   return;
@@ -1349,53 +1328,48 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                     );
                                                                                   },
                                                                                 );
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().loginStateFirebase = '[loginStateFirebase]';
-                                                                                  FFAppState().deleteAccessToken();
-                                                                                  FFAppState().accessToken = 'access_token';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().deleteEmployeeID();
-                                                                                  FFAppState().employeeID = 'employee_id';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().deleteApiURLLocalState();
-                                                                                  FFAppState().apiURLLocalState = 'api_url';
+                                                                                FFAppState().loginStateFirebase = '[loginStateFirebase]';
+                                                                                FFAppState().deleteAccessToken();
+                                                                                FFAppState().accessToken = 'access_token';
 
-                                                                                  FFAppState().deleteBranchCode();
-                                                                                  FFAppState().branchCode = 'branch_code';
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().isFromSetPinPage = false;
-                                                                                  FFAppState().leadChannelColor = [];
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().leadChannelList = [];
-                                                                                  FFAppState().isFromLoginPage = false;
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().deletePinCodeAuthen();
-                                                                                  FFAppState().pinCodeAuthen = '013972';
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().deleteEmployeeID();
+                                                                                FFAppState().employeeID = 'employee_id';
 
-                                                                                  FFAppState().isFromAuthenPage = false;
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().deleteDateDoNotShowAgain();
-                                                                                  FFAppState().dateDoNotShowAgain = null;
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().deleteApiURLLocalState();
+                                                                                FFAppState().apiURLLocalState = 'api_url';
 
-                                                                                  FFAppState().deleteDoNotShowAgain();
-                                                                                  FFAppState().doNotShowAgain = false;
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().inAppViaNotification = true;
-                                                                                  FFAppState().isInApp = false;
-                                                                                });
-                                                                                FFAppState().update(() {
-                                                                                  FFAppState().deleteFcmToken();
-                                                                                  FFAppState().fcmToken = 'fcm_token';
+                                                                                FFAppState().deleteBranchCode();
+                                                                                FFAppState().branchCode = 'branch_code';
 
-                                                                                  FFAppState().isPassLoginSection = false;
-                                                                                });
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().isFromSetPinPage = false;
+                                                                                FFAppState().leadChannelColor = [];
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().leadChannelList = [];
+                                                                                FFAppState().isFromLoginPage = false;
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().deletePinCodeAuthen();
+                                                                                FFAppState().pinCodeAuthen = '013972';
+
+                                                                                FFAppState().isFromAuthenPage = false;
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().deleteDateDoNotShowAgain();
+                                                                                FFAppState().dateDoNotShowAgain = null;
+
+                                                                                FFAppState().deleteDoNotShowAgain();
+                                                                                FFAppState().doNotShowAgain = false;
+
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().inAppViaNotification = true;
+                                                                                FFAppState().isInApp = false;
+                                                                                FFAppState().update(() {});
+                                                                                FFAppState().deleteFcmToken();
+                                                                                FFAppState().fcmToken = 'fcm_token';
+
+                                                                                FFAppState().isPassLoginSection = false;
+                                                                                FFAppState().update(() {});
                                                                                 Navigator.pop(context);
                                                                                 await actions.a22();
 
@@ -1405,10 +1379,9 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 return;
                                                                               }
 
-                                                                              FFAppState().update(() {
-                                                                                FFAppState().isFromAuthenPage = true;
-                                                                                FFAppState().apiUrlInsuranceAppState = FFAppState().isProduction ? columnfirstUrlLinkStorageRecord!.urlLink : containerKeyStorage3Record!.uat2ApiUrl;
-                                                                              });
+                                                                              FFAppState().isFromAuthenPage = true;
+                                                                              FFAppState().apiUrlInsuranceAppState = FFAppState().isProduction ? columnfirstUrlLinkStorageRecord!.urlLink : containerKeyStorage3Record!.uat2ApiUrl;
+                                                                              FFAppState().update(() {});
                                                                               Navigator.pop(context);
 
                                                                               context.goNamed('SuperAppPage');
@@ -1759,11 +1732,11 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                             ) ??
                                                                             false;
                                                                     if (confirmDialogResponse) {
+                                                                      FFAppState()
+                                                                              .BioAuthCheck =
+                                                                          true;
                                                                       setState(
-                                                                          () {
-                                                                        FFAppState().BioAuthCheck =
-                                                                            true;
-                                                                      });
+                                                                          () {});
                                                                       await showDialog(
                                                                         context:
                                                                             context,
@@ -1861,30 +1834,30 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       safeSetState(
                                                                           () {}));
 
-                                                                  setState(() {
-                                                                    FFAppState()
-                                                                            .userRef =
-                                                                        columnfourUserCustomRecord
-                                                                            ?.reference;
-                                                                    FFAppState()
-                                                                            .profileImage =
-                                                                        columnfourUserCustomRecord!
-                                                                            .imgProfile;
-                                                                  });
+                                                                  FFAppState()
+                                                                          .userRef =
+                                                                      columnfourUserCustomRecord
+                                                                          ?.reference;
+                                                                  FFAppState()
+                                                                          .profileImage =
+                                                                      columnfourUserCustomRecord!
+                                                                          .imgProfile;
+                                                                  setState(
+                                                                      () {});
+
                                                                   setState(
                                                                       () {});
                                                                   FFAppState()
+                                                                          .apiURLLocalState =
+                                                                      columntriKeyStorageRecord!
+                                                                          .apiURL;
+                                                                  FFAppState()
+                                                                          .apiUrlInsuranceAppState =
+                                                                      columnfirstUrlLinkStorageRecord!
+                                                                          .urlLink;
+                                                                  FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .apiURLLocalState =
-                                                                        columntriKeyStorageRecord!
-                                                                            .apiURL;
-                                                                    FFAppState()
-                                                                            .apiUrlInsuranceAppState =
-                                                                        columnfirstUrlLinkStorageRecord!
-                                                                            .urlLink;
-                                                                  });
+                                                                          () {});
                                                                   _model.getUserProfileBio =
                                                                       await GetUserProfileAPICall
                                                                           .call(
@@ -1900,156 +1873,158 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                           200) ==
                                                                       200) {
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .userNickname =
-                                                                          '${GetUserProfileAPICall.profileNickName(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileFullName =
-                                                                          '${GetUserProfileAPICall.profileFullName(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            .userNickname =
+                                                                        '${GetUserProfileAPICall.profileNickName(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileFullName =
+                                                                        '${GetUserProfileAPICall.profileFullName(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileBirthDate =
-                                                                          '${GetUserProfileAPICall.profileBirthDate(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileUnitCodeName =
-                                                                          '${GetUserProfileAPICall.profileBranchName(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileBirthDate =
+                                                                        '${GetUserProfileAPICall.profileBirthDate(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileUnitCodeName =
+                                                                        '${GetUserProfileAPICall.profileBranchName(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileParentUnit =
-                                                                          '${GetUserProfileAPICall.profileArea(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileRegion =
-                                                                          '${GetUserProfileAPICall.profileRegion(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileParentUnit =
+                                                                        '${GetUserProfileAPICall.profileArea(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileRegion =
+                                                                        '${GetUserProfileAPICall.profileRegion(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileHiredDate =
-                                                                          '${GetUserProfileAPICall.profileHiredDate(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationMM(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationDD(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}')}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileHiredDate =
+                                                                        '${GetUserProfileAPICall.profileHiredDate(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileServiceDuration =
+                                                                        '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationMM(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationDD(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}')}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeMM(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeDD(
-                                                                            (_model.getUserProfileBio?.jsonBody ??
-                                                                                ''),
-                                                                          )}')}';
-                                                                      FFAppState()
-                                                                              .profilePositionAgeCheck =
-                                                                          '${GetUserProfileAPICall.profilePositionAgeCheck(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profilePositionAge =
+                                                                        '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeMM(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeDD(
+                                                                              (_model.getUserProfileBio?.jsonBody ?? ''),
+                                                                            )}')}';
+                                                                    FFAppState()
+                                                                            .profilePositionAgeCheck =
+                                                                        '${GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profilePositionName =
-                                                                          '${GetUserProfileAPICall.profliePositionName(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profilePositionName =
+                                                                        '${GetUserProfileAPICall.profliePositionName(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .ProfilePhoneNumber =
-                                                                          '${GetUserProfileAPICall.profilePhoneNumber(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileLevel =
-                                                                          '${GetUserProfileAPICall.profileLevel(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileBranch =
-                                                                          '${GetUserProfileAPICall.profileBranch(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .ProfilePhoneNumber =
+                                                                        '${GetUserProfileAPICall.profilePhoneNumber(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileLevel =
+                                                                        '${GetUserProfileAPICall.profileLevel(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileBranch =
+                                                                        '${GetUserProfileAPICall.profileBranch(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .branchCode =
+                                                                        '${GetUserProfileAPICall.branchCode(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .userRef =
+                                                                        columnfourUserCustomRecord
+                                                                            ?.reference;
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .branchCode =
-                                                                          '${GetUserProfileAPICall.branchCode(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .userRef =
-                                                                          columnfourUserCustomRecord
-                                                                              ?.reference;
-                                                                    });
+                                                                        () {});
+                                                                    FFAppState()
+                                                                            .profileFirstName =
+                                                                        '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                    FFAppState()
+                                                                            .profileLastName =
+                                                                        '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .profileFirstName =
-                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
-                                                                      FFAppState()
-                                                                              .profileLastName =
-                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                    });
+                                                                        () {});
+                                                                    FFAppState()
+                                                                            .departmentProfile =
+                                                                        '${GetUserProfileAPICall.department(
+                                                                      (_model.getUserProfileBio
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .departmentProfile =
-                                                                          '${GetUserProfileAPICall.department(
-                                                                        (_model.getUserProfileBio?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                        () {});
                                                                     _model.getUserInsuranceLicenseBio =
                                                                         await GetUserInsuranceLicenseCall
                                                                             .call(
@@ -2063,61 +2038,60 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     if ((_model.getUserInsuranceLicenseBio?.statusCode ??
                                                                             200) ==
                                                                         200) {
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                              (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseFullName;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                              (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseIdCard;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                              (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseLicenseNo;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                              (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseStartDate;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                              (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseExpireDate;
+                                                                      FFAppState()
+                                                                          .profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? true
+                                                                          : false;
                                                                       setState(
-                                                                          () {
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.fullName(
-                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseFullName;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.idCard(
-                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseIdCard;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.licenseNo(
-                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseLicenseNo;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.startDate(
-                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseStartDate;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.expireDate(
-                                                                                (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseExpireDate;
-                                                                        FFAppState()
-                                                                            .profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicenseBio?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? true
-                                                                            : false;
-                                                                      });
+                                                                          () {});
                                                                     } else {
                                                                       if (_shouldSetState)
                                                                         setState(
@@ -2178,110 +2152,105 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       },
                                                                     );
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .loginStateFirebase =
-                                                                          '[loginStateFirebase]';
-                                                                      FFAppState()
-                                                                          .deleteAccessToken();
-                                                                      FFAppState()
-                                                                              .accessToken =
-                                                                          'access_token';
-                                                                    });
+                                                                            .loginStateFirebase =
+                                                                        '[loginStateFirebase]';
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .deleteEmployeeID();
-                                                                      FFAppState()
-                                                                              .employeeID =
-                                                                          'employee_id';
-                                                                    });
+                                                                        .deleteAccessToken();
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .deleteApiURLLocalState();
-                                                                      FFAppState()
-                                                                              .apiURLLocalState =
-                                                                          'api_url';
+                                                                            .accessToken =
+                                                                        'access_token';
 
-                                                                      FFAppState()
-                                                                          .deleteBranchCode();
-                                                                      FFAppState()
-                                                                              .branchCode =
-                                                                          'branch_code';
-                                                                    });
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .isFromSetPinPage =
-                                                                          false;
-                                                                      FFAppState()
-                                                                          .leadChannelColor = [];
-                                                                    });
+                                                                            () {});
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .leadChannelList = [];
-                                                                      FFAppState()
-                                                                              .isFromLoginPage =
-                                                                          false;
-                                                                    });
+                                                                        .deleteEmployeeID();
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .deletePinCodeAuthen();
-                                                                      FFAppState()
-                                                                              .pinCodeAuthen =
-                                                                          '013972';
+                                                                            .employeeID =
+                                                                        'employee_id';
 
-                                                                      FFAppState()
-                                                                              .isFromAuthenPage =
-                                                                          false;
-                                                                    });
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .deleteDateDoNotShowAgain();
-                                                                      FFAppState()
-                                                                              .dateDoNotShowAgain =
-                                                                          null;
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteApiURLLocalState();
+                                                                    FFAppState()
+                                                                            .apiURLLocalState =
+                                                                        'api_url';
 
-                                                                      FFAppState()
-                                                                          .deleteDoNotShowAgain();
-                                                                      FFAppState()
-                                                                              .doNotShowAgain =
-                                                                          false;
-                                                                    });
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .inAppViaNotification =
-                                                                          true;
-                                                                      FFAppState()
-                                                                              .isInApp =
-                                                                          false;
-                                                                    });
+                                                                        .deleteBranchCode();
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                          .deleteFcmToken();
-                                                                      FFAppState()
-                                                                              .fcmToken =
-                                                                          'fcm_token';
+                                                                            .branchCode =
+                                                                        'branch_code';
 
-                                                                      FFAppState()
-                                                                              .isPassLoginSection =
-                                                                          false;
-                                                                    });
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .isFromSetPinPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .leadChannelColor = [];
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .leadChannelList = [];
+                                                                    FFAppState()
+                                                                            .isFromLoginPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deletePinCodeAuthen();
+                                                                    FFAppState()
+                                                                            .pinCodeAuthen =
+                                                                        '013972';
+
+                                                                    FFAppState()
+                                                                            .isFromAuthenPage =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteDateDoNotShowAgain();
+                                                                    FFAppState()
+                                                                            .dateDoNotShowAgain =
+                                                                        null;
+
+                                                                    FFAppState()
+                                                                        .deleteDoNotShowAgain();
+                                                                    FFAppState()
+                                                                            .doNotShowAgain =
+                                                                        false;
+
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .inAppViaNotification =
+                                                                        true;
+                                                                    FFAppState()
+                                                                            .isInApp =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                        .deleteFcmToken();
+                                                                    FFAppState()
+                                                                            .fcmToken =
+                                                                        'fcm_token';
+
+                                                                    FFAppState()
+                                                                            .isPassLoginSection =
+                                                                        false;
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
                                                                     Navigator.pop(
                                                                         context);
                                                                     await actions
@@ -2297,19 +2266,18 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                   }
 
                                                                   FFAppState()
+                                                                          .isFromAuthenPage =
+                                                                      true;
+                                                                  FFAppState()
+                                                                      .apiUrlInsuranceAppState = FFAppState()
+                                                                          .isProduction
+                                                                      ? columnfirstUrlLinkStorageRecord!
+                                                                          .urlLink
+                                                                      : containerKeyStorage3Record!
+                                                                          .uat2ApiUrl;
+                                                                  FFAppState()
                                                                       .update(
-                                                                          () {
-                                                                    FFAppState()
-                                                                            .isFromAuthenPage =
-                                                                        true;
-                                                                    FFAppState()
-                                                                        .apiUrlInsuranceAppState = FFAppState()
-                                                                            .isProduction
-                                                                        ? columnfirstUrlLinkStorageRecord!
-                                                                            .urlLink
-                                                                        : containerKeyStorage3Record!
-                                                                            .uat2ApiUrl;
-                                                                  });
+                                                                          () {});
                                                                   Navigator.pop(
                                                                       context);
 

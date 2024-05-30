@@ -703,16 +703,15 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                           }
                                                         }
 
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoImageApplication =
-                                                              _model
-                                                                  .uploadedFileUrl1;
-                                                          FFAppState()
-                                                                  .insuranceInfoPage4ImageApplication =
-                                                              _model
-                                                                  .uploadedFileUrl1;
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoImageApplication =
+                                                            _model
+                                                                .uploadedFileUrl1;
+                                                        FFAppState()
+                                                                .insuranceInfoPage4ImageApplication =
+                                                            _model
+                                                                .uploadedFileUrl1;
+                                                        setState(() {});
                                                         if (_model.uploadedFileUrl1 !=
                                                                 null &&
                                                             _model.uploadedFileUrl1 !=
@@ -1229,16 +1228,15 @@ class _InsuranceInfoPage4WidgetState extends State<InsuranceInfoPage4Widget> {
                                                         }
                                                       }
 
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoImageFileloanApplicationRegister =
-                                                            _model
-                                                                .uploadedFileUrl2;
-                                                        FFAppState()
-                                                                .insuranceInfoPage4FileLoanApplicationRegister =
-                                                            _model
-                                                                .uploadedFileUrl2;
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoImageFileloanApplicationRegister =
+                                                          _model
+                                                              .uploadedFileUrl2;
+                                                      FFAppState()
+                                                              .insuranceInfoPage4FileLoanApplicationRegister =
+                                                          _model
+                                                              .uploadedFileUrl2;
+                                                      setState(() {});
                                                       if (_model.uploadedFileUrl2 !=
                                                               null &&
                                                           _model.uploadedFileUrl2 !=

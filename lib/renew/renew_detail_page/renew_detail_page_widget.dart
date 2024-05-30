@@ -60,12 +60,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().jsonDataRenew = null;
-      });
-      setState(() {
-        FFAppState().insurarerQuotationPdf = [];
-      });
+      FFAppState().jsonDataRenew = null;
+      setState(() {});
+      FFAppState().insurarerQuotationPdf = [];
+      setState(() {});
       _model.getDataRenewAPIOutput = await GetDataRenewCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         refRenewId: widget.refRenewId,
@@ -117,11 +115,10 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().jsonDataRenew = GetDataRenewCall.data(
-          (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
-        );
-      });
+      FFAppState().jsonDataRenew = GetDataRenewCall.data(
+        (_model.getDataRenewAPIOutput?.jsonBody ?? ''),
+      );
+      setState(() {});
       Navigator.pop(context);
     });
   }
@@ -1317,14 +1314,13 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    setState(() {
-                                      FFAppState().addToInsurarerQuotationPdf(
-                                          RenewSaveCall.pdfquotation(
-                                        (_model.renewSaveAPIQuotationBtn
-                                                ?.jsonBody ??
-                                            ''),
-                                      )!);
-                                    });
+                                    FFAppState().addToInsurarerQuotationPdf(
+                                        RenewSaveCall.pdfquotation(
+                                      (_model.renewSaveAPIQuotationBtn
+                                              ?.jsonBody ??
+                                          ''),
+                                    )!);
+                                    setState(() {});
                                     if (Navigator.of(context).canPop()) {
                                       context.pop();
                                     }
@@ -1724,10 +1720,9 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                     0.0, 0.0, 10.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    setState(() {
-                                      FFAppState()
-                                          .insuranceRequestIsLoadDataMc = false;
-                                    });
+                                    FFAppState().insuranceRequestIsLoadDataMc =
+                                        false;
+                                    setState(() {});
 
                                     context.goNamed(
                                       'SearchInsurancePage',

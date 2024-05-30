@@ -82,10 +82,9 @@ class _CustomDialogComponentWidgetState
                       Expanded(
                         child: FFButtonWidget(
                           onPressed: () async {
-                            setState(() {
-                              FFAppState().viewVmiButtonIsOldVmi = false;
-                              FFAppState().isTouchVmiButton = true;
-                            });
+                            FFAppState().viewVmiButtonIsOldVmi = false;
+                            FFAppState().isTouchVmiButton = true;
+                            setState(() {});
                             Navigator.pop(context);
                           },
                           text: 'เดือนปัจจุบัน',
@@ -115,10 +114,9 @@ class _CustomDialogComponentWidgetState
                       Expanded(
                         child: FFButtonWidget(
                           onPressed: () async {
-                            setState(() {
-                              FFAppState().viewVmiButtonIsOldVmi = true;
-                              FFAppState().isTouchVmiButton = true;
-                            });
+                            FFAppState().viewVmiButtonIsOldVmi = true;
+                            FFAppState().isTouchVmiButton = true;
+                            setState(() {});
                             Navigator.pop(context);
                           },
                           text: 'ย้อนหลัง',

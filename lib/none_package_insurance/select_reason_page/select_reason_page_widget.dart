@@ -32,12 +32,11 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
         parameters: {'screen_name': 'SelectReasonPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        FFAppState().nonePackageReason = functions
-            .createFalseListByItemNumber(false, 3)!
-            .toList()
-            .cast<bool>();
-      });
+      FFAppState().nonePackageReason = functions
+          .createFalseListByItemNumber(false, 3)!
+          .toList()
+          .cast<bool>();
+      setState(() {});
     });
   }
 
@@ -134,17 +133,16 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().nonePackageReason = functions
-                                      .setBoolValueListAtIndex(
-                                          functions
-                                              .createFalseListByItemNumber(
-                                                  false, 3)
-                                              ?.toList(),
-                                          0)!
-                                      .toList()
-                                      .cast<bool>();
-                                });
+                                FFAppState().nonePackageReason = functions
+                                    .setBoolValueListAtIndex(
+                                        functions
+                                            .createFalseListByItemNumber(
+                                                false, 3)
+                                            ?.toList(),
+                                        0)!
+                                    .toList()
+                                    .cast<bool>();
+                                setState(() {});
                               },
                               child: Container(
                                 width: double.infinity,
@@ -243,17 +241,16 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().nonePackageReason = functions
-                                      .setBoolValueListAtIndex(
-                                          functions
-                                              .createFalseListByItemNumber(
-                                                  false, 3)
-                                              ?.toList(),
-                                          1)!
-                                      .toList()
-                                      .cast<bool>();
-                                });
+                                FFAppState().nonePackageReason = functions
+                                    .setBoolValueListAtIndex(
+                                        functions
+                                            .createFalseListByItemNumber(
+                                                false, 3)
+                                            ?.toList(),
+                                        1)!
+                                    .toList()
+                                    .cast<bool>();
+                                setState(() {});
                               },
                               child: Container(
                                 width: double.infinity,
@@ -351,17 +348,16 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                setState(() {
-                                  FFAppState().nonePackageReason = functions
-                                      .setBoolValueListAtIndex(
-                                          functions
-                                              .createFalseListByItemNumber(
-                                                  false, 3)
-                                              ?.toList(),
-                                          2)!
-                                      .toList()
-                                      .cast<bool>();
-                                });
+                                FFAppState().nonePackageReason = functions
+                                    .setBoolValueListAtIndex(
+                                        functions
+                                            .createFalseListByItemNumber(
+                                                false, 3)
+                                            ?.toList(),
+                                        2)!
+                                    .toList()
+                                    .cast<bool>();
+                                setState(() {});
                               },
                               child: Container(
                                 width: double.infinity,
@@ -488,23 +484,19 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   if (FFAppState()
                                                           .buttonOrdinary ==
                                                       true) {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .buttonCorporation =
-                                                          false;
-                                                      FFAppState()
-                                                              .buttonOrdinary =
-                                                          false;
-                                                    });
+                                                    FFAppState()
+                                                            .buttonCorporation =
+                                                        false;
+                                                    FFAppState()
+                                                        .buttonOrdinary = false;
+                                                    setState(() {});
                                                   } else {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .buttonCorporation =
-                                                          false;
-                                                      FFAppState()
-                                                              .buttonOrdinary =
-                                                          true;
-                                                    });
+                                                    FFAppState()
+                                                            .buttonCorporation =
+                                                        false;
+                                                    FFAppState()
+                                                        .buttonOrdinary = true;
+                                                    setState(() {});
                                                   }
                                                 },
                                                 child: Container(
@@ -602,23 +594,19 @@ class _SelectReasonPageWidgetState extends State<SelectReasonPageWidget> {
                                                   if (FFAppState()
                                                           .buttonCorporation ==
                                                       true) {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .buttonCorporation =
-                                                          false;
-                                                      FFAppState()
-                                                              .buttonOrdinary =
-                                                          false;
-                                                    });
+                                                    FFAppState()
+                                                            .buttonCorporation =
+                                                        false;
+                                                    FFAppState()
+                                                        .buttonOrdinary = false;
+                                                    setState(() {});
                                                   } else {
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .buttonCorporation =
-                                                          true;
-                                                      FFAppState()
-                                                              .buttonOrdinary =
-                                                          false;
-                                                    });
+                                                    FFAppState()
+                                                            .buttonCorporation =
+                                                        true;
+                                                    FFAppState()
+                                                        .buttonOrdinary = false;
+                                                    setState(() {});
                                                   }
                                                 },
                                                 child: Container(

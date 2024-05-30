@@ -13224,6 +13224,12 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoEvFlag(String _value) {
     _insuranceInfoEvFlag = _value;
   }
+
+  int _loopCountTemp = 0;
+  int get loopCountTemp => _loopCountTemp;
+  set loopCountTemp(int _value) {
+    _loopCountTemp = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

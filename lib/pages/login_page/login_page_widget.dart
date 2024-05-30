@@ -47,9 +47,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       _model.getFCMToken = await actions.a11();
       await actions.lockOrientation();
       setDarkModeSetting(context, ThemeMode.light);
-      setState(() {
-        FFAppState().fcmToken = _model.getFCMToken!;
-      });
+      FFAppState().fcmToken = _model.getFCMToken!;
+      setState(() {});
       _model.getBuildVersion = await actions.getBuildVersion1();
       if (isAndroid) {
         _model.getAndroidImei = await actions.a3();
@@ -933,20 +932,19 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             '36270') ||
                                                                         (_model.usernameTextFieldTextController.text ==
                                                                             '32758'))) {}
+                                                                    FFAppState()
+                                                                            .apiURLLocalState =
+                                                                        columnKeyStorageRecord!
+                                                                            .apiURL;
+                                                                    FFAppState()
+                                                                        .apiUrlInsuranceAppState = FFAppState()
+                                                                            .isProduction
+                                                                        ? stackUrlLinkStorageRecord!
+                                                                            .urlLink
+                                                                        : columnKeyStorage3Record!
+                                                                            .uat2ApiUrl;
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .apiURLLocalState =
-                                                                          columnKeyStorageRecord!
-                                                                              .apiURL;
-                                                                      FFAppState()
-                                                                          .apiUrlInsuranceAppState = FFAppState()
-                                                                              .isProduction
-                                                                          ? stackUrlLinkStorageRecord!
-                                                                              .urlLink
-                                                                          : columnKeyStorage3Record!
-                                                                              .uat2ApiUrl;
-                                                                    });
+                                                                        () {});
                                                                     if (!(_model.usernameTextFieldTextController.text !=
                                                                             null &&
                                                                         _model.usernameTextFieldTextController.text !=
@@ -1116,31 +1114,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       return;
                                                                     }
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .accessToken =
-                                                                          '${AuthenAPICall.token(
-                                                                        (_model.authernApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .employeeID =
-                                                                          '${AuthenAPICall.employeeID(
-                                                                        (_model.authernApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            .accessToken =
+                                                                        '${AuthenAPICall.token(
+                                                                      (_model.authernApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .employeeID =
+                                                                        '${AuthenAPICall.employeeID(
+                                                                      (_model.authernApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .branchCode =
-                                                                          '${AuthenAPICall.branchCode(
-                                                                        (_model.authernApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .branchCode =
+                                                                        '${AuthenAPICall.branchCode(
+                                                                      (_model.authernApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
                                                                     _model.getUserProfileApiOutput =
                                                                         await GetUserProfileAPICall
                                                                             .call(
@@ -1211,143 +1210,145 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       return;
                                                                     }
                                                                     FFAppState()
-                                                                        .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .userNickname =
-                                                                          '${GetUserProfileAPICall.profileNickName(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileFullName =
-                                                                          '${GetUserProfileAPICall.profileFullName(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            .userNickname =
+                                                                        '${GetUserProfileAPICall.profileNickName(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileFullName =
+                                                                        '${GetUserProfileAPICall.profileFullName(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileBirthDate =
-                                                                          '${GetUserProfileAPICall.profileBirthDate(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileUnitCodeName =
-                                                                          '${GetUserProfileAPICall.profileBranchName(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileBirthDate =
+                                                                        '${GetUserProfileAPICall.profileBirthDate(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileUnitCodeName =
+                                                                        '${GetUserProfileAPICall.profileBranchName(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileParentUnit =
-                                                                          '${GetUserProfileAPICall.profileArea(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileRegion =
-                                                                          '${GetUserProfileAPICall.profileRegion(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileParentUnit =
+                                                                        '${GetUserProfileAPICall.profileArea(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileRegion =
+                                                                        '${GetUserProfileAPICall.profileRegion(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profileHiredDate =
-                                                                          '${GetUserProfileAPICall.profileHiredDate(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState().profileServiceDuration = '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationMM(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profileServiceDurationDD(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}')}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileHiredDate =
+                                                                        '${GetUserProfileAPICall.profileHiredDate(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileServiceDuration =
+                                                                        '${functions.profileServiceDuration('${GetUserProfileAPICall.profileServiceDurationYY(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationMM(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profileServiceDurationDD(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}')}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState().profilePositionAge = '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeMM(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}', '${GetUserProfileAPICall.profilePositionAgeDD(
-                                                                            (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                                ''),
-                                                                          )}')}';
-                                                                      FFAppState()
-                                                                              .profilePositionAgeCheck =
-                                                                          '${GetUserProfileAPICall.profilePositionAgeCheck(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profilePositionAge =
+                                                                        '${functions.positionAgeText('${GetUserProfileAPICall.profilePositionAgeYY(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeMM(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}', '${GetUserProfileAPICall.profilePositionAgeDD(
+                                                                              (_model.getUserProfileApiOutput?.jsonBody ?? ''),
+                                                                            )}')}';
+                                                                    FFAppState()
+                                                                            .profilePositionAgeCheck =
+                                                                        '${GetUserProfileAPICall.profilePositionAgeCheck(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .profilePositionName =
-                                                                          '${GetUserProfileAPICall.profliePositionName(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profilePositionName =
+                                                                        '${GetUserProfileAPICall.profliePositionName(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     FFAppState()
                                                                         .update(
-                                                                            () {
-                                                                      FFAppState()
-                                                                              .ProfilePhoneNumber =
-                                                                          '${GetUserProfileAPICall.profilePhoneNumber(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileLevel =
-                                                                          '${GetUserProfileAPICall.profileLevel(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                      FFAppState()
-                                                                              .profileBranch =
-                                                                          '${GetUserProfileAPICall.profileBranch(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .ProfilePhoneNumber =
+                                                                        '${GetUserProfileAPICall.profilePhoneNumber(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileLevel =
+                                                                        '${GetUserProfileAPICall.profileLevel(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                            .profileBranch =
+                                                                        '${GetUserProfileAPICall.profileBranch(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
+                                                                    FFAppState()
+                                                                        .update(
+                                                                            () {});
+                                                                    FFAppState()
+                                                                            .profileFirstName =
+                                                                        '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
+                                                                    FFAppState()
+                                                                            .profileLastName =
+                                                                        '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .profileFirstName =
-                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'first_name')}';
-                                                                      FFAppState()
-                                                                              .profileLastName =
-                                                                          '${functions.getFirstLastNameFromFullName('${FFAppState().profileFullName}', 'last_name')}';
-                                                                    });
+                                                                        () {});
+                                                                    FFAppState()
+                                                                            .departmentProfile =
+                                                                        '${GetUserProfileAPICall.department(
+                                                                      (_model.getUserProfileApiOutput
+                                                                              ?.jsonBody ??
+                                                                          ''),
+                                                                    )}';
                                                                     setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .departmentProfile =
-                                                                          '${GetUserProfileAPICall.department(
-                                                                        (_model.getUserProfileApiOutput?.jsonBody ??
-                                                                            ''),
-                                                                      )}';
-                                                                    });
+                                                                        () {});
                                                                     _model.getUserInsuranceLicense =
                                                                         await GetUserInsuranceLicenseCall
                                                                             .call(
@@ -1361,68 +1362,66 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                     if ((_model.getUserInsuranceLicense?.statusCode ??
                                                                             200) ==
                                                                         200) {
-                                                                      setState(
-                                                                          () {
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.fullName(
-                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseFullName;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.idCard(
-                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseIdCard;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.licenseNo(
-                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseLicenseNo;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.startDate(
-                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseStartDate;
-                                                                        FFAppState()
-                                                                            .profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? '${GetUserInsuranceLicenseCall.expireDate(
-                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                              )}'
-                                                                            : FFAppState().profileInsuranceLicenseExpireDate;
-                                                                        FFAppState()
-                                                                            .profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
-                                                                                  (_model.getUserInsuranceLicense?.jsonBody ?? ''),
-                                                                                ) ==
-                                                                                200
-                                                                            ? true
-                                                                            : false;
-                                                                      });
-                                                                    }
-                                                                    setState(
-                                                                        () {
                                                                       FFAppState()
-                                                                              .isFromLoginPage =
-                                                                          true;
-                                                                    });
+                                                                          .profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.fullName(
+                                                                              (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseFullName;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseIdCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.idCard(
+                                                                              (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseIdCard;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseLicenseNo = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.licenseNo(
+                                                                              (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseLicenseNo;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseStartDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.startDate(
+                                                                              (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseStartDate;
+                                                                      FFAppState()
+                                                                          .profileInsuranceLicenseExpireDate = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? '${GetUserInsuranceLicenseCall.expireDate(
+                                                                              (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                            )}'
+                                                                          : FFAppState().profileInsuranceLicenseExpireDate;
+                                                                      FFAppState()
+                                                                          .profileIsHaveInsuranceCard = GetUserInsuranceLicenseCall.statusLayer2(
+                                                                                (_model.getUserInsuranceLicense?.jsonBody ?? ''),
+                                                                              ) ==
+                                                                              200
+                                                                          ? true
+                                                                          : false;
+                                                                      setState(
+                                                                          () {});
+                                                                    }
+                                                                    FFAppState()
+                                                                            .isFromLoginPage =
+                                                                        true;
+                                                                    setState(
+                                                                        () {});
                                                                     _model.customFirebaseAuthen =
                                                                         await actions
                                                                             .a13(

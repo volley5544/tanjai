@@ -66,12 +66,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().insuranceInfoPage4SelectTenor = '';
-        FFAppState().insuranceInfoPage4SelectInstallMentFirstDue = '';
-        FFAppState().insuranceInfoPage4SelectInstallMentLastDue = '';
-        FFAppState().isProcessing = false;
-      });
+      FFAppState().insuranceInfoPage4SelectTenor = '';
+      FFAppState().insuranceInfoPage4SelectInstallMentFirstDue = '';
+      FFAppState().insuranceInfoPage4SelectInstallMentLastDue = '';
+      FFAppState().isProcessing = false;
+      setState(() {});
       _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
       );
@@ -121,20 +120,19 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoImgUrlInsurerList =
-            InsuranceRequestGetInsurerAPICall.insurerLogo(
-          (_model.getInsurer?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoCompanyIdList =
-            InsuranceRequestGetInsurerAPICall.companyShortName(
-          (_model.getInsurer?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-      });
+      FFAppState().insuranceInfoImgUrlInsurerList =
+          InsuranceRequestGetInsurerAPICall.insurerLogo(
+        (_model.getInsurer?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().insuranceInfoCompanyIdList =
+          InsuranceRequestGetInsurerAPICall.companyShortName(
+        (_model.getInsurer?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      setState(() {});
       _model.ibsDetailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: (widget.quotationId != null && widget.quotationId != '') &&
                 (widget.quotationId != '')
@@ -189,221 +187,217 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoGrossTotal =
-            '${IbsApplicationsDetailCall.grosstotalnet(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoActAmount =
-            '${IbsApplicationsDetailCall.acttotal(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleCode =
-            '${IbsApplicationsDetailCall.vehiclecode(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoQuotationId =
-            '${(widget.quotationId != null && widget.quotationId != '') && (widget.quotationId != '') ? widget.quotationId : FFAppState().insuranceInfoQuotationId}';
-        FFAppState().insuranceInfoLeadDetailId =
-            '${(IbsApplicationsDetailCall.leaddtlid(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDetailId)])?.toString()}';
-        FFAppState().insuranceInfoFirstName =
-            IbsApplicationsDetailCall.firstnameth(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoLastName =
-            IbsApplicationsDetailCall.lastnameth(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoPhonenumber =
-            IbsApplicationsDetailCall.phonenumber(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().nonePackageWorkType = IbsApplicationsDetailCall.workType(
-                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                ) ==
-                ''
-            ? ''
-            : IbsApplicationsDetailCall.workType(
+      FFAppState().insuranceInfoGrossTotal =
+          '${IbsApplicationsDetailCall.grosstotalnet(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoActAmount =
+          '${IbsApplicationsDetailCall.acttotal(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleCode =
+          '${IbsApplicationsDetailCall.vehiclecode(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoQuotationId =
+          '${(widget.quotationId != null && widget.quotationId != '') && (widget.quotationId != '') ? widget.quotationId : FFAppState().insuranceInfoQuotationId}';
+      FFAppState().insuranceInfoLeadDetailId =
+          '${(IbsApplicationsDetailCall.leaddtlid(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-              )!;
-        FFAppState().insuranceInfocoverType =
-            IbsApplicationsDetailCall.covertypename(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDetailId)];
-        FFAppState().insuranceInfoGarageType =
-            IbsApplicationsDetailCall.garagetypename(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDetailId)];
-        FFAppState().insuranceInfoApplicationType =
-            IbsApplicationsDetailCall.quotationtypebak(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoCompayId =
-            IbsApplicationsDetailCall.insurershortname(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDetailId)];
-        FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoInsuranceLogo =
-            IbsApplicationsDetailCall.insurerlogo(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )![functions.getIndexOfIntList(
-                functions
-                    .convertDynamicListToIntList(getJsonField(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                      true,
-                    ))
-                    .toList(),
-                widget.leadDetailId)];
-        FFAppState().insuranceInfoEffectiveDateAct =
-            IbsApplicationsDetailCall.effectiveDateAct(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoEffectiveDateInsure =
-            IbsApplicationsDetailCall.effectiveDateInsure(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )!;
-        FFAppState().insuranceInfoVehicleType =
-            IbsApplicationsDetailCall.quotationtypebak(
-                      (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                    ) ==
-                    'auto'
-                ? IbsApplicationsDetailCall.cartype(
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDetailId)])?.toString()}';
+      FFAppState().insuranceInfoFirstName =
+          IbsApplicationsDetailCall.firstnameth(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoLastName = IbsApplicationsDetailCall.lastnameth(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoPhonenumber =
+          IbsApplicationsDetailCall.phonenumber(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().nonePackageWorkType = IbsApplicationsDetailCall.workType(
+                (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+              ) ==
+              ''
+          ? ''
+          : IbsApplicationsDetailCall.workType(
+              (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+            )!;
+      FFAppState().insuranceInfocoverType =
+          IbsApplicationsDetailCall.covertypename(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )![functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
                     (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                  )!
-                : IbsApplicationsDetailCall.manualCarType(
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget.leadDetailId)];
+      FFAppState().insuranceInfoGarageType =
+          IbsApplicationsDetailCall.garagetypename(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )![functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
                     (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-                  )!;
-        FFAppState().insuranceInfoVehicleUsage =
-            '${IbsApplicationsDetailCall.vehiclecode(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )} ${IbsApplicationsDetailCall.vehiclename(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoQuotationTypeName =
-            '${IbsApplicationsDetailCall.quotationtypename(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoQuotationTypeBakName =
-            '${IbsApplicationsDetailCall.quotationtypebakname(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoSubProductName =
-            '${IbsApplicationsDetailCall.subproductname(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-      });
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget.leadDetailId)];
+      FFAppState().insuranceInfoApplicationType =
+          IbsApplicationsDetailCall.quotationtypebak(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoCompayId =
+          IbsApplicationsDetailCall.insurershortname(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )![functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget.leadDetailId)];
+      FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoInsuranceLogo =
+          IbsApplicationsDetailCall.insurerlogo(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )![functions.getIndexOfIntList(
+              functions
+                  .convertDynamicListToIntList(getJsonField(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                    r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                    true,
+                  ))
+                  .toList(),
+              widget.leadDetailId)];
+      FFAppState().insuranceInfoEffectiveDateAct =
+          IbsApplicationsDetailCall.effectiveDateAct(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoEffectiveDateInsure =
+          IbsApplicationsDetailCall.effectiveDateInsure(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )!;
+      FFAppState().insuranceInfoVehicleType =
+          IbsApplicationsDetailCall.quotationtypebak(
+                    (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                  ) ==
+                  'auto'
+              ? IbsApplicationsDetailCall.cartype(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                )!
+              : IbsApplicationsDetailCall.manualCarType(
+                  (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+                )!;
+      FFAppState().insuranceInfoVehicleUsage =
+          '${IbsApplicationsDetailCall.vehiclecode(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )} ${IbsApplicationsDetailCall.vehiclename(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeName =
+          '${IbsApplicationsDetailCall.quotationtypename(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeBakName =
+          '${IbsApplicationsDetailCall.quotationtypebakname(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoSubProductName =
+          '${IbsApplicationsDetailCall.subproductname(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
       if (IbsApplicationsDetailCall.quotationstatus(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ) ==
           'เตรียมข้อมูล') {
-        setState(() {
-          FFAppState().insuranceInfo4pageStatus =
-              '${IbsApplicationsDetailCall.quotationstatus(
-            (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          )}';
-        });
-        Navigator.pop(context);
-        return;
-      }
-      setState(() {
-        FFAppState().insuranceInfoPage4PaymentType =
-            '${IbsApplicationsDetailCall.paymenttype(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4PaymentChannel =
-            '${IbsApplicationsDetailCall.paymentchannel(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfo4pagePaymentStatus =
-            '${IbsApplicationsDetailCall.paymentstatus(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoGrossTotal =
-            '${IbsApplicationsDetailCall.grosstotalnet(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoActAmount =
-            '${IbsApplicationsDetailCall.acttotal(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleCode =
-            '${IbsApplicationsDetailCall.vehiclecode(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoQuotationId =
-            '${IbsApplicationsDetailCall.quotationId(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4SelectTenor =
-            '${IbsApplicationsDetailCall.tenor(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
         FFAppState().insuranceInfo4pageStatus =
             '${IbsApplicationsDetailCall.quotationstatus(
           (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
-            '${IbsApplicationsDetailCall.installmentfirstdue(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
-            '${IbsApplicationsDetailCall.installmentlastdue(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4FirstPay =
-            '${IbsApplicationsDetailCall.firstPayAmount(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoFirstName =
-            '${IbsApplicationsDetailCall.firstnameth(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLastName =
-            '${IbsApplicationsDetailCall.lastnameth(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-          r'''$.results.data.app_detail[:].net_premium_total''',
-        ).toString().toString()}';
-        FFAppState().insuranceinfoActType =
-            '${IbsApplicationsDetailCall.subProduct(
-          (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
-        )}';
-      });
+        setState(() {});
+        Navigator.pop(context);
+        return;
+      }
+      FFAppState().insuranceInfoPage4PaymentType =
+          '${IbsApplicationsDetailCall.paymenttype(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4PaymentChannel =
+          '${IbsApplicationsDetailCall.paymentchannel(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfo4pagePaymentStatus =
+          '${IbsApplicationsDetailCall.paymentstatus(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoGrossTotal =
+          '${IbsApplicationsDetailCall.grosstotalnet(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoActAmount =
+          '${IbsApplicationsDetailCall.acttotal(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleCode =
+          '${IbsApplicationsDetailCall.vehiclecode(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoQuotationId =
+          '${IbsApplicationsDetailCall.quotationId(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4SelectTenor =
+          '${IbsApplicationsDetailCall.tenor(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfo4pageStatus =
+          '${IbsApplicationsDetailCall.quotationstatus(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4SelectInstallMentFirstDue =
+          '${IbsApplicationsDetailCall.installmentfirstdue(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4SelectInstallMentLastDue =
+          '${IbsApplicationsDetailCall.installmentlastdue(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4FirstPay =
+          '${IbsApplicationsDetailCall.firstPayAmount(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoFirstName =
+          '${IbsApplicationsDetailCall.firstnameth(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLastName =
+          '${IbsApplicationsDetailCall.lastnameth(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4NetPremiumTotal = '${getJsonField(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+        r'''$.results.data.app_detail[:].net_premium_total''',
+      ).toString().toString()}';
+      FFAppState().insuranceinfoActType =
+          '${IbsApplicationsDetailCall.subProduct(
+        (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
       if (FFAppState().insuranceInfoPage4PaymentType == 'จ่ายเต็ม') {
         setState(() {
           _model.paymentTypeTextController?.text =
@@ -489,32 +483,31 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().InsuranceInfoPage4PaymentFirst =
-              IbsCalculateInstallmentCall.paymentfirst(
-            (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().InsuranceInfoPage4InstallmentFirstDue =
-              IbsCalculateInstallmentCall.installmentfirstdue(
-            (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().InsuranceInfoPage4InstallmentLastDue =
-              IbsCalculateInstallmentCall.installmentlastdue(
-            (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().InsuranceInfoPage4Tenor =
-              IbsCalculateInstallmentCall.tenor(
-            (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
+        FFAppState().InsuranceInfoPage4PaymentFirst =
+            IbsCalculateInstallmentCall.paymentfirst(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().InsuranceInfoPage4InstallmentFirstDue =
+            IbsCalculateInstallmentCall.installmentfirstdue(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().InsuranceInfoPage4InstallmentLastDue =
+            IbsCalculateInstallmentCall.installmentlastdue(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().InsuranceInfoPage4Tenor =
+            IbsCalculateInstallmentCall.tenor(
+          (_model.calInstallmentAPIOutput?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        setState(() {});
         setState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
@@ -714,36 +707,35 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     Navigator.pop(context);
                     return;
                   }
-                  setState(() {
-                    FFAppState().insuranceInfoPage4PaymentType =
-                        IbsApplicationsDetailCall.paymenttype(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfoPage4PaymentChannel =
-                        IbsApplicationsDetailCall.paymentchannel(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfo4pagePaymentStatus =
-                        IbsApplicationsDetailCall.paymentstatus(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfoGrossTotal =
-                        IbsApplicationsDetailCall.grosstotalnet(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfoActAmount =
-                        IbsApplicationsDetailCall.acttotal(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfoVehicleCode =
-                        IbsApplicationsDetailCall.vehiclecode(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                    FFAppState().insuranceInfo4pageStatus =
-                        IbsApplicationsDetailCall.quotationstatus(
-                      (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
-                    )!;
-                  });
+                  FFAppState().insuranceInfoPage4PaymentType =
+                      IbsApplicationsDetailCall.paymenttype(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfoPage4PaymentChannel =
+                      IbsApplicationsDetailCall.paymentchannel(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfo4pagePaymentStatus =
+                      IbsApplicationsDetailCall.paymentstatus(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfoGrossTotal =
+                      IbsApplicationsDetailCall.grosstotalnet(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfoActAmount =
+                      IbsApplicationsDetailCall.acttotal(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfoVehicleCode =
+                      IbsApplicationsDetailCall.vehiclecode(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  FFAppState().insuranceInfo4pageStatus =
+                      IbsApplicationsDetailCall.quotationstatus(
+                    (_model.ibsDetailAPIOutputCopy?.jsonBody ?? ''),
+                  )!;
+                  setState(() {});
                   Navigator.pop(context);
                 },
                 child: SingleChildScrollView(
@@ -1337,57 +1329,56 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         setState(() {});
                                                       return;
                                                     }
-                                                    setState(() {
-                                                      FFAppState()
-                                                              .insuranceInfoPage4PaymentType =
-                                                          '${IbsApplicationsDetailCall.paymenttype(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfoPage4PaymentChannel =
-                                                          '${IbsApplicationsDetailCall.paymentchannel(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfo4pagePaymentStatus =
-                                                          '${IbsApplicationsDetailCall.paymentstatus(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfoGrossTotal =
-                                                          '${IbsApplicationsDetailCall.grosstotalnet(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfoActAmount =
-                                                          '${IbsApplicationsDetailCall.acttotal(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfoVehicleCode =
-                                                          '${IbsApplicationsDetailCall.vehiclecode(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                      FFAppState()
-                                                              .insuranceInfo4pageStatus =
-                                                          '${IbsApplicationsDetailCall.quotationstatus(
-                                                        (_model.ibsDetailAPIOutputCopyRefresh
-                                                                ?.jsonBody ??
-                                                            ''),
-                                                      )}';
-                                                    });
+                                                    FFAppState()
+                                                            .insuranceInfoPage4PaymentType =
+                                                        '${IbsApplicationsDetailCall.paymenttype(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfoPage4PaymentChannel =
+                                                        '${IbsApplicationsDetailCall.paymentchannel(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfo4pagePaymentStatus =
+                                                        '${IbsApplicationsDetailCall.paymentstatus(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfoGrossTotal =
+                                                        '${IbsApplicationsDetailCall.grosstotalnet(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfoActAmount =
+                                                        '${IbsApplicationsDetailCall.acttotal(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfoVehicleCode =
+                                                        '${IbsApplicationsDetailCall.vehiclecode(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    FFAppState()
+                                                            .insuranceInfo4pageStatus =
+                                                        '${IbsApplicationsDetailCall.quotationstatus(
+                                                      (_model.ibsDetailAPIOutputCopyRefresh
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )}';
+                                                    setState(() {});
                                                     await showDialog(
                                                       context: context,
                                                       builder:
@@ -2198,43 +2189,42 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           setState(() {});
                                                         return;
                                                       }
-                                                      setState(() {
-                                                        FFAppState()
-                                                                .insuranceInfoQrcodeRef2 =
-                                                            '${IbsPaymentRegenerateCodeCall.ref2(
-                                                          (_model.regenQRCodeOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                        FFAppState()
-                                                                .insuranceInfoQrcodeRef1 =
-                                                            '${IbsPaymentRegenerateCodeCall.ref1(
-                                                          (_model.regenQRCodeOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                        FFAppState()
-                                                                .insuranceInfoQrcodeSuffix =
-                                                            '${IbsPaymentRegenerateCodeCall.suffix(
-                                                          (_model.regenQRCodeOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                        FFAppState()
-                                                                .insuranceInfoQrcodeTaxId =
-                                                            '${IbsPaymentRegenerateCodeCall.taxid(
-                                                          (_model.regenQRCodeOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                        FFAppState()
-                                                                .insuranceInfoQrcodeAmount =
-                                                            '${IbsPaymentRegenerateCodeCall.amount(
-                                                          (_model.regenQRCodeOutput
-                                                                  ?.jsonBody ??
-                                                              ''),
-                                                        )}';
-                                                      });
+                                                      FFAppState()
+                                                              .insuranceInfoQrcodeRef2 =
+                                                          '${IbsPaymentRegenerateCodeCall.ref2(
+                                                        (_model.regenQRCodeOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      FFAppState()
+                                                              .insuranceInfoQrcodeRef1 =
+                                                          '${IbsPaymentRegenerateCodeCall.ref1(
+                                                        (_model.regenQRCodeOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      FFAppState()
+                                                              .insuranceInfoQrcodeSuffix =
+                                                          '${IbsPaymentRegenerateCodeCall.suffix(
+                                                        (_model.regenQRCodeOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      FFAppState()
+                                                              .insuranceInfoQrcodeTaxId =
+                                                          '${IbsPaymentRegenerateCodeCall.taxid(
+                                                        (_model.regenQRCodeOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      FFAppState()
+                                                              .insuranceInfoQrcodeAmount =
+                                                          '${IbsPaymentRegenerateCodeCall.amount(
+                                                        (_model.regenQRCodeOutput
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      )}';
+                                                      setState(() {});
 
                                                       context.pushNamed(
                                                         'PaywithQRcode',
@@ -2883,43 +2873,42 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             setState(() {});
                                                           return;
                                                         }
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoQrcodeRef2 =
-                                                              '${IbsPaymentRegenerateCodeCall.ref2(
-                                                            (_model.regenQRCodeOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                          FFAppState()
-                                                                  .insuranceInfoQrcodeRef1 =
-                                                              '${IbsPaymentRegenerateCodeCall.ref1(
-                                                            (_model.regenQRCodeOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                          FFAppState()
-                                                                  .insuranceInfoQrcodeSuffix =
-                                                              '${IbsPaymentRegenerateCodeCall.suffix(
-                                                            (_model.regenQRCodeOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                          FFAppState()
-                                                                  .insuranceInfoQrcodeTaxId =
-                                                              '${IbsPaymentRegenerateCodeCall.taxid(
-                                                            (_model.regenQRCodeOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                          FFAppState()
-                                                                  .insuranceInfoQrcodeAmount =
-                                                              '${IbsPaymentRegenerateCodeCall.amount(
-                                                            (_model.regenQRCodeOutput2
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoQrcodeRef2 =
+                                                            '${IbsPaymentRegenerateCodeCall.ref2(
+                                                          (_model.regenQRCodeOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        FFAppState()
+                                                                .insuranceInfoQrcodeRef1 =
+                                                            '${IbsPaymentRegenerateCodeCall.ref1(
+                                                          (_model.regenQRCodeOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        FFAppState()
+                                                                .insuranceInfoQrcodeSuffix =
+                                                            '${IbsPaymentRegenerateCodeCall.suffix(
+                                                          (_model.regenQRCodeOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        FFAppState()
+                                                                .insuranceInfoQrcodeTaxId =
+                                                            '${IbsPaymentRegenerateCodeCall.taxid(
+                                                          (_model.regenQRCodeOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        FFAppState()
+                                                                .insuranceInfoQrcodeAmount =
+                                                            '${IbsPaymentRegenerateCodeCall.amount(
+                                                          (_model.regenQRCodeOutput2
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        setState(() {});
 
                                                         context.pushNamed(
                                                           'PaywithQRcode',
@@ -3333,11 +3322,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 setState(() {});
                                                               return;
                                                             } else {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    true;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  true;
+                                                              setState(() {});
                                                             }
 
                                                             showModalBottomSheet(
@@ -3459,11 +3447,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -3502,26 +3489,24 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
                                                                 setState(() {});
                                                               return;
                                                             }
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .insuranceInfo4pageStatus =
-                                                                  '${IbsApplicationsPaymentSaveCall.quotationstatus(
-                                                                (_model.paymentAPIOutpu
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )}';
-                                                            });
+                                                            FFAppState()
+                                                                    .insuranceInfo4pageStatus =
+                                                                '${IbsApplicationsPaymentSaveCall.quotationstatus(
+                                                              (_model.paymentAPIOutpu
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )}';
+                                                            setState(() {});
                                                             _model.ibsDetailAPIOutputSavebtn =
                                                                 await IbsApplicationsDetailCall
                                                                     .call(
@@ -3569,11 +3554,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -3613,33 +3597,31 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
                                                                 setState(() {});
                                                               return;
                                                             }
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .insuranceInfoPage4FirstPay =
-                                                                  '${IbsApplicationsDetailCall.firstPayAmount(
-                                                                (_model.ibsDetailAPIOutputSavebtn
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )}';
-                                                              FFAppState()
-                                                                      .insuranceInfo4pagePaymentStatus =
-                                                                  '${IbsApplicationsDetailCall.paymentstatus(
-                                                                (_model.ibsDetailAPIOutputSavebtn
-                                                                        ?.jsonBody ??
-                                                                    ''),
-                                                              )}';
-                                                            });
+                                                            FFAppState()
+                                                                    .insuranceInfoPage4FirstPay =
+                                                                '${IbsApplicationsDetailCall.firstPayAmount(
+                                                              (_model.ibsDetailAPIOutputSavebtn
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )}';
+                                                            FFAppState()
+                                                                    .insuranceInfo4pagePaymentStatus =
+                                                                '${IbsApplicationsDetailCall.paymentstatus(
+                                                              (_model.ibsDetailAPIOutputSavebtn
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )}';
+                                                            setState(() {});
                                                             await showDialog(
                                                               context: context,
                                                               builder:
@@ -3668,11 +3650,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 const Duration(
                                                                     milliseconds:
                                                                         10000));
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .isProcessing =
-                                                                  false;
-                                                            });
+                                                            FFAppState()
+                                                                    .isProcessing =
+                                                                false;
+                                                            setState(() {});
                                                             if (_shouldSetState)
                                                               setState(() {});
                                                           },
@@ -3810,11 +3791,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 setState(() {});
                                                               return;
                                                             } else {
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    true;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  true;
+                                                              setState(() {});
                                                             }
 
                                                             _model.getServerTime =
@@ -4027,11 +4007,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                     );
                                                                   },
                                                                 );
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .isProcessing =
-                                                                      false;
-                                                                });
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                                setState(() {});
                                                                 Navigator.pop(
                                                                     context);
                                                                 if (_shouldSetState)
@@ -4088,11 +4067,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                     );
                                                                   },
                                                                 );
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .isProcessing =
-                                                                      false;
-                                                                });
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                                setState(() {});
                                                                 Navigator.pop(
                                                                     context);
                                                                 if (_shouldSetState)
@@ -4132,11 +4110,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                     );
                                                                   },
                                                                 );
-                                                                setState(() {
-                                                                  FFAppState()
-                                                                          .isProcessing =
-                                                                      false;
-                                                                });
+                                                                FFAppState()
+                                                                        .isProcessing =
+                                                                    false;
+                                                                setState(() {});
                                                                 Navigator.pop(
                                                                     context);
                                                                 if (_shouldSetState)
@@ -4191,11 +4168,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4235,11 +4211,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   );
                                                                 },
                                                               );
-                                                              setState(() {
-                                                                FFAppState()
-                                                                        .isProcessing =
-                                                                    false;
-                                                              });
+                                                              FFAppState()
+                                                                      .isProcessing =
+                                                                  false;
+                                                              setState(() {});
                                                               Navigator.pop(
                                                                   context);
                                                               if (_shouldSetState)
@@ -4285,11 +4260,10 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 const Duration(
                                                                     milliseconds:
                                                                         10000));
-                                                            setState(() {
-                                                              FFAppState()
-                                                                      .isProcessing =
-                                                                  false;
-                                                            });
+                                                            FFAppState()
+                                                                    .isProcessing =
+                                                                false;
+                                                            setState(() {});
                                                             if (_shouldSetState)
                                                               setState(() {});
                                                           },

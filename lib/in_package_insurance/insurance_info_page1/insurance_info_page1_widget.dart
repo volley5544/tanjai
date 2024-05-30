@@ -76,15 +76,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         },
       ).then((value) => safeSetState(() {}));
 
-      setState(() {
-        FFAppState().insuranceInfoEffectiveDateAct = '';
-        FFAppState().insuranceInfoHaveLicenseBool = false;
-      });
-      setState(() {
-        FFAppState().insuranceInfoPage1SaveDataCheckBool = false;
-        FFAppState().insuranceInfoPage2SaveDataCheckBool = false;
-        FFAppState().insuranceInfoPage3SaveDataCheckBool = false;
-      });
+      FFAppState().insuranceInfoEffectiveDateAct = '';
+      FFAppState().insuranceInfoHaveLicenseBool = false;
+      setState(() {});
+      FFAppState().insuranceInfoPage1SaveDataCheckBool = false;
+      FFAppState().insuranceInfoPage2SaveDataCheckBool = false;
+      FFAppState().insuranceInfoPage3SaveDataCheckBool = false;
+      setState(() {});
       if (!true) {
         _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -135,20 +133,19 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().insuranceInfoImgUrlInsurerList =
-              InsuranceRequestGetInsurerAPICall.insurerLogo(
-            (_model.getInsurer?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().insuranceInfoCompanyIdList =
-              InsuranceRequestGetInsurerAPICall.companyShortName(
-            (_model.getInsurer?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-        });
+        FFAppState().insuranceInfoImgUrlInsurerList =
+            InsuranceRequestGetInsurerAPICall.insurerLogo(
+          (_model.getInsurer?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().insuranceInfoCompanyIdList =
+            InsuranceRequestGetInsurerAPICall.companyShortName(
+          (_model.getInsurer?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        setState(() {});
       }
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -200,51 +197,49 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().addAddressLicenseEmployeeId =
-            GetLicenseListCall.employeeid(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addAddressLicenseTitle = GetLicenseListCall.title(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseFirstName = GetLicenseListCall.firstname(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseLastName = GetLicenseListCall.lastName(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseLicenseId = GetLicenseListCall.licenseid(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-        FFAppState().addAddressLicenseExpiredDate =
-            GetLicenseListCall.expireddate(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addAddressLicenseMobilePhone =
-            GetLicenseListCall.mobilephone(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().addaddresslicensenBranch = GetLicenseListCall.branchcode(
-          (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<String>();
-      });
+      FFAppState().addAddressLicenseEmployeeId = GetLicenseListCall.employeeid(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseTitle = GetLicenseListCall.title(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseFirstName = GetLicenseListCall.firstname(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseLastName = GetLicenseListCall.lastName(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseLicenseId = GetLicenseListCall.licenseid(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      FFAppState().addAddressLicenseExpiredDate =
+          GetLicenseListCall.expireddate(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().addAddressLicenseMobilePhone =
+          GetLicenseListCall.mobilephone(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().addaddresslicensenBranch = GetLicenseListCall.branchcode(
+        (_model.getLicenseAPIOutoutCopy?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<String>();
+      setState(() {});
       _model.getOccuAPIOutput = await GetOccupationCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
@@ -294,32 +289,31 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoOccupationCode =
-            GetOccupationCall.occupationcode(
-          (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoOccupationName =
-            GetOccupationCall.occupationname(
-          (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoOccupationSubCode =
-            GetOccupationCall.occupationsubcode(
-          (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-        FFAppState().insuranceInfoOccupationSubName =
-            GetOccupationCall.occupationsubname(
-          (_model.getOccuAPIOutput?.jsonBody ?? ''),
-        )!
-                .toList()
-                .cast<String>();
-      });
+      FFAppState().insuranceInfoOccupationCode =
+          GetOccupationCall.occupationcode(
+        (_model.getOccuAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().insuranceInfoOccupationName =
+          GetOccupationCall.occupationname(
+        (_model.getOccuAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().insuranceInfoOccupationSubCode =
+          GetOccupationCall.occupationsubcode(
+        (_model.getOccuAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      FFAppState().insuranceInfoOccupationSubName =
+          GetOccupationCall.occupationsubname(
+        (_model.getOccuAPIOutput?.jsonBody ?? ''),
+      )!
+              .toList()
+              .cast<String>();
+      setState(() {});
       _model.detailAPIOutput = await IbsApplicationsDetailCall.call(
         quotationId: widget.quotationId,
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -371,930 +365,919 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         Navigator.pop(context);
         return;
       }
-      setState(() {
-        FFAppState().insuranceInfoCardType =
-            '${IbsApplicationsDetailCall.idtypeid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoGender = '${IbsApplicationsDetailCall.gender(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoTitle = '${IbsApplicationsDetailCall.titleth(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoOccupationGroup =
-            '${IbsApplicationsDetailCall.occupationname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoIdCard =
-            '${IbsApplicationsDetailCall.nationalthaiid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoFirstName =
-            '${IbsApplicationsDetailCall.quotationtype(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == 'auto' ? (IbsApplicationsDetailCall.firstnameth(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.firstnameth(
+      FFAppState().insuranceInfoCardType =
+          '${IbsApplicationsDetailCall.idtypeid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoGender = '${IbsApplicationsDetailCall.gender(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoTitle = '${IbsApplicationsDetailCall.titleth(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoOccupationGroup =
+          '${IbsApplicationsDetailCall.occupationname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoIdCard =
+          '${IbsApplicationsDetailCall.nationalthaiid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoFirstName =
+          '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.firstname(
+              ) == 'auto' ? (IbsApplicationsDetailCall.firstnameth(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              )) : () {
-                if (IbsApplicationsDetailCall.firstnameth(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) !=
-                    '') {
-                  return IbsApplicationsDetailCall.firstnameth(
+              ) != '' ? IbsApplicationsDetailCall.firstnameth(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.firstname(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )) : () {
+              if (IbsApplicationsDetailCall.firstnameth(
                     (_model.detailAPIOutput?.jsonBody ?? ''),
-                  );
-                } else if (IbsApplicationsDetailCall.firstname(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) !=
-                    '') {
-                  return IbsApplicationsDetailCall.firstname(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  );
-                } else {
-                  return IbsApplicationsDetailCall.manualFirstName(
-                    (_model.detailAPIOutput?.jsonBody ?? ''),
-                  );
-                }
-              }()}';
-        FFAppState().insuranceInfoLastName =
-            '${IbsApplicationsDetailCall.quotationtype(
+                  ) !=
+                  '') {
+                return IbsApplicationsDetailCall.firstnameth(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == 'auto' ? (IbsApplicationsDetailCall.lastnameth(
+                );
+              } else if (IbsApplicationsDetailCall.firstname(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) !=
+                  '') {
+                return IbsApplicationsDetailCall.firstname(
                   (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.lastnameth(
+                );
+              } else {
+                return IbsApplicationsDetailCall.manualFirstName(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                );
+              }
+            }()}';
+      FFAppState().insuranceInfoLastName =
+          '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.lastname(
+              ) == 'auto' ? (IbsApplicationsDetailCall.lastnameth(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              )) : () {
-                if (IbsApplicationsDetailCall.lastnameth(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) !=
-                    '') {
-                  return IbsApplicationsDetailCall.lastnameth(
+              ) != '' ? IbsApplicationsDetailCall.lastnameth(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.lastname(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )) : () {
+              if (IbsApplicationsDetailCall.lastnameth(
                     (_model.detailAPIOutput?.jsonBody ?? ''),
-                  );
-                } else if (IbsApplicationsDetailCall.lastname(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) !=
-                    '') {
-                  return IbsApplicationsDetailCall.lastname(
+                  ) !=
+                  '') {
+                return IbsApplicationsDetailCall.lastnameth(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                );
+              } else if (IbsApplicationsDetailCall.lastname(
                     (_model.detailAPIOutput?.jsonBody ?? ''),
-                  );
-                } else {
-                  return (IbsApplicationsDetailCall.manualLastName(
-                            (_model.detailAPIOutput?.jsonBody ?? ''),
-                          ) ==
-                          ''
-                      ? ''
-                      : IbsApplicationsDetailCall.manualLastName(
+                  ) !=
+                  '') {
+                return IbsApplicationsDetailCall.lastname(
+                  (_model.detailAPIOutput?.jsonBody ?? ''),
+                );
+              } else {
+                return (IbsApplicationsDetailCall.manualLastName(
                           (_model.detailAPIOutput?.jsonBody ?? ''),
-                        ));
-                }
-              }()}';
-        FFAppState().insuranceInfoBirthDate =
-            '${IbsApplicationsDetailCall.birthday(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoOccupation =
-            '${IbsApplicationsDetailCall.occupationname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPhonenumber =
-            '${IbsApplicationsDetailCall.quotationtype(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == 'auto' ? (IbsApplicationsDetailCall.mobile1(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.mobile1(
+                        ) ==
+                        ''
+                    ? ''
+                    : IbsApplicationsDetailCall.manualLastName(
+                        (_model.detailAPIOutput?.jsonBody ?? ''),
+                      ));
+              }
+            }()}';
+      FFAppState().insuranceInfoBirthDate =
+          '${IbsApplicationsDetailCall.birthday(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoOccupation =
+          '${IbsApplicationsDetailCall.occupationname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPhonenumber =
+          '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.phonenumber(
+              ) == 'auto' ? (IbsApplicationsDetailCall.mobile1(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              )) : (IbsApplicationsDetailCall.mobile1(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.mobile1(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : (IbsApplicationsDetailCall.manualPhoneNumber(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.manualPhoneNumber(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )))}';
-        FFAppState().insuranceInfoOtherPhone =
-            '${IbsApplicationsDetailCall.mobile2(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoEmail = '${IbsApplicationsDetailCall.email1(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoAge = '${IbsApplicationsDetailCall.age(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoGarageType =
-            '${IbsApplicationsDetailCall.garagetypename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfocoverType =
-            '${IbsApplicationsDetailCall.covertypename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfoGrossTotal =
-            '${IbsApplicationsDetailCall.grosstotalnetList(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfoVehicleType =
-            '${IbsApplicationsDetailCall.quotationtype(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == 'auto' ? IbsApplicationsDetailCall.cartype(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.manualCarType(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoBrandName =
-            '${IbsApplicationsDetailCall.carbrandname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoModelName =
-            '${IbsApplicationsDetailCall.carmodelname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoRegisYear =
-            '${IbsApplicationsDetailCall.carregistrationyear(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoProductYear =
-            '${IbsApplicationsDetailCall.makeYear(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleUsage =
-            '${IbsApplicationsDetailCall.vehiclecode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )} ${IbsApplicationsDetailCall.vehiclename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoCarRegis =
-            '${IbsApplicationsDetailCall.carregistrationData(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != null && IbsApplicationsDetailCall.carregistrationData(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.carregistrationData(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.carregistration(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoBodyNumber =
-            '${IbsApplicationsDetailCall.bodynumber(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoEngineNumber =
-            '${IbsApplicationsDetailCall.enginenumber(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoCarSeat = '${IbsApplicationsDetailCall.seat(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoSizeCar = '${IbsApplicationsDetailCall.cc(
+              ) != '' ? IbsApplicationsDetailCall.mobile1(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) != '' ? IbsApplicationsDetailCall.cc(
-            (_model.detailAPIOutput?.jsonBody ?? ''),
-          ) : (IbsApplicationsDetailCall.leaddetailcc(
-            (_model.detailAPIOutput?.jsonBody ?? ''),
-          )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+            ) : IbsApplicationsDetailCall.phonenumber(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-              r'''$.results.data.leads_detail[:].lead_dtl_id''',
-              true,
-            )).toList(), widget.leadDtailId)])}';
-        FFAppState().insuranceInfoWeightCar =
-            '${IbsApplicationsDetailCall.weight(
+            )) : (IbsApplicationsDetailCall.mobile1(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.mobile1(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : (IbsApplicationsDetailCall.manualPhoneNumber(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.manualPhoneNumber(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )))}';
+      FFAppState().insuranceInfoOtherPhone =
+          '${IbsApplicationsDetailCall.mobile2(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoEmail = '${IbsApplicationsDetailCall.email1(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoAge = '${IbsApplicationsDetailCall.age(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoGarageType =
+          '${IbsApplicationsDetailCall.garagetypename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfocoverType =
+          '${IbsApplicationsDetailCall.covertypename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfoGrossTotal =
+          '${IbsApplicationsDetailCall.grosstotalnetList(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfoVehicleType =
+          '${IbsApplicationsDetailCall.quotationtype(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == 'auto' ? IbsApplicationsDetailCall.cartype(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.manualCarType(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoBrandName =
+          '${IbsApplicationsDetailCall.carbrandname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoModelName =
+          '${IbsApplicationsDetailCall.carmodelname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoRegisYear =
+          '${IbsApplicationsDetailCall.carregistrationyear(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoProductYear =
+          '${IbsApplicationsDetailCall.makeYear(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleUsage =
+          '${IbsApplicationsDetailCall.vehiclecode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )} ${IbsApplicationsDetailCall.vehiclename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoCarRegis =
+          '${IbsApplicationsDetailCall.carregistrationData(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.carregistrationData(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.carregistrationData(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.carregistration(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoBodyNumber =
+          '${IbsApplicationsDetailCall.bodynumber(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoEngineNumber =
+          '${IbsApplicationsDetailCall.enginenumber(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoCarSeat = '${IbsApplicationsDetailCall.seat(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoSizeCar = '${IbsApplicationsDetailCall.cc(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) != '' ? IbsApplicationsDetailCall.cc(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        ) : (IbsApplicationsDetailCall.leaddetailcc(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+            r'''$.results.data.leads_detail[:].lead_dtl_id''',
+            true,
+          )).toList(), widget.leadDtailId)])}';
+      FFAppState().insuranceInfoWeightCar = '${IbsApplicationsDetailCall.weight(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoActAmount =
+          '${IbsApplicationsDetailCall.acttotal(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoAccessoryProtect = '${() {
+        if (IbsApplicationsDetailCall.accessoryflg(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) ==
+            '1') {
+          return 'คุ้มครองอุปกรณ์เสริม';
+        } else if (IbsApplicationsDetailCall.accessoryflg(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) ==
+            '0') {
+          return 'ไม่คุ้มครองอุปกรณ์เสริม';
+        } else {
+          return '';
+        }
+      }()}';
+      FFAppState().addAddressAtIdCard = '${IbsApplicationsDetailCall.keyword(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressAtIdCard2 =
+          '${IbsApplicationsDetailCall.addressline1(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressAtIdCard3 =
+          '${IbsApplicationsDetailCall.addressline2(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressForDoc = '${IbsApplicationsDetailCall.keyword(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressForDoc2 =
+          '${IbsApplicationsDetailCall.addressline1(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressForDoc3 =
+          '${IbsApplicationsDetailCall.addressline2(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectProvinceId =
+          '${IbsApplicationsDetailCall.provinceid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectProvinceName =
+          '${IbsApplicationsDetailCall.provincename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectDistrictId =
+          '${IbsApplicationsDetailCall.districtid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectDistrictName =
+          '${IbsApplicationsDetailCall.districtname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectSubdistrictId =
+          '${IbsApplicationsDetailCall.subdistrictid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectSubdistrictName =
+          '${IbsApplicationsDetailCall.subdistrictname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectZipCode =
+          '${IbsApplicationsDetailCall.zipcode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().addAddressSelectKeyWord =
+          '${IbsApplicationsDetailCall.keyword(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.last}';
+      FFAppState().insuranceInfoActOflLegislation = '${() {
+        if (IbsApplicationsDetailCall.actflg(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) ==
+            '1') {
+          return 'ราคารวม พ.ร.บ';
+        } else if (IbsApplicationsDetailCall.actflg(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) ==
+            '0') {
+          return 'ราคาไม่รวม พ.ร.บ';
+        } else {
+          return '';
+        }
+      }()}';
+      FFAppState().addAdressSelectDocProvinceId =
+          '${IbsApplicationsDetailCall.provinceid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAdressSelectDocProvinceName =
+          '${IbsApplicationsDetailCall.provincename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAdressSelectDocDistrictName =
+          '${IbsApplicationsDetailCall.districtname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectDocDistrictId =
+          '${IbsApplicationsDetailCall.districtid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectDocSubdistrictId =
+          '${IbsApplicationsDetailCall.subdistrictid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectDocSubdistrictName =
+          '${IbsApplicationsDetailCall.subdistrictname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectDocZipCode =
+          '${IbsApplicationsDetailCall.zipcode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().addAddressSelectDocKeyWord =
+          '${IbsApplicationsDetailCall.keyword(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?.first}';
+      FFAppState().insuranceInfoBeneficiaryName =
+          '${IbsApplicationsDetailCall.beneficiaryname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoSelectOccupationName =
+          '${IbsApplicationsDetailCall.occupationname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoCompayId =
+          '${IbsApplicationsDetailCall.insurershortname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfoLeadDetailId =
+          '${(IbsApplicationsDetailCall.leaddtlid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)])?.toString()}';
+      FFAppState().insuranceInfoSelectOccupationSubNameChoose =
+          '${IbsApplicationsDetailCall.occupationsubname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLicenseFirstName =
+          '${IbsApplicationsDetailCall.employeefirstnamelicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLicenseLastName =
+          '${IbsApplicationsDetailCall.employeelastnamelicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLicenseMobilePhone =
+          '${IbsApplicationsDetailCall.employeephonenumberlicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
+      FFAppState().insuranceInfoLicenseEmployeeId =
+          '${IbsApplicationsDetailCall.employeecodelicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoRegistrationCodeSelect =
+          '${IbsApplicationsDetailCall.registrationcode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.registrationcode(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.registrationcode(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.carprovincecode(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoRegistrationProvinceSelect =
+          '${IbsApplicationsDetailCall.registrationprovince(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != null && IbsApplicationsDetailCall.registrationprovince(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '' ? IbsApplicationsDetailCall.registrationprovince(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.carprovincename(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoLicenseImg =
+          '${IbsApplicationsDetailCall.employeelicenseimglicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLicenseExpiredDate =
+          '${IbsApplicationsDetailCall.employeelicenseexplicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoLicenseLicenseId =
+          '${IbsApplicationsDetailCall.employeelicenseidlicense(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoAccessory =
+          '${IbsApplicationsDetailCall.accessorytotal(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfoApplicationType =
+          '${IbsApplicationsDetailCall.quotationtypebak(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleId =
+          '${IbsApplicationsDetailCall.vehicleid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleCode =
+          '${IbsApplicationsDetailCall.vehiclecode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoVehicleName =
+          '${IbsApplicationsDetailCall.vehiclename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoBrandId =
+          '${IbsApplicationsDetailCall.carbrandid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuarnceInfoModelId =
+          '${IbsApplicationsDetailCall.carmodelid(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoSelectOccupationCode =
+          '${IbsApplicationsDetailCall.occupationCode(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4NetPremiumTotal =
+          '${(IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '0') && (IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : '${IbsApplicationsDetailCall.netpremium(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}'}';
+      FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoGrosstotalNet =
+          '${IbsApplicationsDetailCall.grosstotalnet(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoEffectiveDateAct =
+          '${IbsApplicationsDetailCall.effectiveDateAct(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateAct(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoEffectiveDateInsure =
+          '${IbsApplicationsDetailCall.effectiveDateInsure(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateInsure(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoInsuranceLogo =
+          '${IbsApplicationsDetailCall.insurerlogo(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+                r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                true,
+              )).toList(), widget.leadDtailId)]}';
+      FFAppState().insuranceInfoCarTypeDetail =
+          '${IbsApplicationsDetailCall.cartypedetail(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().flagRenew = '${IbsApplicationsDetailCall.flgrenew(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) != null && IbsApplicationsDetailCall.flgrenew(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) != '' ? IbsApplicationsDetailCall.flgrenew(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        ) : IbsApplicationsDetailCall.flgrenewlead(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceInfoActAmount =
-            '${IbsApplicationsDetailCall.acttotal(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoAccessoryProtect = '${() {
-          if (IbsApplicationsDetailCall.accessoryflg(
+      FFAppState().insuranceinfoActType =
+          '${IbsApplicationsDetailCall.subProduct(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeName =
+          '${IbsApplicationsDetailCall.quotationtypename(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoQuotationTypeBakName =
+          '${IbsApplicationsDetailCall.quotationtypebakname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceinfoSubProductName =
+          '${IbsApplicationsDetailCall.subproductname(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().InsuranceInfoVedioCallFile = '${''}';
+      FFAppState().insuranceInfoApplicationId =
+          '${IbsApplicationsDetailCall.applicationId(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
+      FFAppState().DriverList = IbsApplicationsDetailCall.appdriver(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )!
+          .toList()
+          .cast<DriverDataStruct>();
+      FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )!
+          .first;
+      setState(() {});
+      FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
+          '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage4ImageApplication =
+          '${IbsApplicationsDetailCall.imageapplication(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageIdCard =
+          '${IbsApplicationsDetailCall.imageidcard(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageBluebook =
+          '${IbsApplicationsDetailCall.imagebluebook(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageExamination =
+          '${IbsApplicationsDetailCall.imageexamination(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageFront =
+          '${IbsApplicationsDetailCall.imagefront(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPageImageRear =
+          '${IbsApplicationsDetailCall.imagerear(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageLeft =
+          '${IbsApplicationsDetailCall.imageleft(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageRight =
+          '${IbsApplicationsDetailCall.imageright(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageRightFront =
+          '${IbsApplicationsDetailCall.imagerightfront(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageRightRear =
+          '${IbsApplicationsDetailCall.imagerightrear(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageLeftFront =
+          '${IbsApplicationsDetailCall.imageleftfront(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageLeftRear =
+          '${IbsApplicationsDetailCall.imageleftrear(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageRoof =
+          '${IbsApplicationsDetailCall.imageroof(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoPage3ImageOther =
+          '${IbsApplicationsDetailCall.imageother(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
+      FFAppState().insuranceInfoPage3ImageWound = functions
+          .addImgUrlToList(
+              IbsApplicationsDetailCall.imagewound1(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imagewound2(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imagewound3(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imagewound4(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imagewound5(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imagewound6(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ))!
+          .toList()
+          .cast<String>();
+      FFAppState().insuranceInfoPage3ImageAccessories = functions
+          .addImgUrlToList(
+              IbsApplicationsDetailCall.imageaccessories1(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imageaccessories2(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imageaccessories3(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imageaccessories4(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imageaccessories5(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ),
+              IbsApplicationsDetailCall.imageaccessories6(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ))!
+          .toList()
+          .cast<String>();
+      setState(() {});
+      FFAppState().nonePackageImageFrontUploaded =
+          '${IbsApplicationsDetailCall.imagefront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imagefront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageRightFrontUploaded =
+          '${IbsApplicationsDetailCall.imagerightfront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imagerightfront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageRightUploaded =
+          '${IbsApplicationsDetailCall.imageright(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageRight(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageright(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageRightRearUploaded =
+          '${IbsApplicationsDetailCall.imagerightrear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imagerightrear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageRearUploaded =
+          '${IbsApplicationsDetailCall.imagerear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imagerear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageLeftRearUploaded =
+          '${IbsApplicationsDetailCall.imageleftrear(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageleftrear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageLeftUploaded =
+          '${IbsApplicationsDetailCall.imageleft(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeft(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageleft(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageLeftFrontUploaded =
+          '${IbsApplicationsDetailCall.imageleftfront(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageleftfront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageRoofUploaded =
+          '${IbsApplicationsDetailCall.imageroof(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageRoof(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageroof(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      setState(() {});
+      FFAppState().nonePackageTrailerImageFrontUploaded =
+          '${IbsApplicationsDetailCall.imageFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageFrontTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageRightFrontUploaded =
+          '${IbsApplicationsDetailCall.imageRightFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageRightFrontTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageRightUploaded =
+          '${IbsApplicationsDetailCall.imageRightTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRight(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageRightTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageRightRearUploaded =
+          '${IbsApplicationsDetailCall.imageRightRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageRightRearTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageRearUploaded =
+          '${IbsApplicationsDetailCall.imageRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageRearTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageLeftRearUploaded =
+          '${IbsApplicationsDetailCall.imageLeftRearTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftRear(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageLeftRearTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageLeftUploaded =
+          '${IbsApplicationsDetailCall.imageLeftTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeft(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageLeftTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTrailerImageLeftFrontUploaded =
+          '${IbsApplicationsDetailCall.imageLeftFrontTrailer(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftFront(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageLeftFrontTrailer(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      setState(() {});
+      FFAppState().nonePackageIdCardImageUrl =
+          '${IbsApplicationsDetailCall.imageidcard(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageIdCard(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageidcard(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageBlueBookUploaded =
+          '${IbsApplicationsDetailCall.imagebluebook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageBlueBook(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imagebluebook(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageOldVmiImageUrl =
+          '${IbsApplicationsDetailCall.imageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageCompanyBookImageUrl =
+          '${IbsApplicationsDetailCall.imageCompanyBook(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? IbsApplicationsDetailCall.nonePackageImageCompanyBook(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) : IbsApplicationsDetailCall.imageCompanyBook(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageImageQuotationPdfUploaded =
+          '${IbsApplicationsDetailCall.imageQuotationInsurer(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      setState(() {});
+      FFAppState().nonePackageFlagCarrier =
+          IbsApplicationsDetailCall.flagCarrier(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) ==
+                  '1'
+              ? true
+              : false;
+      FFAppState().nonePackageFlagCoop = IbsApplicationsDetailCall.flagCoop(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
               ) ==
-              '1') {
-            return 'คุ้มครองอุปกรณ์เสริม';
-          } else if (IbsApplicationsDetailCall.accessoryflg(
+              '1'
+          ? true
+          : false;
+      FFAppState().nonePackageCarrierType =
+          '${IbsApplicationsDetailCall.carrierType(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) ==
-              '0') {
-            return 'ไม่คุ้มครองอุปกรณ์เสริม';
-          } else {
-            return '';
-          }
-        }()}';
-        FFAppState().addAddressAtIdCard = '${IbsApplicationsDetailCall.keyword(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressAtIdCard2 =
-            '${IbsApplicationsDetailCall.addressline1(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressAtIdCard3 =
-            '${IbsApplicationsDetailCall.addressline2(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressForDoc = '${IbsApplicationsDetailCall.keyword(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressForDoc2 =
-            '${IbsApplicationsDetailCall.addressline1(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressForDoc3 =
-            '${IbsApplicationsDetailCall.addressline2(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectProvinceId =
-            '${IbsApplicationsDetailCall.provinceid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectProvinceName =
-            '${IbsApplicationsDetailCall.provincename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectDistrictId =
-            '${IbsApplicationsDetailCall.districtid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectDistrictName =
-            '${IbsApplicationsDetailCall.districtname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectSubdistrictId =
-            '${IbsApplicationsDetailCall.subdistrictid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectSubdistrictName =
-            '${IbsApplicationsDetailCall.subdistrictname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectZipCode =
-            '${IbsApplicationsDetailCall.zipcode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().addAddressSelectKeyWord =
-            '${IbsApplicationsDetailCall.keyword(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.last}';
-        FFAppState().insuranceInfoActOflLegislation = '${() {
-          if (IbsApplicationsDetailCall.actflg(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) ==
-              '1') {
-            return 'ราคารวม พ.ร.บ';
-          } else if (IbsApplicationsDetailCall.actflg(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) ==
-              '0') {
-            return 'ราคาไม่รวม พ.ร.บ';
-          } else {
-            return '';
-          }
-        }()}';
-        FFAppState().addAdressSelectDocProvinceId =
-            '${IbsApplicationsDetailCall.provinceid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAdressSelectDocProvinceName =
-            '${IbsApplicationsDetailCall.provincename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAdressSelectDocDistrictName =
-            '${IbsApplicationsDetailCall.districtname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectDocDistrictId =
-            '${IbsApplicationsDetailCall.districtid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectDocSubdistrictId =
-            '${IbsApplicationsDetailCall.subdistrictid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectDocSubdistrictName =
-            '${IbsApplicationsDetailCall.subdistrictname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectDocZipCode =
-            '${IbsApplicationsDetailCall.zipcode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().addAddressSelectDocKeyWord =
-            '${IbsApplicationsDetailCall.keyword(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?.first}';
-        FFAppState().insuranceInfoBeneficiaryName =
-            '${IbsApplicationsDetailCall.beneficiaryname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoSelectOccupationName =
-            '${IbsApplicationsDetailCall.occupationname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoCompayId =
-            '${IbsApplicationsDetailCall.insurershortname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfoLeadDetailId =
-            '${(IbsApplicationsDetailCall.leaddtlid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)])?.toString()}';
-        FFAppState().insuranceInfoSelectOccupationSubNameChoose =
-            '${IbsApplicationsDetailCall.occupationsubname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLicenseFirstName =
-            '${IbsApplicationsDetailCall.employeefirstnamelicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLicenseLastName =
-            '${IbsApplicationsDetailCall.employeelastnamelicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLicenseMobilePhone =
-            '${IbsApplicationsDetailCall.employeephonenumberlicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
-        FFAppState().insuranceInfoLicenseEmployeeId =
-            '${IbsApplicationsDetailCall.employeecodelicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoRegistrationCodeSelect =
-            '${IbsApplicationsDetailCall.registrationcode(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != null && IbsApplicationsDetailCall.registrationcode(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.registrationcode(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.carprovincecode(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoRegistrationProvinceSelect =
-            '${IbsApplicationsDetailCall.registrationprovince(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != null && IbsApplicationsDetailCall.registrationprovince(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '' ? IbsApplicationsDetailCall.registrationprovince(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.carprovincename(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoLicenseImg =
-            '${IbsApplicationsDetailCall.employeelicenseimglicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLicenseExpiredDate =
-            '${IbsApplicationsDetailCall.employeelicenseexplicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoLicenseLicenseId =
-            '${IbsApplicationsDetailCall.employeelicenseidlicense(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoAccessory =
-            '${IbsApplicationsDetailCall.accessorytotal(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfoApplicationType =
-            '${IbsApplicationsDetailCall.quotationtypebak(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleId =
-            '${IbsApplicationsDetailCall.vehicleid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleCode =
-            '${IbsApplicationsDetailCall.vehiclecode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoVehicleName =
-            '${IbsApplicationsDetailCall.vehiclename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoBrandId =
-            '${IbsApplicationsDetailCall.carbrandid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuarnceInfoModelId =
-            '${IbsApplicationsDetailCall.carmodelid(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoSelectOccupationCode =
-            '${IbsApplicationsDetailCall.occupationCode(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4NetPremiumTotal =
-            '${(IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '0') && (IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : '${IbsApplicationsDetailCall.netpremium(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}'}';
-        FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoGrosstotalNet =
-            '${IbsApplicationsDetailCall.grosstotalnet(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoEffectiveDateAct =
-            '${IbsApplicationsDetailCall.effectiveDateAct(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateAct(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoEffectiveDateInsure =
-            '${IbsApplicationsDetailCall.effectiveDateInsure(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.effectiveDateInsure(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoInsuranceLogo =
-            '${IbsApplicationsDetailCall.insurerlogo(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                  r'''$.results.data.leads_detail[:].lead_dtl_id''',
-                  true,
-                )).toList(), widget.leadDtailId)]}';
-        FFAppState().insuranceInfoCarTypeDetail =
-            '${IbsApplicationsDetailCall.cartypedetail(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().flagRenew = '${IbsApplicationsDetailCall.flgrenew(
+              ) == '' ? '' : IbsApplicationsDetailCall.carrierType(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) != null && IbsApplicationsDetailCall.flgrenew(
+            )}';
+      FFAppState().nonePackageCarrierPrice =
+          '${IbsApplicationsDetailCall.carrierPrice(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.carrierPrice(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) != '' ? IbsApplicationsDetailCall.flgrenew(
+            )}';
+      FFAppState().nonePackageTruckPart =
+          '${IbsApplicationsDetailCall.truckPart(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : (IbsApplicationsDetailCall.truckPart(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '1' ? 'หัวลาก + หางพ่วง' : 'เฉพาะหัวลาก')}';
+      FFAppState().nonePackageCusMembership =
+          '${IbsApplicationsDetailCall.customerMemberchip(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : (IbsApplicationsDetailCall.customerMemberchip(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '1' ? 'ลูกค้าสินเชื่อ' : 'ลูกค้านอก')}';
+      FFAppState().nonePackageTruckCarryPurpose =
+          '${IbsApplicationsDetailCall.truckCarryPurpose(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.truckCarryPurpose(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageTruckCurrentPrice =
+          '${IbsApplicationsDetailCall.truckCurrentPrice(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.truckCurrentPrice(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackagePlateAdditional =
+          '${IbsApplicationsDetailCall.plateAdditional(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.plateAdditional(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageOldVmi =
+          '${IbsApplicationsDetailCall.nonePackageOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.nonePackageOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageOldVmiExpDate =
+          '${IbsApplicationsDetailCall.nonePackageVmiExpDate(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.nonePackageVmiExpDate(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageFlagRenew =
+          IbsApplicationsDetailCall.nonePackageFlagRenew(
+                    (_model.detailAPIOutput?.jsonBody ?? ''),
+                  ) ==
+                  '1'
+              ? true
+              : false;
+      FFAppState().nonePackageCustomerType =
+          '${IbsApplicationsDetailCall.nonePackageCustomerType(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.nonePackageCustomerType(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageFlagOldVmi =
+          '${IbsApplicationsDetailCall.nonePackageFlagOldVmi(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) == '' ? '' : IbsApplicationsDetailCall.nonePackageFlagOldVmi(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().nonePackageWorkType = '${IbsApplicationsDetailCall.workType(
             (_model.detailAPIOutput?.jsonBody ?? ''),
-          ) : IbsApplicationsDetailCall.flgrenewlead(
-            (_model.detailAPIOutput?.jsonBody ?? ''),
-          )}';
-        FFAppState().insuranceinfoActType =
-            '${IbsApplicationsDetailCall.subProduct(
+          ) == '' ? '' : IbsApplicationsDetailCall.workType(
           (_model.detailAPIOutput?.jsonBody ?? ''),
         )}';
-        FFAppState().insuranceinfoQuotationTypeName =
-            '${IbsApplicationsDetailCall.quotationtypename(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoQuotationTypeBakName =
-            '${IbsApplicationsDetailCall.quotationtypebakname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceinfoSubProductName =
-            '${IbsApplicationsDetailCall.subproductname(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().InsuranceInfoVedioCallFile = '${''}';
-        FFAppState().insuranceInfoApplicationId =
-            '${IbsApplicationsDetailCall.applicationId(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-      });
-      setState(() {
-        FFAppState().DriverList = IbsApplicationsDetailCall.appdriver(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-            .toList()
-            .cast<DriverDataStruct>();
-        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )!
-            .first;
-      });
-      setState(() {
-        FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
-            '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage4ImageApplication =
-            '${IbsApplicationsDetailCall.imageapplication(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageIdCard =
-            '${IbsApplicationsDetailCall.imageidcard(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageBluebook =
-            '${IbsApplicationsDetailCall.imagebluebook(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageExamination =
-            '${IbsApplicationsDetailCall.imageexamination(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageFront =
-            '${IbsApplicationsDetailCall.imagefront(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPageImageRear =
-            '${IbsApplicationsDetailCall.imagerear(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageLeft =
-            '${IbsApplicationsDetailCall.imageleft(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageRight =
-            '${IbsApplicationsDetailCall.imageright(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageRightFront =
-            '${IbsApplicationsDetailCall.imagerightfront(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageRightRear =
-            '${IbsApplicationsDetailCall.imagerightrear(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageLeftFront =
-            '${IbsApplicationsDetailCall.imageleftfront(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageLeftRear =
-            '${IbsApplicationsDetailCall.imageleftrear(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageRoof =
-            '${IbsApplicationsDetailCall.imageroof(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-        FFAppState().insuranceInfoPage3ImageOther =
-            '${IbsApplicationsDetailCall.imageother(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-      });
-      setState(() {
-        FFAppState().insuranceInfoPage3ImageWound = functions
-            .addImgUrlToList(
-                IbsApplicationsDetailCall.imagewound1(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imagewound2(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imagewound3(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imagewound4(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imagewound5(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imagewound6(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ))!
-            .toList()
-            .cast<String>();
-        FFAppState().insuranceInfoPage3ImageAccessories = functions
-            .addImgUrlToList(
-                IbsApplicationsDetailCall.imageaccessories1(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imageaccessories2(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imageaccessories3(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imageaccessories4(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imageaccessories5(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ),
-                IbsApplicationsDetailCall.imageaccessories6(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ))!
-            .toList()
-            .cast<String>();
-      });
-      setState(() {
-        FFAppState().nonePackageImageFrontUploaded =
-            '${IbsApplicationsDetailCall.imagefront(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageFront(
+      setState(() {});
+      FFAppState().insuranceInfoBranchCode =
+          '${IbsApplicationsDetailCall.incentiveBranchCode(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imagefront(
+              ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchCode(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      FFAppState().insuranceInfoBranchNameOutput =
+          '${IbsApplicationsDetailCall.incentiveBranchName(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageRightFrontUploaded =
-            '${IbsApplicationsDetailCall.imagerightfront(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightFront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imagerightfront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageRightUploaded =
-            '${IbsApplicationsDetailCall.imageright(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRight(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageright(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageRightRearUploaded =
-            '${IbsApplicationsDetailCall.imagerightrear(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRightRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imagerightrear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageRearUploaded =
-            '${IbsApplicationsDetailCall.imagerear(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imagerear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageLeftRearUploaded =
-            '${IbsApplicationsDetailCall.imageleftrear(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageleftrear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageLeftUploaded =
-            '${IbsApplicationsDetailCall.imageleft(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeft(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageleft(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageLeftFrontUploaded =
-            '${IbsApplicationsDetailCall.imageleftfront(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageLeftFront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageleftfront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageRoofUploaded =
-            '${IbsApplicationsDetailCall.imageroof(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageRoof(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageroof(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-      });
-      setState(() {
-        FFAppState().nonePackageTrailerImageFrontUploaded =
-            '${IbsApplicationsDetailCall.imageFrontTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageFront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageFrontTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageRightFrontUploaded =
-            '${IbsApplicationsDetailCall.imageRightFrontTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightFront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageRightFrontTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageRightUploaded =
-            '${IbsApplicationsDetailCall.imageRightTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRight(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageRightTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageRightRearUploaded =
-            '${IbsApplicationsDetailCall.imageRightRearTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRightRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageRightRearTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageRearUploaded =
-            '${IbsApplicationsDetailCall.imageRearTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageRearTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageLeftRearUploaded =
-            '${IbsApplicationsDetailCall.imageLeftRearTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftRear(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageLeftRearTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageLeftUploaded =
-            '${IbsApplicationsDetailCall.imageLeftTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeft(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageLeftTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTrailerImageLeftFrontUploaded =
-            '${IbsApplicationsDetailCall.imageLeftFrontTrailer(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageTrailerImageLeftFront(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageLeftFrontTrailer(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-      });
-      setState(() {
-        FFAppState().nonePackageIdCardImageUrl =
-            '${IbsApplicationsDetailCall.imageidcard(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageIdCard(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageidcard(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageBlueBookUploaded =
-            '${IbsApplicationsDetailCall.imagebluebook(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageBlueBook(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imagebluebook(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageOldVmiImageUrl =
-            '${IbsApplicationsDetailCall.imageOldVmi(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageOldVmi(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageOldVmi(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageCompanyBookImageUrl =
-            '${IbsApplicationsDetailCall.imageCompanyBook(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? IbsApplicationsDetailCall.nonePackageImageCompanyBook(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              ) : IbsApplicationsDetailCall.imageCompanyBook(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageImageQuotationPdfUploaded =
-            '${IbsApplicationsDetailCall.imageQuotationInsurer(
-          (_model.detailAPIOutput?.jsonBody ?? ''),
-        )}';
-      });
-      setState(() {
-        FFAppState().nonePackageFlagCarrier =
-            IbsApplicationsDetailCall.flagCarrier(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) ==
-                    '1'
-                ? true
-                : false;
-        FFAppState().nonePackageFlagCoop = IbsApplicationsDetailCall.flagCoop(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) ==
-                '1'
-            ? true
-            : false;
-        FFAppState().nonePackageCarrierType =
-            '${IbsApplicationsDetailCall.carrierType(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.carrierType(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageCarrierPrice =
-            '${IbsApplicationsDetailCall.carrierPrice(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.carrierPrice(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTruckPart =
-            '${IbsApplicationsDetailCall.truckPart(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : (IbsApplicationsDetailCall.truckPart(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '1' ? 'หัวลาก + หางพ่วง' : 'เฉพาะหัวลาก')}';
-        FFAppState().nonePackageCusMembership =
-            '${IbsApplicationsDetailCall.customerMemberchip(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : (IbsApplicationsDetailCall.customerMemberchip(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '1' ? 'ลูกค้าสินเชื่อ' : 'ลูกค้านอก')}';
-        FFAppState().nonePackageTruckCarryPurpose =
-            '${IbsApplicationsDetailCall.truckCarryPurpose(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.truckCarryPurpose(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageTruckCurrentPrice =
-            '${IbsApplicationsDetailCall.truckCurrentPrice(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.truckCurrentPrice(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackagePlateAdditional =
-            '${IbsApplicationsDetailCall.plateAdditional(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.plateAdditional(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageOldVmi =
-            '${IbsApplicationsDetailCall.nonePackageOldVmi(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageOldVmi(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageOldVmiExpDate =
-            '${IbsApplicationsDetailCall.nonePackageVmiExpDate(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageVmiExpDate(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageFlagRenew =
-            IbsApplicationsDetailCall.nonePackageFlagRenew(
-                      (_model.detailAPIOutput?.jsonBody ?? ''),
-                    ) ==
-                    '1'
-                ? true
-                : false;
-        FFAppState().nonePackageCustomerType =
-            '${IbsApplicationsDetailCall.nonePackageCustomerType(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageCustomerType(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageFlagOldVmi =
-            '${IbsApplicationsDetailCall.nonePackageFlagOldVmi(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.nonePackageFlagOldVmi(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().nonePackageWorkType =
-            '${IbsApplicationsDetailCall.workType(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.workType(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-      });
-      setState(() {
-        FFAppState().insuranceInfoBranchCode =
-            '${IbsApplicationsDetailCall.incentiveBranchCode(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchCode(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-        FFAppState().insuranceInfoBranchNameOutput =
-            '${IbsApplicationsDetailCall.incentiveBranchName(
-                  (_model.detailAPIOutput?.jsonBody ?? ''),
-                ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchName(
-                (_model.detailAPIOutput?.jsonBody ?? ''),
-              )}';
-      });
+              ) == '' ? '' : IbsApplicationsDetailCall.incentiveBranchName(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            )}';
+      setState(() {});
       setState(() {
         _model.idCardTextFieldTextController1?.text =
             FFAppState().insuranceInfoIdCard;
@@ -1332,20 +1315,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       });
       if (FFAppState().insuranceInfoSelectOccupationName != null &&
           FFAppState().insuranceInfoSelectOccupationName != '') {
-        setState(() {
-          FFAppState().insuranceInfoSelectOccupationSubName = functions
-              .returnMappedListFrom2List(
-                  FFAppState().insuranceInfoOccupationSubName.toList(),
-                  FFAppState().insuranceInfoOccupationName.toList(),
-                  FFAppState().insuranceInfoSelectOccupationName)
-              .toList()
-              .cast<String>();
-        });
+        FFAppState().insuranceInfoSelectOccupationSubName = functions
+            .returnMappedListFrom2List(
+                FFAppState().insuranceInfoOccupationSubName.toList(),
+                FFAppState().insuranceInfoOccupationName.toList(),
+                FFAppState().insuranceInfoSelectOccupationName)
+            .toList()
+            .cast<String>();
+        setState(() {});
       }
       if (FFAppState().insuranceInfoLicenseEmployeeId != '') {
-        setState(() {
-          FFAppState().insuranceInfoHaveLicenseBool = true;
-        });
+        FFAppState().insuranceInfoHaveLicenseBool = true;
+        setState(() {});
       }
       Navigator.pop(context);
       if (FFAppState().insuranceInfoApplicationType != 'auto') {
@@ -1388,9 +1369,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       if (FFAppState()
           .addAddressLicenseEmployeeId
           .contains(FFAppState().employeeID)) {
-        setState(() {
-          FFAppState().insuranceInfoHaveLicenseBool = true;
-        });
+        FFAppState().insuranceInfoHaveLicenseBool = true;
+        setState(() {});
         showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -1461,28 +1441,27 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().insuranceInfoLicenseEmployeeId =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseTitle =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseFirstName =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseLastName =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseLicenseId =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseExpiredDate =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseMobilePhone =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
-          FFAppState().insuranceInfoLicenseImg =
-              '${GetProfileImageCall.imgProfile(
-            (_model.profileImgOutputPage?.jsonBody ?? ''),
-          )}';
-          FFAppState().insuranceInfoLicenseBranch =
-              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
-        });
+        FFAppState().insuranceInfoLicenseEmployeeId =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseTitle =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseFirstName =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseLastName =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseLicenseId =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseExpiredDate =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseMobilePhone =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), FFAppState().employeeID)}';
+        FFAppState().insuranceInfoLicenseImg =
+            '${GetProfileImageCall.imgProfile(
+          (_model.profileImgOutputPage?.jsonBody ?? ''),
+        )}';
+        FFAppState().insuranceInfoLicenseBranch =
+            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), FFAppState().employeeID)}';
+        setState(() {});
         setState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
@@ -5566,11 +5545,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             .hideKeyboardAction(
                                                           context,
                                                         );
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoHaveLicenseBool =
-                                                              false;
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoHaveLicenseBool =
+                                                            false;
+                                                        setState(() {});
                                                         showModalBottomSheet(
                                                           isScrollControlled:
                                                               true,
@@ -5646,11 +5624,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             .contains(_model
                                                                 .licenseCodeTextController
                                                                 .text)) {
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .insuranceInfoHaveLicenseBool =
-                                                                true;
-                                                          });
+                                                          FFAppState()
+                                                                  .insuranceInfoHaveLicenseBool =
+                                                              true;
+                                                          setState(() {});
                                                         } else {
                                                           await showDialog(
                                                             context: context,
@@ -5674,31 +5651,29 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               );
                                                             },
                                                           );
-                                                          setState(() {
-                                                            FFAppState()
-                                                                    .insuranceInfoHaveLicenseBool =
-                                                                false;
-                                                          });
-                                                          setState(() {
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseEmployeeId = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseTitle = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseFirstName = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseLastName = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseLicenseId = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseExpiredDate = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseMobilePhone = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseImg = '';
-                                                            FFAppState()
-                                                                .insuranceInfoLicenseBranch = '';
-                                                          });
+                                                          FFAppState()
+                                                                  .insuranceInfoHaveLicenseBool =
+                                                              false;
+                                                          setState(() {});
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseEmployeeId = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseTitle = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseFirstName = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLastName = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseLicenseId = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseExpiredDate = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseMobilePhone = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseImg = '';
+                                                          FFAppState()
+                                                              .insuranceInfoLicenseBranch = '';
+                                                          setState(() {});
                                                           Navigator.pop(
                                                               context);
                                                           if (_shouldSetState)
@@ -5788,39 +5763,38 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                             setState(() {});
                                                           return;
                                                         }
-                                                        setState(() {
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseEmployeeId =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseTitle =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseFirstName =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseLastName =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseLicenseId =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseExpiredDate =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseMobilePhone =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseImg =
-                                                              '${GetProfileImageCall.imgProfile(
-                                                            (_model.profileImgOutput
-                                                                    ?.jsonBody ??
-                                                                ''),
-                                                          )}';
-                                                          FFAppState()
-                                                                  .insuranceInfoLicenseBranch =
-                                                              '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
-                                                        });
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseEmployeeId =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseEmployeeId.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseTitle =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseTitle.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseFirstName =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseFirstName.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseLastName =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLastName.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseLicenseId =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseLicenseId.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseExpiredDate =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseExpiredDate.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseMobilePhone =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addAddressLicenseMobilePhone.toList(), _model.licenseCodeTextController.text)}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseImg =
+                                                            '${GetProfileImageCall.imgProfile(
+                                                          (_model.profileImgOutput
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        )}';
+                                                        FFAppState()
+                                                                .insuranceInfoLicenseBranch =
+                                                            '${functions.findIndexOfList(FFAppState().addAddressLicenseEmployeeId.toList(), FFAppState().addaddresslicensenBranch.toList(), _model.licenseCodeTextController.text)}';
+                                                        setState(() {});
                                                         Navigator.pop(context);
                                                         if (_shouldSetState)
                                                           setState(() {});
@@ -6423,13 +6397,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 if (FFAppState()
                                                         .insuranceInfoSelectOccupationCode ==
                                                     'JB999') {
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoSelectOccupationSubNameChoose =
-                                                        _model
-                                                            .cusOcputationTextFieldTextController
-                                                            .text;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoSelectOccupationSubNameChoose =
+                                                      _model
+                                                          .cusOcputationTextFieldTextController
+                                                          .text;
+                                                  setState(() {});
                                                 }
                                                 if (!((FFAppState()
                                                                 .insuranceInfoLicenseLicenseId !=
@@ -7007,78 +6980,76 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 ).then((value) =>
                                                     safeSetState(() {}));
 
-                                                setState(() {
-                                                  FFAppState()
-                                                      .insuranceInfoIdCard = (FFAppState()
-                                                                  .insuranceInfoCardType ==
-                                                              'บัตรประชาชน') ||
-                                                          (FFAppState().insuranceInfoCardType ==
-                                                              '1')
-                                                      ? _model
-                                                          .idCardTextFieldTextController1
-                                                          .text
-                                                      : _model
-                                                          .idCardTextFieldTextController2
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoFirstName =
-                                                      _model
-                                                          .cusNameTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoLastName =
-                                                      _model
-                                                          .cusLastnameTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoBirthDate =
-                                                      valueOrDefault<String>(
-                                                    () {
-                                                      if (_model.datePicked !=
-                                                          null) {
-                                                        return dateTimeFormat(
-                                                          'y-MM-dd',
-                                                          _model.datePicked,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        );
-                                                      } else if (FFAppState()
-                                                                  .insuranceInfoBirthDate !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoBirthDate !=
-                                                              '') {
-                                                        return FFAppState()
-                                                            .insuranceInfoBirthDate;
-                                                      } else {
-                                                        return '';
-                                                      }
-                                                    }(),
-                                                    'กรุณาเลือก วัน/เดือน/ปี เกิด',
-                                                  );
-                                                  FFAppState()
-                                                          .insuranceInfoPhonenumber =
-                                                      _model
-                                                          .cusPhoneTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoOtherPhone =
-                                                      _model
-                                                          .cusPhoneOtherTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoEmail =
-                                                      _model
-                                                          .emailTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoAge =
-                                                      _model
-                                                          .ageTextFieldTextController
-                                                          .text;
-                                                });
+                                                FFAppState()
+                                                    .insuranceInfoIdCard = (FFAppState()
+                                                                .insuranceInfoCardType ==
+                                                            'บัตรประชาชน') ||
+                                                        (FFAppState().insuranceInfoCardType ==
+                                                            '1')
+                                                    ? _model
+                                                        .idCardTextFieldTextController1
+                                                        .text
+                                                    : _model
+                                                        .idCardTextFieldTextController2
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoFirstName =
+                                                    _model
+                                                        .cusNameTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoLastName =
+                                                    _model
+                                                        .cusLastnameTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoBirthDate =
+                                                    valueOrDefault<String>(
+                                                  () {
+                                                    if (_model.datePicked !=
+                                                        null) {
+                                                      return dateTimeFormat(
+                                                        'y-MM-dd',
+                                                        _model.datePicked,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                    } else if (FFAppState()
+                                                                .insuranceInfoBirthDate !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoBirthDate !=
+                                                            '') {
+                                                      return FFAppState()
+                                                          .insuranceInfoBirthDate;
+                                                    } else {
+                                                      return '';
+                                                    }
+                                                  }(),
+                                                  'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                );
+                                                FFAppState()
+                                                        .insuranceInfoPhonenumber =
+                                                    _model
+                                                        .cusPhoneTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoOtherPhone =
+                                                    _model
+                                                        .cusPhoneOtherTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoEmail =
+                                                    _model
+                                                        .emailTextFieldTextController
+                                                        .text;
+                                                FFAppState().insuranceInfoAge =
+                                                    _model
+                                                        .ageTextFieldTextController
+                                                        .text;
+                                                setState(() {});
                                                 _model.ibsAppSaveAPIoutput =
                                                     await IbsApplicationsSaveCall
                                                         .call(
@@ -7408,11 +7379,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                   },
                                                 );
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoPage1SaveDataCheckBool =
-                                                      true;
-                                                });
+                                                FFAppState()
+                                                        .insuranceInfoPage1SaveDataCheckBool =
+                                                    true;
+                                                setState(() {});
                                                 Navigator.pop(context);
                                               } else {
                                                 await actions
@@ -7422,13 +7392,12 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 if (FFAppState()
                                                         .insuranceInfoSelectOccupationCode ==
                                                     'JB999') {
-                                                  setState(() {
-                                                    FFAppState()
-                                                            .insuranceInfoSelectOccupationSubNameChoose =
-                                                        _model
-                                                            .cusOcputationTextFieldTextController
-                                                            .text;
-                                                  });
+                                                  FFAppState()
+                                                          .insuranceInfoSelectOccupationSubNameChoose =
+                                                      _model
+                                                          .cusOcputationTextFieldTextController
+                                                          .text;
+                                                  setState(() {});
                                                 }
                                                 if (!((FFAppState()
                                                                 .insuranceInfoCardType !=
@@ -7934,78 +7903,76 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                 ).then((value) =>
                                                     safeSetState(() {}));
 
-                                                setState(() {
-                                                  FFAppState()
-                                                      .insuranceInfoIdCard = (FFAppState()
-                                                                  .insuranceInfoCardType ==
-                                                              'บัตรประชาชน') ||
-                                                          (FFAppState().insuranceInfoCardType ==
-                                                              '1')
-                                                      ? _model
-                                                          .idCardTextFieldTextController1
-                                                          .text
-                                                      : _model
-                                                          .idCardTextFieldTextController2
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoFirstName =
-                                                      _model
-                                                          .cusNameTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoLastName =
-                                                      _model
-                                                          .cusLastnameTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoBirthDate =
-                                                      valueOrDefault<String>(
-                                                    () {
-                                                      if (_model.datePicked !=
-                                                          null) {
-                                                        return dateTimeFormat(
-                                                          'y-MM-dd',
-                                                          _model.datePicked,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
-                                                        );
-                                                      } else if (FFAppState()
-                                                                  .insuranceInfoBirthDate !=
-                                                              null &&
-                                                          FFAppState()
-                                                                  .insuranceInfoBirthDate !=
-                                                              '') {
-                                                        return FFAppState()
-                                                            .insuranceInfoBirthDate;
-                                                      } else {
-                                                        return '';
-                                                      }
-                                                    }(),
-                                                    'กรุณาเลือก วัน/เดือน/ปี เกิด',
-                                                  );
-                                                  FFAppState()
-                                                          .insuranceInfoPhonenumber =
-                                                      _model
-                                                          .cusPhoneTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoOtherPhone =
-                                                      _model
-                                                          .cusPhoneOtherTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoEmail =
-                                                      _model
-                                                          .emailTextFieldTextController
-                                                          .text;
-                                                  FFAppState()
-                                                          .insuranceInfoAge =
-                                                      _model
-                                                          .ageTextFieldTextController
-                                                          .text;
-                                                });
+                                                FFAppState()
+                                                    .insuranceInfoIdCard = (FFAppState()
+                                                                .insuranceInfoCardType ==
+                                                            'บัตรประชาชน') ||
+                                                        (FFAppState().insuranceInfoCardType ==
+                                                            '1')
+                                                    ? _model
+                                                        .idCardTextFieldTextController1
+                                                        .text
+                                                    : _model
+                                                        .idCardTextFieldTextController2
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoFirstName =
+                                                    _model
+                                                        .cusNameTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoLastName =
+                                                    _model
+                                                        .cusLastnameTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoBirthDate =
+                                                    valueOrDefault<String>(
+                                                  () {
+                                                    if (_model.datePicked !=
+                                                        null) {
+                                                      return dateTimeFormat(
+                                                        'y-MM-dd',
+                                                        _model.datePicked,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      );
+                                                    } else if (FFAppState()
+                                                                .insuranceInfoBirthDate !=
+                                                            null &&
+                                                        FFAppState()
+                                                                .insuranceInfoBirthDate !=
+                                                            '') {
+                                                      return FFAppState()
+                                                          .insuranceInfoBirthDate;
+                                                    } else {
+                                                      return '';
+                                                    }
+                                                  }(),
+                                                  'กรุณาเลือก วัน/เดือน/ปี เกิด',
+                                                );
+                                                FFAppState()
+                                                        .insuranceInfoPhonenumber =
+                                                    _model
+                                                        .cusPhoneTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoOtherPhone =
+                                                    _model
+                                                        .cusPhoneOtherTextFieldTextController
+                                                        .text;
+                                                FFAppState()
+                                                        .insuranceInfoEmail =
+                                                    _model
+                                                        .emailTextFieldTextController
+                                                        .text;
+                                                FFAppState().insuranceInfoAge =
+                                                    _model
+                                                        .ageTextFieldTextController
+                                                        .text;
+                                                setState(() {});
                                                 _model.ibsAppSaveAPIoutputCMI =
                                                     await IbsApplicationsSaveCall
                                                         .call(
@@ -8334,11 +8301,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                     );
                                                   },
                                                 );
-                                                setState(() {
-                                                  FFAppState()
-                                                          .insuranceInfoPage1SaveDataCheckBool =
-                                                      true;
-                                                });
+                                                FFAppState()
+                                                        .insuranceInfoPage1SaveDataCheckBool =
+                                                    true;
+                                                setState(() {});
                                                 Navigator.pop(context);
                                               }
 

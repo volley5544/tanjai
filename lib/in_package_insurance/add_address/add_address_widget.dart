@@ -105,58 +105,55 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
           Navigator.pop(context);
           return;
         }
-        setState(() {
-          FFAppState().addAddressCallAPI = true;
-          FFAppState().addAddressProvinceId = GetAddressMasterCall.provinceid(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().addAddressProvinceName =
-              GetAddressMasterCall.provincename(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().addAddressDistrictName =
-              GetAddressMasterCall.districtname(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().addAddressSubdistrictName =
-              GetAddressMasterCall.subdistrictname(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-                  .toList()
-                  .cast<String>();
-          FFAppState().addAddressZipCode = GetAddressMasterCall.zipcode(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().addAddressKeyWord = GetAddressMasterCall.keyword(
-            (_model.getAddressMaster?.jsonBody ?? ''),
-          )!
-              .toList()
-              .cast<String>();
-          FFAppState().addAddressDistrictId = functions
-              .convertDynamicListToIntList(getJsonField(
-                (_model.getAddressMaster?.jsonBody ?? ''),
-                r'''$.results.data[:].district_id''',
-                true,
-              ))
-              .toList()
-              .cast<int>();
-          FFAppState().addAddressSubdistrictId = functions
-              .convertDynamicListToIntList(getJsonField(
-                (_model.getAddressMaster?.jsonBody ?? ''),
-                r'''$.results.data[:].subdistrict_id''',
-                true,
-              ))
-              .toList()
-              .cast<int>();
-        });
+        FFAppState().addAddressCallAPI = true;
+        FFAppState().addAddressProvinceId = GetAddressMasterCall.provinceid(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().addAddressProvinceName = GetAddressMasterCall.provincename(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().addAddressDistrictName = GetAddressMasterCall.districtname(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().addAddressSubdistrictName =
+            GetAddressMasterCall.subdistrictname(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+                .toList()
+                .cast<String>();
+        FFAppState().addAddressZipCode = GetAddressMasterCall.zipcode(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().addAddressKeyWord = GetAddressMasterCall.keyword(
+          (_model.getAddressMaster?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<String>();
+        FFAppState().addAddressDistrictId = functions
+            .convertDynamicListToIntList(getJsonField(
+              (_model.getAddressMaster?.jsonBody ?? ''),
+              r'''$.results.data[:].district_id''',
+              true,
+            ))
+            .toList()
+            .cast<int>();
+        FFAppState().addAddressSubdistrictId = functions
+            .convertDynamicListToIntList(getJsonField(
+              (_model.getAddressMaster?.jsonBody ?? ''),
+              r'''$.results.data[:].subdistrict_id''',
+              true,
+            ))
+            .toList()
+            .cast<int>();
+        setState(() {});
       }
       Navigator.pop(context);
     });
@@ -1502,22 +1499,6 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         '')) {
                                   if (_model.addressAtIdCardValue! &&
                                       !_model.addressForDocValue!) {
-                                    setState(() {
-                                      FFAppState().addAddressAtIdCard2 =
-                                          _model.address2TextController.text;
-                                      FFAppState().addAddressAtIdCard3 =
-                                          _model.address3TextController.text;
-                                      FFAppState().addAddressAtIdCardBool =
-                                          _model.addressAtIdCardValue!;
-                                      FFAppState().addAddressForDocBool =
-                                          _model.addressForDocValue!;
-                                      FFAppState().addAddressForDoc =
-                                          FFAppState().addAddressAtIdCard;
-                                    });
-                                    context.safePop();
-                                    return;
-                                  }
-                                  setState(() {
                                     FFAppState().addAddressAtIdCard2 =
                                         _model.address2TextController.text;
                                     FFAppState().addAddressAtIdCard3 =
@@ -1526,7 +1507,21 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         _model.addressAtIdCardValue!;
                                     FFAppState().addAddressForDocBool =
                                         _model.addressForDocValue!;
-                                  });
+                                    FFAppState().addAddressForDoc =
+                                        FFAppState().addAddressAtIdCard;
+                                    setState(() {});
+                                    context.safePop();
+                                    return;
+                                  }
+                                  FFAppState().addAddressAtIdCard2 =
+                                      _model.address2TextController.text;
+                                  FFAppState().addAddressAtIdCard3 =
+                                      _model.address3TextController.text;
+                                  FFAppState().addAddressAtIdCardBool =
+                                      _model.addressAtIdCardValue!;
+                                  FFAppState().addAddressForDocBool =
+                                      _model.addressForDocValue!;
+                                  setState(() {});
                                 } else {
                                   await showDialog(
                                     context: context,
@@ -1576,16 +1571,15 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                   );
                                   return;
                                 }
-                                setState(() {
-                                  FFAppState().addAddressAtIdCard2 =
-                                      _model.address2TextController.text;
-                                  FFAppState().addAddressAtIdCard3 =
-                                      _model.address3TextController.text;
-                                  FFAppState().addAddressForDoc2 =
-                                      _model.address4TextController.text;
-                                  FFAppState().addAddressForDoc3 =
-                                      _model.address5TextController.text;
-                                });
+                                FFAppState().addAddressAtIdCard2 =
+                                    _model.address2TextController.text;
+                                FFAppState().addAddressAtIdCard3 =
+                                    _model.address3TextController.text;
+                                FFAppState().addAddressForDoc2 =
+                                    _model.address4TextController.text;
+                                FFAppState().addAddressForDoc3 =
+                                    _model.address5TextController.text;
+                                setState(() {});
                                 context.safePop();
                               },
                               text: 'บันทึก',

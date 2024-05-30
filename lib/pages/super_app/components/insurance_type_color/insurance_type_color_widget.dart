@@ -94,9 +94,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                               size: 30.0,
                             ),
                             onPressed: () async {
-                              setState(() {
-                                FFAppState().searchList1 = '0';
-                              });
+                              FFAppState().searchList1 = '0';
+                              setState(() {});
                               Navigator.pop(context);
                             },
                           ),
@@ -182,9 +181,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                 setState(() =>
                                     _model.noRateCheckboxValue1 = newValue!);
                                 if (newValue!) {
-                                  setState(() {
-                                    FFAppState().searchList1 = 'manual';
-                                  });
+                                  FFAppState().searchList1 = 'manual';
+                                  setState(() {});
                                   Navigator.pop(context);
                                 }
                               },
@@ -270,9 +268,8 @@ class _InsuranceTypeColorWidgetState extends State<InsuranceTypeColorWidget> {
                                 setState(() =>
                                     _model.noRateCheckboxValue2 = newValue!);
                                 if (newValue!) {
-                                  setState(() {
-                                    FFAppState().searchList1 = 'auto';
-                                  });
+                                  FFAppState().searchList1 = 'auto';
+                                  setState(() {});
                                   Navigator.pop(context);
                                 }
                               },

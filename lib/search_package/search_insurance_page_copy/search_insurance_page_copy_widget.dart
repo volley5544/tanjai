@@ -116,20 +116,19 @@ class _SearchInsurancePageCopyWidgetState
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                setState(() {
-                  FFAppState().insuranceVehicleTypeDropDown = 'เลือกประเภทรถ';
-                  FFAppState().insuranceBasicBrandName = 'เลือกยี่ห้อรถ';
-                  FFAppState().insuranceBasicBrandId = '';
-                  FFAppState().isSelectBrandInPackage = false;
-                  FFAppState().insuranceBasicModelName = 'เลือกรุ่นรถ';
-                  FFAppState().insuranceBasicModelId = '';
-                  FFAppState().insuranceBasicYear = 'เลือกปีจดทะเบียน พ.ศ.';
-                  FFAppState().insuranceBasicVehicleUsedTypeName =
-                      'เลือกการใช้งาน';
-                  FFAppState().insuranceBasicCoverTypeNameOutputList = [];
-                  FFAppState().insuranceBasicGarageTypeInPackage = [];
-                  FFAppState().insuranceCarTypeDetailSelected = '';
-                });
+                FFAppState().insuranceVehicleTypeDropDown = 'เลือกประเภทรถ';
+                FFAppState().insuranceBasicBrandName = 'เลือกยี่ห้อรถ';
+                FFAppState().insuranceBasicBrandId = '';
+                FFAppState().isSelectBrandInPackage = false;
+                FFAppState().insuranceBasicModelName = 'เลือกรุ่นรถ';
+                FFAppState().insuranceBasicModelId = '';
+                FFAppState().insuranceBasicYear = 'เลือกปีจดทะเบียน พ.ศ.';
+                FFAppState().insuranceBasicVehicleUsedTypeName =
+                    'เลือกการใช้งาน';
+                FFAppState().insuranceBasicCoverTypeNameOutputList = [];
+                FFAppState().insuranceBasicGarageTypeInPackage = [];
+                FFAppState().insuranceCarTypeDetailSelected = '';
+                setState(() {});
 
                 context.goNamed('SuperAppPage');
               },
@@ -1463,12 +1462,10 @@ class _SearchInsurancePageCopyWidgetState
                                         );
                                         return;
                                       }
-                                      setState(() {
-                                        FFAppState()
-                                                .insuranceBasicOldVmiExpDate =
-                                            functions.getDateFormat(
-                                                _model.datePicked)!;
-                                      });
+                                      FFAppState().insuranceBasicOldVmiExpDate =
+                                          functions.getDateFormat(
+                                              _model.datePicked)!;
+                                      setState(() {});
                                       await actions.hideKeyboardAction(
                                         context,
                                       );
@@ -1804,11 +1801,10 @@ class _SearchInsurancePageCopyWidgetState
                                 );
                                 return;
                               }
-                              setState(() {
-                                FFAppState().filterInsurerList = [];
-                                FFAppState().filterGarageTypeList = [];
-                                FFAppState().filterCoverTypeList = [];
-                              });
+                              FFAppState().filterInsurerList = [];
+                              FFAppState().filterGarageTypeList = [];
+                              FFAppState().filterCoverTypeList = [];
+                              setState(() {});
 
                               context.pushNamed(
                                 'insurerListPage',
