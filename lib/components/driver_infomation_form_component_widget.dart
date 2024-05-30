@@ -93,6 +93,7 @@ class _DriverInfomationFormComponentWidgetState
       width: double.infinity,
       color: Colors.white,
       child: ExpandableNotifier(
+        key: ValueKey(widget.index!.toString()),
         controller: _model.expandableExpandableController,
         child: ExpandablePanel(
           header: Padding(
