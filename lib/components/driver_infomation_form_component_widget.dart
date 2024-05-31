@@ -11,6 +11,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,10 +26,12 @@ class DriverInfomationFormComponentWidget extends StatefulWidget {
     super.key,
     required this.index,
     required this.firestoreDataConfigList,
+    required this.clearFormTextfield,
   });
 
   final int? index;
   final DataListRecord? firestoreDataConfigList;
+  final Future Function()? clearFormTextfield;
 
   @override
   State<DriverInfomationFormComponentWidget> createState() =>
@@ -49,6 +52,28 @@ class _DriverInfomationFormComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => DriverInfomationFormComponentModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.firstnameTextfieldTextController?.text =
+            FFAppState().DriverList[widget.index!].firstNameTh != ''
+                ? FFAppState().DriverList[widget.index!].firstNameTh
+                : '';
+        _model.address4LastnameTextfieldTextController?.text =
+            FFAppState().DriverList[widget.index!].lastNameTh != ''
+                ? FFAppState().DriverList[widget.index!].lastNameTh
+                : '';
+        _model.thaiIdTextfieldTextController?.text =
+            FFAppState().DriverList[widget.index!].nationalThaiId != ''
+                ? FFAppState().DriverList[widget.index!].nationalThaiId
+                : '';
+        _model.driverLicenseTextfieldTextController?.text =
+            FFAppState().DriverList[widget.index!].licenseNo != ''
+                ? FFAppState().DriverList[widget.index!].licenseNo
+                : '';
+      });
+    });
 
     _model.firstnameTextfieldTextController ??= TextEditingController(
         text: FFAppState().DriverList[widget.index!].firstNameTh != ''
@@ -105,50 +130,52 @@ class _DriverInfomationFormComponentWidgetState
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  FFAppState().removeAtIndexFromDriverList(widget.index!);
-                  _model.updatePage(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderColor: Color(0xFFEF3939),
-                      borderRadius: 20.0,
-                      borderWidth: 2.0,
-                      buttonSize: 32.0,
-                      fillColor: Color(0x00616161),
-                      icon: FaIcon(
-                        FontAwesomeIcons.userMinus,
-                        color: Color(0xFFFF0000),
-                        size: 15.0,
+              if (false)
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().removeAtIndexFromDriverList(widget.index!);
+                    _model.updatePage(() {});
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FlutterFlowIconButton(
+                        borderColor: Color(0xFFEF3939),
+                        borderRadius: 20.0,
+                        borderWidth: 2.0,
+                        buttonSize: 32.0,
+                        fillColor: Color(0x00616161),
+                        icon: FaIcon(
+                          FontAwesomeIcons.userMinus,
+                          color: Color(0xFFFF0000),
+                          size: 15.0,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'ลบผู้ขับขี่',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Noto Sans Thai',
-                              color: Color(0xFFFF0000),
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'ลบผู้ขับขี่',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFFFF0000),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),

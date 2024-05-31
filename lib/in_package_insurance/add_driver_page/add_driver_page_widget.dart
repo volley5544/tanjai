@@ -148,6 +148,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                               index: driverDataListItemIndex,
                               firestoreDataConfigList:
                                   widget.firestoreDataConfigList!,
+                              clearFormTextfield: () async {},
                             ),
                           ).animateOnPageLoad(animationsMap[
                               'driverInfomationFormComponentOnPageLoadAnimation']!),
@@ -157,65 +158,119 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                   },
                 ),
               ),
-              if (FFAppState().DriverList.length < 5)
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      FFAppState().addToDriverList(DriverDataStruct(
-                        driverId: '',
-                        driverNo: '',
-                        applicationId: '',
-                        idTypeId: '',
-                        nationalThaiId: '',
-                        licenseNo: '',
-                        gender: '',
-                        titleThId: '',
-                        titleTh: '',
-                        firstNameTh: '',
-                        lastNameTh: '',
-                        birthDay: '',
-                        imageIdcard: '',
-                        imageLicenseNo: '',
-                        occupationId: '',
-                        occupationCode: '',
-                        occupationName: '',
-                        occupationSubcode: '',
-                        occupationSubname: '',
-                      ));
-                      setState(() {});
-                    },
-                    text: 'เพิ่มผู้ขับขี่',
-                    icon: Icon(
-                      Icons.person_add_sharp,
-                      size: 24.0,
-                    ),
-                    options: FFButtonOptions(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 60.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle: FlutterFlowTheme.of(context)
-                          .titleSmall
-                          .override(
-                            fontFamily: 'Noto Sans Thai',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    if (FFAppState().DriverList.length < 5)
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 8.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              FFAppState().addToDriverList(DriverDataStruct(
+                                driverId: '',
+                                driverNo: '',
+                                applicationId: '',
+                                idTypeId: '',
+                                nationalThaiId: '',
+                                licenseNo: '',
+                                gender: '',
+                                titleThId: '',
+                                titleTh: '',
+                                firstNameTh: '',
+                                lastNameTh: '',
+                                birthDay: '',
+                                imageIdcard: '',
+                                imageLicenseNo: '',
+                                occupationId: '',
+                                occupationCode: '',
+                                occupationName: '',
+                                occupationSubcode: '',
+                                occupationSubname: '',
+                              ));
+                              setState(() {});
+                            },
+                            text: 'เพิ่มผู้ขับขี่',
+                            icon: Icon(
+                              Icons.person_add_alt_rounded,
+                              size: 24.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
                           ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                  ),
+                    if (FFAppState().DriverList.length > 0)
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 8.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              FFAppState().removeAtIndexFromDriverList(
+                                  FFAppState().DriverList.length - 1);
+                              setState(() {});
+                            },
+                            text: 'ลบผู้ขับขี่',
+                            icon: Icon(
+                              Icons.person_remove_alt_1_rounded,
+                              size: 24.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: 60.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  24.0, 0.0, 24.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFFD80000),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                              elevation: 3.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
+              ),
               if (FFAppState().DriverList.length > 0)
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 20.0),
@@ -437,6 +492,9 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                         .DriverList[0]
                                         .occupationSubname,
                                 );
+                                setState(() {});
+                                FFAppState().loopCountTemp =
+                                    FFAppState().loopCountTemp + 1;
                                 setState(() {});
                               }
                               FFAppState().loopCountTemp = 0;
