@@ -72,7 +72,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
             },
           ),
           title: Text(
-            'เพิ่มผู้ขับขี่ (${'${FFAppState().DriverList.length.toString()}/5'})',
+            'เพิ่มผู้ขับขี่ (${'${FFAppState().DriverList.length == 1 ? ((FFAppState().DriverList.length == 1) && ((FFAppState().DriverList.first.firstNameTh != '') && (FFAppState().DriverList.first.lastNameTh != '') && (FFAppState().DriverList.first.birthDay != '') && (FFAppState().DriverList.first.nationalThaiId != '') && (FFAppState().DriverList.first.licenseNo != '') && (FFAppState().DriverList.first.imageIdcard != '') && (FFAppState().DriverList.first.imageLicenseNo != '')) ? FFAppState().DriverList.length.toString() : '0') : FFAppState().DriverList.length.toString()}/5'})',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Noto Sans Thai',
                   color: Color(0xFF204A77),
