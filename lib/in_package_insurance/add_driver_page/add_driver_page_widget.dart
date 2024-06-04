@@ -211,8 +211,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                 widget.index!,
                                 (e) => e
                                   ..driverId = ''
-                                  ..driverNo = (FFAppState().loopCountTemp + 1)
-                                      .toString()
+                                  ..driverNo = ((widget.index!) + 1).toString()
                                   ..applicationId =
                                       FFAppState().insuranceInfoApplicationId
                                   ..idTypeId = '1'

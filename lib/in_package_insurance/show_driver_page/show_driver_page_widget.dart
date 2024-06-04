@@ -141,44 +141,69 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                               .imageLicenseNo !=
                                           '')))
                               : true,
-                          child: Container(
-                            width: 100.0,
-                            height: 50.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 12.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      'ผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Noto Sans Thai',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'AddDriverPage',
+                                queryParameters: {
+                                  'firestoreDataConfigList': serializeParam(
+                                    widget.firestoreDataConfigList,
+                                    ParamType.Document,
                                   ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      '${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Noto Sans Thai',
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
+                                  'index': serializeParam(
+                                    driverListItemIndex,
+                                    ParamType.int,
                                   ),
-                                ],
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  'firestoreDataConfigList':
+                                      widget.firestoreDataConfigList,
+                                },
+                              );
+                            },
+                            child: Container(
+                              width: 100.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 12.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Text(
+                                        'ผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        '${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
