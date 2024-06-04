@@ -5151,3 +5151,7 @@ List<String>? generateDriverTitleList(int? numberInDriverList) {
 
   return outputList;
 }
+
+String? showThaiIdNumberForm(String? thaiId) {
+  return '${thaiId![0]}-${thaiId![1]}${thaiId![2]}${thaiId![3]}${thaiId![4]}-${thaiId![5]}${thaiId![6]}${thaiId![7]}${thaiId![8]}${thaiId![9]}-${thaiId![10]}${thaiId![11]}-${thaiId![12]}';
+}

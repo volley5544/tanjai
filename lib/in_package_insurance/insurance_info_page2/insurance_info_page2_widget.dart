@@ -5482,74 +5482,101 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'ไม่ระบุผู้ขับขี่',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color: Colors.black,
-                                                        fontSize: 15.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                              ),
-                                              if (false)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      (FFAppState().DriverList.length ==
+                                                                  0
+                                                              ? false
+                                                              : ((FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .firstNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .lastNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .birthDay !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .nationalThaiId !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .licenseNo !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .imageIdcard !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .imageLicenseNo !=
+                                                                      '')))
+                                                          ? 'ระบุผู้ขับขี่'
+                                                          : 'ไม่ระบุผู้ขับขี่',
+                                                      style: FlutterFlowTheme
                                                               .of(context)
-                                                          .secondaryBackground,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color:
-                                                            Color(0xFF9F9F9F),
-                                                        width: 1.0,
-                                                      ),
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
                                                     ),
                                                   ),
-                                                ),
-                                              if (false)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 25.0,
-                                                    height: 25.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .success,
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Icon(
-                                                        Icons.check,
-                                                        color: Colors.white,
-                                                        size: 18.0,
+                                                  if (FFAppState()
+                                                          .insuranceInfoEvFlag ==
+                                                      'Y')
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '(แตะเพื่อระบุผู้ขับขี่)',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Noto Sans Thai',
+                                                              color: Color(
+                                                                  0xFFFB0606),
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ),
+                                                ],
+                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -6897,6 +6924,89 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       if (_shouldSetState)
                                                         setState(() {});
                                                       return;
+                                                    }
+                                                    if (FFAppState()
+                                                            .insuranceInfoEvFlag ==
+                                                        'Y') {
+                                                      if (!() {
+                                                        if (FFAppState()
+                                                                .DriverList
+                                                                .length ==
+                                                            0) {
+                                                          return false;
+                                                        } else if (FFAppState()
+                                                                .DriverList
+                                                                .length ==
+                                                            1) {
+                                                          return ((FFAppState()
+                                                                      .DriverList
+                                                                      .length ==
+                                                                  1) &&
+                                                              ((FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .firstNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .lastNameTh !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .birthDay !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .nationalThaiId !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .licenseNo !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .imageIdcard !=
+                                                                      '') &&
+                                                                  (FFAppState()
+                                                                          .DriverList
+                                                                          .first
+                                                                          .imageLicenseNo !=
+                                                                      '')));
+                                                        } else {
+                                                          return true;
+                                                        }
+                                                      }()) {
+                                                        await showDialog(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  AlertDialog(
+                                                                content: Text(
+                                                                    'กรุณาระบุผู้ขับขี่อย่างน้อย 1 คน'),
+                                                                actions: [
+                                                                  TextButton(
+                                                                    onPressed: () =>
+                                                                        Navigator.pop(
+                                                                            alertDialogContext),
+                                                                    child: Text(
+                                                                        'Ok'),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+                                                        if (_shouldSetState)
+                                                          setState(() {});
+                                                        return;
+                                                      }
                                                     }
                                                   } else {
                                                     if (!functions

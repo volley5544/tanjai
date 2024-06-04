@@ -13259,6 +13259,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInTitleDriverList(int _index, String _value) {
     _titleDriverList.insert(_index, _value);
   }
+
+  String _searchPackageEvFlag = '';
+  String get searchPackageEvFlag => _searchPackageEvFlag;
+  set searchPackageEvFlag(String _value) {
+    _searchPackageEvFlag = _value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

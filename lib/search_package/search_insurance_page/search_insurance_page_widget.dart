@@ -79,6 +79,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
+      FFAppState().searchPackageEvFlag = 'N';
+      setState(() {});
       _model.adminVersionQuery = await queryAuthorizationRecordOnce(
         queryBuilder: (authorizationRecord) => authorizationRecord.where(
           'content_name',
@@ -1295,7 +1297,8 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           setState(() {});
         }
         Navigator.pop(context);
-        FFAppState().searchPackageSubProduct = 'EV';
+        FFAppState().searchPackageSubProduct = 'Motor';
+        FFAppState().searchPackageEvFlag = 'Y';
         setState(() {});
       }
     });
