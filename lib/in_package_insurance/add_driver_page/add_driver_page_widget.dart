@@ -196,7 +196,6 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                 driverDataListItemIndex,
                               ),
                               updateCallback: () => setState(() {}),
-                              updateOnChange: true,
                               child: DriverInfomationFormComponentWidget(
                                 key: Key(
                                   'Key12c_${driverDataListItemIndex.toString()}',

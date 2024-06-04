@@ -80,7 +80,7 @@ class _DriverInfomationFormComponentWidgetState
             ? FFAppState().DriverList[widget.index!].firstNameTh
             : '');
     _model.firstnameTextfieldFocusNode ??= FocusNode();
-    _model.firstnameTextfieldFocusNode!.addListener(() => setState(() {}));
+
     _model.address4LastnameTextfieldTextController ??= TextEditingController(
         text: FFAppState().DriverList[widget.index!].lastNameTh != ''
             ? FFAppState().DriverList[widget.index!].lastNameTh
