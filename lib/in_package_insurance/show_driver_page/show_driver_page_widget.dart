@@ -213,20 +213,71 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                   },
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    if (FFAppState().DriverList.length < 5)
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 8.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              if (FFAppState().DriverList.last.firstNameTh ==
-                                  '') {
+              Container(
+                decoration: BoxDecoration(),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      if (FFAppState().DriverList.length < 5)
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 8.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                if (FFAppState().DriverList.length != 0) {
+                                  if (FFAppState()
+                                          .DriverList
+                                          .last
+                                          .firstNameTh ==
+                                      '') {
+                                    context.pushNamed(
+                                      'AddDriverPage',
+                                      queryParameters: {
+                                        'firestoreDataConfigList':
+                                            serializeParam(
+                                          widget.firestoreDataConfigList,
+                                          ParamType.Document,
+                                        ),
+                                        'index': serializeParam(
+                                          FFAppState().DriverList.length - 1,
+                                          ParamType.int,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'firestoreDataConfigList':
+                                            widget.firestoreDataConfigList,
+                                      },
+                                    );
+
+                                    return;
+                                  }
+                                }
+                                FFAppState().addToDriverList(DriverDataStruct(
+                                  driverId: '',
+                                  driverNo: '',
+                                  applicationId: '',
+                                  idTypeId: '',
+                                  nationalThaiId: '',
+                                  licenseNo: '',
+                                  gender: '',
+                                  titleThId: '',
+                                  titleTh: '',
+                                  firstNameTh: '',
+                                  lastNameTh: '',
+                                  birthDay: '',
+                                  imageIdcard: '',
+                                  imageLicenseNo: '',
+                                  occupationId: '',
+                                  occupationCode: '',
+                                  occupationName: '',
+                                  occupationSubcode: '',
+                                  occupationSubname: '',
+                                ));
+                                setState(() {});
+
                                 context.pushNamed(
                                   'AddDriverPage',
                                   queryParameters: {
@@ -244,126 +295,118 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                         widget.firestoreDataConfigList,
                                   },
                                 );
-
-                                return;
-                              }
-                              FFAppState().addToDriverList(DriverDataStruct(
-                                driverId: '',
-                                driverNo: '',
-                                applicationId: '',
-                                idTypeId: '',
-                                nationalThaiId: '',
-                                licenseNo: '',
-                                gender: '',
-                                titleThId: '',
-                                titleTh: '',
-                                firstNameTh: '',
-                                lastNameTh: '',
-                                birthDay: '',
-                                imageIdcard: '',
-                                imageLicenseNo: '',
-                                occupationId: '',
-                                occupationCode: '',
-                                occupationName: '',
-                                occupationSubcode: '',
-                                occupationSubname: '',
-                              ));
-                              setState(() {});
-
-                              context.pushNamed(
-                                'AddDriverPage',
-                                queryParameters: {
-                                  'firestoreDataConfigList': serializeParam(
-                                    widget.firestoreDataConfigList,
-                                    ParamType.Document,
-                                  ),
-                                  'index': serializeParam(
-                                    FFAppState().DriverList.length - 1,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                                extra: <String, dynamic>{
-                                  'firestoreDataConfigList':
-                                      widget.firestoreDataConfigList,
-                                },
-                              );
-                            },
-                            text: 'เพิ่มผู้ขับขี่',
-                            icon: Icon(
-                              Icons.person_add_alt_rounded,
-                              size: 24.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                              },
+                              text: 'เพิ่มผู้ขับขี่',
+                              icon: Icon(
+                                Icons.person_add_alt_rounded,
+                                size: 24.0,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    if (FFAppState().DriverList.length > 0)
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              FFAppState().removeAtIndexFromDriverList(
-                                  FFAppState().DriverList.length - 1);
-                              setState(() {});
-                            },
-                            text: 'ลบผู้ขับขี่',
-                            icon: Icon(
-                              Icons.person_remove_alt_1_rounded,
-                              size: 24.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFFD80000),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
+                      if (FFAppState().DriverList.length > 0
+                          ? (FFAppState().DriverList.length == 1
+                              ? ((FFAppState().DriverList.length ==
+                                      1) &&
+                                  ((FFAppState()
+                                              .DriverList
+                                              .first
+                                              .firstNameTh !=
+                                          '') &&
+                                      (FFAppState().DriverList.first.lastNameTh !=
+                                          '') &&
+                                      (FFAppState().DriverList.first.birthDay !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .nationalThaiId !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .licenseNo !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .imageIdcard !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .imageLicenseNo !=
+                                          '')))
+                              : true)
+                          : true)
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 8.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                FFAppState().removeAtIndexFromDriverList(
+                                    FFAppState().DriverList.length - 1);
+                                setState(() {});
+                              },
+                              text: 'ลบผู้ขับขี่',
+                              icon: Icon(
+                                Icons.person_remove_alt_1_rounded,
+                                size: 24.0,
                               ),
-                              borderRadius: BorderRadius.circular(16.0),
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    24.0, 0.0, 24.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xFFD80000),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                elevation: 3.0,
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ]

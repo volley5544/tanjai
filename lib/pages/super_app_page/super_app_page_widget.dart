@@ -2733,7 +2733,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               child: Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                 child: Text(
-                                                                                  'ค้นหาประกันรถไฟฟ้า',
+                                                                                  'ค้นหาประกัน\nรถ EV',
                                                                                   textAlign: TextAlign.center,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'Noto Sans Thai',
