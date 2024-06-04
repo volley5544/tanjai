@@ -1,16 +1,12 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/driver_infomation_form_component_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -29,13 +25,10 @@ class AddDriverPageWidget extends StatefulWidget {
   State<AddDriverPageWidget> createState() => _AddDriverPageWidgetState();
 }
 
-class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
-    with TickerProviderStateMixin {
+class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
   late AddDriverPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -44,20 +37,6 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AddDriverPage'});
-    animationsMap.addAll({
-      'driverInfomationFormComponentOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 500.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -150,8 +129,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget>
                                   widget.firestoreDataConfigList!,
                               clearFormTextfield: () async {},
                             ),
-                          ).animateOnPageLoad(animationsMap[
-                              'driverInfomationFormComponentOnPageLoadAnimation']!),
+                          ),
                         );
                       },
                     );
