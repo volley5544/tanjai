@@ -1,12 +1,15 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/driver_infomation_form_component_widget.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -37,6 +40,14 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AddDriverPage'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      FFAppState().titleDriverList = functions
+          .generateDriverTitleList(FFAppState().DriverList.length)!
+          .toList()
+          .cast<String>();
+      setState(() {});
+    });
   }
 
   @override
@@ -92,6 +103,67 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      child: FlutterFlowChoiceChips(
+                        options: FFAppState()
+                            .titleDriverList
+                            .map((label) => ChipData(label))
+                            .toList(),
+                        onChanged: (val) => setState(
+                            () => _model.choiceChipsValue = val?.firstOrNull),
+                        selectedChipStyle: ChipStyle(
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Noto Sans Thai',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                              ),
+                          iconColor: FlutterFlowTheme.of(context).primaryText,
+                          iconSize: 18.0,
+                          elevation: 4.0,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        unselectedChipStyle: ChipStyle(
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).alternate,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Noto Sans Thai',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                letterSpacing: 0.0,
+                              ),
+                          iconColor: FlutterFlowTheme.of(context).secondaryText,
+                          iconSize: 18.0,
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(16.0),
+                        ),
+                        chipSpacing: 12.0,
+                        rowSpacing: 12.0,
+                        multiselect: false,
+                        initialized: _model.choiceChipsValue != null,
+                        alignment: WrapAlignment.start,
+                        controller: _model.choiceChipsValueController ??=
+                            FormFieldController<List<String>>(
+                          ['ผู้ขับ 1'],
+                        ),
+                        wrapped: true,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               Expanded(
                 child: Builder(
                   builder: (context) {
@@ -110,24 +182,30 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                       itemBuilder: (context, driverDataListItemIndex) {
                         final driverDataListItemItem =
                             driverDataListItem[driverDataListItemIndex];
-                        return Container(
-                          decoration: BoxDecoration(),
-                          child: wrapWithModel(
-                            model: _model.driverInfomationFormComponentModels
-                                .getModel(
-                              driverDataListItemIndex.toString(),
-                              driverDataListItemIndex,
-                            ),
-                            updateCallback: () => setState(() {}),
-                            updateOnChange: true,
-                            child: DriverInfomationFormComponentWidget(
-                              key: Key(
-                                'Key12c_${driverDataListItemIndex.toString()}',
+                        return Visibility(
+                          visible: functions.containWordinStringUrl(
+                                  (driverDataListItemIndex + 1).toString(),
+                                  _model.choiceChipsValue) ??
+                              true,
+                          child: Container(
+                            decoration: BoxDecoration(),
+                            child: wrapWithModel(
+                              model: _model.driverInfomationFormComponentModels
+                                  .getModel(
+                                driverDataListItemIndex.toString(),
+                                driverDataListItemIndex,
                               ),
-                              index: driverDataListItemIndex,
-                              firestoreDataConfigList:
-                                  widget.firestoreDataConfigList!,
-                              clearFormTextfield: () async {},
+                              updateCallback: () => setState(() {}),
+                              updateOnChange: true,
+                              child: DriverInfomationFormComponentWidget(
+                                key: Key(
+                                  'Key12c_${driverDataListItemIndex.toString()}',
+                                ),
+                                index: driverDataListItemIndex,
+                                firestoreDataConfigList:
+                                    widget.firestoreDataConfigList!,
+                                clearFormTextfield: () async {},
+                              ),
                             ),
                           ),
                         );
@@ -169,6 +247,8 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                 occupationSubcode: '',
                                 occupationSubname: '',
                               ));
+                              FFAppState().addToTitleDriverList(
+                                  'ผู้ขับ ${FFAppState().DriverList.length.toString()}');
                               setState(() {});
                             },
                             text: 'เพิ่มผู้ขับขี่',
@@ -212,6 +292,8 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                             onPressed: () async {
                               FFAppState().removeAtIndexFromDriverList(
                                   FFAppState().DriverList.length - 1);
+                              FFAppState().removeAtIndexFromTitleDriverList(
+                                  FFAppState().DriverList.length);
                               setState(() {});
                             },
                             text: 'ลบผู้ขับขี่',
@@ -510,7 +592,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                     ),
                   ),
                 ),
-            ],
+            ].addToStart(SizedBox(height: 12.0)),
           ),
         ),
       ),

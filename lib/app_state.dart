@@ -13230,6 +13230,35 @@ class FFAppState extends ChangeNotifier {
   set loopCountTemp(int _value) {
     _loopCountTemp = _value;
   }
+
+  List<String> _titleDriverList = [];
+  List<String> get titleDriverList => _titleDriverList;
+  set titleDriverList(List<String> _value) {
+    _titleDriverList = _value;
+  }
+
+  void addToTitleDriverList(String _value) {
+    _titleDriverList.add(_value);
+  }
+
+  void removeFromTitleDriverList(String _value) {
+    _titleDriverList.remove(_value);
+  }
+
+  void removeAtIndexFromTitleDriverList(int _index) {
+    _titleDriverList.removeAt(_index);
+  }
+
+  void updateTitleDriverListAtIndex(
+    int _index,
+    String Function(String) updateFn,
+  ) {
+    _titleDriverList[_index] = updateFn(_titleDriverList[_index]);
+  }
+
+  void insertAtIndexInTitleDriverList(int _index, String _value) {
+    _titleDriverList.insert(_index, _value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

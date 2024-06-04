@@ -5141,3 +5141,13 @@ bool? checkDateBeforeAnotherDate(
 List<dynamic>? changeDataTypeToJson(List<DriverDataStruct>? dataType) {
   return dataType!;
 }
+
+List<String>? generateDriverTitleList(int? numberInDriverList) {
+  List<String> outputList = [];
+
+  for (int i = 0; i < numberInDriverList!; i++) {
+    outputList.add('ผู้ขับ ${i + 1}');
+  }
+
+  return outputList;
+}
