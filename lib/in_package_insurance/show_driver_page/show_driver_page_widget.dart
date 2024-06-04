@@ -4,9 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'show_driver_page_model.dart';
@@ -36,14 +34,6 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ShowDriverPage'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().titleDriverList = functions
-          .generateDriverTitleList(FFAppState().DriverList.length)!
-          .toList()
-          .cast<String>();
-      setState(() {});
-    });
   }
 
   @override
@@ -117,44 +107,79 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                       itemBuilder: (context, driverListItemIndex) {
                         final driverListItemItem =
                             driverListItem[driverListItemIndex];
-                        return Container(
-                          width: 100.0,
-                          height: 50.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    'ผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          letterSpacing: 0.0,
-                                        ),
+                        return Visibility(
+                          visible: FFAppState().DriverList.length == 1
+                              ? ((FFAppState().DriverList.length ==
+                                      1) &&
+                                  ((FFAppState()
+                                              .DriverList
+                                              .first
+                                              .firstNameTh !=
+                                          '') &&
+                                      (FFAppState().DriverList.first.lastNameTh !=
+                                          '') &&
+                                      (FFAppState().DriverList.first.birthDay !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .nationalThaiId !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .licenseNo !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .imageIdcard !=
+                                          '') &&
+                                      (FFAppState()
+                                              .DriverList
+                                              .first
+                                              .imageLicenseNo !=
+                                          '')))
+                              : true,
+                          child: Container(
+                            width: 100.0,
+                            height: 50.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 0.0, 12.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      'ผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    '${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Noto Sans Thai',
-                                          letterSpacing: 0.0,
-                                        ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Text(
+                                      '${FFAppState().DriverList[driverListItemIndex].firstNameTh} ${FFAppState().DriverList[driverListItemIndex].lastNameTh}',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Noto Sans Thai',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         );

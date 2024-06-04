@@ -1543,7 +1543,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                             {
                                                                           'fromIcon':
                                                                               serializeParam(
-                                                                            'moto',
+                                                                            'motor',
                                                                             ParamType.String,
                                                                           ),
                                                                         }.withoutNulls,

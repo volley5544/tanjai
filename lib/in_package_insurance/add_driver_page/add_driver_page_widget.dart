@@ -154,30 +154,40 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                               .firstnameTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (_model.driverInfomationFormComponentModel.address4LastnameTextfieldTextController.text != null &&
+                                  (_model
+                                              .driverInfomationFormComponentModel
+                                              .address4LastnameTextfieldTextController
+                                              .text !=
+                                          null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .address4LastnameTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (FFAppState().DriverList[FFAppState().loopCountTemp].birthDay != null &&
-                                      FFAppState().DriverList[FFAppState().loopCountTemp].birthDay !=
-                                          '') &&
-                                  (_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != null &&
+                                  (FFAppState().DriverList[widget.index!].birthDay !=
+                                      '') &&
+                                  (_model
+                                              .driverInfomationFormComponentModel
+                                              .thaiIdTextfieldTextController
+                                              .text !=
+                                          null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .thaiIdTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController.text != null &&
+                                  (_model
+                                              .driverInfomationFormComponentModel
+                                              .driverLicenseTextfieldTextController
+                                              .text !=
+                                          null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .driverLicenseTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard != null &&
-                                      FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard != '') &&
-                                  (FFAppState().DriverList[FFAppState().loopCountTemp].imageLicenseNo != null && FFAppState().DriverList[FFAppState().loopCountTemp].imageLicenseNo != ''))) {
+                                  (FFAppState().DriverList[widget.index!].imageIdcard != '') &&
+                                  (FFAppState().DriverList[widget.index!].imageLicenseNo != ''))) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -215,9 +225,13 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                       .driverInfomationFormComponentModel
                                       .driverLicenseTextfieldTextController
                                       .text
-                                  ..gender = FFAppState().DriverList[0].gender
+                                  ..gender = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .gender
                                   ..titleThId = ''
-                                  ..titleTh = FFAppState().DriverList[0].titleTh
+                                  ..titleTh = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .titleTh
                                   ..firstNameTh = _model
                                       .driverInfomationFormComponentModel
                                       .firstnameTextfieldTextController
@@ -226,20 +240,25 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                       .driverInfomationFormComponentModel
                                       .address4LastnameTextfieldTextController
                                       .text
-                                  ..birthDay =
-                                      FFAppState().DriverList[0].birthDay
-                                  ..imageIdcard =
-                                      FFAppState().DriverList[0].imageIdcard
-                                  ..imageLicenseNo =
-                                      FFAppState().DriverList[0].imageLicenseNo
+                                  ..birthDay = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .birthDay
+                                  ..imageIdcard = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .imageIdcard
+                                  ..imageLicenseNo = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .imageLicenseNo
                                   ..occupationId = ''
-                                  ..occupationCode =
-                                      FFAppState().DriverList[0].occupationCode
-                                  ..occupationName =
-                                      FFAppState().DriverList[0].occupationName
+                                  ..occupationCode = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .occupationCode
+                                  ..occupationName = FFAppState()
+                                      .DriverList[widget.index!]
+                                      .occupationName
                                   ..occupationSubcode = ''
                                   ..occupationSubname = FFAppState()
-                                      .DriverList[0]
+                                      .DriverList[widget.index!]
                                       .occupationSubname,
                               );
                               setState(() {});
