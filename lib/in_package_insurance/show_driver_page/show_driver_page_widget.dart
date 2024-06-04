@@ -372,14 +372,19 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                     .max,
                                                             children: [
                                                               Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions.showDateBE(FFAppState()
-                                                                      .DriverList[
-                                                                          driverListItemIndex]
-                                                                      .birthDay),
-                                                                  '-',
-                                                                ),
+                                                                FFAppState()
+                                                                            .DriverList[
+                                                                                driverListItemIndex]
+                                                                            .birthDay !=
+                                                                        ''
+                                                                    ? valueOrDefault<
+                                                                        String>(
+                                                                        functions.showDateBE(FFAppState()
+                                                                            .DriverList[driverListItemIndex]
+                                                                            .birthDay),
+                                                                        '-',
+                                                                      )
+                                                                    : '-',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -533,14 +538,16 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  valueOrDefault<
-                                                                      String>(
-                                                                    functions.showThaiIdNumberForm(FFAppState()
-                                                                        .DriverList[
-                                                                            driverListItemIndex]
-                                                                        .nationalThaiId),
-                                                                    '-',
-                                                                  ),
+                                                                  FFAppState().DriverList[driverListItemIndex].nationalThaiId !=
+                                                                          ''
+                                                                      ? valueOrDefault<
+                                                                          String>(
+                                                                          functions.showThaiIdNumberForm(FFAppState()
+                                                                              .DriverList[driverListItemIndex]
+                                                                              .nationalThaiId),
+                                                                          '-',
+                                                                        )
+                                                                      : '-',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
