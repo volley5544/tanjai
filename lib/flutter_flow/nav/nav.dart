@@ -1786,6 +1786,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'firestoreDataConfigList',
                   ParamType.Document,
                 ),
+                index: params.getParam(
+                  'index',
+                  ParamType.int,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'ShowDriverPage',
+              path: 'showDriverPage',
+              asyncParams: {
+                'firestoreDataConfigList':
+                    getDoc(['dataList'], DataListRecord.fromSnapshot),
+              },
+              builder: (context, params) => ShowDriverPageWidget(
+                firestoreDataConfigList: params.getParam(
+                  'firestoreDataConfigList',
+                  ParamType.Document,
+                ),
               ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),

@@ -5449,7 +5449,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   .insuranceInfoEvFlag ==
                                               'Y') {
                                             context.pushNamed(
-                                              'AddDriverPage',
+                                              'ShowDriverPage',
                                               queryParameters: {
                                                 'firestoreDataConfigList':
                                                     serializeParam(

@@ -516,6 +516,13 @@ final parametersBuilderMap =
         allParams: {
           'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
+          'index': getParameter<int>(data, 'index'),
+        },
+      ),
+  'ShowDriverPage': (data) async => ParameterData(
+        allParams: {
+          'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
+              data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
         },
       ),
 };

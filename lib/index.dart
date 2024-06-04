@@ -161,3 +161,5 @@ export '/search_package/for_dupe_ui/for_dupe_ui_widget.dart'
     show ForDupeUiWidget;
 export '/in_package_insurance/add_driver_page/add_driver_page_widget.dart'
     show AddDriverPageWidget;
+export '/in_package_insurance/show_driver_page/show_driver_page_widget.dart'
+    show ShowDriverPageWidget;

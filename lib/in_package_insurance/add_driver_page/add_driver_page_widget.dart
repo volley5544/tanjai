@@ -1,12 +1,10 @@
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/driver_infomation_form_component_widget.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,9 +18,11 @@ class AddDriverPageWidget extends StatefulWidget {
   const AddDriverPageWidget({
     super.key,
     required this.firestoreDataConfigList,
+    required this.index,
   });
 
   final DataListRecord? firestoreDataConfigList;
+  final int? index;
 
   @override
   State<AddDriverPageWidget> createState() => _AddDriverPageWidgetState();
@@ -103,230 +103,31 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.fromLTRB(
+                    0,
+                    12.0,
+                    0,
+                    30.0,
+                  ),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                      child: FlutterFlowChoiceChips(
-                        options: FFAppState()
-                            .titleDriverList
-                            .map((label) => ChipData(label))
-                            .toList(),
-                        onChanged: (val) => setState(
-                            () => _model.choiceChipsValue = val?.firstOrNull),
-                        selectedChipStyle: ChipStyle(
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).secondary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Noto Sans Thai',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                letterSpacing: 0.0,
-                              ),
-                          iconColor: FlutterFlowTheme.of(context).primaryText,
-                          iconSize: 18.0,
-                          elevation: 4.0,
-                          borderRadius: BorderRadius.circular(16.0),
+                    Container(
+                      decoration: BoxDecoration(),
+                      child: wrapWithModel(
+                        model: _model.driverInfomationFormComponentModel,
+                        updateCallback: () => setState(() {}),
+                        updateOnChange: true,
+                        child: DriverInfomationFormComponentWidget(
+                          index: widget.index!,
+                          firestoreDataConfigList:
+                              widget.firestoreDataConfigList!,
+                          clearFormTextfield: () async {},
                         ),
-                        unselectedChipStyle: ChipStyle(
-                          backgroundColor:
-                              FlutterFlowTheme.of(context).alternate,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'Noto Sans Thai',
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                letterSpacing: 0.0,
-                              ),
-                          iconColor: FlutterFlowTheme.of(context).secondaryText,
-                          iconSize: 18.0,
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(16.0),
-                        ),
-                        chipSpacing: 12.0,
-                        rowSpacing: 12.0,
-                        multiselect: false,
-                        initialized: _model.choiceChipsValue != null,
-                        alignment: WrapAlignment.start,
-                        controller: _model.choiceChipsValueController ??=
-                            FormFieldController<List<String>>(
-                          ['ผู้ขับ 1'],
-                        ),
-                        wrapped: true,
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Builder(
-                  builder: (context) {
-                    final driverDataListItem =
-                        FFAppState().DriverList.toList().take(5).toList();
-                    return ListView.builder(
-                      padding: EdgeInsets.fromLTRB(
-                        0,
-                        12.0,
-                        0,
-                        30.0,
-                      ),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: driverDataListItem.length,
-                      itemBuilder: (context, driverDataListItemIndex) {
-                        final driverDataListItemItem =
-                            driverDataListItem[driverDataListItemIndex];
-                        return Visibility(
-                          visible: functions.containWordinStringUrl(
-                                  (driverDataListItemIndex + 1).toString(),
-                                  _model.choiceChipsValue) ??
-                              true,
-                          child: Container(
-                            decoration: BoxDecoration(),
-                            child: wrapWithModel(
-                              model: _model.driverInfomationFormComponentModels
-                                  .getModel(
-                                driverDataListItemIndex.toString(),
-                                driverDataListItemIndex,
-                              ),
-                              updateCallback: () => setState(() {}),
-                              child: DriverInfomationFormComponentWidget(
-                                key: Key(
-                                  'Key12c_${driverDataListItemIndex.toString()}',
-                                ),
-                                index: driverDataListItemIndex,
-                                firestoreDataConfigList:
-                                    widget.firestoreDataConfigList!,
-                                clearFormTextfield: () async {},
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    );
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    if (FFAppState().DriverList.length < 5)
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 8.0, 8.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              FFAppState().addToDriverList(DriverDataStruct(
-                                driverId: '',
-                                driverNo: '',
-                                applicationId: '',
-                                idTypeId: '',
-                                nationalThaiId: '',
-                                licenseNo: '',
-                                gender: '',
-                                titleThId: '',
-                                titleTh: '',
-                                firstNameTh: '',
-                                lastNameTh: '',
-                                birthDay: '',
-                                imageIdcard: '',
-                                imageLicenseNo: '',
-                                occupationId: '',
-                                occupationCode: '',
-                                occupationName: '',
-                                occupationSubcode: '',
-                                occupationSubname: '',
-                              ));
-                              FFAppState().addToTitleDriverList(
-                                  'ผู้ขับ ${FFAppState().DriverList.length.toString()}');
-                              setState(() {});
-                            },
-                            text: 'เพิ่มผู้ขับขี่',
-                            icon: Icon(
-                              Icons.person_add_alt_rounded,
-                              size: 24.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                          ),
-                        ),
-                      ),
-                    if (FFAppState().DriverList.length > 0)
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 0.0, 0.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              FFAppState().removeAtIndexFromDriverList(
-                                  FFAppState().DriverList.length - 1);
-                              FFAppState().removeAtIndexFromTitleDriverList(
-                                  FFAppState().DriverList.length);
-                              setState(() {});
-                            },
-                            text: 'ลบผู้ขับขี่',
-                            icon: Icon(
-                              Icons.person_remove_alt_1_rounded,
-                              size: 24.0,
-                            ),
-                            options: FFButtonOptions(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFFD80000),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Noto Sans Thai',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                          ),
-                        ),
-                      ),
                   ],
                 ),
               ),
@@ -347,14 +148,42 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                               16.0, 0.0, 16.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              if (FFAppState().DriverList.length <= 0) {
+                              if (!((_model.driverInfomationFormComponentModel.firstnameTextfieldTextController.text != null &&
+                                      _model
+                                              .driverInfomationFormComponentModel
+                                              .firstnameTextfieldTextController
+                                              .text !=
+                                          '') &&
+                                  (_model.driverInfomationFormComponentModel.address4LastnameTextfieldTextController.text != null &&
+                                      _model
+                                              .driverInfomationFormComponentModel
+                                              .address4LastnameTextfieldTextController
+                                              .text !=
+                                          '') &&
+                                  (FFAppState().DriverList[FFAppState().loopCountTemp].birthDay != null &&
+                                      FFAppState().DriverList[FFAppState().loopCountTemp].birthDay !=
+                                          '') &&
+                                  (_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != null &&
+                                      _model
+                                              .driverInfomationFormComponentModel
+                                              .thaiIdTextfieldTextController
+                                              .text !=
+                                          '') &&
+                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController.text != null &&
+                                      _model
+                                              .driverInfomationFormComponentModel
+                                              .driverLicenseTextfieldTextController
+                                              .text !=
+                                          '') &&
+                                  (FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard != null &&
+                                      FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard != '') &&
+                                  (FFAppState().DriverList[FFAppState().loopCountTemp].imageLicenseNo != null && FFAppState().DriverList[FFAppState().loopCountTemp].imageLicenseNo != ''))) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return WebViewAware(
                                       child: AlertDialog(
-                                        content: Text(
-                                            'กรุณาเพิ่มผู้ขับขี่อย่างน้อย 1 คน'),
+                                        content: Text('กรุณากรอกข้อมูลให้ครบ'),
                                         actions: [
                                           TextButton(
                                             onPressed: () => Navigator.pop(
@@ -368,195 +197,51 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                 );
                                 return;
                               }
-                              while (FFAppState().loopCountTemp <
-                                  FFAppState().DriverList.length) {
-                                if (!((_model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .firstnameTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            null &&
-                                        _model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .firstnameTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            '') &&
-                                    (_model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .address4LastnameTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            null &&
-                                        _model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .address4LastnameTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            '') &&
-                                    (FFAppState().DriverList[FFAppState().loopCountTemp].birthDay !=
-                                            null &&
-                                        FFAppState().DriverList[FFAppState().loopCountTemp].birthDay !=
-                                            '') &&
-                                    (_model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .thaiIdTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            null &&
-                                        _model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .thaiIdTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            '') &&
-                                    (_model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .driverLicenseTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            null &&
-                                        _model.driverInfomationFormComponentModels
-                                                .getValueForKey(
-                                              FFAppState()
-                                                  .loopCountTemp
-                                                  .toString(),
-                                              (m) => m
-                                                  .driverLicenseTextfieldTextController
-                                                  .text,
-                                            ) !=
-                                            '') &&
-                                    (FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard !=
-                                            null &&
-                                        FFAppState().DriverList[FFAppState().loopCountTemp].imageIdcard !=
-                                            '') &&
-                                    (FFAppState()
-                                                .DriverList[
-                                                    FFAppState().loopCountTemp]
-                                                .imageLicenseNo !=
-                                            null &&
-                                        FFAppState()
-                                                .DriverList[FFAppState().loopCountTemp]
-                                                .imageLicenseNo !=
-                                            ''))) {
-                                  await showDialog(
-                                    context: context,
-                                    builder: (alertDialogContext) {
-                                      return WebViewAware(
-                                        child: AlertDialog(
-                                          content:
-                                              Text('กรุณากรอกข้อมูลให้ครบ'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                  return;
-                                }
-                                FFAppState().updateDriverListAtIndex(
-                                  FFAppState().loopCountTemp,
-                                  (e) => e
-                                    ..driverId = ''
-                                    ..driverNo =
-                                        (FFAppState().loopCountTemp + 1)
-                                            .toString()
-                                    ..applicationId =
-                                        FFAppState().insuranceInfoApplicationId
-                                    ..idTypeId = '1'
-                                    ..nationalThaiId =
-                                        functions.removeCommaFromNumText(_model
-                                            .driverInfomationFormComponentModels
-                                            .getValueForKey(
-                                      FFAppState().loopCountTemp.toString(),
-                                      (m) =>
-                                          m.thaiIdTextfieldTextController.text,
-                                    ))
-                                    ..licenseNo = _model
-                                        .driverInfomationFormComponentModels
-                                        .getValueForKey(
-                                      FFAppState().loopCountTemp.toString(),
-                                      (m) => m
-                                          .driverLicenseTextfieldTextController
-                                          .text,
-                                    )
-                                    ..gender = FFAppState().DriverList[0].gender
-                                    ..titleThId = ''
-                                    ..titleTh =
-                                        FFAppState().DriverList[0].titleTh
-                                    ..firstNameTh = _model
-                                        .driverInfomationFormComponentModels
-                                        .getValueForKey(
-                                      FFAppState().loopCountTemp.toString(),
-                                      (m) => m.firstnameTextfieldTextController
-                                          .text,
-                                    )
-                                    ..lastNameTh = _model
-                                        .driverInfomationFormComponentModels
-                                        .getValueForKey(
-                                      FFAppState().loopCountTemp.toString(),
-                                      (m) => m
-                                          .address4LastnameTextfieldTextController
-                                          .text,
-                                    )
-                                    ..birthDay =
-                                        FFAppState().DriverList[0].birthDay
-                                    ..imageIdcard =
-                                        FFAppState().DriverList[0].imageIdcard
-                                    ..imageLicenseNo = FFAppState()
-                                        .DriverList[0]
-                                        .imageLicenseNo
-                                    ..occupationId = ''
-                                    ..occupationCode = FFAppState()
-                                        .DriverList[0]
-                                        .occupationCode
-                                    ..occupationName = FFAppState()
-                                        .DriverList[0]
-                                        .occupationName
-                                    ..occupationSubcode = ''
-                                    ..occupationSubname = FFAppState()
-                                        .DriverList[0]
-                                        .occupationSubname,
-                                );
-                                setState(() {});
-                                FFAppState().loopCountTemp =
-                                    FFAppState().loopCountTemp + 1;
-                                setState(() {});
-                              }
-                              FFAppState().loopCountTemp = 0;
+                              FFAppState().updateDriverListAtIndex(
+                                widget.index!,
+                                (e) => e
+                                  ..driverId = ''
+                                  ..driverNo = (FFAppState().loopCountTemp + 1)
+                                      .toString()
+                                  ..applicationId =
+                                      FFAppState().insuranceInfoApplicationId
+                                  ..idTypeId = '1'
+                                  ..nationalThaiId =
+                                      functions.removeCommaFromNumText(_model
+                                          .driverInfomationFormComponentModel
+                                          .thaiIdTextfieldTextController
+                                          .text)
+                                  ..licenseNo = _model
+                                      .driverInfomationFormComponentModel
+                                      .driverLicenseTextfieldTextController
+                                      .text
+                                  ..gender = FFAppState().DriverList[0].gender
+                                  ..titleThId = ''
+                                  ..titleTh = FFAppState().DriverList[0].titleTh
+                                  ..firstNameTh = _model
+                                      .driverInfomationFormComponentModel
+                                      .firstnameTextfieldTextController
+                                      .text
+                                  ..lastNameTh = _model
+                                      .driverInfomationFormComponentModel
+                                      .address4LastnameTextfieldTextController
+                                      .text
+                                  ..birthDay =
+                                      FFAppState().DriverList[0].birthDay
+                                  ..imageIdcard =
+                                      FFAppState().DriverList[0].imageIdcard
+                                  ..imageLicenseNo =
+                                      FFAppState().DriverList[0].imageLicenseNo
+                                  ..occupationId = ''
+                                  ..occupationCode =
+                                      FFAppState().DriverList[0].occupationCode
+                                  ..occupationName =
+                                      FFAppState().DriverList[0].occupationName
+                                  ..occupationSubcode = ''
+                                  ..occupationSubname = FFAppState()
+                                      .DriverList[0]
+                                      .occupationSubname,
+                              );
                               setState(() {});
                               context.safePop();
                             },
