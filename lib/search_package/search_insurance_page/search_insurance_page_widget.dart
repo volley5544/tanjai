@@ -152,6 +152,11 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       setState(() {});
       if (widget.fromIcon == 'MC') {
         if (!FFAppState().insuranceRequestIsLoadDataMc) {
+          FFAppState().insuranceCarTypeDetailSelected = '';
+          FFAppState().insuranceBasicVehicleGroup = '';
+          FFAppState().insuranceBasicCarTypeContain = '';
+          FFAppState().insuranceBasicCarTypeDoors = '';
+          setState(() {});
           _model.getBrandMCAPI = await TeleGetBrandMCAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );

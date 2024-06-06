@@ -813,7 +813,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
               ) != '') ? IbsApplicationsDetailCall.netpremiumtotalAppdetail(
               (_model.detailAPIOutput?.jsonBody ?? ''),
-            ) : '${IbsApplicationsDetailCall.netpremium(
+            ) : '${IbsApplicationsDetailCall.grosstotalnetList(
               (_model.detailAPIOutput?.jsonBody ?? ''),
             )?[functions.getIndexOfIntList(functions.convertDynamicListToIntList(getJsonField(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -882,16 +882,52 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
       setState(() {});
-      FFAppState().DriverList = IbsApplicationsDetailCall.appdriver(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )!
-          .toList()
-          .cast<DriverDataStruct>();
-      FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
-        (_model.detailAPIOutput?.jsonBody ?? ''),
-      )!
-          .first;
+      FFAppState().DriverList = [];
       setState(() {});
+      if (IbsApplicationsDetailCall.appdriver(
+                (_model.detailAPIOutput?.jsonBody ?? ''),
+              ) !=
+              null &&
+          (IbsApplicationsDetailCall.appdriver(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ))!
+              .isNotEmpty) {
+        FFAppState().DriverList = IbsApplicationsDetailCall.appdriver(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .toList()
+            .cast<DriverDataStruct>();
+        FFAppState().insuranceInfoEvFlag = IbsApplicationsDetailCall.evflag(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )!
+            .first;
+        setState(() {});
+      } else {
+        FFAppState().addToDriverList(DriverDataStruct(
+          driverId: '',
+          driverNo: '',
+          applicationId: '',
+          idTypeId: '',
+          nationalThaiId: '',
+          licenseNo: '',
+          gender: '',
+          titleThId: '',
+          titleTh: '',
+          firstNameTh: '',
+          lastNameTh: '',
+          birthDay: '',
+          imageIdcard: '',
+          imageLicenseNo: '',
+          occupationId: '',
+          occupationCode: '',
+          occupationName: '',
+          occupationSubcode: '',
+          occupationSubname: '',
+        ));
+        FFAppState().insuranceInfoEvFlag = 'N';
+        setState(() {});
+      }
+
       FFAppState().insuranceInfoPage4FileLoanApplicationRegister =
           '${IbsApplicationsDetailCall.imgfileloanapplicationregister(
         (_model.detailAPIOutput?.jsonBody ?? ''),

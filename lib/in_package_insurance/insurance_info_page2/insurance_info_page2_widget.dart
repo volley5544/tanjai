@@ -8127,6 +8127,8 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       .DriverList
                                                       .map((e) => e.toMap())
                                                       .toList(),
+                                                  evFlag: FFAppState()
+                                                      .insuranceInfoEvFlag,
                                                 );
                                                 _shouldSetState = true;
                                                 if ((_model.ibsAppAPIOutput

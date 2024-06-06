@@ -11972,11 +11972,13 @@ class IbsApplicationsSaveCall {
     String? imageQuotationInsurer = '',
     String? subProduct = '',
     dynamic? appDriverJson,
+    String? evFlag = '',
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final ffApiRequestBody = '''
 {
+"ev_flag":"${evFlag}",
 "app_driver":${appDriver},
 "sub_product":"${subProduct}",
   "image_quotation_insurer": "${imageQuotationInsurer}",

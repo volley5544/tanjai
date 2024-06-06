@@ -671,7 +671,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 8.0, 0.0),
+                                0.0, 8.0, 0.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 if (FFAppState().DriverList.length != 0) {
@@ -776,46 +776,45 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                           ),
                         ),
                       if (() {
-                        if (FFAppState().DriverList.length == 0) {
-                          return false;
-                        } else if (FFAppState().DriverList.length > 0) {
-                          return (FFAppState().DriverList.length == 1
-                              ? ((FFAppState().DriverList.length ==
-                                      1) &&
-                                  ((FFAppState()
-                                              .DriverList
-                                              .first
-                                              .firstNameTh !=
-                                          '') &&
-                                      (FFAppState().DriverList.first.lastNameTh !=
-                                          '') &&
-                                      (FFAppState().DriverList.first.birthDay !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .first
-                                              .nationalThaiId !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .first
-                                              .licenseNo !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .first
-                                              .imageIdcard !=
-                                          '') &&
-                                      (FFAppState()
-                                              .DriverList
-                                              .first
-                                              .imageLicenseNo !=
-                                          '')))
-                              : true);
-                        } else {
-                          return true;
-                        }
-                      }())
+                            if (FFAppState().DriverList.length == 0) {
+                              return false;
+                            } else if (FFAppState().DriverList.length > 0) {
+                              return (FFAppState().DriverList.length == 1
+                                  ? ((FFAppState().DriverList.length == 1) &&
+                                      ((FFAppState().DriverList.first.firstNameTh != '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .first
+                                                  .lastNameTh !=
+                                              '') &&
+                                          (FFAppState().DriverList.first.birthDay !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .first
+                                                  .nationalThaiId !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .first
+                                                  .licenseNo !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .first
+                                                  .imageIdcard !=
+                                              '') &&
+                                          (FFAppState()
+                                                  .DriverList
+                                                  .first
+                                                  .imageLicenseNo !=
+                                              '')))
+                                  : true);
+                            } else {
+                              return true;
+                            }
+                          }() &&
+                          false)
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
