@@ -517,6 +517,7 @@ final parametersBuilderMap =
           'firestoreDataConfigList': await getDocumentParameter<DataListRecord>(
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
           'index': getParameter<int>(data, 'index'),
+          'isEditing': getParameter<bool>(data, 'isEditing'),
         },
       ),
   'ShowDriverPage': (data) async => ParameterData(
@@ -525,6 +526,7 @@ final parametersBuilderMap =
               data, 'firestoreDataConfigList', DataListRecord.fromSnapshot),
         },
       ),
+  'GeminiPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

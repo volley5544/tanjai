@@ -1790,6 +1790,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'index',
                   ParamType.int,
                 ),
+                isEditing: params.getParam(
+                  'isEditing',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(
@@ -1805,6 +1809,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ParamType.Document,
                 ),
               ),
+            ),
+            FFRoute(
+              name: 'GeminiPage',
+              path: 'GeminiPage',
+              builder: (context, params) => GeminiPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

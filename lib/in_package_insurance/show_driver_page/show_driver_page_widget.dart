@@ -8,6 +8,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'show_driver_page_model.dart';
 export 'show_driver_page_model.dart';
 
@@ -161,6 +162,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                     'index': serializeParam(
                                       driverListItemIndex,
                                       ParamType.int,
+                                    ),
+                                    'isEditing': serializeParam(
+                                      true,
+                                      ParamType.bool,
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
@@ -645,6 +650,144 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                                 ],
                                               ),
                                             ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        var confirmDialogResponse =
+                                                            await showDialog<
+                                                                    bool>(
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (alertDialogContext) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          AlertDialog(
+                                                                        content:
+                                                                            Text('คุณต้องการจะลบผู้ขับขี่ที่ ${(driverListItemIndex + 1).toString()} หรือไม่?'),
+                                                                        actions: [
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext, false),
+                                                                            child:
+                                                                                Text('ยกเลิก'),
+                                                                          ),
+                                                                          TextButton(
+                                                                            onPressed: () =>
+                                                                                Navigator.pop(alertDialogContext, true),
+                                                                            child:
+                                                                                Text('ลบ'),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ) ??
+                                                                false;
+                                                        if (!confirmDialogResponse) {
+                                                          return;
+                                                        }
+                                                        FFAppState()
+                                                            .removeAtIndexFromDriverList(
+                                                                driverListItemIndex);
+                                                        FFAppState()
+                                                            .loopCountTemp = 0;
+                                                        setState(() {});
+                                                        while (FFAppState()
+                                                                .loopCountTemp <
+                                                            FFAppState()
+                                                                .DriverList
+                                                                .length) {
+                                                          FFAppState()
+                                                              .updateDriverListAtIndex(
+                                                            FFAppState()
+                                                                .loopCountTemp,
+                                                            (e) => e
+                                                              ..driverNo =
+                                                                  (FFAppState()
+                                                                              .loopCountTemp +
+                                                                          1)
+                                                                      .toString(),
+                                                          );
+                                                          FFAppState()
+                                                                  .loopCountTemp =
+                                                              FFAppState()
+                                                                      .loopCountTemp +
+                                                                  1;
+                                                          setState(() {});
+                                                        }
+                                                        FFAppState()
+                                                            .loopCountTemp = 0;
+                                                        setState(() {});
+                                                      },
+                                                      text: 'ลบผู้ขับขี่',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .person_remove_alt_1_rounded,
+                                                        size: 24.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 150.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            Color(0xFFD80000),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                        elevation: 3.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -692,6 +835,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                           FFAppState().DriverList.length - 1,
                                           ParamType.int,
                                         ),
+                                        'isEditing': serializeParam(
+                                          true,
+                                          ParamType.bool,
+                                        ),
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
                                         'firestoreDataConfigList':
@@ -735,6 +882,10 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                     'index': serializeParam(
                                       FFAppState().DriverList.length - 1,
                                       ParamType.int,
+                                    ),
+                                    'isEditing': serializeParam(
+                                      false,
+                                      ParamType.bool,
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{

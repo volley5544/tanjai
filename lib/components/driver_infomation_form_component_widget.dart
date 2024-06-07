@@ -130,50 +130,52 @@ class _DriverInfomationFormComponentWidgetState
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  FFAppState().removeAtIndexFromDriverList(widget.index!);
-                  _model.updatePage(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FlutterFlowIconButton(
-                      borderColor: Color(0xFFEF3939),
-                      borderRadius: 20.0,
-                      borderWidth: 2.0,
-                      buttonSize: 32.0,
-                      fillColor: Color(0x00616161),
-                      icon: FaIcon(
-                        FontAwesomeIcons.userMinus,
-                        color: Color(0xFFFF0000),
-                        size: 15.0,
+              if (false)
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    FFAppState().removeAtIndexFromDriverList(widget.index!);
+                    _model.updatePage(() {});
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FlutterFlowIconButton(
+                        borderColor: Color(0xFFEF3939),
+                        borderRadius: 20.0,
+                        borderWidth: 2.0,
+                        buttonSize: 32.0,
+                        fillColor: Color(0x00616161),
+                        icon: FaIcon(
+                          FontAwesomeIcons.userMinus,
+                          color: Color(0xFFFF0000),
+                          size: 15.0,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        'ลบผู้ขับขี่',
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Noto Sans Thai',
-                              color: Color(0xFFFF0000),
-                              fontSize: 16.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.w600,
-                            ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'ลบผู้ขับขี่',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Noto Sans Thai',
+                                    color: Color(0xFFFF0000),
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),

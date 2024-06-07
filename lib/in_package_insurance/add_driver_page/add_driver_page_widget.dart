@@ -19,10 +19,12 @@ class AddDriverPageWidget extends StatefulWidget {
     super.key,
     required this.firestoreDataConfigList,
     required this.index,
+    required this.isEditing,
   });
 
   final DataListRecord? firestoreDataConfigList;
   final int? index;
+  final bool? isEditing;
 
   @override
   State<AddDriverPageWidget> createState() => _AddDriverPageWidgetState();
@@ -82,6 +84,38 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
               size: 30.0,
             ),
             onPressed: () async {
+              if (!widget.isEditing!) {
+                var confirmDialogResponse = await showDialog<bool>(
+                      context: context,
+                      builder: (alertDialogContext) {
+                        return WebViewAware(
+                          child: AlertDialog(
+                            content: Text(
+                                'คุณกำลังกรอกข้อมูลผู้ขับขี่อยู่ หากคุณย้อนกลับจะต้องกรอกข้อมูลผู้ขับขี่นี้ใหม่ คุณต้องการจะย้อนกลับหรือไม่?'),
+                            actions: [
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext, false),
+                                child: Text('ยกเลิก'),
+                              ),
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(alertDialogContext, true),
+                                child: Text('ตกลง'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ) ??
+                    false;
+                if (confirmDialogResponse) {
+                  FFAppState().removeAtIndexFromDriverList(widget.index!);
+                  setState(() {});
+                } else {
+                  return;
+                }
+              }
               context.pop();
             },
           ),

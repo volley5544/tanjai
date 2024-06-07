@@ -2654,7 +2654,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  if (false)
+                                                                  if (true)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2732,6 +2732,83 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
                                                                                   child: Text(
                                                                                     'ค้นหาประกัน\nรถ EV',
+                                                                                    textAlign: TextAlign.center,
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Noto Sans Thai',
+                                                                                          color: Colors.black,
+                                                                                          fontSize: 14.0,
+                                                                                          letterSpacing: 0.0,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  if (true)
+                                                                    InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        context.pushNamed(
+                                                                            'GeminiPage');
+                                                                      },
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.28,
+                                                                        height:
+                                                                            100.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              Colors.white,
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(15.0),
+                                                                        ),
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Column(
+                                                                            mainAxisSize:
+                                                                                MainAxisSize.max,
+                                                                            mainAxisAlignment:
+                                                                                MainAxisAlignment.center,
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                child: FaIcon(
+                                                                                  FontAwesomeIcons.android,
+                                                                                  color: Color(0xFFDB771A),
+                                                                                  size: 30.0,
+                                                                                ),
+                                                                              ),
+                                                                              Container(
+                                                                                width: 100.0,
+                                                                                decoration: BoxDecoration(),
+                                                                                child: Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    'คุยกับ Gemini',
                                                                                     textAlign: TextAlign.center,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'Noto Sans Thai',
