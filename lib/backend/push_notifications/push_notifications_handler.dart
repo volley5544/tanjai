@@ -374,6 +374,8 @@ final parametersBuilderMap =
           'insurerName': getParameter<String>(data, 'insurerName'),
           'quotationId': getParameter<String>(data, 'quotationId'),
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
+          'actFlag': getParameter<bool>(data, 'actFlag'),
+          'accessoryFlag': getParameter<bool>(data, 'accessoryFlag'),
         },
       ),
   'PaywithBarcode': ParameterData.none(),

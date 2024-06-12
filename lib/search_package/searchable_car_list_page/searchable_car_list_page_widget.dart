@@ -341,6 +341,40 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
                                                 setState(() {});
+                                                if (FFAppState()
+                                                        .insuranceBasicBrandNameList
+                                                        .length <=
+                                                    0) {
+                                                  FFAppState()
+                                                          .insuranceVehicleTypeDropDown =
+                                                      'เลือกประเภทรถ';
+                                                  setState(() {});
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่พบข้อมูลประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+
+                                                  context.goNamed(
+                                                      'InsuranceWorkSelectPage');
+
+                                                  return;
+                                                }
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -607,6 +641,40 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
                                                 setState(() {});
+                                                if (FFAppState()
+                                                        .insuranceBasicBrandNameList
+                                                        .length <=
+                                                    0) {
+                                                  FFAppState()
+                                                          .insuranceVehicleTypeDropDown =
+                                                      'เลือกประเภทรถ';
+                                                  setState(() {});
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่พบข้อมูลประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+
+                                                  context.goNamed(
+                                                      'InsuranceWorkSelectPage');
+
+                                                  return;
+                                                }
                                                 context.safePop();
                                                 return;
                                               } else {
@@ -862,6 +930,40 @@ class _SearchableCarListPageWidgetState
                                                     .toList()
                                                     .cast<String>();
                                                 setState(() {});
+                                                if (FFAppState()
+                                                        .insuranceBasicBrandNameList
+                                                        .length <=
+                                                    0) {
+                                                  FFAppState()
+                                                          .insuranceVehicleTypeDropDown =
+                                                      'เลือกประเภทรถ';
+                                                  setState(() {});
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่พบข้อมูลประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+
+                                                  context.goNamed(
+                                                      'InsuranceWorkSelectPage');
+
+                                                  return;
+                                                }
                                                 if (Navigator.of(context)
                                                     .canPop()) {
                                                   context.pop();
@@ -2263,6 +2365,40 @@ class _SearchableCarListPageWidgetState
                                                 FFAppState()
                                                     .insuranceBasicModelId = '';
                                                 setState(() {});
+                                                if (FFAppState()
+                                                        .insuranceBasicBrandNameList
+                                                        .length <=
+                                                    0) {
+                                                  FFAppState()
+                                                          .insuranceVehicleTypeDropDown =
+                                                      'เลือกประเภทรถ';
+                                                  setState(() {});
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return WebViewAware(
+                                                        child: AlertDialog(
+                                                          content: Text(
+                                                              'ไม่พบข้อมูลประกัน'),
+                                                          actions: [
+                                                            TextButton(
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
+                                                              child: Text('Ok'),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    },
+                                                  );
+
+                                                  context.goNamed(
+                                                      'InsuranceWorkSelectPage');
+
+                                                  return;
+                                                }
                                                 context.safePop();
                                                 return;
                                               } else {

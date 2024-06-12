@@ -1360,6 +1360,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'leadDtlId',
                   ParamType.int,
                 ),
+                actFlag: params.getParam(
+                  'actFlag',
+                  ParamType.bool,
+                ),
+                accessoryFlag: params.getParam(
+                  'accessoryFlag',
+                  ParamType.bool,
+                ),
               ),
             ),
             FFRoute(

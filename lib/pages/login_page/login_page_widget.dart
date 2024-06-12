@@ -363,11 +363,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      await actions
-                                                                          .urlLauncherAction(
-                                                                        'https://tniservice-uat.thanachartinsurance.co.th/ExBrokerLandingPage/download/epolicy?m9ZDB3yt9vkBAJv7DeoavqBAqho4EN8LysE8ycsUtdCkdvFTQUsTQIGUUqxioIU83L1jvlwATOH92qv31b/etWt2KPfTnrkbTCgH92CoDUOipf+E1gUyfC7UX3weudY5',
-                                                                        'android',
-                                                                      );
+                                                                      context.pushNamed(
+                                                                          'GeminiPage');
                                                                     },
                                                                     child: Text(
                                                                       'เข้าสู่ระบบ',

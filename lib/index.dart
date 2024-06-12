@@ -53,7 +53,7 @@ export '/in_package_insurance/insurance_info_page5/insurance_info_page5_widget.d
 export '/success_page/success_page_widget.dart' show SuccessPageWidget;
 export '/in_package_insurance/add_address/add_address_widget.dart'
     show AddAddressWidget;
-export '/pages/super_app/lead_follow_up_page/lead_follow_up_page_widget.dart'
+export '/pages/lead_follow_up_page/lead_follow_up_page_widget.dart'
     show LeadFollowUpPageWidget;
 export '/search_address_page/search_address_page_widget.dart'
     show SearchAddressPageWidget;

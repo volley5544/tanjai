@@ -21,7 +21,7 @@ class GeminiPageModel extends FlutterFlowModel<GeminiPageWidget> {
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
-  // Stores action output result for [Gemini - Text From Image] action in Button widget.
+  // Stores action output result for [Gemini - Generate Text] action in Button widget.
   String? geminiAnswer;
 
   @override

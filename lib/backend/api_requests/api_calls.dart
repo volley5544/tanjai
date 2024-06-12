@@ -11973,14 +11973,20 @@ class IbsApplicationsSaveCall {
     String? subProduct = '',
     dynamic? appDriverJson,
     String? evFlag = '',
+    String? batteryNumber = '',
+    String? batteryNumber2 = '',
+    String? wallChargerNumber = '',
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final ffApiRequestBody = '''
 {
-"ev_flag":"${evFlag}",
-"app_driver":${appDriver},
-"sub_product":"${subProduct}",
+  "battery_number": "${batteryNumber}",
+  "battery_number_2": "${batteryNumber2}",
+  "wall_charger_number": "${wallChargerNumber}",
+  "ev_flag": "${evFlag}",
+  "app_driver": ${appDriver},
+  "sub_product": "${subProduct}",
   "image_quotation_insurer": "${imageQuotationInsurer}",
   "effective_date_insure": "${effectiveDateInsure}",
   "effective_date_act": "${effectiveDateAct}",
@@ -13315,6 +13321,21 @@ class IbsApplicationsDetailCall {
           .map((x) => castToType<String>(x))
           .withoutNulls
           .toList();
+  static String? batteryNumber1(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.battery_number''',
+      ));
+  static String? batteryNumber2(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.battery_number_2''',
+      ));
+  static String? wallChargerNumber(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.wall_charger_number''',
+      ));
 }
 
 class IbsApplicationsPaymentSaveCall {

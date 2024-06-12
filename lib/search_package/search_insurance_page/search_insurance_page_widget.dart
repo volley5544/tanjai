@@ -151,7 +151,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().insuranceInfoRegistrationProvinceSelect = '';
       setState(() {});
       if (widget.fromIcon == 'MC') {
-        if (!FFAppState().insuranceRequestIsLoadDataMc) {
+        if (!false) {
           FFAppState().insuranceCarTypeDetailSelected = '';
           FFAppState().insuranceBasicVehicleGroup = '';
           FFAppState().insuranceBasicCarTypeContain = '';
@@ -540,7 +540,12 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
         setState(() {});
       } else if (widget.fromIcon == 'motor') {
-        if (!FFAppState().insuranceRequestIsLoadedData) {
+        if (!false) {
+          FFAppState().insuranceCarTypeDetailSelected = '';
+          FFAppState().insuranceBasicVehicleGroup = '';
+          FFAppState().insuranceBasicCarTypeContain = '';
+          FFAppState().insuranceBasicCarTypeDoors = '';
+          setState(() {});
           _model.getBrandAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
@@ -921,7 +926,12 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         FFAppState().searchPackageSubProduct = 'Motor';
         setState(() {});
       } else {
-        if (!FFAppState().insuranceRequestisLoadDataEV) {
+        if (!false) {
+          FFAppState().insuranceCarTypeDetailSelected = '';
+          FFAppState().insuranceBasicVehicleGroup = '';
+          FFAppState().insuranceBasicCarTypeContain = '';
+          FFAppState().insuranceBasicCarTypeDoors = '';
+          setState(() {});
           _model.getBrandEVAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleGroup: 'EV',
@@ -1385,7 +1395,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             title: Text(
               widget.fromIcon == 'MC'
                   ? 'ค้นหาประกันมอเตอร์ไซค์'
-                  : 'ค้นหาประกันรถ',
+                  : (widget.fromIcon == 'EV'
+                      ? 'EV ค้นหาประกันรถ'
+                      : 'ค้นหาประกันรถ'),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),

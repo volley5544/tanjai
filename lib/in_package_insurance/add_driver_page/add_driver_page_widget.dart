@@ -188,11 +188,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                               .firstnameTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (_model
-                                              .driverInfomationFormComponentModel
-                                              .address4LastnameTextfieldTextController
-                                              .text !=
-                                          null &&
+                                  (_model.driverInfomationFormComponentModel.address4LastnameTextfieldTextController.text != null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .address4LastnameTextfieldTextController
@@ -200,21 +196,15 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                           '') &&
                                   (FFAppState().DriverList[widget.index!].birthDay !=
                                       '') &&
-                                  (_model
-                                              .driverInfomationFormComponentModel
-                                              .thaiIdTextfieldTextController
-                                              .text !=
-                                          null &&
-                                      _model
-                                              .driverInfomationFormComponentModel
-                                              .thaiIdTextfieldTextController
-                                              .text !=
-                                          '') &&
-                                  (_model
-                                              .driverInfomationFormComponentModel
-                                              .driverLicenseTextfieldTextController
-                                              .text !=
-                                          null &&
+                                  ((_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != null &&
+                                          _model
+                                                  .driverInfomationFormComponentModel
+                                                  .thaiIdTextfieldTextController
+                                                  .text !=
+                                              '') &&
+                                      (functions.checkStringLength(functions.removeCommaFromNumText(_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text)).toString() ==
+                                          '13')) &&
+                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController.text != null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .driverLicenseTextfieldTextController

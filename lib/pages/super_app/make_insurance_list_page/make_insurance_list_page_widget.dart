@@ -2393,111 +2393,143 @@ class _MakeInsuranceListPageWidgetState
                                                                                   ),
                                                                                   ParamType.int,
                                                                                 ),
+                                                                                'actFlag': serializeParam(
+                                                                                  '${getJsonField(
+                                                                                        widget.list?[leadListItemIndex],
+                                                                                        r'''$.flg_act''',
+                                                                                      ).toString()}' ==
+                                                                                      '1',
+                                                                                  ParamType.bool,
+                                                                                ),
                                                                               }.withoutNulls,
                                                                             );
                                                                           }
                                                                         }
                                                                       } else {
-                                                                        if ('' !=
+                                                                        if ('CMI' ==
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
-                                                                              r'''$.VMI_documentUrl''',
+                                                                              r'''$.sub_product''',
                                                                             )) {
-                                                                          _model.getFileVmi =
-                                                                              await GetFileVmiApiCall.call(
-                                                                            apiUrl:
-                                                                                FFAppState().apiUrlInsuranceAppState,
-                                                                            token:
-                                                                                FFAppState().accessToken,
-                                                                            quotationId:
+                                                                          context
+                                                                              .pushNamed(
+                                                                            'insuranceInfoPage5',
+                                                                            queryParameters:
+                                                                                {
+                                                                              'quotationId': serializeParam(
                                                                                 getJsonField(
-                                                                              widget.list?[leadListItemIndex],
-                                                                              r'''$.quotation_id''',
-                                                                            ).toString(),
-                                                                            ownerId:
-                                                                                FFAppState().employeeID,
+                                                                                  widget.list?[leadListItemIndex],
+                                                                                  r'''$.quotation_id''',
+                                                                                ).toString(),
+                                                                                ParamType.String,
+                                                                              ),
+                                                                              'leadDtlId': serializeParam(
+                                                                                getJsonField(
+                                                                                  widget.list?[leadListItemIndex],
+                                                                                  r'''$.lead_dtl_id''',
+                                                                                ),
+                                                                                ParamType.int,
+                                                                              ),
+                                                                            }.withoutNulls,
                                                                           );
-                                                                          _shouldSetState =
-                                                                              true;
-                                                                          if ((_model.getFileVmi?.statusCode ?? 200) !=
-                                                                              200) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              setState(() {});
-                                                                            return;
-                                                                          }
-                                                                          if (GetFileVmiApiCall.statusLayer1(
-                                                                                (_model.getFileVmi?.jsonBody ?? ''),
-                                                                              ) !=
-                                                                              200) {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (alertDialogContext) {
-                                                                                return WebViewAware(
-                                                                                  child: AlertDialog(
-                                                                                    content: Text(GetFileVmiApiCall.messageLayer1(
-                                                                                      (_model.getFileVmi?.jsonBody ?? ''),
-                                                                                    )!),
-                                                                                    actions: [
-                                                                                      TextButton(
-                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                        child: Text('Ok'),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                            if (_shouldSetState)
-                                                                              setState(() {});
-                                                                            return;
-                                                                          }
-                                                                          await launchURL(
-                                                                              GetFileVmiApiCall.vmiDocumentUrl(
-                                                                            (_model.getFileVmi?.jsonBody ??
-                                                                                ''),
-                                                                          )!);
+
                                                                           if (_shouldSetState)
                                                                             setState(() {});
                                                                           return;
                                                                         } else {
-                                                                          await showDialog(
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (alertDialogContext) {
-                                                                              return WebViewAware(
-                                                                                child: AlertDialog(
-                                                                                  title: Text('ไม่พบไฟล์ในระบบ'),
-                                                                                  content: Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
-                                                                                  actions: [
-                                                                                    TextButton(
-                                                                                      onPressed: () => Navigator.pop(alertDialogContext),
-                                                                                      child: Text('Ok'),
+                                                                          if ('' !=
+                                                                              getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.VMI_documentUrl''',
+                                                                              )) {
+                                                                            _model.getFileVmi =
+                                                                                await GetFileVmiApiCall.call(
+                                                                              apiUrl: FFAppState().apiUrlInsuranceAppState,
+                                                                              token: FFAppState().accessToken,
+                                                                              quotationId: getJsonField(
+                                                                                widget.list?[leadListItemIndex],
+                                                                                r'''$.quotation_id''',
+                                                                              ).toString(),
+                                                                              ownerId: FFAppState().employeeID,
+                                                                            );
+                                                                            _shouldSetState =
+                                                                                true;
+                                                                            if ((_model.getFileVmi?.statusCode ?? 200) !=
+                                                                                200) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text('พบข้อผิดพลาดConnection (${(_model.getFileVmi?.statusCode ?? 200).toString()})'),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
                                                                                     ),
-                                                                                  ],
-                                                                                ),
+                                                                                  );
+                                                                                },
                                                                               );
-                                                                            },
-                                                                          );
-                                                                          if (_shouldSetState)
-                                                                            setState(() {});
-                                                                          return;
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            if (GetFileVmiApiCall.statusLayer1(
+                                                                                  (_model.getFileVmi?.jsonBody ?? ''),
+                                                                                ) !=
+                                                                                200) {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (alertDialogContext) {
+                                                                                  return WebViewAware(
+                                                                                    child: AlertDialog(
+                                                                                      content: Text(GetFileVmiApiCall.messageLayer1(
+                                                                                        (_model.getFileVmi?.jsonBody ?? ''),
+                                                                                      )!),
+                                                                                      actions: [
+                                                                                        TextButton(
+                                                                                          onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                          child: Text('Ok'),
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                              if (_shouldSetState)
+                                                                                setState(() {});
+                                                                              return;
+                                                                            }
+                                                                            await launchURL(GetFileVmiApiCall.vmiDocumentUrl(
+                                                                              (_model.getFileVmi?.jsonBody ?? ''),
+                                                                            )!);
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    title: Text('ไม่พบไฟล์ในระบบ'),
+                                                                                    content: Text('กรุณารอทางทีมประกันเพิ่มข้อมูลในระบบ'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                                                        child: Text('Ok'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            );
+                                                                            if (_shouldSetState)
+                                                                              setState(() {});
+                                                                            return;
+                                                                          }
                                                                         }
                                                                       }
 
@@ -2505,9 +2537,11 @@ class _MakeInsuranceListPageWidgetState
                                                                         setState(
                                                                             () {});
                                                                     },
-                                                                    text: widget.checkVMI ==
-                                                                            '0'
-                                                                        ? (('ยกเลิก' ==
+                                                                    text: () {
+                                                                      if (widget
+                                                                              .checkVMI ==
+                                                                          '0') {
+                                                                        return (('ยกเลิก' ==
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
@@ -2528,8 +2562,17 @@ class _MakeInsuranceListPageWidgetState
                                                                                       r'''$.quotation_status''',
                                                                                     ))
                                                                             ? 'ดูรายละเอียด'
-                                                                            : 'ทำประกัน')
-                                                                        : 'ดูกรมธรรม์',
+                                                                            : 'ทำประกัน');
+                                                                      } else if ('CMI' ==
+                                                                          getJsonField(
+                                                                            widget.list?[leadListItemIndex],
+                                                                            r'''$.sub_product''',
+                                                                          )) {
+                                                                        return 'ทำ พ.ร.บ';
+                                                                      } else {
+                                                                        return 'ดูกรมธรรม์';
+                                                                      }
+                                                                    }(),
                                                                     options:
                                                                         FFButtonOptions(
                                                                       width:

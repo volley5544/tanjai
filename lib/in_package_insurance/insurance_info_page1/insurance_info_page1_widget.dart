@@ -881,6 +881,18 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.applicationId(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoBatteryNumber1 =
+          '${IbsApplicationsDetailCall.batteryNumber1(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoBatteryNumber2 =
+          '${IbsApplicationsDetailCall.batteryNumber2(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
+      FFAppState().insuranceInfoWallChargerNumber =
+          '${IbsApplicationsDetailCall.wallChargerNumber(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
       setState(() {});
       FFAppState().DriverList = [];
       setState(() {});

@@ -77,6 +77,21 @@ class InsuranceInfoPage2Model
   final weightTextFieldMask = MaskTextInputFormatter(mask: '#####');
   String? Function(BuildContext, String?)?
       weightTextFieldTextControllerValidator;
+  // State field(s) for BatteryNumberTextField widget.
+  FocusNode? batteryNumberTextFieldFocusNode;
+  TextEditingController? batteryNumberTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      batteryNumberTextFieldTextControllerValidator;
+  // State field(s) for BatteryNumber2TextField widget.
+  FocusNode? batteryNumber2TextFieldFocusNode;
+  TextEditingController? batteryNumber2TextFieldTextController;
+  String? Function(BuildContext, String?)?
+      batteryNumber2TextFieldTextControllerValidator;
+  // State field(s) for WallChargeTextField widget.
+  FocusNode? wallChargeTextFieldFocusNode;
+  TextEditingController? wallChargeTextFieldTextController;
+  String? Function(BuildContext, String?)?
+      wallChargeTextFieldTextControllerValidator;
   // Stores action output result for [Backend Call - API (ibsApplicationsSave)] action in Button widget.
   ApiCallResponse? ibsAppAPIOutput;
   // Stores action output result for [Backend Call - API (ibsApplicationsDetail)] action in Button widget.
@@ -118,5 +133,14 @@ class InsuranceInfoPage2Model
 
     weightTextFieldFocusNode?.dispose();
     weightTextFieldTextController?.dispose();
+
+    batteryNumberTextFieldFocusNode?.dispose();
+    batteryNumberTextFieldTextController?.dispose();
+
+    batteryNumber2TextFieldFocusNode?.dispose();
+    batteryNumber2TextFieldTextController?.dispose();
+
+    wallChargeTextFieldFocusNode?.dispose();
+    wallChargeTextFieldTextController?.dispose();
   }
 }

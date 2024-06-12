@@ -123,28 +123,6 @@ class _InsuranceSuccessPageWidgetState
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'จะมีเจ้าหน้าที่ติดต่ออีเมลล์หาคุณภายหลัง',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Noto Sans Thai',
-                                  color: Colors.white,
-                                  fontSize: 15.0,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
                 Expanded(

@@ -530,7 +530,7 @@ class _DriverInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'ชื่อ',
+                              'ชื่อลูกค้า (ไม่ต้องระบุคำนำหน้า)',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -660,7 +660,7 @@ class _DriverInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'สกุล',
+                              'นามสกุลลูกค้า',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1104,7 +1104,7 @@ class _DriverInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'เลขที่บัตรประชาชน',
+                              'เลขที่บัตรประชาชนลูกค้า',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1280,7 +1280,7 @@ class _DriverInfomationFormComponentWidgetState
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
-                              'เลขที่ใบอนุญาตขับขี่',
+                              'เลขที่ใบอนุญาตขับขี่ลูกค้า',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -1413,23 +1413,22 @@ class _DriverInfomationFormComponentWidgetState
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                            if (false)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'บังคับถ่ายรูป',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Color(0xFFFC0D0D),
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'บังคับถ่ายรูป',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFFFC0D0D),
+                                      fontSize: 13.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
+                            ),
                           ],
                         ),
                       ),
@@ -1705,23 +1704,22 @@ class _DriverInfomationFormComponentWidgetState
                                     letterSpacing: 0.0,
                                   ),
                             ),
-                            if (false)
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  'บังคับถ่ายรูป',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Noto Sans Thai',
-                                        color: Color(0xFFFC0D0D),
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                'บังคับถ่ายรูป',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Noto Sans Thai',
+                                      color: Color(0xFFFC0D0D),
+                                      fontSize: 13.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
+                            ),
                           ],
                         ),
                       ),

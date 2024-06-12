@@ -187,10 +187,9 @@ class _GeminiPageWidgetState extends State<GeminiPageWidget> {
                             }
                           }
 
-                          await geminiTextFromImage(
+                          await geminiGenerateText(
                             context,
-                            _model.textController.text,
-                            uploadImageBytes: _model.uploadedLocalFile,
+                            'kjklj',
                           ).then((generatedText) {
                             safeSetState(
                                 () => _model.geminiAnswer = generatedText);

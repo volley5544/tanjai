@@ -2654,7 +2654,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  if (true)
+                                                                  if (false)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2748,7 +2748,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (true)
+                                                                  if (false)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
