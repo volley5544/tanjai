@@ -254,7 +254,7 @@ class _Search7Renew1WidgetState extends State<Search7Renew1Widget> {
                                     'dataList': serializeParam(
                                       FFAppState().insuranceCusGender,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,

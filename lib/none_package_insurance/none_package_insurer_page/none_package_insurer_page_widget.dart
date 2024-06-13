@@ -586,6 +586,42 @@ class _NonePackageInsurerPageWidgetState
                                                                   Colors
                                                                       .transparent,
                                                               onTap: () async {
+                                                                if (nonePackageInsurerPageInsurerConfig2Record
+                                                                    .insurerInstallment
+                                                                    .contains(FFAppState()
+                                                                            .nonePackageInsurerShortNameList[
+                                                                        dataListIndex])) {
+                                                                  if (FFAppState()
+                                                                              .nonePackageInsurerSelectedList[
+                                                                          dataListIndex] !=
+                                                                      true) {
+                                                                    var confirmDialogResponse =
+                                                                        await showDialog<bool>(
+                                                                              context: context,
+                                                                              builder: (alertDialogContext) {
+                                                                                return WebViewAware(
+                                                                                  child: AlertDialog(
+                                                                                    content: Text('${FFAppState().nonePackageInsurerDisplayName[dataListIndex]} จะต้องชำระเงินแบบจ่ายเต็มเท่านั้น ไม่สามารถชำระแบบผ่อนชำระได้ คุณต้องการจะทำรายการต่อหรือไม่?'),
+                                                                                    actions: [
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                        child: Text('ยกเลิก'),
+                                                                                      ),
+                                                                                      TextButton(
+                                                                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                        child: Text('ตกลง'),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ) ??
+                                                                            false;
+                                                                    if (!confirmDialogResponse) {
+                                                                      return;
+                                                                    }
+                                                                  }
+                                                                }
                                                                 if (FFAppState()
                                                                     .nonePackageFlagRenew) {
                                                                   FFAppState().nonePackageInsurerSelectedList = functions

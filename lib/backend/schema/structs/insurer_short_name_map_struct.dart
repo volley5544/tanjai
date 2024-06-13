@@ -27,35 +27,55 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   List<String>? _vmi1;
   List<String> get vmi1 => _vmi1 ?? const [];
   set vmi1(List<String>? val) => _vmi1 = val;
-  void updateVmi1(Function(List<String>) updateFn) => updateFn(_vmi1 ??= []);
+
+  void updateVmi1(Function(List<String>) updateFn) {
+    updateFn(vmi1 ??= []);
+  }
+
   bool hasVmi1() => _vmi1 != null;
 
   // "VMI2" field.
   List<String>? _vmi2;
   List<String> get vmi2 => _vmi2 ?? const [];
   set vmi2(List<String>? val) => _vmi2 = val;
-  void updateVmi2(Function(List<String>) updateFn) => updateFn(_vmi2 ??= []);
+
+  void updateVmi2(Function(List<String>) updateFn) {
+    updateFn(vmi2 ??= []);
+  }
+
   bool hasVmi2() => _vmi2 != null;
 
   // "VMI25" field.
   List<String>? _vmi25;
   List<String> get vmi25 => _vmi25 ?? const [];
   set vmi25(List<String>? val) => _vmi25 = val;
-  void updateVmi25(Function(List<String>) updateFn) => updateFn(_vmi25 ??= []);
+
+  void updateVmi25(Function(List<String>) updateFn) {
+    updateFn(vmi25 ??= []);
+  }
+
   bool hasVmi25() => _vmi25 != null;
 
   // "VMI3" field.
   List<String>? _vmi3;
   List<String> get vmi3 => _vmi3 ?? const [];
   set vmi3(List<String>? val) => _vmi3 = val;
-  void updateVmi3(Function(List<String>) updateFn) => updateFn(_vmi3 ??= []);
+
+  void updateVmi3(Function(List<String>) updateFn) {
+    updateFn(vmi3 ??= []);
+  }
+
   bool hasVmi3() => _vmi3 != null;
 
   // "VMI35" field.
   List<String>? _vmi35;
   List<String> get vmi35 => _vmi35 ?? const [];
   set vmi35(List<String>? val) => _vmi35 = val;
-  void updateVmi35(Function(List<String>) updateFn) => updateFn(_vmi35 ??= []);
+
+  void updateVmi35(Function(List<String>) updateFn) {
+    updateFn(vmi35 ??= []);
+  }
+
   bool hasVmi35() => _vmi35 != null;
 
   static InsurerShortNameMapStruct fromMap(Map<String, dynamic> data) =>
@@ -84,27 +104,27 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
         'VMI1': serializeParam(
           _vmi1,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'VMI2': serializeParam(
           _vmi2,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'VMI25': serializeParam(
           _vmi25,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'VMI3': serializeParam(
           _vmi3,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'VMI35': serializeParam(
           _vmi35,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

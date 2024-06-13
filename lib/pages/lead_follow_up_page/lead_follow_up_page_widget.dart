@@ -544,7 +544,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   '0',
@@ -652,7 +652,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   '0',
@@ -768,7 +768,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   '0',
@@ -881,7 +881,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   '0',
@@ -997,7 +997,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   '1',
@@ -1111,7 +1111,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   'cancle',
@@ -1234,7 +1234,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   'cancle',
@@ -1348,7 +1348,7 @@ class _LeadFollowUpPageWidgetState extends State<LeadFollowUpPageWidget>
                                     (_model.getRequestList?.jsonBody ?? ''),
                                   ),
                                   ParamType.JSON,
-                                  true,
+                                  isList: true,
                                 ),
                                 'checkPayment': serializeParam(
                                   'cancle',

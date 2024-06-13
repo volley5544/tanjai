@@ -27,10 +27,22 @@ class InsurerConfig2Record extends FirestoreRecord {
       _insurerShortNameMap ?? InsurerShortNameMapStruct();
   bool hasInsurerShortNameMap() => _insurerShortNameMap != null;
 
+  // "InsurerFullPayment" field.
+  List<String>? _insurerFullPayment;
+  List<String> get insurerFullPayment => _insurerFullPayment ?? const [];
+  bool hasInsurerFullPayment() => _insurerFullPayment != null;
+
+  // "InsurerInstallment" field.
+  List<String>? _insurerInstallment;
+  List<String> get insurerInstallment => _insurerInstallment ?? const [];
+  bool hasInsurerInstallment() => _insurerInstallment != null;
+
   void _initializeFields() {
     _configName = snapshotData['config_name'] as String?;
     _insurerShortNameMap = InsurerShortNameMapStruct.maybeFromMap(
         snapshotData['insurer_short_name_map']);
+    _insurerFullPayment = getDataList(snapshotData['InsurerFullPayment']);
+    _insurerInstallment = getDataList(snapshotData['InsurerInstallment']);
   }
 
   static CollectionReference get collection =>
@@ -91,13 +103,20 @@ class InsurerConfig2RecordDocumentEquality
 
   @override
   bool equals(InsurerConfig2Record? e1, InsurerConfig2Record? e2) {
+    const listEquality = ListEquality();
     return e1?.configName == e2?.configName &&
-        e1?.insurerShortNameMap == e2?.insurerShortNameMap;
+        e1?.insurerShortNameMap == e2?.insurerShortNameMap &&
+        listEquality.equals(e1?.insurerFullPayment, e2?.insurerFullPayment) &&
+        listEquality.equals(e1?.insurerInstallment, e2?.insurerInstallment);
   }
 
   @override
-  int hash(InsurerConfig2Record? e) =>
-      const ListEquality().hash([e?.configName, e?.insurerShortNameMap]);
+  int hash(InsurerConfig2Record? e) => const ListEquality().hash([
+        e?.configName,
+        e?.insurerShortNameMap,
+        e?.insurerFullPayment,
+        e?.insurerInstallment
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is InsurerConfig2Record;

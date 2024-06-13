@@ -94,8 +94,8 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
             top: true,
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              child: FutureBuilder<List<ListInsurerCantInstallmentRecord>>(
-                future: queryListInsurerCantInstallmentRecordOnce(
+              child: FutureBuilder<List<InsurerConfig2Record>>(
+                future: queryInsurerConfig2RecordOnce(
                   singleRecord: true,
                 ),
                 builder: (context, snapshot) {
@@ -113,12 +113,15 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                       ),
                     );
                   }
-                  List<ListInsurerCantInstallmentRecord>
-                      columnListInsurerCantInstallmentRecordList =
+                  List<InsurerConfig2Record> columnInsurerConfig2RecordList =
                       snapshot.data!;
-                  final columnListInsurerCantInstallmentRecord =
-                      columnListInsurerCantInstallmentRecordList.isNotEmpty
-                          ? columnListInsurerCantInstallmentRecordList.first
+                  // Return an empty Container when the item does not exist.
+                  if (snapshot.data!.isEmpty) {
+                    return Container();
+                  }
+                  final columnInsurerConfig2Record =
+                      columnInsurerConfig2RecordList.isNotEmpty
+                          ? columnInsurerConfig2RecordList.first
                           : null;
                   return Column(
                     mainAxisSize: MainAxisSize.max,
@@ -176,7 +179,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         ],
                                       ),
                                     ),
-                                    if (!columnListInsurerCantInstallmentRecord!
+                                    if (!columnInsurerConfig2Record!
                                         .insurerFullPayment
                                         .contains(
                                             FFAppState().insuranceInfoCompayId))
@@ -298,8 +301,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                 ),
                               ),
                             ),
-                            if (!columnListInsurerCantInstallmentRecord!
-                                .insurerInstallment
+                            if (!columnInsurerConfig2Record!.insurerInstallment
                                 .contains(FFAppState().insuranceInfoCompayId))
                               InkWell(
                                 splashColor: Colors.transparent,

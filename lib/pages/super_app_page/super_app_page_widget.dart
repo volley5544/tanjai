@@ -1298,7 +1298,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                 (_model.getVMIApi?.jsonBody ?? ''),
                                                                               ),
                                                                               ParamType.JSON,
-                                                                              true,
+                                                                              isList: true,
                                                                             ),
                                                                             'checkPayment':
                                                                                 serializeParam(
@@ -1697,7 +1697,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   (_model.getVMIApi?.jsonBody ?? ''),
                                                                                 ),
                                                                                 ParamType.JSON,
-                                                                                true,
+                                                                                isList: true,
                                                                               ),
                                                                               'checkPayment': serializeParam(
                                                                                 '0',
@@ -3630,7 +3630,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                                   (_model.listFromDash?.jsonBody ?? ''),
                                                                                 ),
                                                                                 ParamType.JSON,
-                                                                                true,
+                                                                                isList: true,
                                                                               ),
                                                                               'checkPayment': serializeParam(
                                                                                 '0',

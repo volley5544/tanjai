@@ -544,6 +544,10 @@ class _NonePackageBasicPageWidgetState
             _model.currentPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.currentPriceTextFieldTextController.text);
+            _model.currentPriceTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .currentPriceTextFieldTextController!.text.length);
           });
         } else {
           if (_model.currentPriceTextFieldTextController.text == '') {
@@ -553,6 +557,10 @@ class _NonePackageBasicPageWidgetState
             _model.currentPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.currentPriceTextFieldTextController.text)!;
+            _model.currentPriceTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .currentPriceTextFieldTextController!.text.length);
           });
         }
       },
@@ -570,6 +578,10 @@ class _NonePackageBasicPageWidgetState
             _model.carrierPriceTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.carrierPriceTextFieldTextController.text);
+            _model.carrierPriceTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .carrierPriceTextFieldTextController!.text.length);
           });
         } else {
           if (_model.carrierPriceTextFieldTextController.text == '') {
@@ -579,6 +591,10 @@ class _NonePackageBasicPageWidgetState
             _model.carrierPriceTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.carrierPriceTextFieldTextController.text)!;
+            _model.carrierPriceTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .carrierPriceTextFieldTextController!.text.length);
           });
         }
       },
@@ -632,6 +648,10 @@ class _NonePackageBasicPageWidgetState
             _model.sumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.sumInsuredTextFieldTextController.text);
+            _model.sumInsuredTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset:
+                        _model.sumInsuredTextFieldTextController!.text.length);
           });
         } else {
           if (_model.sumInsuredTextFieldTextController.text == '') {
@@ -641,6 +661,10 @@ class _NonePackageBasicPageWidgetState
             _model.sumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.sumInsuredTextFieldTextController.text)!;
+            _model.sumInsuredTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset:
+                        _model.sumInsuredTextFieldTextController!.text.length);
           });
         }
       },
@@ -658,6 +682,10 @@ class _NonePackageBasicPageWidgetState
             _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.trailerSumInsuredTextFieldTextController.text);
+            _model.trailerSumInsuredTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .trailerSumInsuredTextFieldTextController!.text.length);
           });
         } else {
           if (_model.trailerSumInsuredTextFieldTextController.text == '') {
@@ -667,6 +695,10 @@ class _NonePackageBasicPageWidgetState
             _model.trailerSumInsuredTextFieldTextController?.text =
                 functions.showNumberWithCommaWithoutDot(
                     _model.trailerSumInsuredTextFieldTextController.text)!;
+            _model.trailerSumInsuredTextFieldTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model
+                        .trailerSumInsuredTextFieldTextController!.text.length);
           });
         }
       },
@@ -938,7 +970,7 @@ class _NonePackageBasicPageWidgetState
                                           .take(4)
                                           .toList(),
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -1082,7 +1114,7 @@ class _NonePackageBasicPageWidgetState
                                       'dataList': serializeParam(
                                         FFAppState().nonePackageTruckPartList,
                                         ParamType.String,
-                                        true,
+                                        isList: true,
                                       ),
                                       'multiSelect': serializeParam(
                                         false,
@@ -1224,7 +1256,7 @@ class _NonePackageBasicPageWidgetState
                                         FFAppState()
                                             .nonePackageCusMembershipList,
                                         ParamType.String,
-                                        true,
+                                        isList: true,
                                       ),
                                       'multiSelect': serializeParam(
                                         false,
@@ -1823,7 +1855,7 @@ class _NonePackageBasicPageWidgetState
                                       'dataList': serializeParam(
                                         FFAppState().nonePackageCarrierTypeList,
                                         ParamType.String,
-                                        true,
+                                        isList: true,
                                       ),
                                       'multiSelect': serializeParam(
                                         false,
@@ -2703,7 +2735,7 @@ class _NonePackageBasicPageWidgetState
                                           .ganerateYearList(2500, 2567)
                                           ?.toList()),
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -3156,7 +3188,7 @@ class _NonePackageBasicPageWidgetState
                                                   .nonePackageUsedTypeNameList
                                                   .toList()),
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -3335,7 +3367,7 @@ class _NonePackageBasicPageWidgetState
                                       FFAppState()
                                           .insuranceBasicCoverTypeNameList,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -3491,7 +3523,7 @@ class _NonePackageBasicPageWidgetState
                                       FFAppState()
                                           .insuranceBasicGarageTypeNameList,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -4141,7 +4173,7 @@ class _NonePackageBasicPageWidgetState
                                       FFAppState()
                                           .insuranceBasicProvinceNameList,
                                       ParamType.String,
-                                      true,
+                                      isList: true,
                                     ),
                                     'multiSelect': serializeParam(
                                       false,
@@ -4561,128 +4593,122 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   ),
-                  if (!FFAppState().nonePackageFlagRenew)
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 5.0, 0.0, 5.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  if (FFAppState().nonePackageFlagAct) {
-                                    FFAppState().nonePackageFlagAct = false;
-                                    setState(() {});
-                                  } else {
-                                    FFAppState().nonePackageFlagAct = true;
-                                    setState(() {});
-                                  }
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 5.0, 20.0, 0.0),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      decoration: BoxDecoration(),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 5.0, 0.0, 5.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                if (FFAppState().nonePackageFlagAct) {
+                                  FFAppState().nonePackageFlagAct = false;
+                                  setState(() {});
+                                } else {
+                                  FFAppState().nonePackageFlagAct = true;
+                                  setState(() {});
+                                }
 
-                                  await actions.hideKeyboardAction(
-                                    context,
-                                  );
-                                },
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 60.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: Color(0xFFB3B3B3),
-                                    ),
+                                await actions.hideKeyboardAction(
+                                  context,
+                                );
+                              },
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border.all(
+                                    color: Color(0xFFB3B3B3),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
+                                ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        'ขอเบี้ย พ.ร.บ. หรือไม่',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Noto Sans Thai',
+                                              color: !FFAppState()
+                                                      .nonePackageFlagAct
+                                                  ? FlutterFlowTheme.of(context)
+                                                      .secondaryText
+                                                  : Colors.black,
+                                              fontSize: 15.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                    ),
+                                    if (!FFAppState().nonePackageFlagAct)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Text(
-                                          'ขอเบี้ย พ.ร.บ. หรือไม่',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Noto Sans Thai',
-                                                color: !FFAppState()
-                                                        .nonePackageFlagAct
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText
-                                                    : Colors.black,
-                                                fontSize: 15.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                              ),
+                                            0.0, 0.0, 10.0, 0.0),
+                                        child: Container(
+                                          width: 25.0,
+                                          height: 25.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                              color: Color(0xFF9F9F9F),
+                                              width: 1.0,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                      if (!FFAppState().nonePackageFlagAct)
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              shape: BoxShape.circle,
-                                              border: Border.all(
-                                                color: Color(0xFF9F9F9F),
-                                                width: 1.0,
-                                              ),
+                                    if (FFAppState().nonePackageFlagAct)
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 10.0, 0.0),
+                                        child: Container(
+                                          width: 25.0,
+                                          height: 25.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .success,
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Icon(
+                                              Icons.check,
+                                              color: Colors.white,
+                                              size: 18.0,
                                             ),
                                           ),
                                         ),
-                                      if (FFAppState().nonePackageFlagAct)
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 25.0,
-                                            height: 25.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .success,
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Icon(
-                                                Icons.check,
-                                                color: Colors.white,
-                                                size: 18.0,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                    ],
-                                  ),
+                                      ),
+                                  ],
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
+                  ),
                   if (widget.workType == 'transfer')
                     Padding(
                       padding:

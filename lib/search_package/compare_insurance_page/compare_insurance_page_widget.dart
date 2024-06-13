@@ -57,6 +57,7 @@ class CompareInsurancePageWidget extends StatefulWidget {
     required this.contractProcessstate,
     this.insurerCondition,
     required this.cc,
+    required this.insurerConfig2,
   })  : this.currentDate = currentDate ?? '-',
         this.brandId = brandId ?? '-',
         this.brandName = brandName ?? '-',
@@ -106,6 +107,7 @@ class CompareInsurancePageWidget extends StatefulWidget {
   final List<String>? contractProcessstate;
   final List<String>? insurerCondition;
   final List<String>? cc;
+  final InsurerConfig2Record? insurerConfig2;
 
   @override
   State<CompareInsurancePageWidget> createState() =>
@@ -316,7 +318,7 @@ class _CompareInsurancePageWidgetState
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 100.0,
+                              height: 108.0,
                               decoration: BoxDecoration(
                                 color: Color(0xFFE5E5E5),
                               ),
@@ -354,151 +356,217 @@ class _CompareInsurancePageWidgetState
                                       flex: 3,
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              functions.checkNullValueAndReturn(
-                                                          valueOrDefault<
-                                                              String>(
-                                                        widget.insurerFullName?[
-                                                            _model
-                                                                .indexDataCompare!],
-                                                        '-',
-                                                      )) ==
-                                                      '-'
-                                                  ? '-'
-                                                  : valueOrDefault<String>(
-                                                      widget.insurerFullName?[
-                                                          _model
-                                                              .indexDataCompare!],
-                                                      '-',
-                                                    ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFF002D5E),
-                                                    fontSize: 15.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                            ),
-                                            Text(
-                                              'ประเภทประกัน ',
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFF646464),
-                                                    fontSize: 13.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                            Column(
+                                            0.0, 0.0, 24.0, 0.0),
+                                        child: Container(
+                                          decoration: BoxDecoration(),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Column(
                                               mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
-                                                Text(
-                                                  'ประเภทซ่อม',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Noto Sans Thai',
-                                                        color:
-                                                            Color(0xFF646464),
-                                                        fontSize: 13.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      functions.checkNullValueAndReturn(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                widget.insurerFullName?[
+                                                                    _model
+                                                                        .indexDataCompare!],
+                                                                '-',
+                                                              )) ==
+                                                              '-'
+                                                          ? '-'
+                                                          : valueOrDefault<
+                                                              String>(
+                                                              widget.insurerFullName?[
+                                                                  _model
+                                                                      .indexDataCompare!],
+                                                              '-',
+                                                            ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF002D5E),
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                if (widget.insurerConfig2
+                                                        ?.insurerInstallment
+                                                        ?.contains(widget
+                                                                .insurerShortName?[
+                                                            _model
+                                                                .indexDataCompare!]) ??
+                                                    true)
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Text(
+                                                        'ชำระเต็มจำนวนเท่านั้น',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Noto Sans Thai',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
                                                       ),
+                                                    ],
+                                                  ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      'ประเภทประกัน ',
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF646464),
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      functions.checkNullValueAndReturn(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                widget.coverTypeName?[
+                                                                    _model
+                                                                        .indexDataCompare!],
+                                                                '-',
+                                                              )) ==
+                                                              '-'
+                                                          ? '-'
+                                                          : valueOrDefault<
+                                                              String>(
+                                                              widget.coverTypeName?[
+                                                                  _model
+                                                                      .indexDataCompare!],
+                                                              '-',
+                                                            ),
+                                                      textAlign:
+                                                          TextAlign.justify,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF646464),
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(
+                                                      'ประเภทซ่อม',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF646464),
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      functions.checkNullValueAndReturn(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                widget.garageTypeName?[
+                                                                    _model
+                                                                        .indexDataCompare!],
+                                                                '-',
+                                                              )) ==
+                                                              '-'
+                                                          ? '-'
+                                                          : valueOrDefault<
+                                                              String>(
+                                                              widget.garageTypeName?[
+                                                                  _model
+                                                                      .indexDataCompare!],
+                                                              '-',
+                                                            ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: Color(
+                                                                0xFF646464),
+                                                            fontSize: 13.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 20.0, 20.0, 0.0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Text(
-                                              functions.checkNullValueAndReturn(
-                                                          valueOrDefault<
-                                                              String>(
-                                                        widget.coverTypeName?[_model
-                                                            .indexDataCompare!],
-                                                        '-',
-                                                      )) ==
-                                                      '-'
-                                                  ? '-'
-                                                  : valueOrDefault<String>(
-                                                      widget.coverTypeName?[_model
-                                                          .indexDataCompare!],
-                                                      '-',
-                                                    ),
-                                              textAlign: TextAlign.justify,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFF646464),
-                                                    fontSize: 13.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                            Text(
-                                              functions.checkNullValueAndReturn(
-                                                          valueOrDefault<
-                                                              String>(
-                                                        widget.garageTypeName?[
-                                                            _model
-                                                                .indexDataCompare!],
-                                                        '-',
-                                                      )) ==
-                                                      '-'
-                                                  ? '-'
-                                                  : valueOrDefault<String>(
-                                                      widget.garageTypeName?[
-                                                          _model
-                                                              .indexDataCompare!],
-                                                      '-',
-                                                    ),
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily:
-                                                        'Noto Sans Thai',
-                                                    color: Color(0xFF646464),
-                                                    fontSize: 13.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w500,
-                                                  ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -1366,194 +1434,194 @@ class _CompareInsurancePageWidgetState
                                                                 serializeParam(
                                                               widget.insurerId,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'insurerCode':
                                                                 serializeParam(
                                                               widget
                                                                   .insurerFullName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'insurerShortName':
                                                                 serializeParam(
                                                               widget
                                                                   .insurerShortName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'insurerName':
                                                                 serializeParam(
                                                               widget
                                                                   .insurerMaxName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'coverTypeId':
                                                                 serializeParam(
                                                               widget
                                                                   .coverTypeId,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'coverTypeCode':
                                                                 serializeParam(
                                                               widget
                                                                   .coverTypeCode,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'coverTypeName':
                                                                 serializeParam(
                                                               widget
                                                                   .coverTypeName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'garageTypeId':
                                                                 serializeParam(
                                                               widget
                                                                   .garageTypeId,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'garageTypeCode':
                                                                 serializeParam(
                                                               widget
                                                                   .garageTypeCode,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'garageTypeName':
                                                                 serializeParam(
                                                               widget
                                                                   .garageTypeName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'productId':
                                                                 serializeParam(
                                                               widget.productId,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'packageId':
                                                                 serializeParam(
                                                               widget.packageId,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'packageName':
                                                                 serializeParam(
                                                               widget
                                                                   .packageName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'sumInsured':
                                                                 serializeParam(
                                                               widget.sumInsured,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'workType':
                                                                 serializeParam(
                                                               widget
                                                                   .insurerFullName,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'roadsideAssistance':
                                                                 serializeParam(
                                                               widget
                                                                   .roadsideAssis,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'tpbiPerson':
                                                                 serializeParam(
                                                               widget.tpbiPerson,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'tpbiAccident':
                                                                 serializeParam(
                                                               widget
                                                                   .tpbiAccident,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'tppd':
                                                                 serializeParam(
                                                               widget.tppd,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'flood':
                                                                 serializeParam(
                                                               widget.flood,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'deductible':
                                                                 serializeParam(
                                                               widget.deductible,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'pa':
                                                                 serializeParam(
                                                               widget.pa,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'me':
                                                                 serializeParam(
                                                               widget.me,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'bb':
                                                                 serializeParam(
                                                               widget.bb,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'assessory':
                                                                 serializeParam(
                                                               widget.accessory,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'seat':
                                                                 serializeParam(
                                                               widget.seat,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'netPremium':
                                                                 serializeParam(
                                                               widget.netPremium,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'vat':
                                                                 serializeParam(
                                                               widget.vat,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'stamp':
                                                                 serializeParam(
                                                               widget.stamp,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'grossTotal':
                                                                 serializeParam(
                                                               widget.grossTotal,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'carType':
                                                                 serializeParam(
@@ -1620,7 +1688,7 @@ class _CompareInsurancePageWidgetState
                                                               widget
                                                                   .contractProcessstate,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                             'fromPage':
                                                                 serializeParam(
@@ -1648,7 +1716,7 @@ class _CompareInsurancePageWidgetState
                                                                 serializeParam(
                                                               widget.cc,
                                                               ParamType.String,
-                                                              true,
+                                                              isList: true,
                                                             ),
                                                           }.withoutNulls,
                                                         );
@@ -1885,173 +1953,173 @@ class _CompareInsurancePageWidgetState
                                                           serializeParam(
                                                         widget.insurerId,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'insurerCode':
                                                           serializeParam(
                                                         widget.insurerFullName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'insurerShortName':
                                                           serializeParam(
                                                         widget.insurerShortName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'insurerName':
                                                           serializeParam(
                                                         widget.insurerMaxName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'coverTypeId':
                                                           serializeParam(
                                                         widget.coverTypeId,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'coverTypeCode':
                                                           serializeParam(
                                                         widget.coverTypeCode,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'coverTypeName':
                                                           serializeParam(
                                                         widget.coverTypeName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'garageTypeId':
                                                           serializeParam(
                                                         widget.garageTypeId,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'garageTypeCode':
                                                           serializeParam(
                                                         widget.garageTypeCode,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'garageTypeName':
                                                           serializeParam(
                                                         widget.garageTypeName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'productId':
                                                           serializeParam(
                                                         widget.productId,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'packageId':
                                                           serializeParam(
                                                         widget.packageId,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'packageName':
                                                           serializeParam(
                                                         widget.packageName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'sumInsured':
                                                           serializeParam(
                                                         widget.sumInsured,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'workType':
                                                           serializeParam(
                                                         widget.insurerFullName,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'roadsideAssistance':
                                                           serializeParam(
                                                         widget.roadsideAssis,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'tpbiPerson':
                                                           serializeParam(
                                                         widget.tpbiPerson,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'tpbiAccident':
                                                           serializeParam(
                                                         widget.tpbiAccident,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'tppd': serializeParam(
                                                         widget.tppd,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'flood': serializeParam(
                                                         widget.flood,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'deductible':
                                                           serializeParam(
                                                         widget.deductible,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'pa': serializeParam(
                                                         widget.pa,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'me': serializeParam(
                                                         widget.me,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'bb': serializeParam(
                                                         widget.bb,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'assessory':
                                                           serializeParam(
                                                         widget.accessory,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'seat': serializeParam(
                                                         widget.seat,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'netPremium':
                                                           serializeParam(
                                                         widget.netPremium,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'vat': serializeParam(
                                                         widget.vat,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'stamp': serializeParam(
                                                         widget.stamp,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'grossTotal':
                                                           serializeParam(
                                                         widget.grossTotal,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'carType': serializeParam(
                                                         FFAppState()
@@ -2117,7 +2185,7 @@ class _CompareInsurancePageWidgetState
                                                         widget
                                                             .contractProcessstate,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'fromPage':
                                                           serializeParam(
@@ -2142,7 +2210,7 @@ class _CompareInsurancePageWidgetState
                                                       'cc': serializeParam(
                                                         widget.cc,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                     }.withoutNulls,
                                                   );

@@ -21,15 +21,20 @@ class BannerDataStruct extends FFFirebaseStruct {
   List<String>? _pdfUrl;
   List<String> get pdfUrl => _pdfUrl ?? const [];
   set pdfUrl(List<String>? val) => _pdfUrl = val;
-  void updatePdfUrl(Function(List<String>) updateFn) =>
-      updateFn(_pdfUrl ??= []);
+
+  void updatePdfUrl(Function(List<String>) updateFn) {
+    updateFn(pdfUrl ??= []);
+  }
+
   bool hasPdfUrl() => _pdfUrl != null;
 
   // "order" field.
   int? _order;
   int get order => _order ?? 0;
   set order(int? val) => _order = val;
-  void incrementOrder(int amount) => _order = order + amount;
+
+  void incrementOrder(int amount) => order = order + amount;
+
   bool hasOrder() => _order != null;
 
   static BannerDataStruct fromMap(Map<String, dynamic> data) =>
@@ -52,7 +57,7 @@ class BannerDataStruct extends FFFirebaseStruct {
         'pdf_url': serializeParam(
           _pdfUrl,
           ParamType.String,
-          true,
+          isList: true,
         ),
         'order': serializeParam(
           _order,

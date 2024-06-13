@@ -26,7 +26,6 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
     required this.quotationId,
     required this.leadDtlId,
     required this.actFlag,
-    required this.accessoryFlag,
   });
 
   final String? leadID;
@@ -37,7 +36,6 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   final String? quotationId;
   final int? leadDtlId;
   final bool? actFlag;
-  final bool? accessoryFlag;
 
   @override
   State<NonePackageSelectedInsurerPageWidget> createState() =>
@@ -71,6 +69,9 @@ class _NonePackageSelectedInsurerPageWidgetState
           setState(() {
             _model.netPremiumTextController?.text = functions
                 .removeCommaFromNumText(_model.netPremiumTextController.text);
+            _model.netPremiumTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model.netPremiumTextController!.text.length);
           });
         } else {
           if (_model.netPremiumTextController.text == '') {
@@ -80,6 +81,9 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.netPremiumTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.netPremiumTextController.text)!;
+            _model.netPremiumTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model.netPremiumTextController!.text.length);
           });
         }
       },
@@ -95,6 +99,8 @@ class _NonePackageSelectedInsurerPageWidgetState
           setState(() {
             _model.actAmountTextController?.text = functions
                 .removeCommaFromNumText(_model.actAmountTextController.text);
+            _model.actAmountTextController?.selection = TextSelection.collapsed(
+                offset: _model.actAmountTextController!.text.length);
           });
         } else {
           if (_model.actAmountTextController.text == '') {
@@ -104,6 +110,8 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.actAmountTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.actAmountTextController.text)!;
+            _model.actAmountTextController?.selection = TextSelection.collapsed(
+                offset: _model.actAmountTextController!.text.length);
           });
         }
       },
@@ -120,6 +128,9 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.accessoryTotalTextController?.text =
                 functions.removeCommaFromNumText(
                     _model.accessoryTotalTextController.text);
+            _model.accessoryTotalTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model.accessoryTotalTextController!.text.length);
           });
         } else {
           if (_model.accessoryTotalTextController.text == '') {
@@ -129,6 +140,9 @@ class _NonePackageSelectedInsurerPageWidgetState
             _model.accessoryTotalTextController?.text =
                 functions.returnNumberWithComma2Decimal(
                     _model.accessoryTotalTextController.text)!;
+            _model.accessoryTotalTextController?.selection =
+                TextSelection.collapsed(
+                    offset: _model.accessoryTotalTextController!.text.length);
           });
         }
       },
@@ -1014,196 +1028,166 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           ),
                                         ),
                                       ),
-                                    if (widget.accessoryFlag ?? true)
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0xFFFAFAFA),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 0.0, 12.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 5.0, 0.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xFFFAFAFA),
+                                        ),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    'ราคามูลค่ารวมคุ้มครองอุปกรณ์เสริม (ถ้ามี)',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Noto Sans Thai',
+                                                          fontSize: 15.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 5.0, 0.0, 0.0),
+                                              child: Container(
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        1.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  border: Border.all(
+                                                    color: Color(0xFFB3B3B3),
+                                                  ),
+                                                ),
+                                                child: Stack(
                                                   children: [
-                                                    Text(
-                                                      'ราคามูลค่ารวมคุ้มครองอุปกรณ์เสริม',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            fontSize: 15.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: TextFormField(
+                                                          controller: _model
+                                                              .accessoryTotalTextController,
+                                                          focusNode: _model
+                                                              .accessoryTotalFocusNode,
+                                                          onChanged: (_) =>
+                                                              EasyDebounce
+                                                                  .debounce(
+                                                            '_model.accessoryTotalTextController',
+                                                            Duration(
+                                                                milliseconds:
+                                                                    100),
+                                                            () =>
+                                                                setState(() {}),
                                                           ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        '(บังคับกรอก)',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Noto Sans Thai',
-                                                              color: Color(
-                                                                  0xFFF40606),
-                                                              fontSize: 12.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                          autofocus: true,
+                                                          obscureText: false,
+                                                          decoration:
+                                                              InputDecoration(
+                                                            labelStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            hintText:
+                                                                'กรุณากรอกราคาคุ้มครองอุปกรณ์เสริม',
+                                                            hintStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Noto Sans Thai',
+                                                                      color: Color(
+                                                                          0xFFB3B3B3),
+                                                                      fontSize:
+                                                                          15.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                            enabledBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            errorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                            focusedErrorBorder:
+                                                                InputBorder
+                                                                    .none,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Noto Sans Thai',
+                                                                color: Colors
+                                                                    .black,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                          keyboardType:
+                                                              const TextInputType
+                                                                  .numberWithOptions(
+                                                                  decimal:
+                                                                      true),
+                                                          validator: _model
+                                                              .accessoryTotalTextControllerValidator
+                                                              .asValidator(
+                                                                  context),
+                                                        ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 5.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          1.0,
-                                                  height: 60.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    border: Border.all(
-                                                      color: Color(0xFFB3B3B3),
-                                                    ),
-                                                  ),
-                                                  child: Stack(
-                                                    children: [
-                                                      Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      10.0,
-                                                                      0.0,
-                                                                      10.0,
-                                                                      0.0),
-                                                          child: TextFormField(
-                                                            controller: _model
-                                                                .accessoryTotalTextController,
-                                                            focusNode: _model
-                                                                .accessoryTotalFocusNode,
-                                                            onChanged: (_) =>
-                                                                EasyDebounce
-                                                                    .debounce(
-                                                              '_model.accessoryTotalTextController',
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      100),
-                                                              () => setState(
-                                                                  () {}),
-                                                            ),
-                                                            autofocus: true,
-                                                            obscureText: false,
-                                                            decoration:
-                                                                InputDecoration(
-                                                              labelStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              hintText:
-                                                                  'กรุณากรอกราคาคุ้มครองอุปกรณ์เสริม',
-                                                              hintStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFFB3B3B3),
-                                                                        fontSize:
-                                                                            15.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                      ),
-                                                              enabledBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              errorBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                              focusedErrorBorder:
-                                                                  InputBorder
-                                                                      .none,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Noto Sans Thai',
-                                                                  color: Colors
-                                                                      .black,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                            keyboardType:
-                                                                const TextInputType
-                                                                    .numberWithOptions(
-                                                                    decimal:
-                                                                        true),
-                                                            validator: _model
-                                                                .accessoryTotalTextControllerValidator
-                                                                .asValidator(
-                                                                    context),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -1243,7 +1227,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              title: Text('กรุณากรอกราคาเบี้ย'),
+                                              content:
+                                                  Text('กรุณากรอกราคาเบี้ย'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
@@ -1269,7 +1254,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         builder: (alertDialogContext) {
                                           return WebViewAware(
                                             child: AlertDialog(
-                                              title: Text(
+                                              content: Text(
                                                   'ค่าเบี้ยไม่ถูกต้องกรุณากรอกใหม่'),
                                               actions: [
                                                 TextButton(
@@ -1297,7 +1282,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
-                                                title:
+                                                content:
                                                     Text('กรุณากรอกราคาพ.ร.บ.'),
                                                 actions: [
                                                   TextButton(
@@ -1324,63 +1309,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                           builder: (alertDialogContext) {
                                             return WebViewAware(
                                               child: AlertDialog(
-                                                title: Text(
-                                                    'ราคาพ.ร.บ. จะต้องมากกว่า 0 บาท กรุณากรอกให้ถูกต้อง'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-                                    }
-                                    if (widget.accessoryFlag!) {
-                                      if (!(_model.actAmountTextController
-                                                  .text !=
-                                              null &&
-                                          _model.actAmountTextController.text !=
-                                              '')) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                title:
-                                                    Text('กรุณากรอกราคาพ.ร.บ.'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(
-                                                            alertDialogContext),
-                                                    child: Text('Ok'),
-                                                  ),
-                                                ],
-                                              ),
-                                            );
-                                          },
-                                        );
-                                        if (_shouldSetState) setState(() {});
-                                        return;
-                                      }
-                                      if (!(double.parse(functions
-                                              .removeLetterShowonlyNumber(_model
-                                                  .actAmountTextController
-                                                  .text)) >
-                                          0)) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return WebViewAware(
-                                              child: AlertDialog(
-                                                title: Text(
+                                                content: Text(
                                                     'ราคาพ.ร.บ. จะต้องมากกว่า 0 บาท กรุณากรอกให้ถูกต้อง'),
                                                 actions: [
                                                   TextButton(

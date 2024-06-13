@@ -402,22 +402,32 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         setState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
+          _model.paymentTypeTextController?.selection = TextSelection.collapsed(
+              offset: _model.paymentTypeTextController!.text.length);
         });
         setState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
+          _model.paymentChannelTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.paymentChannelTextController!.text.length);
         });
         setState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.actTotalTextController?.selection = TextSelection.collapsed(
+              offset: _model.actTotalTextController!.text.length);
         });
         setState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.grossNetTotalTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.grossNetTotalTextController!.text.length);
         });
         setState(() {
           _model.netPremiumTotalTextController?.text =
@@ -425,6 +435,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.netPremiumTotalTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.netPremiumTotalTextController!.text.length);
         });
         Navigator.pop(context);
       } else {
@@ -511,10 +524,15 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         setState(() {
           _model.paymentTypeTextController?.text =
               FFAppState().insuranceInfoPage4PaymentType;
+          _model.paymentTypeTextController?.selection = TextSelection.collapsed(
+              offset: _model.paymentTypeTextController!.text.length);
         });
         setState(() {
           _model.paymentChannelTextController?.text =
               FFAppState().insuranceInfoPage4PaymentChannel;
+          _model.paymentChannelTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.paymentChannelTextController!.text.length);
         });
         setState(() {
           _model.netPremiumTotalTextController?.text =
@@ -522,18 +540,26 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   IbsApplicationsDetailCall.netpremiumtotalAppdetail(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.netPremiumTotalTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.netPremiumTotalTextController!.text.length);
         });
         setState(() {
           _model.actTotalTextController?.text =
               functions.showNumberWithComma(IbsApplicationsDetailCall.acttotal(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.actTotalTextController?.selection = TextSelection.collapsed(
+              offset: _model.actTotalTextController!.text.length);
         });
         setState(() {
           _model.grossNetTotalTextController?.text = functions
               .showNumberWithComma(IbsApplicationsDetailCall.grosstotalnet(
             (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
           ))!;
+          _model.grossNetTotalTextController?.selection =
+              TextSelection.collapsed(
+                  offset: _model.grossNetTotalTextController!.text.length);
         });
         Navigator.pop(context);
       }
@@ -2377,7 +2403,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                   FFAppState()
                                                       .InsuranceInfoPage4Tenor,
                                                   ParamType.String,
-                                                  true,
+                                                  isList: true,
                                                 ),
                                                 'multiSelect': serializeParam(
                                                   false,

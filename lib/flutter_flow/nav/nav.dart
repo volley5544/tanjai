@@ -214,6 +214,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'compareInsurancePage',
               path: 'compareInsurancePage',
+              asyncParams: {
+                'insurerConfig2': getDoc(
+                    ['InsurerConfig2'], InsurerConfig2Record.fromSnapshot),
+              },
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: CompareInsurancePageWidget(
@@ -424,6 +428,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     ParamType.String,
                     isList: true,
                   ),
+                  insurerConfig2: params.getParam(
+                    'insurerConfig2',
+                    ParamType.Document,
+                  ),
                 ),
               ),
             ),
@@ -529,6 +537,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'detailsInsurancePage',
               path: 'detailsInsurancePage',
+              asyncParams: {
+                'insurerConfig': getDoc(
+                    ['InsurerConfig2'], InsurerConfig2Record.fromSnapshot),
+              },
               builder: (context, params) => NavBarPage(
                 initialPage: '',
                 page: DetailsInsurancePageWidget(
@@ -703,6 +715,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   cc: params.getParam(
                     'cc',
                     ParamType.String,
+                  ),
+                  insurerConfig: params.getParam(
+                    'insurerConfig',
+                    ParamType.Document,
                   ),
                 ),
               ),
@@ -1362,10 +1378,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 ),
                 actFlag: params.getParam(
                   'actFlag',
-                  ParamType.bool,
-                ),
-                accessoryFlag: params.getParam(
-                  'accessoryFlag',
                   ParamType.bool,
                 ),
               ),

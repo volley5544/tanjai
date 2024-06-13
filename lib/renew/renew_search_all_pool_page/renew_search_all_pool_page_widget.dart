@@ -71,6 +71,7 @@ class _RenewSearchAllPoolPageWidgetState
       ).then((value) => safeSetState(() {}));
 
       _model.getBuildVersion = await actions.getBuildVersion1();
+      _model.deviceBuildNumber = await actions.getBuildNumber();
       _model.buildVersionQuery = await queryBuildVersionRecordOnce(
         singleRecord: true,
       ).then((s) => s.firstOrNull);
@@ -82,8 +83,8 @@ class _RenewSearchAllPoolPageWidgetState
         singleRecord: true,
       ).then((s) => s.firstOrNull);
       if (isAndroid) {
-        if (!((_model.buildVersionQuery?.appVersion ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery!.buildNumberAndroid <=
+                _model.deviceBuildNumber!) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -107,8 +108,8 @@ class _RenewSearchAllPoolPageWidgetState
           return;
         }
       } else {
-        if (!((_model.buildVersionQuery?.appVersionIos ==
-                _model.getBuildVersion) ||
+        if (!((_model.buildVersionQuery?.buildNumberIos ==
+                _model.deviceBuildNumber) ||
             _model.adminVersionQuery!.employeeIdList
                 .contains(FFAppState().employeeID))) {
           await showDialog(
@@ -1546,9 +1547,13 @@ class _RenewSearchAllPoolPageWidgetState
                                                   width: double.infinity,
                                                   decoration: BoxDecoration(
                                                     color: '1' ==
-                                                            getJsonField(
-                                                              listItemItem,
-                                                              r'''$.call_status_flg''',
+                                                            valueOrDefault<
+                                                                String>(
+                                                              getJsonField(
+                                                                listItemItem,
+                                                                r'''$.call_status_flg''',
+                                                              )?.toString(),
+                                                              'ชั้น',
                                                             )
                                                         ? Color(0xFFE9FFEA)
                                                         : FlutterFlowTheme.of(
@@ -2083,7 +2088,7 @@ class _RenewSearchAllPoolPageWidgetState
                                                                                       getJsonField(
                                                                                         listItemItem,
                                                                                         r'''$.insurer_status''',
-                                                                                      )
+                                                                                      ).toString()
                                                                                   ? 'อนุมัติ'
                                                                                   : 'ปฏิเสธ',
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(

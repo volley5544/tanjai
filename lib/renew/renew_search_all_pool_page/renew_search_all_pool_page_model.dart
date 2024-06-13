@@ -33,6 +33,8 @@ class RenewSearchAllPoolPageModel
   final unfocusNode = FocusNode();
   // Stores action output result for [Custom Action - getBuildVersion1] action in renewSearchAllPoolPage widget.
   String? getBuildVersion;
+  // Stores action output result for [Custom Action - getBuildNumber] action in renewSearchAllPoolPage widget.
+  int? deviceBuildNumber;
   // Stores action output result for [Firestore Query - Query a collection] action in renewSearchAllPoolPage widget.
   BuildVersionRecord? buildVersionQuery;
   // Stores action output result for [Firestore Query - Query a collection] action in renewSearchAllPoolPage widget.

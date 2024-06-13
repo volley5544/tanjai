@@ -139,9 +139,9 @@ class FFAppState extends ChangeNotifier {
 
   String _accessToken = 'access_token';
   String get accessToken => _accessToken;
-  set accessToken(String _value) {
-    _accessToken = _value;
-    secureStorage.setString('ff_accessToken', _value);
+  set accessToken(String value) {
+    _accessToken = value;
+    secureStorage.setString('ff_accessToken', value);
   }
 
   void deleteAccessToken() {
@@ -150,15 +150,15 @@ class FFAppState extends ChangeNotifier {
 
   String _imei = '123456789012345';
   String get imei => _imei;
-  set imei(String _value) {
-    _imei = _value;
+  set imei(String value) {
+    _imei = value;
   }
 
   String _employeeID = 'employee_id';
   String get employeeID => _employeeID;
-  set employeeID(String _value) {
-    _employeeID = _value;
-    secureStorage.setString('ff_employeeID', _value);
+  set employeeID(String value) {
+    _employeeID = value;
+    secureStorage.setString('ff_employeeID', value);
   }
 
   void deleteEmployeeID() {
@@ -167,9 +167,9 @@ class FFAppState extends ChangeNotifier {
 
   String _apiURLLocalState = 'api_url';
   String get apiURLLocalState => _apiURLLocalState;
-  set apiURLLocalState(String _value) {
-    _apiURLLocalState = _value;
-    secureStorage.setString('ff_apiURLLocalState', _value);
+  set apiURLLocalState(String value) {
+    _apiURLLocalState = value;
+    secureStorage.setString('ff_apiURLLocalState', value);
   }
 
   void deleteApiURLLocalState() {
@@ -178,9 +178,9 @@ class FFAppState extends ChangeNotifier {
 
   String _branchCode = 'branch_code';
   String get branchCode => _branchCode;
-  set branchCode(String _value) {
-    _branchCode = _value;
-    secureStorage.setString('ff_branchCode', _value);
+  set branchCode(String value) {
+    _branchCode = value;
+    secureStorage.setString('ff_branchCode', value);
   }
 
   void deleteBranchCode() {
@@ -189,143 +189,143 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _vloanServerListTemp = [];
   List<String> get vloanServerListTemp => _vloanServerListTemp;
-  set vloanServerListTemp(List<String> _value) {
-    _vloanServerListTemp = _value;
+  set vloanServerListTemp(List<String> value) {
+    _vloanServerListTemp = value;
   }
 
-  void addToVloanServerListTemp(String _value) {
-    _vloanServerListTemp.add(_value);
+  void addToVloanServerListTemp(String value) {
+    vloanServerListTemp.add(value);
   }
 
-  void removeFromVloanServerListTemp(String _value) {
-    _vloanServerListTemp.remove(_value);
+  void removeFromVloanServerListTemp(String value) {
+    vloanServerListTemp.remove(value);
   }
 
-  void removeAtIndexFromVloanServerListTemp(int _index) {
-    _vloanServerListTemp.removeAt(_index);
+  void removeAtIndexFromVloanServerListTemp(int index) {
+    vloanServerListTemp.removeAt(index);
   }
 
   void updateVloanServerListTempAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _vloanServerListTemp[_index] = updateFn(_vloanServerListTemp[_index]);
+    vloanServerListTemp[index] = updateFn(_vloanServerListTemp[index]);
   }
 
-  void insertAtIndexInVloanServerListTemp(int _index, String _value) {
-    _vloanServerListTemp.insert(_index, _value);
+  void insertAtIndexInVloanServerListTemp(int index, String value) {
+    vloanServerListTemp.insert(index, value);
   }
 
   List<String> _leadID = [];
   List<String> get leadID => _leadID;
-  set leadID(List<String> _value) {
-    _leadID = _value;
+  set leadID(List<String> value) {
+    _leadID = value;
   }
 
-  void addToLeadID(String _value) {
-    _leadID.add(_value);
+  void addToLeadID(String value) {
+    leadID.add(value);
   }
 
-  void removeFromLeadID(String _value) {
-    _leadID.remove(_value);
+  void removeFromLeadID(String value) {
+    leadID.remove(value);
   }
 
-  void removeAtIndexFromLeadID(int _index) {
-    _leadID.removeAt(_index);
+  void removeAtIndexFromLeadID(int index) {
+    leadID.removeAt(index);
   }
 
   void updateLeadIDAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadID[_index] = updateFn(_leadID[_index]);
+    leadID[index] = updateFn(_leadID[index]);
   }
 
-  void insertAtIndexInLeadID(int _index, String _value) {
-    _leadID.insert(_index, _value);
+  void insertAtIndexInLeadID(int index, String value) {
+    leadID.insert(index, value);
   }
 
   List<DateTime> _leadTimeRemainList = [];
   List<DateTime> get leadTimeRemainList => _leadTimeRemainList;
-  set leadTimeRemainList(List<DateTime> _value) {
-    _leadTimeRemainList = _value;
+  set leadTimeRemainList(List<DateTime> value) {
+    _leadTimeRemainList = value;
   }
 
-  void addToLeadTimeRemainList(DateTime _value) {
-    _leadTimeRemainList.add(_value);
+  void addToLeadTimeRemainList(DateTime value) {
+    leadTimeRemainList.add(value);
   }
 
-  void removeFromLeadTimeRemainList(DateTime _value) {
-    _leadTimeRemainList.remove(_value);
+  void removeFromLeadTimeRemainList(DateTime value) {
+    leadTimeRemainList.remove(value);
   }
 
-  void removeAtIndexFromLeadTimeRemainList(int _index) {
-    _leadTimeRemainList.removeAt(_index);
+  void removeAtIndexFromLeadTimeRemainList(int index) {
+    leadTimeRemainList.removeAt(index);
   }
 
   void updateLeadTimeRemainListAtIndex(
-    int _index,
+    int index,
     DateTime Function(DateTime) updateFn,
   ) {
-    _leadTimeRemainList[_index] = updateFn(_leadTimeRemainList[_index]);
+    leadTimeRemainList[index] = updateFn(_leadTimeRemainList[index]);
   }
 
-  void insertAtIndexInLeadTimeRemainList(int _index, DateTime _value) {
-    _leadTimeRemainList.insert(_index, _value);
+  void insertAtIndexInLeadTimeRemainList(int index, DateTime value) {
+    leadTimeRemainList.insert(index, value);
   }
 
   List<String> _leadCustomerNameList = [];
   List<String> get leadCustomerNameList => _leadCustomerNameList;
-  set leadCustomerNameList(List<String> _value) {
-    _leadCustomerNameList = _value;
+  set leadCustomerNameList(List<String> value) {
+    _leadCustomerNameList = value;
   }
 
-  void addToLeadCustomerNameList(String _value) {
-    _leadCustomerNameList.add(_value);
+  void addToLeadCustomerNameList(String value) {
+    leadCustomerNameList.add(value);
   }
 
-  void removeFromLeadCustomerNameList(String _value) {
-    _leadCustomerNameList.remove(_value);
+  void removeFromLeadCustomerNameList(String value) {
+    leadCustomerNameList.remove(value);
   }
 
-  void removeAtIndexFromLeadCustomerNameList(int _index) {
-    _leadCustomerNameList.removeAt(_index);
+  void removeAtIndexFromLeadCustomerNameList(int index) {
+    leadCustomerNameList.removeAt(index);
   }
 
   void updateLeadCustomerNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCustomerNameList[_index] = updateFn(_leadCustomerNameList[_index]);
+    leadCustomerNameList[index] = updateFn(_leadCustomerNameList[index]);
   }
 
-  void insertAtIndexInLeadCustomerNameList(int _index, String _value) {
-    _leadCustomerNameList.insert(_index, _value);
+  void insertAtIndexInLeadCustomerNameList(int index, String value) {
+    leadCustomerNameList.insert(index, value);
   }
 
   String _coachURL = 'https://hris.srisawadpower.com/COACH';
   String get coachURL => _coachURL;
-  set coachURL(String _value) {
-    _coachURL = _value;
+  set coachURL(String value) {
+    _coachURL = value;
   }
 
   bool _isInApp = false;
   bool get isInApp => _isInApp;
-  set isInApp(bool _value) {
-    _isInApp = _value;
+  set isInApp(bool value) {
+    _isInApp = value;
   }
 
   bool _inAppViaNotification = true;
   bool get inAppViaNotification => _inAppViaNotification;
-  set inAppViaNotification(bool _value) {
-    _inAppViaNotification = _value;
+  set inAppViaNotification(bool value) {
+    _inAppViaNotification = value;
   }
 
   bool _doNotShowAgain = false;
   bool get doNotShowAgain => _doNotShowAgain;
-  set doNotShowAgain(bool _value) {
-    _doNotShowAgain = _value;
-    secureStorage.setBool('ff_doNotShowAgain', _value);
+  set doNotShowAgain(bool value) {
+    _doNotShowAgain = value;
+    secureStorage.setBool('ff_doNotShowAgain', value);
   }
 
   void deleteDoNotShowAgain() {
@@ -334,11 +334,11 @@ class FFAppState extends ChangeNotifier {
 
   DateTime? _dateDoNotShowAgain;
   DateTime? get dateDoNotShowAgain => _dateDoNotShowAgain;
-  set dateDoNotShowAgain(DateTime? _value) {
-    _dateDoNotShowAgain = _value;
-    _value != null
+  set dateDoNotShowAgain(DateTime? value) {
+    _dateDoNotShowAgain = value;
+    value != null
         ? secureStorage.setInt(
-            'ff_dateDoNotShowAgain', _value.millisecondsSinceEpoch)
+            'ff_dateDoNotShowAgain', value.millisecondsSinceEpoch)
         : secureStorage.remove('ff_dateDoNotShowAgain');
   }
 
@@ -348,62 +348,62 @@ class FFAppState extends ChangeNotifier {
 
   bool _check = false;
   bool get check => _check;
-  set check(bool _value) {
-    _check = _value;
+  set check(bool value) {
+    _check = value;
   }
 
   bool _opsMenuVisible = false;
   bool get opsMenuVisible => _opsMenuVisible;
-  set opsMenuVisible(bool _value) {
-    _opsMenuVisible = _value;
+  set opsMenuVisible(bool value) {
+    _opsMenuVisible = value;
   }
 
   List<String> _bannerSuperAppImgList = [];
   List<String> get bannerSuperAppImgList => _bannerSuperAppImgList;
-  set bannerSuperAppImgList(List<String> _value) {
-    _bannerSuperAppImgList = _value;
+  set bannerSuperAppImgList(List<String> value) {
+    _bannerSuperAppImgList = value;
   }
 
-  void addToBannerSuperAppImgList(String _value) {
-    _bannerSuperAppImgList.add(_value);
+  void addToBannerSuperAppImgList(String value) {
+    bannerSuperAppImgList.add(value);
   }
 
-  void removeFromBannerSuperAppImgList(String _value) {
-    _bannerSuperAppImgList.remove(_value);
+  void removeFromBannerSuperAppImgList(String value) {
+    bannerSuperAppImgList.remove(value);
   }
 
-  void removeAtIndexFromBannerSuperAppImgList(int _index) {
-    _bannerSuperAppImgList.removeAt(_index);
+  void removeAtIndexFromBannerSuperAppImgList(int index) {
+    bannerSuperAppImgList.removeAt(index);
   }
 
   void updateBannerSuperAppImgListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _bannerSuperAppImgList[_index] = updateFn(_bannerSuperAppImgList[_index]);
+    bannerSuperAppImgList[index] = updateFn(_bannerSuperAppImgList[index]);
   }
 
-  void insertAtIndexInBannerSuperAppImgList(int _index, String _value) {
-    _bannerSuperAppImgList.insert(_index, _value);
+  void insertAtIndexInBannerSuperAppImgList(int index, String value) {
+    bannerSuperAppImgList.insert(index, value);
   }
 
   int _diffDate = -99;
   int get diffDate => _diffDate;
-  set diffDate(int _value) {
-    _diffDate = _value;
+  set diffDate(int value) {
+    _diffDate = value;
   }
 
   bool _isFromAuthenPage = false;
   bool get isFromAuthenPage => _isFromAuthenPage;
-  set isFromAuthenPage(bool _value) {
-    _isFromAuthenPage = _value;
+  set isFromAuthenPage(bool value) {
+    _isFromAuthenPage = value;
   }
 
   String _pinCodeAuthen = '013972';
   String get pinCodeAuthen => _pinCodeAuthen;
-  set pinCodeAuthen(String _value) {
-    _pinCodeAuthen = _value;
-    secureStorage.setString('ff_pinCodeAuthen', _value);
+  set pinCodeAuthen(String value) {
+    _pinCodeAuthen = value;
+    secureStorage.setString('ff_pinCodeAuthen', value);
   }
 
   void deletePinCodeAuthen() {
@@ -412,123 +412,123 @@ class FFAppState extends ChangeNotifier {
 
   bool _isFromLoginPage = false;
   bool get isFromLoginPage => _isFromLoginPage;
-  set isFromLoginPage(bool _value) {
-    _isFromLoginPage = _value;
+  set isFromLoginPage(bool value) {
+    _isFromLoginPage = value;
   }
 
   bool _isGotNoti = false;
   bool get isGotNoti => _isGotNoti;
-  set isGotNoti(bool _value) {
-    _isGotNoti = _value;
+  set isGotNoti(bool value) {
+    _isGotNoti = value;
   }
 
   String _isGottNoti = '';
   String get isGottNoti => _isGottNoti;
-  set isGottNoti(String _value) {
-    _isGottNoti = _value;
+  set isGottNoti(String value) {
+    _isGottNoti = value;
   }
 
   List<String> _leadChannelPairColorList = [];
   List<String> get leadChannelPairColorList => _leadChannelPairColorList;
-  set leadChannelPairColorList(List<String> _value) {
-    _leadChannelPairColorList = _value;
+  set leadChannelPairColorList(List<String> value) {
+    _leadChannelPairColorList = value;
   }
 
-  void addToLeadChannelPairColorList(String _value) {
-    _leadChannelPairColorList.add(_value);
+  void addToLeadChannelPairColorList(String value) {
+    leadChannelPairColorList.add(value);
   }
 
-  void removeFromLeadChannelPairColorList(String _value) {
-    _leadChannelPairColorList.remove(_value);
+  void removeFromLeadChannelPairColorList(String value) {
+    leadChannelPairColorList.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelPairColorList(int _index) {
-    _leadChannelPairColorList.removeAt(_index);
+  void removeAtIndexFromLeadChannelPairColorList(int index) {
+    leadChannelPairColorList.removeAt(index);
   }
 
   void updateLeadChannelPairColorListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadChannelPairColorList[_index] =
-        updateFn(_leadChannelPairColorList[_index]);
+    leadChannelPairColorList[index] =
+        updateFn(_leadChannelPairColorList[index]);
   }
 
-  void insertAtIndexInLeadChannelPairColorList(int _index, String _value) {
-    _leadChannelPairColorList.insert(_index, _value);
+  void insertAtIndexInLeadChannelPairColorList(int index, String value) {
+    leadChannelPairColorList.insert(index, value);
   }
 
   List<String> _leadChannelList = [];
   List<String> get leadChannelList => _leadChannelList;
-  set leadChannelList(List<String> _value) {
-    _leadChannelList = _value;
+  set leadChannelList(List<String> value) {
+    _leadChannelList = value;
   }
 
-  void addToLeadChannelList(String _value) {
-    _leadChannelList.add(_value);
+  void addToLeadChannelList(String value) {
+    leadChannelList.add(value);
   }
 
-  void removeFromLeadChannelList(String _value) {
-    _leadChannelList.remove(_value);
+  void removeFromLeadChannelList(String value) {
+    leadChannelList.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelList(int _index) {
-    _leadChannelList.removeAt(_index);
+  void removeAtIndexFromLeadChannelList(int index) {
+    leadChannelList.removeAt(index);
   }
 
   void updateLeadChannelListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadChannelList[_index] = updateFn(_leadChannelList[_index]);
+    leadChannelList[index] = updateFn(_leadChannelList[index]);
   }
 
-  void insertAtIndexInLeadChannelList(int _index, String _value) {
-    _leadChannelList.insert(_index, _value);
+  void insertAtIndexInLeadChannelList(int index, String value) {
+    leadChannelList.insert(index, value);
   }
 
   List<String> _leadChannelColor = [];
   List<String> get leadChannelColor => _leadChannelColor;
-  set leadChannelColor(List<String> _value) {
-    _leadChannelColor = _value;
+  set leadChannelColor(List<String> value) {
+    _leadChannelColor = value;
   }
 
-  void addToLeadChannelColor(String _value) {
-    _leadChannelColor.add(_value);
+  void addToLeadChannelColor(String value) {
+    leadChannelColor.add(value);
   }
 
-  void removeFromLeadChannelColor(String _value) {
-    _leadChannelColor.remove(_value);
+  void removeFromLeadChannelColor(String value) {
+    leadChannelColor.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelColor(int _index) {
-    _leadChannelColor.removeAt(_index);
+  void removeAtIndexFromLeadChannelColor(int index) {
+    leadChannelColor.removeAt(index);
   }
 
   void updateLeadChannelColorAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadChannelColor[_index] = updateFn(_leadChannelColor[_index]);
+    leadChannelColor[index] = updateFn(_leadChannelColor[index]);
   }
 
-  void insertAtIndexInLeadChannelColor(int _index, String _value) {
-    _leadChannelColor.insert(_index, _value);
+  void insertAtIndexInLeadChannelColor(int index, String value) {
+    leadChannelColor.insert(index, value);
   }
 
   bool _isFromSetPinPage = false;
   bool get isFromSetPinPage => _isFromSetPinPage;
-  set isFromSetPinPage(bool _value) {
-    _isFromSetPinPage = _value;
+  set isFromSetPinPage(bool value) {
+    _isFromSetPinPage = value;
   }
 
   DocumentReference? _userLogRef =
       FirebaseFirestore.instance.doc('/user_log/[user_log]');
   DocumentReference? get userLogRef => _userLogRef;
-  set userLogRef(DocumentReference? _value) {
-    _userLogRef = _value;
-    _value != null
-        ? secureStorage.setString('ff_userLogRef', _value.path)
+  set userLogRef(DocumentReference? value) {
+    _userLogRef = value;
+    value != null
+        ? secureStorage.setString('ff_userLogRef', value.path)
         : secureStorage.remove('ff_userLogRef');
   }
 
@@ -538,34 +538,34 @@ class FFAppState extends ChangeNotifier {
 
   DocumentReference? _checkUserRef;
   DocumentReference? get checkUserRef => _checkUserRef;
-  set checkUserRef(DocumentReference? _value) {
-    _checkUserRef = _value;
+  set checkUserRef(DocumentReference? value) {
+    _checkUserRef = value;
   }
 
   String _temp1 = '';
   String get temp1 => _temp1;
-  set temp1(String _value) {
-    _temp1 = _value;
+  set temp1(String value) {
+    _temp1 = value;
   }
 
   String _temp2 = '';
   String get temp2 => _temp2;
-  set temp2(String _value) {
-    _temp2 = _value;
+  set temp2(String value) {
+    _temp2 = value;
   }
 
   DateTime? _temp3;
   DateTime? get temp3 => _temp3;
-  set temp3(DateTime? _value) {
-    _temp3 = _value;
+  set temp3(DateTime? value) {
+    _temp3 = value;
   }
 
   DocumentReference? _userRef;
   DocumentReference? get userRef => _userRef;
-  set userRef(DocumentReference? _value) {
-    _userRef = _value;
-    _value != null
-        ? secureStorage.setString('ff_userRef', _value.path)
+  set userRef(DocumentReference? value) {
+    _userRef = value;
+    value != null
+        ? secureStorage.setString('ff_userRef', value.path)
         : secureStorage.remove('ff_userRef');
   }
 
@@ -575,166 +575,166 @@ class FFAppState extends ChangeNotifier {
 
   String _loginStateFirebase = '[loginStateFirebase]';
   String get loginStateFirebase => _loginStateFirebase;
-  set loginStateFirebase(String _value) {
-    _loginStateFirebase = _value;
+  set loginStateFirebase(String value) {
+    _loginStateFirebase = value;
   }
 
   List<String> _leadCreatedTimeList = [];
   List<String> get leadCreatedTimeList => _leadCreatedTimeList;
-  set leadCreatedTimeList(List<String> _value) {
-    _leadCreatedTimeList = _value;
+  set leadCreatedTimeList(List<String> value) {
+    _leadCreatedTimeList = value;
   }
 
-  void addToLeadCreatedTimeList(String _value) {
-    _leadCreatedTimeList.add(_value);
+  void addToLeadCreatedTimeList(String value) {
+    leadCreatedTimeList.add(value);
   }
 
-  void removeFromLeadCreatedTimeList(String _value) {
-    _leadCreatedTimeList.remove(_value);
+  void removeFromLeadCreatedTimeList(String value) {
+    leadCreatedTimeList.remove(value);
   }
 
-  void removeAtIndexFromLeadCreatedTimeList(int _index) {
-    _leadCreatedTimeList.removeAt(_index);
+  void removeAtIndexFromLeadCreatedTimeList(int index) {
+    leadCreatedTimeList.removeAt(index);
   }
 
   void updateLeadCreatedTimeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCreatedTimeList[_index] = updateFn(_leadCreatedTimeList[_index]);
+    leadCreatedTimeList[index] = updateFn(_leadCreatedTimeList[index]);
   }
 
-  void insertAtIndexInLeadCreatedTimeList(int _index, String _value) {
-    _leadCreatedTimeList.insert(_index, _value);
+  void insertAtIndexInLeadCreatedTimeList(int index, String value) {
+    leadCreatedTimeList.insert(index, value);
   }
 
   List<String> _leadCallStatus = [];
   List<String> get leadCallStatus => _leadCallStatus;
-  set leadCallStatus(List<String> _value) {
-    _leadCallStatus = _value;
+  set leadCallStatus(List<String> value) {
+    _leadCallStatus = value;
   }
 
-  void addToLeadCallStatus(String _value) {
-    _leadCallStatus.add(_value);
+  void addToLeadCallStatus(String value) {
+    leadCallStatus.add(value);
   }
 
-  void removeFromLeadCallStatus(String _value) {
-    _leadCallStatus.remove(_value);
+  void removeFromLeadCallStatus(String value) {
+    leadCallStatus.remove(value);
   }
 
-  void removeAtIndexFromLeadCallStatus(int _index) {
-    _leadCallStatus.removeAt(_index);
+  void removeAtIndexFromLeadCallStatus(int index) {
+    leadCallStatus.removeAt(index);
   }
 
   void updateLeadCallStatusAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCallStatus[_index] = updateFn(_leadCallStatus[_index]);
+    leadCallStatus[index] = updateFn(_leadCallStatus[index]);
   }
 
-  void insertAtIndexInLeadCallStatus(int _index, String _value) {
-    _leadCallStatus.insert(_index, _value);
+  void insertAtIndexInLeadCallStatus(int index, String value) {
+    leadCallStatus.insert(index, value);
   }
 
   List<String> _leadPhoneNumberList = [];
   List<String> get leadPhoneNumberList => _leadPhoneNumberList;
-  set leadPhoneNumberList(List<String> _value) {
-    _leadPhoneNumberList = _value;
+  set leadPhoneNumberList(List<String> value) {
+    _leadPhoneNumberList = value;
   }
 
-  void addToLeadPhoneNumberList(String _value) {
-    _leadPhoneNumberList.add(_value);
+  void addToLeadPhoneNumberList(String value) {
+    leadPhoneNumberList.add(value);
   }
 
-  void removeFromLeadPhoneNumberList(String _value) {
-    _leadPhoneNumberList.remove(_value);
+  void removeFromLeadPhoneNumberList(String value) {
+    leadPhoneNumberList.remove(value);
   }
 
-  void removeAtIndexFromLeadPhoneNumberList(int _index) {
-    _leadPhoneNumberList.removeAt(_index);
+  void removeAtIndexFromLeadPhoneNumberList(int index) {
+    leadPhoneNumberList.removeAt(index);
   }
 
   void updateLeadPhoneNumberListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadPhoneNumberList[_index] = updateFn(_leadPhoneNumberList[_index]);
+    leadPhoneNumberList[index] = updateFn(_leadPhoneNumberList[index]);
   }
 
-  void insertAtIndexInLeadPhoneNumberList(int _index, String _value) {
-    _leadPhoneNumberList.insert(_index, _value);
+  void insertAtIndexInLeadPhoneNumberList(int index, String value) {
+    leadPhoneNumberList.insert(index, value);
   }
 
   List<String> _leadEmployeeID = [];
   List<String> get leadEmployeeID => _leadEmployeeID;
-  set leadEmployeeID(List<String> _value) {
-    _leadEmployeeID = _value;
+  set leadEmployeeID(List<String> value) {
+    _leadEmployeeID = value;
   }
 
-  void addToLeadEmployeeID(String _value) {
-    _leadEmployeeID.add(_value);
+  void addToLeadEmployeeID(String value) {
+    leadEmployeeID.add(value);
   }
 
-  void removeFromLeadEmployeeID(String _value) {
-    _leadEmployeeID.remove(_value);
+  void removeFromLeadEmployeeID(String value) {
+    leadEmployeeID.remove(value);
   }
 
-  void removeAtIndexFromLeadEmployeeID(int _index) {
-    _leadEmployeeID.removeAt(_index);
+  void removeAtIndexFromLeadEmployeeID(int index) {
+    leadEmployeeID.removeAt(index);
   }
 
   void updateLeadEmployeeIDAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadEmployeeID[_index] = updateFn(_leadEmployeeID[_index]);
+    leadEmployeeID[index] = updateFn(_leadEmployeeID[index]);
   }
 
-  void insertAtIndexInLeadEmployeeID(int _index, String _value) {
-    _leadEmployeeID.insert(_index, _value);
+  void insertAtIndexInLeadEmployeeID(int index, String value) {
+    leadEmployeeID.insert(index, value);
   }
 
   bool _isPassLoginSection = false;
   bool get isPassLoginSection => _isPassLoginSection;
-  set isPassLoginSection(bool _value) {
-    _isPassLoginSection = _value;
+  set isPassLoginSection(bool value) {
+    _isPassLoginSection = value;
   }
 
   List<Color> _leadChannelLabelColor = [];
   List<Color> get leadChannelLabelColor => _leadChannelLabelColor;
-  set leadChannelLabelColor(List<Color> _value) {
-    _leadChannelLabelColor = _value;
+  set leadChannelLabelColor(List<Color> value) {
+    _leadChannelLabelColor = value;
   }
 
-  void addToLeadChannelLabelColor(Color _value) {
-    _leadChannelLabelColor.add(_value);
+  void addToLeadChannelLabelColor(Color value) {
+    leadChannelLabelColor.add(value);
   }
 
-  void removeFromLeadChannelLabelColor(Color _value) {
-    _leadChannelLabelColor.remove(_value);
+  void removeFromLeadChannelLabelColor(Color value) {
+    leadChannelLabelColor.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelLabelColor(int _index) {
-    _leadChannelLabelColor.removeAt(_index);
+  void removeAtIndexFromLeadChannelLabelColor(int index) {
+    leadChannelLabelColor.removeAt(index);
   }
 
   void updateLeadChannelLabelColorAtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _leadChannelLabelColor[_index] = updateFn(_leadChannelLabelColor[_index]);
+    leadChannelLabelColor[index] = updateFn(_leadChannelLabelColor[index]);
   }
 
-  void insertAtIndexInLeadChannelLabelColor(int _index, Color _value) {
-    _leadChannelLabelColor.insert(_index, _value);
+  void insertAtIndexInLeadChannelLabelColor(int index, Color value) {
+    leadChannelLabelColor.insert(index, value);
   }
 
   String _userNickname = '[user_nickname]';
   String get userNickname => _userNickname;
-  set userNickname(String _value) {
-    _userNickname = _value;
-    secureStorage.setString('ff_userNickname', _value);
+  set userNickname(String value) {
+    _userNickname = value;
+    secureStorage.setString('ff_userNickname', value);
   }
 
   void deleteUserNickname() {
@@ -743,95 +743,95 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _leadIdCalledInApp = [];
   List<String> get leadIdCalledInApp => _leadIdCalledInApp;
-  set leadIdCalledInApp(List<String> _value) {
-    _leadIdCalledInApp = _value;
-    secureStorage.setStringList('ff_leadIdCalledInApp', _value);
+  set leadIdCalledInApp(List<String> value) {
+    _leadIdCalledInApp = value;
+    secureStorage.setStringList('ff_leadIdCalledInApp', value);
   }
 
   void deleteLeadIdCalledInApp() {
     secureStorage.delete(key: 'ff_leadIdCalledInApp');
   }
 
-  void addToLeadIdCalledInApp(String _value) {
-    _leadIdCalledInApp.add(_value);
+  void addToLeadIdCalledInApp(String value) {
+    leadIdCalledInApp.add(value);
     secureStorage.setStringList('ff_leadIdCalledInApp', _leadIdCalledInApp);
   }
 
-  void removeFromLeadIdCalledInApp(String _value) {
-    _leadIdCalledInApp.remove(_value);
+  void removeFromLeadIdCalledInApp(String value) {
+    leadIdCalledInApp.remove(value);
     secureStorage.setStringList('ff_leadIdCalledInApp', _leadIdCalledInApp);
   }
 
-  void removeAtIndexFromLeadIdCalledInApp(int _index) {
-    _leadIdCalledInApp.removeAt(_index);
+  void removeAtIndexFromLeadIdCalledInApp(int index) {
+    leadIdCalledInApp.removeAt(index);
     secureStorage.setStringList('ff_leadIdCalledInApp', _leadIdCalledInApp);
   }
 
   void updateLeadIdCalledInAppAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadIdCalledInApp[_index] = updateFn(_leadIdCalledInApp[_index]);
+    leadIdCalledInApp[index] = updateFn(_leadIdCalledInApp[index]);
     secureStorage.setStringList('ff_leadIdCalledInApp', _leadIdCalledInApp);
   }
 
-  void insertAtIndexInLeadIdCalledInApp(int _index, String _value) {
-    _leadIdCalledInApp.insert(_index, _value);
+  void insertAtIndexInLeadIdCalledInApp(int index, String value) {
+    leadIdCalledInApp.insert(index, value);
     secureStorage.setStringList('ff_leadIdCalledInApp', _leadIdCalledInApp);
   }
 
   String _profileFullName = '[full_name]';
   String get profileFullName => _profileFullName;
-  set profileFullName(String _value) {
-    _profileFullName = _value;
+  set profileFullName(String value) {
+    _profileFullName = value;
   }
 
   String _profileBirthDate = '[birth_date]';
   String get profileBirthDate => _profileBirthDate;
-  set profileBirthDate(String _value) {
-    _profileBirthDate = _value;
+  set profileBirthDate(String value) {
+    _profileBirthDate = value;
   }
 
   String _profileUnitCodeName = '[unit_code_name]';
   String get profileUnitCodeName => _profileUnitCodeName;
-  set profileUnitCodeName(String _value) {
-    _profileUnitCodeName = _value;
+  set profileUnitCodeName(String value) {
+    _profileUnitCodeName = value;
   }
 
   String _profileParentUnit = '[parent_unit]';
   String get profileParentUnit => _profileParentUnit;
-  set profileParentUnit(String _value) {
-    _profileParentUnit = _value;
+  set profileParentUnit(String value) {
+    _profileParentUnit = value;
   }
 
   String _profileRegion = '[region]';
   String get profileRegion => _profileRegion;
-  set profileRegion(String _value) {
-    _profileRegion = _value;
+  set profileRegion(String value) {
+    _profileRegion = value;
   }
 
   String _profileHiredDate = '[hired_date]';
   String get profileHiredDate => _profileHiredDate;
-  set profileHiredDate(String _value) {
-    _profileHiredDate = _value;
+  set profileHiredDate(String value) {
+    _profileHiredDate = value;
   }
 
   String _profileServiceDuration = '[service_duration]';
   String get profileServiceDuration => _profileServiceDuration;
-  set profileServiceDuration(String _value) {
-    _profileServiceDuration = _value;
+  set profileServiceDuration(String value) {
+    _profileServiceDuration = value;
   }
 
   String _profilePositionAge = '[position_age]';
   String get profilePositionAge => _profilePositionAge;
-  set profilePositionAge(String _value) {
-    _profilePositionAge = _value;
+  set profilePositionAge(String value) {
+    _profilePositionAge = value;
   }
 
   String _profilePositionName = '[position_name]';
   String get profilePositionName => _profilePositionName;
-  set profilePositionName(String _value) {
-    _profilePositionName = _value;
+  set profilePositionName(String value) {
+    _profilePositionName = value;
   }
 
   List<String> _dailySplashPageText = [
@@ -844,114 +844,114 @@ class FFAppState extends ChangeNotifier {
     'สุขสันต์วันอาทิตย์ ขอให้มีสติคิดการณ์ใหญ่ มองเห็นหนทางที่กว้างไกล สู้สร้างฝันต่อไปให้สำเร็จ'
   ];
   List<String> get dailySplashPageText => _dailySplashPageText;
-  set dailySplashPageText(List<String> _value) {
-    _dailySplashPageText = _value;
+  set dailySplashPageText(List<String> value) {
+    _dailySplashPageText = value;
   }
 
-  void addToDailySplashPageText(String _value) {
-    _dailySplashPageText.add(_value);
+  void addToDailySplashPageText(String value) {
+    dailySplashPageText.add(value);
   }
 
-  void removeFromDailySplashPageText(String _value) {
-    _dailySplashPageText.remove(_value);
+  void removeFromDailySplashPageText(String value) {
+    dailySplashPageText.remove(value);
   }
 
-  void removeAtIndexFromDailySplashPageText(int _index) {
-    _dailySplashPageText.removeAt(_index);
+  void removeAtIndexFromDailySplashPageText(int index) {
+    dailySplashPageText.removeAt(index);
   }
 
   void updateDailySplashPageTextAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _dailySplashPageText[_index] = updateFn(_dailySplashPageText[_index]);
+    dailySplashPageText[index] = updateFn(_dailySplashPageText[index]);
   }
 
-  void insertAtIndexInDailySplashPageText(int _index, String _value) {
-    _dailySplashPageText.insert(_index, _value);
+  void insertAtIndexInDailySplashPageText(int index, String value) {
+    dailySplashPageText.insert(index, value);
   }
 
   List<String> _leadBranchCode = [];
   List<String> get leadBranchCode => _leadBranchCode;
-  set leadBranchCode(List<String> _value) {
-    _leadBranchCode = _value;
+  set leadBranchCode(List<String> value) {
+    _leadBranchCode = value;
   }
 
-  void addToLeadBranchCode(String _value) {
-    _leadBranchCode.add(_value);
+  void addToLeadBranchCode(String value) {
+    leadBranchCode.add(value);
   }
 
-  void removeFromLeadBranchCode(String _value) {
-    _leadBranchCode.remove(_value);
+  void removeFromLeadBranchCode(String value) {
+    leadBranchCode.remove(value);
   }
 
-  void removeAtIndexFromLeadBranchCode(int _index) {
-    _leadBranchCode.removeAt(_index);
+  void removeAtIndexFromLeadBranchCode(int index) {
+    leadBranchCode.removeAt(index);
   }
 
   void updateLeadBranchCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadBranchCode[_index] = updateFn(_leadBranchCode[_index]);
+    leadBranchCode[index] = updateFn(_leadBranchCode[index]);
   }
 
-  void insertAtIndexInLeadBranchCode(int _index, String _value) {
-    _leadBranchCode.insert(_index, _value);
+  void insertAtIndexInLeadBranchCode(int index, String value) {
+    leadBranchCode.insert(index, value);
   }
 
   String _leadUserLevel = 'lead_user_level';
   String get leadUserLevel => _leadUserLevel;
-  set leadUserLevel(String _value) {
-    _leadUserLevel = _value;
+  set leadUserLevel(String value) {
+    _leadUserLevel = value;
   }
 
   List<int> _leadChannelAmountList = [0, 0, 0, 0];
   List<int> get leadChannelAmountList => _leadChannelAmountList;
-  set leadChannelAmountList(List<int> _value) {
-    _leadChannelAmountList = _value;
+  set leadChannelAmountList(List<int> value) {
+    _leadChannelAmountList = value;
   }
 
-  void addToLeadChannelAmountList(int _value) {
-    _leadChannelAmountList.add(_value);
+  void addToLeadChannelAmountList(int value) {
+    leadChannelAmountList.add(value);
   }
 
-  void removeFromLeadChannelAmountList(int _value) {
-    _leadChannelAmountList.remove(_value);
+  void removeFromLeadChannelAmountList(int value) {
+    leadChannelAmountList.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelAmountList(int _index) {
-    _leadChannelAmountList.removeAt(_index);
+  void removeAtIndexFromLeadChannelAmountList(int index) {
+    leadChannelAmountList.removeAt(index);
   }
 
   void updateLeadChannelAmountListAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _leadChannelAmountList[_index] = updateFn(_leadChannelAmountList[_index]);
+    leadChannelAmountList[index] = updateFn(_leadChannelAmountList[index]);
   }
 
-  void insertAtIndexInLeadChannelAmountList(int _index, int _value) {
-    _leadChannelAmountList.insert(_index, _value);
+  void insertAtIndexInLeadChannelAmountList(int index, int value) {
+    leadChannelAmountList.insert(index, value);
   }
 
   String _leadChannelSelected = 'All';
   String get leadChannelSelected => _leadChannelSelected;
-  set leadChannelSelected(String _value) {
-    _leadChannelSelected = _value;
+  set leadChannelSelected(String value) {
+    _leadChannelSelected = value;
   }
 
   String _dailyText = 'daily_text';
   String get dailyText => _dailyText;
-  set dailyText(String _value) {
-    _dailyText = _value;
+  set dailyText(String value) {
+    _dailyText = value;
   }
 
   bool _firstUseApp = false;
   bool get firstUseApp => _firstUseApp;
-  set firstUseApp(bool _value) {
-    _firstUseApp = _value;
-    secureStorage.setBool('ff_firstUseApp', _value);
+  set firstUseApp(bool value) {
+    _firstUseApp = value;
+    secureStorage.setBool('ff_firstUseApp', value);
   }
 
   void deleteFirstUseApp() {
@@ -960,428 +960,428 @@ class FFAppState extends ChangeNotifier {
 
   int _introPageIndex = 1;
   int get introPageIndex => _introPageIndex;
-  set introPageIndex(int _value) {
-    _introPageIndex = _value;
+  set introPageIndex(int value) {
+    _introPageIndex = value;
   }
 
   LatLng? _HOLocation = LatLng(13.888767, 100.575308);
   LatLng? get HOLocation => _HOLocation;
-  set HOLocation(LatLng? _value) {
-    _HOLocation = _value;
+  set HOLocation(LatLng? value) {
+    _HOLocation = value;
   }
 
   List<String> _adminEmployeeID = ['31622', '23328', '30427', '33511'];
   List<String> get adminEmployeeID => _adminEmployeeID;
-  set adminEmployeeID(List<String> _value) {
-    _adminEmployeeID = _value;
+  set adminEmployeeID(List<String> value) {
+    _adminEmployeeID = value;
   }
 
-  void addToAdminEmployeeID(String _value) {
-    _adminEmployeeID.add(_value);
+  void addToAdminEmployeeID(String value) {
+    adminEmployeeID.add(value);
   }
 
-  void removeFromAdminEmployeeID(String _value) {
-    _adminEmployeeID.remove(_value);
+  void removeFromAdminEmployeeID(String value) {
+    adminEmployeeID.remove(value);
   }
 
-  void removeAtIndexFromAdminEmployeeID(int _index) {
-    _adminEmployeeID.removeAt(_index);
+  void removeAtIndexFromAdminEmployeeID(int index) {
+    adminEmployeeID.removeAt(index);
   }
 
   void updateAdminEmployeeIDAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _adminEmployeeID[_index] = updateFn(_adminEmployeeID[_index]);
+    adminEmployeeID[index] = updateFn(_adminEmployeeID[index]);
   }
 
-  void insertAtIndexInAdminEmployeeID(int _index, String _value) {
-    _adminEmployeeID.insert(_index, _value);
+  void insertAtIndexInAdminEmployeeID(int index, String value) {
+    adminEmployeeID.insert(index, value);
   }
 
   String _profilePositionAgeCheck = '[position_age_check]';
   String get profilePositionAgeCheck => _profilePositionAgeCheck;
-  set profilePositionAgeCheck(String _value) {
-    _profilePositionAgeCheck = _value;
+  set profilePositionAgeCheck(String value) {
+    _profilePositionAgeCheck = value;
   }
 
   DateTime? _dcvdf;
   DateTime? get dcvdf => _dcvdf;
-  set dcvdf(DateTime? _value) {
-    _dcvdf = _value;
+  set dcvdf(DateTime? value) {
+    _dcvdf = value;
   }
 
   String _firebaseUserUID = '';
   String get firebaseUserUID => _firebaseUserUID;
-  set firebaseUserUID(String _value) {
-    _firebaseUserUID = _value;
+  set firebaseUserUID(String value) {
+    _firebaseUserUID = value;
   }
 
   int _RatingNumber = 0;
   int get RatingNumber => _RatingNumber;
-  set RatingNumber(int _value) {
-    _RatingNumber = _value;
+  set RatingNumber(int value) {
+    _RatingNumber = value;
   }
 
   List<String> _branchList = [' '];
   List<String> get branchList => _branchList;
-  set branchList(List<String> _value) {
-    _branchList = _value;
+  set branchList(List<String> value) {
+    _branchList = value;
   }
 
-  void addToBranchList(String _value) {
-    _branchList.add(_value);
+  void addToBranchList(String value) {
+    branchList.add(value);
   }
 
-  void removeFromBranchList(String _value) {
-    _branchList.remove(_value);
+  void removeFromBranchList(String value) {
+    branchList.remove(value);
   }
 
-  void removeAtIndexFromBranchList(int _index) {
-    _branchList.removeAt(_index);
+  void removeAtIndexFromBranchList(int index) {
+    branchList.removeAt(index);
   }
 
   void updateBranchListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _branchList[_index] = updateFn(_branchList[_index]);
+    branchList[index] = updateFn(_branchList[index]);
   }
 
-  void insertAtIndexInBranchList(int _index, String _value) {
-    _branchList.insert(_index, _value);
+  void insertAtIndexInBranchList(int index, String value) {
+    branchList.insert(index, value);
   }
 
   String _branchGroup = 'ทั่วไป';
   String get branchGroup => _branchGroup;
-  set branchGroup(String _value) {
-    _branchGroup = _value;
+  set branchGroup(String value) {
+    _branchGroup = value;
   }
 
   List<String> _branchLat = ['Hello World'];
   List<String> get branchLat => _branchLat;
-  set branchLat(List<String> _value) {
-    _branchLat = _value;
+  set branchLat(List<String> value) {
+    _branchLat = value;
   }
 
-  void addToBranchLat(String _value) {
-    _branchLat.add(_value);
+  void addToBranchLat(String value) {
+    branchLat.add(value);
   }
 
-  void removeFromBranchLat(String _value) {
-    _branchLat.remove(_value);
+  void removeFromBranchLat(String value) {
+    branchLat.remove(value);
   }
 
-  void removeAtIndexFromBranchLat(int _index) {
-    _branchLat.removeAt(_index);
+  void removeAtIndexFromBranchLat(int index) {
+    branchLat.removeAt(index);
   }
 
   void updateBranchLatAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _branchLat[_index] = updateFn(_branchLat[_index]);
+    branchLat[index] = updateFn(_branchLat[index]);
   }
 
-  void insertAtIndexInBranchLat(int _index, String _value) {
-    _branchLat.insert(_index, _value);
+  void insertAtIndexInBranchLat(int index, String value) {
+    branchLat.insert(index, value);
   }
 
   List<String> _branchLng = ['99'];
   List<String> get branchLng => _branchLng;
-  set branchLng(List<String> _value) {
-    _branchLng = _value;
+  set branchLng(List<String> value) {
+    _branchLng = value;
   }
 
-  void addToBranchLng(String _value) {
-    _branchLng.add(_value);
+  void addToBranchLng(String value) {
+    branchLng.add(value);
   }
 
-  void removeFromBranchLng(String _value) {
-    _branchLng.remove(_value);
+  void removeFromBranchLng(String value) {
+    branchLng.remove(value);
   }
 
-  void removeAtIndexFromBranchLng(int _index) {
-    _branchLng.removeAt(_index);
+  void removeAtIndexFromBranchLng(int index) {
+    branchLng.removeAt(index);
   }
 
   void updateBranchLngAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _branchLng[_index] = updateFn(_branchLng[_index]);
+    branchLng[index] = updateFn(_branchLng[index]);
   }
 
-  void insertAtIndexInBranchLng(int _index, String _value) {
-    _branchLng.insert(_index, _value);
+  void insertAtIndexInBranchLng(int index, String value) {
+    branchLng.insert(index, value);
   }
 
   List<String> _branchRad = ['98'];
   List<String> get branchRad => _branchRad;
-  set branchRad(List<String> _value) {
-    _branchRad = _value;
+  set branchRad(List<String> value) {
+    _branchRad = value;
   }
 
-  void addToBranchRad(String _value) {
-    _branchRad.add(_value);
+  void addToBranchRad(String value) {
+    branchRad.add(value);
   }
 
-  void removeFromBranchRad(String _value) {
-    _branchRad.remove(_value);
+  void removeFromBranchRad(String value) {
+    branchRad.remove(value);
   }
 
-  void removeAtIndexFromBranchRad(int _index) {
-    _branchRad.removeAt(_index);
+  void removeAtIndexFromBranchRad(int index) {
+    branchRad.removeAt(index);
   }
 
   void updateBranchRadAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _branchRad[_index] = updateFn(_branchRad[_index]);
+    branchRad[index] = updateFn(_branchRad[index]);
   }
 
-  void insertAtIndexInBranchRad(int _index, String _value) {
-    _branchRad.insert(_index, _value);
+  void insertAtIndexInBranchRad(int index, String value) {
+    branchRad.insert(index, value);
   }
 
   LatLng? _branchLo;
   LatLng? get branchLo => _branchLo;
-  set branchLo(LatLng? _value) {
-    _branchLo = _value;
+  set branchLo(LatLng? value) {
+    _branchLo = value;
   }
 
   String _currentTime = '';
   String get currentTime => _currentTime;
-  set currentTime(String _value) {
-    _currentTime = _value;
+  set currentTime(String value) {
+    _currentTime = value;
   }
 
   String _currentDate = '';
   String get currentDate => _currentDate;
-  set currentDate(String _value) {
-    _currentDate = _value;
+  set currentDate(String value) {
+    _currentDate = value;
   }
 
   double _currentRadius = 0.0;
   double get currentRadius => _currentRadius;
-  set currentRadius(double _value) {
-    _currentRadius = _value;
+  set currentRadius(double value) {
+    _currentRadius = value;
   }
 
   String _flag = '';
   String get flag => _flag;
-  set flag(String _value) {
-    _flag = _value;
+  set flag(String value) {
+    _flag = value;
   }
 
   String _branchLoString = '';
   String get branchLoString => _branchLoString;
-  set branchLoString(String _value) {
-    _branchLoString = _value;
+  set branchLoString(String value) {
+    _branchLoString = value;
   }
 
   List<String> _checkinStatusBranch = [];
   List<String> get checkinStatusBranch => _checkinStatusBranch;
-  set checkinStatusBranch(List<String> _value) {
-    _checkinStatusBranch = _value;
+  set checkinStatusBranch(List<String> value) {
+    _checkinStatusBranch = value;
   }
 
-  void addToCheckinStatusBranch(String _value) {
-    _checkinStatusBranch.add(_value);
+  void addToCheckinStatusBranch(String value) {
+    checkinStatusBranch.add(value);
   }
 
-  void removeFromCheckinStatusBranch(String _value) {
-    _checkinStatusBranch.remove(_value);
+  void removeFromCheckinStatusBranch(String value) {
+    checkinStatusBranch.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusBranch(int _index) {
-    _checkinStatusBranch.removeAt(_index);
+  void removeAtIndexFromCheckinStatusBranch(int index) {
+    checkinStatusBranch.removeAt(index);
   }
 
   void updateCheckinStatusBranchAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusBranch[_index] = updateFn(_checkinStatusBranch[_index]);
+    checkinStatusBranch[index] = updateFn(_checkinStatusBranch[index]);
   }
 
-  void insertAtIndexInCheckinStatusBranch(int _index, String _value) {
-    _checkinStatusBranch.insert(_index, _value);
+  void insertAtIndexInCheckinStatusBranch(int index, String value) {
+    checkinStatusBranch.insert(index, value);
   }
 
   List<String> _checkinStatusDate = [];
   List<String> get checkinStatusDate => _checkinStatusDate;
-  set checkinStatusDate(List<String> _value) {
-    _checkinStatusDate = _value;
+  set checkinStatusDate(List<String> value) {
+    _checkinStatusDate = value;
   }
 
-  void addToCheckinStatusDate(String _value) {
-    _checkinStatusDate.add(_value);
+  void addToCheckinStatusDate(String value) {
+    checkinStatusDate.add(value);
   }
 
-  void removeFromCheckinStatusDate(String _value) {
-    _checkinStatusDate.remove(_value);
+  void removeFromCheckinStatusDate(String value) {
+    checkinStatusDate.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusDate(int _index) {
-    _checkinStatusDate.removeAt(_index);
+  void removeAtIndexFromCheckinStatusDate(int index) {
+    checkinStatusDate.removeAt(index);
   }
 
   void updateCheckinStatusDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusDate[_index] = updateFn(_checkinStatusDate[_index]);
+    checkinStatusDate[index] = updateFn(_checkinStatusDate[index]);
   }
 
-  void insertAtIndexInCheckinStatusDate(int _index, String _value) {
-    _checkinStatusDate.insert(_index, _value);
+  void insertAtIndexInCheckinStatusDate(int index, String value) {
+    checkinStatusDate.insert(index, value);
   }
 
   List<String> _checkinStatusTime = [];
   List<String> get checkinStatusTime => _checkinStatusTime;
-  set checkinStatusTime(List<String> _value) {
-    _checkinStatusTime = _value;
+  set checkinStatusTime(List<String> value) {
+    _checkinStatusTime = value;
   }
 
-  void addToCheckinStatusTime(String _value) {
-    _checkinStatusTime.add(_value);
+  void addToCheckinStatusTime(String value) {
+    checkinStatusTime.add(value);
   }
 
-  void removeFromCheckinStatusTime(String _value) {
-    _checkinStatusTime.remove(_value);
+  void removeFromCheckinStatusTime(String value) {
+    checkinStatusTime.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusTime(int _index) {
-    _checkinStatusTime.removeAt(_index);
+  void removeAtIndexFromCheckinStatusTime(int index) {
+    checkinStatusTime.removeAt(index);
   }
 
   void updateCheckinStatusTimeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusTime[_index] = updateFn(_checkinStatusTime[_index]);
+    checkinStatusTime[index] = updateFn(_checkinStatusTime[index]);
   }
 
-  void insertAtIndexInCheckinStatusTime(int _index, String _value) {
-    _checkinStatusTime.insert(_index, _value);
+  void insertAtIndexInCheckinStatusTime(int index, String value) {
+    checkinStatusTime.insert(index, value);
   }
 
   List<String> _checkinStatusAction = [];
   List<String> get checkinStatusAction => _checkinStatusAction;
-  set checkinStatusAction(List<String> _value) {
-    _checkinStatusAction = _value;
+  set checkinStatusAction(List<String> value) {
+    _checkinStatusAction = value;
   }
 
-  void addToCheckinStatusAction(String _value) {
-    _checkinStatusAction.add(_value);
+  void addToCheckinStatusAction(String value) {
+    checkinStatusAction.add(value);
   }
 
-  void removeFromCheckinStatusAction(String _value) {
-    _checkinStatusAction.remove(_value);
+  void removeFromCheckinStatusAction(String value) {
+    checkinStatusAction.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusAction(int _index) {
-    _checkinStatusAction.removeAt(_index);
+  void removeAtIndexFromCheckinStatusAction(int index) {
+    checkinStatusAction.removeAt(index);
   }
 
   void updateCheckinStatusActionAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusAction[_index] = updateFn(_checkinStatusAction[_index]);
+    checkinStatusAction[index] = updateFn(_checkinStatusAction[index]);
   }
 
-  void insertAtIndexInCheckinStatusAction(int _index, String _value) {
-    _checkinStatusAction.insert(_index, _value);
+  void insertAtIndexInCheckinStatusAction(int index, String value) {
+    checkinStatusAction.insert(index, value);
   }
 
   List<String> _checkinStatusTimeIn = [];
   List<String> get checkinStatusTimeIn => _checkinStatusTimeIn;
-  set checkinStatusTimeIn(List<String> _value) {
-    _checkinStatusTimeIn = _value;
+  set checkinStatusTimeIn(List<String> value) {
+    _checkinStatusTimeIn = value;
   }
 
-  void addToCheckinStatusTimeIn(String _value) {
-    _checkinStatusTimeIn.add(_value);
+  void addToCheckinStatusTimeIn(String value) {
+    checkinStatusTimeIn.add(value);
   }
 
-  void removeFromCheckinStatusTimeIn(String _value) {
-    _checkinStatusTimeIn.remove(_value);
+  void removeFromCheckinStatusTimeIn(String value) {
+    checkinStatusTimeIn.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusTimeIn(int _index) {
-    _checkinStatusTimeIn.removeAt(_index);
+  void removeAtIndexFromCheckinStatusTimeIn(int index) {
+    checkinStatusTimeIn.removeAt(index);
   }
 
   void updateCheckinStatusTimeInAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusTimeIn[_index] = updateFn(_checkinStatusTimeIn[_index]);
+    checkinStatusTimeIn[index] = updateFn(_checkinStatusTimeIn[index]);
   }
 
-  void insertAtIndexInCheckinStatusTimeIn(int _index, String _value) {
-    _checkinStatusTimeIn.insert(_index, _value);
+  void insertAtIndexInCheckinStatusTimeIn(int index, String value) {
+    checkinStatusTimeIn.insert(index, value);
   }
 
   List<String> _checkinStatusTimeOut = [];
   List<String> get checkinStatusTimeOut => _checkinStatusTimeOut;
-  set checkinStatusTimeOut(List<String> _value) {
-    _checkinStatusTimeOut = _value;
+  set checkinStatusTimeOut(List<String> value) {
+    _checkinStatusTimeOut = value;
   }
 
-  void addToCheckinStatusTimeOut(String _value) {
-    _checkinStatusTimeOut.add(_value);
+  void addToCheckinStatusTimeOut(String value) {
+    checkinStatusTimeOut.add(value);
   }
 
-  void removeFromCheckinStatusTimeOut(String _value) {
-    _checkinStatusTimeOut.remove(_value);
+  void removeFromCheckinStatusTimeOut(String value) {
+    checkinStatusTimeOut.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusTimeOut(int _index) {
-    _checkinStatusTimeOut.removeAt(_index);
+  void removeAtIndexFromCheckinStatusTimeOut(int index) {
+    checkinStatusTimeOut.removeAt(index);
   }
 
   void updateCheckinStatusTimeOutAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusTimeOut[_index] = updateFn(_checkinStatusTimeOut[_index]);
+    checkinStatusTimeOut[index] = updateFn(_checkinStatusTimeOut[index]);
   }
 
-  void insertAtIndexInCheckinStatusTimeOut(int _index, String _value) {
-    _checkinStatusTimeOut.insert(_index, _value);
+  void insertAtIndexInCheckinStatusTimeOut(int index, String value) {
+    checkinStatusTimeOut.insert(index, value);
   }
 
   List<String> _checkinStatusDateFlag = [];
   List<String> get checkinStatusDateFlag => _checkinStatusDateFlag;
-  set checkinStatusDateFlag(List<String> _value) {
-    _checkinStatusDateFlag = _value;
+  set checkinStatusDateFlag(List<String> value) {
+    _checkinStatusDateFlag = value;
   }
 
-  void addToCheckinStatusDateFlag(String _value) {
-    _checkinStatusDateFlag.add(_value);
+  void addToCheckinStatusDateFlag(String value) {
+    checkinStatusDateFlag.add(value);
   }
 
-  void removeFromCheckinStatusDateFlag(String _value) {
-    _checkinStatusDateFlag.remove(_value);
+  void removeFromCheckinStatusDateFlag(String value) {
+    checkinStatusDateFlag.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusDateFlag(int _index) {
-    _checkinStatusDateFlag.removeAt(_index);
+  void removeAtIndexFromCheckinStatusDateFlag(int index) {
+    checkinStatusDateFlag.removeAt(index);
   }
 
   void updateCheckinStatusDateFlagAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinStatusDateFlag[_index] = updateFn(_checkinStatusDateFlag[_index]);
+    checkinStatusDateFlag[index] = updateFn(_checkinStatusDateFlag[index]);
   }
 
-  void insertAtIndexInCheckinStatusDateFlag(int _index, String _value) {
-    _checkinStatusDateFlag.insert(_index, _value);
+  void insertAtIndexInCheckinStatusDateFlag(int index, String value) {
+    checkinStatusDateFlag.insert(index, value);
   }
 
   List<Color> _checkinStatusColor = [
@@ -1394,118 +1394,118 @@ class FFAppState extends ChangeNotifier {
     Color(4281270016)
   ];
   List<Color> get checkinStatusColor => _checkinStatusColor;
-  set checkinStatusColor(List<Color> _value) {
-    _checkinStatusColor = _value;
+  set checkinStatusColor(List<Color> value) {
+    _checkinStatusColor = value;
   }
 
-  void addToCheckinStatusColor(Color _value) {
-    _checkinStatusColor.add(_value);
+  void addToCheckinStatusColor(Color value) {
+    checkinStatusColor.add(value);
   }
 
-  void removeFromCheckinStatusColor(Color _value) {
-    _checkinStatusColor.remove(_value);
+  void removeFromCheckinStatusColor(Color value) {
+    checkinStatusColor.remove(value);
   }
 
-  void removeAtIndexFromCheckinStatusColor(int _index) {
-    _checkinStatusColor.removeAt(_index);
+  void removeAtIndexFromCheckinStatusColor(int index) {
+    checkinStatusColor.removeAt(index);
   }
 
   void updateCheckinStatusColorAtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _checkinStatusColor[_index] = updateFn(_checkinStatusColor[_index]);
+    checkinStatusColor[index] = updateFn(_checkinStatusColor[index]);
   }
 
-  void insertAtIndexInCheckinStatusColor(int _index, Color _value) {
-    _checkinStatusColor.insert(_index, _value);
+  void insertAtIndexInCheckinStatusColor(int index, Color value) {
+    checkinStatusColor.insert(index, value);
   }
 
   List<String> _teleBrandName = [];
   List<String> get teleBrandName => _teleBrandName;
-  set teleBrandName(List<String> _value) {
-    _teleBrandName = _value;
+  set teleBrandName(List<String> value) {
+    _teleBrandName = value;
   }
 
-  void addToTeleBrandName(String _value) {
-    _teleBrandName.add(_value);
+  void addToTeleBrandName(String value) {
+    teleBrandName.add(value);
   }
 
-  void removeFromTeleBrandName(String _value) {
-    _teleBrandName.remove(_value);
+  void removeFromTeleBrandName(String value) {
+    teleBrandName.remove(value);
   }
 
-  void removeAtIndexFromTeleBrandName(int _index) {
-    _teleBrandName.removeAt(_index);
+  void removeAtIndexFromTeleBrandName(int index) {
+    teleBrandName.removeAt(index);
   }
 
   void updateTeleBrandNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleBrandName[_index] = updateFn(_teleBrandName[_index]);
+    teleBrandName[index] = updateFn(_teleBrandName[index]);
   }
 
-  void insertAtIndexInTeleBrandName(int _index, String _value) {
-    _teleBrandName.insert(_index, _value);
+  void insertAtIndexInTeleBrandName(int index, String value) {
+    teleBrandName.insert(index, value);
   }
 
   List<String> _teleBrandType = [];
   List<String> get teleBrandType => _teleBrandType;
-  set teleBrandType(List<String> _value) {
-    _teleBrandType = _value;
+  set teleBrandType(List<String> value) {
+    _teleBrandType = value;
   }
 
-  void addToTeleBrandType(String _value) {
-    _teleBrandType.add(_value);
+  void addToTeleBrandType(String value) {
+    teleBrandType.add(value);
   }
 
-  void removeFromTeleBrandType(String _value) {
-    _teleBrandType.remove(_value);
+  void removeFromTeleBrandType(String value) {
+    teleBrandType.remove(value);
   }
 
-  void removeAtIndexFromTeleBrandType(int _index) {
-    _teleBrandType.removeAt(_index);
+  void removeAtIndexFromTeleBrandType(int index) {
+    teleBrandType.removeAt(index);
   }
 
   void updateTeleBrandTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleBrandType[_index] = updateFn(_teleBrandType[_index]);
+    teleBrandType[index] = updateFn(_teleBrandType[index]);
   }
 
-  void insertAtIndexInTeleBrandType(int _index, String _value) {
-    _teleBrandType.insert(_index, _value);
+  void insertAtIndexInTeleBrandType(int index, String value) {
+    teleBrandType.insert(index, value);
   }
 
   List<String> _modelName = [];
   List<String> get modelName => _modelName;
-  set modelName(List<String> _value) {
-    _modelName = _value;
+  set modelName(List<String> value) {
+    _modelName = value;
   }
 
-  void addToModelName(String _value) {
-    _modelName.add(_value);
+  void addToModelName(String value) {
+    modelName.add(value);
   }
 
-  void removeFromModelName(String _value) {
-    _modelName.remove(_value);
+  void removeFromModelName(String value) {
+    modelName.remove(value);
   }
 
-  void removeAtIndexFromModelName(int _index) {
-    _modelName.removeAt(_index);
+  void removeAtIndexFromModelName(int index) {
+    modelName.removeAt(index);
   }
 
   void updateModelNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _modelName[_index] = updateFn(_modelName[_index]);
+    modelName[index] = updateFn(_modelName[index]);
   }
 
-  void insertAtIndexInModelName(int _index, String _value) {
-    _modelName.insert(_index, _value);
+  void insertAtIndexInModelName(int index, String value) {
+    modelName.insert(index, value);
   }
 
   List<String> _teleYearDropdownOption = [
@@ -1532,664 +1532,664 @@ class FFAppState extends ChangeNotifier {
     '2566'
   ];
   List<String> get teleYearDropdownOption => _teleYearDropdownOption;
-  set teleYearDropdownOption(List<String> _value) {
-    _teleYearDropdownOption = _value;
+  set teleYearDropdownOption(List<String> value) {
+    _teleYearDropdownOption = value;
   }
 
-  void addToTeleYearDropdownOption(String _value) {
-    _teleYearDropdownOption.add(_value);
+  void addToTeleYearDropdownOption(String value) {
+    teleYearDropdownOption.add(value);
   }
 
-  void removeFromTeleYearDropdownOption(String _value) {
-    _teleYearDropdownOption.remove(_value);
+  void removeFromTeleYearDropdownOption(String value) {
+    teleYearDropdownOption.remove(value);
   }
 
-  void removeAtIndexFromTeleYearDropdownOption(int _index) {
-    _teleYearDropdownOption.removeAt(_index);
+  void removeAtIndexFromTeleYearDropdownOption(int index) {
+    teleYearDropdownOption.removeAt(index);
   }
 
   void updateTeleYearDropdownOptionAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleYearDropdownOption[_index] = updateFn(_teleYearDropdownOption[_index]);
+    teleYearDropdownOption[index] = updateFn(_teleYearDropdownOption[index]);
   }
 
-  void insertAtIndexInTeleYearDropdownOption(int _index, String _value) {
-    _teleYearDropdownOption.insert(_index, _value);
+  void insertAtIndexInTeleYearDropdownOption(int index, String value) {
+    teleYearDropdownOption.insert(index, value);
   }
 
   List<String> _teleGetProvince = [];
   List<String> get teleGetProvince => _teleGetProvince;
-  set teleGetProvince(List<String> _value) {
-    _teleGetProvince = _value;
+  set teleGetProvince(List<String> value) {
+    _teleGetProvince = value;
   }
 
-  void addToTeleGetProvince(String _value) {
-    _teleGetProvince.add(_value);
+  void addToTeleGetProvince(String value) {
+    teleGetProvince.add(value);
   }
 
-  void removeFromTeleGetProvince(String _value) {
-    _teleGetProvince.remove(_value);
+  void removeFromTeleGetProvince(String value) {
+    teleGetProvince.remove(value);
   }
 
-  void removeAtIndexFromTeleGetProvince(int _index) {
-    _teleGetProvince.removeAt(_index);
+  void removeAtIndexFromTeleGetProvince(int index) {
+    teleGetProvince.removeAt(index);
   }
 
   void updateTeleGetProvinceAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleGetProvince[_index] = updateFn(_teleGetProvince[_index]);
+    teleGetProvince[index] = updateFn(_teleGetProvince[index]);
   }
 
-  void insertAtIndexInTeleGetProvince(int _index, String _value) {
-    _teleGetProvince.insert(_index, _value);
+  void insertAtIndexInTeleGetProvince(int index, String value) {
+    teleGetProvince.insert(index, value);
   }
 
   List<String> _teleModelName = [];
   List<String> get teleModelName => _teleModelName;
-  set teleModelName(List<String> _value) {
-    _teleModelName = _value;
+  set teleModelName(List<String> value) {
+    _teleModelName = value;
   }
 
-  void addToTeleModelName(String _value) {
-    _teleModelName.add(_value);
+  void addToTeleModelName(String value) {
+    teleModelName.add(value);
   }
 
-  void removeFromTeleModelName(String _value) {
-    _teleModelName.remove(_value);
+  void removeFromTeleModelName(String value) {
+    teleModelName.remove(value);
   }
 
-  void removeAtIndexFromTeleModelName(int _index) {
-    _teleModelName.removeAt(_index);
+  void removeAtIndexFromTeleModelName(int index) {
+    teleModelName.removeAt(index);
   }
 
   void updateTeleModelNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleModelName[_index] = updateFn(_teleModelName[_index]);
+    teleModelName[index] = updateFn(_teleModelName[index]);
   }
 
-  void insertAtIndexInTeleModelName(int _index, String _value) {
-    _teleModelName.insert(_index, _value);
+  void insertAtIndexInTeleModelName(int index, String value) {
+    teleModelName.insert(index, value);
   }
 
   List<String> _coverTypeName = [];
   List<String> get coverTypeName => _coverTypeName;
-  set coverTypeName(List<String> _value) {
-    _coverTypeName = _value;
+  set coverTypeName(List<String> value) {
+    _coverTypeName = value;
   }
 
-  void addToCoverTypeName(String _value) {
-    _coverTypeName.add(_value);
+  void addToCoverTypeName(String value) {
+    coverTypeName.add(value);
   }
 
-  void removeFromCoverTypeName(String _value) {
-    _coverTypeName.remove(_value);
+  void removeFromCoverTypeName(String value) {
+    coverTypeName.remove(value);
   }
 
-  void removeAtIndexFromCoverTypeName(int _index) {
-    _coverTypeName.removeAt(_index);
+  void removeAtIndexFromCoverTypeName(int index) {
+    coverTypeName.removeAt(index);
   }
 
   void updateCoverTypeNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _coverTypeName[_index] = updateFn(_coverTypeName[_index]);
+    coverTypeName[index] = updateFn(_coverTypeName[index]);
   }
 
-  void insertAtIndexInCoverTypeName(int _index, String _value) {
-    _coverTypeName.insert(_index, _value);
+  void insertAtIndexInCoverTypeName(int index, String value) {
+    coverTypeName.insert(index, value);
   }
 
   List<String> _coverTypeCode = [];
   List<String> get coverTypeCode => _coverTypeCode;
-  set coverTypeCode(List<String> _value) {
-    _coverTypeCode = _value;
+  set coverTypeCode(List<String> value) {
+    _coverTypeCode = value;
   }
 
-  void addToCoverTypeCode(String _value) {
-    _coverTypeCode.add(_value);
+  void addToCoverTypeCode(String value) {
+    coverTypeCode.add(value);
   }
 
-  void removeFromCoverTypeCode(String _value) {
-    _coverTypeCode.remove(_value);
+  void removeFromCoverTypeCode(String value) {
+    coverTypeCode.remove(value);
   }
 
-  void removeAtIndexFromCoverTypeCode(int _index) {
-    _coverTypeCode.removeAt(_index);
+  void removeAtIndexFromCoverTypeCode(int index) {
+    coverTypeCode.removeAt(index);
   }
 
   void updateCoverTypeCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _coverTypeCode[_index] = updateFn(_coverTypeCode[_index]);
+    coverTypeCode[index] = updateFn(_coverTypeCode[index]);
   }
 
-  void insertAtIndexInCoverTypeCode(int _index, String _value) {
-    _coverTypeCode.insert(_index, _value);
+  void insertAtIndexInCoverTypeCode(int index, String value) {
+    coverTypeCode.insert(index, value);
   }
 
   List<String> _insurerFullNameList = [];
   List<String> get insurerFullNameList => _insurerFullNameList;
-  set insurerFullNameList(List<String> _value) {
-    _insurerFullNameList = _value;
+  set insurerFullNameList(List<String> value) {
+    _insurerFullNameList = value;
   }
 
-  void addToInsurerFullNameList(String _value) {
-    _insurerFullNameList.add(_value);
+  void addToInsurerFullNameList(String value) {
+    insurerFullNameList.add(value);
   }
 
-  void removeFromInsurerFullNameList(String _value) {
-    _insurerFullNameList.remove(_value);
+  void removeFromInsurerFullNameList(String value) {
+    insurerFullNameList.remove(value);
   }
 
-  void removeAtIndexFromInsurerFullNameList(int _index) {
-    _insurerFullNameList.removeAt(_index);
+  void removeAtIndexFromInsurerFullNameList(int index) {
+    insurerFullNameList.removeAt(index);
   }
 
   void updateInsurerFullNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insurerFullNameList[_index] = updateFn(_insurerFullNameList[_index]);
+    insurerFullNameList[index] = updateFn(_insurerFullNameList[index]);
   }
 
-  void insertAtIndexInInsurerFullNameList(int _index, String _value) {
-    _insurerFullNameList.insert(_index, _value);
+  void insertAtIndexInInsurerFullNameList(int index, String value) {
+    insurerFullNameList.insert(index, value);
   }
 
   String _garageTypeEng = '';
   String get garageTypeEng => _garageTypeEng;
-  set garageTypeEng(String _value) {
-    _garageTypeEng = _value;
+  set garageTypeEng(String value) {
+    _garageTypeEng = value;
   }
 
   List<String> _coverTypeNameChosen = [];
   List<String> get coverTypeNameChosen => _coverTypeNameChosen;
-  set coverTypeNameChosen(List<String> _value) {
-    _coverTypeNameChosen = _value;
+  set coverTypeNameChosen(List<String> value) {
+    _coverTypeNameChosen = value;
   }
 
-  void addToCoverTypeNameChosen(String _value) {
-    _coverTypeNameChosen.add(_value);
+  void addToCoverTypeNameChosen(String value) {
+    coverTypeNameChosen.add(value);
   }
 
-  void removeFromCoverTypeNameChosen(String _value) {
-    _coverTypeNameChosen.remove(_value);
+  void removeFromCoverTypeNameChosen(String value) {
+    coverTypeNameChosen.remove(value);
   }
 
-  void removeAtIndexFromCoverTypeNameChosen(int _index) {
-    _coverTypeNameChosen.removeAt(_index);
+  void removeAtIndexFromCoverTypeNameChosen(int index) {
+    coverTypeNameChosen.removeAt(index);
   }
 
   void updateCoverTypeNameChosenAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _coverTypeNameChosen[_index] = updateFn(_coverTypeNameChosen[_index]);
+    coverTypeNameChosen[index] = updateFn(_coverTypeNameChosen[index]);
   }
 
-  void insertAtIndexInCoverTypeNameChosen(int _index, String _value) {
-    _coverTypeNameChosen.insert(_index, _value);
+  void insertAtIndexInCoverTypeNameChosen(int index, String value) {
+    coverTypeNameChosen.insert(index, value);
   }
 
   List<String> _insurerNameChosen = [];
   List<String> get insurerNameChosen => _insurerNameChosen;
-  set insurerNameChosen(List<String> _value) {
-    _insurerNameChosen = _value;
+  set insurerNameChosen(List<String> value) {
+    _insurerNameChosen = value;
   }
 
-  void addToInsurerNameChosen(String _value) {
-    _insurerNameChosen.add(_value);
+  void addToInsurerNameChosen(String value) {
+    insurerNameChosen.add(value);
   }
 
-  void removeFromInsurerNameChosen(String _value) {
-    _insurerNameChosen.remove(_value);
+  void removeFromInsurerNameChosen(String value) {
+    insurerNameChosen.remove(value);
   }
 
-  void removeAtIndexFromInsurerNameChosen(int _index) {
-    _insurerNameChosen.removeAt(_index);
+  void removeAtIndexFromInsurerNameChosen(int index) {
+    insurerNameChosen.removeAt(index);
   }
 
   void updateInsurerNameChosenAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insurerNameChosen[_index] = updateFn(_insurerNameChosen[_index]);
+    insurerNameChosen[index] = updateFn(_insurerNameChosen[index]);
   }
 
-  void insertAtIndexInInsurerNameChosen(int _index, String _value) {
-    _insurerNameChosen.insert(_index, _value);
+  void insertAtIndexInInsurerNameChosen(int index, String value) {
+    insurerNameChosen.insert(index, value);
   }
 
   int _sumInsuredChosen = 0;
   int get sumInsuredChosen => _sumInsuredChosen;
-  set sumInsuredChosen(int _value) {
-    _sumInsuredChosen = _value;
+  set sumInsuredChosen(int value) {
+    _sumInsuredChosen = value;
   }
 
   List<String> _teleBrandID = [];
   List<String> get teleBrandID => _teleBrandID;
-  set teleBrandID(List<String> _value) {
-    _teleBrandID = _value;
+  set teleBrandID(List<String> value) {
+    _teleBrandID = value;
   }
 
-  void addToTeleBrandID(String _value) {
-    _teleBrandID.add(_value);
+  void addToTeleBrandID(String value) {
+    teleBrandID.add(value);
   }
 
-  void removeFromTeleBrandID(String _value) {
-    _teleBrandID.remove(_value);
+  void removeFromTeleBrandID(String value) {
+    teleBrandID.remove(value);
   }
 
-  void removeAtIndexFromTeleBrandID(int _index) {
-    _teleBrandID.removeAt(_index);
+  void removeAtIndexFromTeleBrandID(int index) {
+    teleBrandID.removeAt(index);
   }
 
   void updateTeleBrandIDAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleBrandID[_index] = updateFn(_teleBrandID[_index]);
+    teleBrandID[index] = updateFn(_teleBrandID[index]);
   }
 
-  void insertAtIndexInTeleBrandID(int _index, String _value) {
-    _teleBrandID.insert(_index, _value);
+  void insertAtIndexInTeleBrandID(int index, String value) {
+    teleBrandID.insert(index, value);
   }
 
   List<String> _teleModelCode = [];
   List<String> get teleModelCode => _teleModelCode;
-  set teleModelCode(List<String> _value) {
-    _teleModelCode = _value;
+  set teleModelCode(List<String> value) {
+    _teleModelCode = value;
   }
 
-  void addToTeleModelCode(String _value) {
-    _teleModelCode.add(_value);
+  void addToTeleModelCode(String value) {
+    teleModelCode.add(value);
   }
 
-  void removeFromTeleModelCode(String _value) {
-    _teleModelCode.remove(_value);
+  void removeFromTeleModelCode(String value) {
+    teleModelCode.remove(value);
   }
 
-  void removeAtIndexFromTeleModelCode(int _index) {
-    _teleModelCode.removeAt(_index);
+  void removeAtIndexFromTeleModelCode(int index) {
+    teleModelCode.removeAt(index);
   }
 
   void updateTeleModelCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleModelCode[_index] = updateFn(_teleModelCode[_index]);
+    teleModelCode[index] = updateFn(_teleModelCode[index]);
   }
 
-  void insertAtIndexInTeleModelCode(int _index, String _value) {
-    _teleModelCode.insert(_index, _value);
+  void insertAtIndexInTeleModelCode(int index, String value) {
+    teleModelCode.insert(index, value);
   }
 
   List<String> _teleModelBrandID = [];
   List<String> get teleModelBrandID => _teleModelBrandID;
-  set teleModelBrandID(List<String> _value) {
-    _teleModelBrandID = _value;
+  set teleModelBrandID(List<String> value) {
+    _teleModelBrandID = value;
   }
 
-  void addToTeleModelBrandID(String _value) {
-    _teleModelBrandID.add(_value);
+  void addToTeleModelBrandID(String value) {
+    teleModelBrandID.add(value);
   }
 
-  void removeFromTeleModelBrandID(String _value) {
-    _teleModelBrandID.remove(_value);
+  void removeFromTeleModelBrandID(String value) {
+    teleModelBrandID.remove(value);
   }
 
-  void removeAtIndexFromTeleModelBrandID(int _index) {
-    _teleModelBrandID.removeAt(_index);
+  void removeAtIndexFromTeleModelBrandID(int index) {
+    teleModelBrandID.removeAt(index);
   }
 
   void updateTeleModelBrandIDAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleModelBrandID[_index] = updateFn(_teleModelBrandID[_index]);
+    teleModelBrandID[index] = updateFn(_teleModelBrandID[index]);
   }
 
-  void insertAtIndexInTeleModelBrandID(int _index, String _value) {
-    _teleModelBrandID.insert(_index, _value);
+  void insertAtIndexInTeleModelBrandID(int index, String value) {
+    teleModelBrandID.insert(index, value);
   }
 
   List<String> _companyId = [];
   List<String> get companyId => _companyId;
-  set companyId(List<String> _value) {
-    _companyId = _value;
+  set companyId(List<String> value) {
+    _companyId = value;
   }
 
-  void addToCompanyId(String _value) {
-    _companyId.add(_value);
+  void addToCompanyId(String value) {
+    companyId.add(value);
   }
 
-  void removeFromCompanyId(String _value) {
-    _companyId.remove(_value);
+  void removeFromCompanyId(String value) {
+    companyId.remove(value);
   }
 
-  void removeAtIndexFromCompanyId(int _index) {
-    _companyId.removeAt(_index);
+  void removeAtIndexFromCompanyId(int index) {
+    companyId.removeAt(index);
   }
 
   void updateCompanyIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _companyId[_index] = updateFn(_companyId[_index]);
+    companyId[index] = updateFn(_companyId[index]);
   }
 
-  void insertAtIndexInCompanyId(int _index, String _value) {
-    _companyId.insert(_index, _value);
+  void insertAtIndexInCompanyId(int index, String value) {
+    companyId.insert(index, value);
   }
 
   bool _teleSearchModelState = false;
   bool get teleSearchModelState => _teleSearchModelState;
-  set teleSearchModelState(bool _value) {
-    _teleSearchModelState = _value;
+  set teleSearchModelState(bool value) {
+    _teleSearchModelState = value;
   }
 
   List<String> _searchFullName = [];
   List<String> get searchFullName => _searchFullName;
-  set searchFullName(List<String> _value) {
-    _searchFullName = _value;
+  set searchFullName(List<String> value) {
+    _searchFullName = value;
   }
 
-  void addToSearchFullName(String _value) {
-    _searchFullName.add(_value);
+  void addToSearchFullName(String value) {
+    searchFullName.add(value);
   }
 
-  void removeFromSearchFullName(String _value) {
-    _searchFullName.remove(_value);
+  void removeFromSearchFullName(String value) {
+    searchFullName.remove(value);
   }
 
-  void removeAtIndexFromSearchFullName(int _index) {
-    _searchFullName.removeAt(_index);
+  void removeAtIndexFromSearchFullName(int index) {
+    searchFullName.removeAt(index);
   }
 
   void updateSearchFullNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchFullName[_index] = updateFn(_searchFullName[_index]);
+    searchFullName[index] = updateFn(_searchFullName[index]);
   }
 
-  void insertAtIndexInSearchFullName(int _index, String _value) {
-    _searchFullName.insert(_index, _value);
+  void insertAtIndexInSearchFullName(int index, String value) {
+    searchFullName.insert(index, value);
   }
 
   List<String> _searchCoverType = [];
   List<String> get searchCoverType => _searchCoverType;
-  set searchCoverType(List<String> _value) {
-    _searchCoverType = _value;
+  set searchCoverType(List<String> value) {
+    _searchCoverType = value;
   }
 
-  void addToSearchCoverType(String _value) {
-    _searchCoverType.add(_value);
+  void addToSearchCoverType(String value) {
+    searchCoverType.add(value);
   }
 
-  void removeFromSearchCoverType(String _value) {
-    _searchCoverType.remove(_value);
+  void removeFromSearchCoverType(String value) {
+    searchCoverType.remove(value);
   }
 
-  void removeAtIndexFromSearchCoverType(int _index) {
-    _searchCoverType.removeAt(_index);
+  void removeAtIndexFromSearchCoverType(int index) {
+    searchCoverType.removeAt(index);
   }
 
   void updateSearchCoverTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchCoverType[_index] = updateFn(_searchCoverType[_index]);
+    searchCoverType[index] = updateFn(_searchCoverType[index]);
   }
 
-  void insertAtIndexInSearchCoverType(int _index, String _value) {
-    _searchCoverType.insert(_index, _value);
+  void insertAtIndexInSearchCoverType(int index, String value) {
+    searchCoverType.insert(index, value);
   }
 
   List<String> _searchGarageType = [];
   List<String> get searchGarageType => _searchGarageType;
-  set searchGarageType(List<String> _value) {
-    _searchGarageType = _value;
+  set searchGarageType(List<String> value) {
+    _searchGarageType = value;
   }
 
-  void addToSearchGarageType(String _value) {
-    _searchGarageType.add(_value);
+  void addToSearchGarageType(String value) {
+    searchGarageType.add(value);
   }
 
-  void removeFromSearchGarageType(String _value) {
-    _searchGarageType.remove(_value);
+  void removeFromSearchGarageType(String value) {
+    searchGarageType.remove(value);
   }
 
-  void removeAtIndexFromSearchGarageType(int _index) {
-    _searchGarageType.removeAt(_index);
+  void removeAtIndexFromSearchGarageType(int index) {
+    searchGarageType.removeAt(index);
   }
 
   void updateSearchGarageTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchGarageType[_index] = updateFn(_searchGarageType[_index]);
+    searchGarageType[index] = updateFn(_searchGarageType[index]);
   }
 
-  void insertAtIndexInSearchGarageType(int _index, String _value) {
-    _searchGarageType.insert(_index, _value);
+  void insertAtIndexInSearchGarageType(int index, String value) {
+    searchGarageType.insert(index, value);
   }
 
   List<String> _searchGrossTotal = [];
   List<String> get searchGrossTotal => _searchGrossTotal;
-  set searchGrossTotal(List<String> _value) {
-    _searchGrossTotal = _value;
+  set searchGrossTotal(List<String> value) {
+    _searchGrossTotal = value;
   }
 
-  void addToSearchGrossTotal(String _value) {
-    _searchGrossTotal.add(_value);
+  void addToSearchGrossTotal(String value) {
+    searchGrossTotal.add(value);
   }
 
-  void removeFromSearchGrossTotal(String _value) {
-    _searchGrossTotal.remove(_value);
+  void removeFromSearchGrossTotal(String value) {
+    searchGrossTotal.remove(value);
   }
 
-  void removeAtIndexFromSearchGrossTotal(int _index) {
-    _searchGrossTotal.removeAt(_index);
+  void removeAtIndexFromSearchGrossTotal(int index) {
+    searchGrossTotal.removeAt(index);
   }
 
   void updateSearchGrossTotalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchGrossTotal[_index] = updateFn(_searchGrossTotal[_index]);
+    searchGrossTotal[index] = updateFn(_searchGrossTotal[index]);
   }
 
-  void insertAtIndexInSearchGrossTotal(int _index, String _value) {
-    _searchGrossTotal.insert(_index, _value);
+  void insertAtIndexInSearchGrossTotal(int index, String value) {
+    searchGrossTotal.insert(index, value);
   }
 
   List<String> _searchSumInsured = [];
   List<String> get searchSumInsured => _searchSumInsured;
-  set searchSumInsured(List<String> _value) {
-    _searchSumInsured = _value;
+  set searchSumInsured(List<String> value) {
+    _searchSumInsured = value;
   }
 
-  void addToSearchSumInsured(String _value) {
-    _searchSumInsured.add(_value);
+  void addToSearchSumInsured(String value) {
+    searchSumInsured.add(value);
   }
 
-  void removeFromSearchSumInsured(String _value) {
-    _searchSumInsured.remove(_value);
+  void removeFromSearchSumInsured(String value) {
+    searchSumInsured.remove(value);
   }
 
-  void removeAtIndexFromSearchSumInsured(int _index) {
-    _searchSumInsured.removeAt(_index);
+  void removeAtIndexFromSearchSumInsured(int index) {
+    searchSumInsured.removeAt(index);
   }
 
   void updateSearchSumInsuredAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchSumInsured[_index] = updateFn(_searchSumInsured[_index]);
+    searchSumInsured[index] = updateFn(_searchSumInsured[index]);
   }
 
-  void insertAtIndexInSearchSumInsured(int _index, String _value) {
-    _searchSumInsured.insert(_index, _value);
+  void insertAtIndexInSearchSumInsured(int index, String value) {
+    searchSumInsured.insert(index, value);
   }
 
   List<String> _searchTppd = [];
   List<String> get searchTppd => _searchTppd;
-  set searchTppd(List<String> _value) {
-    _searchTppd = _value;
+  set searchTppd(List<String> value) {
+    _searchTppd = value;
   }
 
-  void addToSearchTppd(String _value) {
-    _searchTppd.add(_value);
+  void addToSearchTppd(String value) {
+    searchTppd.add(value);
   }
 
-  void removeFromSearchTppd(String _value) {
-    _searchTppd.remove(_value);
+  void removeFromSearchTppd(String value) {
+    searchTppd.remove(value);
   }
 
-  void removeAtIndexFromSearchTppd(int _index) {
-    _searchTppd.removeAt(_index);
+  void removeAtIndexFromSearchTppd(int index) {
+    searchTppd.removeAt(index);
   }
 
   void updateSearchTppdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchTppd[_index] = updateFn(_searchTppd[_index]);
+    searchTppd[index] = updateFn(_searchTppd[index]);
   }
 
-  void insertAtIndexInSearchTppd(int _index, String _value) {
-    _searchTppd.insert(_index, _value);
+  void insertAtIndexInSearchTppd(int index, String value) {
+    searchTppd.insert(index, value);
   }
 
   List<String> _searchPa = [];
   List<String> get searchPa => _searchPa;
-  set searchPa(List<String> _value) {
-    _searchPa = _value;
+  set searchPa(List<String> value) {
+    _searchPa = value;
   }
 
-  void addToSearchPa(String _value) {
-    _searchPa.add(_value);
+  void addToSearchPa(String value) {
+    searchPa.add(value);
   }
 
-  void removeFromSearchPa(String _value) {
-    _searchPa.remove(_value);
+  void removeFromSearchPa(String value) {
+    searchPa.remove(value);
   }
 
-  void removeAtIndexFromSearchPa(int _index) {
-    _searchPa.removeAt(_index);
+  void removeAtIndexFromSearchPa(int index) {
+    searchPa.removeAt(index);
   }
 
   void updateSearchPaAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchPa[_index] = updateFn(_searchPa[_index]);
+    searchPa[index] = updateFn(_searchPa[index]);
   }
 
-  void insertAtIndexInSearchPa(int _index, String _value) {
-    _searchPa.insert(_index, _value);
+  void insertAtIndexInSearchPa(int index, String value) {
+    searchPa.insert(index, value);
   }
 
   List<String> _searchExpDate = [];
   List<String> get searchExpDate => _searchExpDate;
-  set searchExpDate(List<String> _value) {
-    _searchExpDate = _value;
+  set searchExpDate(List<String> value) {
+    _searchExpDate = value;
   }
 
-  void addToSearchExpDate(String _value) {
-    _searchExpDate.add(_value);
+  void addToSearchExpDate(String value) {
+    searchExpDate.add(value);
   }
 
-  void removeFromSearchExpDate(String _value) {
-    _searchExpDate.remove(_value);
+  void removeFromSearchExpDate(String value) {
+    searchExpDate.remove(value);
   }
 
-  void removeAtIndexFromSearchExpDate(int _index) {
-    _searchExpDate.removeAt(_index);
+  void removeAtIndexFromSearchExpDate(int index) {
+    searchExpDate.removeAt(index);
   }
 
   void updateSearchExpDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchExpDate[_index] = updateFn(_searchExpDate[_index]);
+    searchExpDate[index] = updateFn(_searchExpDate[index]);
   }
 
-  void insertAtIndexInSearchExpDate(int _index, String _value) {
-    _searchExpDate.insert(_index, _value);
+  void insertAtIndexInSearchExpDate(int index, String value) {
+    searchExpDate.insert(index, value);
   }
 
   String _garageChosen = '';
   String get garageChosen => _garageChosen;
-  set garageChosen(String _value) {
-    _garageChosen = _value;
+  set garageChosen(String value) {
+    _garageChosen = value;
   }
 
   List<String> _actAmount = [];
   List<String> get actAmount => _actAmount;
-  set actAmount(List<String> _value) {
-    _actAmount = _value;
+  set actAmount(List<String> value) {
+    _actAmount = value;
   }
 
-  void addToActAmount(String _value) {
-    _actAmount.add(_value);
+  void addToActAmount(String value) {
+    actAmount.add(value);
   }
 
-  void removeFromActAmount(String _value) {
-    _actAmount.remove(_value);
+  void removeFromActAmount(String value) {
+    actAmount.remove(value);
   }
 
-  void removeAtIndexFromActAmount(int _index) {
-    _actAmount.removeAt(_index);
+  void removeAtIndexFromActAmount(int index) {
+    actAmount.removeAt(index);
   }
 
   void updateActAmountAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _actAmount[_index] = updateFn(_actAmount[_index]);
+    actAmount[index] = updateFn(_actAmount[index]);
   }
 
-  void insertAtIndexInActAmount(int _index, String _value) {
-    _actAmount.insert(_index, _value);
+  void insertAtIndexInActAmount(int index, String value) {
+    actAmount.insert(index, value);
   }
 
   List<String> _searchActAmount = [];
   List<String> get searchActAmount => _searchActAmount;
-  set searchActAmount(List<String> _value) {
-    _searchActAmount = _value;
+  set searchActAmount(List<String> value) {
+    _searchActAmount = value;
   }
 
-  void addToSearchActAmount(String _value) {
-    _searchActAmount.add(_value);
+  void addToSearchActAmount(String value) {
+    searchActAmount.add(value);
   }
 
-  void removeFromSearchActAmount(String _value) {
-    _searchActAmount.remove(_value);
+  void removeFromSearchActAmount(String value) {
+    searchActAmount.remove(value);
   }
 
-  void removeAtIndexFromSearchActAmount(int _index) {
-    _searchActAmount.removeAt(_index);
+  void removeAtIndexFromSearchActAmount(int index) {
+    searchActAmount.removeAt(index);
   }
 
   void updateSearchActAmountAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchActAmount[_index] = updateFn(_searchActAmount[_index]);
+    searchActAmount[index] = updateFn(_searchActAmount[index]);
   }
 
-  void insertAtIndexInSearchActAmount(int _index, String _value) {
-    _searchActAmount.insert(_index, _value);
+  void insertAtIndexInSearchActAmount(int index, String value) {
+    searchActAmount.insert(index, value);
   }
 
   List<String> _teleADYearDropdown = [
@@ -2216,95 +2216,95 @@ class FFAppState extends ChangeNotifier {
     '2023'
   ];
   List<String> get teleADYearDropdown => _teleADYearDropdown;
-  set teleADYearDropdown(List<String> _value) {
-    _teleADYearDropdown = _value;
+  set teleADYearDropdown(List<String> value) {
+    _teleADYearDropdown = value;
   }
 
-  void addToTeleADYearDropdown(String _value) {
-    _teleADYearDropdown.add(_value);
+  void addToTeleADYearDropdown(String value) {
+    teleADYearDropdown.add(value);
   }
 
-  void removeFromTeleADYearDropdown(String _value) {
-    _teleADYearDropdown.remove(_value);
+  void removeFromTeleADYearDropdown(String value) {
+    teleADYearDropdown.remove(value);
   }
 
-  void removeAtIndexFromTeleADYearDropdown(int _index) {
-    _teleADYearDropdown.removeAt(_index);
+  void removeAtIndexFromTeleADYearDropdown(int index) {
+    teleADYearDropdown.removeAt(index);
   }
 
   void updateTeleADYearDropdownAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleADYearDropdown[_index] = updateFn(_teleADYearDropdown[_index]);
+    teleADYearDropdown[index] = updateFn(_teleADYearDropdown[index]);
   }
 
-  void insertAtIndexInTeleADYearDropdown(int _index, String _value) {
-    _teleADYearDropdown.insert(_index, _value);
+  void insertAtIndexInTeleADYearDropdown(int index, String value) {
+    teleADYearDropdown.insert(index, value);
   }
 
   List<String> _searchSerialName = [];
   List<String> get searchSerialName => _searchSerialName;
-  set searchSerialName(List<String> _value) {
-    _searchSerialName = _value;
+  set searchSerialName(List<String> value) {
+    _searchSerialName = value;
   }
 
-  void addToSearchSerialName(String _value) {
-    _searchSerialName.add(_value);
+  void addToSearchSerialName(String value) {
+    searchSerialName.add(value);
   }
 
-  void removeFromSearchSerialName(String _value) {
-    _searchSerialName.remove(_value);
+  void removeFromSearchSerialName(String value) {
+    searchSerialName.remove(value);
   }
 
-  void removeAtIndexFromSearchSerialName(int _index) {
-    _searchSerialName.removeAt(_index);
+  void removeAtIndexFromSearchSerialName(int index) {
+    searchSerialName.removeAt(index);
   }
 
   void updateSearchSerialNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchSerialName[_index] = updateFn(_searchSerialName[_index]);
+    searchSerialName[index] = updateFn(_searchSerialName[index]);
   }
 
-  void insertAtIndexInSearchSerialName(int _index, String _value) {
-    _searchSerialName.insert(_index, _value);
+  void insertAtIndexInSearchSerialName(int index, String value) {
+    searchSerialName.insert(index, value);
   }
 
   double _sumInsuredChoosenDouble = 0.0;
   double get sumInsuredChoosenDouble => _sumInsuredChoosenDouble;
-  set sumInsuredChoosenDouble(double _value) {
-    _sumInsuredChoosenDouble = _value;
+  set sumInsuredChoosenDouble(double value) {
+    _sumInsuredChoosenDouble = value;
   }
 
   List<String> _kpiProductType = ['M', 'CTV', 'HL'];
   List<String> get kpiProductType => _kpiProductType;
-  set kpiProductType(List<String> _value) {
-    _kpiProductType = _value;
+  set kpiProductType(List<String> value) {
+    _kpiProductType = value;
   }
 
-  void addToKpiProductType(String _value) {
-    _kpiProductType.add(_value);
+  void addToKpiProductType(String value) {
+    kpiProductType.add(value);
   }
 
-  void removeFromKpiProductType(String _value) {
-    _kpiProductType.remove(_value);
+  void removeFromKpiProductType(String value) {
+    kpiProductType.remove(value);
   }
 
-  void removeAtIndexFromKpiProductType(int _index) {
-    _kpiProductType.removeAt(_index);
+  void removeAtIndexFromKpiProductType(int index) {
+    kpiProductType.removeAt(index);
   }
 
   void updateKpiProductTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiProductType[_index] = updateFn(_kpiProductType[_index]);
+    kpiProductType[index] = updateFn(_kpiProductType[index]);
   }
 
-  void insertAtIndexInKpiProductType(int _index, String _value) {
-    _kpiProductType.insert(_index, _value);
+  void insertAtIndexInKpiProductType(int index, String value) {
+    kpiProductType.insert(index, value);
   }
 
   List<String> _kpiEmployeePosition = [
@@ -2313,151 +2313,151 @@ class FFAppState extends ChangeNotifier {
     '[position]'
   ];
   List<String> get kpiEmployeePosition => _kpiEmployeePosition;
-  set kpiEmployeePosition(List<String> _value) {
-    _kpiEmployeePosition = _value;
+  set kpiEmployeePosition(List<String> value) {
+    _kpiEmployeePosition = value;
   }
 
-  void addToKpiEmployeePosition(String _value) {
-    _kpiEmployeePosition.add(_value);
+  void addToKpiEmployeePosition(String value) {
+    kpiEmployeePosition.add(value);
   }
 
-  void removeFromKpiEmployeePosition(String _value) {
-    _kpiEmployeePosition.remove(_value);
+  void removeFromKpiEmployeePosition(String value) {
+    kpiEmployeePosition.remove(value);
   }
 
-  void removeAtIndexFromKpiEmployeePosition(int _index) {
-    _kpiEmployeePosition.removeAt(_index);
+  void removeAtIndexFromKpiEmployeePosition(int index) {
+    kpiEmployeePosition.removeAt(index);
   }
 
   void updateKpiEmployeePositionAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiEmployeePosition[_index] = updateFn(_kpiEmployeePosition[_index]);
+    kpiEmployeePosition[index] = updateFn(_kpiEmployeePosition[index]);
   }
 
-  void insertAtIndexInKpiEmployeePosition(int _index, String _value) {
-    _kpiEmployeePosition.insert(_index, _value);
+  void insertAtIndexInKpiEmployeePosition(int index, String value) {
+    kpiEmployeePosition.insert(index, value);
   }
 
   List<String> _kpiActual = ['0.0', '0.0', '0.0'];
   List<String> get kpiActual => _kpiActual;
-  set kpiActual(List<String> _value) {
-    _kpiActual = _value;
+  set kpiActual(List<String> value) {
+    _kpiActual = value;
   }
 
-  void addToKpiActual(String _value) {
-    _kpiActual.add(_value);
+  void addToKpiActual(String value) {
+    kpiActual.add(value);
   }
 
-  void removeFromKpiActual(String _value) {
-    _kpiActual.remove(_value);
+  void removeFromKpiActual(String value) {
+    kpiActual.remove(value);
   }
 
-  void removeAtIndexFromKpiActual(int _index) {
-    _kpiActual.removeAt(_index);
+  void removeAtIndexFromKpiActual(int index) {
+    kpiActual.removeAt(index);
   }
 
   void updateKpiActualAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiActual[_index] = updateFn(_kpiActual[_index]);
+    kpiActual[index] = updateFn(_kpiActual[index]);
   }
 
-  void insertAtIndexInKpiActual(int _index, String _value) {
-    _kpiActual.insert(_index, _value);
+  void insertAtIndexInKpiActual(int index, String value) {
+    kpiActual.insert(index, value);
   }
 
   List<String> _kpiTargetQuantity = ['1.0', '1.0', '1.0'];
   List<String> get kpiTargetQuantity => _kpiTargetQuantity;
-  set kpiTargetQuantity(List<String> _value) {
-    _kpiTargetQuantity = _value;
+  set kpiTargetQuantity(List<String> value) {
+    _kpiTargetQuantity = value;
   }
 
-  void addToKpiTargetQuantity(String _value) {
-    _kpiTargetQuantity.add(_value);
+  void addToKpiTargetQuantity(String value) {
+    kpiTargetQuantity.add(value);
   }
 
-  void removeFromKpiTargetQuantity(String _value) {
-    _kpiTargetQuantity.remove(_value);
+  void removeFromKpiTargetQuantity(String value) {
+    kpiTargetQuantity.remove(value);
   }
 
-  void removeAtIndexFromKpiTargetQuantity(int _index) {
-    _kpiTargetQuantity.removeAt(_index);
+  void removeAtIndexFromKpiTargetQuantity(int index) {
+    kpiTargetQuantity.removeAt(index);
   }
 
   void updateKpiTargetQuantityAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiTargetQuantity[_index] = updateFn(_kpiTargetQuantity[_index]);
+    kpiTargetQuantity[index] = updateFn(_kpiTargetQuantity[index]);
   }
 
-  void insertAtIndexInKpiTargetQuantity(int _index, String _value) {
-    _kpiTargetQuantity.insert(_index, _value);
+  void insertAtIndexInKpiTargetQuantity(int index, String value) {
+    kpiTargetQuantity.insert(index, value);
   }
 
   List<String> _kpiYearMonth = ['2022-12', '2022-12', '2022-12'];
   List<String> get kpiYearMonth => _kpiYearMonth;
-  set kpiYearMonth(List<String> _value) {
-    _kpiYearMonth = _value;
+  set kpiYearMonth(List<String> value) {
+    _kpiYearMonth = value;
   }
 
-  void addToKpiYearMonth(String _value) {
-    _kpiYearMonth.add(_value);
+  void addToKpiYearMonth(String value) {
+    kpiYearMonth.add(value);
   }
 
-  void removeFromKpiYearMonth(String _value) {
-    _kpiYearMonth.remove(_value);
+  void removeFromKpiYearMonth(String value) {
+    kpiYearMonth.remove(value);
   }
 
-  void removeAtIndexFromKpiYearMonth(int _index) {
-    _kpiYearMonth.removeAt(_index);
+  void removeAtIndexFromKpiYearMonth(int index) {
+    kpiYearMonth.removeAt(index);
   }
 
   void updateKpiYearMonthAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiYearMonth[_index] = updateFn(_kpiYearMonth[_index]);
+    kpiYearMonth[index] = updateFn(_kpiYearMonth[index]);
   }
 
-  void insertAtIndexInKpiYearMonth(int _index, String _value) {
-    _kpiYearMonth.insert(_index, _value);
+  void insertAtIndexInKpiYearMonth(int index, String value) {
+    kpiYearMonth.insert(index, value);
   }
 
   String _kpiTargetBudget = '100.00';
   String get kpiTargetBudget => _kpiTargetBudget;
-  set kpiTargetBudget(String _value) {
-    _kpiTargetBudget = _value;
+  set kpiTargetBudget(String value) {
+    _kpiTargetBudget = value;
   }
 
   String _kpiActualBudget = '0.00';
   String get kpiActualBudget => _kpiActualBudget;
-  set kpiActualBudget(String _value) {
-    _kpiActualBudget = _value;
+  set kpiActualBudget(String value) {
+    _kpiActualBudget = value;
   }
 
   DateTime? _DateHoliday;
   DateTime? get DateHoliday => _DateHoliday;
-  set DateHoliday(DateTime? _value) {
-    _DateHoliday = _value;
+  set DateHoliday(DateTime? value) {
+    _DateHoliday = value;
   }
 
   DateTime? _DateExpHoliday;
   DateTime? get DateExpHoliday => _DateExpHoliday;
-  set DateExpHoliday(DateTime? _value) {
-    _DateExpHoliday = _value;
+  set DateExpHoliday(DateTime? value) {
+    _DateExpHoliday = value;
   }
 
   DateTime? _DateHolidayNotShow;
   DateTime? get DateHolidayNotShow => _DateHolidayNotShow;
-  set DateHolidayNotShow(DateTime? _value) {
-    _DateHolidayNotShow = _value;
-    _value != null
+  set DateHolidayNotShow(DateTime? value) {
+    _DateHolidayNotShow = value;
+    value != null
         ? secureStorage.setInt(
-            'ff_DateHolidayNotShow', _value.millisecondsSinceEpoch)
+            'ff_DateHolidayNotShow', value.millisecondsSinceEpoch)
         : secureStorage.remove('ff_DateHolidayNotShow');
   }
 
@@ -2467,195 +2467,194 @@ class FFAppState extends ChangeNotifier {
 
   bool _isLoadedInsuranceData = false;
   bool get isLoadedInsuranceData => _isLoadedInsuranceData;
-  set isLoadedInsuranceData(bool _value) {
-    _isLoadedInsuranceData = _value;
+  set isLoadedInsuranceData(bool value) {
+    _isLoadedInsuranceData = value;
   }
 
   List<String> _leaveWorkId = [];
   List<String> get leaveWorkId => _leaveWorkId;
-  set leaveWorkId(List<String> _value) {
-    _leaveWorkId = _value;
+  set leaveWorkId(List<String> value) {
+    _leaveWorkId = value;
   }
 
-  void addToLeaveWorkId(String _value) {
-    _leaveWorkId.add(_value);
+  void addToLeaveWorkId(String value) {
+    leaveWorkId.add(value);
   }
 
-  void removeFromLeaveWorkId(String _value) {
-    _leaveWorkId.remove(_value);
+  void removeFromLeaveWorkId(String value) {
+    leaveWorkId.remove(value);
   }
 
-  void removeAtIndexFromLeaveWorkId(int _index) {
-    _leaveWorkId.removeAt(_index);
+  void removeAtIndexFromLeaveWorkId(int index) {
+    leaveWorkId.removeAt(index);
   }
 
   void updateLeaveWorkIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveWorkId[_index] = updateFn(_leaveWorkId[_index]);
+    leaveWorkId[index] = updateFn(_leaveWorkId[index]);
   }
 
-  void insertAtIndexInLeaveWorkId(int _index, String _value) {
-    _leaveWorkId.insert(_index, _value);
+  void insertAtIndexInLeaveWorkId(int index, String value) {
+    leaveWorkId.insert(index, value);
   }
 
   List<String> _leaveWorkDay = [];
   List<String> get leaveWorkDay => _leaveWorkDay;
-  set leaveWorkDay(List<String> _value) {
-    _leaveWorkDay = _value;
+  set leaveWorkDay(List<String> value) {
+    _leaveWorkDay = value;
   }
 
-  void addToLeaveWorkDay(String _value) {
-    _leaveWorkDay.add(_value);
+  void addToLeaveWorkDay(String value) {
+    leaveWorkDay.add(value);
   }
 
-  void removeFromLeaveWorkDay(String _value) {
-    _leaveWorkDay.remove(_value);
+  void removeFromLeaveWorkDay(String value) {
+    leaveWorkDay.remove(value);
   }
 
-  void removeAtIndexFromLeaveWorkDay(int _index) {
-    _leaveWorkDay.removeAt(_index);
+  void removeAtIndexFromLeaveWorkDay(int index) {
+    leaveWorkDay.removeAt(index);
   }
 
   void updateLeaveWorkDayAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveWorkDay[_index] = updateFn(_leaveWorkDay[_index]);
+    leaveWorkDay[index] = updateFn(_leaveWorkDay[index]);
   }
 
-  void insertAtIndexInLeaveWorkDay(int _index, String _value) {
-    _leaveWorkDay.insert(_index, _value);
+  void insertAtIndexInLeaveWorkDay(int index, String value) {
+    leaveWorkDay.insert(index, value);
   }
 
   List<String> _checkinLastMonthDate = [];
   List<String> get checkinLastMonthDate => _checkinLastMonthDate;
-  set checkinLastMonthDate(List<String> _value) {
-    _checkinLastMonthDate = _value;
+  set checkinLastMonthDate(List<String> value) {
+    _checkinLastMonthDate = value;
   }
 
-  void addToCheckinLastMonthDate(String _value) {
-    _checkinLastMonthDate.add(_value);
+  void addToCheckinLastMonthDate(String value) {
+    checkinLastMonthDate.add(value);
   }
 
-  void removeFromCheckinLastMonthDate(String _value) {
-    _checkinLastMonthDate.remove(_value);
+  void removeFromCheckinLastMonthDate(String value) {
+    checkinLastMonthDate.remove(value);
   }
 
-  void removeAtIndexFromCheckinLastMonthDate(int _index) {
-    _checkinLastMonthDate.removeAt(_index);
+  void removeAtIndexFromCheckinLastMonthDate(int index) {
+    checkinLastMonthDate.removeAt(index);
   }
 
   void updateCheckinLastMonthDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinLastMonthDate[_index] = updateFn(_checkinLastMonthDate[_index]);
+    checkinLastMonthDate[index] = updateFn(_checkinLastMonthDate[index]);
   }
 
-  void insertAtIndexInCheckinLastMonthDate(int _index, String _value) {
-    _checkinLastMonthDate.insert(_index, _value);
+  void insertAtIndexInCheckinLastMonthDate(int index, String value) {
+    checkinLastMonthDate.insert(index, value);
   }
 
   List<String> _checkinLastMonthTimeIn = [];
   List<String> get checkinLastMonthTimeIn => _checkinLastMonthTimeIn;
-  set checkinLastMonthTimeIn(List<String> _value) {
-    _checkinLastMonthTimeIn = _value;
+  set checkinLastMonthTimeIn(List<String> value) {
+    _checkinLastMonthTimeIn = value;
   }
 
-  void addToCheckinLastMonthTimeIn(String _value) {
-    _checkinLastMonthTimeIn.add(_value);
+  void addToCheckinLastMonthTimeIn(String value) {
+    checkinLastMonthTimeIn.add(value);
   }
 
-  void removeFromCheckinLastMonthTimeIn(String _value) {
-    _checkinLastMonthTimeIn.remove(_value);
+  void removeFromCheckinLastMonthTimeIn(String value) {
+    checkinLastMonthTimeIn.remove(value);
   }
 
-  void removeAtIndexFromCheckinLastMonthTimeIn(int _index) {
-    _checkinLastMonthTimeIn.removeAt(_index);
+  void removeAtIndexFromCheckinLastMonthTimeIn(int index) {
+    checkinLastMonthTimeIn.removeAt(index);
   }
 
   void updateCheckinLastMonthTimeInAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinLastMonthTimeIn[_index] = updateFn(_checkinLastMonthTimeIn[_index]);
+    checkinLastMonthTimeIn[index] = updateFn(_checkinLastMonthTimeIn[index]);
   }
 
-  void insertAtIndexInCheckinLastMonthTimeIn(int _index, String _value) {
-    _checkinLastMonthTimeIn.insert(_index, _value);
+  void insertAtIndexInCheckinLastMonthTimeIn(int index, String value) {
+    checkinLastMonthTimeIn.insert(index, value);
   }
 
   List<String> _checkinLastMonthTimeOut = [];
   List<String> get checkinLastMonthTimeOut => _checkinLastMonthTimeOut;
-  set checkinLastMonthTimeOut(List<String> _value) {
-    _checkinLastMonthTimeOut = _value;
+  set checkinLastMonthTimeOut(List<String> value) {
+    _checkinLastMonthTimeOut = value;
   }
 
-  void addToCheckinLastMonthTimeOut(String _value) {
-    _checkinLastMonthTimeOut.add(_value);
+  void addToCheckinLastMonthTimeOut(String value) {
+    checkinLastMonthTimeOut.add(value);
   }
 
-  void removeFromCheckinLastMonthTimeOut(String _value) {
-    _checkinLastMonthTimeOut.remove(_value);
+  void removeFromCheckinLastMonthTimeOut(String value) {
+    checkinLastMonthTimeOut.remove(value);
   }
 
-  void removeAtIndexFromCheckinLastMonthTimeOut(int _index) {
-    _checkinLastMonthTimeOut.removeAt(_index);
+  void removeAtIndexFromCheckinLastMonthTimeOut(int index) {
+    checkinLastMonthTimeOut.removeAt(index);
   }
 
   void updateCheckinLastMonthTimeOutAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _checkinLastMonthTimeOut[_index] =
-        updateFn(_checkinLastMonthTimeOut[_index]);
+    checkinLastMonthTimeOut[index] = updateFn(_checkinLastMonthTimeOut[index]);
   }
 
-  void insertAtIndexInCheckinLastMonthTimeOut(int _index, String _value) {
-    _checkinLastMonthTimeOut.insert(_index, _value);
+  void insertAtIndexInCheckinLastMonthTimeOut(int index, String value) {
+    checkinLastMonthTimeOut.insert(index, value);
   }
 
   String _endLeaveDayString = '';
   String get endLeaveDayString => _endLeaveDayString;
-  set endLeaveDayString(String _value) {
-    _endLeaveDayString = _value;
+  set endLeaveDayString(String value) {
+    _endLeaveDayString = value;
   }
 
   List<String> _leaveTypeName = [];
   List<String> get leaveTypeName => _leaveTypeName;
-  set leaveTypeName(List<String> _value) {
-    _leaveTypeName = _value;
+  set leaveTypeName(List<String> value) {
+    _leaveTypeName = value;
   }
 
-  void addToLeaveTypeName(String _value) {
-    _leaveTypeName.add(_value);
+  void addToLeaveTypeName(String value) {
+    leaveTypeName.add(value);
   }
 
-  void removeFromLeaveTypeName(String _value) {
-    _leaveTypeName.remove(_value);
+  void removeFromLeaveTypeName(String value) {
+    leaveTypeName.remove(value);
   }
 
-  void removeAtIndexFromLeaveTypeName(int _index) {
-    _leaveTypeName.removeAt(_index);
+  void removeAtIndexFromLeaveTypeName(int index) {
+    leaveTypeName.removeAt(index);
   }
 
   void updateLeaveTypeNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveTypeName[_index] = updateFn(_leaveTypeName[_index]);
+    leaveTypeName[index] = updateFn(_leaveTypeName[index]);
   }
 
-  void insertAtIndexInLeaveTypeName(int _index, String _value) {
-    _leaveTypeName.insert(_index, _value);
+  void insertAtIndexInLeaveTypeName(int index, String value) {
+    leaveTypeName.insert(index, value);
   }
 
   String _areaResponsKPI = '[area_curent_month]';
   String get areaResponsKPI => _areaResponsKPI;
-  set areaResponsKPI(String _value) {
-    _areaResponsKPI = _value;
+  set areaResponsKPI(String value) {
+    _areaResponsKPI = value;
   }
 
   List<Color> _kpiGaugeColorListMain = [
@@ -2664,31 +2663,31 @@ class FFAppState extends ChangeNotifier {
     Color(4287299839)
   ];
   List<Color> get kpiGaugeColorListMain => _kpiGaugeColorListMain;
-  set kpiGaugeColorListMain(List<Color> _value) {
-    _kpiGaugeColorListMain = _value;
+  set kpiGaugeColorListMain(List<Color> value) {
+    _kpiGaugeColorListMain = value;
   }
 
-  void addToKpiGaugeColorListMain(Color _value) {
-    _kpiGaugeColorListMain.add(_value);
+  void addToKpiGaugeColorListMain(Color value) {
+    kpiGaugeColorListMain.add(value);
   }
 
-  void removeFromKpiGaugeColorListMain(Color _value) {
-    _kpiGaugeColorListMain.remove(_value);
+  void removeFromKpiGaugeColorListMain(Color value) {
+    kpiGaugeColorListMain.remove(value);
   }
 
-  void removeAtIndexFromKpiGaugeColorListMain(int _index) {
-    _kpiGaugeColorListMain.removeAt(_index);
+  void removeAtIndexFromKpiGaugeColorListMain(int index) {
+    kpiGaugeColorListMain.removeAt(index);
   }
 
   void updateKpiGaugeColorListMainAtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _kpiGaugeColorListMain[_index] = updateFn(_kpiGaugeColorListMain[_index]);
+    kpiGaugeColorListMain[index] = updateFn(_kpiGaugeColorListMain[index]);
   }
 
-  void insertAtIndexInKpiGaugeColorListMain(int _index, Color _value) {
-    _kpiGaugeColorListMain.insert(_index, _value);
+  void insertAtIndexInKpiGaugeColorListMain(int index, Color value) {
+    kpiGaugeColorListMain.insert(index, value);
   }
 
   List<Color> _kpiGaugeColorList2 = [
@@ -2697,776 +2696,776 @@ class FFAppState extends ChangeNotifier {
     Color(4294793471)
   ];
   List<Color> get kpiGaugeColorList2 => _kpiGaugeColorList2;
-  set kpiGaugeColorList2(List<Color> _value) {
-    _kpiGaugeColorList2 = _value;
+  set kpiGaugeColorList2(List<Color> value) {
+    _kpiGaugeColorList2 = value;
   }
 
-  void addToKpiGaugeColorList2(Color _value) {
-    _kpiGaugeColorList2.add(_value);
+  void addToKpiGaugeColorList2(Color value) {
+    kpiGaugeColorList2.add(value);
   }
 
-  void removeFromKpiGaugeColorList2(Color _value) {
-    _kpiGaugeColorList2.remove(_value);
+  void removeFromKpiGaugeColorList2(Color value) {
+    kpiGaugeColorList2.remove(value);
   }
 
-  void removeAtIndexFromKpiGaugeColorList2(int _index) {
-    _kpiGaugeColorList2.removeAt(_index);
+  void removeAtIndexFromKpiGaugeColorList2(int index) {
+    kpiGaugeColorList2.removeAt(index);
   }
 
   void updateKpiGaugeColorList2AtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _kpiGaugeColorList2[_index] = updateFn(_kpiGaugeColorList2[_index]);
+    kpiGaugeColorList2[index] = updateFn(_kpiGaugeColorList2[index]);
   }
 
-  void insertAtIndexInKpiGaugeColorList2(int _index, Color _value) {
-    _kpiGaugeColorList2.insert(_index, _value);
+  void insertAtIndexInKpiGaugeColorList2(int index, Color value) {
+    kpiGaugeColorList2.insert(index, value);
   }
 
   bool _checkAllowLeaveDay = false;
   bool get checkAllowLeaveDay => _checkAllowLeaveDay;
-  set checkAllowLeaveDay(bool _value) {
-    _checkAllowLeaveDay = _value;
+  set checkAllowLeaveDay(bool value) {
+    _checkAllowLeaveDay = value;
   }
 
   List<String> _kpiProductTypeLM = ['M', 'CTV', 'HL'];
   List<String> get kpiProductTypeLM => _kpiProductTypeLM;
-  set kpiProductTypeLM(List<String> _value) {
-    _kpiProductTypeLM = _value;
+  set kpiProductTypeLM(List<String> value) {
+    _kpiProductTypeLM = value;
   }
 
-  void addToKpiProductTypeLM(String _value) {
-    _kpiProductTypeLM.add(_value);
+  void addToKpiProductTypeLM(String value) {
+    kpiProductTypeLM.add(value);
   }
 
-  void removeFromKpiProductTypeLM(String _value) {
-    _kpiProductTypeLM.remove(_value);
+  void removeFromKpiProductTypeLM(String value) {
+    kpiProductTypeLM.remove(value);
   }
 
-  void removeAtIndexFromKpiProductTypeLM(int _index) {
-    _kpiProductTypeLM.removeAt(_index);
+  void removeAtIndexFromKpiProductTypeLM(int index) {
+    kpiProductTypeLM.removeAt(index);
   }
 
   void updateKpiProductTypeLMAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiProductTypeLM[_index] = updateFn(_kpiProductTypeLM[_index]);
+    kpiProductTypeLM[index] = updateFn(_kpiProductTypeLM[index]);
   }
 
-  void insertAtIndexInKpiProductTypeLM(int _index, String _value) {
-    _kpiProductTypeLM.insert(_index, _value);
+  void insertAtIndexInKpiProductTypeLM(int index, String value) {
+    kpiProductTypeLM.insert(index, value);
   }
 
   List<String> _kpiEmployeePositionLM = ['position', 'position', 'position'];
   List<String> get kpiEmployeePositionLM => _kpiEmployeePositionLM;
-  set kpiEmployeePositionLM(List<String> _value) {
-    _kpiEmployeePositionLM = _value;
+  set kpiEmployeePositionLM(List<String> value) {
+    _kpiEmployeePositionLM = value;
   }
 
-  void addToKpiEmployeePositionLM(String _value) {
-    _kpiEmployeePositionLM.add(_value);
+  void addToKpiEmployeePositionLM(String value) {
+    kpiEmployeePositionLM.add(value);
   }
 
-  void removeFromKpiEmployeePositionLM(String _value) {
-    _kpiEmployeePositionLM.remove(_value);
+  void removeFromKpiEmployeePositionLM(String value) {
+    kpiEmployeePositionLM.remove(value);
   }
 
-  void removeAtIndexFromKpiEmployeePositionLM(int _index) {
-    _kpiEmployeePositionLM.removeAt(_index);
+  void removeAtIndexFromKpiEmployeePositionLM(int index) {
+    kpiEmployeePositionLM.removeAt(index);
   }
 
   void updateKpiEmployeePositionLMAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiEmployeePositionLM[_index] = updateFn(_kpiEmployeePositionLM[_index]);
+    kpiEmployeePositionLM[index] = updateFn(_kpiEmployeePositionLM[index]);
   }
 
-  void insertAtIndexInKpiEmployeePositionLM(int _index, String _value) {
-    _kpiEmployeePositionLM.insert(_index, _value);
+  void insertAtIndexInKpiEmployeePositionLM(int index, String value) {
+    kpiEmployeePositionLM.insert(index, value);
   }
 
   List<String> _kpiActualLM = ['0.0', '0.0', '0.0'];
   List<String> get kpiActualLM => _kpiActualLM;
-  set kpiActualLM(List<String> _value) {
-    _kpiActualLM = _value;
+  set kpiActualLM(List<String> value) {
+    _kpiActualLM = value;
   }
 
-  void addToKpiActualLM(String _value) {
-    _kpiActualLM.add(_value);
+  void addToKpiActualLM(String value) {
+    kpiActualLM.add(value);
   }
 
-  void removeFromKpiActualLM(String _value) {
-    _kpiActualLM.remove(_value);
+  void removeFromKpiActualLM(String value) {
+    kpiActualLM.remove(value);
   }
 
-  void removeAtIndexFromKpiActualLM(int _index) {
-    _kpiActualLM.removeAt(_index);
+  void removeAtIndexFromKpiActualLM(int index) {
+    kpiActualLM.removeAt(index);
   }
 
   void updateKpiActualLMAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiActualLM[_index] = updateFn(_kpiActualLM[_index]);
+    kpiActualLM[index] = updateFn(_kpiActualLM[index]);
   }
 
-  void insertAtIndexInKpiActualLM(int _index, String _value) {
-    _kpiActualLM.insert(_index, _value);
+  void insertAtIndexInKpiActualLM(int index, String value) {
+    kpiActualLM.insert(index, value);
   }
 
   List<String> _kpiTargetQuantityLM = ['1.0', '1.0', '1.0'];
   List<String> get kpiTargetQuantityLM => _kpiTargetQuantityLM;
-  set kpiTargetQuantityLM(List<String> _value) {
-    _kpiTargetQuantityLM = _value;
+  set kpiTargetQuantityLM(List<String> value) {
+    _kpiTargetQuantityLM = value;
   }
 
-  void addToKpiTargetQuantityLM(String _value) {
-    _kpiTargetQuantityLM.add(_value);
+  void addToKpiTargetQuantityLM(String value) {
+    kpiTargetQuantityLM.add(value);
   }
 
-  void removeFromKpiTargetQuantityLM(String _value) {
-    _kpiTargetQuantityLM.remove(_value);
+  void removeFromKpiTargetQuantityLM(String value) {
+    kpiTargetQuantityLM.remove(value);
   }
 
-  void removeAtIndexFromKpiTargetQuantityLM(int _index) {
-    _kpiTargetQuantityLM.removeAt(_index);
+  void removeAtIndexFromKpiTargetQuantityLM(int index) {
+    kpiTargetQuantityLM.removeAt(index);
   }
 
   void updateKpiTargetQuantityLMAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiTargetQuantityLM[_index] = updateFn(_kpiTargetQuantityLM[_index]);
+    kpiTargetQuantityLM[index] = updateFn(_kpiTargetQuantityLM[index]);
   }
 
-  void insertAtIndexInKpiTargetQuantityLM(int _index, String _value) {
-    _kpiTargetQuantityLM.insert(_index, _value);
+  void insertAtIndexInKpiTargetQuantityLM(int index, String value) {
+    kpiTargetQuantityLM.insert(index, value);
   }
 
   List<String> _kpiYearMonthLM = ['2022-11', '2022-11', '2022-11'];
   List<String> get kpiYearMonthLM => _kpiYearMonthLM;
-  set kpiYearMonthLM(List<String> _value) {
-    _kpiYearMonthLM = _value;
+  set kpiYearMonthLM(List<String> value) {
+    _kpiYearMonthLM = value;
   }
 
-  void addToKpiYearMonthLM(String _value) {
-    _kpiYearMonthLM.add(_value);
+  void addToKpiYearMonthLM(String value) {
+    kpiYearMonthLM.add(value);
   }
 
-  void removeFromKpiYearMonthLM(String _value) {
-    _kpiYearMonthLM.remove(_value);
+  void removeFromKpiYearMonthLM(String value) {
+    kpiYearMonthLM.remove(value);
   }
 
-  void removeAtIndexFromKpiYearMonthLM(int _index) {
-    _kpiYearMonthLM.removeAt(_index);
+  void removeAtIndexFromKpiYearMonthLM(int index) {
+    kpiYearMonthLM.removeAt(index);
   }
 
   void updateKpiYearMonthLMAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _kpiYearMonthLM[_index] = updateFn(_kpiYearMonthLM[_index]);
+    kpiYearMonthLM[index] = updateFn(_kpiYearMonthLM[index]);
   }
 
-  void insertAtIndexInKpiYearMonthLM(int _index, String _value) {
-    _kpiYearMonthLM.insert(_index, _value);
+  void insertAtIndexInKpiYearMonthLM(int index, String value) {
+    kpiYearMonthLM.insert(index, value);
   }
 
   String _kpiTargetBudgetLM = '100.00';
   String get kpiTargetBudgetLM => _kpiTargetBudgetLM;
-  set kpiTargetBudgetLM(String _value) {
-    _kpiTargetBudgetLM = _value;
+  set kpiTargetBudgetLM(String value) {
+    _kpiTargetBudgetLM = value;
   }
 
   String _kpiActualBudgetLM = '0.00';
   String get kpiActualBudgetLM => _kpiActualBudgetLM;
-  set kpiActualBudgetLM(String _value) {
-    _kpiActualBudgetLM = _value;
+  set kpiActualBudgetLM(String value) {
+    _kpiActualBudgetLM = value;
   }
 
   List<String> _countLeave = [];
   List<String> get countLeave => _countLeave;
-  set countLeave(List<String> _value) {
-    _countLeave = _value;
+  set countLeave(List<String> value) {
+    _countLeave = value;
   }
 
-  void addToCountLeave(String _value) {
-    _countLeave.add(_value);
+  void addToCountLeave(String value) {
+    countLeave.add(value);
   }
 
-  void removeFromCountLeave(String _value) {
-    _countLeave.remove(_value);
+  void removeFromCountLeave(String value) {
+    countLeave.remove(value);
   }
 
-  void removeAtIndexFromCountLeave(int _index) {
-    _countLeave.removeAt(_index);
+  void removeAtIndexFromCountLeave(int index) {
+    countLeave.removeAt(index);
   }
 
   void updateCountLeaveAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _countLeave[_index] = updateFn(_countLeave[_index]);
+    countLeave[index] = updateFn(_countLeave[index]);
   }
 
-  void insertAtIndexInCountLeave(int _index, String _value) {
-    _countLeave.insert(_index, _value);
+  void insertAtIndexInCountLeave(int index, String value) {
+    countLeave.insert(index, value);
   }
 
   List<String> _totalLeave = [];
   List<String> get totalLeave => _totalLeave;
-  set totalLeave(List<String> _value) {
-    _totalLeave = _value;
+  set totalLeave(List<String> value) {
+    _totalLeave = value;
   }
 
-  void addToTotalLeave(String _value) {
-    _totalLeave.add(_value);
+  void addToTotalLeave(String value) {
+    totalLeave.add(value);
   }
 
-  void removeFromTotalLeave(String _value) {
-    _totalLeave.remove(_value);
+  void removeFromTotalLeave(String value) {
+    totalLeave.remove(value);
   }
 
-  void removeAtIndexFromTotalLeave(int _index) {
-    _totalLeave.removeAt(_index);
+  void removeAtIndexFromTotalLeave(int index) {
+    totalLeave.removeAt(index);
   }
 
   void updateTotalLeaveAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _totalLeave[_index] = updateFn(_totalLeave[_index]);
+    totalLeave[index] = updateFn(_totalLeave[index]);
   }
 
-  void insertAtIndexInTotalLeave(int _index, String _value) {
-    _totalLeave.insert(_index, _value);
+  void insertAtIndexInTotalLeave(int index, String value) {
+    totalLeave.insert(index, value);
   }
 
   List<String> _statusCheckCount = [];
   List<String> get statusCheckCount => _statusCheckCount;
-  set statusCheckCount(List<String> _value) {
-    _statusCheckCount = _value;
+  set statusCheckCount(List<String> value) {
+    _statusCheckCount = value;
   }
 
-  void addToStatusCheckCount(String _value) {
-    _statusCheckCount.add(_value);
+  void addToStatusCheckCount(String value) {
+    statusCheckCount.add(value);
   }
 
-  void removeFromStatusCheckCount(String _value) {
-    _statusCheckCount.remove(_value);
+  void removeFromStatusCheckCount(String value) {
+    statusCheckCount.remove(value);
   }
 
-  void removeAtIndexFromStatusCheckCount(int _index) {
-    _statusCheckCount.removeAt(_index);
+  void removeAtIndexFromStatusCheckCount(int index) {
+    statusCheckCount.removeAt(index);
   }
 
   void updateStatusCheckCountAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _statusCheckCount[_index] = updateFn(_statusCheckCount[_index]);
+    statusCheckCount[index] = updateFn(_statusCheckCount[index]);
   }
 
-  void insertAtIndexInStatusCheckCount(int _index, String _value) {
-    _statusCheckCount.insert(_index, _value);
+  void insertAtIndexInStatusCheckCount(int index, String value) {
+    statusCheckCount.insert(index, value);
   }
 
   String _kpiAreaResponsLM = '[area_last_month]';
   String get kpiAreaResponsLM => _kpiAreaResponsLM;
-  set kpiAreaResponsLM(String _value) {
-    _kpiAreaResponsLM = _value;
+  set kpiAreaResponsLM(String value) {
+    _kpiAreaResponsLM = value;
   }
 
   bool _allowFileUpload = false;
   bool get allowFileUpload => _allowFileUpload;
-  set allowFileUpload(bool _value) {
-    _allowFileUpload = _value;
+  set allowFileUpload(bool value) {
+    _allowFileUpload = value;
   }
 
   String _leaveDaysLocal = '0.5';
   String get leaveDaysLocal => _leaveDaysLocal;
-  set leaveDaysLocal(String _value) {
-    _leaveDaysLocal = _value;
+  set leaveDaysLocal(String value) {
+    _leaveDaysLocal = value;
   }
 
   double _leaveDaysDouble = 0.5;
   double get leaveDaysDouble => _leaveDaysDouble;
-  set leaveDaysDouble(double _value) {
-    _leaveDaysDouble = _value;
+  set leaveDaysDouble(double value) {
+    _leaveDaysDouble = value;
   }
 
   String _leaveListID = 'leave_list_id';
   String get leaveListID => _leaveListID;
-  set leaveListID(String _value) {
-    _leaveListID = _value;
+  set leaveListID(String value) {
+    _leaveListID = value;
   }
 
   String _ProfilePhoneNumber = '';
   String get ProfilePhoneNumber => _ProfilePhoneNumber;
-  set ProfilePhoneNumber(String _value) {
-    _ProfilePhoneNumber = _value;
+  set ProfilePhoneNumber(String value) {
+    _ProfilePhoneNumber = value;
   }
 
   String _profileFirstBossEmpID = '';
   String get profileFirstBossEmpID => _profileFirstBossEmpID;
-  set profileFirstBossEmpID(String _value) {
-    _profileFirstBossEmpID = _value;
+  set profileFirstBossEmpID(String value) {
+    _profileFirstBossEmpID = value;
   }
 
   String _profileSecondBossEmpID = '';
   String get profileSecondBossEmpID => _profileSecondBossEmpID;
-  set profileSecondBossEmpID(String _value) {
-    _profileSecondBossEmpID = _value;
+  set profileSecondBossEmpID(String value) {
+    _profileSecondBossEmpID = value;
   }
 
   List<String> _leaveDocImgPathList = [];
   List<String> get leaveDocImgPathList => _leaveDocImgPathList;
-  set leaveDocImgPathList(List<String> _value) {
-    _leaveDocImgPathList = _value;
+  set leaveDocImgPathList(List<String> value) {
+    _leaveDocImgPathList = value;
   }
 
-  void addToLeaveDocImgPathList(String _value) {
-    _leaveDocImgPathList.add(_value);
+  void addToLeaveDocImgPathList(String value) {
+    leaveDocImgPathList.add(value);
   }
 
-  void removeFromLeaveDocImgPathList(String _value) {
-    _leaveDocImgPathList.remove(_value);
+  void removeFromLeaveDocImgPathList(String value) {
+    leaveDocImgPathList.remove(value);
   }
 
-  void removeAtIndexFromLeaveDocImgPathList(int _index) {
-    _leaveDocImgPathList.removeAt(_index);
+  void removeAtIndexFromLeaveDocImgPathList(int index) {
+    leaveDocImgPathList.removeAt(index);
   }
 
   void updateLeaveDocImgPathListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveDocImgPathList[_index] = updateFn(_leaveDocImgPathList[_index]);
+    leaveDocImgPathList[index] = updateFn(_leaveDocImgPathList[index]);
   }
 
-  void insertAtIndexInLeaveDocImgPathList(int _index, String _value) {
-    _leaveDocImgPathList.insert(_index, _value);
+  void insertAtIndexInLeaveDocImgPathList(int index, String value) {
+    leaveDocImgPathList.insert(index, value);
   }
 
   String _positionApprove = '1';
   String get positionApprove => _positionApprove;
-  set positionApprove(String _value) {
-    _positionApprove = _value;
+  set positionApprove(String value) {
+    _positionApprove = value;
   }
 
   List<String> _disapproveName = [];
   List<String> get disapproveName => _disapproveName;
-  set disapproveName(List<String> _value) {
-    _disapproveName = _value;
+  set disapproveName(List<String> value) {
+    _disapproveName = value;
   }
 
-  void addToDisapproveName(String _value) {
-    _disapproveName.add(_value);
+  void addToDisapproveName(String value) {
+    disapproveName.add(value);
   }
 
-  void removeFromDisapproveName(String _value) {
-    _disapproveName.remove(_value);
+  void removeFromDisapproveName(String value) {
+    disapproveName.remove(value);
   }
 
-  void removeAtIndexFromDisapproveName(int _index) {
-    _disapproveName.removeAt(_index);
+  void removeAtIndexFromDisapproveName(int index) {
+    disapproveName.removeAt(index);
   }
 
   void updateDisapproveNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveName[_index] = updateFn(_disapproveName[_index]);
+    disapproveName[index] = updateFn(_disapproveName[index]);
   }
 
-  void insertAtIndexInDisapproveName(int _index, String _value) {
-    _disapproveName.insert(_index, _value);
+  void insertAtIndexInDisapproveName(int index, String value) {
+    disapproveName.insert(index, value);
   }
 
   List<String> _disapproveLeaveName = [];
   List<String> get disapproveLeaveName => _disapproveLeaveName;
-  set disapproveLeaveName(List<String> _value) {
-    _disapproveLeaveName = _value;
+  set disapproveLeaveName(List<String> value) {
+    _disapproveLeaveName = value;
   }
 
-  void addToDisapproveLeaveName(String _value) {
-    _disapproveLeaveName.add(_value);
+  void addToDisapproveLeaveName(String value) {
+    disapproveLeaveName.add(value);
   }
 
-  void removeFromDisapproveLeaveName(String _value) {
-    _disapproveLeaveName.remove(_value);
+  void removeFromDisapproveLeaveName(String value) {
+    disapproveLeaveName.remove(value);
   }
 
-  void removeAtIndexFromDisapproveLeaveName(int _index) {
-    _disapproveLeaveName.removeAt(_index);
+  void removeAtIndexFromDisapproveLeaveName(int index) {
+    disapproveLeaveName.removeAt(index);
   }
 
   void updateDisapproveLeaveNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveLeaveName[_index] = updateFn(_disapproveLeaveName[_index]);
+    disapproveLeaveName[index] = updateFn(_disapproveLeaveName[index]);
   }
 
-  void insertAtIndexInDisapproveLeaveName(int _index, String _value) {
-    _disapproveLeaveName.insert(_index, _value);
+  void insertAtIndexInDisapproveLeaveName(int index, String value) {
+    disapproveLeaveName.insert(index, value);
   }
 
   List<String> _disapproveCreatedDate = [];
   List<String> get disapproveCreatedDate => _disapproveCreatedDate;
-  set disapproveCreatedDate(List<String> _value) {
-    _disapproveCreatedDate = _value;
+  set disapproveCreatedDate(List<String> value) {
+    _disapproveCreatedDate = value;
   }
 
-  void addToDisapproveCreatedDate(String _value) {
-    _disapproveCreatedDate.add(_value);
+  void addToDisapproveCreatedDate(String value) {
+    disapproveCreatedDate.add(value);
   }
 
-  void removeFromDisapproveCreatedDate(String _value) {
-    _disapproveCreatedDate.remove(_value);
+  void removeFromDisapproveCreatedDate(String value) {
+    disapproveCreatedDate.remove(value);
   }
 
-  void removeAtIndexFromDisapproveCreatedDate(int _index) {
-    _disapproveCreatedDate.removeAt(_index);
+  void removeAtIndexFromDisapproveCreatedDate(int index) {
+    disapproveCreatedDate.removeAt(index);
   }
 
   void updateDisapproveCreatedDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveCreatedDate[_index] = updateFn(_disapproveCreatedDate[_index]);
+    disapproveCreatedDate[index] = updateFn(_disapproveCreatedDate[index]);
   }
 
-  void insertAtIndexInDisapproveCreatedDate(int _index, String _value) {
-    _disapproveCreatedDate.insert(_index, _value);
+  void insertAtIndexInDisapproveCreatedDate(int index, String value) {
+    disapproveCreatedDate.insert(index, value);
   }
 
   List<String> _disapproveLeaveDate = [];
   List<String> get disapproveLeaveDate => _disapproveLeaveDate;
-  set disapproveLeaveDate(List<String> _value) {
-    _disapproveLeaveDate = _value;
+  set disapproveLeaveDate(List<String> value) {
+    _disapproveLeaveDate = value;
   }
 
-  void addToDisapproveLeaveDate(String _value) {
-    _disapproveLeaveDate.add(_value);
+  void addToDisapproveLeaveDate(String value) {
+    disapproveLeaveDate.add(value);
   }
 
-  void removeFromDisapproveLeaveDate(String _value) {
-    _disapproveLeaveDate.remove(_value);
+  void removeFromDisapproveLeaveDate(String value) {
+    disapproveLeaveDate.remove(value);
   }
 
-  void removeAtIndexFromDisapproveLeaveDate(int _index) {
-    _disapproveLeaveDate.removeAt(_index);
+  void removeAtIndexFromDisapproveLeaveDate(int index) {
+    disapproveLeaveDate.removeAt(index);
   }
 
   void updateDisapproveLeaveDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveLeaveDate[_index] = updateFn(_disapproveLeaveDate[_index]);
+    disapproveLeaveDate[index] = updateFn(_disapproveLeaveDate[index]);
   }
 
-  void insertAtIndexInDisapproveLeaveDate(int _index, String _value) {
-    _disapproveLeaveDate.insert(_index, _value);
+  void insertAtIndexInDisapproveLeaveDate(int index, String value) {
+    disapproveLeaveDate.insert(index, value);
   }
 
   List<String> _disapproveCountDay = [];
   List<String> get disapproveCountDay => _disapproveCountDay;
-  set disapproveCountDay(List<String> _value) {
-    _disapproveCountDay = _value;
+  set disapproveCountDay(List<String> value) {
+    _disapproveCountDay = value;
   }
 
-  void addToDisapproveCountDay(String _value) {
-    _disapproveCountDay.add(_value);
+  void addToDisapproveCountDay(String value) {
+    disapproveCountDay.add(value);
   }
 
-  void removeFromDisapproveCountDay(String _value) {
-    _disapproveCountDay.remove(_value);
+  void removeFromDisapproveCountDay(String value) {
+    disapproveCountDay.remove(value);
   }
 
-  void removeAtIndexFromDisapproveCountDay(int _index) {
-    _disapproveCountDay.removeAt(_index);
+  void removeAtIndexFromDisapproveCountDay(int index) {
+    disapproveCountDay.removeAt(index);
   }
 
   void updateDisapproveCountDayAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveCountDay[_index] = updateFn(_disapproveCountDay[_index]);
+    disapproveCountDay[index] = updateFn(_disapproveCountDay[index]);
   }
 
-  void insertAtIndexInDisapproveCountDay(int _index, String _value) {
-    _disapproveCountDay.insert(_index, _value);
+  void insertAtIndexInDisapproveCountDay(int index, String value) {
+    disapproveCountDay.insert(index, value);
   }
 
   List<String> _disapproveTimePeriod = [];
   List<String> get disapproveTimePeriod => _disapproveTimePeriod;
-  set disapproveTimePeriod(List<String> _value) {
-    _disapproveTimePeriod = _value;
+  set disapproveTimePeriod(List<String> value) {
+    _disapproveTimePeriod = value;
   }
 
-  void addToDisapproveTimePeriod(String _value) {
-    _disapproveTimePeriod.add(_value);
+  void addToDisapproveTimePeriod(String value) {
+    disapproveTimePeriod.add(value);
   }
 
-  void removeFromDisapproveTimePeriod(String _value) {
-    _disapproveTimePeriod.remove(_value);
+  void removeFromDisapproveTimePeriod(String value) {
+    disapproveTimePeriod.remove(value);
   }
 
-  void removeAtIndexFromDisapproveTimePeriod(int _index) {
-    _disapproveTimePeriod.removeAt(_index);
+  void removeAtIndexFromDisapproveTimePeriod(int index) {
+    disapproveTimePeriod.removeAt(index);
   }
 
   void updateDisapproveTimePeriodAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveTimePeriod[_index] = updateFn(_disapproveTimePeriod[_index]);
+    disapproveTimePeriod[index] = updateFn(_disapproveTimePeriod[index]);
   }
 
-  void insertAtIndexInDisapproveTimePeriod(int _index, String _value) {
-    _disapproveTimePeriod.insert(_index, _value);
+  void insertAtIndexInDisapproveTimePeriod(int index, String value) {
+    disapproveTimePeriod.insert(index, value);
   }
 
   List<String> _disapproveReason = [];
   List<String> get disapproveReason => _disapproveReason;
-  set disapproveReason(List<String> _value) {
-    _disapproveReason = _value;
+  set disapproveReason(List<String> value) {
+    _disapproveReason = value;
   }
 
-  void addToDisapproveReason(String _value) {
-    _disapproveReason.add(_value);
+  void addToDisapproveReason(String value) {
+    disapproveReason.add(value);
   }
 
-  void removeFromDisapproveReason(String _value) {
-    _disapproveReason.remove(_value);
+  void removeFromDisapproveReason(String value) {
+    disapproveReason.remove(value);
   }
 
-  void removeAtIndexFromDisapproveReason(int _index) {
-    _disapproveReason.removeAt(_index);
+  void removeAtIndexFromDisapproveReason(int index) {
+    disapproveReason.removeAt(index);
   }
 
   void updateDisapproveReasonAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _disapproveReason[_index] = updateFn(_disapproveReason[_index]);
+    disapproveReason[index] = updateFn(_disapproveReason[index]);
   }
 
-  void insertAtIndexInDisapproveReason(int _index, String _value) {
-    _disapproveReason.insert(_index, _value);
+  void insertAtIndexInDisapproveReason(int index, String value) {
+    disapproveReason.insert(index, value);
   }
 
   List<String> _provName = ['ProvName'];
   List<String> get provName => _provName;
-  set provName(List<String> _value) {
-    _provName = _value;
+  set provName(List<String> value) {
+    _provName = value;
   }
 
-  void addToProvName(String _value) {
-    _provName.add(_value);
+  void addToProvName(String value) {
+    provName.add(value);
   }
 
-  void removeFromProvName(String _value) {
-    _provName.remove(_value);
+  void removeFromProvName(String value) {
+    provName.remove(value);
   }
 
-  void removeAtIndexFromProvName(int _index) {
-    _provName.removeAt(_index);
+  void removeAtIndexFromProvName(int index) {
+    provName.removeAt(index);
   }
 
   void updateProvNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _provName[_index] = updateFn(_provName[_index]);
+    provName[index] = updateFn(_provName[index]);
   }
 
-  void insertAtIndexInProvName(int _index, String _value) {
-    _provName.insert(_index, _value);
+  void insertAtIndexInProvName(int index, String value) {
+    provName.insert(index, value);
   }
 
   List<String> _provCode = ['ProvCode'];
   List<String> get provCode => _provCode;
-  set provCode(List<String> _value) {
-    _provCode = _value;
+  set provCode(List<String> value) {
+    _provCode = value;
   }
 
-  void addToProvCode(String _value) {
-    _provCode.add(_value);
+  void addToProvCode(String value) {
+    provCode.add(value);
   }
 
-  void removeFromProvCode(String _value) {
-    _provCode.remove(_value);
+  void removeFromProvCode(String value) {
+    provCode.remove(value);
   }
 
-  void removeAtIndexFromProvCode(int _index) {
-    _provCode.removeAt(_index);
+  void removeAtIndexFromProvCode(int index) {
+    provCode.removeAt(index);
   }
 
   void updateProvCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _provCode[_index] = updateFn(_provCode[_index]);
+    provCode[index] = updateFn(_provCode[index]);
   }
 
-  void insertAtIndexInProvCode(int _index, String _value) {
-    _provCode.insert(_index, _value);
+  void insertAtIndexInProvCode(int index, String value) {
+    provCode.insert(index, value);
   }
 
   List<String> _districtName = ['districtName'];
   List<String> get districtName => _districtName;
-  set districtName(List<String> _value) {
-    _districtName = _value;
+  set districtName(List<String> value) {
+    _districtName = value;
   }
 
-  void addToDistrictName(String _value) {
-    _districtName.add(_value);
+  void addToDistrictName(String value) {
+    districtName.add(value);
   }
 
-  void removeFromDistrictName(String _value) {
-    _districtName.remove(_value);
+  void removeFromDistrictName(String value) {
+    districtName.remove(value);
   }
 
-  void removeAtIndexFromDistrictName(int _index) {
-    _districtName.removeAt(_index);
+  void removeAtIndexFromDistrictName(int index) {
+    districtName.removeAt(index);
   }
 
   void updateDistrictNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _districtName[_index] = updateFn(_districtName[_index]);
+    districtName[index] = updateFn(_districtName[index]);
   }
 
-  void insertAtIndexInDistrictName(int _index, String _value) {
-    _districtName.insert(_index, _value);
+  void insertAtIndexInDistrictName(int index, String value) {
+    districtName.insert(index, value);
   }
 
   List<String> _districtCode = ['districtCode'];
   List<String> get districtCode => _districtCode;
-  set districtCode(List<String> _value) {
-    _districtCode = _value;
+  set districtCode(List<String> value) {
+    _districtCode = value;
   }
 
-  void addToDistrictCode(String _value) {
-    _districtCode.add(_value);
+  void addToDistrictCode(String value) {
+    districtCode.add(value);
   }
 
-  void removeFromDistrictCode(String _value) {
-    _districtCode.remove(_value);
+  void removeFromDistrictCode(String value) {
+    districtCode.remove(value);
   }
 
-  void removeAtIndexFromDistrictCode(int _index) {
-    _districtCode.removeAt(_index);
+  void removeAtIndexFromDistrictCode(int index) {
+    districtCode.removeAt(index);
   }
 
   void updateDistrictCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _districtCode[_index] = updateFn(_districtCode[_index]);
+    districtCode[index] = updateFn(_districtCode[index]);
   }
 
-  void insertAtIndexInDistrictCode(int _index, String _value) {
-    _districtCode.insert(_index, _value);
+  void insertAtIndexInDistrictCode(int index, String value) {
+    districtCode.insert(index, value);
   }
 
   List<String> _postCode = ['PostCode'];
   List<String> get postCode => _postCode;
-  set postCode(List<String> _value) {
-    _postCode = _value;
+  set postCode(List<String> value) {
+    _postCode = value;
   }
 
-  void addToPostCode(String _value) {
-    _postCode.add(_value);
+  void addToPostCode(String value) {
+    postCode.add(value);
   }
 
-  void removeFromPostCode(String _value) {
-    _postCode.remove(_value);
+  void removeFromPostCode(String value) {
+    postCode.remove(value);
   }
 
-  void removeAtIndexFromPostCode(int _index) {
-    _postCode.removeAt(_index);
+  void removeAtIndexFromPostCode(int index) {
+    postCode.removeAt(index);
   }
 
   void updatePostCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _postCode[_index] = updateFn(_postCode[_index]);
+    postCode[index] = updateFn(_postCode[index]);
   }
 
-  void insertAtIndexInPostCode(int _index, String _value) {
-    _postCode.insert(_index, _value);
+  void insertAtIndexInPostCode(int index, String value) {
+    postCode.insert(index, value);
   }
 
   List<String> _subDistrictName = ['subDistrictName'];
   List<String> get subDistrictName => _subDistrictName;
-  set subDistrictName(List<String> _value) {
-    _subDistrictName = _value;
+  set subDistrictName(List<String> value) {
+    _subDistrictName = value;
   }
 
-  void addToSubDistrictName(String _value) {
-    _subDistrictName.add(_value);
+  void addToSubDistrictName(String value) {
+    subDistrictName.add(value);
   }
 
-  void removeFromSubDistrictName(String _value) {
-    _subDistrictName.remove(_value);
+  void removeFromSubDistrictName(String value) {
+    subDistrictName.remove(value);
   }
 
-  void removeAtIndexFromSubDistrictName(int _index) {
-    _subDistrictName.removeAt(_index);
+  void removeAtIndexFromSubDistrictName(int index) {
+    subDistrictName.removeAt(index);
   }
 
   void updateSubDistrictNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _subDistrictName[_index] = updateFn(_subDistrictName[_index]);
+    subDistrictName[index] = updateFn(_subDistrictName[index]);
   }
 
-  void insertAtIndexInSubDistrictName(int _index, String _value) {
-    _subDistrictName.insert(_index, _value);
+  void insertAtIndexInSubDistrictName(int index, String value) {
+    subDistrictName.insert(index, value);
   }
 
   int _leaveDayInt = 0;
   int get leaveDayInt => _leaveDayInt;
-  set leaveDayInt(int _value) {
-    _leaveDayInt = _value;
+  set leaveDayInt(int value) {
+    _leaveDayInt = value;
   }
 
   List<String> _leaveTypeEdit = [];
   List<String> get leaveTypeEdit => _leaveTypeEdit;
-  set leaveTypeEdit(List<String> _value) {
-    _leaveTypeEdit = _value;
+  set leaveTypeEdit(List<String> value) {
+    _leaveTypeEdit = value;
   }
 
-  void addToLeaveTypeEdit(String _value) {
-    _leaveTypeEdit.add(_value);
+  void addToLeaveTypeEdit(String value) {
+    leaveTypeEdit.add(value);
   }
 
-  void removeFromLeaveTypeEdit(String _value) {
-    _leaveTypeEdit.remove(_value);
+  void removeFromLeaveTypeEdit(String value) {
+    leaveTypeEdit.remove(value);
   }
 
-  void removeAtIndexFromLeaveTypeEdit(int _index) {
-    _leaveTypeEdit.removeAt(_index);
+  void removeAtIndexFromLeaveTypeEdit(int index) {
+    leaveTypeEdit.removeAt(index);
   }
 
   void updateLeaveTypeEditAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveTypeEdit[_index] = updateFn(_leaveTypeEdit[_index]);
+    leaveTypeEdit[index] = updateFn(_leaveTypeEdit[index]);
   }
 
-  void insertAtIndexInLeaveTypeEdit(int _index, String _value) {
-    _leaveTypeEdit.insert(_index, _value);
+  void insertAtIndexInLeaveTypeEdit(int index, String value) {
+    leaveTypeEdit.insert(index, value);
   }
 
   List<String> _leaveHalfDay = [
@@ -3475,177 +3474,177 @@ class FFAppState extends ChangeNotifier {
     'ลาครึ่งวันบ่าย'
   ];
   List<String> get leaveHalfDay => _leaveHalfDay;
-  set leaveHalfDay(List<String> _value) {
-    _leaveHalfDay = _value;
+  set leaveHalfDay(List<String> value) {
+    _leaveHalfDay = value;
   }
 
-  void addToLeaveHalfDay(String _value) {
-    _leaveHalfDay.add(_value);
+  void addToLeaveHalfDay(String value) {
+    leaveHalfDay.add(value);
   }
 
-  void removeFromLeaveHalfDay(String _value) {
-    _leaveHalfDay.remove(_value);
+  void removeFromLeaveHalfDay(String value) {
+    leaveHalfDay.remove(value);
   }
 
-  void removeAtIndexFromLeaveHalfDay(int _index) {
-    _leaveHalfDay.removeAt(_index);
+  void removeAtIndexFromLeaveHalfDay(int index) {
+    leaveHalfDay.removeAt(index);
   }
 
   void updateLeaveHalfDayAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveHalfDay[_index] = updateFn(_leaveHalfDay[_index]);
+    leaveHalfDay[index] = updateFn(_leaveHalfDay[index]);
   }
 
-  void insertAtIndexInLeaveHalfDay(int _index, String _value) {
-    _leaveHalfDay.insert(_index, _value);
+  void insertAtIndexInLeaveHalfDay(int index, String value) {
+    leaveHalfDay.insert(index, value);
   }
 
   List<String> _leaveFullDay = ['ลาเต็มวัน'];
   List<String> get leaveFullDay => _leaveFullDay;
-  set leaveFullDay(List<String> _value) {
-    _leaveFullDay = _value;
+  set leaveFullDay(List<String> value) {
+    _leaveFullDay = value;
   }
 
-  void addToLeaveFullDay(String _value) {
-    _leaveFullDay.add(_value);
+  void addToLeaveFullDay(String value) {
+    leaveFullDay.add(value);
   }
 
-  void removeFromLeaveFullDay(String _value) {
-    _leaveFullDay.remove(_value);
+  void removeFromLeaveFullDay(String value) {
+    leaveFullDay.remove(value);
   }
 
-  void removeAtIndexFromLeaveFullDay(int _index) {
-    _leaveFullDay.removeAt(_index);
+  void removeAtIndexFromLeaveFullDay(int index) {
+    leaveFullDay.removeAt(index);
   }
 
   void updateLeaveFullDayAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leaveFullDay[_index] = updateFn(_leaveFullDay[_index]);
+    leaveFullDay[index] = updateFn(_leaveFullDay[index]);
   }
 
-  void insertAtIndexInLeaveFullDay(int _index, String _value) {
-    _leaveFullDay.insert(_index, _value);
+  void insertAtIndexInLeaveFullDay(int index, String value) {
+    leaveFullDay.insert(index, value);
   }
 
   bool _leaveReasonEtcVisible = false;
   bool get leaveReasonEtcVisible => _leaveReasonEtcVisible;
-  set leaveReasonEtcVisible(bool _value) {
-    _leaveReasonEtcVisible = _value;
+  set leaveReasonEtcVisible(bool value) {
+    _leaveReasonEtcVisible = value;
   }
 
   bool _companyAssetReturnEtcVisible = false;
   bool get companyAssetReturnEtcVisible => _companyAssetReturnEtcVisible;
-  set companyAssetReturnEtcVisible(bool _value) {
-    _companyAssetReturnEtcVisible = _value;
+  set companyAssetReturnEtcVisible(bool value) {
+    _companyAssetReturnEtcVisible = value;
   }
 
   List<String> _reasonToLeaveList = [];
   List<String> get reasonToLeaveList => _reasonToLeaveList;
-  set reasonToLeaveList(List<String> _value) {
-    _reasonToLeaveList = _value;
+  set reasonToLeaveList(List<String> value) {
+    _reasonToLeaveList = value;
   }
 
-  void addToReasonToLeaveList(String _value) {
-    _reasonToLeaveList.add(_value);
+  void addToReasonToLeaveList(String value) {
+    reasonToLeaveList.add(value);
   }
 
-  void removeFromReasonToLeaveList(String _value) {
-    _reasonToLeaveList.remove(_value);
+  void removeFromReasonToLeaveList(String value) {
+    reasonToLeaveList.remove(value);
   }
 
-  void removeAtIndexFromReasonToLeaveList(int _index) {
-    _reasonToLeaveList.removeAt(_index);
+  void removeAtIndexFromReasonToLeaveList(int index) {
+    reasonToLeaveList.removeAt(index);
   }
 
   void updateReasonToLeaveListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _reasonToLeaveList[_index] = updateFn(_reasonToLeaveList[_index]);
+    reasonToLeaveList[index] = updateFn(_reasonToLeaveList[index]);
   }
 
-  void insertAtIndexInReasonToLeaveList(int _index, String _value) {
-    _reasonToLeaveList.insert(_index, _value);
+  void insertAtIndexInReasonToLeaveList(int index, String value) {
+    reasonToLeaveList.insert(index, value);
   }
 
   List<String> _assetReturnList = [];
   List<String> get assetReturnList => _assetReturnList;
-  set assetReturnList(List<String> _value) {
-    _assetReturnList = _value;
+  set assetReturnList(List<String> value) {
+    _assetReturnList = value;
   }
 
-  void addToAssetReturnList(String _value) {
-    _assetReturnList.add(_value);
+  void addToAssetReturnList(String value) {
+    assetReturnList.add(value);
   }
 
-  void removeFromAssetReturnList(String _value) {
-    _assetReturnList.remove(_value);
+  void removeFromAssetReturnList(String value) {
+    assetReturnList.remove(value);
   }
 
-  void removeAtIndexFromAssetReturnList(int _index) {
-    _assetReturnList.removeAt(_index);
+  void removeAtIndexFromAssetReturnList(int index) {
+    assetReturnList.removeAt(index);
   }
 
   void updateAssetReturnListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _assetReturnList[_index] = updateFn(_assetReturnList[_index]);
+    assetReturnList[index] = updateFn(_assetReturnList[index]);
   }
 
-  void insertAtIndexInAssetReturnList(int _index, String _value) {
-    _assetReturnList.insert(_index, _value);
+  void insertAtIndexInAssetReturnList(int index, String value) {
+    assetReturnList.insert(index, value);
   }
 
   List<String> _insurancePlan1 = [];
   List<String> get insurancePlan1 => _insurancePlan1;
-  set insurancePlan1(List<String> _value) {
-    _insurancePlan1 = _value;
+  set insurancePlan1(List<String> value) {
+    _insurancePlan1 = value;
   }
 
-  void addToInsurancePlan1(String _value) {
-    _insurancePlan1.add(_value);
+  void addToInsurancePlan1(String value) {
+    insurancePlan1.add(value);
   }
 
-  void removeFromInsurancePlan1(String _value) {
-    _insurancePlan1.remove(_value);
+  void removeFromInsurancePlan1(String value) {
+    insurancePlan1.remove(value);
   }
 
-  void removeAtIndexFromInsurancePlan1(int _index) {
-    _insurancePlan1.removeAt(_index);
+  void removeAtIndexFromInsurancePlan1(int index) {
+    insurancePlan1.removeAt(index);
   }
 
   void updateInsurancePlan1AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insurancePlan1[_index] = updateFn(_insurancePlan1[_index]);
+    insurancePlan1[index] = updateFn(_insurancePlan1[index]);
   }
 
-  void insertAtIndexInInsurancePlan1(int _index, String _value) {
-    _insurancePlan1.insert(_index, _value);
+  void insertAtIndexInInsurancePlan1(int index, String value) {
+    insurancePlan1.insert(index, value);
   }
 
   String _insurancePlanNumber = '';
   String get insurancePlanNumber => _insurancePlanNumber;
-  set insurancePlanNumber(String _value) {
-    _insurancePlanNumber = _value;
+  set insurancePlanNumber(String value) {
+    _insurancePlanNumber = value;
   }
 
   String _profileLevel = '';
   String get profileLevel => _profileLevel;
-  set profileLevel(String _value) {
-    _profileLevel = _value;
+  set profileLevel(String value) {
+    _profileLevel = value;
   }
 
   String _profileBranch = '';
   String get profileBranch => _profileBranch;
-  set profileBranch(String _value) {
-    _profileBranch = _value;
+  set profileBranch(String value) {
+    _profileBranch = value;
   }
 
   List<Color> _welfareKpiStatusTextColorList = [
@@ -3657,349 +3656,349 @@ class FFAppState extends ChangeNotifier {
   ];
   List<Color> get welfareKpiStatusTextColorList =>
       _welfareKpiStatusTextColorList;
-  set welfareKpiStatusTextColorList(List<Color> _value) {
-    _welfareKpiStatusTextColorList = _value;
+  set welfareKpiStatusTextColorList(List<Color> value) {
+    _welfareKpiStatusTextColorList = value;
   }
 
-  void addToWelfareKpiStatusTextColorList(Color _value) {
-    _welfareKpiStatusTextColorList.add(_value);
+  void addToWelfareKpiStatusTextColorList(Color value) {
+    welfareKpiStatusTextColorList.add(value);
   }
 
-  void removeFromWelfareKpiStatusTextColorList(Color _value) {
-    _welfareKpiStatusTextColorList.remove(_value);
+  void removeFromWelfareKpiStatusTextColorList(Color value) {
+    welfareKpiStatusTextColorList.remove(value);
   }
 
-  void removeAtIndexFromWelfareKpiStatusTextColorList(int _index) {
-    _welfareKpiStatusTextColorList.removeAt(_index);
+  void removeAtIndexFromWelfareKpiStatusTextColorList(int index) {
+    welfareKpiStatusTextColorList.removeAt(index);
   }
 
   void updateWelfareKpiStatusTextColorListAtIndex(
-    int _index,
+    int index,
     Color Function(Color) updateFn,
   ) {
-    _welfareKpiStatusTextColorList[_index] =
-        updateFn(_welfareKpiStatusTextColorList[_index]);
+    welfareKpiStatusTextColorList[index] =
+        updateFn(_welfareKpiStatusTextColorList[index]);
   }
 
-  void insertAtIndexInWelfareKpiStatusTextColorList(int _index, Color _value) {
-    _welfareKpiStatusTextColorList.insert(_index, _value);
+  void insertAtIndexInWelfareKpiStatusTextColorList(int index, Color value) {
+    welfareKpiStatusTextColorList.insert(index, value);
   }
 
   bool _isProduction = true;
   bool get isProduction => _isProduction;
-  set isProduction(bool _value) {
-    _isProduction = _value;
+  set isProduction(bool value) {
+    _isProduction = value;
   }
 
   bool _isSelectedBranch = false;
   bool get isSelectedBranch => _isSelectedBranch;
-  set isSelectedBranch(bool _value) {
-    _isSelectedBranch = _value;
+  set isSelectedBranch(bool value) {
+    _isSelectedBranch = value;
   }
 
   bool _isSearchedBranch = false;
   bool get isSearchedBranch => _isSearchedBranch;
-  set isSearchedBranch(bool _value) {
-    _isSearchedBranch = _value;
+  set isSearchedBranch(bool value) {
+    _isSearchedBranch = value;
   }
 
   bool _isEmployeeSearched = false;
   bool get isEmployeeSearched => _isEmployeeSearched;
-  set isEmployeeSearched(bool _value) {
-    _isEmployeeSearched = _value;
+  set isEmployeeSearched(bool value) {
+    _isEmployeeSearched = value;
   }
 
   bool _isEmployeeSelected = false;
   bool get isEmployeeSelected => _isEmployeeSelected;
-  set isEmployeeSelected(bool _value) {
-    _isEmployeeSelected = _value;
+  set isEmployeeSelected(bool value) {
+    _isEmployeeSelected = value;
   }
 
   List<int> _welfareCEOStatusList = [5544, 5544];
   List<int> get welfareCEOStatusList => _welfareCEOStatusList;
-  set welfareCEOStatusList(List<int> _value) {
-    _welfareCEOStatusList = _value;
+  set welfareCEOStatusList(List<int> value) {
+    _welfareCEOStatusList = value;
   }
 
-  void addToWelfareCEOStatusList(int _value) {
-    _welfareCEOStatusList.add(_value);
+  void addToWelfareCEOStatusList(int value) {
+    welfareCEOStatusList.add(value);
   }
 
-  void removeFromWelfareCEOStatusList(int _value) {
-    _welfareCEOStatusList.remove(_value);
+  void removeFromWelfareCEOStatusList(int value) {
+    welfareCEOStatusList.remove(value);
   }
 
-  void removeAtIndexFromWelfareCEOStatusList(int _index) {
-    _welfareCEOStatusList.removeAt(_index);
+  void removeAtIndexFromWelfareCEOStatusList(int index) {
+    welfareCEOStatusList.removeAt(index);
   }
 
   void updateWelfareCEOStatusListAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _welfareCEOStatusList[_index] = updateFn(_welfareCEOStatusList[_index]);
+    welfareCEOStatusList[index] = updateFn(_welfareCEOStatusList[index]);
   }
 
-  void insertAtIndexInWelfareCEOStatusList(int _index, int _value) {
-    _welfareCEOStatusList.insert(_index, _value);
+  void insertAtIndexInWelfareCEOStatusList(int index, int value) {
+    welfareCEOStatusList.insert(index, value);
   }
 
   List<String> _leadCountCalled = [];
   List<String> get leadCountCalled => _leadCountCalled;
-  set leadCountCalled(List<String> _value) {
-    _leadCountCalled = _value;
+  set leadCountCalled(List<String> value) {
+    _leadCountCalled = value;
   }
 
-  void addToLeadCountCalled(String _value) {
-    _leadCountCalled.add(_value);
+  void addToLeadCountCalled(String value) {
+    leadCountCalled.add(value);
   }
 
-  void removeFromLeadCountCalled(String _value) {
-    _leadCountCalled.remove(_value);
+  void removeFromLeadCountCalled(String value) {
+    leadCountCalled.remove(value);
   }
 
-  void removeAtIndexFromLeadCountCalled(int _index) {
-    _leadCountCalled.removeAt(_index);
+  void removeAtIndexFromLeadCountCalled(int index) {
+    leadCountCalled.removeAt(index);
   }
 
   void updateLeadCountCalledAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCountCalled[_index] = updateFn(_leadCountCalled[_index]);
+    leadCountCalled[index] = updateFn(_leadCountCalled[index]);
   }
 
-  void insertAtIndexInLeadCountCalled(int _index, String _value) {
-    _leadCountCalled.insert(_index, _value);
+  void insertAtIndexInLeadCountCalled(int index, String value) {
+    leadCountCalled.insert(index, value);
   }
 
   double _branchLatDouble = 0.0;
   double get branchLatDouble => _branchLatDouble;
-  set branchLatDouble(double _value) {
-    _branchLatDouble = _value;
+  set branchLatDouble(double value) {
+    _branchLatDouble = value;
   }
 
   double _branchLngDouble = 0.0;
   double get branchLngDouble => _branchLngDouble;
-  set branchLngDouble(double _value) {
-    _branchLngDouble = _value;
+  set branchLngDouble(double value) {
+    _branchLngDouble = value;
   }
 
   double _currentLatDouble = 0.0;
   double get currentLatDouble => _currentLatDouble;
-  set currentLatDouble(double _value) {
-    _currentLatDouble = _value;
+  set currentLatDouble(double value) {
+    _currentLatDouble = value;
   }
 
   double _currentLngDouble = 0.0;
   double get currentLngDouble => _currentLngDouble;
-  set currentLngDouble(double _value) {
-    _currentLngDouble = _value;
+  set currentLngDouble(double value) {
+    _currentLngDouble = value;
   }
 
   List<String> _leadName2 = [];
   List<String> get leadName2 => _leadName2;
-  set leadName2(List<String> _value) {
-    _leadName2 = _value;
+  set leadName2(List<String> value) {
+    _leadName2 = value;
   }
 
-  void addToLeadName2(String _value) {
-    _leadName2.add(_value);
+  void addToLeadName2(String value) {
+    leadName2.add(value);
   }
 
-  void removeFromLeadName2(String _value) {
-    _leadName2.remove(_value);
+  void removeFromLeadName2(String value) {
+    leadName2.remove(value);
   }
 
-  void removeAtIndexFromLeadName2(int _index) {
-    _leadName2.removeAt(_index);
+  void removeAtIndexFromLeadName2(int index) {
+    leadName2.removeAt(index);
   }
 
   void updateLeadName2AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadName2[_index] = updateFn(_leadName2[_index]);
+    leadName2[index] = updateFn(_leadName2[index]);
   }
 
-  void insertAtIndexInLeadName2(int _index, String _value) {
-    _leadName2.insert(_index, _value);
+  void insertAtIndexInLeadName2(int index, String value) {
+    leadName2.insert(index, value);
   }
 
   List<String> _leadLastname2 = [];
   List<String> get leadLastname2 => _leadLastname2;
-  set leadLastname2(List<String> _value) {
-    _leadLastname2 = _value;
+  set leadLastname2(List<String> value) {
+    _leadLastname2 = value;
   }
 
-  void addToLeadLastname2(String _value) {
-    _leadLastname2.add(_value);
+  void addToLeadLastname2(String value) {
+    leadLastname2.add(value);
   }
 
-  void removeFromLeadLastname2(String _value) {
-    _leadLastname2.remove(_value);
+  void removeFromLeadLastname2(String value) {
+    leadLastname2.remove(value);
   }
 
-  void removeAtIndexFromLeadLastname2(int _index) {
-    _leadLastname2.removeAt(_index);
+  void removeAtIndexFromLeadLastname2(int index) {
+    leadLastname2.removeAt(index);
   }
 
   void updateLeadLastname2AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadLastname2[_index] = updateFn(_leadLastname2[_index]);
+    leadLastname2[index] = updateFn(_leadLastname2[index]);
   }
 
-  void insertAtIndexInLeadLastname2(int _index, String _value) {
-    _leadLastname2.insert(_index, _value);
+  void insertAtIndexInLeadLastname2(int index, String value) {
+    leadLastname2.insert(index, value);
   }
 
   List<String> _leadPhone2 = [];
   List<String> get leadPhone2 => _leadPhone2;
-  set leadPhone2(List<String> _value) {
-    _leadPhone2 = _value;
+  set leadPhone2(List<String> value) {
+    _leadPhone2 = value;
   }
 
-  void addToLeadPhone2(String _value) {
-    _leadPhone2.add(_value);
+  void addToLeadPhone2(String value) {
+    leadPhone2.add(value);
   }
 
-  void removeFromLeadPhone2(String _value) {
-    _leadPhone2.remove(_value);
+  void removeFromLeadPhone2(String value) {
+    leadPhone2.remove(value);
   }
 
-  void removeAtIndexFromLeadPhone2(int _index) {
-    _leadPhone2.removeAt(_index);
+  void removeAtIndexFromLeadPhone2(int index) {
+    leadPhone2.removeAt(index);
   }
 
   void updateLeadPhone2AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadPhone2[_index] = updateFn(_leadPhone2[_index]);
+    leadPhone2[index] = updateFn(_leadPhone2[index]);
   }
 
-  void insertAtIndexInLeadPhone2(int _index, String _value) {
-    _leadPhone2.insert(_index, _value);
+  void insertAtIndexInLeadPhone2(int index, String value) {
+    leadPhone2.insert(index, value);
   }
 
   List<int> _totalSumPoint = [];
   List<int> get totalSumPoint => _totalSumPoint;
-  set totalSumPoint(List<int> _value) {
-    _totalSumPoint = _value;
+  set totalSumPoint(List<int> value) {
+    _totalSumPoint = value;
   }
 
-  void addToTotalSumPoint(int _value) {
-    _totalSumPoint.add(_value);
+  void addToTotalSumPoint(int value) {
+    totalSumPoint.add(value);
   }
 
-  void removeFromTotalSumPoint(int _value) {
-    _totalSumPoint.remove(_value);
+  void removeFromTotalSumPoint(int value) {
+    totalSumPoint.remove(value);
   }
 
-  void removeAtIndexFromTotalSumPoint(int _index) {
-    _totalSumPoint.removeAt(_index);
+  void removeAtIndexFromTotalSumPoint(int index) {
+    totalSumPoint.removeAt(index);
   }
 
   void updateTotalSumPointAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _totalSumPoint[_index] = updateFn(_totalSumPoint[_index]);
+    totalSumPoint[index] = updateFn(_totalSumPoint[index]);
   }
 
-  void insertAtIndexInTotalSumPoint(int _index, int _value) {
-    _totalSumPoint.insert(_index, _value);
+  void insertAtIndexInTotalSumPoint(int index, int value) {
+    totalSumPoint.insert(index, value);
   }
 
   List<String> _leadCarVehicleName = [];
   List<String> get leadCarVehicleName => _leadCarVehicleName;
-  set leadCarVehicleName(List<String> _value) {
-    _leadCarVehicleName = _value;
+  set leadCarVehicleName(List<String> value) {
+    _leadCarVehicleName = value;
   }
 
-  void addToLeadCarVehicleName(String _value) {
-    _leadCarVehicleName.add(_value);
+  void addToLeadCarVehicleName(String value) {
+    leadCarVehicleName.add(value);
   }
 
-  void removeFromLeadCarVehicleName(String _value) {
-    _leadCarVehicleName.remove(_value);
+  void removeFromLeadCarVehicleName(String value) {
+    leadCarVehicleName.remove(value);
   }
 
-  void removeAtIndexFromLeadCarVehicleName(int _index) {
-    _leadCarVehicleName.removeAt(_index);
+  void removeAtIndexFromLeadCarVehicleName(int index) {
+    leadCarVehicleName.removeAt(index);
   }
 
   void updateLeadCarVehicleNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCarVehicleName[_index] = updateFn(_leadCarVehicleName[_index]);
+    leadCarVehicleName[index] = updateFn(_leadCarVehicleName[index]);
   }
 
-  void insertAtIndexInLeadCarVehicleName(int _index, String _value) {
-    _leadCarVehicleName.insert(_index, _value);
+  void insertAtIndexInLeadCarVehicleName(int index, String value) {
+    leadCarVehicleName.insert(index, value);
   }
 
   List<String> _leadAmountRequest = [];
   List<String> get leadAmountRequest => _leadAmountRequest;
-  set leadAmountRequest(List<String> _value) {
-    _leadAmountRequest = _value;
+  set leadAmountRequest(List<String> value) {
+    _leadAmountRequest = value;
   }
 
-  void addToLeadAmountRequest(String _value) {
-    _leadAmountRequest.add(_value);
+  void addToLeadAmountRequest(String value) {
+    leadAmountRequest.add(value);
   }
 
-  void removeFromLeadAmountRequest(String _value) {
-    _leadAmountRequest.remove(_value);
+  void removeFromLeadAmountRequest(String value) {
+    leadAmountRequest.remove(value);
   }
 
-  void removeAtIndexFromLeadAmountRequest(int _index) {
-    _leadAmountRequest.removeAt(_index);
+  void removeAtIndexFromLeadAmountRequest(int index) {
+    leadAmountRequest.removeAt(index);
   }
 
   void updateLeadAmountRequestAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadAmountRequest[_index] = updateFn(_leadAmountRequest[_index]);
+    leadAmountRequest[index] = updateFn(_leadAmountRequest[index]);
   }
 
-  void insertAtIndexInLeadAmountRequest(int _index, String _value) {
-    _leadAmountRequest.insert(_index, _value);
+  void insertAtIndexInLeadAmountRequest(int index, String value) {
+    leadAmountRequest.insert(index, value);
   }
 
   String _changeBranchCode = '';
   String get changeBranchCode => _changeBranchCode;
-  set changeBranchCode(String _value) {
-    _changeBranchCode = _value;
+  set changeBranchCode(String value) {
+    _changeBranchCode = value;
   }
 
   String _changeLat = '';
   String get changeLat => _changeLat;
-  set changeLat(String _value) {
-    _changeLat = _value;
+  set changeLat(String value) {
+    _changeLat = value;
   }
 
   String _changeLng = '';
   String get changeLng => _changeLng;
-  set changeLng(String _value) {
-    _changeLng = _value;
+  set changeLng(String value) {
+    _changeLng = value;
   }
 
   DateTime? _tpbDate;
   DateTime? get tpbDate => _tpbDate;
-  set tpbDate(DateTime? _value) {
-    _tpbDate = _value;
+  set tpbDate(DateTime? value) {
+    _tpbDate = value;
   }
 
   bool _firstLogin = false;
   bool get firstLogin => _firstLogin;
-  set firstLogin(bool _value) {
-    _firstLogin = _value;
-    secureStorage.setBool('ff_firstLogin', _value);
+  set firstLogin(bool value) {
+    _firstLogin = value;
+    secureStorage.setBool('ff_firstLogin', value);
   }
 
   void deleteFirstLogin() {
@@ -4008,165 +4007,165 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _brachListNew = [];
   List<String> get brachListNew => _brachListNew;
-  set brachListNew(List<String> _value) {
-    _brachListNew = _value;
-    secureStorage.setStringList('ff_brachListNew', _value);
+  set brachListNew(List<String> value) {
+    _brachListNew = value;
+    secureStorage.setStringList('ff_brachListNew', value);
   }
 
   void deleteBrachListNew() {
     secureStorage.delete(key: 'ff_brachListNew');
   }
 
-  void addToBrachListNew(String _value) {
-    _brachListNew.add(_value);
+  void addToBrachListNew(String value) {
+    brachListNew.add(value);
     secureStorage.setStringList('ff_brachListNew', _brachListNew);
   }
 
-  void removeFromBrachListNew(String _value) {
-    _brachListNew.remove(_value);
+  void removeFromBrachListNew(String value) {
+    brachListNew.remove(value);
     secureStorage.setStringList('ff_brachListNew', _brachListNew);
   }
 
-  void removeAtIndexFromBrachListNew(int _index) {
-    _brachListNew.removeAt(_index);
+  void removeAtIndexFromBrachListNew(int index) {
+    brachListNew.removeAt(index);
     secureStorage.setStringList('ff_brachListNew', _brachListNew);
   }
 
   void updateBrachListNewAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _brachListNew[_index] = updateFn(_brachListNew[_index]);
+    brachListNew[index] = updateFn(_brachListNew[index]);
     secureStorage.setStringList('ff_brachListNew', _brachListNew);
   }
 
-  void insertAtIndexInBrachListNew(int _index, String _value) {
-    _brachListNew.insert(_index, _value);
+  void insertAtIndexInBrachListNew(int index, String value) {
+    brachListNew.insert(index, value);
     secureStorage.setStringList('ff_brachListNew', _brachListNew);
   }
 
   List<String> _brachLatNew = [];
   List<String> get brachLatNew => _brachLatNew;
-  set brachLatNew(List<String> _value) {
-    _brachLatNew = _value;
-    secureStorage.setStringList('ff_brachLatNew', _value);
+  set brachLatNew(List<String> value) {
+    _brachLatNew = value;
+    secureStorage.setStringList('ff_brachLatNew', value);
   }
 
   void deleteBrachLatNew() {
     secureStorage.delete(key: 'ff_brachLatNew');
   }
 
-  void addToBrachLatNew(String _value) {
-    _brachLatNew.add(_value);
+  void addToBrachLatNew(String value) {
+    brachLatNew.add(value);
     secureStorage.setStringList('ff_brachLatNew', _brachLatNew);
   }
 
-  void removeFromBrachLatNew(String _value) {
-    _brachLatNew.remove(_value);
+  void removeFromBrachLatNew(String value) {
+    brachLatNew.remove(value);
     secureStorage.setStringList('ff_brachLatNew', _brachLatNew);
   }
 
-  void removeAtIndexFromBrachLatNew(int _index) {
-    _brachLatNew.removeAt(_index);
+  void removeAtIndexFromBrachLatNew(int index) {
+    brachLatNew.removeAt(index);
     secureStorage.setStringList('ff_brachLatNew', _brachLatNew);
   }
 
   void updateBrachLatNewAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _brachLatNew[_index] = updateFn(_brachLatNew[_index]);
+    brachLatNew[index] = updateFn(_brachLatNew[index]);
     secureStorage.setStringList('ff_brachLatNew', _brachLatNew);
   }
 
-  void insertAtIndexInBrachLatNew(int _index, String _value) {
-    _brachLatNew.insert(_index, _value);
+  void insertAtIndexInBrachLatNew(int index, String value) {
+    brachLatNew.insert(index, value);
     secureStorage.setStringList('ff_brachLatNew', _brachLatNew);
   }
 
   List<String> _brachLngNew = [];
   List<String> get brachLngNew => _brachLngNew;
-  set brachLngNew(List<String> _value) {
-    _brachLngNew = _value;
-    secureStorage.setStringList('ff_brachLngNew', _value);
+  set brachLngNew(List<String> value) {
+    _brachLngNew = value;
+    secureStorage.setStringList('ff_brachLngNew', value);
   }
 
   void deleteBrachLngNew() {
     secureStorage.delete(key: 'ff_brachLngNew');
   }
 
-  void addToBrachLngNew(String _value) {
-    _brachLngNew.add(_value);
+  void addToBrachLngNew(String value) {
+    brachLngNew.add(value);
     secureStorage.setStringList('ff_brachLngNew', _brachLngNew);
   }
 
-  void removeFromBrachLngNew(String _value) {
-    _brachLngNew.remove(_value);
+  void removeFromBrachLngNew(String value) {
+    brachLngNew.remove(value);
     secureStorage.setStringList('ff_brachLngNew', _brachLngNew);
   }
 
-  void removeAtIndexFromBrachLngNew(int _index) {
-    _brachLngNew.removeAt(_index);
+  void removeAtIndexFromBrachLngNew(int index) {
+    brachLngNew.removeAt(index);
     secureStorage.setStringList('ff_brachLngNew', _brachLngNew);
   }
 
   void updateBrachLngNewAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _brachLngNew[_index] = updateFn(_brachLngNew[_index]);
+    brachLngNew[index] = updateFn(_brachLngNew[index]);
     secureStorage.setStringList('ff_brachLngNew', _brachLngNew);
   }
 
-  void insertAtIndexInBrachLngNew(int _index, String _value) {
-    _brachLngNew.insert(_index, _value);
+  void insertAtIndexInBrachLngNew(int index, String value) {
+    brachLngNew.insert(index, value);
     secureStorage.setStringList('ff_brachLngNew', _brachLngNew);
   }
 
   List<String> _BrachRadNew = [];
   List<String> get BrachRadNew => _BrachRadNew;
-  set BrachRadNew(List<String> _value) {
-    _BrachRadNew = _value;
-    secureStorage.setStringList('ff_BrachRadNew', _value);
+  set BrachRadNew(List<String> value) {
+    _BrachRadNew = value;
+    secureStorage.setStringList('ff_BrachRadNew', value);
   }
 
   void deleteBrachRadNew() {
     secureStorage.delete(key: 'ff_BrachRadNew');
   }
 
-  void addToBrachRadNew(String _value) {
-    _BrachRadNew.add(_value);
+  void addToBrachRadNew(String value) {
+    BrachRadNew.add(value);
     secureStorage.setStringList('ff_BrachRadNew', _BrachRadNew);
   }
 
-  void removeFromBrachRadNew(String _value) {
-    _BrachRadNew.remove(_value);
+  void removeFromBrachRadNew(String value) {
+    BrachRadNew.remove(value);
     secureStorage.setStringList('ff_BrachRadNew', _BrachRadNew);
   }
 
-  void removeAtIndexFromBrachRadNew(int _index) {
-    _BrachRadNew.removeAt(_index);
+  void removeAtIndexFromBrachRadNew(int index) {
+    BrachRadNew.removeAt(index);
     secureStorage.setStringList('ff_BrachRadNew', _BrachRadNew);
   }
 
   void updateBrachRadNewAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _BrachRadNew[_index] = updateFn(_BrachRadNew[_index]);
+    BrachRadNew[index] = updateFn(_BrachRadNew[index]);
     secureStorage.setStringList('ff_BrachRadNew', _BrachRadNew);
   }
 
-  void insertAtIndexInBrachRadNew(int _index, String _value) {
-    _BrachRadNew.insert(_index, _value);
+  void insertAtIndexInBrachRadNew(int index, String value) {
+    BrachRadNew.insert(index, value);
     secureStorage.setStringList('ff_BrachRadNew', _BrachRadNew);
   }
 
   String _brachGroupNew = '';
   String get brachGroupNew => _brachGroupNew;
-  set brachGroupNew(String _value) {
-    _brachGroupNew = _value;
-    secureStorage.setString('ff_brachGroupNew', _value);
+  set brachGroupNew(String value) {
+    _brachGroupNew = value;
+    secureStorage.setString('ff_brachGroupNew', value);
   }
 
   void deleteBrachGroupNew() {
@@ -4175,89 +4174,89 @@ class FFAppState extends ChangeNotifier {
 
   List<String> _leadCalledStatusReason = [];
   List<String> get leadCalledStatusReason => _leadCalledStatusReason;
-  set leadCalledStatusReason(List<String> _value) {
-    _leadCalledStatusReason = _value;
+  set leadCalledStatusReason(List<String> value) {
+    _leadCalledStatusReason = value;
   }
 
-  void addToLeadCalledStatusReason(String _value) {
-    _leadCalledStatusReason.add(_value);
+  void addToLeadCalledStatusReason(String value) {
+    leadCalledStatusReason.add(value);
   }
 
-  void removeFromLeadCalledStatusReason(String _value) {
-    _leadCalledStatusReason.remove(_value);
+  void removeFromLeadCalledStatusReason(String value) {
+    leadCalledStatusReason.remove(value);
   }
 
-  void removeAtIndexFromLeadCalledStatusReason(int _index) {
-    _leadCalledStatusReason.removeAt(_index);
+  void removeAtIndexFromLeadCalledStatusReason(int index) {
+    leadCalledStatusReason.removeAt(index);
   }
 
   void updateLeadCalledStatusReasonAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCalledStatusReason[_index] = updateFn(_leadCalledStatusReason[_index]);
+    leadCalledStatusReason[index] = updateFn(_leadCalledStatusReason[index]);
   }
 
-  void insertAtIndexInLeadCalledStatusReason(int _index, String _value) {
-    _leadCalledStatusReason.insert(_index, _value);
+  void insertAtIndexInLeadCalledStatusReason(int index, String value) {
+    leadCalledStatusReason.insert(index, value);
   }
 
   List<String> _leadContractStatus = [];
   List<String> get leadContractStatus => _leadContractStatus;
-  set leadContractStatus(List<String> _value) {
-    _leadContractStatus = _value;
+  set leadContractStatus(List<String> value) {
+    _leadContractStatus = value;
   }
 
-  void addToLeadContractStatus(String _value) {
-    _leadContractStatus.add(_value);
+  void addToLeadContractStatus(String value) {
+    leadContractStatus.add(value);
   }
 
-  void removeFromLeadContractStatus(String _value) {
-    _leadContractStatus.remove(_value);
+  void removeFromLeadContractStatus(String value) {
+    leadContractStatus.remove(value);
   }
 
-  void removeAtIndexFromLeadContractStatus(int _index) {
-    _leadContractStatus.removeAt(_index);
+  void removeAtIndexFromLeadContractStatus(int index) {
+    leadContractStatus.removeAt(index);
   }
 
   void updateLeadContractStatusAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadContractStatus[_index] = updateFn(_leadContractStatus[_index]);
+    leadContractStatus[index] = updateFn(_leadContractStatus[index]);
   }
 
-  void insertAtIndexInLeadContractStatus(int _index, String _value) {
-    _leadContractStatus.insert(_index, _value);
+  void insertAtIndexInLeadContractStatus(int index, String value) {
+    leadContractStatus.insert(index, value);
   }
 
   List<String> _leadContractDate = [];
   List<String> get leadContractDate => _leadContractDate;
-  set leadContractDate(List<String> _value) {
-    _leadContractDate = _value;
+  set leadContractDate(List<String> value) {
+    _leadContractDate = value;
   }
 
-  void addToLeadContractDate(String _value) {
-    _leadContractDate.add(_value);
+  void addToLeadContractDate(String value) {
+    leadContractDate.add(value);
   }
 
-  void removeFromLeadContractDate(String _value) {
-    _leadContractDate.remove(_value);
+  void removeFromLeadContractDate(String value) {
+    leadContractDate.remove(value);
   }
 
-  void removeAtIndexFromLeadContractDate(int _index) {
-    _leadContractDate.removeAt(_index);
+  void removeAtIndexFromLeadContractDate(int index) {
+    leadContractDate.removeAt(index);
   }
 
   void updateLeadContractDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadContractDate[_index] = updateFn(_leadContractDate[_index]);
+    leadContractDate[index] = updateFn(_leadContractDate[index]);
   }
 
-  void insertAtIndexInLeadContractDate(int _index, String _value) {
-    _leadContractDate.insert(_index, _value);
+  void insertAtIndexInLeadContractDate(int index, String value) {
+    leadContractDate.insert(index, value);
   }
 
   List<String> _defaultList1 = [
@@ -4268,352 +4267,352 @@ class FFAppState extends ChangeNotifier {
     'Hello World9'
   ];
   List<String> get defaultList1 => _defaultList1;
-  set defaultList1(List<String> _value) {
-    _defaultList1 = _value;
+  set defaultList1(List<String> value) {
+    _defaultList1 = value;
   }
 
-  void addToDefaultList1(String _value) {
-    _defaultList1.add(_value);
+  void addToDefaultList1(String value) {
+    defaultList1.add(value);
   }
 
-  void removeFromDefaultList1(String _value) {
-    _defaultList1.remove(_value);
+  void removeFromDefaultList1(String value) {
+    defaultList1.remove(value);
   }
 
-  void removeAtIndexFromDefaultList1(int _index) {
-    _defaultList1.removeAt(_index);
+  void removeAtIndexFromDefaultList1(int index) {
+    defaultList1.removeAt(index);
   }
 
   void updateDefaultList1AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList1[_index] = updateFn(_defaultList1[_index]);
+    defaultList1[index] = updateFn(_defaultList1[index]);
   }
 
-  void insertAtIndexInDefaultList1(int _index, String _value) {
-    _defaultList1.insert(_index, _value);
+  void insertAtIndexInDefaultList1(int index, String value) {
+    defaultList1.insert(index, value);
   }
 
   List<String> _defaultList2 = ['Hello World'];
   List<String> get defaultList2 => _defaultList2;
-  set defaultList2(List<String> _value) {
-    _defaultList2 = _value;
+  set defaultList2(List<String> value) {
+    _defaultList2 = value;
   }
 
-  void addToDefaultList2(String _value) {
-    _defaultList2.add(_value);
+  void addToDefaultList2(String value) {
+    defaultList2.add(value);
   }
 
-  void removeFromDefaultList2(String _value) {
-    _defaultList2.remove(_value);
+  void removeFromDefaultList2(String value) {
+    defaultList2.remove(value);
   }
 
-  void removeAtIndexFromDefaultList2(int _index) {
-    _defaultList2.removeAt(_index);
+  void removeAtIndexFromDefaultList2(int index) {
+    defaultList2.removeAt(index);
   }
 
   void updateDefaultList2AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList2[_index] = updateFn(_defaultList2[_index]);
+    defaultList2[index] = updateFn(_defaultList2[index]);
   }
 
-  void insertAtIndexInDefaultList2(int _index, String _value) {
-    _defaultList2.insert(_index, _value);
+  void insertAtIndexInDefaultList2(int index, String value) {
+    defaultList2.insert(index, value);
   }
 
   List<String> _defaultList3 = ['Hello World'];
   List<String> get defaultList3 => _defaultList3;
-  set defaultList3(List<String> _value) {
-    _defaultList3 = _value;
+  set defaultList3(List<String> value) {
+    _defaultList3 = value;
   }
 
-  void addToDefaultList3(String _value) {
-    _defaultList3.add(_value);
+  void addToDefaultList3(String value) {
+    defaultList3.add(value);
   }
 
-  void removeFromDefaultList3(String _value) {
-    _defaultList3.remove(_value);
+  void removeFromDefaultList3(String value) {
+    defaultList3.remove(value);
   }
 
-  void removeAtIndexFromDefaultList3(int _index) {
-    _defaultList3.removeAt(_index);
+  void removeAtIndexFromDefaultList3(int index) {
+    defaultList3.removeAt(index);
   }
 
   void updateDefaultList3AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList3[_index] = updateFn(_defaultList3[_index]);
+    defaultList3[index] = updateFn(_defaultList3[index]);
   }
 
-  void insertAtIndexInDefaultList3(int _index, String _value) {
-    _defaultList3.insert(_index, _value);
+  void insertAtIndexInDefaultList3(int index, String value) {
+    defaultList3.insert(index, value);
   }
 
   List<String> _defaultList4 = ['Hello World'];
   List<String> get defaultList4 => _defaultList4;
-  set defaultList4(List<String> _value) {
-    _defaultList4 = _value;
+  set defaultList4(List<String> value) {
+    _defaultList4 = value;
   }
 
-  void addToDefaultList4(String _value) {
-    _defaultList4.add(_value);
+  void addToDefaultList4(String value) {
+    defaultList4.add(value);
   }
 
-  void removeFromDefaultList4(String _value) {
-    _defaultList4.remove(_value);
+  void removeFromDefaultList4(String value) {
+    defaultList4.remove(value);
   }
 
-  void removeAtIndexFromDefaultList4(int _index) {
-    _defaultList4.removeAt(_index);
+  void removeAtIndexFromDefaultList4(int index) {
+    defaultList4.removeAt(index);
   }
 
   void updateDefaultList4AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList4[_index] = updateFn(_defaultList4[_index]);
+    defaultList4[index] = updateFn(_defaultList4[index]);
   }
 
-  void insertAtIndexInDefaultList4(int _index, String _value) {
-    _defaultList4.insert(_index, _value);
+  void insertAtIndexInDefaultList4(int index, String value) {
+    defaultList4.insert(index, value);
   }
 
   List<String> _defaultList5 = ['อยู่ระหว่างชำระเงิน', 'เตรียมข้อมูล'];
   List<String> get defaultList5 => _defaultList5;
-  set defaultList5(List<String> _value) {
-    _defaultList5 = _value;
+  set defaultList5(List<String> value) {
+    _defaultList5 = value;
   }
 
-  void addToDefaultList5(String _value) {
-    _defaultList5.add(_value);
+  void addToDefaultList5(String value) {
+    defaultList5.add(value);
   }
 
-  void removeFromDefaultList5(String _value) {
-    _defaultList5.remove(_value);
+  void removeFromDefaultList5(String value) {
+    defaultList5.remove(value);
   }
 
-  void removeAtIndexFromDefaultList5(int _index) {
-    _defaultList5.removeAt(_index);
+  void removeAtIndexFromDefaultList5(int index) {
+    defaultList5.removeAt(index);
   }
 
   void updateDefaultList5AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList5[_index] = updateFn(_defaultList5[_index]);
+    defaultList5[index] = updateFn(_defaultList5[index]);
   }
 
-  void insertAtIndexInDefaultList5(int _index, String _value) {
-    _defaultList5.insert(_index, _value);
+  void insertAtIndexInDefaultList5(int index, String value) {
+    defaultList5.insert(index, value);
   }
 
   List<String> _defaultList6 = ['Hello World'];
   List<String> get defaultList6 => _defaultList6;
-  set defaultList6(List<String> _value) {
-    _defaultList6 = _value;
+  set defaultList6(List<String> value) {
+    _defaultList6 = value;
   }
 
-  void addToDefaultList6(String _value) {
-    _defaultList6.add(_value);
+  void addToDefaultList6(String value) {
+    defaultList6.add(value);
   }
 
-  void removeFromDefaultList6(String _value) {
-    _defaultList6.remove(_value);
+  void removeFromDefaultList6(String value) {
+    defaultList6.remove(value);
   }
 
-  void removeAtIndexFromDefaultList6(int _index) {
-    _defaultList6.removeAt(_index);
+  void removeAtIndexFromDefaultList6(int index) {
+    defaultList6.removeAt(index);
   }
 
   void updateDefaultList6AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList6[_index] = updateFn(_defaultList6[_index]);
+    defaultList6[index] = updateFn(_defaultList6[index]);
   }
 
-  void insertAtIndexInDefaultList6(int _index, String _value) {
-    _defaultList6.insert(_index, _value);
+  void insertAtIndexInDefaultList6(int index, String value) {
+    defaultList6.insert(index, value);
   }
 
   List<String> _defaultList7 = ['Hello World'];
   List<String> get defaultList7 => _defaultList7;
-  set defaultList7(List<String> _value) {
-    _defaultList7 = _value;
+  set defaultList7(List<String> value) {
+    _defaultList7 = value;
   }
 
-  void addToDefaultList7(String _value) {
-    _defaultList7.add(_value);
+  void addToDefaultList7(String value) {
+    defaultList7.add(value);
   }
 
-  void removeFromDefaultList7(String _value) {
-    _defaultList7.remove(_value);
+  void removeFromDefaultList7(String value) {
+    defaultList7.remove(value);
   }
 
-  void removeAtIndexFromDefaultList7(int _index) {
-    _defaultList7.removeAt(_index);
+  void removeAtIndexFromDefaultList7(int index) {
+    defaultList7.removeAt(index);
   }
 
   void updateDefaultList7AtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _defaultList7[_index] = updateFn(_defaultList7[_index]);
+    defaultList7[index] = updateFn(_defaultList7[index]);
   }
 
-  void insertAtIndexInDefaultList7(int _index, String _value) {
-    _defaultList7.insert(_index, _value);
+  void insertAtIndexInDefaultList7(int index, String value) {
+    defaultList7.insert(index, value);
   }
 
   String _profileFirstName = '[first_name]';
   String get profileFirstName => _profileFirstName;
-  set profileFirstName(String _value) {
-    _profileFirstName = _value;
+  set profileFirstName(String value) {
+    _profileFirstName = value;
   }
 
   String _profileLastName = '[last_name]';
   String get profileLastName => _profileLastName;
-  set profileLastName(String _value) {
-    _profileLastName = _value;
+  set profileLastName(String value) {
+    _profileLastName = value;
   }
 
   dynamic _userInsuranceLicense;
   dynamic get userInsuranceLicense => _userInsuranceLicense;
-  set userInsuranceLicense(dynamic _value) {
-    _userInsuranceLicense = _value;
+  set userInsuranceLicense(dynamic value) {
+    _userInsuranceLicense = value;
   }
 
   List<String> _insuranceLicenseData = [];
   List<String> get insuranceLicenseData => _insuranceLicenseData;
-  set insuranceLicenseData(List<String> _value) {
-    _insuranceLicenseData = _value;
+  set insuranceLicenseData(List<String> value) {
+    _insuranceLicenseData = value;
   }
 
-  void addToInsuranceLicenseData(String _value) {
-    _insuranceLicenseData.add(_value);
+  void addToInsuranceLicenseData(String value) {
+    insuranceLicenseData.add(value);
   }
 
-  void removeFromInsuranceLicenseData(String _value) {
-    _insuranceLicenseData.remove(_value);
+  void removeFromInsuranceLicenseData(String value) {
+    insuranceLicenseData.remove(value);
   }
 
-  void removeAtIndexFromInsuranceLicenseData(int _index) {
-    _insuranceLicenseData.removeAt(_index);
+  void removeAtIndexFromInsuranceLicenseData(int index) {
+    insuranceLicenseData.removeAt(index);
   }
 
   void updateInsuranceLicenseDataAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceLicenseData[_index] = updateFn(_insuranceLicenseData[_index]);
+    insuranceLicenseData[index] = updateFn(_insuranceLicenseData[index]);
   }
 
-  void insertAtIndexInInsuranceLicenseData(int _index, String _value) {
-    _insuranceLicenseData.insert(_index, _value);
+  void insertAtIndexInInsuranceLicenseData(int index, String value) {
+    insuranceLicenseData.insert(index, value);
   }
 
   int _statusCodeSuccess = 200;
   int get statusCodeSuccess => _statusCodeSuccess;
-  set statusCodeSuccess(int _value) {
-    _statusCodeSuccess = _value;
+  set statusCodeSuccess(int value) {
+    _statusCodeSuccess = value;
   }
 
   List<int> _insuranceLicenseStatusCode = [404, 404, 404, 404, 404, 404, 404];
   List<int> get insuranceLicenseStatusCode => _insuranceLicenseStatusCode;
-  set insuranceLicenseStatusCode(List<int> _value) {
-    _insuranceLicenseStatusCode = _value;
+  set insuranceLicenseStatusCode(List<int> value) {
+    _insuranceLicenseStatusCode = value;
   }
 
-  void addToInsuranceLicenseStatusCode(int _value) {
-    _insuranceLicenseStatusCode.add(_value);
+  void addToInsuranceLicenseStatusCode(int value) {
+    insuranceLicenseStatusCode.add(value);
   }
 
-  void removeFromInsuranceLicenseStatusCode(int _value) {
-    _insuranceLicenseStatusCode.remove(_value);
+  void removeFromInsuranceLicenseStatusCode(int value) {
+    insuranceLicenseStatusCode.remove(value);
   }
 
-  void removeAtIndexFromInsuranceLicenseStatusCode(int _index) {
-    _insuranceLicenseStatusCode.removeAt(_index);
+  void removeAtIndexFromInsuranceLicenseStatusCode(int index) {
+    insuranceLicenseStatusCode.removeAt(index);
   }
 
   void updateInsuranceLicenseStatusCodeAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _insuranceLicenseStatusCode[_index] =
-        updateFn(_insuranceLicenseStatusCode[_index]);
+    insuranceLicenseStatusCode[index] =
+        updateFn(_insuranceLicenseStatusCode[index]);
   }
 
-  void insertAtIndexInInsuranceLicenseStatusCode(int _index, int _value) {
-    _insuranceLicenseStatusCode.insert(_index, _value);
+  void insertAtIndexInInsuranceLicenseStatusCode(int index, int value) {
+    insuranceLicenseStatusCode.insert(index, value);
   }
 
   List<DateTime> _profileInsuExpdateAD = [];
   List<DateTime> get profileInsuExpdateAD => _profileInsuExpdateAD;
-  set profileInsuExpdateAD(List<DateTime> _value) {
-    _profileInsuExpdateAD = _value;
+  set profileInsuExpdateAD(List<DateTime> value) {
+    _profileInsuExpdateAD = value;
   }
 
-  void addToProfileInsuExpdateAD(DateTime _value) {
-    _profileInsuExpdateAD.add(_value);
+  void addToProfileInsuExpdateAD(DateTime value) {
+    profileInsuExpdateAD.add(value);
   }
 
-  void removeFromProfileInsuExpdateAD(DateTime _value) {
-    _profileInsuExpdateAD.remove(_value);
+  void removeFromProfileInsuExpdateAD(DateTime value) {
+    profileInsuExpdateAD.remove(value);
   }
 
-  void removeAtIndexFromProfileInsuExpdateAD(int _index) {
-    _profileInsuExpdateAD.removeAt(_index);
+  void removeAtIndexFromProfileInsuExpdateAD(int index) {
+    profileInsuExpdateAD.removeAt(index);
   }
 
   void updateProfileInsuExpdateADAtIndex(
-    int _index,
+    int index,
     DateTime Function(DateTime) updateFn,
   ) {
-    _profileInsuExpdateAD[_index] = updateFn(_profileInsuExpdateAD[_index]);
+    profileInsuExpdateAD[index] = updateFn(_profileInsuExpdateAD[index]);
   }
 
-  void insertAtIndexInProfileInsuExpdateAD(int _index, DateTime _value) {
-    _profileInsuExpdateAD.insert(_index, _value);
+  void insertAtIndexInProfileInsuExpdateAD(int index, DateTime value) {
+    profileInsuExpdateAD.insert(index, value);
   }
 
   List<bool> _expInsuLessthen30 = [];
   List<bool> get expInsuLessthen30 => _expInsuLessthen30;
-  set expInsuLessthen30(List<bool> _value) {
-    _expInsuLessthen30 = _value;
+  set expInsuLessthen30(List<bool> value) {
+    _expInsuLessthen30 = value;
   }
 
-  void addToExpInsuLessthen30(bool _value) {
-    _expInsuLessthen30.add(_value);
+  void addToExpInsuLessthen30(bool value) {
+    expInsuLessthen30.add(value);
   }
 
-  void removeFromExpInsuLessthen30(bool _value) {
-    _expInsuLessthen30.remove(_value);
+  void removeFromExpInsuLessthen30(bool value) {
+    expInsuLessthen30.remove(value);
   }
 
-  void removeAtIndexFromExpInsuLessthen30(int _index) {
-    _expInsuLessthen30.removeAt(_index);
+  void removeAtIndexFromExpInsuLessthen30(int index) {
+    expInsuLessthen30.removeAt(index);
   }
 
   void updateExpInsuLessthen30AtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _expInsuLessthen30[_index] = updateFn(_expInsuLessthen30[_index]);
+    expInsuLessthen30[index] = updateFn(_expInsuLessthen30[index]);
   }
 
-  void insertAtIndexInExpInsuLessthen30(int _index, bool _value) {
-    _expInsuLessthen30.insert(_index, _value);
+  void insertAtIndexInExpInsuLessthen30(int index, bool value) {
+    expInsuLessthen30.insert(index, value);
   }
 
   int _superAppi = 0;
   int get superAppi => _superAppi;
-  set superAppi(int _value) {
-    _superAppi = _value;
+  set superAppi(int value) {
+    _superAppi = value;
   }
 
   List<bool> _defaultlistFalse = [
@@ -4629,31 +4628,31 @@ class FFAppState extends ChangeNotifier {
     false
   ];
   List<bool> get defaultlistFalse => _defaultlistFalse;
-  set defaultlistFalse(List<bool> _value) {
-    _defaultlistFalse = _value;
+  set defaultlistFalse(List<bool> value) {
+    _defaultlistFalse = value;
   }
 
-  void addToDefaultlistFalse(bool _value) {
-    _defaultlistFalse.add(_value);
+  void addToDefaultlistFalse(bool value) {
+    defaultlistFalse.add(value);
   }
 
-  void removeFromDefaultlistFalse(bool _value) {
-    _defaultlistFalse.remove(_value);
+  void removeFromDefaultlistFalse(bool value) {
+    defaultlistFalse.remove(value);
   }
 
-  void removeAtIndexFromDefaultlistFalse(int _index) {
-    _defaultlistFalse.removeAt(_index);
+  void removeAtIndexFromDefaultlistFalse(int index) {
+    defaultlistFalse.removeAt(index);
   }
 
   void updateDefaultlistFalseAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _defaultlistFalse[_index] = updateFn(_defaultlistFalse[_index]);
+    defaultlistFalse[index] = updateFn(_defaultlistFalse[index]);
   }
 
-  void insertAtIndexInDefaultlistFalse(int _index, bool _value) {
-    _defaultlistFalse.insert(_index, _value);
+  void insertAtIndexInDefaultlistFalse(int index, bool value) {
+    defaultlistFalse.insert(index, value);
   }
 
   List<bool> _falselistPersistd = [
@@ -4669,45 +4668,45 @@ class FFAppState extends ChangeNotifier {
     false
   ];
   List<bool> get falselistPersistd => _falselistPersistd;
-  set falselistPersistd(List<bool> _value) {
-    _falselistPersistd = _value;
+  set falselistPersistd(List<bool> value) {
+    _falselistPersistd = value;
     secureStorage.setStringList(
-        'ff_falselistPersistd', _value.map((x) => x.toString()).toList());
+        'ff_falselistPersistd', value.map((x) => x.toString()).toList());
   }
 
   void deleteFalselistPersistd() {
     secureStorage.delete(key: 'ff_falselistPersistd');
   }
 
-  void addToFalselistPersistd(bool _value) {
-    _falselistPersistd.add(_value);
+  void addToFalselistPersistd(bool value) {
+    falselistPersistd.add(value);
     secureStorage.setStringList('ff_falselistPersistd',
         _falselistPersistd.map((x) => x.toString()).toList());
   }
 
-  void removeFromFalselistPersistd(bool _value) {
-    _falselistPersistd.remove(_value);
+  void removeFromFalselistPersistd(bool value) {
+    falselistPersistd.remove(value);
     secureStorage.setStringList('ff_falselistPersistd',
         _falselistPersistd.map((x) => x.toString()).toList());
   }
 
-  void removeAtIndexFromFalselistPersistd(int _index) {
-    _falselistPersistd.removeAt(_index);
+  void removeAtIndexFromFalselistPersistd(int index) {
+    falselistPersistd.removeAt(index);
     secureStorage.setStringList('ff_falselistPersistd',
         _falselistPersistd.map((x) => x.toString()).toList());
   }
 
   void updateFalselistPersistdAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _falselistPersistd[_index] = updateFn(_falselistPersistd[_index]);
+    falselistPersistd[index] = updateFn(_falselistPersistd[index]);
     secureStorage.setStringList('ff_falselistPersistd',
         _falselistPersistd.map((x) => x.toString()).toList());
   }
 
-  void insertAtIndexInFalselistPersistd(int _index, bool _value) {
-    _falselistPersistd.insert(_index, _value);
+  void insertAtIndexInFalselistPersistd(int index, bool value) {
+    falselistPersistd.insert(index, value);
     secureStorage.setStringList('ff_falselistPersistd',
         _falselistPersistd.map((x) => x.toString()).toList());
   }
@@ -4723,93 +4722,92 @@ class FFAppState extends ChangeNotifier {
   ];
   List<int> get InsuranceLicenseStatusCodeDefault =>
       _InsuranceLicenseStatusCodeDefault;
-  set InsuranceLicenseStatusCodeDefault(List<int> _value) {
-    _InsuranceLicenseStatusCodeDefault = _value;
+  set InsuranceLicenseStatusCodeDefault(List<int> value) {
+    _InsuranceLicenseStatusCodeDefault = value;
   }
 
-  void addToInsuranceLicenseStatusCodeDefault(int _value) {
-    _InsuranceLicenseStatusCodeDefault.add(_value);
+  void addToInsuranceLicenseStatusCodeDefault(int value) {
+    InsuranceLicenseStatusCodeDefault.add(value);
   }
 
-  void removeFromInsuranceLicenseStatusCodeDefault(int _value) {
-    _InsuranceLicenseStatusCodeDefault.remove(_value);
+  void removeFromInsuranceLicenseStatusCodeDefault(int value) {
+    InsuranceLicenseStatusCodeDefault.remove(value);
   }
 
-  void removeAtIndexFromInsuranceLicenseStatusCodeDefault(int _index) {
-    _InsuranceLicenseStatusCodeDefault.removeAt(_index);
+  void removeAtIndexFromInsuranceLicenseStatusCodeDefault(int index) {
+    InsuranceLicenseStatusCodeDefault.removeAt(index);
   }
 
   void updateInsuranceLicenseStatusCodeDefaultAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _InsuranceLicenseStatusCodeDefault[_index] =
-        updateFn(_InsuranceLicenseStatusCodeDefault[_index]);
+    InsuranceLicenseStatusCodeDefault[index] =
+        updateFn(_InsuranceLicenseStatusCodeDefault[index]);
   }
 
-  void insertAtIndexInInsuranceLicenseStatusCodeDefault(
-      int _index, int _value) {
-    _InsuranceLicenseStatusCodeDefault.insert(_index, _value);
+  void insertAtIndexInInsuranceLicenseStatusCodeDefault(int index, int value) {
+    InsuranceLicenseStatusCodeDefault.insert(index, value);
   }
 
   String _changeBranchName = '[branch_name]';
   String get changeBranchName => _changeBranchName;
-  set changeBranchName(String _value) {
-    _changeBranchName = _value;
+  set changeBranchName(String value) {
+    _changeBranchName = value;
   }
 
   bool _isGetDataViaFirebase = false;
   bool get isGetDataViaFirebase => _isGetDataViaFirebase;
-  set isGetDataViaFirebase(bool _value) {
-    _isGetDataViaFirebase = _value;
+  set isGetDataViaFirebase(bool value) {
+    _isGetDataViaFirebase = value;
   }
 
   String _departmentProfile = '';
   String get departmentProfile => _departmentProfile;
-  set departmentProfile(String _value) {
-    _departmentProfile = _value;
+  set departmentProfile(String value) {
+    _departmentProfile = value;
   }
 
   List<String> _adminEMP = [];
   List<String> get adminEMP => _adminEMP;
-  set adminEMP(List<String> _value) {
-    _adminEMP = _value;
+  set adminEMP(List<String> value) {
+    _adminEMP = value;
   }
 
-  void addToAdminEMP(String _value) {
-    _adminEMP.add(_value);
+  void addToAdminEMP(String value) {
+    adminEMP.add(value);
   }
 
-  void removeFromAdminEMP(String _value) {
-    _adminEMP.remove(_value);
+  void removeFromAdminEMP(String value) {
+    adminEMP.remove(value);
   }
 
-  void removeAtIndexFromAdminEMP(int _index) {
-    _adminEMP.removeAt(_index);
+  void removeAtIndexFromAdminEMP(int index) {
+    adminEMP.removeAt(index);
   }
 
   void updateAdminEMPAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _adminEMP[_index] = updateFn(_adminEMP[_index]);
+    adminEMP[index] = updateFn(_adminEMP[index]);
   }
 
-  void insertAtIndexInAdminEMP(int _index, String _value) {
-    _adminEMP.insert(_index, _value);
+  void insertAtIndexInAdminEMP(int index, String value) {
+    adminEMP.insert(index, value);
   }
 
   bool _checkBranchDropdown = false;
   bool get checkBranchDropdown => _checkBranchDropdown;
-  set checkBranchDropdown(bool _value) {
-    _checkBranchDropdown = _value;
+  set checkBranchDropdown(bool value) {
+    _checkBranchDropdown = value;
   }
 
   bool _BioAuthCheck = false;
   bool get BioAuthCheck => _BioAuthCheck;
-  set BioAuthCheck(bool _value) {
-    _BioAuthCheck = _value;
-    secureStorage.setBool('ff_BioAuthCheck', _value);
+  set BioAuthCheck(bool value) {
+    _BioAuthCheck = value;
+    secureStorage.setBool('ff_BioAuthCheck', value);
   }
 
   void deleteBioAuthCheck() {
@@ -4818,43 +4816,43 @@ class FFAppState extends ChangeNotifier {
 
   String _bossCheckFlag = '';
   String get bossCheckFlag => _bossCheckFlag;
-  set bossCheckFlag(String _value) {
-    _bossCheckFlag = _value;
+  set bossCheckFlag(String value) {
+    _bossCheckFlag = value;
   }
 
   bool _ApproveAllCheck = false;
   bool get ApproveAllCheck => _ApproveAllCheck;
-  set ApproveAllCheck(bool _value) {
-    _ApproveAllCheck = _value;
+  set ApproveAllCheck(bool value) {
+    _ApproveAllCheck = value;
   }
 
   List<String> _ApproveSelect = [];
   List<String> get ApproveSelect => _ApproveSelect;
-  set ApproveSelect(List<String> _value) {
-    _ApproveSelect = _value;
+  set ApproveSelect(List<String> value) {
+    _ApproveSelect = value;
   }
 
-  void addToApproveSelect(String _value) {
-    _ApproveSelect.add(_value);
+  void addToApproveSelect(String value) {
+    ApproveSelect.add(value);
   }
 
-  void removeFromApproveSelect(String _value) {
-    _ApproveSelect.remove(_value);
+  void removeFromApproveSelect(String value) {
+    ApproveSelect.remove(value);
   }
 
-  void removeAtIndexFromApproveSelect(int _index) {
-    _ApproveSelect.removeAt(_index);
+  void removeAtIndexFromApproveSelect(int index) {
+    ApproveSelect.removeAt(index);
   }
 
   void updateApproveSelectAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _ApproveSelect[_index] = updateFn(_ApproveSelect[_index]);
+    ApproveSelect[index] = updateFn(_ApproveSelect[index]);
   }
 
-  void insertAtIndexInApproveSelect(int _index, String _value) {
-    _ApproveSelect.insert(_index, _value);
+  void insertAtIndexInApproveSelect(int index, String value) {
+    ApproveSelect.insert(index, value);
   }
 
   List<String> _tiktokNameList = [
@@ -4868,31 +4866,31 @@ class FFAppState extends ChangeNotifier {
     'ปริยา​ภัทร​'
   ];
   List<String> get tiktokNameList => _tiktokNameList;
-  set tiktokNameList(List<String> _value) {
-    _tiktokNameList = _value;
+  set tiktokNameList(List<String> value) {
+    _tiktokNameList = value;
   }
 
-  void addToTiktokNameList(String _value) {
-    _tiktokNameList.add(_value);
+  void addToTiktokNameList(String value) {
+    tiktokNameList.add(value);
   }
 
-  void removeFromTiktokNameList(String _value) {
-    _tiktokNameList.remove(_value);
+  void removeFromTiktokNameList(String value) {
+    tiktokNameList.remove(value);
   }
 
-  void removeAtIndexFromTiktokNameList(int _index) {
-    _tiktokNameList.removeAt(_index);
+  void removeAtIndexFromTiktokNameList(int index) {
+    tiktokNameList.removeAt(index);
   }
 
   void updateTiktokNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _tiktokNameList[_index] = updateFn(_tiktokNameList[_index]);
+    tiktokNameList[index] = updateFn(_tiktokNameList[index]);
   }
 
-  void insertAtIndexInTiktokNameList(int _index, String _value) {
-    _tiktokNameList.insert(_index, _value);
+  void insertAtIndexInTiktokNameList(int index, String value) {
+    tiktokNameList.insert(index, value);
   }
 
   List<String> _tiktokLastnameList = [
@@ -4906,31 +4904,31 @@ class FFAppState extends ChangeNotifier {
     'คำทะลุ​ง'
   ];
   List<String> get tiktokLastnameList => _tiktokLastnameList;
-  set tiktokLastnameList(List<String> _value) {
-    _tiktokLastnameList = _value;
+  set tiktokLastnameList(List<String> value) {
+    _tiktokLastnameList = value;
   }
 
-  void addToTiktokLastnameList(String _value) {
-    _tiktokLastnameList.add(_value);
+  void addToTiktokLastnameList(String value) {
+    tiktokLastnameList.add(value);
   }
 
-  void removeFromTiktokLastnameList(String _value) {
-    _tiktokLastnameList.remove(_value);
+  void removeFromTiktokLastnameList(String value) {
+    tiktokLastnameList.remove(value);
   }
 
-  void removeAtIndexFromTiktokLastnameList(int _index) {
-    _tiktokLastnameList.removeAt(_index);
+  void removeAtIndexFromTiktokLastnameList(int index) {
+    tiktokLastnameList.removeAt(index);
   }
 
   void updateTiktokLastnameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _tiktokLastnameList[_index] = updateFn(_tiktokLastnameList[_index]);
+    tiktokLastnameList[index] = updateFn(_tiktokLastnameList[index]);
   }
 
-  void insertAtIndexInTiktokLastnameList(int _index, String _value) {
-    _tiktokLastnameList.insert(_index, _value);
+  void insertAtIndexInTiktokLastnameList(int index, String value) {
+    tiktokLastnameList.insert(index, value);
   }
 
   List<String> _tiktokEmployeeIdList = [
@@ -4944,590 +4942,589 @@ class FFAppState extends ChangeNotifier {
     '14920'
   ];
   List<String> get tiktokEmployeeIdList => _tiktokEmployeeIdList;
-  set tiktokEmployeeIdList(List<String> _value) {
-    _tiktokEmployeeIdList = _value;
+  set tiktokEmployeeIdList(List<String> value) {
+    _tiktokEmployeeIdList = value;
   }
 
-  void addToTiktokEmployeeIdList(String _value) {
-    _tiktokEmployeeIdList.add(_value);
+  void addToTiktokEmployeeIdList(String value) {
+    tiktokEmployeeIdList.add(value);
   }
 
-  void removeFromTiktokEmployeeIdList(String _value) {
-    _tiktokEmployeeIdList.remove(_value);
+  void removeFromTiktokEmployeeIdList(String value) {
+    tiktokEmployeeIdList.remove(value);
   }
 
-  void removeAtIndexFromTiktokEmployeeIdList(int _index) {
-    _tiktokEmployeeIdList.removeAt(_index);
+  void removeAtIndexFromTiktokEmployeeIdList(int index) {
+    tiktokEmployeeIdList.removeAt(index);
   }
 
   void updateTiktokEmployeeIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _tiktokEmployeeIdList[_index] = updateFn(_tiktokEmployeeIdList[_index]);
+    tiktokEmployeeIdList[index] = updateFn(_tiktokEmployeeIdList[index]);
   }
 
-  void insertAtIndexInTiktokEmployeeIdList(int _index, String _value) {
-    _tiktokEmployeeIdList.insert(_index, _value);
+  void insertAtIndexInTiktokEmployeeIdList(int index, String value) {
+    tiktokEmployeeIdList.insert(index, value);
   }
 
   int _maxPage = 0;
   int get maxPage => _maxPage;
-  set maxPage(int _value) {
-    _maxPage = _value;
+  set maxPage(int value) {
+    _maxPage = value;
   }
 
   List<String> _pageSelectionList = ['1', '2', '3', '4', '5'];
   List<String> get pageSelectionList => _pageSelectionList;
-  set pageSelectionList(List<String> _value) {
-    _pageSelectionList = _value;
+  set pageSelectionList(List<String> value) {
+    _pageSelectionList = value;
   }
 
-  void addToPageSelectionList(String _value) {
-    _pageSelectionList.add(_value);
+  void addToPageSelectionList(String value) {
+    pageSelectionList.add(value);
   }
 
-  void removeFromPageSelectionList(String _value) {
-    _pageSelectionList.remove(_value);
+  void removeFromPageSelectionList(String value) {
+    pageSelectionList.remove(value);
   }
 
-  void removeAtIndexFromPageSelectionList(int _index) {
-    _pageSelectionList.removeAt(_index);
+  void removeAtIndexFromPageSelectionList(int index) {
+    pageSelectionList.removeAt(index);
   }
 
   void updatePageSelectionListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _pageSelectionList[_index] = updateFn(_pageSelectionList[_index]);
+    pageSelectionList[index] = updateFn(_pageSelectionList[index]);
   }
 
-  void insertAtIndexInPageSelectionList(int _index, String _value) {
-    _pageSelectionList.insert(_index, _value);
+  void insertAtIndexInPageSelectionList(int index, String value) {
+    pageSelectionList.insert(index, value);
   }
 
   bool _visible = false;
   bool get visible => _visible;
-  set visible(bool _value) {
-    _visible = _value;
+  set visible(bool value) {
+    _visible = value;
   }
 
   bool _previousButtonVisible = false;
   bool get previousButtonVisible => _previousButtonVisible;
-  set previousButtonVisible(bool _value) {
-    _previousButtonVisible = _value;
+  set previousButtonVisible(bool value) {
+    _previousButtonVisible = value;
   }
 
   bool _nextButtonVisible = false;
   bool get nextButtonVisible => _nextButtonVisible;
-  set nextButtonVisible(bool _value) {
-    _nextButtonVisible = _value;
+  set nextButtonVisible(bool value) {
+    _nextButtonVisible = value;
   }
 
   List<int> _reportItemIndexList = [];
   List<int> get reportItemIndexList => _reportItemIndexList;
-  set reportItemIndexList(List<int> _value) {
-    _reportItemIndexList = _value;
+  set reportItemIndexList(List<int> value) {
+    _reportItemIndexList = value;
   }
 
-  void addToReportItemIndexList(int _value) {
-    _reportItemIndexList.add(_value);
+  void addToReportItemIndexList(int value) {
+    reportItemIndexList.add(value);
   }
 
-  void removeFromReportItemIndexList(int _value) {
-    _reportItemIndexList.remove(_value);
+  void removeFromReportItemIndexList(int value) {
+    reportItemIndexList.remove(value);
   }
 
-  void removeAtIndexFromReportItemIndexList(int _index) {
-    _reportItemIndexList.removeAt(_index);
+  void removeAtIndexFromReportItemIndexList(int index) {
+    reportItemIndexList.removeAt(index);
   }
 
   void updateReportItemIndexListAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _reportItemIndexList[_index] = updateFn(_reportItemIndexList[_index]);
+    reportItemIndexList[index] = updateFn(_reportItemIndexList[index]);
   }
 
-  void insertAtIndexInReportItemIndexList(int _index, int _value) {
-    _reportItemIndexList.insert(_index, _value);
+  void insertAtIndexInReportItemIndexList(int index, int value) {
+    reportItemIndexList.insert(index, value);
   }
 
   List<String> _leadIdSurvey = [];
   List<String> get leadIdSurvey => _leadIdSurvey;
-  set leadIdSurvey(List<String> _value) {
-    _leadIdSurvey = _value;
+  set leadIdSurvey(List<String> value) {
+    _leadIdSurvey = value;
   }
 
-  void addToLeadIdSurvey(String _value) {
-    _leadIdSurvey.add(_value);
+  void addToLeadIdSurvey(String value) {
+    leadIdSurvey.add(value);
   }
 
-  void removeFromLeadIdSurvey(String _value) {
-    _leadIdSurvey.remove(_value);
+  void removeFromLeadIdSurvey(String value) {
+    leadIdSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadIdSurvey(int _index) {
-    _leadIdSurvey.removeAt(_index);
+  void removeAtIndexFromLeadIdSurvey(int index) {
+    leadIdSurvey.removeAt(index);
   }
 
   void updateLeadIdSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadIdSurvey[_index] = updateFn(_leadIdSurvey[_index]);
+    leadIdSurvey[index] = updateFn(_leadIdSurvey[index]);
   }
 
-  void insertAtIndexInLeadIdSurvey(int _index, String _value) {
-    _leadIdSurvey.insert(_index, _value);
+  void insertAtIndexInLeadIdSurvey(int index, String value) {
+    leadIdSurvey.insert(index, value);
   }
 
   List<String> _leadCustomerNameSurvey = [];
   List<String> get leadCustomerNameSurvey => _leadCustomerNameSurvey;
-  set leadCustomerNameSurvey(List<String> _value) {
-    _leadCustomerNameSurvey = _value;
+  set leadCustomerNameSurvey(List<String> value) {
+    _leadCustomerNameSurvey = value;
   }
 
-  void addToLeadCustomerNameSurvey(String _value) {
-    _leadCustomerNameSurvey.add(_value);
+  void addToLeadCustomerNameSurvey(String value) {
+    leadCustomerNameSurvey.add(value);
   }
 
-  void removeFromLeadCustomerNameSurvey(String _value) {
-    _leadCustomerNameSurvey.remove(_value);
+  void removeFromLeadCustomerNameSurvey(String value) {
+    leadCustomerNameSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCustomerNameSurvey(int _index) {
-    _leadCustomerNameSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCustomerNameSurvey(int index) {
+    leadCustomerNameSurvey.removeAt(index);
   }
 
   void updateLeadCustomerNameSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCustomerNameSurvey[_index] = updateFn(_leadCustomerNameSurvey[_index]);
+    leadCustomerNameSurvey[index] = updateFn(_leadCustomerNameSurvey[index]);
   }
 
-  void insertAtIndexInLeadCustomerNameSurvey(int _index, String _value) {
-    _leadCustomerNameSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCustomerNameSurvey(int index, String value) {
+    leadCustomerNameSurvey.insert(index, value);
   }
 
   List<String> _leadCreatedTimeSurvey = [];
   List<String> get leadCreatedTimeSurvey => _leadCreatedTimeSurvey;
-  set leadCreatedTimeSurvey(List<String> _value) {
-    _leadCreatedTimeSurvey = _value;
+  set leadCreatedTimeSurvey(List<String> value) {
+    _leadCreatedTimeSurvey = value;
   }
 
-  void addToLeadCreatedTimeSurvey(String _value) {
-    _leadCreatedTimeSurvey.add(_value);
+  void addToLeadCreatedTimeSurvey(String value) {
+    leadCreatedTimeSurvey.add(value);
   }
 
-  void removeFromLeadCreatedTimeSurvey(String _value) {
-    _leadCreatedTimeSurvey.remove(_value);
+  void removeFromLeadCreatedTimeSurvey(String value) {
+    leadCreatedTimeSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCreatedTimeSurvey(int _index) {
-    _leadCreatedTimeSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCreatedTimeSurvey(int index) {
+    leadCreatedTimeSurvey.removeAt(index);
   }
 
   void updateLeadCreatedTimeSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCreatedTimeSurvey[_index] = updateFn(_leadCreatedTimeSurvey[_index]);
+    leadCreatedTimeSurvey[index] = updateFn(_leadCreatedTimeSurvey[index]);
   }
 
-  void insertAtIndexInLeadCreatedTimeSurvey(int _index, String _value) {
-    _leadCreatedTimeSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCreatedTimeSurvey(int index, String value) {
+    leadCreatedTimeSurvey.insert(index, value);
   }
 
   List<String> _leadCallStatusSurvey = [];
   List<String> get leadCallStatusSurvey => _leadCallStatusSurvey;
-  set leadCallStatusSurvey(List<String> _value) {
-    _leadCallStatusSurvey = _value;
+  set leadCallStatusSurvey(List<String> value) {
+    _leadCallStatusSurvey = value;
   }
 
-  void addToLeadCallStatusSurvey(String _value) {
-    _leadCallStatusSurvey.add(_value);
+  void addToLeadCallStatusSurvey(String value) {
+    leadCallStatusSurvey.add(value);
   }
 
-  void removeFromLeadCallStatusSurvey(String _value) {
-    _leadCallStatusSurvey.remove(_value);
+  void removeFromLeadCallStatusSurvey(String value) {
+    leadCallStatusSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCallStatusSurvey(int _index) {
-    _leadCallStatusSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCallStatusSurvey(int index) {
+    leadCallStatusSurvey.removeAt(index);
   }
 
   void updateLeadCallStatusSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCallStatusSurvey[_index] = updateFn(_leadCallStatusSurvey[_index]);
+    leadCallStatusSurvey[index] = updateFn(_leadCallStatusSurvey[index]);
   }
 
-  void insertAtIndexInLeadCallStatusSurvey(int _index, String _value) {
-    _leadCallStatusSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCallStatusSurvey(int index, String value) {
+    leadCallStatusSurvey.insert(index, value);
   }
 
   List<String> _leadPhoneNumberSurvey = [];
   List<String> get leadPhoneNumberSurvey => _leadPhoneNumberSurvey;
-  set leadPhoneNumberSurvey(List<String> _value) {
-    _leadPhoneNumberSurvey = _value;
+  set leadPhoneNumberSurvey(List<String> value) {
+    _leadPhoneNumberSurvey = value;
   }
 
-  void addToLeadPhoneNumberSurvey(String _value) {
-    _leadPhoneNumberSurvey.add(_value);
+  void addToLeadPhoneNumberSurvey(String value) {
+    leadPhoneNumberSurvey.add(value);
   }
 
-  void removeFromLeadPhoneNumberSurvey(String _value) {
-    _leadPhoneNumberSurvey.remove(_value);
+  void removeFromLeadPhoneNumberSurvey(String value) {
+    leadPhoneNumberSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadPhoneNumberSurvey(int _index) {
-    _leadPhoneNumberSurvey.removeAt(_index);
+  void removeAtIndexFromLeadPhoneNumberSurvey(int index) {
+    leadPhoneNumberSurvey.removeAt(index);
   }
 
   void updateLeadPhoneNumberSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadPhoneNumberSurvey[_index] = updateFn(_leadPhoneNumberSurvey[_index]);
+    leadPhoneNumberSurvey[index] = updateFn(_leadPhoneNumberSurvey[index]);
   }
 
-  void insertAtIndexInLeadPhoneNumberSurvey(int _index, String _value) {
-    _leadPhoneNumberSurvey.insert(_index, _value);
+  void insertAtIndexInLeadPhoneNumberSurvey(int index, String value) {
+    leadPhoneNumberSurvey.insert(index, value);
   }
 
   List<String> _leadEmployeeIdSurvey = [];
   List<String> get leadEmployeeIdSurvey => _leadEmployeeIdSurvey;
-  set leadEmployeeIdSurvey(List<String> _value) {
-    _leadEmployeeIdSurvey = _value;
+  set leadEmployeeIdSurvey(List<String> value) {
+    _leadEmployeeIdSurvey = value;
   }
 
-  void addToLeadEmployeeIdSurvey(String _value) {
-    _leadEmployeeIdSurvey.add(_value);
+  void addToLeadEmployeeIdSurvey(String value) {
+    leadEmployeeIdSurvey.add(value);
   }
 
-  void removeFromLeadEmployeeIdSurvey(String _value) {
-    _leadEmployeeIdSurvey.remove(_value);
+  void removeFromLeadEmployeeIdSurvey(String value) {
+    leadEmployeeIdSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadEmployeeIdSurvey(int _index) {
-    _leadEmployeeIdSurvey.removeAt(_index);
+  void removeAtIndexFromLeadEmployeeIdSurvey(int index) {
+    leadEmployeeIdSurvey.removeAt(index);
   }
 
   void updateLeadEmployeeIdSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadEmployeeIdSurvey[_index] = updateFn(_leadEmployeeIdSurvey[_index]);
+    leadEmployeeIdSurvey[index] = updateFn(_leadEmployeeIdSurvey[index]);
   }
 
-  void insertAtIndexInLeadEmployeeIdSurvey(int _index, String _value) {
-    _leadEmployeeIdSurvey.insert(_index, _value);
+  void insertAtIndexInLeadEmployeeIdSurvey(int index, String value) {
+    leadEmployeeIdSurvey.insert(index, value);
   }
 
   List<String> _leadChannelSurvey = [];
   List<String> get leadChannelSurvey => _leadChannelSurvey;
-  set leadChannelSurvey(List<String> _value) {
-    _leadChannelSurvey = _value;
+  set leadChannelSurvey(List<String> value) {
+    _leadChannelSurvey = value;
   }
 
-  void addToLeadChannelSurvey(String _value) {
-    _leadChannelSurvey.add(_value);
+  void addToLeadChannelSurvey(String value) {
+    leadChannelSurvey.add(value);
   }
 
-  void removeFromLeadChannelSurvey(String _value) {
-    _leadChannelSurvey.remove(_value);
+  void removeFromLeadChannelSurvey(String value) {
+    leadChannelSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadChannelSurvey(int _index) {
-    _leadChannelSurvey.removeAt(_index);
+  void removeAtIndexFromLeadChannelSurvey(int index) {
+    leadChannelSurvey.removeAt(index);
   }
 
   void updateLeadChannelSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadChannelSurvey[_index] = updateFn(_leadChannelSurvey[_index]);
+    leadChannelSurvey[index] = updateFn(_leadChannelSurvey[index]);
   }
 
-  void insertAtIndexInLeadChannelSurvey(int _index, String _value) {
-    _leadChannelSurvey.insert(_index, _value);
+  void insertAtIndexInLeadChannelSurvey(int index, String value) {
+    leadChannelSurvey.insert(index, value);
   }
 
   List<String> _leadBranchCodeSurvey = [];
   List<String> get leadBranchCodeSurvey => _leadBranchCodeSurvey;
-  set leadBranchCodeSurvey(List<String> _value) {
-    _leadBranchCodeSurvey = _value;
+  set leadBranchCodeSurvey(List<String> value) {
+    _leadBranchCodeSurvey = value;
   }
 
-  void addToLeadBranchCodeSurvey(String _value) {
-    _leadBranchCodeSurvey.add(_value);
+  void addToLeadBranchCodeSurvey(String value) {
+    leadBranchCodeSurvey.add(value);
   }
 
-  void removeFromLeadBranchCodeSurvey(String _value) {
-    _leadBranchCodeSurvey.remove(_value);
+  void removeFromLeadBranchCodeSurvey(String value) {
+    leadBranchCodeSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadBranchCodeSurvey(int _index) {
-    _leadBranchCodeSurvey.removeAt(_index);
+  void removeAtIndexFromLeadBranchCodeSurvey(int index) {
+    leadBranchCodeSurvey.removeAt(index);
   }
 
   void updateLeadBranchCodeSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadBranchCodeSurvey[_index] = updateFn(_leadBranchCodeSurvey[_index]);
+    leadBranchCodeSurvey[index] = updateFn(_leadBranchCodeSurvey[index]);
   }
 
-  void insertAtIndexInLeadBranchCodeSurvey(int _index, String _value) {
-    _leadBranchCodeSurvey.insert(_index, _value);
+  void insertAtIndexInLeadBranchCodeSurvey(int index, String value) {
+    leadBranchCodeSurvey.insert(index, value);
   }
 
   List<String> _leadUserLevelSurvey = [];
   List<String> get leadUserLevelSurvey => _leadUserLevelSurvey;
-  set leadUserLevelSurvey(List<String> _value) {
-    _leadUserLevelSurvey = _value;
+  set leadUserLevelSurvey(List<String> value) {
+    _leadUserLevelSurvey = value;
   }
 
-  void addToLeadUserLevelSurvey(String _value) {
-    _leadUserLevelSurvey.add(_value);
+  void addToLeadUserLevelSurvey(String value) {
+    leadUserLevelSurvey.add(value);
   }
 
-  void removeFromLeadUserLevelSurvey(String _value) {
-    _leadUserLevelSurvey.remove(_value);
+  void removeFromLeadUserLevelSurvey(String value) {
+    leadUserLevelSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadUserLevelSurvey(int _index) {
-    _leadUserLevelSurvey.removeAt(_index);
+  void removeAtIndexFromLeadUserLevelSurvey(int index) {
+    leadUserLevelSurvey.removeAt(index);
   }
 
   void updateLeadUserLevelSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadUserLevelSurvey[_index] = updateFn(_leadUserLevelSurvey[_index]);
+    leadUserLevelSurvey[index] = updateFn(_leadUserLevelSurvey[index]);
   }
 
-  void insertAtIndexInLeadUserLevelSurvey(int _index, String _value) {
-    _leadUserLevelSurvey.insert(_index, _value);
+  void insertAtIndexInLeadUserLevelSurvey(int index, String value) {
+    leadUserLevelSurvey.insert(index, value);
   }
 
   List<String> _leadCountCalledSurvey = [];
   List<String> get leadCountCalledSurvey => _leadCountCalledSurvey;
-  set leadCountCalledSurvey(List<String> _value) {
-    _leadCountCalledSurvey = _value;
+  set leadCountCalledSurvey(List<String> value) {
+    _leadCountCalledSurvey = value;
   }
 
-  void addToLeadCountCalledSurvey(String _value) {
-    _leadCountCalledSurvey.add(_value);
+  void addToLeadCountCalledSurvey(String value) {
+    leadCountCalledSurvey.add(value);
   }
 
-  void removeFromLeadCountCalledSurvey(String _value) {
-    _leadCountCalledSurvey.remove(_value);
+  void removeFromLeadCountCalledSurvey(String value) {
+    leadCountCalledSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCountCalledSurvey(int _index) {
-    _leadCountCalledSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCountCalledSurvey(int index) {
+    leadCountCalledSurvey.removeAt(index);
   }
 
   void updateLeadCountCalledSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCountCalledSurvey[_index] = updateFn(_leadCountCalledSurvey[_index]);
+    leadCountCalledSurvey[index] = updateFn(_leadCountCalledSurvey[index]);
   }
 
-  void insertAtIndexInLeadCountCalledSurvey(int _index, String _value) {
-    _leadCountCalledSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCountCalledSurvey(int index, String value) {
+    leadCountCalledSurvey.insert(index, value);
   }
 
   List<String> _leadCarVahicleNameSurvey = [];
   List<String> get leadCarVahicleNameSurvey => _leadCarVahicleNameSurvey;
-  set leadCarVahicleNameSurvey(List<String> _value) {
-    _leadCarVahicleNameSurvey = _value;
+  set leadCarVahicleNameSurvey(List<String> value) {
+    _leadCarVahicleNameSurvey = value;
   }
 
-  void addToLeadCarVahicleNameSurvey(String _value) {
-    _leadCarVahicleNameSurvey.add(_value);
+  void addToLeadCarVahicleNameSurvey(String value) {
+    leadCarVahicleNameSurvey.add(value);
   }
 
-  void removeFromLeadCarVahicleNameSurvey(String _value) {
-    _leadCarVahicleNameSurvey.remove(_value);
+  void removeFromLeadCarVahicleNameSurvey(String value) {
+    leadCarVahicleNameSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCarVahicleNameSurvey(int _index) {
-    _leadCarVahicleNameSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCarVahicleNameSurvey(int index) {
+    leadCarVahicleNameSurvey.removeAt(index);
   }
 
   void updateLeadCarVahicleNameSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCarVahicleNameSurvey[_index] =
-        updateFn(_leadCarVahicleNameSurvey[_index]);
+    leadCarVahicleNameSurvey[index] =
+        updateFn(_leadCarVahicleNameSurvey[index]);
   }
 
-  void insertAtIndexInLeadCarVahicleNameSurvey(int _index, String _value) {
-    _leadCarVahicleNameSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCarVahicleNameSurvey(int index, String value) {
+    leadCarVahicleNameSurvey.insert(index, value);
   }
 
   List<String> _leadAmountRequestSurvey = [];
   List<String> get leadAmountRequestSurvey => _leadAmountRequestSurvey;
-  set leadAmountRequestSurvey(List<String> _value) {
-    _leadAmountRequestSurvey = _value;
+  set leadAmountRequestSurvey(List<String> value) {
+    _leadAmountRequestSurvey = value;
   }
 
-  void addToLeadAmountRequestSurvey(String _value) {
-    _leadAmountRequestSurvey.add(_value);
+  void addToLeadAmountRequestSurvey(String value) {
+    leadAmountRequestSurvey.add(value);
   }
 
-  void removeFromLeadAmountRequestSurvey(String _value) {
-    _leadAmountRequestSurvey.remove(_value);
+  void removeFromLeadAmountRequestSurvey(String value) {
+    leadAmountRequestSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadAmountRequestSurvey(int _index) {
-    _leadAmountRequestSurvey.removeAt(_index);
+  void removeAtIndexFromLeadAmountRequestSurvey(int index) {
+    leadAmountRequestSurvey.removeAt(index);
   }
 
   void updateLeadAmountRequestSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadAmountRequestSurvey[_index] =
-        updateFn(_leadAmountRequestSurvey[_index]);
+    leadAmountRequestSurvey[index] = updateFn(_leadAmountRequestSurvey[index]);
   }
 
-  void insertAtIndexInLeadAmountRequestSurvey(int _index, String _value) {
-    _leadAmountRequestSurvey.insert(_index, _value);
+  void insertAtIndexInLeadAmountRequestSurvey(int index, String value) {
+    leadAmountRequestSurvey.insert(index, value);
   }
 
   List<String> _leadCalledStatusReasonSurvey = [];
   List<String> get leadCalledStatusReasonSurvey =>
       _leadCalledStatusReasonSurvey;
-  set leadCalledStatusReasonSurvey(List<String> _value) {
-    _leadCalledStatusReasonSurvey = _value;
+  set leadCalledStatusReasonSurvey(List<String> value) {
+    _leadCalledStatusReasonSurvey = value;
   }
 
-  void addToLeadCalledStatusReasonSurvey(String _value) {
-    _leadCalledStatusReasonSurvey.add(_value);
+  void addToLeadCalledStatusReasonSurvey(String value) {
+    leadCalledStatusReasonSurvey.add(value);
   }
 
-  void removeFromLeadCalledStatusReasonSurvey(String _value) {
-    _leadCalledStatusReasonSurvey.remove(_value);
+  void removeFromLeadCalledStatusReasonSurvey(String value) {
+    leadCalledStatusReasonSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadCalledStatusReasonSurvey(int _index) {
-    _leadCalledStatusReasonSurvey.removeAt(_index);
+  void removeAtIndexFromLeadCalledStatusReasonSurvey(int index) {
+    leadCalledStatusReasonSurvey.removeAt(index);
   }
 
   void updateLeadCalledStatusReasonSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadCalledStatusReasonSurvey[_index] =
-        updateFn(_leadCalledStatusReasonSurvey[_index]);
+    leadCalledStatusReasonSurvey[index] =
+        updateFn(_leadCalledStatusReasonSurvey[index]);
   }
 
-  void insertAtIndexInLeadCalledStatusReasonSurvey(int _index, String _value) {
-    _leadCalledStatusReasonSurvey.insert(_index, _value);
+  void insertAtIndexInLeadCalledStatusReasonSurvey(int index, String value) {
+    leadCalledStatusReasonSurvey.insert(index, value);
   }
 
   List<String> _leadContractStatusSurvey = [];
   List<String> get leadContractStatusSurvey => _leadContractStatusSurvey;
-  set leadContractStatusSurvey(List<String> _value) {
-    _leadContractStatusSurvey = _value;
+  set leadContractStatusSurvey(List<String> value) {
+    _leadContractStatusSurvey = value;
   }
 
-  void addToLeadContractStatusSurvey(String _value) {
-    _leadContractStatusSurvey.add(_value);
+  void addToLeadContractStatusSurvey(String value) {
+    leadContractStatusSurvey.add(value);
   }
 
-  void removeFromLeadContractStatusSurvey(String _value) {
-    _leadContractStatusSurvey.remove(_value);
+  void removeFromLeadContractStatusSurvey(String value) {
+    leadContractStatusSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadContractStatusSurvey(int _index) {
-    _leadContractStatusSurvey.removeAt(_index);
+  void removeAtIndexFromLeadContractStatusSurvey(int index) {
+    leadContractStatusSurvey.removeAt(index);
   }
 
   void updateLeadContractStatusSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadContractStatusSurvey[_index] =
-        updateFn(_leadContractStatusSurvey[_index]);
+    leadContractStatusSurvey[index] =
+        updateFn(_leadContractStatusSurvey[index]);
   }
 
-  void insertAtIndexInLeadContractStatusSurvey(int _index, String _value) {
-    _leadContractStatusSurvey.insert(_index, _value);
+  void insertAtIndexInLeadContractStatusSurvey(int index, String value) {
+    leadContractStatusSurvey.insert(index, value);
   }
 
   List<String> _leadContractDateSurvey = [];
   List<String> get leadContractDateSurvey => _leadContractDateSurvey;
-  set leadContractDateSurvey(List<String> _value) {
-    _leadContractDateSurvey = _value;
+  set leadContractDateSurvey(List<String> value) {
+    _leadContractDateSurvey = value;
   }
 
-  void addToLeadContractDateSurvey(String _value) {
-    _leadContractDateSurvey.add(_value);
+  void addToLeadContractDateSurvey(String value) {
+    leadContractDateSurvey.add(value);
   }
 
-  void removeFromLeadContractDateSurvey(String _value) {
-    _leadContractDateSurvey.remove(_value);
+  void removeFromLeadContractDateSurvey(String value) {
+    leadContractDateSurvey.remove(value);
   }
 
-  void removeAtIndexFromLeadContractDateSurvey(int _index) {
-    _leadContractDateSurvey.removeAt(_index);
+  void removeAtIndexFromLeadContractDateSurvey(int index) {
+    leadContractDateSurvey.removeAt(index);
   }
 
   void updateLeadContractDateSurveyAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadContractDateSurvey[_index] = updateFn(_leadContractDateSurvey[_index]);
+    leadContractDateSurvey[index] = updateFn(_leadContractDateSurvey[index]);
   }
 
-  void insertAtIndexInLeadContractDateSurvey(int _index, String _value) {
-    _leadContractDateSurvey.insert(_index, _value);
+  void insertAtIndexInLeadContractDateSurvey(int index, String value) {
+    leadContractDateSurvey.insert(index, value);
   }
 
   List<String> _leadListViewItem = [];
   List<String> get leadListViewItem => _leadListViewItem;
-  set leadListViewItem(List<String> _value) {
-    _leadListViewItem = _value;
+  set leadListViewItem(List<String> value) {
+    _leadListViewItem = value;
   }
 
-  void addToLeadListViewItem(String _value) {
-    _leadListViewItem.add(_value);
+  void addToLeadListViewItem(String value) {
+    leadListViewItem.add(value);
   }
 
-  void removeFromLeadListViewItem(String _value) {
-    _leadListViewItem.remove(_value);
+  void removeFromLeadListViewItem(String value) {
+    leadListViewItem.remove(value);
   }
 
-  void removeAtIndexFromLeadListViewItem(int _index) {
-    _leadListViewItem.removeAt(_index);
+  void removeAtIndexFromLeadListViewItem(int index) {
+    leadListViewItem.removeAt(index);
   }
 
   void updateLeadListViewItemAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _leadListViewItem[_index] = updateFn(_leadListViewItem[_index]);
+    leadListViewItem[index] = updateFn(_leadListViewItem[index]);
   }
 
-  void insertAtIndexInLeadListViewItem(int _index, String _value) {
-    _leadListViewItem.insert(_index, _value);
+  void insertAtIndexInLeadListViewItem(int index, String value) {
+    leadListViewItem.insert(index, value);
   }
 
   String _profileImage =
       'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74';
   String get profileImage => _profileImage;
-  set profileImage(String _value) {
-    _profileImage = _value;
-    secureStorage.setString('ff_profileImage', _value);
+  set profileImage(String value) {
+    _profileImage = value;
+    secureStorage.setString('ff_profileImage', value);
   }
 
   void deleteProfileImage() {
@@ -5536,866 +5533,864 @@ class FFAppState extends ChangeNotifier {
 
   List<bool> _timeChatIsVisibleList = [];
   List<bool> get timeChatIsVisibleList => _timeChatIsVisibleList;
-  set timeChatIsVisibleList(List<bool> _value) {
-    _timeChatIsVisibleList = _value;
+  set timeChatIsVisibleList(List<bool> value) {
+    _timeChatIsVisibleList = value;
   }
 
-  void addToTimeChatIsVisibleList(bool _value) {
-    _timeChatIsVisibleList.add(_value);
+  void addToTimeChatIsVisibleList(bool value) {
+    timeChatIsVisibleList.add(value);
   }
 
-  void removeFromTimeChatIsVisibleList(bool _value) {
-    _timeChatIsVisibleList.remove(_value);
+  void removeFromTimeChatIsVisibleList(bool value) {
+    timeChatIsVisibleList.remove(value);
   }
 
-  void removeAtIndexFromTimeChatIsVisibleList(int _index) {
-    _timeChatIsVisibleList.removeAt(_index);
+  void removeAtIndexFromTimeChatIsVisibleList(int index) {
+    timeChatIsVisibleList.removeAt(index);
   }
 
   void updateTimeChatIsVisibleListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _timeChatIsVisibleList[_index] = updateFn(_timeChatIsVisibleList[_index]);
+    timeChatIsVisibleList[index] = updateFn(_timeChatIsVisibleList[index]);
   }
 
-  void insertAtIndexInTimeChatIsVisibleList(int _index, bool _value) {
-    _timeChatIsVisibleList.insert(_index, _value);
+  void insertAtIndexInTimeChatIsVisibleList(int index, bool value) {
+    timeChatIsVisibleList.insert(index, value);
   }
 
   bool _isSendMessageSuccess = false;
   bool get isSendMessageSuccess => _isSendMessageSuccess;
-  set isSendMessageSuccess(bool _value) {
-    _isSendMessageSuccess = _value;
+  set isSendMessageSuccess(bool value) {
+    _isSendMessageSuccess = value;
   }
 
   String _chatMessagesTemp = '';
   String get chatMessagesTemp => _chatMessagesTemp;
-  set chatMessagesTemp(String _value) {
-    _chatMessagesTemp = _value;
+  set chatMessagesTemp(String value) {
+    _chatMessagesTemp = value;
   }
 
   int _idNumberTemp = 1;
   int get idNumberTemp => _idNumberTemp;
-  set idNumberTemp(int _value) {
-    _idNumberTemp = _value;
+  set idNumberTemp(int value) {
+    _idNumberTemp = value;
   }
 
   bool _insuranceRequestState = false;
   bool get insuranceRequestState => _insuranceRequestState;
-  set insuranceRequestState(bool _value) {
-    _insuranceRequestState = _value;
+  set insuranceRequestState(bool value) {
+    _insuranceRequestState = value;
   }
 
   String _operationChoiceChips = 'งานใหม่';
   String get operationChoiceChips => _operationChoiceChips;
-  set operationChoiceChips(String _value) {
-    _operationChoiceChips = _value;
+  set operationChoiceChips(String value) {
+    _operationChoiceChips = value;
   }
 
   String _customerTypeChoiceChips = 'บุคคลธรรมดา';
   String get customerTypeChoiceChips => _customerTypeChoiceChips;
-  set customerTypeChoiceChips(String _value) {
-    _customerTypeChoiceChips = _value;
+  set customerTypeChoiceChips(String value) {
+    _customerTypeChoiceChips = value;
   }
 
   String _vehicleTypeDropdown = 'กรุณาเลือก';
   String get vehicleTypeDropdown => _vehicleTypeDropdown;
-  set vehicleTypeDropdown(String _value) {
-    _vehicleTypeDropdown = _value;
+  set vehicleTypeDropdown(String value) {
+    _vehicleTypeDropdown = value;
   }
 
   String _boxTypeChoiceChips = 'ตู้แห้ง';
   String get boxTypeChoiceChips => _boxTypeChoiceChips;
-  set boxTypeChoiceChips(String _value) {
-    _boxTypeChoiceChips = _value;
+  set boxTypeChoiceChips(String value) {
+    _boxTypeChoiceChips = value;
   }
 
   bool _isEquipedMetalBox = false;
   bool get isEquipedMetalBox => _isEquipedMetalBox;
-  set isEquipedMetalBox(bool _value) {
-    _isEquipedMetalBox = _value;
+  set isEquipedMetalBox(bool value) {
+    _isEquipedMetalBox = value;
   }
 
   String _insuranceBasicCusName = '';
   String get insuranceBasicCusName => _insuranceBasicCusName;
-  set insuranceBasicCusName(String _value) {
-    _insuranceBasicCusName = _value;
+  set insuranceBasicCusName(String value) {
+    _insuranceBasicCusName = value;
   }
 
   String _insuranceBasicCusLastname = '';
   String get insuranceBasicCusLastname => _insuranceBasicCusLastname;
-  set insuranceBasicCusLastname(String _value) {
-    _insuranceBasicCusLastname = _value;
+  set insuranceBasicCusLastname(String value) {
+    _insuranceBasicCusLastname = value;
   }
 
   String _insuranceBasicPlateNo = '';
   String get insuranceBasicPlateNo => _insuranceBasicPlateNo;
-  set insuranceBasicPlateNo(String _value) {
-    _insuranceBasicPlateNo = _value;
+  set insuranceBasicPlateNo(String value) {
+    _insuranceBasicPlateNo = value;
   }
 
   String _insuranceBasicPlateAdditional = '';
   String get insuranceBasicPlateAdditional => _insuranceBasicPlateAdditional;
-  set insuranceBasicPlateAdditional(String _value) {
-    _insuranceBasicPlateAdditional = _value;
+  set insuranceBasicPlateAdditional(String value) {
+    _insuranceBasicPlateAdditional = value;
   }
 
   String _insuranceBasicBrandId = '';
   String get insuranceBasicBrandId => _insuranceBasicBrandId;
-  set insuranceBasicBrandId(String _value) {
-    _insuranceBasicBrandId = _value;
+  set insuranceBasicBrandId(String value) {
+    _insuranceBasicBrandId = value;
   }
 
   String _insuranceBasicBrandCode = '';
   String get insuranceBasicBrandCode => _insuranceBasicBrandCode;
-  set insuranceBasicBrandCode(String _value) {
-    _insuranceBasicBrandCode = _value;
+  set insuranceBasicBrandCode(String value) {
+    _insuranceBasicBrandCode = value;
   }
 
   String _insuranceBasicBrandName = 'เลือกยี่ห้อรถ';
   String get insuranceBasicBrandName => _insuranceBasicBrandName;
-  set insuranceBasicBrandName(String _value) {
-    _insuranceBasicBrandName = _value;
+  set insuranceBasicBrandName(String value) {
+    _insuranceBasicBrandName = value;
   }
 
   String _insuranceBasicModelId = '';
   String get insuranceBasicModelId => _insuranceBasicModelId;
-  set insuranceBasicModelId(String _value) {
-    _insuranceBasicModelId = _value;
+  set insuranceBasicModelId(String value) {
+    _insuranceBasicModelId = value;
   }
 
   String _insuranceBasicModelCode = '';
   String get insuranceBasicModelCode => _insuranceBasicModelCode;
-  set insuranceBasicModelCode(String _value) {
-    _insuranceBasicModelCode = _value;
+  set insuranceBasicModelCode(String value) {
+    _insuranceBasicModelCode = value;
   }
 
   String _insuranceBasicModelName = 'เลือกรุ่นรถ';
   String get insuranceBasicModelName => _insuranceBasicModelName;
-  set insuranceBasicModelName(String _value) {
-    _insuranceBasicModelName = _value;
+  set insuranceBasicModelName(String value) {
+    _insuranceBasicModelName = value;
   }
 
   String _insuranceBasicYear = 'เลือกปีจดทะเบียน พ.ศ.';
   String get insuranceBasicYear => _insuranceBasicYear;
-  set insuranceBasicYear(String _value) {
-    _insuranceBasicYear = _value;
+  set insuranceBasicYear(String value) {
+    _insuranceBasicYear = value;
   }
 
   String _insuranceBasicProvinceId = '';
   String get insuranceBasicProvinceId => _insuranceBasicProvinceId;
-  set insuranceBasicProvinceId(String _value) {
-    _insuranceBasicProvinceId = _value;
+  set insuranceBasicProvinceId(String value) {
+    _insuranceBasicProvinceId = value;
   }
 
   String _insuranceBasicProvinceName = '';
   String get insuranceBasicProvinceName => _insuranceBasicProvinceName;
-  set insuranceBasicProvinceName(String _value) {
-    _insuranceBasicProvinceName = _value;
+  set insuranceBasicProvinceName(String value) {
+    _insuranceBasicProvinceName = value;
   }
 
   String _insuranceBasicUsedType = '';
   String get insuranceBasicUsedType => _insuranceBasicUsedType;
-  set insuranceBasicUsedType(String _value) {
-    _insuranceBasicUsedType = _value;
+  set insuranceBasicUsedType(String value) {
+    _insuranceBasicUsedType = value;
   }
 
   bool _insuranceBasicCarModify = false;
   bool get insuranceBasicCarModify => _insuranceBasicCarModify;
-  set insuranceBasicCarModify(bool _value) {
-    _insuranceBasicCarModify = _value;
+  set insuranceBasicCarModify(bool value) {
+    _insuranceBasicCarModify = value;
   }
 
   String _insuranceBasicAccessoryProtected = '';
   String get insuranceBasicAccessoryProtected =>
       _insuranceBasicAccessoryProtected;
-  set insuranceBasicAccessoryProtected(String _value) {
-    _insuranceBasicAccessoryProtected = _value;
+  set insuranceBasicAccessoryProtected(String value) {
+    _insuranceBasicAccessoryProtected = value;
   }
 
   String _insuranceBasicCusPhone = '';
   String get insuranceBasicCusPhone => _insuranceBasicCusPhone;
-  set insuranceBasicCusPhone(String _value) {
-    _insuranceBasicCusPhone = _value;
+  set insuranceBasicCusPhone(String value) {
+    _insuranceBasicCusPhone = value;
   }
 
   String _insuranceBasicDriverType = '';
   String get insuranceBasicDriverType => _insuranceBasicDriverType;
-  set insuranceBasicDriverType(String _value) {
-    _insuranceBasicDriverType = _value;
+  set insuranceBasicDriverType(String value) {
+    _insuranceBasicDriverType = value;
   }
 
   String _insuranceBasicIdCardNo = '';
   String get insuranceBasicIdCardNo => _insuranceBasicIdCardNo;
-  set insuranceBasicIdCardNo(String _value) {
-    _insuranceBasicIdCardNo = _value;
+  set insuranceBasicIdCardNo(String value) {
+    _insuranceBasicIdCardNo = value;
   }
 
   String _insuranceBasicOldLicenseNo = '';
   String get insuranceBasicOldLicenseNo => _insuranceBasicOldLicenseNo;
-  set insuranceBasicOldLicenseNo(String _value) {
-    _insuranceBasicOldLicenseNo = _value;
+  set insuranceBasicOldLicenseNo(String value) {
+    _insuranceBasicOldLicenseNo = value;
   }
 
   bool _insuranceBasicMetalBox = false;
   bool get insuranceBasicMetalBox => _insuranceBasicMetalBox;
-  set insuranceBasicMetalBox(bool _value) {
-    _insuranceBasicMetalBox = _value;
+  set insuranceBasicMetalBox(bool value) {
+    _insuranceBasicMetalBox = value;
   }
 
   bool _insuranceBasicCoop = false;
   bool get insuranceBasicCoop => _insuranceBasicCoop;
-  set insuranceBasicCoop(bool _value) {
-    _insuranceBasicCoop = _value;
+  set insuranceBasicCoop(bool value) {
+    _insuranceBasicCoop = value;
   }
 
   String _insuranceBasicPickupBoxType = '';
   String get insuranceBasicPickupBoxType => _insuranceBasicPickupBoxType;
-  set insuranceBasicPickupBoxType(String _value) {
-    _insuranceBasicPickupBoxType = _value;
+  set insuranceBasicPickupBoxType(String value) {
+    _insuranceBasicPickupBoxType = value;
   }
 
   String _insuranceBasicPickupBoxPrice = '';
   String get insuranceBasicPickupBoxPrice => _insuranceBasicPickupBoxPrice;
-  set insuranceBasicPickupBoxPrice(String _value) {
-    _insuranceBasicPickupBoxPrice = _value;
+  set insuranceBasicPickupBoxPrice(String value) {
+    _insuranceBasicPickupBoxPrice = value;
   }
 
   String _insuranceBasicTruckCurrentPrice = '';
   String get insuranceBasicTruckCurrentPrice =>
       _insuranceBasicTruckCurrentPrice;
-  set insuranceBasicTruckCurrentPrice(String _value) {
-    _insuranceBasicTruckCurrentPrice = _value;
+  set insuranceBasicTruckCurrentPrice(String value) {
+    _insuranceBasicTruckCurrentPrice = value;
   }
 
   String _insuranceBasicCarryPurpose = '';
   String get insuranceBasicCarryPurpose => _insuranceBasicCarryPurpose;
-  set insuranceBasicCarryPurpose(String _value) {
-    _insuranceBasicCarryPurpose = _value;
+  set insuranceBasicCarryPurpose(String value) {
+    _insuranceBasicCarryPurpose = value;
   }
 
   bool _insurancePackageInsurer = false;
   bool get insurancePackageInsurer => _insurancePackageInsurer;
-  set insurancePackageInsurer(bool _value) {
-    _insurancePackageInsurer = _value;
+  set insurancePackageInsurer(bool value) {
+    _insurancePackageInsurer = value;
   }
 
   String _insuranceBasicMemberType = '';
   String get insuranceBasicMemberType => _insuranceBasicMemberType;
-  set insuranceBasicMemberType(String _value) {
-    _insuranceBasicMemberType = _value;
+  set insuranceBasicMemberType(String value) {
+    _insuranceBasicMemberType = value;
   }
 
   String _insuranceBasicRemark = '';
   String get insuranceBasicRemark => _insuranceBasicRemark;
-  set insuranceBasicRemark(String _value) {
-    _insuranceBasicRemark = _value;
+  set insuranceBasicRemark(String value) {
+    _insuranceBasicRemark = value;
   }
 
   List<String> _teleProvinceId = [];
   List<String> get teleProvinceId => _teleProvinceId;
-  set teleProvinceId(List<String> _value) {
-    _teleProvinceId = _value;
+  set teleProvinceId(List<String> value) {
+    _teleProvinceId = value;
   }
 
-  void addToTeleProvinceId(String _value) {
-    _teleProvinceId.add(_value);
+  void addToTeleProvinceId(String value) {
+    teleProvinceId.add(value);
   }
 
-  void removeFromTeleProvinceId(String _value) {
-    _teleProvinceId.remove(_value);
+  void removeFromTeleProvinceId(String value) {
+    teleProvinceId.remove(value);
   }
 
-  void removeAtIndexFromTeleProvinceId(int _index) {
-    _teleProvinceId.removeAt(_index);
+  void removeAtIndexFromTeleProvinceId(int index) {
+    teleProvinceId.removeAt(index);
   }
 
   void updateTeleProvinceIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _teleProvinceId[_index] = updateFn(_teleProvinceId[_index]);
+    teleProvinceId[index] = updateFn(_teleProvinceId[index]);
   }
 
-  void insertAtIndexInTeleProvinceId(int _index, String _value) {
-    _teleProvinceId.insert(_index, _value);
+  void insertAtIndexInTeleProvinceId(int index, String value) {
+    teleProvinceId.insert(index, value);
   }
 
   bool _insuranceModelIsGenerating = false;
   bool get insuranceModelIsGenerating => _insuranceModelIsGenerating;
-  set insuranceModelIsGenerating(bool _value) {
-    _insuranceModelIsGenerating = _value;
+  set insuranceModelIsGenerating(bool value) {
+    _insuranceModelIsGenerating = value;
   }
 
   List<String> _insuranceBasicOriginalModelName = [];
   List<String> get insuranceBasicOriginalModelName =>
       _insuranceBasicOriginalModelName;
-  set insuranceBasicOriginalModelName(List<String> _value) {
-    _insuranceBasicOriginalModelName = _value;
+  set insuranceBasicOriginalModelName(List<String> value) {
+    _insuranceBasicOriginalModelName = value;
   }
 
-  void addToInsuranceBasicOriginalModelName(String _value) {
-    _insuranceBasicOriginalModelName.add(_value);
+  void addToInsuranceBasicOriginalModelName(String value) {
+    insuranceBasicOriginalModelName.add(value);
   }
 
-  void removeFromInsuranceBasicOriginalModelName(String _value) {
-    _insuranceBasicOriginalModelName.remove(_value);
+  void removeFromInsuranceBasicOriginalModelName(String value) {
+    insuranceBasicOriginalModelName.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicOriginalModelName(int _index) {
-    _insuranceBasicOriginalModelName.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicOriginalModelName(int index) {
+    insuranceBasicOriginalModelName.removeAt(index);
   }
 
   void updateInsuranceBasicOriginalModelNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicOriginalModelName[_index] =
-        updateFn(_insuranceBasicOriginalModelName[_index]);
+    insuranceBasicOriginalModelName[index] =
+        updateFn(_insuranceBasicOriginalModelName[index]);
   }
 
-  void insertAtIndexInInsuranceBasicOriginalModelName(
-      int _index, String _value) {
-    _insuranceBasicOriginalModelName.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicOriginalModelName(int index, String value) {
+    insuranceBasicOriginalModelName.insert(index, value);
   }
 
   List<String> _insuranceBasicBrandIdList = [];
   List<String> get insuranceBasicBrandIdList => _insuranceBasicBrandIdList;
-  set insuranceBasicBrandIdList(List<String> _value) {
-    _insuranceBasicBrandIdList = _value;
+  set insuranceBasicBrandIdList(List<String> value) {
+    _insuranceBasicBrandIdList = value;
   }
 
-  void addToInsuranceBasicBrandIdList(String _value) {
-    _insuranceBasicBrandIdList.add(_value);
+  void addToInsuranceBasicBrandIdList(String value) {
+    insuranceBasicBrandIdList.add(value);
   }
 
-  void removeFromInsuranceBasicBrandIdList(String _value) {
-    _insuranceBasicBrandIdList.remove(_value);
+  void removeFromInsuranceBasicBrandIdList(String value) {
+    insuranceBasicBrandIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicBrandIdList(int _index) {
-    _insuranceBasicBrandIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicBrandIdList(int index) {
+    insuranceBasicBrandIdList.removeAt(index);
   }
 
   void updateInsuranceBasicBrandIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicBrandIdList[_index] =
-        updateFn(_insuranceBasicBrandIdList[_index]);
+    insuranceBasicBrandIdList[index] =
+        updateFn(_insuranceBasicBrandIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicBrandIdList(int _index, String _value) {
-    _insuranceBasicBrandIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicBrandIdList(int index, String value) {
+    insuranceBasicBrandIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicBrandNameList = [];
   List<String> get insuranceBasicBrandNameList => _insuranceBasicBrandNameList;
-  set insuranceBasicBrandNameList(List<String> _value) {
-    _insuranceBasicBrandNameList = _value;
+  set insuranceBasicBrandNameList(List<String> value) {
+    _insuranceBasicBrandNameList = value;
   }
 
-  void addToInsuranceBasicBrandNameList(String _value) {
-    _insuranceBasicBrandNameList.add(_value);
+  void addToInsuranceBasicBrandNameList(String value) {
+    insuranceBasicBrandNameList.add(value);
   }
 
-  void removeFromInsuranceBasicBrandNameList(String _value) {
-    _insuranceBasicBrandNameList.remove(_value);
+  void removeFromInsuranceBasicBrandNameList(String value) {
+    insuranceBasicBrandNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicBrandNameList(int _index) {
-    _insuranceBasicBrandNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicBrandNameList(int index) {
+    insuranceBasicBrandNameList.removeAt(index);
   }
 
   void updateInsuranceBasicBrandNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicBrandNameList[_index] =
-        updateFn(_insuranceBasicBrandNameList[_index]);
+    insuranceBasicBrandNameList[index] =
+        updateFn(_insuranceBasicBrandNameList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicBrandNameList(int _index, String _value) {
-    _insuranceBasicBrandNameList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicBrandNameList(int index, String value) {
+    insuranceBasicBrandNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicModelIdListOriginal = [];
   List<String> get insuranceBasicModelIdListOriginal =>
       _insuranceBasicModelIdListOriginal;
-  set insuranceBasicModelIdListOriginal(List<String> _value) {
-    _insuranceBasicModelIdListOriginal = _value;
+  set insuranceBasicModelIdListOriginal(List<String> value) {
+    _insuranceBasicModelIdListOriginal = value;
   }
 
-  void addToInsuranceBasicModelIdListOriginal(String _value) {
-    _insuranceBasicModelIdListOriginal.add(_value);
+  void addToInsuranceBasicModelIdListOriginal(String value) {
+    insuranceBasicModelIdListOriginal.add(value);
   }
 
-  void removeFromInsuranceBasicModelIdListOriginal(String _value) {
-    _insuranceBasicModelIdListOriginal.remove(_value);
+  void removeFromInsuranceBasicModelIdListOriginal(String value) {
+    insuranceBasicModelIdListOriginal.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelIdListOriginal(int _index) {
-    _insuranceBasicModelIdListOriginal.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelIdListOriginal(int index) {
+    insuranceBasicModelIdListOriginal.removeAt(index);
   }
 
   void updateInsuranceBasicModelIdListOriginalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelIdListOriginal[_index] =
-        updateFn(_insuranceBasicModelIdListOriginal[_index]);
+    insuranceBasicModelIdListOriginal[index] =
+        updateFn(_insuranceBasicModelIdListOriginal[index]);
   }
 
   void insertAtIndexInInsuranceBasicModelIdListOriginal(
-      int _index, String _value) {
-    _insuranceBasicModelIdListOriginal.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicModelIdListOriginal.insert(index, value);
   }
 
   List<String> _insuranceBasicModelIdList = [];
   List<String> get insuranceBasicModelIdList => _insuranceBasicModelIdList;
-  set insuranceBasicModelIdList(List<String> _value) {
-    _insuranceBasicModelIdList = _value;
+  set insuranceBasicModelIdList(List<String> value) {
+    _insuranceBasicModelIdList = value;
   }
 
-  void addToInsuranceBasicModelIdList(String _value) {
-    _insuranceBasicModelIdList.add(_value);
+  void addToInsuranceBasicModelIdList(String value) {
+    insuranceBasicModelIdList.add(value);
   }
 
-  void removeFromInsuranceBasicModelIdList(String _value) {
-    _insuranceBasicModelIdList.remove(_value);
+  void removeFromInsuranceBasicModelIdList(String value) {
+    insuranceBasicModelIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelIdList(int _index) {
-    _insuranceBasicModelIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelIdList(int index) {
+    insuranceBasicModelIdList.removeAt(index);
   }
 
   void updateInsuranceBasicModelIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelIdList[_index] =
-        updateFn(_insuranceBasicModelIdList[_index]);
+    insuranceBasicModelIdList[index] =
+        updateFn(_insuranceBasicModelIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicModelIdList(int _index, String _value) {
-    _insuranceBasicModelIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicModelIdList(int index, String value) {
+    insuranceBasicModelIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicModelNameListOriginal = [];
   List<String> get insuranceBasicModelNameListOriginal =>
       _insuranceBasicModelNameListOriginal;
-  set insuranceBasicModelNameListOriginal(List<String> _value) {
-    _insuranceBasicModelNameListOriginal = _value;
+  set insuranceBasicModelNameListOriginal(List<String> value) {
+    _insuranceBasicModelNameListOriginal = value;
   }
 
-  void addToInsuranceBasicModelNameListOriginal(String _value) {
-    _insuranceBasicModelNameListOriginal.add(_value);
+  void addToInsuranceBasicModelNameListOriginal(String value) {
+    insuranceBasicModelNameListOriginal.add(value);
   }
 
-  void removeFromInsuranceBasicModelNameListOriginal(String _value) {
-    _insuranceBasicModelNameListOriginal.remove(_value);
+  void removeFromInsuranceBasicModelNameListOriginal(String value) {
+    insuranceBasicModelNameListOriginal.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelNameListOriginal(int _index) {
-    _insuranceBasicModelNameListOriginal.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelNameListOriginal(int index) {
+    insuranceBasicModelNameListOriginal.removeAt(index);
   }
 
   void updateInsuranceBasicModelNameListOriginalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelNameListOriginal[_index] =
-        updateFn(_insuranceBasicModelNameListOriginal[_index]);
+    insuranceBasicModelNameListOriginal[index] =
+        updateFn(_insuranceBasicModelNameListOriginal[index]);
   }
 
   void insertAtIndexInInsuranceBasicModelNameListOriginal(
-      int _index, String _value) {
-    _insuranceBasicModelNameListOriginal.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicModelNameListOriginal.insert(index, value);
   }
 
   List<String> _insuranceBasicModelNameList = [];
   List<String> get insuranceBasicModelNameList => _insuranceBasicModelNameList;
-  set insuranceBasicModelNameList(List<String> _value) {
-    _insuranceBasicModelNameList = _value;
+  set insuranceBasicModelNameList(List<String> value) {
+    _insuranceBasicModelNameList = value;
   }
 
-  void addToInsuranceBasicModelNameList(String _value) {
-    _insuranceBasicModelNameList.add(_value);
+  void addToInsuranceBasicModelNameList(String value) {
+    insuranceBasicModelNameList.add(value);
   }
 
-  void removeFromInsuranceBasicModelNameList(String _value) {
-    _insuranceBasicModelNameList.remove(_value);
+  void removeFromInsuranceBasicModelNameList(String value) {
+    insuranceBasicModelNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelNameList(int _index) {
-    _insuranceBasicModelNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelNameList(int index) {
+    insuranceBasicModelNameList.removeAt(index);
   }
 
   void updateInsuranceBasicModelNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelNameList[_index] =
-        updateFn(_insuranceBasicModelNameList[_index]);
+    insuranceBasicModelNameList[index] =
+        updateFn(_insuranceBasicModelNameList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicModelNameList(int _index, String _value) {
-    _insuranceBasicModelNameList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicModelNameList(int index, String value) {
+    insuranceBasicModelNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicProvinceIdList = [];
   List<String> get insuranceBasicProvinceIdList =>
       _insuranceBasicProvinceIdList;
-  set insuranceBasicProvinceIdList(List<String> _value) {
-    _insuranceBasicProvinceIdList = _value;
+  set insuranceBasicProvinceIdList(List<String> value) {
+    _insuranceBasicProvinceIdList = value;
   }
 
-  void addToInsuranceBasicProvinceIdList(String _value) {
-    _insuranceBasicProvinceIdList.add(_value);
+  void addToInsuranceBasicProvinceIdList(String value) {
+    insuranceBasicProvinceIdList.add(value);
   }
 
-  void removeFromInsuranceBasicProvinceIdList(String _value) {
-    _insuranceBasicProvinceIdList.remove(_value);
+  void removeFromInsuranceBasicProvinceIdList(String value) {
+    insuranceBasicProvinceIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicProvinceIdList(int _index) {
-    _insuranceBasicProvinceIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicProvinceIdList(int index) {
+    insuranceBasicProvinceIdList.removeAt(index);
   }
 
   void updateInsuranceBasicProvinceIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicProvinceIdList[_index] =
-        updateFn(_insuranceBasicProvinceIdList[_index]);
+    insuranceBasicProvinceIdList[index] =
+        updateFn(_insuranceBasicProvinceIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicProvinceIdList(int _index, String _value) {
-    _insuranceBasicProvinceIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicProvinceIdList(int index, String value) {
+    insuranceBasicProvinceIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicProvinceNameList = [];
   List<String> get insuranceBasicProvinceNameList =>
       _insuranceBasicProvinceNameList;
-  set insuranceBasicProvinceNameList(List<String> _value) {
-    _insuranceBasicProvinceNameList = _value;
+  set insuranceBasicProvinceNameList(List<String> value) {
+    _insuranceBasicProvinceNameList = value;
   }
 
-  void addToInsuranceBasicProvinceNameList(String _value) {
-    _insuranceBasicProvinceNameList.add(_value);
+  void addToInsuranceBasicProvinceNameList(String value) {
+    insuranceBasicProvinceNameList.add(value);
   }
 
-  void removeFromInsuranceBasicProvinceNameList(String _value) {
-    _insuranceBasicProvinceNameList.remove(_value);
+  void removeFromInsuranceBasicProvinceNameList(String value) {
+    insuranceBasicProvinceNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicProvinceNameList(int _index) {
-    _insuranceBasicProvinceNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicProvinceNameList(int index) {
+    insuranceBasicProvinceNameList.removeAt(index);
   }
 
   void updateInsuranceBasicProvinceNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicProvinceNameList[_index] =
-        updateFn(_insuranceBasicProvinceNameList[_index]);
+    insuranceBasicProvinceNameList[index] =
+        updateFn(_insuranceBasicProvinceNameList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicProvinceNameList(
-      int _index, String _value) {
-    _insuranceBasicProvinceNameList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicProvinceNameList(int index, String value) {
+    insuranceBasicProvinceNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleUsedTypeIdList = [];
   List<String> get insuranceBasicVehicleUsedTypeIdList =>
       _insuranceBasicVehicleUsedTypeIdList;
-  set insuranceBasicVehicleUsedTypeIdList(List<String> _value) {
-    _insuranceBasicVehicleUsedTypeIdList = _value;
+  set insuranceBasicVehicleUsedTypeIdList(List<String> value) {
+    _insuranceBasicVehicleUsedTypeIdList = value;
   }
 
-  void addToInsuranceBasicVehicleUsedTypeIdList(String _value) {
-    _insuranceBasicVehicleUsedTypeIdList.add(_value);
+  void addToInsuranceBasicVehicleUsedTypeIdList(String value) {
+    insuranceBasicVehicleUsedTypeIdList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleUsedTypeIdList(String _value) {
-    _insuranceBasicVehicleUsedTypeIdList.remove(_value);
+  void removeFromInsuranceBasicVehicleUsedTypeIdList(String value) {
+    insuranceBasicVehicleUsedTypeIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleUsedTypeIdList(int _index) {
-    _insuranceBasicVehicleUsedTypeIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleUsedTypeIdList(int index) {
+    insuranceBasicVehicleUsedTypeIdList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleUsedTypeIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleUsedTypeIdList[_index] =
-        updateFn(_insuranceBasicVehicleUsedTypeIdList[_index]);
+    insuranceBasicVehicleUsedTypeIdList[index] =
+        updateFn(_insuranceBasicVehicleUsedTypeIdList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleUsedTypeIdList(
-      int _index, String _value) {
-    _insuranceBasicVehicleUsedTypeIdList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleUsedTypeIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleUsedTypeNameList = [];
   List<String> get insuranceBasicVehicleUsedTypeNameList =>
       _insuranceBasicVehicleUsedTypeNameList;
-  set insuranceBasicVehicleUsedTypeNameList(List<String> _value) {
-    _insuranceBasicVehicleUsedTypeNameList = _value;
+  set insuranceBasicVehicleUsedTypeNameList(List<String> value) {
+    _insuranceBasicVehicleUsedTypeNameList = value;
   }
 
-  void addToInsuranceBasicVehicleUsedTypeNameList(String _value) {
-    _insuranceBasicVehicleUsedTypeNameList.add(_value);
+  void addToInsuranceBasicVehicleUsedTypeNameList(String value) {
+    insuranceBasicVehicleUsedTypeNameList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleUsedTypeNameList(String _value) {
-    _insuranceBasicVehicleUsedTypeNameList.remove(_value);
+  void removeFromInsuranceBasicVehicleUsedTypeNameList(String value) {
+    insuranceBasicVehicleUsedTypeNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleUsedTypeNameList(int _index) {
-    _insuranceBasicVehicleUsedTypeNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleUsedTypeNameList(int index) {
+    insuranceBasicVehicleUsedTypeNameList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleUsedTypeNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleUsedTypeNameList[_index] =
-        updateFn(_insuranceBasicVehicleUsedTypeNameList[_index]);
+    insuranceBasicVehicleUsedTypeNameList[index] =
+        updateFn(_insuranceBasicVehicleUsedTypeNameList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleUsedTypeNameList(
-      int _index, String _value) {
-    _insuranceBasicVehicleUsedTypeNameList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleUsedTypeNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleUsedTypeTypeList = [];
   List<String> get insuranceBasicVehicleUsedTypeTypeList =>
       _insuranceBasicVehicleUsedTypeTypeList;
-  set insuranceBasicVehicleUsedTypeTypeList(List<String> _value) {
-    _insuranceBasicVehicleUsedTypeTypeList = _value;
+  set insuranceBasicVehicleUsedTypeTypeList(List<String> value) {
+    _insuranceBasicVehicleUsedTypeTypeList = value;
   }
 
-  void addToInsuranceBasicVehicleUsedTypeTypeList(String _value) {
-    _insuranceBasicVehicleUsedTypeTypeList.add(_value);
+  void addToInsuranceBasicVehicleUsedTypeTypeList(String value) {
+    insuranceBasicVehicleUsedTypeTypeList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleUsedTypeTypeList(String _value) {
-    _insuranceBasicVehicleUsedTypeTypeList.remove(_value);
+  void removeFromInsuranceBasicVehicleUsedTypeTypeList(String value) {
+    insuranceBasicVehicleUsedTypeTypeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleUsedTypeTypeList(int _index) {
-    _insuranceBasicVehicleUsedTypeTypeList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleUsedTypeTypeList(int index) {
+    insuranceBasicVehicleUsedTypeTypeList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleUsedTypeTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleUsedTypeTypeList[_index] =
-        updateFn(_insuranceBasicVehicleUsedTypeTypeList[_index]);
+    insuranceBasicVehicleUsedTypeTypeList[index] =
+        updateFn(_insuranceBasicVehicleUsedTypeTypeList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleUsedTypeTypeList(
-      int _index, String _value) {
-    _insuranceBasicVehicleUsedTypeTypeList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleUsedTypeTypeList.insert(index, value);
   }
 
   List<String> _insuranceBasicModelBrandIdListOriginal = [];
   List<String> get insuranceBasicModelBrandIdListOriginal =>
       _insuranceBasicModelBrandIdListOriginal;
-  set insuranceBasicModelBrandIdListOriginal(List<String> _value) {
-    _insuranceBasicModelBrandIdListOriginal = _value;
+  set insuranceBasicModelBrandIdListOriginal(List<String> value) {
+    _insuranceBasicModelBrandIdListOriginal = value;
   }
 
-  void addToInsuranceBasicModelBrandIdListOriginal(String _value) {
-    _insuranceBasicModelBrandIdListOriginal.add(_value);
+  void addToInsuranceBasicModelBrandIdListOriginal(String value) {
+    insuranceBasicModelBrandIdListOriginal.add(value);
   }
 
-  void removeFromInsuranceBasicModelBrandIdListOriginal(String _value) {
-    _insuranceBasicModelBrandIdListOriginal.remove(_value);
+  void removeFromInsuranceBasicModelBrandIdListOriginal(String value) {
+    insuranceBasicModelBrandIdListOriginal.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelBrandIdListOriginal(int _index) {
-    _insuranceBasicModelBrandIdListOriginal.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelBrandIdListOriginal(int index) {
+    insuranceBasicModelBrandIdListOriginal.removeAt(index);
   }
 
   void updateInsuranceBasicModelBrandIdListOriginalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelBrandIdListOriginal[_index] =
-        updateFn(_insuranceBasicModelBrandIdListOriginal[_index]);
+    insuranceBasicModelBrandIdListOriginal[index] =
+        updateFn(_insuranceBasicModelBrandIdListOriginal[index]);
   }
 
   void insertAtIndexInInsuranceBasicModelBrandIdListOriginal(
-      int _index, String _value) {
-    _insuranceBasicModelBrandIdListOriginal.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicModelBrandIdListOriginal.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleUsedTypeCodeList = [];
   List<String> get insuranceBasicVehicleUsedTypeCodeList =>
       _insuranceBasicVehicleUsedTypeCodeList;
-  set insuranceBasicVehicleUsedTypeCodeList(List<String> _value) {
-    _insuranceBasicVehicleUsedTypeCodeList = _value;
+  set insuranceBasicVehicleUsedTypeCodeList(List<String> value) {
+    _insuranceBasicVehicleUsedTypeCodeList = value;
   }
 
-  void addToInsuranceBasicVehicleUsedTypeCodeList(String _value) {
-    _insuranceBasicVehicleUsedTypeCodeList.add(_value);
+  void addToInsuranceBasicVehicleUsedTypeCodeList(String value) {
+    insuranceBasicVehicleUsedTypeCodeList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleUsedTypeCodeList(String _value) {
-    _insuranceBasicVehicleUsedTypeCodeList.remove(_value);
+  void removeFromInsuranceBasicVehicleUsedTypeCodeList(String value) {
+    insuranceBasicVehicleUsedTypeCodeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleUsedTypeCodeList(int _index) {
-    _insuranceBasicVehicleUsedTypeCodeList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleUsedTypeCodeList(int index) {
+    insuranceBasicVehicleUsedTypeCodeList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleUsedTypeCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleUsedTypeCodeList[_index] =
-        updateFn(_insuranceBasicVehicleUsedTypeCodeList[_index]);
+    insuranceBasicVehicleUsedTypeCodeList[index] =
+        updateFn(_insuranceBasicVehicleUsedTypeCodeList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleUsedTypeCodeList(
-      int _index, String _value) {
-    _insuranceBasicVehicleUsedTypeCodeList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleUsedTypeCodeList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerIdList = [];
   List<String> get insuranceBasicInsurerIdList => _insuranceBasicInsurerIdList;
-  set insuranceBasicInsurerIdList(List<String> _value) {
-    _insuranceBasicInsurerIdList = _value;
+  set insuranceBasicInsurerIdList(List<String> value) {
+    _insuranceBasicInsurerIdList = value;
   }
 
-  void addToInsuranceBasicInsurerIdList(String _value) {
-    _insuranceBasicInsurerIdList.add(_value);
+  void addToInsuranceBasicInsurerIdList(String value) {
+    insuranceBasicInsurerIdList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerIdList(String _value) {
-    _insuranceBasicInsurerIdList.remove(_value);
+  void removeFromInsuranceBasicInsurerIdList(String value) {
+    insuranceBasicInsurerIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerIdList(int _index) {
-    _insuranceBasicInsurerIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerIdList(int index) {
+    insuranceBasicInsurerIdList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerIdList[_index] =
-        updateFn(_insuranceBasicInsurerIdList[_index]);
+    insuranceBasicInsurerIdList[index] =
+        updateFn(_insuranceBasicInsurerIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicInsurerIdList(int _index, String _value) {
-    _insuranceBasicInsurerIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicInsurerIdList(int index, String value) {
+    insuranceBasicInsurerIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerCodeList = [];
   List<String> get insuranceBasicInsurerCodeList =>
       _insuranceBasicInsurerCodeList;
-  set insuranceBasicInsurerCodeList(List<String> _value) {
-    _insuranceBasicInsurerCodeList = _value;
+  set insuranceBasicInsurerCodeList(List<String> value) {
+    _insuranceBasicInsurerCodeList = value;
   }
 
-  void addToInsuranceBasicInsurerCodeList(String _value) {
-    _insuranceBasicInsurerCodeList.add(_value);
+  void addToInsuranceBasicInsurerCodeList(String value) {
+    insuranceBasicInsurerCodeList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerCodeList(String _value) {
-    _insuranceBasicInsurerCodeList.remove(_value);
+  void removeFromInsuranceBasicInsurerCodeList(String value) {
+    insuranceBasicInsurerCodeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerCodeList(int _index) {
-    _insuranceBasicInsurerCodeList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerCodeList(int index) {
+    insuranceBasicInsurerCodeList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerCodeList[_index] =
-        updateFn(_insuranceBasicInsurerCodeList[_index]);
+    insuranceBasicInsurerCodeList[index] =
+        updateFn(_insuranceBasicInsurerCodeList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicInsurerCodeList(int _index, String _value) {
-    _insuranceBasicInsurerCodeList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicInsurerCodeList(int index, String value) {
+    insuranceBasicInsurerCodeList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerShortNameList = [];
   List<String> get insuranceBasicInsurerShortNameList =>
       _insuranceBasicInsurerShortNameList;
-  set insuranceBasicInsurerShortNameList(List<String> _value) {
-    _insuranceBasicInsurerShortNameList = _value;
+  set insuranceBasicInsurerShortNameList(List<String> value) {
+    _insuranceBasicInsurerShortNameList = value;
   }
 
-  void addToInsuranceBasicInsurerShortNameList(String _value) {
-    _insuranceBasicInsurerShortNameList.add(_value);
+  void addToInsuranceBasicInsurerShortNameList(String value) {
+    insuranceBasicInsurerShortNameList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerShortNameList(String _value) {
-    _insuranceBasicInsurerShortNameList.remove(_value);
+  void removeFromInsuranceBasicInsurerShortNameList(String value) {
+    insuranceBasicInsurerShortNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerShortNameList(int _index) {
-    _insuranceBasicInsurerShortNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerShortNameList(int index) {
+    insuranceBasicInsurerShortNameList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerShortNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerShortNameList[_index] =
-        updateFn(_insuranceBasicInsurerShortNameList[_index]);
+    insuranceBasicInsurerShortNameList[index] =
+        updateFn(_insuranceBasicInsurerShortNameList[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerShortNameList(
-      int _index, String _value) {
-    _insuranceBasicInsurerShortNameList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerShortNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerFullNameList = [];
   List<String> get insuranceBasicInsurerFullNameList =>
       _insuranceBasicInsurerFullNameList;
-  set insuranceBasicInsurerFullNameList(List<String> _value) {
-    _insuranceBasicInsurerFullNameList = _value;
+  set insuranceBasicInsurerFullNameList(List<String> value) {
+    _insuranceBasicInsurerFullNameList = value;
   }
 
-  void addToInsuranceBasicInsurerFullNameList(String _value) {
-    _insuranceBasicInsurerFullNameList.add(_value);
+  void addToInsuranceBasicInsurerFullNameList(String value) {
+    insuranceBasicInsurerFullNameList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerFullNameList(String _value) {
-    _insuranceBasicInsurerFullNameList.remove(_value);
+  void removeFromInsuranceBasicInsurerFullNameList(String value) {
+    insuranceBasicInsurerFullNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerFullNameList(int _index) {
-    _insuranceBasicInsurerFullNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerFullNameList(int index) {
+    insuranceBasicInsurerFullNameList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerFullNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerFullNameList[_index] =
-        updateFn(_insuranceBasicInsurerFullNameList[_index]);
+    insuranceBasicInsurerFullNameList[index] =
+        updateFn(_insuranceBasicInsurerFullNameList[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerFullNameList(
-      int _index, String _value) {
-    _insuranceBasicInsurerFullNameList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerFullNameList.insert(index, value);
   }
 
   String _insuranceBasicTruckPart = '';
   String get insuranceBasicTruckPart => _insuranceBasicTruckPart;
-  set insuranceBasicTruckPart(String _value) {
-    _insuranceBasicTruckPart = _value;
+  set insuranceBasicTruckPart(String value) {
+    _insuranceBasicTruckPart = value;
   }
 
   List<bool> _upLoadedPic2 = [
@@ -6409,31 +6404,31 @@ class FFAppState extends ChangeNotifier {
     false
   ];
   List<bool> get upLoadedPic2 => _upLoadedPic2;
-  set upLoadedPic2(List<bool> _value) {
-    _upLoadedPic2 = _value;
+  set upLoadedPic2(List<bool> value) {
+    _upLoadedPic2 = value;
   }
 
-  void addToUpLoadedPic2(bool _value) {
-    _upLoadedPic2.add(_value);
+  void addToUpLoadedPic2(bool value) {
+    upLoadedPic2.add(value);
   }
 
-  void removeFromUpLoadedPic2(bool _value) {
-    _upLoadedPic2.remove(_value);
+  void removeFromUpLoadedPic2(bool value) {
+    upLoadedPic2.remove(value);
   }
 
-  void removeAtIndexFromUpLoadedPic2(int _index) {
-    _upLoadedPic2.removeAt(_index);
+  void removeAtIndexFromUpLoadedPic2(int index) {
+    upLoadedPic2.removeAt(index);
   }
 
   void updateUpLoadedPic2AtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _upLoadedPic2[_index] = updateFn(_upLoadedPic2[_index]);
+    upLoadedPic2[index] = updateFn(_upLoadedPic2[index]);
   }
 
-  void insertAtIndexInUpLoadedPic2(int _index, bool _value) {
-    _upLoadedPic2.insert(_index, _value);
+  void insertAtIndexInUpLoadedPic2(int index, bool value) {
+    upLoadedPic2.insert(index, value);
   }
 
   List<bool> _upLoadedPic3 = [
@@ -6447,728 +6442,724 @@ class FFAppState extends ChangeNotifier {
     false
   ];
   List<bool> get upLoadedPic3 => _upLoadedPic3;
-  set upLoadedPic3(List<bool> _value) {
-    _upLoadedPic3 = _value;
+  set upLoadedPic3(List<bool> value) {
+    _upLoadedPic3 = value;
   }
 
-  void addToUpLoadedPic3(bool _value) {
-    _upLoadedPic3.add(_value);
+  void addToUpLoadedPic3(bool value) {
+    upLoadedPic3.add(value);
   }
 
-  void removeFromUpLoadedPic3(bool _value) {
-    _upLoadedPic3.remove(_value);
+  void removeFromUpLoadedPic3(bool value) {
+    upLoadedPic3.remove(value);
   }
 
-  void removeAtIndexFromUpLoadedPic3(int _index) {
-    _upLoadedPic3.removeAt(_index);
+  void removeAtIndexFromUpLoadedPic3(int index) {
+    upLoadedPic3.removeAt(index);
   }
 
   void updateUpLoadedPic3AtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _upLoadedPic3[_index] = updateFn(_upLoadedPic3[_index]);
+    upLoadedPic3[index] = updateFn(_upLoadedPic3[index]);
   }
 
-  void insertAtIndexInUpLoadedPic3(int _index, bool _value) {
-    _upLoadedPic3.insert(_index, _value);
+  void insertAtIndexInUpLoadedPic3(int index, bool value) {
+    upLoadedPic3.insert(index, value);
   }
 
   String _insuranceBasicGarageId = '';
   String get insuranceBasicGarageId => _insuranceBasicGarageId;
-  set insuranceBasicGarageId(String _value) {
-    _insuranceBasicGarageId = _value;
+  set insuranceBasicGarageId(String value) {
+    _insuranceBasicGarageId = value;
   }
 
   String _insuranceBasicGarageName = 'เลือกประเภทการซ่อม';
   String get insuranceBasicGarageName => _insuranceBasicGarageName;
-  set insuranceBasicGarageName(String _value) {
-    _insuranceBasicGarageName = _value;
+  set insuranceBasicGarageName(String value) {
+    _insuranceBasicGarageName = value;
   }
 
   String _insuranceBasicCoverTypeId = '';
   String get insuranceBasicCoverTypeId => _insuranceBasicCoverTypeId;
-  set insuranceBasicCoverTypeId(String _value) {
-    _insuranceBasicCoverTypeId = _value;
+  set insuranceBasicCoverTypeId(String value) {
+    _insuranceBasicCoverTypeId = value;
   }
 
   String _insuranceBasicCoverTypeCode = '';
   String get insuranceBasicCoverTypeCode => _insuranceBasicCoverTypeCode;
-  set insuranceBasicCoverTypeCode(String _value) {
-    _insuranceBasicCoverTypeCode = _value;
+  set insuranceBasicCoverTypeCode(String value) {
+    _insuranceBasicCoverTypeCode = value;
   }
 
   String _insuranceBasicCoverTypeName = 'เลือกชั้นประกัน';
   String get insuranceBasicCoverTypeName => _insuranceBasicCoverTypeName;
-  set insuranceBasicCoverTypeName(String _value) {
-    _insuranceBasicCoverTypeName = _value;
+  set insuranceBasicCoverTypeName(String value) {
+    _insuranceBasicCoverTypeName = value;
   }
 
   List<String> _insuranceBasicCoverTypeIdList = [];
   List<String> get insuranceBasicCoverTypeIdList =>
       _insuranceBasicCoverTypeIdList;
-  set insuranceBasicCoverTypeIdList(List<String> _value) {
-    _insuranceBasicCoverTypeIdList = _value;
+  set insuranceBasicCoverTypeIdList(List<String> value) {
+    _insuranceBasicCoverTypeIdList = value;
   }
 
-  void addToInsuranceBasicCoverTypeIdList(String _value) {
-    _insuranceBasicCoverTypeIdList.add(_value);
+  void addToInsuranceBasicCoverTypeIdList(String value) {
+    insuranceBasicCoverTypeIdList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeIdList(String _value) {
-    _insuranceBasicCoverTypeIdList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeIdList(String value) {
+    insuranceBasicCoverTypeIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeIdList(int _index) {
-    _insuranceBasicCoverTypeIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeIdList(int index) {
+    insuranceBasicCoverTypeIdList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeIdList[_index] =
-        updateFn(_insuranceBasicCoverTypeIdList[_index]);
+    insuranceBasicCoverTypeIdList[index] =
+        updateFn(_insuranceBasicCoverTypeIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicCoverTypeIdList(int _index, String _value) {
-    _insuranceBasicCoverTypeIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicCoverTypeIdList(int index, String value) {
+    insuranceBasicCoverTypeIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicCoverTypeCodeList = [];
   List<String> get insuranceBasicCoverTypeCodeList =>
       _insuranceBasicCoverTypeCodeList;
-  set insuranceBasicCoverTypeCodeList(List<String> _value) {
-    _insuranceBasicCoverTypeCodeList = _value;
+  set insuranceBasicCoverTypeCodeList(List<String> value) {
+    _insuranceBasicCoverTypeCodeList = value;
   }
 
-  void addToInsuranceBasicCoverTypeCodeList(String _value) {
-    _insuranceBasicCoverTypeCodeList.add(_value);
+  void addToInsuranceBasicCoverTypeCodeList(String value) {
+    insuranceBasicCoverTypeCodeList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeCodeList(String _value) {
-    _insuranceBasicCoverTypeCodeList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeCodeList(String value) {
+    insuranceBasicCoverTypeCodeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeCodeList(int _index) {
-    _insuranceBasicCoverTypeCodeList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeCodeList(int index) {
+    insuranceBasicCoverTypeCodeList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeCodeList[_index] =
-        updateFn(_insuranceBasicCoverTypeCodeList[_index]);
+    insuranceBasicCoverTypeCodeList[index] =
+        updateFn(_insuranceBasicCoverTypeCodeList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicCoverTypeCodeList(
-      int _index, String _value) {
-    _insuranceBasicCoverTypeCodeList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicCoverTypeCodeList(int index, String value) {
+    insuranceBasicCoverTypeCodeList.insert(index, value);
   }
 
   List<String> _insuranceBasicCoverTypeNameList = [];
   List<String> get insuranceBasicCoverTypeNameList =>
       _insuranceBasicCoverTypeNameList;
-  set insuranceBasicCoverTypeNameList(List<String> _value) {
-    _insuranceBasicCoverTypeNameList = _value;
+  set insuranceBasicCoverTypeNameList(List<String> value) {
+    _insuranceBasicCoverTypeNameList = value;
   }
 
-  void addToInsuranceBasicCoverTypeNameList(String _value) {
-    _insuranceBasicCoverTypeNameList.add(_value);
+  void addToInsuranceBasicCoverTypeNameList(String value) {
+    insuranceBasicCoverTypeNameList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeNameList(String _value) {
-    _insuranceBasicCoverTypeNameList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeNameList(String value) {
+    insuranceBasicCoverTypeNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeNameList(int _index) {
-    _insuranceBasicCoverTypeNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeNameList(int index) {
+    insuranceBasicCoverTypeNameList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeNameList[_index] =
-        updateFn(_insuranceBasicCoverTypeNameList[_index]);
+    insuranceBasicCoverTypeNameList[index] =
+        updateFn(_insuranceBasicCoverTypeNameList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicCoverTypeNameList(
-      int _index, String _value) {
-    _insuranceBasicCoverTypeNameList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicCoverTypeNameList(int index, String value) {
+    insuranceBasicCoverTypeNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerIdOutput = [];
   List<String> get insuranceBasicInsurerIdOutput =>
       _insuranceBasicInsurerIdOutput;
-  set insuranceBasicInsurerIdOutput(List<String> _value) {
-    _insuranceBasicInsurerIdOutput = _value;
+  set insuranceBasicInsurerIdOutput(List<String> value) {
+    _insuranceBasicInsurerIdOutput = value;
   }
 
-  void addToInsuranceBasicInsurerIdOutput(String _value) {
-    _insuranceBasicInsurerIdOutput.add(_value);
+  void addToInsuranceBasicInsurerIdOutput(String value) {
+    insuranceBasicInsurerIdOutput.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerIdOutput(String _value) {
-    _insuranceBasicInsurerIdOutput.remove(_value);
+  void removeFromInsuranceBasicInsurerIdOutput(String value) {
+    insuranceBasicInsurerIdOutput.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerIdOutput(int _index) {
-    _insuranceBasicInsurerIdOutput.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerIdOutput(int index) {
+    insuranceBasicInsurerIdOutput.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerIdOutputAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerIdOutput[_index] =
-        updateFn(_insuranceBasicInsurerIdOutput[_index]);
+    insuranceBasicInsurerIdOutput[index] =
+        updateFn(_insuranceBasicInsurerIdOutput[index]);
   }
 
-  void insertAtIndexInInsuranceBasicInsurerIdOutput(int _index, String _value) {
-    _insuranceBasicInsurerIdOutput.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicInsurerIdOutput(int index, String value) {
+    insuranceBasicInsurerIdOutput.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerCodeOutput = [];
   List<String> get insuranceBasicInsurerCodeOutput =>
       _insuranceBasicInsurerCodeOutput;
-  set insuranceBasicInsurerCodeOutput(List<String> _value) {
-    _insuranceBasicInsurerCodeOutput = _value;
+  set insuranceBasicInsurerCodeOutput(List<String> value) {
+    _insuranceBasicInsurerCodeOutput = value;
   }
 
-  void addToInsuranceBasicInsurerCodeOutput(String _value) {
-    _insuranceBasicInsurerCodeOutput.add(_value);
+  void addToInsuranceBasicInsurerCodeOutput(String value) {
+    insuranceBasicInsurerCodeOutput.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerCodeOutput(String _value) {
-    _insuranceBasicInsurerCodeOutput.remove(_value);
+  void removeFromInsuranceBasicInsurerCodeOutput(String value) {
+    insuranceBasicInsurerCodeOutput.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerCodeOutput(int _index) {
-    _insuranceBasicInsurerCodeOutput.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerCodeOutput(int index) {
+    insuranceBasicInsurerCodeOutput.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerCodeOutputAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerCodeOutput[_index] =
-        updateFn(_insuranceBasicInsurerCodeOutput[_index]);
+    insuranceBasicInsurerCodeOutput[index] =
+        updateFn(_insuranceBasicInsurerCodeOutput[index]);
   }
 
-  void insertAtIndexInInsuranceBasicInsurerCodeOutput(
-      int _index, String _value) {
-    _insuranceBasicInsurerCodeOutput.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicInsurerCodeOutput(int index, String value) {
+    insuranceBasicInsurerCodeOutput.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerShortNameOutput = [];
   List<String> get insuranceBasicInsurerShortNameOutput =>
       _insuranceBasicInsurerShortNameOutput;
-  set insuranceBasicInsurerShortNameOutput(List<String> _value) {
-    _insuranceBasicInsurerShortNameOutput = _value;
+  set insuranceBasicInsurerShortNameOutput(List<String> value) {
+    _insuranceBasicInsurerShortNameOutput = value;
   }
 
-  void addToInsuranceBasicInsurerShortNameOutput(String _value) {
-    _insuranceBasicInsurerShortNameOutput.add(_value);
+  void addToInsuranceBasicInsurerShortNameOutput(String value) {
+    insuranceBasicInsurerShortNameOutput.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerShortNameOutput(String _value) {
-    _insuranceBasicInsurerShortNameOutput.remove(_value);
+  void removeFromInsuranceBasicInsurerShortNameOutput(String value) {
+    insuranceBasicInsurerShortNameOutput.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerShortNameOutput(int _index) {
-    _insuranceBasicInsurerShortNameOutput.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerShortNameOutput(int index) {
+    insuranceBasicInsurerShortNameOutput.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerShortNameOutputAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerShortNameOutput[_index] =
-        updateFn(_insuranceBasicInsurerShortNameOutput[_index]);
+    insuranceBasicInsurerShortNameOutput[index] =
+        updateFn(_insuranceBasicInsurerShortNameOutput[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerShortNameOutput(
-      int _index, String _value) {
-    _insuranceBasicInsurerShortNameOutput.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerShortNameOutput.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerFullNameOutput = [];
   List<String> get insuranceBasicInsurerFullNameOutput =>
       _insuranceBasicInsurerFullNameOutput;
-  set insuranceBasicInsurerFullNameOutput(List<String> _value) {
-    _insuranceBasicInsurerFullNameOutput = _value;
+  set insuranceBasicInsurerFullNameOutput(List<String> value) {
+    _insuranceBasicInsurerFullNameOutput = value;
   }
 
-  void addToInsuranceBasicInsurerFullNameOutput(String _value) {
-    _insuranceBasicInsurerFullNameOutput.add(_value);
+  void addToInsuranceBasicInsurerFullNameOutput(String value) {
+    insuranceBasicInsurerFullNameOutput.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerFullNameOutput(String _value) {
-    _insuranceBasicInsurerFullNameOutput.remove(_value);
+  void removeFromInsuranceBasicInsurerFullNameOutput(String value) {
+    insuranceBasicInsurerFullNameOutput.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerFullNameOutput(int _index) {
-    _insuranceBasicInsurerFullNameOutput.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerFullNameOutput(int index) {
+    insuranceBasicInsurerFullNameOutput.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerFullNameOutputAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerFullNameOutput[_index] =
-        updateFn(_insuranceBasicInsurerFullNameOutput[_index]);
+    insuranceBasicInsurerFullNameOutput[index] =
+        updateFn(_insuranceBasicInsurerFullNameOutput[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerFullNameOutput(
-      int _index, String _value) {
-    _insuranceBasicInsurerFullNameOutput.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerFullNameOutput.insert(index, value);
   }
 
   String _insuranceBasicActFlag = '';
   String get insuranceBasicActFlag => _insuranceBasicActFlag;
-  set insuranceBasicActFlag(String _value) {
-    _insuranceBasicActFlag = _value;
+  set insuranceBasicActFlag(String value) {
+    _insuranceBasicActFlag = value;
   }
 
   String _insuranceBasicVehicleUsedTypeId = '';
   String get insuranceBasicVehicleUsedTypeId =>
       _insuranceBasicVehicleUsedTypeId;
-  set insuranceBasicVehicleUsedTypeId(String _value) {
-    _insuranceBasicVehicleUsedTypeId = _value;
+  set insuranceBasicVehicleUsedTypeId(String value) {
+    _insuranceBasicVehicleUsedTypeId = value;
   }
 
   String _insuranceBasicVehicleUsedTypeCode = '';
   String get insuranceBasicVehicleUsedTypeCode =>
       _insuranceBasicVehicleUsedTypeCode;
-  set insuranceBasicVehicleUsedTypeCode(String _value) {
-    _insuranceBasicVehicleUsedTypeCode = _value;
+  set insuranceBasicVehicleUsedTypeCode(String value) {
+    _insuranceBasicVehicleUsedTypeCode = value;
   }
 
   String _insuranceBasicVehicleUsedTypeName = 'เลือกการใช้งาน';
   String get insuranceBasicVehicleUsedTypeName =>
       _insuranceBasicVehicleUsedTypeName;
-  set insuranceBasicVehicleUsedTypeName(String _value) {
-    _insuranceBasicVehicleUsedTypeName = _value;
+  set insuranceBasicVehicleUsedTypeName(String value) {
+    _insuranceBasicVehicleUsedTypeName = value;
   }
 
   String _insuranceBasicSumInsured = '';
   String get insuranceBasicSumInsured => _insuranceBasicSumInsured;
-  set insuranceBasicSumInsured(String _value) {
-    _insuranceBasicSumInsured = _value;
+  set insuranceBasicSumInsured(String value) {
+    _insuranceBasicSumInsured = value;
   }
 
   bool _insuranceRequestIsLoadedData = false;
   bool get insuranceRequestIsLoadedData => _insuranceRequestIsLoadedData;
-  set insuranceRequestIsLoadedData(bool _value) {
-    _insuranceRequestIsLoadedData = _value;
+  set insuranceRequestIsLoadedData(bool value) {
+    _insuranceRequestIsLoadedData = value;
   }
 
   int _successStatusCode = 201;
   int get successStatusCode => _successStatusCode;
-  set successStatusCode(int _value) {
-    _successStatusCode = _value;
+  set successStatusCode(int value) {
+    _successStatusCode = value;
   }
 
   String _insuranceBasicTrailerSumInsured = '';
   String get insuranceBasicTrailerSumInsured =>
       _insuranceBasicTrailerSumInsured;
-  set insuranceBasicTrailerSumInsured(String _value) {
-    _insuranceBasicTrailerSumInsured = _value;
+  set insuranceBasicTrailerSumInsured(String value) {
+    _insuranceBasicTrailerSumInsured = value;
   }
 
   String _insuranceBasicListFlagRenew = '1';
   String get insuranceBasicListFlagRenew => _insuranceBasicListFlagRenew;
-  set insuranceBasicListFlagRenew(String _value) {
-    _insuranceBasicListFlagRenew = _value;
+  set insuranceBasicListFlagRenew(String value) {
+    _insuranceBasicListFlagRenew = value;
   }
 
   List<String> _insuranceBasicInsurerListNameList = [];
   List<String> get insuranceBasicInsurerListNameList =>
       _insuranceBasicInsurerListNameList;
-  set insuranceBasicInsurerListNameList(List<String> _value) {
-    _insuranceBasicInsurerListNameList = _value;
+  set insuranceBasicInsurerListNameList(List<String> value) {
+    _insuranceBasicInsurerListNameList = value;
   }
 
-  void addToInsuranceBasicInsurerListNameList(String _value) {
-    _insuranceBasicInsurerListNameList.add(_value);
+  void addToInsuranceBasicInsurerListNameList(String value) {
+    insuranceBasicInsurerListNameList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerListNameList(String _value) {
-    _insuranceBasicInsurerListNameList.remove(_value);
+  void removeFromInsuranceBasicInsurerListNameList(String value) {
+    insuranceBasicInsurerListNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerListNameList(int _index) {
-    _insuranceBasicInsurerListNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerListNameList(int index) {
+    insuranceBasicInsurerListNameList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerListNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerListNameList[_index] =
-        updateFn(_insuranceBasicInsurerListNameList[_index]);
+    insuranceBasicInsurerListNameList[index] =
+        updateFn(_insuranceBasicInsurerListNameList[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerListNameList(
-      int _index, String _value) {
-    _insuranceBasicInsurerListNameList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerListNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicInsurerListNameRandomList = [];
   List<String> get insuranceBasicInsurerListNameRandomList =>
       _insuranceBasicInsurerListNameRandomList;
-  set insuranceBasicInsurerListNameRandomList(List<String> _value) {
-    _insuranceBasicInsurerListNameRandomList = _value;
+  set insuranceBasicInsurerListNameRandomList(List<String> value) {
+    _insuranceBasicInsurerListNameRandomList = value;
   }
 
-  void addToInsuranceBasicInsurerListNameRandomList(String _value) {
-    _insuranceBasicInsurerListNameRandomList.add(_value);
+  void addToInsuranceBasicInsurerListNameRandomList(String value) {
+    insuranceBasicInsurerListNameRandomList.add(value);
   }
 
-  void removeFromInsuranceBasicInsurerListNameRandomList(String _value) {
-    _insuranceBasicInsurerListNameRandomList.remove(_value);
+  void removeFromInsuranceBasicInsurerListNameRandomList(String value) {
+    insuranceBasicInsurerListNameRandomList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicInsurerListNameRandomList(int _index) {
-    _insuranceBasicInsurerListNameRandomList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicInsurerListNameRandomList(int index) {
+    insuranceBasicInsurerListNameRandomList.removeAt(index);
   }
 
   void updateInsuranceBasicInsurerListNameRandomListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicInsurerListNameRandomList[_index] =
-        updateFn(_insuranceBasicInsurerListNameRandomList[_index]);
+    insuranceBasicInsurerListNameRandomList[index] =
+        updateFn(_insuranceBasicInsurerListNameRandomList[index]);
   }
 
   void insertAtIndexInInsuranceBasicInsurerListNameRandomList(
-      int _index, String _value) {
-    _insuranceBasicInsurerListNameRandomList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicInsurerListNameRandomList.insert(index, value);
   }
 
   String _fromPage = 'Dashboard';
   String get fromPage => _fromPage;
-  set fromPage(String _value) {
-    _fromPage = _value;
+  set fromPage(String value) {
+    _fromPage = value;
   }
 
   String _insuranceOperationChoiceChips = 'งานใหม่          ';
   String get insuranceOperationChoiceChips => _insuranceOperationChoiceChips;
-  set insuranceOperationChoiceChips(String _value) {
-    _insuranceOperationChoiceChips = _value;
+  set insuranceOperationChoiceChips(String value) {
+    _insuranceOperationChoiceChips = value;
   }
 
   String _insuranceCustomerTypeChoiceChips = 'บุคคลธรรมดา';
   String get insuranceCustomerTypeChoiceChips =>
       _insuranceCustomerTypeChoiceChips;
-  set insuranceCustomerTypeChoiceChips(String _value) {
-    _insuranceCustomerTypeChoiceChips = _value;
+  set insuranceCustomerTypeChoiceChips(String value) {
+    _insuranceCustomerTypeChoiceChips = value;
   }
 
   bool _insuranceBoxCheckbokValue = false;
   bool get insuranceBoxCheckbokValue => _insuranceBoxCheckbokValue;
-  set insuranceBoxCheckbokValue(bool _value) {
-    _insuranceBoxCheckbokValue = _value;
+  set insuranceBoxCheckbokValue(bool value) {
+    _insuranceBoxCheckbokValue = value;
   }
 
   String _insuranceBoxTypeChoiceChip = 'ตู้แห้ง';
   String get insuranceBoxTypeChoiceChip => _insuranceBoxTypeChoiceChip;
-  set insuranceBoxTypeChoiceChip(String _value) {
-    _insuranceBoxTypeChoiceChip = _value;
+  set insuranceBoxTypeChoiceChip(String value) {
+    _insuranceBoxTypeChoiceChip = value;
   }
 
   String _insuranceVehicleTypeDropDown = 'เลือกประเภทรถ';
   String get insuranceVehicleTypeDropDown => _insuranceVehicleTypeDropDown;
-  set insuranceVehicleTypeDropDown(String _value) {
-    _insuranceVehicleTypeDropDown = _value;
+  set insuranceVehicleTypeDropDown(String value) {
+    _insuranceVehicleTypeDropDown = value;
   }
 
   String _imageOtherName = '';
   String get imageOtherName => _imageOtherName;
-  set imageOtherName(String _value) {
-    _imageOtherName = _value;
+  set imageOtherName(String value) {
+    _imageOtherName = value;
   }
 
   bool _checkBoxNotSatisfied = false;
   bool get checkBoxNotSatisfied => _checkBoxNotSatisfied;
-  set checkBoxNotSatisfied(bool _value) {
-    _checkBoxNotSatisfied = _value;
+  set checkBoxNotSatisfied(bool value) {
+    _checkBoxNotSatisfied = value;
   }
 
   bool _checkBoxNotInRate = false;
   bool get checkBoxNotInRate => _checkBoxNotInRate;
-  set checkBoxNotInRate(bool _value) {
-    _checkBoxNotInRate = _value;
+  set checkBoxNotInRate(bool value) {
+    _checkBoxNotInRate = value;
   }
 
   bool _checkBoxCustomCar = false;
   bool get checkBoxCustomCar => _checkBoxCustomCar;
-  set checkBoxCustomCar(bool _value) {
-    _checkBoxCustomCar = _value;
+  set checkBoxCustomCar(bool value) {
+    _checkBoxCustomCar = value;
   }
 
   bool _buttonOrdinary = false;
   bool get buttonOrdinary => _buttonOrdinary;
-  set buttonOrdinary(bool _value) {
-    _buttonOrdinary = _value;
+  set buttonOrdinary(bool value) {
+    _buttonOrdinary = value;
   }
 
   bool _buttonCorporation = false;
   bool get buttonCorporation => _buttonCorporation;
-  set buttonCorporation(bool _value) {
-    _buttonCorporation = _value;
+  set buttonCorporation(bool value) {
+    _buttonCorporation = value;
   }
 
   List<String> _insuranceBasicBrandTypeList = [];
   List<String> get insuranceBasicBrandTypeList => _insuranceBasicBrandTypeList;
-  set insuranceBasicBrandTypeList(List<String> _value) {
-    _insuranceBasicBrandTypeList = _value;
+  set insuranceBasicBrandTypeList(List<String> value) {
+    _insuranceBasicBrandTypeList = value;
   }
 
-  void addToInsuranceBasicBrandTypeList(String _value) {
-    _insuranceBasicBrandTypeList.add(_value);
+  void addToInsuranceBasicBrandTypeList(String value) {
+    insuranceBasicBrandTypeList.add(value);
   }
 
-  void removeFromInsuranceBasicBrandTypeList(String _value) {
-    _insuranceBasicBrandTypeList.remove(_value);
+  void removeFromInsuranceBasicBrandTypeList(String value) {
+    insuranceBasicBrandTypeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicBrandTypeList(int _index) {
-    _insuranceBasicBrandTypeList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicBrandTypeList(int index) {
+    insuranceBasicBrandTypeList.removeAt(index);
   }
 
   void updateInsuranceBasicBrandTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicBrandTypeList[_index] =
-        updateFn(_insuranceBasicBrandTypeList[_index]);
+    insuranceBasicBrandTypeList[index] =
+        updateFn(_insuranceBasicBrandTypeList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicBrandTypeList(int _index, String _value) {
-    _insuranceBasicBrandTypeList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicBrandTypeList(int index, String value) {
+    insuranceBasicBrandTypeList.insert(index, value);
   }
 
   List<String> _insuranceBasicModelList = [];
   List<String> get insuranceBasicModelList => _insuranceBasicModelList;
-  set insuranceBasicModelList(List<String> _value) {
-    _insuranceBasicModelList = _value;
+  set insuranceBasicModelList(List<String> value) {
+    _insuranceBasicModelList = value;
   }
 
-  void addToInsuranceBasicModelList(String _value) {
-    _insuranceBasicModelList.add(_value);
+  void addToInsuranceBasicModelList(String value) {
+    insuranceBasicModelList.add(value);
   }
 
-  void removeFromInsuranceBasicModelList(String _value) {
-    _insuranceBasicModelList.remove(_value);
+  void removeFromInsuranceBasicModelList(String value) {
+    insuranceBasicModelList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicModelList(int _index) {
-    _insuranceBasicModelList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicModelList(int index) {
+    insuranceBasicModelList.removeAt(index);
   }
 
   void updateInsuranceBasicModelListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicModelList[_index] =
-        updateFn(_insuranceBasicModelList[_index]);
+    insuranceBasicModelList[index] = updateFn(_insuranceBasicModelList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicModelList(int _index, String _value) {
-    _insuranceBasicModelList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicModelList(int index, String value) {
+    insuranceBasicModelList.insert(index, value);
   }
 
   List<String> _insuranceBasicCoverTypeNameOutputList = [];
   List<String> get insuranceBasicCoverTypeNameOutputList =>
       _insuranceBasicCoverTypeNameOutputList;
-  set insuranceBasicCoverTypeNameOutputList(List<String> _value) {
-    _insuranceBasicCoverTypeNameOutputList = _value;
+  set insuranceBasicCoverTypeNameOutputList(List<String> value) {
+    _insuranceBasicCoverTypeNameOutputList = value;
   }
 
-  void addToInsuranceBasicCoverTypeNameOutputList(String _value) {
-    _insuranceBasicCoverTypeNameOutputList.add(_value);
+  void addToInsuranceBasicCoverTypeNameOutputList(String value) {
+    insuranceBasicCoverTypeNameOutputList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeNameOutputList(String _value) {
-    _insuranceBasicCoverTypeNameOutputList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeNameOutputList(String value) {
+    insuranceBasicCoverTypeNameOutputList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeNameOutputList(int _index) {
-    _insuranceBasicCoverTypeNameOutputList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeNameOutputList(int index) {
+    insuranceBasicCoverTypeNameOutputList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeNameOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeNameOutputList[_index] =
-        updateFn(_insuranceBasicCoverTypeNameOutputList[_index]);
+    insuranceBasicCoverTypeNameOutputList[index] =
+        updateFn(_insuranceBasicCoverTypeNameOutputList[index]);
   }
 
   void insertAtIndexInInsuranceBasicCoverTypeNameOutputList(
-      int _index, String _value) {
-    _insuranceBasicCoverTypeNameOutputList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicCoverTypeNameOutputList.insert(index, value);
   }
 
   List<String> _insuranceBasicCoverTypeIdOutputList = [];
   List<String> get insuranceBasicCoverTypeIdOutputList =>
       _insuranceBasicCoverTypeIdOutputList;
-  set insuranceBasicCoverTypeIdOutputList(List<String> _value) {
-    _insuranceBasicCoverTypeIdOutputList = _value;
+  set insuranceBasicCoverTypeIdOutputList(List<String> value) {
+    _insuranceBasicCoverTypeIdOutputList = value;
   }
 
-  void addToInsuranceBasicCoverTypeIdOutputList(String _value) {
-    _insuranceBasicCoverTypeIdOutputList.add(_value);
+  void addToInsuranceBasicCoverTypeIdOutputList(String value) {
+    insuranceBasicCoverTypeIdOutputList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeIdOutputList(String _value) {
-    _insuranceBasicCoverTypeIdOutputList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeIdOutputList(String value) {
+    insuranceBasicCoverTypeIdOutputList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeIdOutputList(int _index) {
-    _insuranceBasicCoverTypeIdOutputList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeIdOutputList(int index) {
+    insuranceBasicCoverTypeIdOutputList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeIdOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeIdOutputList[_index] =
-        updateFn(_insuranceBasicCoverTypeIdOutputList[_index]);
+    insuranceBasicCoverTypeIdOutputList[index] =
+        updateFn(_insuranceBasicCoverTypeIdOutputList[index]);
   }
 
   void insertAtIndexInInsuranceBasicCoverTypeIdOutputList(
-      int _index, String _value) {
-    _insuranceBasicCoverTypeIdOutputList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicCoverTypeIdOutputList.insert(index, value);
   }
 
   List<String> _insuranceBasicCoverTypeCodeOutputList = [];
   List<String> get insuranceBasicCoverTypeCodeOutputList =>
       _insuranceBasicCoverTypeCodeOutputList;
-  set insuranceBasicCoverTypeCodeOutputList(List<String> _value) {
-    _insuranceBasicCoverTypeCodeOutputList = _value;
+  set insuranceBasicCoverTypeCodeOutputList(List<String> value) {
+    _insuranceBasicCoverTypeCodeOutputList = value;
   }
 
-  void addToInsuranceBasicCoverTypeCodeOutputList(String _value) {
-    _insuranceBasicCoverTypeCodeOutputList.add(_value);
+  void addToInsuranceBasicCoverTypeCodeOutputList(String value) {
+    insuranceBasicCoverTypeCodeOutputList.add(value);
   }
 
-  void removeFromInsuranceBasicCoverTypeCodeOutputList(String _value) {
-    _insuranceBasicCoverTypeCodeOutputList.remove(_value);
+  void removeFromInsuranceBasicCoverTypeCodeOutputList(String value) {
+    insuranceBasicCoverTypeCodeOutputList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCoverTypeCodeOutputList(int _index) {
-    _insuranceBasicCoverTypeCodeOutputList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCoverTypeCodeOutputList(int index) {
+    insuranceBasicCoverTypeCodeOutputList.removeAt(index);
   }
 
   void updateInsuranceBasicCoverTypeCodeOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCoverTypeCodeOutputList[_index] =
-        updateFn(_insuranceBasicCoverTypeCodeOutputList[_index]);
+    insuranceBasicCoverTypeCodeOutputList[index] =
+        updateFn(_insuranceBasicCoverTypeCodeOutputList[index]);
   }
 
   void insertAtIndexInInsuranceBasicCoverTypeCodeOutputList(
-      int _index, String _value) {
-    _insuranceBasicCoverTypeCodeOutputList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicCoverTypeCodeOutputList.insert(index, value);
   }
 
   List<String> _insuranceBasicGarageTypeInPackage = [];
   List<String> get insuranceBasicGarageTypeInPackage =>
       _insuranceBasicGarageTypeInPackage;
-  set insuranceBasicGarageTypeInPackage(List<String> _value) {
-    _insuranceBasicGarageTypeInPackage = _value;
+  set insuranceBasicGarageTypeInPackage(List<String> value) {
+    _insuranceBasicGarageTypeInPackage = value;
   }
 
-  void addToInsuranceBasicGarageTypeInPackage(String _value) {
-    _insuranceBasicGarageTypeInPackage.add(_value);
+  void addToInsuranceBasicGarageTypeInPackage(String value) {
+    insuranceBasicGarageTypeInPackage.add(value);
   }
 
-  void removeFromInsuranceBasicGarageTypeInPackage(String _value) {
-    _insuranceBasicGarageTypeInPackage.remove(_value);
+  void removeFromInsuranceBasicGarageTypeInPackage(String value) {
+    insuranceBasicGarageTypeInPackage.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicGarageTypeInPackage(int _index) {
-    _insuranceBasicGarageTypeInPackage.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicGarageTypeInPackage(int index) {
+    insuranceBasicGarageTypeInPackage.removeAt(index);
   }
 
   void updateInsuranceBasicGarageTypeInPackageAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicGarageTypeInPackage[_index] =
-        updateFn(_insuranceBasicGarageTypeInPackage[_index]);
+    insuranceBasicGarageTypeInPackage[index] =
+        updateFn(_insuranceBasicGarageTypeInPackage[index]);
   }
 
   void insertAtIndexInInsuranceBasicGarageTypeInPackage(
-      int _index, String _value) {
-    _insuranceBasicGarageTypeInPackage.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicGarageTypeInPackage.insert(index, value);
   }
 
   List<String> _searchableListComponentData = [];
   List<String> get searchableListComponentData => _searchableListComponentData;
-  set searchableListComponentData(List<String> _value) {
-    _searchableListComponentData = _value;
+  set searchableListComponentData(List<String> value) {
+    _searchableListComponentData = value;
   }
 
-  void addToSearchableListComponentData(String _value) {
-    _searchableListComponentData.add(_value);
+  void addToSearchableListComponentData(String value) {
+    searchableListComponentData.add(value);
   }
 
-  void removeFromSearchableListComponentData(String _value) {
-    _searchableListComponentData.remove(_value);
+  void removeFromSearchableListComponentData(String value) {
+    searchableListComponentData.remove(value);
   }
 
-  void removeAtIndexFromSearchableListComponentData(int _index) {
-    _searchableListComponentData.removeAt(_index);
+  void removeAtIndexFromSearchableListComponentData(int index) {
+    searchableListComponentData.removeAt(index);
   }
 
   void updateSearchableListComponentDataAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchableListComponentData[_index] =
-        updateFn(_searchableListComponentData[_index]);
+    searchableListComponentData[index] =
+        updateFn(_searchableListComponentData[index]);
   }
 
-  void insertAtIndexInSearchableListComponentData(int _index, String _value) {
-    _searchableListComponentData.insert(_index, _value);
+  void insertAtIndexInSearchableListComponentData(int index, String value) {
+    searchableListComponentData.insert(index, value);
   }
 
   List<bool> _searchableListComponentSelectedList = [];
   List<bool> get searchableListComponentSelectedList =>
       _searchableListComponentSelectedList;
-  set searchableListComponentSelectedList(List<bool> _value) {
-    _searchableListComponentSelectedList = _value;
+  set searchableListComponentSelectedList(List<bool> value) {
+    _searchableListComponentSelectedList = value;
   }
 
-  void addToSearchableListComponentSelectedList(bool _value) {
-    _searchableListComponentSelectedList.add(_value);
+  void addToSearchableListComponentSelectedList(bool value) {
+    searchableListComponentSelectedList.add(value);
   }
 
-  void removeFromSearchableListComponentSelectedList(bool _value) {
-    _searchableListComponentSelectedList.remove(_value);
+  void removeFromSearchableListComponentSelectedList(bool value) {
+    searchableListComponentSelectedList.remove(value);
   }
 
-  void removeAtIndexFromSearchableListComponentSelectedList(int _index) {
-    _searchableListComponentSelectedList.removeAt(_index);
+  void removeAtIndexFromSearchableListComponentSelectedList(int index) {
+    searchableListComponentSelectedList.removeAt(index);
   }
 
   void updateSearchableListComponentSelectedListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _searchableListComponentSelectedList[_index] =
-        updateFn(_searchableListComponentSelectedList[_index]);
+    searchableListComponentSelectedList[index] =
+        updateFn(_searchableListComponentSelectedList[index]);
   }
 
   void insertAtIndexInSearchableListComponentSelectedList(
-      int _index, bool _value) {
-    _searchableListComponentSelectedList.insert(_index, _value);
+      int index, bool value) {
+    searchableListComponentSelectedList.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleTypeDropdownList = [
@@ -7180,2174 +7171,2170 @@ class FFAppState extends ChangeNotifier {
   ];
   List<String> get insuranceBasicVehicleTypeDropdownList =>
       _insuranceBasicVehicleTypeDropdownList;
-  set insuranceBasicVehicleTypeDropdownList(List<String> _value) {
-    _insuranceBasicVehicleTypeDropdownList = _value;
+  set insuranceBasicVehicleTypeDropdownList(List<String> value) {
+    _insuranceBasicVehicleTypeDropdownList = value;
   }
 
-  void addToInsuranceBasicVehicleTypeDropdownList(String _value) {
-    _insuranceBasicVehicleTypeDropdownList.add(_value);
+  void addToInsuranceBasicVehicleTypeDropdownList(String value) {
+    insuranceBasicVehicleTypeDropdownList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleTypeDropdownList(String _value) {
-    _insuranceBasicVehicleTypeDropdownList.remove(_value);
+  void removeFromInsuranceBasicVehicleTypeDropdownList(String value) {
+    insuranceBasicVehicleTypeDropdownList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleTypeDropdownList(int _index) {
-    _insuranceBasicVehicleTypeDropdownList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleTypeDropdownList(int index) {
+    insuranceBasicVehicleTypeDropdownList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleTypeDropdownListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleTypeDropdownList[_index] =
-        updateFn(_insuranceBasicVehicleTypeDropdownList[_index]);
+    insuranceBasicVehicleTypeDropdownList[index] =
+        updateFn(_insuranceBasicVehicleTypeDropdownList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleTypeDropdownList(
-      int _index, String _value) {
-    _insuranceBasicVehicleTypeDropdownList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleTypeDropdownList.insert(index, value);
   }
 
   List<String> _insuranceBasicGarageTypeIdList = ['2', '1'];
   List<String> get insuranceBasicGarageTypeIdList =>
       _insuranceBasicGarageTypeIdList;
-  set insuranceBasicGarageTypeIdList(List<String> _value) {
-    _insuranceBasicGarageTypeIdList = _value;
+  set insuranceBasicGarageTypeIdList(List<String> value) {
+    _insuranceBasicGarageTypeIdList = value;
   }
 
-  void addToInsuranceBasicGarageTypeIdList(String _value) {
-    _insuranceBasicGarageTypeIdList.add(_value);
+  void addToInsuranceBasicGarageTypeIdList(String value) {
+    insuranceBasicGarageTypeIdList.add(value);
   }
 
-  void removeFromInsuranceBasicGarageTypeIdList(String _value) {
-    _insuranceBasicGarageTypeIdList.remove(_value);
+  void removeFromInsuranceBasicGarageTypeIdList(String value) {
+    insuranceBasicGarageTypeIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicGarageTypeIdList(int _index) {
-    _insuranceBasicGarageTypeIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicGarageTypeIdList(int index) {
+    insuranceBasicGarageTypeIdList.removeAt(index);
   }
 
   void updateInsuranceBasicGarageTypeIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicGarageTypeIdList[_index] =
-        updateFn(_insuranceBasicGarageTypeIdList[_index]);
+    insuranceBasicGarageTypeIdList[index] =
+        updateFn(_insuranceBasicGarageTypeIdList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicGarageTypeIdList(
-      int _index, String _value) {
-    _insuranceBasicGarageTypeIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicGarageTypeIdList(int index, String value) {
+    insuranceBasicGarageTypeIdList.insert(index, value);
   }
 
   List<String> _insuranceBasicGarageTypeNameList = ['ซ่อมอู่', 'ซ่อมห้าง'];
   List<String> get insuranceBasicGarageTypeNameList =>
       _insuranceBasicGarageTypeNameList;
-  set insuranceBasicGarageTypeNameList(List<String> _value) {
-    _insuranceBasicGarageTypeNameList = _value;
+  set insuranceBasicGarageTypeNameList(List<String> value) {
+    _insuranceBasicGarageTypeNameList = value;
   }
 
-  void addToInsuranceBasicGarageTypeNameList(String _value) {
-    _insuranceBasicGarageTypeNameList.add(_value);
+  void addToInsuranceBasicGarageTypeNameList(String value) {
+    insuranceBasicGarageTypeNameList.add(value);
   }
 
-  void removeFromInsuranceBasicGarageTypeNameList(String _value) {
-    _insuranceBasicGarageTypeNameList.remove(_value);
+  void removeFromInsuranceBasicGarageTypeNameList(String value) {
+    insuranceBasicGarageTypeNameList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicGarageTypeNameList(int _index) {
-    _insuranceBasicGarageTypeNameList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicGarageTypeNameList(int index) {
+    insuranceBasicGarageTypeNameList.removeAt(index);
   }
 
   void updateInsuranceBasicGarageTypeNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicGarageTypeNameList[_index] =
-        updateFn(_insuranceBasicGarageTypeNameList[_index]);
+    insuranceBasicGarageTypeNameList[index] =
+        updateFn(_insuranceBasicGarageTypeNameList[index]);
   }
 
   void insertAtIndexInInsuranceBasicGarageTypeNameList(
-      int _index, String _value) {
-    _insuranceBasicGarageTypeNameList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicGarageTypeNameList.insert(index, value);
   }
 
   List<String> _insuranceBasicGarageTypeIdInPackage = [];
   List<String> get insuranceBasicGarageTypeIdInPackage =>
       _insuranceBasicGarageTypeIdInPackage;
-  set insuranceBasicGarageTypeIdInPackage(List<String> _value) {
-    _insuranceBasicGarageTypeIdInPackage = _value;
+  set insuranceBasicGarageTypeIdInPackage(List<String> value) {
+    _insuranceBasicGarageTypeIdInPackage = value;
   }
 
-  void addToInsuranceBasicGarageTypeIdInPackage(String _value) {
-    _insuranceBasicGarageTypeIdInPackage.add(_value);
+  void addToInsuranceBasicGarageTypeIdInPackage(String value) {
+    insuranceBasicGarageTypeIdInPackage.add(value);
   }
 
-  void removeFromInsuranceBasicGarageTypeIdInPackage(String _value) {
-    _insuranceBasicGarageTypeIdInPackage.remove(_value);
+  void removeFromInsuranceBasicGarageTypeIdInPackage(String value) {
+    insuranceBasicGarageTypeIdInPackage.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicGarageTypeIdInPackage(int _index) {
-    _insuranceBasicGarageTypeIdInPackage.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicGarageTypeIdInPackage(int index) {
+    insuranceBasicGarageTypeIdInPackage.removeAt(index);
   }
 
   void updateInsuranceBasicGarageTypeIdInPackageAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicGarageTypeIdInPackage[_index] =
-        updateFn(_insuranceBasicGarageTypeIdInPackage[_index]);
+    insuranceBasicGarageTypeIdInPackage[index] =
+        updateFn(_insuranceBasicGarageTypeIdInPackage[index]);
   }
 
   void insertAtIndexInInsuranceBasicGarageTypeIdInPackage(
-      int _index, String _value) {
-    _insuranceBasicGarageTypeIdInPackage.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicGarageTypeIdInPackage.insert(index, value);
   }
 
   bool _isSelectBrandInPackage = false;
   bool get isSelectBrandInPackage => _isSelectBrandInPackage;
-  set isSelectBrandInPackage(bool _value) {
-    _isSelectBrandInPackage = _value;
+  set isSelectBrandInPackage(bool value) {
+    _isSelectBrandInPackage = value;
   }
 
   List<String> _tpbiPerson = [];
   List<String> get tpbiPerson => _tpbiPerson;
-  set tpbiPerson(List<String> _value) {
-    _tpbiPerson = _value;
+  set tpbiPerson(List<String> value) {
+    _tpbiPerson = value;
   }
 
-  void addToTpbiPerson(String _value) {
-    _tpbiPerson.add(_value);
+  void addToTpbiPerson(String value) {
+    tpbiPerson.add(value);
   }
 
-  void removeFromTpbiPerson(String _value) {
-    _tpbiPerson.remove(_value);
+  void removeFromTpbiPerson(String value) {
+    tpbiPerson.remove(value);
   }
 
-  void removeAtIndexFromTpbiPerson(int _index) {
-    _tpbiPerson.removeAt(_index);
+  void removeAtIndexFromTpbiPerson(int index) {
+    tpbiPerson.removeAt(index);
   }
 
   void updateTpbiPersonAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _tpbiPerson[_index] = updateFn(_tpbiPerson[_index]);
+    tpbiPerson[index] = updateFn(_tpbiPerson[index]);
   }
 
-  void insertAtIndexInTpbiPerson(int _index, String _value) {
-    _tpbiPerson.insert(_index, _value);
+  void insertAtIndexInTpbiPerson(int index, String value) {
+    tpbiPerson.insert(index, value);
   }
 
   List<String> _tpbiAccident = [];
   List<String> get tpbiAccident => _tpbiAccident;
-  set tpbiAccident(List<String> _value) {
-    _tpbiAccident = _value;
+  set tpbiAccident(List<String> value) {
+    _tpbiAccident = value;
   }
 
-  void addToTpbiAccident(String _value) {
-    _tpbiAccident.add(_value);
+  void addToTpbiAccident(String value) {
+    tpbiAccident.add(value);
   }
 
-  void removeFromTpbiAccident(String _value) {
-    _tpbiAccident.remove(_value);
+  void removeFromTpbiAccident(String value) {
+    tpbiAccident.remove(value);
   }
 
-  void removeAtIndexFromTpbiAccident(int _index) {
-    _tpbiAccident.removeAt(_index);
+  void removeAtIndexFromTpbiAccident(int index) {
+    tpbiAccident.removeAt(index);
   }
 
   void updateTpbiAccidentAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _tpbiAccident[_index] = updateFn(_tpbiAccident[_index]);
+    tpbiAccident[index] = updateFn(_tpbiAccident[index]);
   }
 
-  void insertAtIndexInTpbiAccident(int _index, String _value) {
-    _tpbiAccident.insert(_index, _value);
+  void insertAtIndexInTpbiAccident(int index, String value) {
+    tpbiAccident.insert(index, value);
   }
 
   List<String> _effectiveDate = [];
   List<String> get effectiveDate => _effectiveDate;
-  set effectiveDate(List<String> _value) {
-    _effectiveDate = _value;
+  set effectiveDate(List<String> value) {
+    _effectiveDate = value;
   }
 
-  void addToEffectiveDate(String _value) {
-    _effectiveDate.add(_value);
+  void addToEffectiveDate(String value) {
+    effectiveDate.add(value);
   }
 
-  void removeFromEffectiveDate(String _value) {
-    _effectiveDate.remove(_value);
+  void removeFromEffectiveDate(String value) {
+    effectiveDate.remove(value);
   }
 
-  void removeAtIndexFromEffectiveDate(int _index) {
-    _effectiveDate.removeAt(_index);
+  void removeAtIndexFromEffectiveDate(int index) {
+    effectiveDate.removeAt(index);
   }
 
   void updateEffectiveDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _effectiveDate[_index] = updateFn(_effectiveDate[_index]);
+    effectiveDate[index] = updateFn(_effectiveDate[index]);
   }
 
-  void insertAtIndexInEffectiveDate(int _index, String _value) {
-    _effectiveDate.insert(_index, _value);
+  void insertAtIndexInEffectiveDate(int index, String value) {
+    effectiveDate.insert(index, value);
   }
 
   List<String> _filterInsurerList = [];
   List<String> get filterInsurerList => _filterInsurerList;
-  set filterInsurerList(List<String> _value) {
-    _filterInsurerList = _value;
+  set filterInsurerList(List<String> value) {
+    _filterInsurerList = value;
   }
 
-  void addToFilterInsurerList(String _value) {
-    _filterInsurerList.add(_value);
+  void addToFilterInsurerList(String value) {
+    filterInsurerList.add(value);
   }
 
-  void removeFromFilterInsurerList(String _value) {
-    _filterInsurerList.remove(_value);
+  void removeFromFilterInsurerList(String value) {
+    filterInsurerList.remove(value);
   }
 
-  void removeAtIndexFromFilterInsurerList(int _index) {
-    _filterInsurerList.removeAt(_index);
+  void removeAtIndexFromFilterInsurerList(int index) {
+    filterInsurerList.removeAt(index);
   }
 
   void updateFilterInsurerListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _filterInsurerList[_index] = updateFn(_filterInsurerList[_index]);
+    filterInsurerList[index] = updateFn(_filterInsurerList[index]);
   }
 
-  void insertAtIndexInFilterInsurerList(int _index, String _value) {
-    _filterInsurerList.insert(_index, _value);
+  void insertAtIndexInFilterInsurerList(int index, String value) {
+    filterInsurerList.insert(index, value);
   }
 
   List<String> _filterCoverTypeList = [];
   List<String> get filterCoverTypeList => _filterCoverTypeList;
-  set filterCoverTypeList(List<String> _value) {
-    _filterCoverTypeList = _value;
+  set filterCoverTypeList(List<String> value) {
+    _filterCoverTypeList = value;
   }
 
-  void addToFilterCoverTypeList(String _value) {
-    _filterCoverTypeList.add(_value);
+  void addToFilterCoverTypeList(String value) {
+    filterCoverTypeList.add(value);
   }
 
-  void removeFromFilterCoverTypeList(String _value) {
-    _filterCoverTypeList.remove(_value);
+  void removeFromFilterCoverTypeList(String value) {
+    filterCoverTypeList.remove(value);
   }
 
-  void removeAtIndexFromFilterCoverTypeList(int _index) {
-    _filterCoverTypeList.removeAt(_index);
+  void removeAtIndexFromFilterCoverTypeList(int index) {
+    filterCoverTypeList.removeAt(index);
   }
 
   void updateFilterCoverTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _filterCoverTypeList[_index] = updateFn(_filterCoverTypeList[_index]);
+    filterCoverTypeList[index] = updateFn(_filterCoverTypeList[index]);
   }
 
-  void insertAtIndexInFilterCoverTypeList(int _index, String _value) {
-    _filterCoverTypeList.insert(_index, _value);
+  void insertAtIndexInFilterCoverTypeList(int index, String value) {
+    filterCoverTypeList.insert(index, value);
   }
 
   List<String> _filterGarageTypeList = [];
   List<String> get filterGarageTypeList => _filterGarageTypeList;
-  set filterGarageTypeList(List<String> _value) {
-    _filterGarageTypeList = _value;
+  set filterGarageTypeList(List<String> value) {
+    _filterGarageTypeList = value;
   }
 
-  void addToFilterGarageTypeList(String _value) {
-    _filterGarageTypeList.add(_value);
+  void addToFilterGarageTypeList(String value) {
+    filterGarageTypeList.add(value);
   }
 
-  void removeFromFilterGarageTypeList(String _value) {
-    _filterGarageTypeList.remove(_value);
+  void removeFromFilterGarageTypeList(String value) {
+    filterGarageTypeList.remove(value);
   }
 
-  void removeAtIndexFromFilterGarageTypeList(int _index) {
-    _filterGarageTypeList.removeAt(_index);
+  void removeAtIndexFromFilterGarageTypeList(int index) {
+    filterGarageTypeList.removeAt(index);
   }
 
   void updateFilterGarageTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _filterGarageTypeList[_index] = updateFn(_filterGarageTypeList[_index]);
+    filterGarageTypeList[index] = updateFn(_filterGarageTypeList[index]);
   }
 
-  void insertAtIndexInFilterGarageTypeList(int _index, String _value) {
-    _filterGarageTypeList.insert(_index, _value);
+  void insertAtIndexInFilterGarageTypeList(int index, String value) {
+    filterGarageTypeList.insert(index, value);
   }
 
   List<String> _searchRegisYearList = [];
   List<String> get searchRegisYearList => _searchRegisYearList;
-  set searchRegisYearList(List<String> _value) {
-    _searchRegisYearList = _value;
+  set searchRegisYearList(List<String> value) {
+    _searchRegisYearList = value;
   }
 
-  void addToSearchRegisYearList(String _value) {
-    _searchRegisYearList.add(_value);
+  void addToSearchRegisYearList(String value) {
+    searchRegisYearList.add(value);
   }
 
-  void removeFromSearchRegisYearList(String _value) {
-    _searchRegisYearList.remove(_value);
+  void removeFromSearchRegisYearList(String value) {
+    searchRegisYearList.remove(value);
   }
 
-  void removeAtIndexFromSearchRegisYearList(int _index) {
-    _searchRegisYearList.removeAt(_index);
+  void removeAtIndexFromSearchRegisYearList(int index) {
+    searchRegisYearList.removeAt(index);
   }
 
   void updateSearchRegisYearListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchRegisYearList[_index] = updateFn(_searchRegisYearList[_index]);
+    searchRegisYearList[index] = updateFn(_searchRegisYearList[index]);
   }
 
-  void insertAtIndexInSearchRegisYearList(int _index, String _value) {
-    _searchRegisYearList.insert(_index, _value);
+  void insertAtIndexInSearchRegisYearList(int index, String value) {
+    searchRegisYearList.insert(index, value);
   }
 
   List<String> _insuranceCardType = [];
   List<String> get insuranceCardType => _insuranceCardType;
-  set insuranceCardType(List<String> _value) {
-    _insuranceCardType = _value;
+  set insuranceCardType(List<String> value) {
+    _insuranceCardType = value;
   }
 
-  void addToInsuranceCardType(String _value) {
-    _insuranceCardType.add(_value);
+  void addToInsuranceCardType(String value) {
+    insuranceCardType.add(value);
   }
 
-  void removeFromInsuranceCardType(String _value) {
-    _insuranceCardType.remove(_value);
+  void removeFromInsuranceCardType(String value) {
+    insuranceCardType.remove(value);
   }
 
-  void removeAtIndexFromInsuranceCardType(int _index) {
-    _insuranceCardType.removeAt(_index);
+  void removeAtIndexFromInsuranceCardType(int index) {
+    insuranceCardType.removeAt(index);
   }
 
   void updateInsuranceCardTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceCardType[_index] = updateFn(_insuranceCardType[_index]);
+    insuranceCardType[index] = updateFn(_insuranceCardType[index]);
   }
 
-  void insertAtIndexInInsuranceCardType(int _index, String _value) {
-    _insuranceCardType.insert(_index, _value);
+  void insertAtIndexInInsuranceCardType(int index, String value) {
+    insuranceCardType.insert(index, value);
   }
 
   List<String> _insuranceCusGender = [];
   List<String> get insuranceCusGender => _insuranceCusGender;
-  set insuranceCusGender(List<String> _value) {
-    _insuranceCusGender = _value;
+  set insuranceCusGender(List<String> value) {
+    _insuranceCusGender = value;
   }
 
-  void addToInsuranceCusGender(String _value) {
-    _insuranceCusGender.add(_value);
+  void addToInsuranceCusGender(String value) {
+    insuranceCusGender.add(value);
   }
 
-  void removeFromInsuranceCusGender(String _value) {
-    _insuranceCusGender.remove(_value);
+  void removeFromInsuranceCusGender(String value) {
+    insuranceCusGender.remove(value);
   }
 
-  void removeAtIndexFromInsuranceCusGender(int _index) {
-    _insuranceCusGender.removeAt(_index);
+  void removeAtIndexFromInsuranceCusGender(int index) {
+    insuranceCusGender.removeAt(index);
   }
 
   void updateInsuranceCusGenderAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceCusGender[_index] = updateFn(_insuranceCusGender[_index]);
+    insuranceCusGender[index] = updateFn(_insuranceCusGender[index]);
   }
 
-  void insertAtIndexInInsuranceCusGender(int _index, String _value) {
-    _insuranceCusGender.insert(_index, _value);
+  void insertAtIndexInInsuranceCusGender(int index, String value) {
+    insuranceCusGender.insert(index, value);
   }
 
   List<String> _searchDriverList = [];
   List<String> get searchDriverList => _searchDriverList;
-  set searchDriverList(List<String> _value) {
-    _searchDriverList = _value;
+  set searchDriverList(List<String> value) {
+    _searchDriverList = value;
   }
 
-  void addToSearchDriverList(String _value) {
-    _searchDriverList.add(_value);
+  void addToSearchDriverList(String value) {
+    searchDriverList.add(value);
   }
 
-  void removeFromSearchDriverList(String _value) {
-    _searchDriverList.remove(_value);
+  void removeFromSearchDriverList(String value) {
+    searchDriverList.remove(value);
   }
 
-  void removeAtIndexFromSearchDriverList(int _index) {
-    _searchDriverList.removeAt(_index);
+  void removeAtIndexFromSearchDriverList(int index) {
+    searchDriverList.removeAt(index);
   }
 
   void updateSearchDriverListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchDriverList[_index] = updateFn(_searchDriverList[_index]);
+    searchDriverList[index] = updateFn(_searchDriverList[index]);
   }
 
-  void insertAtIndexInSearchDriverList(int _index, String _value) {
-    _searchDriverList.insert(_index, _value);
+  void insertAtIndexInSearchDriverList(int index, String value) {
+    searchDriverList.insert(index, value);
   }
 
   List<String> _searchShortName = [];
   List<String> get searchShortName => _searchShortName;
-  set searchShortName(List<String> _value) {
-    _searchShortName = _value;
+  set searchShortName(List<String> value) {
+    _searchShortName = value;
   }
 
-  void addToSearchShortName(String _value) {
-    _searchShortName.add(_value);
+  void addToSearchShortName(String value) {
+    searchShortName.add(value);
   }
 
-  void removeFromSearchShortName(String _value) {
-    _searchShortName.remove(_value);
+  void removeFromSearchShortName(String value) {
+    searchShortName.remove(value);
   }
 
-  void removeAtIndexFromSearchShortName(int _index) {
-    _searchShortName.removeAt(_index);
+  void removeAtIndexFromSearchShortName(int index) {
+    searchShortName.removeAt(index);
   }
 
   void updateSearchShortNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchShortName[_index] = updateFn(_searchShortName[_index]);
+    searchShortName[index] = updateFn(_searchShortName[index]);
   }
 
-  void insertAtIndexInSearchShortName(int _index, String _value) {
-    _searchShortName.insert(_index, _value);
+  void insertAtIndexInSearchShortName(int index, String value) {
+    searchShortName.insert(index, value);
   }
 
   List<bool> _selectInsurerList = [];
   List<bool> get selectInsurerList => _selectInsurerList;
-  set selectInsurerList(List<bool> _value) {
-    _selectInsurerList = _value;
+  set selectInsurerList(List<bool> value) {
+    _selectInsurerList = value;
   }
 
-  void addToSelectInsurerList(bool _value) {
-    _selectInsurerList.add(_value);
+  void addToSelectInsurerList(bool value) {
+    selectInsurerList.add(value);
   }
 
-  void removeFromSelectInsurerList(bool _value) {
-    _selectInsurerList.remove(_value);
+  void removeFromSelectInsurerList(bool value) {
+    selectInsurerList.remove(value);
   }
 
-  void removeAtIndexFromSelectInsurerList(int _index) {
-    _selectInsurerList.removeAt(_index);
+  void removeAtIndexFromSelectInsurerList(int index) {
+    selectInsurerList.removeAt(index);
   }
 
   void updateSelectInsurerListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _selectInsurerList[_index] = updateFn(_selectInsurerList[_index]);
+    selectInsurerList[index] = updateFn(_selectInsurerList[index]);
   }
 
-  void insertAtIndexInSelectInsurerList(int _index, bool _value) {
-    _selectInsurerList.insert(_index, _value);
+  void insertAtIndexInSelectInsurerList(int index, bool value) {
+    selectInsurerList.insert(index, value);
   }
 
   List<String> _cardType = ['บัตรประชาชน', 'Passport'];
   List<String> get cardType => _cardType;
-  set cardType(List<String> _value) {
-    _cardType = _value;
+  set cardType(List<String> value) {
+    _cardType = value;
   }
 
-  void addToCardType(String _value) {
-    _cardType.add(_value);
+  void addToCardType(String value) {
+    cardType.add(value);
   }
 
-  void removeFromCardType(String _value) {
-    _cardType.remove(_value);
+  void removeFromCardType(String value) {
+    cardType.remove(value);
   }
 
-  void removeAtIndexFromCardType(int _index) {
-    _cardType.removeAt(_index);
+  void removeAtIndexFromCardType(int index) {
+    cardType.removeAt(index);
   }
 
   void updateCardTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _cardType[_index] = updateFn(_cardType[_index]);
+    cardType[index] = updateFn(_cardType[index]);
   }
 
-  void insertAtIndexInCardType(int _index, String _value) {
-    _cardType.insert(_index, _value);
+  void insertAtIndexInCardType(int index, String value) {
+    cardType.insert(index, value);
   }
 
   List<String> _gender = ['ชาย', 'หญิง'];
   List<String> get gender => _gender;
-  set gender(List<String> _value) {
-    _gender = _value;
+  set gender(List<String> value) {
+    _gender = value;
   }
 
-  void addToGender(String _value) {
-    _gender.add(_value);
+  void addToGender(String value) {
+    gender.add(value);
   }
 
-  void removeFromGender(String _value) {
-    _gender.remove(_value);
+  void removeFromGender(String value) {
+    gender.remove(value);
   }
 
-  void removeAtIndexFromGender(int _index) {
-    _gender.removeAt(_index);
+  void removeAtIndexFromGender(int index) {
+    gender.removeAt(index);
   }
 
   void updateGenderAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _gender[_index] = updateFn(_gender[_index]);
+    gender[index] = updateFn(_gender[index]);
   }
 
-  void insertAtIndexInGender(int _index, String _value) {
-    _gender.insert(_index, _value);
+  void insertAtIndexInGender(int index, String value) {
+    gender.insert(index, value);
   }
 
   List<String> _searchLogo = [];
   List<String> get searchLogo => _searchLogo;
-  set searchLogo(List<String> _value) {
-    _searchLogo = _value;
+  set searchLogo(List<String> value) {
+    _searchLogo = value;
   }
 
-  void addToSearchLogo(String _value) {
-    _searchLogo.add(_value);
+  void addToSearchLogo(String value) {
+    searchLogo.add(value);
   }
 
-  void removeFromSearchLogo(String _value) {
-    _searchLogo.remove(_value);
+  void removeFromSearchLogo(String value) {
+    searchLogo.remove(value);
   }
 
-  void removeAtIndexFromSearchLogo(int _index) {
-    _searchLogo.removeAt(_index);
+  void removeAtIndexFromSearchLogo(int index) {
+    searchLogo.removeAt(index);
   }
 
   void updateSearchLogoAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchLogo[_index] = updateFn(_searchLogo[_index]);
+    searchLogo[index] = updateFn(_searchLogo[index]);
   }
 
-  void insertAtIndexInSearchLogo(int _index, String _value) {
-    _searchLogo.insert(_index, _value);
+  void insertAtIndexInSearchLogo(int index, String value) {
+    searchLogo.insert(index, value);
   }
 
   String _insuranceInfoCardType = 'เลือกประเภทบัตร';
   String get insuranceInfoCardType => _insuranceInfoCardType;
-  set insuranceInfoCardType(String _value) {
-    _insuranceInfoCardType = _value;
+  set insuranceInfoCardType(String value) {
+    _insuranceInfoCardType = value;
   }
 
   String _insuranceInfoGender = 'เลือกเพศ';
   String get insuranceInfoGender => _insuranceInfoGender;
-  set insuranceInfoGender(String _value) {
-    _insuranceInfoGender = _value;
+  set insuranceInfoGender(String value) {
+    _insuranceInfoGender = value;
   }
 
   String _insuranceInfoTitle = 'เลือกคำนำหน้าชื่อ';
   String get insuranceInfoTitle => _insuranceInfoTitle;
-  set insuranceInfoTitle(String _value) {
-    _insuranceInfoTitle = _value;
+  set insuranceInfoTitle(String value) {
+    _insuranceInfoTitle = value;
   }
 
   String _insuranceInfoOccupationGroup = 'เลือกกลุ่มอาชีพ';
   String get insuranceInfoOccupationGroup => _insuranceInfoOccupationGroup;
-  set insuranceInfoOccupationGroup(String _value) {
-    _insuranceInfoOccupationGroup = _value;
+  set insuranceInfoOccupationGroup(String value) {
+    _insuranceInfoOccupationGroup = value;
   }
 
   String _insuranceInfoIdCard = '';
   String get insuranceInfoIdCard => _insuranceInfoIdCard;
-  set insuranceInfoIdCard(String _value) {
-    _insuranceInfoIdCard = _value;
+  set insuranceInfoIdCard(String value) {
+    _insuranceInfoIdCard = value;
   }
 
   String _insuranceInfoFirstName = '';
   String get insuranceInfoFirstName => _insuranceInfoFirstName;
-  set insuranceInfoFirstName(String _value) {
-    _insuranceInfoFirstName = _value;
+  set insuranceInfoFirstName(String value) {
+    _insuranceInfoFirstName = value;
   }
 
   String _insuranceInfoLastName = '';
   String get insuranceInfoLastName => _insuranceInfoLastName;
-  set insuranceInfoLastName(String _value) {
-    _insuranceInfoLastName = _value;
+  set insuranceInfoLastName(String value) {
+    _insuranceInfoLastName = value;
   }
 
   String _insuranceInfoBirthDate = '';
   String get insuranceInfoBirthDate => _insuranceInfoBirthDate;
-  set insuranceInfoBirthDate(String _value) {
-    _insuranceInfoBirthDate = _value;
+  set insuranceInfoBirthDate(String value) {
+    _insuranceInfoBirthDate = value;
   }
 
   String _insuranceInfoOccupation = '';
   String get insuranceInfoOccupation => _insuranceInfoOccupation;
-  set insuranceInfoOccupation(String _value) {
-    _insuranceInfoOccupation = _value;
+  set insuranceInfoOccupation(String value) {
+    _insuranceInfoOccupation = value;
   }
 
   String _insuranceInfoPhonenumber = '';
   String get insuranceInfoPhonenumber => _insuranceInfoPhonenumber;
-  set insuranceInfoPhonenumber(String _value) {
-    _insuranceInfoPhonenumber = _value;
+  set insuranceInfoPhonenumber(String value) {
+    _insuranceInfoPhonenumber = value;
   }
 
   String _insuranceInfoOtherPhone = '';
   String get insuranceInfoOtherPhone => _insuranceInfoOtherPhone;
-  set insuranceInfoOtherPhone(String _value) {
-    _insuranceInfoOtherPhone = _value;
+  set insuranceInfoOtherPhone(String value) {
+    _insuranceInfoOtherPhone = value;
   }
 
   String _insuranceInfoEmail = '';
   String get insuranceInfoEmail => _insuranceInfoEmail;
-  set insuranceInfoEmail(String _value) {
-    _insuranceInfoEmail = _value;
+  set insuranceInfoEmail(String value) {
+    _insuranceInfoEmail = value;
   }
 
   String _insuranceInfoAge = '';
   String get insuranceInfoAge => _insuranceInfoAge;
-  set insuranceInfoAge(String _value) {
-    _insuranceInfoAge = _value;
+  set insuranceInfoAge(String value) {
+    _insuranceInfoAge = value;
   }
 
   String _insuranceInfoGarageType = '';
   String get insuranceInfoGarageType => _insuranceInfoGarageType;
-  set insuranceInfoGarageType(String _value) {
-    _insuranceInfoGarageType = _value;
+  set insuranceInfoGarageType(String value) {
+    _insuranceInfoGarageType = value;
   }
 
   String _insuranceInfocoverType = '';
   String get insuranceInfocoverType => _insuranceInfocoverType;
-  set insuranceInfocoverType(String _value) {
-    _insuranceInfocoverType = _value;
+  set insuranceInfocoverType(String value) {
+    _insuranceInfocoverType = value;
   }
 
   String _insuranceInfoGrossTotal = '';
   String get insuranceInfoGrossTotal => _insuranceInfoGrossTotal;
-  set insuranceInfoGrossTotal(String _value) {
-    _insuranceInfoGrossTotal = _value;
+  set insuranceInfoGrossTotal(String value) {
+    _insuranceInfoGrossTotal = value;
   }
 
   String _insuranceInfoImgUrl = '';
   String get insuranceInfoImgUrl => _insuranceInfoImgUrl;
-  set insuranceInfoImgUrl(String _value) {
-    _insuranceInfoImgUrl = _value;
+  set insuranceInfoImgUrl(String value) {
+    _insuranceInfoImgUrl = value;
   }
 
   bool _nonePackageFlagCarrier = false;
   bool get nonePackageFlagCarrier => _nonePackageFlagCarrier;
-  set nonePackageFlagCarrier(bool _value) {
-    _nonePackageFlagCarrier = _value;
+  set nonePackageFlagCarrier(bool value) {
+    _nonePackageFlagCarrier = value;
   }
 
   String _nonePackageVehicleType = 'กรุณาเลือกประเภทรถ';
   String get nonePackageVehicleType => _nonePackageVehicleType;
-  set nonePackageVehicleType(String _value) {
-    _nonePackageVehicleType = _value;
+  set nonePackageVehicleType(String value) {
+    _nonePackageVehicleType = value;
   }
 
   String _nonePackageBrandName = 'กรุณาเลือกยี่ห้อรถ';
   String get nonePackageBrandName => _nonePackageBrandName;
-  set nonePackageBrandName(String _value) {
-    _nonePackageBrandName = _value;
+  set nonePackageBrandName(String value) {
+    _nonePackageBrandName = value;
   }
 
   String _nonePackageBrandId = '';
   String get nonePackageBrandId => _nonePackageBrandId;
-  set nonePackageBrandId(String _value) {
-    _nonePackageBrandId = _value;
+  set nonePackageBrandId(String value) {
+    _nonePackageBrandId = value;
   }
 
   String _nonePackageModelName = 'กรุณากรอกรุ่นรถ';
   String get nonePackageModelName => _nonePackageModelName;
-  set nonePackageModelName(String _value) {
-    _nonePackageModelName = _value;
+  set nonePackageModelName(String value) {
+    _nonePackageModelName = value;
   }
 
   String _nonePackageModelCode = '';
   String get nonePackageModelCode => _nonePackageModelCode;
-  set nonePackageModelCode(String _value) {
-    _nonePackageModelCode = _value;
+  set nonePackageModelCode(String value) {
+    _nonePackageModelCode = value;
   }
 
   String _nonePackageYear = 'กรุณาเลือกปีจดทะเบียน';
   String get nonePackageYear => _nonePackageYear;
-  set nonePackageYear(String _value) {
-    _nonePackageYear = _value;
+  set nonePackageYear(String value) {
+    _nonePackageYear = value;
   }
 
   String _nonePackageUsedTypeId = '';
   String get nonePackageUsedTypeId => _nonePackageUsedTypeId;
-  set nonePackageUsedTypeId(String _value) {
-    _nonePackageUsedTypeId = _value;
+  set nonePackageUsedTypeId(String value) {
+    _nonePackageUsedTypeId = value;
   }
 
   List<String> _nonePackageSearchModelList = [];
   List<String> get nonePackageSearchModelList => _nonePackageSearchModelList;
-  set nonePackageSearchModelList(List<String> _value) {
-    _nonePackageSearchModelList = _value;
+  set nonePackageSearchModelList(List<String> value) {
+    _nonePackageSearchModelList = value;
   }
 
-  void addToNonePackageSearchModelList(String _value) {
-    _nonePackageSearchModelList.add(_value);
+  void addToNonePackageSearchModelList(String value) {
+    nonePackageSearchModelList.add(value);
   }
 
-  void removeFromNonePackageSearchModelList(String _value) {
-    _nonePackageSearchModelList.remove(_value);
+  void removeFromNonePackageSearchModelList(String value) {
+    nonePackageSearchModelList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageSearchModelList(int _index) {
-    _nonePackageSearchModelList.removeAt(_index);
+  void removeAtIndexFromNonePackageSearchModelList(int index) {
+    nonePackageSearchModelList.removeAt(index);
   }
 
   void updateNonePackageSearchModelListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageSearchModelList[_index] =
-        updateFn(_nonePackageSearchModelList[_index]);
+    nonePackageSearchModelList[index] =
+        updateFn(_nonePackageSearchModelList[index]);
   }
 
-  void insertAtIndexInNonePackageSearchModelList(int _index, String _value) {
-    _nonePackageSearchModelList.insert(_index, _value);
+  void insertAtIndexInNonePackageSearchModelList(int index, String value) {
+    nonePackageSearchModelList.insert(index, value);
   }
 
   String _nonePackageUsedTypeCode = '';
   String get nonePackageUsedTypeCode => _nonePackageUsedTypeCode;
-  set nonePackageUsedTypeCode(String _value) {
-    _nonePackageUsedTypeCode = _value;
+  set nonePackageUsedTypeCode(String value) {
+    _nonePackageUsedTypeCode = value;
   }
 
   String _nonePackageUsedTypeName = 'กรุณาเลือกลักษณะการใช้รถ';
   String get nonePackageUsedTypeName => _nonePackageUsedTypeName;
-  set nonePackageUsedTypeName(String _value) {
-    _nonePackageUsedTypeName = _value;
+  set nonePackageUsedTypeName(String value) {
+    _nonePackageUsedTypeName = value;
   }
 
   String _nonePackageCusFullname = 'กรุณากรอกชื่อ';
   String get nonePackageCusFullname => _nonePackageCusFullname;
-  set nonePackageCusFullname(String _value) {
-    _nonePackageCusFullname = _value;
+  set nonePackageCusFullname(String value) {
+    _nonePackageCusFullname = value;
   }
 
   String _nonePackageCusPhone = 'กรุณากรอกเบอร์โทรศัพท์';
   String get nonePackageCusPhone => _nonePackageCusPhone;
-  set nonePackageCusPhone(String _value) {
-    _nonePackageCusPhone = _value;
+  set nonePackageCusPhone(String value) {
+    _nonePackageCusPhone = value;
   }
 
   String _nonePackagePlate = '';
   String get nonePackagePlate => _nonePackagePlate;
-  set nonePackagePlate(String _value) {
-    _nonePackagePlate = _value;
+  set nonePackagePlate(String value) {
+    _nonePackagePlate = value;
   }
 
   String _nonePackageProvince = 'กรุณาเลือกจังหวัดจดทะเบียน';
   String get nonePackageProvince => _nonePackageProvince;
-  set nonePackageProvince(String _value) {
-    _nonePackageProvince = _value;
+  set nonePackageProvince(String value) {
+    _nonePackageProvince = value;
   }
 
   String _nonePackageProvinceId = '';
   String get nonePackageProvinceId => _nonePackageProvinceId;
-  set nonePackageProvinceId(String _value) {
-    _nonePackageProvinceId = _value;
+  set nonePackageProvinceId(String value) {
+    _nonePackageProvinceId = value;
   }
 
   String _nonePackageSumInsured = 'กรุณากรอกทุนประกัน';
   String get nonePackageSumInsured => _nonePackageSumInsured;
-  set nonePackageSumInsured(String _value) {
-    _nonePackageSumInsured = _value;
+  set nonePackageSumInsured(String value) {
+    _nonePackageSumInsured = value;
   }
 
   bool _nonePackageFlagAct = true;
   bool get nonePackageFlagAct => _nonePackageFlagAct;
-  set nonePackageFlagAct(bool _value) {
-    _nonePackageFlagAct = _value;
+  set nonePackageFlagAct(bool value) {
+    _nonePackageFlagAct = value;
   }
 
   String _insuranceInfoVehicleType = '';
   String get insuranceInfoVehicleType => _insuranceInfoVehicleType;
-  set insuranceInfoVehicleType(String _value) {
-    _insuranceInfoVehicleType = _value;
+  set insuranceInfoVehicleType(String value) {
+    _insuranceInfoVehicleType = value;
   }
 
   String _insuranceInfoBrandName = '';
   String get insuranceInfoBrandName => _insuranceInfoBrandName;
-  set insuranceInfoBrandName(String _value) {
-    _insuranceInfoBrandName = _value;
+  set insuranceInfoBrandName(String value) {
+    _insuranceInfoBrandName = value;
   }
 
   String _insuranceInfoModelName = '';
   String get insuranceInfoModelName => _insuranceInfoModelName;
-  set insuranceInfoModelName(String _value) {
-    _insuranceInfoModelName = _value;
+  set insuranceInfoModelName(String value) {
+    _insuranceInfoModelName = value;
   }
 
   String _insuranceInfoRegisYear = '';
   String get insuranceInfoRegisYear => _insuranceInfoRegisYear;
-  set insuranceInfoRegisYear(String _value) {
-    _insuranceInfoRegisYear = _value;
+  set insuranceInfoRegisYear(String value) {
+    _insuranceInfoRegisYear = value;
   }
 
   String _insuranceInfoProductYear = 'กรุณาเลือกปีผลิต';
   String get insuranceInfoProductYear => _insuranceInfoProductYear;
-  set insuranceInfoProductYear(String _value) {
-    _insuranceInfoProductYear = _value;
+  set insuranceInfoProductYear(String value) {
+    _insuranceInfoProductYear = value;
   }
 
   String _insuranceInfoVehicleUsage = '';
   String get insuranceInfoVehicleUsage => _insuranceInfoVehicleUsage;
-  set insuranceInfoVehicleUsage(String _value) {
-    _insuranceInfoVehicleUsage = _value;
+  set insuranceInfoVehicleUsage(String value) {
+    _insuranceInfoVehicleUsage = value;
   }
 
   String _insuranceInfoCarRegis = '';
   String get insuranceInfoCarRegis => _insuranceInfoCarRegis;
-  set insuranceInfoCarRegis(String _value) {
-    _insuranceInfoCarRegis = _value;
+  set insuranceInfoCarRegis(String value) {
+    _insuranceInfoCarRegis = value;
   }
 
   String _insuranceInfoBodyNumber = '';
   String get insuranceInfoBodyNumber => _insuranceInfoBodyNumber;
-  set insuranceInfoBodyNumber(String _value) {
-    _insuranceInfoBodyNumber = _value;
+  set insuranceInfoBodyNumber(String value) {
+    _insuranceInfoBodyNumber = value;
   }
 
   String _insuranceInfoEngineNumber = '';
   String get insuranceInfoEngineNumber => _insuranceInfoEngineNumber;
-  set insuranceInfoEngineNumber(String _value) {
-    _insuranceInfoEngineNumber = _value;
+  set insuranceInfoEngineNumber(String value) {
+    _insuranceInfoEngineNumber = value;
   }
 
   String _insuranceInfoCarSeat = '';
   String get insuranceInfoCarSeat => _insuranceInfoCarSeat;
-  set insuranceInfoCarSeat(String _value) {
-    _insuranceInfoCarSeat = _value;
+  set insuranceInfoCarSeat(String value) {
+    _insuranceInfoCarSeat = value;
   }
 
   String _insuranceInfoSizeCar = '';
   String get insuranceInfoSizeCar => _insuranceInfoSizeCar;
-  set insuranceInfoSizeCar(String _value) {
-    _insuranceInfoSizeCar = _value;
+  set insuranceInfoSizeCar(String value) {
+    _insuranceInfoSizeCar = value;
   }
 
   String _insuranceInfoWeightCar = '';
   String get insuranceInfoWeightCar => _insuranceInfoWeightCar;
-  set insuranceInfoWeightCar(String _value) {
-    _insuranceInfoWeightCar = _value;
+  set insuranceInfoWeightCar(String value) {
+    _insuranceInfoWeightCar = value;
   }
 
   bool _nonePackageIsBrandSelect = false;
   bool get nonePackageIsBrandSelect => _nonePackageIsBrandSelect;
-  set nonePackageIsBrandSelect(bool _value) {
-    _nonePackageIsBrandSelect = _value;
+  set nonePackageIsBrandSelect(bool value) {
+    _nonePackageIsBrandSelect = value;
   }
 
   List<String> _nonePackageSearchModelIdList = [];
   List<String> get nonePackageSearchModelIdList =>
       _nonePackageSearchModelIdList;
-  set nonePackageSearchModelIdList(List<String> _value) {
-    _nonePackageSearchModelIdList = _value;
+  set nonePackageSearchModelIdList(List<String> value) {
+    _nonePackageSearchModelIdList = value;
   }
 
-  void addToNonePackageSearchModelIdList(String _value) {
-    _nonePackageSearchModelIdList.add(_value);
+  void addToNonePackageSearchModelIdList(String value) {
+    nonePackageSearchModelIdList.add(value);
   }
 
-  void removeFromNonePackageSearchModelIdList(String _value) {
-    _nonePackageSearchModelIdList.remove(_value);
+  void removeFromNonePackageSearchModelIdList(String value) {
+    nonePackageSearchModelIdList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageSearchModelIdList(int _index) {
-    _nonePackageSearchModelIdList.removeAt(_index);
+  void removeAtIndexFromNonePackageSearchModelIdList(int index) {
+    nonePackageSearchModelIdList.removeAt(index);
   }
 
   void updateNonePackageSearchModelIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageSearchModelIdList[_index] =
-        updateFn(_nonePackageSearchModelIdList[_index]);
+    nonePackageSearchModelIdList[index] =
+        updateFn(_nonePackageSearchModelIdList[index]);
   }
 
-  void insertAtIndexInNonePackageSearchModelIdList(int _index, String _value) {
-    _nonePackageSearchModelIdList.insert(_index, _value);
+  void insertAtIndexInNonePackageSearchModelIdList(int index, String value) {
+    nonePackageSearchModelIdList.insert(index, value);
   }
 
   List<String> _searchAccessoryList = [];
   List<String> get searchAccessoryList => _searchAccessoryList;
-  set searchAccessoryList(List<String> _value) {
-    _searchAccessoryList = _value;
+  set searchAccessoryList(List<String> value) {
+    _searchAccessoryList = value;
   }
 
-  void addToSearchAccessoryList(String _value) {
-    _searchAccessoryList.add(_value);
+  void addToSearchAccessoryList(String value) {
+    searchAccessoryList.add(value);
   }
 
-  void removeFromSearchAccessoryList(String _value) {
-    _searchAccessoryList.remove(_value);
+  void removeFromSearchAccessoryList(String value) {
+    searchAccessoryList.remove(value);
   }
 
-  void removeAtIndexFromSearchAccessoryList(int _index) {
-    _searchAccessoryList.removeAt(_index);
+  void removeAtIndexFromSearchAccessoryList(int index) {
+    searchAccessoryList.removeAt(index);
   }
 
   void updateSearchAccessoryListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchAccessoryList[_index] = updateFn(_searchAccessoryList[_index]);
+    searchAccessoryList[index] = updateFn(_searchAccessoryList[index]);
   }
 
-  void insertAtIndexInSearchAccessoryList(int _index, String _value) {
-    _searchAccessoryList.insert(_index, _value);
+  void insertAtIndexInSearchAccessoryList(int index, String value) {
+    searchAccessoryList.insert(index, value);
   }
 
   String _insuranceInfoActAmount = '';
   String get insuranceInfoActAmount => _insuranceInfoActAmount;
-  set insuranceInfoActAmount(String _value) {
-    _insuranceInfoActAmount = _value;
+  set insuranceInfoActAmount(String value) {
+    _insuranceInfoActAmount = value;
   }
 
   String _insuranceInfoAccessory = '';
   String get insuranceInfoAccessory => _insuranceInfoAccessory;
-  set insuranceInfoAccessory(String _value) {
-    _insuranceInfoAccessory = _value;
+  set insuranceInfoAccessory(String value) {
+    _insuranceInfoAccessory = value;
   }
 
   String _insuranceInfoAccessoryProtect = '';
   String get insuranceInfoAccessoryProtect => _insuranceInfoAccessoryProtect;
-  set insuranceInfoAccessoryProtect(String _value) {
-    _insuranceInfoAccessoryProtect = _value;
+  set insuranceInfoAccessoryProtect(String value) {
+    _insuranceInfoAccessoryProtect = value;
   }
 
   List<String> _nonePackageCarrierTypeList = ['ตู้แห้ง', 'ตู้เย็น'];
   List<String> get nonePackageCarrierTypeList => _nonePackageCarrierTypeList;
-  set nonePackageCarrierTypeList(List<String> _value) {
-    _nonePackageCarrierTypeList = _value;
+  set nonePackageCarrierTypeList(List<String> value) {
+    _nonePackageCarrierTypeList = value;
   }
 
-  void addToNonePackageCarrierTypeList(String _value) {
-    _nonePackageCarrierTypeList.add(_value);
+  void addToNonePackageCarrierTypeList(String value) {
+    nonePackageCarrierTypeList.add(value);
   }
 
-  void removeFromNonePackageCarrierTypeList(String _value) {
-    _nonePackageCarrierTypeList.remove(_value);
+  void removeFromNonePackageCarrierTypeList(String value) {
+    nonePackageCarrierTypeList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageCarrierTypeList(int _index) {
-    _nonePackageCarrierTypeList.removeAt(_index);
+  void removeAtIndexFromNonePackageCarrierTypeList(int index) {
+    nonePackageCarrierTypeList.removeAt(index);
   }
 
   void updateNonePackageCarrierTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageCarrierTypeList[_index] =
-        updateFn(_nonePackageCarrierTypeList[_index]);
+    nonePackageCarrierTypeList[index] =
+        updateFn(_nonePackageCarrierTypeList[index]);
   }
 
-  void insertAtIndexInNonePackageCarrierTypeList(int _index, String _value) {
-    _nonePackageCarrierTypeList.insert(_index, _value);
+  void insertAtIndexInNonePackageCarrierTypeList(int index, String value) {
+    nonePackageCarrierTypeList.insert(index, value);
   }
 
   String _nonePackageCarrierType = 'กรุณาเลือกประเภทตู้เหล็ก';
   String get nonePackageCarrierType => _nonePackageCarrierType;
-  set nonePackageCarrierType(String _value) {
-    _nonePackageCarrierType = _value;
+  set nonePackageCarrierType(String value) {
+    _nonePackageCarrierType = value;
   }
 
   bool _nonePackageFlagCoop = false;
   bool get nonePackageFlagCoop => _nonePackageFlagCoop;
-  set nonePackageFlagCoop(bool _value) {
-    _nonePackageFlagCoop = _value;
+  set nonePackageFlagCoop(bool value) {
+    _nonePackageFlagCoop = value;
   }
 
   List<String> _nonePackageTruckPartList = ['เฉพาะหัวลาก', 'หัวลาก + หางพ่วง'];
   List<String> get nonePackageTruckPartList => _nonePackageTruckPartList;
-  set nonePackageTruckPartList(List<String> _value) {
-    _nonePackageTruckPartList = _value;
+  set nonePackageTruckPartList(List<String> value) {
+    _nonePackageTruckPartList = value;
   }
 
-  void addToNonePackageTruckPartList(String _value) {
-    _nonePackageTruckPartList.add(_value);
+  void addToNonePackageTruckPartList(String value) {
+    nonePackageTruckPartList.add(value);
   }
 
-  void removeFromNonePackageTruckPartList(String _value) {
-    _nonePackageTruckPartList.remove(_value);
+  void removeFromNonePackageTruckPartList(String value) {
+    nonePackageTruckPartList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTruckPartList(int _index) {
-    _nonePackageTruckPartList.removeAt(_index);
+  void removeAtIndexFromNonePackageTruckPartList(int index) {
+    nonePackageTruckPartList.removeAt(index);
   }
 
   void updateNonePackageTruckPartListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTruckPartList[_index] =
-        updateFn(_nonePackageTruckPartList[_index]);
+    nonePackageTruckPartList[index] =
+        updateFn(_nonePackageTruckPartList[index]);
   }
 
-  void insertAtIndexInNonePackageTruckPartList(int _index, String _value) {
-    _nonePackageTruckPartList.insert(_index, _value);
+  void insertAtIndexInNonePackageTruckPartList(int index, String value) {
+    nonePackageTruckPartList.insert(index, value);
   }
 
   String _nonePackageTruckPart = 'กรุณาเลือกส่วนของรถบรรทุก';
   String get nonePackageTruckPart => _nonePackageTruckPart;
-  set nonePackageTruckPart(String _value) {
-    _nonePackageTruckPart = _value;
+  set nonePackageTruckPart(String value) {
+    _nonePackageTruckPart = value;
   }
 
   List<String> _nonePackageCusMembershipList = ['ลูกค้าสินเชื่อ', 'ลูกค้านอก'];
   List<String> get nonePackageCusMembershipList =>
       _nonePackageCusMembershipList;
-  set nonePackageCusMembershipList(List<String> _value) {
-    _nonePackageCusMembershipList = _value;
+  set nonePackageCusMembershipList(List<String> value) {
+    _nonePackageCusMembershipList = value;
   }
 
-  void addToNonePackageCusMembershipList(String _value) {
-    _nonePackageCusMembershipList.add(_value);
+  void addToNonePackageCusMembershipList(String value) {
+    nonePackageCusMembershipList.add(value);
   }
 
-  void removeFromNonePackageCusMembershipList(String _value) {
-    _nonePackageCusMembershipList.remove(_value);
+  void removeFromNonePackageCusMembershipList(String value) {
+    nonePackageCusMembershipList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageCusMembershipList(int _index) {
-    _nonePackageCusMembershipList.removeAt(_index);
+  void removeAtIndexFromNonePackageCusMembershipList(int index) {
+    nonePackageCusMembershipList.removeAt(index);
   }
 
   void updateNonePackageCusMembershipListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageCusMembershipList[_index] =
-        updateFn(_nonePackageCusMembershipList[_index]);
+    nonePackageCusMembershipList[index] =
+        updateFn(_nonePackageCusMembershipList[index]);
   }
 
-  void insertAtIndexInNonePackageCusMembershipList(int _index, String _value) {
-    _nonePackageCusMembershipList.insert(_index, _value);
+  void insertAtIndexInNonePackageCusMembershipList(int index, String value) {
+    nonePackageCusMembershipList.insert(index, value);
   }
 
   String _nonePackageCusMembership = 'กรุณาเลือกประเภทลูกค้า';
   String get nonePackageCusMembership => _nonePackageCusMembership;
-  set nonePackageCusMembership(String _value) {
-    _nonePackageCusMembership = _value;
+  set nonePackageCusMembership(String value) {
+    _nonePackageCusMembership = value;
   }
 
   String _nonePackageTruckCurrentPrice = 'กรุณากรอกราคาซื้อขายปัจจุบัน';
   String get nonePackageTruckCurrentPrice => _nonePackageTruckCurrentPrice;
-  set nonePackageTruckCurrentPrice(String _value) {
-    _nonePackageTruckCurrentPrice = _value;
+  set nonePackageTruckCurrentPrice(String value) {
+    _nonePackageTruckCurrentPrice = value;
   }
 
   String _nonePackagePlateAdditional = 'กรุณากรอกเลขทะเบียนหางพ่วง';
   String get nonePackagePlateAdditional => _nonePackagePlateAdditional;
-  set nonePackagePlateAdditional(String _value) {
-    _nonePackagePlateAdditional = _value;
+  set nonePackagePlateAdditional(String value) {
+    _nonePackagePlateAdditional = value;
   }
 
   String _nonePackageTruckCarryPurpose = 'กรุณากรอกรถใช้บรรทุกอะไร';
   String get nonePackageTruckCarryPurpose => _nonePackageTruckCarryPurpose;
-  set nonePackageTruckCarryPurpose(String _value) {
-    _nonePackageTruckCarryPurpose = _value;
+  set nonePackageTruckCarryPurpose(String value) {
+    _nonePackageTruckCarryPurpose = value;
   }
 
   String _nonePackageTrailerSumInsured = 'กรุณากรอกทุนประกันหางพ่วง';
   String get nonePackageTrailerSumInsured => _nonePackageTrailerSumInsured;
-  set nonePackageTrailerSumInsured(String _value) {
-    _nonePackageTrailerSumInsured = _value;
+  set nonePackageTrailerSumInsured(String value) {
+    _nonePackageTrailerSumInsured = value;
   }
 
   String _nonePackageCarrierPrice = '';
   String get nonePackageCarrierPrice => _nonePackageCarrierPrice;
-  set nonePackageCarrierPrice(String _value) {
-    _nonePackageCarrierPrice = _value;
+  set nonePackageCarrierPrice(String value) {
+    _nonePackageCarrierPrice = value;
   }
 
   List<String> _nonePackageInsurerIdList = [];
   List<String> get nonePackageInsurerIdList => _nonePackageInsurerIdList;
-  set nonePackageInsurerIdList(List<String> _value) {
-    _nonePackageInsurerIdList = _value;
+  set nonePackageInsurerIdList(List<String> value) {
+    _nonePackageInsurerIdList = value;
   }
 
-  void addToNonePackageInsurerIdList(String _value) {
-    _nonePackageInsurerIdList.add(_value);
+  void addToNonePackageInsurerIdList(String value) {
+    nonePackageInsurerIdList.add(value);
   }
 
-  void removeFromNonePackageInsurerIdList(String _value) {
-    _nonePackageInsurerIdList.remove(_value);
+  void removeFromNonePackageInsurerIdList(String value) {
+    nonePackageInsurerIdList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerIdList(int _index) {
-    _nonePackageInsurerIdList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerIdList(int index) {
+    nonePackageInsurerIdList.removeAt(index);
   }
 
   void updateNonePackageInsurerIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerIdList[_index] =
-        updateFn(_nonePackageInsurerIdList[_index]);
+    nonePackageInsurerIdList[index] =
+        updateFn(_nonePackageInsurerIdList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerIdList(int _index, String _value) {
-    _nonePackageInsurerIdList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerIdList(int index, String value) {
+    nonePackageInsurerIdList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerCodeList = [];
   List<String> get nonePackageInsurerCodeList => _nonePackageInsurerCodeList;
-  set nonePackageInsurerCodeList(List<String> _value) {
-    _nonePackageInsurerCodeList = _value;
+  set nonePackageInsurerCodeList(List<String> value) {
+    _nonePackageInsurerCodeList = value;
   }
 
-  void addToNonePackageInsurerCodeList(String _value) {
-    _nonePackageInsurerCodeList.add(_value);
+  void addToNonePackageInsurerCodeList(String value) {
+    nonePackageInsurerCodeList.add(value);
   }
 
-  void removeFromNonePackageInsurerCodeList(String _value) {
-    _nonePackageInsurerCodeList.remove(_value);
+  void removeFromNonePackageInsurerCodeList(String value) {
+    nonePackageInsurerCodeList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerCodeList(int _index) {
-    _nonePackageInsurerCodeList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerCodeList(int index) {
+    nonePackageInsurerCodeList.removeAt(index);
   }
 
   void updateNonePackageInsurerCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerCodeList[_index] =
-        updateFn(_nonePackageInsurerCodeList[_index]);
+    nonePackageInsurerCodeList[index] =
+        updateFn(_nonePackageInsurerCodeList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerCodeList(int _index, String _value) {
-    _nonePackageInsurerCodeList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerCodeList(int index, String value) {
+    nonePackageInsurerCodeList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerShortNameList = [];
   List<String> get nonePackageInsurerShortNameList =>
       _nonePackageInsurerShortNameList;
-  set nonePackageInsurerShortNameList(List<String> _value) {
-    _nonePackageInsurerShortNameList = _value;
+  set nonePackageInsurerShortNameList(List<String> value) {
+    _nonePackageInsurerShortNameList = value;
   }
 
-  void addToNonePackageInsurerShortNameList(String _value) {
-    _nonePackageInsurerShortNameList.add(_value);
+  void addToNonePackageInsurerShortNameList(String value) {
+    nonePackageInsurerShortNameList.add(value);
   }
 
-  void removeFromNonePackageInsurerShortNameList(String _value) {
-    _nonePackageInsurerShortNameList.remove(_value);
+  void removeFromNonePackageInsurerShortNameList(String value) {
+    nonePackageInsurerShortNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerShortNameList(int _index) {
-    _nonePackageInsurerShortNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerShortNameList(int index) {
+    nonePackageInsurerShortNameList.removeAt(index);
   }
 
   void updateNonePackageInsurerShortNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerShortNameList[_index] =
-        updateFn(_nonePackageInsurerShortNameList[_index]);
+    nonePackageInsurerShortNameList[index] =
+        updateFn(_nonePackageInsurerShortNameList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerShortNameList(
-      int _index, String _value) {
-    _nonePackageInsurerShortNameList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerShortNameList(int index, String value) {
+    nonePackageInsurerShortNameList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerNameList = [];
   List<String> get nonePackageInsurerNameList => _nonePackageInsurerNameList;
-  set nonePackageInsurerNameList(List<String> _value) {
-    _nonePackageInsurerNameList = _value;
+  set nonePackageInsurerNameList(List<String> value) {
+    _nonePackageInsurerNameList = value;
   }
 
-  void addToNonePackageInsurerNameList(String _value) {
-    _nonePackageInsurerNameList.add(_value);
+  void addToNonePackageInsurerNameList(String value) {
+    nonePackageInsurerNameList.add(value);
   }
 
-  void removeFromNonePackageInsurerNameList(String _value) {
-    _nonePackageInsurerNameList.remove(_value);
+  void removeFromNonePackageInsurerNameList(String value) {
+    nonePackageInsurerNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerNameList(int _index) {
-    _nonePackageInsurerNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerNameList(int index) {
+    nonePackageInsurerNameList.removeAt(index);
   }
 
   void updateNonePackageInsurerNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerNameList[_index] =
-        updateFn(_nonePackageInsurerNameList[_index]);
+    nonePackageInsurerNameList[index] =
+        updateFn(_nonePackageInsurerNameList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerNameList(int _index, String _value) {
-    _nonePackageInsurerNameList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerNameList(int index, String value) {
+    nonePackageInsurerNameList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerDisplayName = [];
   List<String> get nonePackageInsurerDisplayName =>
       _nonePackageInsurerDisplayName;
-  set nonePackageInsurerDisplayName(List<String> _value) {
-    _nonePackageInsurerDisplayName = _value;
+  set nonePackageInsurerDisplayName(List<String> value) {
+    _nonePackageInsurerDisplayName = value;
   }
 
-  void addToNonePackageInsurerDisplayName(String _value) {
-    _nonePackageInsurerDisplayName.add(_value);
+  void addToNonePackageInsurerDisplayName(String value) {
+    nonePackageInsurerDisplayName.add(value);
   }
 
-  void removeFromNonePackageInsurerDisplayName(String _value) {
-    _nonePackageInsurerDisplayName.remove(_value);
+  void removeFromNonePackageInsurerDisplayName(String value) {
+    nonePackageInsurerDisplayName.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerDisplayName(int _index) {
-    _nonePackageInsurerDisplayName.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerDisplayName(int index) {
+    nonePackageInsurerDisplayName.removeAt(index);
   }
 
   void updateNonePackageInsurerDisplayNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerDisplayName[_index] =
-        updateFn(_nonePackageInsurerDisplayName[_index]);
+    nonePackageInsurerDisplayName[index] =
+        updateFn(_nonePackageInsurerDisplayName[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerDisplayName(int _index, String _value) {
-    _nonePackageInsurerDisplayName.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerDisplayName(int index, String value) {
+    nonePackageInsurerDisplayName.insert(index, value);
   }
 
   String _addAddressAtIdCard = 'กรุณากรอกที่อยู่';
   String get addAddressAtIdCard => _addAddressAtIdCard;
-  set addAddressAtIdCard(String _value) {
-    _addAddressAtIdCard = _value;
+  set addAddressAtIdCard(String value) {
+    _addAddressAtIdCard = value;
   }
 
   String _addAddressAtIdCard2 = 'กรุณากรอกที่อยู่';
   String get addAddressAtIdCard2 => _addAddressAtIdCard2;
-  set addAddressAtIdCard2(String _value) {
-    _addAddressAtIdCard2 = _value;
+  set addAddressAtIdCard2(String value) {
+    _addAddressAtIdCard2 = value;
   }
 
   String _addAddressAtIdCard3 = 'กรุณากรอกที่อยู่';
   String get addAddressAtIdCard3 => _addAddressAtIdCard3;
-  set addAddressAtIdCard3(String _value) {
-    _addAddressAtIdCard3 = _value;
+  set addAddressAtIdCard3(String value) {
+    _addAddressAtIdCard3 = value;
   }
 
   String _addAddressForDoc = 'กรุณากรอกที่อยู่';
   String get addAddressForDoc => _addAddressForDoc;
-  set addAddressForDoc(String _value) {
-    _addAddressForDoc = _value;
+  set addAddressForDoc(String value) {
+    _addAddressForDoc = value;
   }
 
   String _addAddressForDoc2 = 'กรุณากรอกที่อยู่';
   String get addAddressForDoc2 => _addAddressForDoc2;
-  set addAddressForDoc2(String _value) {
-    _addAddressForDoc2 = _value;
+  set addAddressForDoc2(String value) {
+    _addAddressForDoc2 = value;
   }
 
   String _addAddressForDoc3 = 'กรุณากรอกที่อยู่';
   String get addAddressForDoc3 => _addAddressForDoc3;
-  set addAddressForDoc3(String _value) {
-    _addAddressForDoc3 = _value;
+  set addAddressForDoc3(String value) {
+    _addAddressForDoc3 = value;
   }
 
   bool _addAddressAtIdCardBool = false;
   bool get addAddressAtIdCardBool => _addAddressAtIdCardBool;
-  set addAddressAtIdCardBool(bool _value) {
-    _addAddressAtIdCardBool = _value;
+  set addAddressAtIdCardBool(bool value) {
+    _addAddressAtIdCardBool = value;
   }
 
   bool _addAddressForDocBool = false;
   bool get addAddressForDocBool => _addAddressForDocBool;
-  set addAddressForDocBool(bool _value) {
-    _addAddressForDocBool = _value;
+  set addAddressForDocBool(bool value) {
+    _addAddressForDocBool = value;
   }
 
   List<String> _nonePackageInsurerIdOutputList = [];
   List<String> get nonePackageInsurerIdOutputList =>
       _nonePackageInsurerIdOutputList;
-  set nonePackageInsurerIdOutputList(List<String> _value) {
-    _nonePackageInsurerIdOutputList = _value;
+  set nonePackageInsurerIdOutputList(List<String> value) {
+    _nonePackageInsurerIdOutputList = value;
   }
 
-  void addToNonePackageInsurerIdOutputList(String _value) {
-    _nonePackageInsurerIdOutputList.add(_value);
+  void addToNonePackageInsurerIdOutputList(String value) {
+    nonePackageInsurerIdOutputList.add(value);
   }
 
-  void removeFromNonePackageInsurerIdOutputList(String _value) {
-    _nonePackageInsurerIdOutputList.remove(_value);
+  void removeFromNonePackageInsurerIdOutputList(String value) {
+    nonePackageInsurerIdOutputList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerIdOutputList(int _index) {
-    _nonePackageInsurerIdOutputList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerIdOutputList(int index) {
+    nonePackageInsurerIdOutputList.removeAt(index);
   }
 
   void updateNonePackageInsurerIdOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerIdOutputList[_index] =
-        updateFn(_nonePackageInsurerIdOutputList[_index]);
+    nonePackageInsurerIdOutputList[index] =
+        updateFn(_nonePackageInsurerIdOutputList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerIdOutputList(
-      int _index, String _value) {
-    _nonePackageInsurerIdOutputList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerIdOutputList(int index, String value) {
+    nonePackageInsurerIdOutputList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerCodeOutputList = [];
   List<String> get nonePackageInsurerCodeOutputList =>
       _nonePackageInsurerCodeOutputList;
-  set nonePackageInsurerCodeOutputList(List<String> _value) {
-    _nonePackageInsurerCodeOutputList = _value;
+  set nonePackageInsurerCodeOutputList(List<String> value) {
+    _nonePackageInsurerCodeOutputList = value;
   }
 
-  void addToNonePackageInsurerCodeOutputList(String _value) {
-    _nonePackageInsurerCodeOutputList.add(_value);
+  void addToNonePackageInsurerCodeOutputList(String value) {
+    nonePackageInsurerCodeOutputList.add(value);
   }
 
-  void removeFromNonePackageInsurerCodeOutputList(String _value) {
-    _nonePackageInsurerCodeOutputList.remove(_value);
+  void removeFromNonePackageInsurerCodeOutputList(String value) {
+    nonePackageInsurerCodeOutputList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerCodeOutputList(int _index) {
-    _nonePackageInsurerCodeOutputList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerCodeOutputList(int index) {
+    nonePackageInsurerCodeOutputList.removeAt(index);
   }
 
   void updateNonePackageInsurerCodeOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerCodeOutputList[_index] =
-        updateFn(_nonePackageInsurerCodeOutputList[_index]);
+    nonePackageInsurerCodeOutputList[index] =
+        updateFn(_nonePackageInsurerCodeOutputList[index]);
   }
 
   void insertAtIndexInNonePackageInsurerCodeOutputList(
-      int _index, String _value) {
-    _nonePackageInsurerCodeOutputList.insert(_index, _value);
+      int index, String value) {
+    nonePackageInsurerCodeOutputList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerShortNameOutputList = [];
   List<String> get nonePackageInsurerShortNameOutputList =>
       _nonePackageInsurerShortNameOutputList;
-  set nonePackageInsurerShortNameOutputList(List<String> _value) {
-    _nonePackageInsurerShortNameOutputList = _value;
+  set nonePackageInsurerShortNameOutputList(List<String> value) {
+    _nonePackageInsurerShortNameOutputList = value;
   }
 
-  void addToNonePackageInsurerShortNameOutputList(String _value) {
-    _nonePackageInsurerShortNameOutputList.add(_value);
+  void addToNonePackageInsurerShortNameOutputList(String value) {
+    nonePackageInsurerShortNameOutputList.add(value);
   }
 
-  void removeFromNonePackageInsurerShortNameOutputList(String _value) {
-    _nonePackageInsurerShortNameOutputList.remove(_value);
+  void removeFromNonePackageInsurerShortNameOutputList(String value) {
+    nonePackageInsurerShortNameOutputList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerShortNameOutputList(int _index) {
-    _nonePackageInsurerShortNameOutputList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerShortNameOutputList(int index) {
+    nonePackageInsurerShortNameOutputList.removeAt(index);
   }
 
   void updateNonePackageInsurerShortNameOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerShortNameOutputList[_index] =
-        updateFn(_nonePackageInsurerShortNameOutputList[_index]);
+    nonePackageInsurerShortNameOutputList[index] =
+        updateFn(_nonePackageInsurerShortNameOutputList[index]);
   }
 
   void insertAtIndexInNonePackageInsurerShortNameOutputList(
-      int _index, String _value) {
-    _nonePackageInsurerShortNameOutputList.insert(_index, _value);
+      int index, String value) {
+    nonePackageInsurerShortNameOutputList.insert(index, value);
   }
 
   List<String> _nonePackageInsurerNameOutputList = [];
   List<String> get nonePackageInsurerNameOutputList =>
       _nonePackageInsurerNameOutputList;
-  set nonePackageInsurerNameOutputList(List<String> _value) {
-    _nonePackageInsurerNameOutputList = _value;
+  set nonePackageInsurerNameOutputList(List<String> value) {
+    _nonePackageInsurerNameOutputList = value;
   }
 
-  void addToNonePackageInsurerNameOutputList(String _value) {
-    _nonePackageInsurerNameOutputList.add(_value);
+  void addToNonePackageInsurerNameOutputList(String value) {
+    nonePackageInsurerNameOutputList.add(value);
   }
 
-  void removeFromNonePackageInsurerNameOutputList(String _value) {
-    _nonePackageInsurerNameOutputList.remove(_value);
+  void removeFromNonePackageInsurerNameOutputList(String value) {
+    nonePackageInsurerNameOutputList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerNameOutputList(int _index) {
-    _nonePackageInsurerNameOutputList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerNameOutputList(int index) {
+    nonePackageInsurerNameOutputList.removeAt(index);
   }
 
   void updateNonePackageInsurerNameOutputListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerNameOutputList[_index] =
-        updateFn(_nonePackageInsurerNameOutputList[_index]);
+    nonePackageInsurerNameOutputList[index] =
+        updateFn(_nonePackageInsurerNameOutputList[index]);
   }
 
   void insertAtIndexInNonePackageInsurerNameOutputList(
-      int _index, String _value) {
-    _nonePackageInsurerNameOutputList.insert(_index, _value);
+      int index, String value) {
+    nonePackageInsurerNameOutputList.insert(index, value);
   }
 
   bool _addAddressCallAPI = false;
   bool get addAddressCallAPI => _addAddressCallAPI;
-  set addAddressCallAPI(bool _value) {
-    _addAddressCallAPI = _value;
+  set addAddressCallAPI(bool value) {
+    _addAddressCallAPI = value;
   }
 
   List<String> _addAddressProvinceId = [];
   List<String> get addAddressProvinceId => _addAddressProvinceId;
-  set addAddressProvinceId(List<String> _value) {
-    _addAddressProvinceId = _value;
+  set addAddressProvinceId(List<String> value) {
+    _addAddressProvinceId = value;
   }
 
-  void addToAddAddressProvinceId(String _value) {
-    _addAddressProvinceId.add(_value);
+  void addToAddAddressProvinceId(String value) {
+    addAddressProvinceId.add(value);
   }
 
-  void removeFromAddAddressProvinceId(String _value) {
-    _addAddressProvinceId.remove(_value);
+  void removeFromAddAddressProvinceId(String value) {
+    addAddressProvinceId.remove(value);
   }
 
-  void removeAtIndexFromAddAddressProvinceId(int _index) {
-    _addAddressProvinceId.removeAt(_index);
+  void removeAtIndexFromAddAddressProvinceId(int index) {
+    addAddressProvinceId.removeAt(index);
   }
 
   void updateAddAddressProvinceIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressProvinceId[_index] = updateFn(_addAddressProvinceId[_index]);
+    addAddressProvinceId[index] = updateFn(_addAddressProvinceId[index]);
   }
 
-  void insertAtIndexInAddAddressProvinceId(int _index, String _value) {
-    _addAddressProvinceId.insert(_index, _value);
+  void insertAtIndexInAddAddressProvinceId(int index, String value) {
+    addAddressProvinceId.insert(index, value);
   }
 
   List<String> _addAddressProvinceName = [];
   List<String> get addAddressProvinceName => _addAddressProvinceName;
-  set addAddressProvinceName(List<String> _value) {
-    _addAddressProvinceName = _value;
+  set addAddressProvinceName(List<String> value) {
+    _addAddressProvinceName = value;
   }
 
-  void addToAddAddressProvinceName(String _value) {
-    _addAddressProvinceName.add(_value);
+  void addToAddAddressProvinceName(String value) {
+    addAddressProvinceName.add(value);
   }
 
-  void removeFromAddAddressProvinceName(String _value) {
-    _addAddressProvinceName.remove(_value);
+  void removeFromAddAddressProvinceName(String value) {
+    addAddressProvinceName.remove(value);
   }
 
-  void removeAtIndexFromAddAddressProvinceName(int _index) {
-    _addAddressProvinceName.removeAt(_index);
+  void removeAtIndexFromAddAddressProvinceName(int index) {
+    addAddressProvinceName.removeAt(index);
   }
 
   void updateAddAddressProvinceNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressProvinceName[_index] = updateFn(_addAddressProvinceName[_index]);
+    addAddressProvinceName[index] = updateFn(_addAddressProvinceName[index]);
   }
 
-  void insertAtIndexInAddAddressProvinceName(int _index, String _value) {
-    _addAddressProvinceName.insert(_index, _value);
+  void insertAtIndexInAddAddressProvinceName(int index, String value) {
+    addAddressProvinceName.insert(index, value);
   }
 
   List<String> _addAddressDistrictName = [];
   List<String> get addAddressDistrictName => _addAddressDistrictName;
-  set addAddressDistrictName(List<String> _value) {
-    _addAddressDistrictName = _value;
+  set addAddressDistrictName(List<String> value) {
+    _addAddressDistrictName = value;
   }
 
-  void addToAddAddressDistrictName(String _value) {
-    _addAddressDistrictName.add(_value);
+  void addToAddAddressDistrictName(String value) {
+    addAddressDistrictName.add(value);
   }
 
-  void removeFromAddAddressDistrictName(String _value) {
-    _addAddressDistrictName.remove(_value);
+  void removeFromAddAddressDistrictName(String value) {
+    addAddressDistrictName.remove(value);
   }
 
-  void removeAtIndexFromAddAddressDistrictName(int _index) {
-    _addAddressDistrictName.removeAt(_index);
+  void removeAtIndexFromAddAddressDistrictName(int index) {
+    addAddressDistrictName.removeAt(index);
   }
 
   void updateAddAddressDistrictNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressDistrictName[_index] = updateFn(_addAddressDistrictName[_index]);
+    addAddressDistrictName[index] = updateFn(_addAddressDistrictName[index]);
   }
 
-  void insertAtIndexInAddAddressDistrictName(int _index, String _value) {
-    _addAddressDistrictName.insert(_index, _value);
+  void insertAtIndexInAddAddressDistrictName(int index, String value) {
+    addAddressDistrictName.insert(index, value);
   }
 
   List<String> _addAddressSubdistrictName = [];
   List<String> get addAddressSubdistrictName => _addAddressSubdistrictName;
-  set addAddressSubdistrictName(List<String> _value) {
-    _addAddressSubdistrictName = _value;
+  set addAddressSubdistrictName(List<String> value) {
+    _addAddressSubdistrictName = value;
   }
 
-  void addToAddAddressSubdistrictName(String _value) {
-    _addAddressSubdistrictName.add(_value);
+  void addToAddAddressSubdistrictName(String value) {
+    addAddressSubdistrictName.add(value);
   }
 
-  void removeFromAddAddressSubdistrictName(String _value) {
-    _addAddressSubdistrictName.remove(_value);
+  void removeFromAddAddressSubdistrictName(String value) {
+    addAddressSubdistrictName.remove(value);
   }
 
-  void removeAtIndexFromAddAddressSubdistrictName(int _index) {
-    _addAddressSubdistrictName.removeAt(_index);
+  void removeAtIndexFromAddAddressSubdistrictName(int index) {
+    addAddressSubdistrictName.removeAt(index);
   }
 
   void updateAddAddressSubdistrictNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressSubdistrictName[_index] =
-        updateFn(_addAddressSubdistrictName[_index]);
+    addAddressSubdistrictName[index] =
+        updateFn(_addAddressSubdistrictName[index]);
   }
 
-  void insertAtIndexInAddAddressSubdistrictName(int _index, String _value) {
-    _addAddressSubdistrictName.insert(_index, _value);
+  void insertAtIndexInAddAddressSubdistrictName(int index, String value) {
+    addAddressSubdistrictName.insert(index, value);
   }
 
   List<String> _addAddressZipCode = [];
   List<String> get addAddressZipCode => _addAddressZipCode;
-  set addAddressZipCode(List<String> _value) {
-    _addAddressZipCode = _value;
+  set addAddressZipCode(List<String> value) {
+    _addAddressZipCode = value;
   }
 
-  void addToAddAddressZipCode(String _value) {
-    _addAddressZipCode.add(_value);
+  void addToAddAddressZipCode(String value) {
+    addAddressZipCode.add(value);
   }
 
-  void removeFromAddAddressZipCode(String _value) {
-    _addAddressZipCode.remove(_value);
+  void removeFromAddAddressZipCode(String value) {
+    addAddressZipCode.remove(value);
   }
 
-  void removeAtIndexFromAddAddressZipCode(int _index) {
-    _addAddressZipCode.removeAt(_index);
+  void removeAtIndexFromAddAddressZipCode(int index) {
+    addAddressZipCode.removeAt(index);
   }
 
   void updateAddAddressZipCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressZipCode[_index] = updateFn(_addAddressZipCode[_index]);
+    addAddressZipCode[index] = updateFn(_addAddressZipCode[index]);
   }
 
-  void insertAtIndexInAddAddressZipCode(int _index, String _value) {
-    _addAddressZipCode.insert(_index, _value);
+  void insertAtIndexInAddAddressZipCode(int index, String value) {
+    addAddressZipCode.insert(index, value);
   }
 
   List<String> _addAddressKeyWord = [];
   List<String> get addAddressKeyWord => _addAddressKeyWord;
-  set addAddressKeyWord(List<String> _value) {
-    _addAddressKeyWord = _value;
+  set addAddressKeyWord(List<String> value) {
+    _addAddressKeyWord = value;
   }
 
-  void addToAddAddressKeyWord(String _value) {
-    _addAddressKeyWord.add(_value);
+  void addToAddAddressKeyWord(String value) {
+    addAddressKeyWord.add(value);
   }
 
-  void removeFromAddAddressKeyWord(String _value) {
-    _addAddressKeyWord.remove(_value);
+  void removeFromAddAddressKeyWord(String value) {
+    addAddressKeyWord.remove(value);
   }
 
-  void removeAtIndexFromAddAddressKeyWord(int _index) {
-    _addAddressKeyWord.removeAt(_index);
+  void removeAtIndexFromAddAddressKeyWord(int index) {
+    addAddressKeyWord.removeAt(index);
   }
 
   void updateAddAddressKeyWordAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressKeyWord[_index] = updateFn(_addAddressKeyWord[_index]);
+    addAddressKeyWord[index] = updateFn(_addAddressKeyWord[index]);
   }
 
-  void insertAtIndexInAddAddressKeyWord(int _index, String _value) {
-    _addAddressKeyWord.insert(_index, _value);
+  void insertAtIndexInAddAddressKeyWord(int index, String value) {
+    addAddressKeyWord.insert(index, value);
   }
 
   List<int> _addAddressDistrictId = [];
   List<int> get addAddressDistrictId => _addAddressDistrictId;
-  set addAddressDistrictId(List<int> _value) {
-    _addAddressDistrictId = _value;
+  set addAddressDistrictId(List<int> value) {
+    _addAddressDistrictId = value;
   }
 
-  void addToAddAddressDistrictId(int _value) {
-    _addAddressDistrictId.add(_value);
+  void addToAddAddressDistrictId(int value) {
+    addAddressDistrictId.add(value);
   }
 
-  void removeFromAddAddressDistrictId(int _value) {
-    _addAddressDistrictId.remove(_value);
+  void removeFromAddAddressDistrictId(int value) {
+    addAddressDistrictId.remove(value);
   }
 
-  void removeAtIndexFromAddAddressDistrictId(int _index) {
-    _addAddressDistrictId.removeAt(_index);
+  void removeAtIndexFromAddAddressDistrictId(int index) {
+    addAddressDistrictId.removeAt(index);
   }
 
   void updateAddAddressDistrictIdAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _addAddressDistrictId[_index] = updateFn(_addAddressDistrictId[_index]);
+    addAddressDistrictId[index] = updateFn(_addAddressDistrictId[index]);
   }
 
-  void insertAtIndexInAddAddressDistrictId(int _index, int _value) {
-    _addAddressDistrictId.insert(_index, _value);
+  void insertAtIndexInAddAddressDistrictId(int index, int value) {
+    addAddressDistrictId.insert(index, value);
   }
 
   List<int> _addAddressSubdistrictId = [];
   List<int> get addAddressSubdistrictId => _addAddressSubdistrictId;
-  set addAddressSubdistrictId(List<int> _value) {
-    _addAddressSubdistrictId = _value;
+  set addAddressSubdistrictId(List<int> value) {
+    _addAddressSubdistrictId = value;
   }
 
-  void addToAddAddressSubdistrictId(int _value) {
-    _addAddressSubdistrictId.add(_value);
+  void addToAddAddressSubdistrictId(int value) {
+    addAddressSubdistrictId.add(value);
   }
 
-  void removeFromAddAddressSubdistrictId(int _value) {
-    _addAddressSubdistrictId.remove(_value);
+  void removeFromAddAddressSubdistrictId(int value) {
+    addAddressSubdistrictId.remove(value);
   }
 
-  void removeAtIndexFromAddAddressSubdistrictId(int _index) {
-    _addAddressSubdistrictId.removeAt(_index);
+  void removeAtIndexFromAddAddressSubdistrictId(int index) {
+    addAddressSubdistrictId.removeAt(index);
   }
 
   void updateAddAddressSubdistrictIdAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _addAddressSubdistrictId[_index] =
-        updateFn(_addAddressSubdistrictId[_index]);
+    addAddressSubdistrictId[index] = updateFn(_addAddressSubdistrictId[index]);
   }
 
-  void insertAtIndexInAddAddressSubdistrictId(int _index, int _value) {
-    _addAddressSubdistrictId.insert(_index, _value);
+  void insertAtIndexInAddAddressSubdistrictId(int index, int value) {
+    addAddressSubdistrictId.insert(index, value);
   }
 
   List<bool> _nonePackageReason = [false, false, false];
   List<bool> get nonePackageReason => _nonePackageReason;
-  set nonePackageReason(List<bool> _value) {
-    _nonePackageReason = _value;
+  set nonePackageReason(List<bool> value) {
+    _nonePackageReason = value;
   }
 
-  void addToNonePackageReason(bool _value) {
-    _nonePackageReason.add(_value);
+  void addToNonePackageReason(bool value) {
+    nonePackageReason.add(value);
   }
 
-  void removeFromNonePackageReason(bool _value) {
-    _nonePackageReason.remove(_value);
+  void removeFromNonePackageReason(bool value) {
+    nonePackageReason.remove(value);
   }
 
-  void removeAtIndexFromNonePackageReason(int _index) {
-    _nonePackageReason.removeAt(_index);
+  void removeAtIndexFromNonePackageReason(int index) {
+    nonePackageReason.removeAt(index);
   }
 
   void updateNonePackageReasonAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _nonePackageReason[_index] = updateFn(_nonePackageReason[_index]);
+    nonePackageReason[index] = updateFn(_nonePackageReason[index]);
   }
 
-  void insertAtIndexInNonePackageReason(int _index, bool _value) {
-    _nonePackageReason.insert(_index, _value);
+  void insertAtIndexInNonePackageReason(int index, bool value) {
+    nonePackageReason.insert(index, value);
   }
 
   String _addAddressSelectProvinceId = '';
   String get addAddressSelectProvinceId => _addAddressSelectProvinceId;
-  set addAddressSelectProvinceId(String _value) {
-    _addAddressSelectProvinceId = _value;
+  set addAddressSelectProvinceId(String value) {
+    _addAddressSelectProvinceId = value;
   }
 
   String _addAddressSelectProvinceName = '';
   String get addAddressSelectProvinceName => _addAddressSelectProvinceName;
-  set addAddressSelectProvinceName(String _value) {
-    _addAddressSelectProvinceName = _value;
+  set addAddressSelectProvinceName(String value) {
+    _addAddressSelectProvinceName = value;
   }
 
   String _addAddressSelectDistrictId = '';
   String get addAddressSelectDistrictId => _addAddressSelectDistrictId;
-  set addAddressSelectDistrictId(String _value) {
-    _addAddressSelectDistrictId = _value;
+  set addAddressSelectDistrictId(String value) {
+    _addAddressSelectDistrictId = value;
   }
 
   String _addAddressSelectDistrictName = '';
   String get addAddressSelectDistrictName => _addAddressSelectDistrictName;
-  set addAddressSelectDistrictName(String _value) {
-    _addAddressSelectDistrictName = _value;
+  set addAddressSelectDistrictName(String value) {
+    _addAddressSelectDistrictName = value;
   }
 
   String _addAddressSelectSubdistrictId = '';
   String get addAddressSelectSubdistrictId => _addAddressSelectSubdistrictId;
-  set addAddressSelectSubdistrictId(String _value) {
-    _addAddressSelectSubdistrictId = _value;
+  set addAddressSelectSubdistrictId(String value) {
+    _addAddressSelectSubdistrictId = value;
   }
 
   String _addAddressSelectSubdistrictName = '';
   String get addAddressSelectSubdistrictName =>
       _addAddressSelectSubdistrictName;
-  set addAddressSelectSubdistrictName(String _value) {
-    _addAddressSelectSubdistrictName = _value;
+  set addAddressSelectSubdistrictName(String value) {
+    _addAddressSelectSubdistrictName = value;
   }
 
   String _addAddressSelectZipCode = '';
   String get addAddressSelectZipCode => _addAddressSelectZipCode;
-  set addAddressSelectZipCode(String _value) {
-    _addAddressSelectZipCode = _value;
+  set addAddressSelectZipCode(String value) {
+    _addAddressSelectZipCode = value;
   }
 
   String _addAddressSelectKeyWord = '';
   String get addAddressSelectKeyWord => _addAddressSelectKeyWord;
-  set addAddressSelectKeyWord(String _value) {
-    _addAddressSelectKeyWord = _value;
+  set addAddressSelectKeyWord(String value) {
+    _addAddressSelectKeyWord = value;
   }
 
   List<bool> _nonePackageInsurerSelectedList = [];
   List<bool> get nonePackageInsurerSelectedList =>
       _nonePackageInsurerSelectedList;
-  set nonePackageInsurerSelectedList(List<bool> _value) {
-    _nonePackageInsurerSelectedList = _value;
+  set nonePackageInsurerSelectedList(List<bool> value) {
+    _nonePackageInsurerSelectedList = value;
   }
 
-  void addToNonePackageInsurerSelectedList(bool _value) {
-    _nonePackageInsurerSelectedList.add(_value);
+  void addToNonePackageInsurerSelectedList(bool value) {
+    nonePackageInsurerSelectedList.add(value);
   }
 
-  void removeFromNonePackageInsurerSelectedList(bool _value) {
-    _nonePackageInsurerSelectedList.remove(_value);
+  void removeFromNonePackageInsurerSelectedList(bool value) {
+    nonePackageInsurerSelectedList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerSelectedList(int _index) {
-    _nonePackageInsurerSelectedList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerSelectedList(int index) {
+    nonePackageInsurerSelectedList.removeAt(index);
   }
 
   void updateNonePackageInsurerSelectedListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _nonePackageInsurerSelectedList[_index] =
-        updateFn(_nonePackageInsurerSelectedList[_index]);
+    nonePackageInsurerSelectedList[index] =
+        updateFn(_nonePackageInsurerSelectedList[index]);
   }
 
-  void insertAtIndexInNonePackageInsurerSelectedList(int _index, bool _value) {
-    _nonePackageInsurerSelectedList.insert(_index, _value);
+  void insertAtIndexInNonePackageInsurerSelectedList(int index, bool value) {
+    nonePackageInsurerSelectedList.insert(index, value);
   }
 
   List<String> _addAddressLicenseEmployeeId = [];
   List<String> get addAddressLicenseEmployeeId => _addAddressLicenseEmployeeId;
-  set addAddressLicenseEmployeeId(List<String> _value) {
-    _addAddressLicenseEmployeeId = _value;
+  set addAddressLicenseEmployeeId(List<String> value) {
+    _addAddressLicenseEmployeeId = value;
   }
 
-  void addToAddAddressLicenseEmployeeId(String _value) {
-    _addAddressLicenseEmployeeId.add(_value);
+  void addToAddAddressLicenseEmployeeId(String value) {
+    addAddressLicenseEmployeeId.add(value);
   }
 
-  void removeFromAddAddressLicenseEmployeeId(String _value) {
-    _addAddressLicenseEmployeeId.remove(_value);
+  void removeFromAddAddressLicenseEmployeeId(String value) {
+    addAddressLicenseEmployeeId.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseEmployeeId(int _index) {
-    _addAddressLicenseEmployeeId.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseEmployeeId(int index) {
+    addAddressLicenseEmployeeId.removeAt(index);
   }
 
   void updateAddAddressLicenseEmployeeIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseEmployeeId[_index] =
-        updateFn(_addAddressLicenseEmployeeId[_index]);
+    addAddressLicenseEmployeeId[index] =
+        updateFn(_addAddressLicenseEmployeeId[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseEmployeeId(int _index, String _value) {
-    _addAddressLicenseEmployeeId.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseEmployeeId(int index, String value) {
+    addAddressLicenseEmployeeId.insert(index, value);
   }
 
   List<String> _addAddressLicenseTitle = [];
   List<String> get addAddressLicenseTitle => _addAddressLicenseTitle;
-  set addAddressLicenseTitle(List<String> _value) {
-    _addAddressLicenseTitle = _value;
+  set addAddressLicenseTitle(List<String> value) {
+    _addAddressLicenseTitle = value;
   }
 
-  void addToAddAddressLicenseTitle(String _value) {
-    _addAddressLicenseTitle.add(_value);
+  void addToAddAddressLicenseTitle(String value) {
+    addAddressLicenseTitle.add(value);
   }
 
-  void removeFromAddAddressLicenseTitle(String _value) {
-    _addAddressLicenseTitle.remove(_value);
+  void removeFromAddAddressLicenseTitle(String value) {
+    addAddressLicenseTitle.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseTitle(int _index) {
-    _addAddressLicenseTitle.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseTitle(int index) {
+    addAddressLicenseTitle.removeAt(index);
   }
 
   void updateAddAddressLicenseTitleAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseTitle[_index] = updateFn(_addAddressLicenseTitle[_index]);
+    addAddressLicenseTitle[index] = updateFn(_addAddressLicenseTitle[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseTitle(int _index, String _value) {
-    _addAddressLicenseTitle.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseTitle(int index, String value) {
+    addAddressLicenseTitle.insert(index, value);
   }
 
   List<String> _addAddressLicenseFirstName = [];
   List<String> get addAddressLicenseFirstName => _addAddressLicenseFirstName;
-  set addAddressLicenseFirstName(List<String> _value) {
-    _addAddressLicenseFirstName = _value;
+  set addAddressLicenseFirstName(List<String> value) {
+    _addAddressLicenseFirstName = value;
   }
 
-  void addToAddAddressLicenseFirstName(String _value) {
-    _addAddressLicenseFirstName.add(_value);
+  void addToAddAddressLicenseFirstName(String value) {
+    addAddressLicenseFirstName.add(value);
   }
 
-  void removeFromAddAddressLicenseFirstName(String _value) {
-    _addAddressLicenseFirstName.remove(_value);
+  void removeFromAddAddressLicenseFirstName(String value) {
+    addAddressLicenseFirstName.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseFirstName(int _index) {
-    _addAddressLicenseFirstName.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseFirstName(int index) {
+    addAddressLicenseFirstName.removeAt(index);
   }
 
   void updateAddAddressLicenseFirstNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseFirstName[_index] =
-        updateFn(_addAddressLicenseFirstName[_index]);
+    addAddressLicenseFirstName[index] =
+        updateFn(_addAddressLicenseFirstName[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseFirstName(int _index, String _value) {
-    _addAddressLicenseFirstName.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseFirstName(int index, String value) {
+    addAddressLicenseFirstName.insert(index, value);
   }
 
   List<String> _addAddressLicenseLastName = [];
   List<String> get addAddressLicenseLastName => _addAddressLicenseLastName;
-  set addAddressLicenseLastName(List<String> _value) {
-    _addAddressLicenseLastName = _value;
+  set addAddressLicenseLastName(List<String> value) {
+    _addAddressLicenseLastName = value;
   }
 
-  void addToAddAddressLicenseLastName(String _value) {
-    _addAddressLicenseLastName.add(_value);
+  void addToAddAddressLicenseLastName(String value) {
+    addAddressLicenseLastName.add(value);
   }
 
-  void removeFromAddAddressLicenseLastName(String _value) {
-    _addAddressLicenseLastName.remove(_value);
+  void removeFromAddAddressLicenseLastName(String value) {
+    addAddressLicenseLastName.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseLastName(int _index) {
-    _addAddressLicenseLastName.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseLastName(int index) {
+    addAddressLicenseLastName.removeAt(index);
   }
 
   void updateAddAddressLicenseLastNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseLastName[_index] =
-        updateFn(_addAddressLicenseLastName[_index]);
+    addAddressLicenseLastName[index] =
+        updateFn(_addAddressLicenseLastName[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseLastName(int _index, String _value) {
-    _addAddressLicenseLastName.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseLastName(int index, String value) {
+    addAddressLicenseLastName.insert(index, value);
   }
 
   List<String> _addAddressLicenseLicenseId = [];
   List<String> get addAddressLicenseLicenseId => _addAddressLicenseLicenseId;
-  set addAddressLicenseLicenseId(List<String> _value) {
-    _addAddressLicenseLicenseId = _value;
+  set addAddressLicenseLicenseId(List<String> value) {
+    _addAddressLicenseLicenseId = value;
   }
 
-  void addToAddAddressLicenseLicenseId(String _value) {
-    _addAddressLicenseLicenseId.add(_value);
+  void addToAddAddressLicenseLicenseId(String value) {
+    addAddressLicenseLicenseId.add(value);
   }
 
-  void removeFromAddAddressLicenseLicenseId(String _value) {
-    _addAddressLicenseLicenseId.remove(_value);
+  void removeFromAddAddressLicenseLicenseId(String value) {
+    addAddressLicenseLicenseId.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseLicenseId(int _index) {
-    _addAddressLicenseLicenseId.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseLicenseId(int index) {
+    addAddressLicenseLicenseId.removeAt(index);
   }
 
   void updateAddAddressLicenseLicenseIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseLicenseId[_index] =
-        updateFn(_addAddressLicenseLicenseId[_index]);
+    addAddressLicenseLicenseId[index] =
+        updateFn(_addAddressLicenseLicenseId[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseLicenseId(int _index, String _value) {
-    _addAddressLicenseLicenseId.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseLicenseId(int index, String value) {
+    addAddressLicenseLicenseId.insert(index, value);
   }
 
   List<String> _addAddressLicenseExpiredDate = [];
   List<String> get addAddressLicenseExpiredDate =>
       _addAddressLicenseExpiredDate;
-  set addAddressLicenseExpiredDate(List<String> _value) {
-    _addAddressLicenseExpiredDate = _value;
+  set addAddressLicenseExpiredDate(List<String> value) {
+    _addAddressLicenseExpiredDate = value;
   }
 
-  void addToAddAddressLicenseExpiredDate(String _value) {
-    _addAddressLicenseExpiredDate.add(_value);
+  void addToAddAddressLicenseExpiredDate(String value) {
+    addAddressLicenseExpiredDate.add(value);
   }
 
-  void removeFromAddAddressLicenseExpiredDate(String _value) {
-    _addAddressLicenseExpiredDate.remove(_value);
+  void removeFromAddAddressLicenseExpiredDate(String value) {
+    addAddressLicenseExpiredDate.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseExpiredDate(int _index) {
-    _addAddressLicenseExpiredDate.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseExpiredDate(int index) {
+    addAddressLicenseExpiredDate.removeAt(index);
   }
 
   void updateAddAddressLicenseExpiredDateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseExpiredDate[_index] =
-        updateFn(_addAddressLicenseExpiredDate[_index]);
+    addAddressLicenseExpiredDate[index] =
+        updateFn(_addAddressLicenseExpiredDate[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseExpiredDate(int _index, String _value) {
-    _addAddressLicenseExpiredDate.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseExpiredDate(int index, String value) {
+    addAddressLicenseExpiredDate.insert(index, value);
   }
 
   List<String> _addAddressLicenseMobilePhone = [];
   List<String> get addAddressLicenseMobilePhone =>
       _addAddressLicenseMobilePhone;
-  set addAddressLicenseMobilePhone(List<String> _value) {
-    _addAddressLicenseMobilePhone = _value;
+  set addAddressLicenseMobilePhone(List<String> value) {
+    _addAddressLicenseMobilePhone = value;
   }
 
-  void addToAddAddressLicenseMobilePhone(String _value) {
-    _addAddressLicenseMobilePhone.add(_value);
+  void addToAddAddressLicenseMobilePhone(String value) {
+    addAddressLicenseMobilePhone.add(value);
   }
 
-  void removeFromAddAddressLicenseMobilePhone(String _value) {
-    _addAddressLicenseMobilePhone.remove(_value);
+  void removeFromAddAddressLicenseMobilePhone(String value) {
+    addAddressLicenseMobilePhone.remove(value);
   }
 
-  void removeAtIndexFromAddAddressLicenseMobilePhone(int _index) {
-    _addAddressLicenseMobilePhone.removeAt(_index);
+  void removeAtIndexFromAddAddressLicenseMobilePhone(int index) {
+    addAddressLicenseMobilePhone.removeAt(index);
   }
 
   void updateAddAddressLicenseMobilePhoneAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addAddressLicenseMobilePhone[_index] =
-        updateFn(_addAddressLicenseMobilePhone[_index]);
+    addAddressLicenseMobilePhone[index] =
+        updateFn(_addAddressLicenseMobilePhone[index]);
   }
 
-  void insertAtIndexInAddAddressLicenseMobilePhone(int _index, String _value) {
-    _addAddressLicenseMobilePhone.insert(_index, _value);
+  void insertAtIndexInAddAddressLicenseMobilePhone(int index, String value) {
+    addAddressLicenseMobilePhone.insert(index, value);
   }
 
   String _insuranceInfoLicenseEmployeeId = '';
   String get insuranceInfoLicenseEmployeeId => _insuranceInfoLicenseEmployeeId;
-  set insuranceInfoLicenseEmployeeId(String _value) {
-    _insuranceInfoLicenseEmployeeId = _value;
+  set insuranceInfoLicenseEmployeeId(String value) {
+    _insuranceInfoLicenseEmployeeId = value;
   }
 
   String _insuranceInfoLicenseTitle = '';
   String get insuranceInfoLicenseTitle => _insuranceInfoLicenseTitle;
-  set insuranceInfoLicenseTitle(String _value) {
-    _insuranceInfoLicenseTitle = _value;
+  set insuranceInfoLicenseTitle(String value) {
+    _insuranceInfoLicenseTitle = value;
   }
 
   String _insuranceInfoLicenseFirstName = '';
   String get insuranceInfoLicenseFirstName => _insuranceInfoLicenseFirstName;
-  set insuranceInfoLicenseFirstName(String _value) {
-    _insuranceInfoLicenseFirstName = _value;
+  set insuranceInfoLicenseFirstName(String value) {
+    _insuranceInfoLicenseFirstName = value;
   }
 
   String _insuranceInfoLicenseLastName = '';
   String get insuranceInfoLicenseLastName => _insuranceInfoLicenseLastName;
-  set insuranceInfoLicenseLastName(String _value) {
-    _insuranceInfoLicenseLastName = _value;
+  set insuranceInfoLicenseLastName(String value) {
+    _insuranceInfoLicenseLastName = value;
   }
 
   String _insuranceInfoLicenseLicenseId = '';
   String get insuranceInfoLicenseLicenseId => _insuranceInfoLicenseLicenseId;
-  set insuranceInfoLicenseLicenseId(String _value) {
-    _insuranceInfoLicenseLicenseId = _value;
+  set insuranceInfoLicenseLicenseId(String value) {
+    _insuranceInfoLicenseLicenseId = value;
   }
 
   String _insuranceInfoLicenseExpiredDate = '';
   String get insuranceInfoLicenseExpiredDate =>
       _insuranceInfoLicenseExpiredDate;
-  set insuranceInfoLicenseExpiredDate(String _value) {
-    _insuranceInfoLicenseExpiredDate = _value;
+  set insuranceInfoLicenseExpiredDate(String value) {
+    _insuranceInfoLicenseExpiredDate = value;
   }
 
   String _insuranceInfoLicenseMobilePhone = '';
   String get insuranceInfoLicenseMobilePhone =>
       _insuranceInfoLicenseMobilePhone;
-  set insuranceInfoLicenseMobilePhone(String _value) {
-    _insuranceInfoLicenseMobilePhone = _value;
+  set insuranceInfoLicenseMobilePhone(String value) {
+    _insuranceInfoLicenseMobilePhone = value;
   }
 
   String _insuranceInfoLicenseImg = '';
   String get insuranceInfoLicenseImg => _insuranceInfoLicenseImg;
-  set insuranceInfoLicenseImg(String _value) {
-    _insuranceInfoLicenseImg = _value;
+  set insuranceInfoLicenseImg(String value) {
+    _insuranceInfoLicenseImg = value;
   }
 
   String _nonePackageCoverTypeId = '';
   String get nonePackageCoverTypeId => _nonePackageCoverTypeId;
-  set nonePackageCoverTypeId(String _value) {
-    _nonePackageCoverTypeId = _value;
+  set nonePackageCoverTypeId(String value) {
+    _nonePackageCoverTypeId = value;
   }
 
   String _nonePackageCoverTypeCode = '';
   String get nonePackageCoverTypeCode => _nonePackageCoverTypeCode;
-  set nonePackageCoverTypeCode(String _value) {
-    _nonePackageCoverTypeCode = _value;
+  set nonePackageCoverTypeCode(String value) {
+    _nonePackageCoverTypeCode = value;
   }
 
   String _nonePackageCoverTypeName = 'กรุณาเลือกประเภทชั้นประกัน';
   String get nonePackageCoverTypeName => _nonePackageCoverTypeName;
-  set nonePackageCoverTypeName(String _value) {
-    _nonePackageCoverTypeName = _value;
+  set nonePackageCoverTypeName(String value) {
+    _nonePackageCoverTypeName = value;
   }
 
   String _nonePackageGarageTypeId = '';
   String get nonePackageGarageTypeId => _nonePackageGarageTypeId;
-  set nonePackageGarageTypeId(String _value) {
-    _nonePackageGarageTypeId = _value;
+  set nonePackageGarageTypeId(String value) {
+    _nonePackageGarageTypeId = value;
   }
 
   String _nonePackageGarageTypeName = 'กรุณาเลือกประเภทการซ่อม';
   String get nonePackageGarageTypeName => _nonePackageGarageTypeName;
-  set nonePackageGarageTypeName(String _value) {
-    _nonePackageGarageTypeName = _value;
+  set nonePackageGarageTypeName(String value) {
+    _nonePackageGarageTypeName = value;
   }
 
   String _insuranceInfoActOflLegislation = '';
   String get insuranceInfoActOflLegislation => _insuranceInfoActOflLegislation;
-  set insuranceInfoActOflLegislation(String _value) {
-    _insuranceInfoActOflLegislation = _value;
+  set insuranceInfoActOflLegislation(String value) {
+    _insuranceInfoActOflLegislation = value;
   }
 
   String _addAdressSelectDocProvinceId = '';
   String get addAdressSelectDocProvinceId => _addAdressSelectDocProvinceId;
-  set addAdressSelectDocProvinceId(String _value) {
-    _addAdressSelectDocProvinceId = _value;
+  set addAdressSelectDocProvinceId(String value) {
+    _addAdressSelectDocProvinceId = value;
   }
 
   String _addAdressSelectDocProvinceName = '';
   String get addAdressSelectDocProvinceName => _addAdressSelectDocProvinceName;
-  set addAdressSelectDocProvinceName(String _value) {
-    _addAdressSelectDocProvinceName = _value;
+  set addAdressSelectDocProvinceName(String value) {
+    _addAdressSelectDocProvinceName = value;
   }
 
   String _addAdressSelectDocDistrictName = '';
   String get addAdressSelectDocDistrictName => _addAdressSelectDocDistrictName;
-  set addAdressSelectDocDistrictName(String _value) {
-    _addAdressSelectDocDistrictName = _value;
+  set addAdressSelectDocDistrictName(String value) {
+    _addAdressSelectDocDistrictName = value;
   }
 
   String _addAddressSelectDocDistrictId = '';
   String get addAddressSelectDocDistrictId => _addAddressSelectDocDistrictId;
-  set addAddressSelectDocDistrictId(String _value) {
-    _addAddressSelectDocDistrictId = _value;
+  set addAddressSelectDocDistrictId(String value) {
+    _addAddressSelectDocDistrictId = value;
   }
 
   String _addAddressSelectDocSubdistrictId = '';
   String get addAddressSelectDocSubdistrictId =>
       _addAddressSelectDocSubdistrictId;
-  set addAddressSelectDocSubdistrictId(String _value) {
-    _addAddressSelectDocSubdistrictId = _value;
+  set addAddressSelectDocSubdistrictId(String value) {
+    _addAddressSelectDocSubdistrictId = value;
   }
 
   String _addAddressSelectDocSubdistrictName = '';
   String get addAddressSelectDocSubdistrictName =>
       _addAddressSelectDocSubdistrictName;
-  set addAddressSelectDocSubdistrictName(String _value) {
-    _addAddressSelectDocSubdistrictName = _value;
+  set addAddressSelectDocSubdistrictName(String value) {
+    _addAddressSelectDocSubdistrictName = value;
   }
 
   String _addAddressSelectDocZipCode = '';
   String get addAddressSelectDocZipCode => _addAddressSelectDocZipCode;
-  set addAddressSelectDocZipCode(String _value) {
-    _addAddressSelectDocZipCode = _value;
+  set addAddressSelectDocZipCode(String value) {
+    _addAddressSelectDocZipCode = value;
   }
 
   String _addAddressSelectDocKeyWord = '';
   String get addAddressSelectDocKeyWord => _addAddressSelectDocKeyWord;
-  set addAddressSelectDocKeyWord(String _value) {
-    _addAddressSelectDocKeyWord = _value;
+  set addAddressSelectDocKeyWord(String value) {
+    _addAddressSelectDocKeyWord = value;
   }
 
   String _nonePackageGarageTypeCode = '';
   String get nonePackageGarageTypeCode => _nonePackageGarageTypeCode;
-  set nonePackageGarageTypeCode(String _value) {
-    _nonePackageGarageTypeCode = _value;
+  set nonePackageGarageTypeCode(String value) {
+    _nonePackageGarageTypeCode = value;
   }
 
   List<String> _nonePackageGarageTypeCodeList = ['COMPANY', 'DEALER'];
   List<String> get nonePackageGarageTypeCodeList =>
       _nonePackageGarageTypeCodeList;
-  set nonePackageGarageTypeCodeList(List<String> _value) {
-    _nonePackageGarageTypeCodeList = _value;
+  set nonePackageGarageTypeCodeList(List<String> value) {
+    _nonePackageGarageTypeCodeList = value;
   }
 
-  void addToNonePackageGarageTypeCodeList(String _value) {
-    _nonePackageGarageTypeCodeList.add(_value);
+  void addToNonePackageGarageTypeCodeList(String value) {
+    nonePackageGarageTypeCodeList.add(value);
   }
 
-  void removeFromNonePackageGarageTypeCodeList(String _value) {
-    _nonePackageGarageTypeCodeList.remove(_value);
+  void removeFromNonePackageGarageTypeCodeList(String value) {
+    nonePackageGarageTypeCodeList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageGarageTypeCodeList(int _index) {
-    _nonePackageGarageTypeCodeList.removeAt(_index);
+  void removeAtIndexFromNonePackageGarageTypeCodeList(int index) {
+    nonePackageGarageTypeCodeList.removeAt(index);
   }
 
   void updateNonePackageGarageTypeCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageGarageTypeCodeList[_index] =
-        updateFn(_nonePackageGarageTypeCodeList[_index]);
+    nonePackageGarageTypeCodeList[index] =
+        updateFn(_nonePackageGarageTypeCodeList[index]);
   }
 
-  void insertAtIndexInNonePackageGarageTypeCodeList(int _index, String _value) {
-    _nonePackageGarageTypeCodeList.insert(_index, _value);
+  void insertAtIndexInNonePackageGarageTypeCodeList(int index, String value) {
+    nonePackageGarageTypeCodeList.insert(index, value);
   }
 
   String _apiUrlInsuranceAppState = 'api_url_insurance';
   String get apiUrlInsuranceAppState => _apiUrlInsuranceAppState;
-  set apiUrlInsuranceAppState(String _value) {
-    _apiUrlInsuranceAppState = _value;
-    secureStorage.setString('ff_apiUrlInsuranceAppState', _value);
+  set apiUrlInsuranceAppState(String value) {
+    _apiUrlInsuranceAppState = value;
+    secureStorage.setString('ff_apiUrlInsuranceAppState', value);
   }
 
   void deleteApiUrlInsuranceAppState() {
@@ -9356,138 +9343,138 @@ class FFAppState extends ChangeNotifier {
 
   bool _nonePackageFlagRenew = false;
   bool get nonePackageFlagRenew => _nonePackageFlagRenew;
-  set nonePackageFlagRenew(bool _value) {
-    _nonePackageFlagRenew = _value;
+  set nonePackageFlagRenew(bool value) {
+    _nonePackageFlagRenew = value;
   }
 
   String _nonePackageOldVmiExpDate = 'กรุณาเลือกวันที่หมดอายุประกันเดิม';
   String get nonePackageOldVmiExpDate => _nonePackageOldVmiExpDate;
-  set nonePackageOldVmiExpDate(String _value) {
-    _nonePackageOldVmiExpDate = _value;
+  set nonePackageOldVmiExpDate(String value) {
+    _nonePackageOldVmiExpDate = value;
   }
 
   String _nonePackageOldVmi = '';
   String get nonePackageOldVmi => _nonePackageOldVmi;
-  set nonePackageOldVmi(String _value) {
-    _nonePackageOldVmi = _value;
+  set nonePackageOldVmi(String value) {
+    _nonePackageOldVmi = value;
   }
 
   String _nonePackageOldVmiImageUrl = '';
   String get nonePackageOldVmiImageUrl => _nonePackageOldVmiImageUrl;
-  set nonePackageOldVmiImageUrl(String _value) {
-    _nonePackageOldVmiImageUrl = _value;
+  set nonePackageOldVmiImageUrl(String value) {
+    _nonePackageOldVmiImageUrl = value;
   }
 
   String _nonePackageIdCardImageUrl = '';
   String get nonePackageIdCardImageUrl => _nonePackageIdCardImageUrl;
-  set nonePackageIdCardImageUrl(String _value) {
-    _nonePackageIdCardImageUrl = _value;
+  set nonePackageIdCardImageUrl(String value) {
+    _nonePackageIdCardImageUrl = value;
   }
 
   List<String> _nonePackageRenewImageUrlList = [];
   List<String> get nonePackageRenewImageUrlList =>
       _nonePackageRenewImageUrlList;
-  set nonePackageRenewImageUrlList(List<String> _value) {
-    _nonePackageRenewImageUrlList = _value;
+  set nonePackageRenewImageUrlList(List<String> value) {
+    _nonePackageRenewImageUrlList = value;
   }
 
-  void addToNonePackageRenewImageUrlList(String _value) {
-    _nonePackageRenewImageUrlList.add(_value);
+  void addToNonePackageRenewImageUrlList(String value) {
+    nonePackageRenewImageUrlList.add(value);
   }
 
-  void removeFromNonePackageRenewImageUrlList(String _value) {
-    _nonePackageRenewImageUrlList.remove(_value);
+  void removeFromNonePackageRenewImageUrlList(String value) {
+    nonePackageRenewImageUrlList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageRenewImageUrlList(int _index) {
-    _nonePackageRenewImageUrlList.removeAt(_index);
+  void removeAtIndexFromNonePackageRenewImageUrlList(int index) {
+    nonePackageRenewImageUrlList.removeAt(index);
   }
 
   void updateNonePackageRenewImageUrlListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageRenewImageUrlList[_index] =
-        updateFn(_nonePackageRenewImageUrlList[_index]);
+    nonePackageRenewImageUrlList[index] =
+        updateFn(_nonePackageRenewImageUrlList[index]);
   }
 
-  void insertAtIndexInNonePackageRenewImageUrlList(int _index, String _value) {
-    _nonePackageRenewImageUrlList.insert(_index, _value);
+  void insertAtIndexInNonePackageRenewImageUrlList(int index, String value) {
+    nonePackageRenewImageUrlList.insert(index, value);
   }
 
   List<bool> _nonePackageRenewImageCheckList = [];
   List<bool> get nonePackageRenewImageCheckList =>
       _nonePackageRenewImageCheckList;
-  set nonePackageRenewImageCheckList(List<bool> _value) {
-    _nonePackageRenewImageCheckList = _value;
+  set nonePackageRenewImageCheckList(List<bool> value) {
+    _nonePackageRenewImageCheckList = value;
   }
 
-  void addToNonePackageRenewImageCheckList(bool _value) {
-    _nonePackageRenewImageCheckList.add(_value);
+  void addToNonePackageRenewImageCheckList(bool value) {
+    nonePackageRenewImageCheckList.add(value);
   }
 
-  void removeFromNonePackageRenewImageCheckList(bool _value) {
-    _nonePackageRenewImageCheckList.remove(_value);
+  void removeFromNonePackageRenewImageCheckList(bool value) {
+    nonePackageRenewImageCheckList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageRenewImageCheckList(int _index) {
-    _nonePackageRenewImageCheckList.removeAt(_index);
+  void removeAtIndexFromNonePackageRenewImageCheckList(int index) {
+    nonePackageRenewImageCheckList.removeAt(index);
   }
 
   void updateNonePackageRenewImageCheckListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _nonePackageRenewImageCheckList[_index] =
-        updateFn(_nonePackageRenewImageCheckList[_index]);
+    nonePackageRenewImageCheckList[index] =
+        updateFn(_nonePackageRenewImageCheckList[index]);
   }
 
-  void insertAtIndexInNonePackageRenewImageCheckList(int _index, bool _value) {
-    _nonePackageRenewImageCheckList.insert(_index, _value);
+  void insertAtIndexInNonePackageRenewImageCheckList(int index, bool value) {
+    nonePackageRenewImageCheckList.insert(index, value);
   }
 
   List<String> _insuranceInfoUploadImgOther = [];
   List<String> get insuranceInfoUploadImgOther => _insuranceInfoUploadImgOther;
-  set insuranceInfoUploadImgOther(List<String> _value) {
-    _insuranceInfoUploadImgOther = _value;
+  set insuranceInfoUploadImgOther(List<String> value) {
+    _insuranceInfoUploadImgOther = value;
   }
 
-  void addToInsuranceInfoUploadImgOther(String _value) {
-    _insuranceInfoUploadImgOther.add(_value);
+  void addToInsuranceInfoUploadImgOther(String value) {
+    insuranceInfoUploadImgOther.add(value);
   }
 
-  void removeFromInsuranceInfoUploadImgOther(String _value) {
-    _insuranceInfoUploadImgOther.remove(_value);
+  void removeFromInsuranceInfoUploadImgOther(String value) {
+    insuranceInfoUploadImgOther.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoUploadImgOther(int _index) {
-    _insuranceInfoUploadImgOther.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoUploadImgOther(int index) {
+    insuranceInfoUploadImgOther.removeAt(index);
   }
 
   void updateInsuranceInfoUploadImgOtherAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoUploadImgOther[_index] =
-        updateFn(_insuranceInfoUploadImgOther[_index]);
+    insuranceInfoUploadImgOther[index] =
+        updateFn(_insuranceInfoUploadImgOther[index]);
   }
 
-  void insertAtIndexInInsuranceInfoUploadImgOther(int _index, String _value) {
-    _insuranceInfoUploadImgOther.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoUploadImgOther(int index, String value) {
+    insuranceInfoUploadImgOther.insert(index, value);
   }
 
   bool _nonePackageOldVmiImageUploadedCheck = false;
   bool get nonePackageOldVmiImageUploadedCheck =>
       _nonePackageOldVmiImageUploadedCheck;
-  set nonePackageOldVmiImageUploadedCheck(bool _value) {
-    _nonePackageOldVmiImageUploadedCheck = _value;
+  set nonePackageOldVmiImageUploadedCheck(bool value) {
+    _nonePackageOldVmiImageUploadedCheck = value;
   }
 
   bool _nonePackageIdCardWatermarkUploadedCheck = false;
   bool get nonePackageIdCardWatermarkUploadedCheck =>
       _nonePackageIdCardWatermarkUploadedCheck;
-  set nonePackageIdCardWatermarkUploadedCheck(bool _value) {
-    _nonePackageIdCardWatermarkUploadedCheck = _value;
+  set nonePackageIdCardWatermarkUploadedCheck(bool value) {
+    _nonePackageIdCardWatermarkUploadedCheck = value;
   }
 
   List<bool> _insuranceInfoCheckUploadImgBoolList = [
@@ -9500,1941 +9487,1936 @@ class FFAppState extends ChangeNotifier {
   ];
   List<bool> get insuranceInfoCheckUploadImgBoolList =>
       _insuranceInfoCheckUploadImgBoolList;
-  set insuranceInfoCheckUploadImgBoolList(List<bool> _value) {
-    _insuranceInfoCheckUploadImgBoolList = _value;
+  set insuranceInfoCheckUploadImgBoolList(List<bool> value) {
+    _insuranceInfoCheckUploadImgBoolList = value;
   }
 
-  void addToInsuranceInfoCheckUploadImgBoolList(bool _value) {
-    _insuranceInfoCheckUploadImgBoolList.add(_value);
+  void addToInsuranceInfoCheckUploadImgBoolList(bool value) {
+    insuranceInfoCheckUploadImgBoolList.add(value);
   }
 
-  void removeFromInsuranceInfoCheckUploadImgBoolList(bool _value) {
-    _insuranceInfoCheckUploadImgBoolList.remove(_value);
+  void removeFromInsuranceInfoCheckUploadImgBoolList(bool value) {
+    insuranceInfoCheckUploadImgBoolList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoCheckUploadImgBoolList(int _index) {
-    _insuranceInfoCheckUploadImgBoolList.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoCheckUploadImgBoolList(int index) {
+    insuranceInfoCheckUploadImgBoolList.removeAt(index);
   }
 
   void updateInsuranceInfoCheckUploadImgBoolListAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _insuranceInfoCheckUploadImgBoolList[_index] =
-        updateFn(_insuranceInfoCheckUploadImgBoolList[_index]);
+    insuranceInfoCheckUploadImgBoolList[index] =
+        updateFn(_insuranceInfoCheckUploadImgBoolList[index]);
   }
 
   void insertAtIndexInInsuranceInfoCheckUploadImgBoolList(
-      int _index, bool _value) {
-    _insuranceInfoCheckUploadImgBoolList.insert(_index, _value);
+      int index, bool value) {
+    insuranceInfoCheckUploadImgBoolList.insert(index, value);
   }
 
   List<String> _insuranceInfoUploadImgAccessory = [];
   List<String> get insuranceInfoUploadImgAccessory =>
       _insuranceInfoUploadImgAccessory;
-  set insuranceInfoUploadImgAccessory(List<String> _value) {
-    _insuranceInfoUploadImgAccessory = _value;
+  set insuranceInfoUploadImgAccessory(List<String> value) {
+    _insuranceInfoUploadImgAccessory = value;
   }
 
-  void addToInsuranceInfoUploadImgAccessory(String _value) {
-    _insuranceInfoUploadImgAccessory.add(_value);
+  void addToInsuranceInfoUploadImgAccessory(String value) {
+    insuranceInfoUploadImgAccessory.add(value);
   }
 
-  void removeFromInsuranceInfoUploadImgAccessory(String _value) {
-    _insuranceInfoUploadImgAccessory.remove(_value);
+  void removeFromInsuranceInfoUploadImgAccessory(String value) {
+    insuranceInfoUploadImgAccessory.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoUploadImgAccessory(int _index) {
-    _insuranceInfoUploadImgAccessory.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoUploadImgAccessory(int index) {
+    insuranceInfoUploadImgAccessory.removeAt(index);
   }
 
   void updateInsuranceInfoUploadImgAccessoryAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoUploadImgAccessory[_index] =
-        updateFn(_insuranceInfoUploadImgAccessory[_index]);
+    insuranceInfoUploadImgAccessory[index] =
+        updateFn(_insuranceInfoUploadImgAccessory[index]);
   }
 
-  void insertAtIndexInInsuranceInfoUploadImgAccessory(
-      int _index, String _value) {
-    _insuranceInfoUploadImgAccessory.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoUploadImgAccessory(int index, String value) {
+    insuranceInfoUploadImgAccessory.insert(index, value);
   }
 
   List<String> _insuranceInfoUploadImgScar = [];
   List<String> get insuranceInfoUploadImgScar => _insuranceInfoUploadImgScar;
-  set insuranceInfoUploadImgScar(List<String> _value) {
-    _insuranceInfoUploadImgScar = _value;
+  set insuranceInfoUploadImgScar(List<String> value) {
+    _insuranceInfoUploadImgScar = value;
   }
 
-  void addToInsuranceInfoUploadImgScar(String _value) {
-    _insuranceInfoUploadImgScar.add(_value);
+  void addToInsuranceInfoUploadImgScar(String value) {
+    insuranceInfoUploadImgScar.add(value);
   }
 
-  void removeFromInsuranceInfoUploadImgScar(String _value) {
-    _insuranceInfoUploadImgScar.remove(_value);
+  void removeFromInsuranceInfoUploadImgScar(String value) {
+    insuranceInfoUploadImgScar.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoUploadImgScar(int _index) {
-    _insuranceInfoUploadImgScar.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoUploadImgScar(int index) {
+    insuranceInfoUploadImgScar.removeAt(index);
   }
 
   void updateInsuranceInfoUploadImgScarAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoUploadImgScar[_index] =
-        updateFn(_insuranceInfoUploadImgScar[_index]);
+    insuranceInfoUploadImgScar[index] =
+        updateFn(_insuranceInfoUploadImgScar[index]);
   }
 
-  void insertAtIndexInInsuranceInfoUploadImgScar(int _index, String _value) {
-    _insuranceInfoUploadImgScar.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoUploadImgScar(int index, String value) {
+    insuranceInfoUploadImgScar.insert(index, value);
   }
 
   List<bool> _searchPackageCheckFilled = [false, false, false, false, false];
   List<bool> get searchPackageCheckFilled => _searchPackageCheckFilled;
-  set searchPackageCheckFilled(List<bool> _value) {
-    _searchPackageCheckFilled = _value;
+  set searchPackageCheckFilled(List<bool> value) {
+    _searchPackageCheckFilled = value;
   }
 
-  void addToSearchPackageCheckFilled(bool _value) {
-    _searchPackageCheckFilled.add(_value);
+  void addToSearchPackageCheckFilled(bool value) {
+    searchPackageCheckFilled.add(value);
   }
 
-  void removeFromSearchPackageCheckFilled(bool _value) {
-    _searchPackageCheckFilled.remove(_value);
+  void removeFromSearchPackageCheckFilled(bool value) {
+    searchPackageCheckFilled.remove(value);
   }
 
-  void removeAtIndexFromSearchPackageCheckFilled(int _index) {
-    _searchPackageCheckFilled.removeAt(_index);
+  void removeAtIndexFromSearchPackageCheckFilled(int index) {
+    searchPackageCheckFilled.removeAt(index);
   }
 
   void updateSearchPackageCheckFilledAtIndex(
-    int _index,
+    int index,
     bool Function(bool) updateFn,
   ) {
-    _searchPackageCheckFilled[_index] =
-        updateFn(_searchPackageCheckFilled[_index]);
+    searchPackageCheckFilled[index] =
+        updateFn(_searchPackageCheckFilled[index]);
   }
 
-  void insertAtIndexInSearchPackageCheckFilled(int _index, bool _value) {
-    _searchPackageCheckFilled.insert(_index, _value);
+  void insertAtIndexInSearchPackageCheckFilled(int index, bool value) {
+    searchPackageCheckFilled.insert(index, value);
   }
 
   List<String> _nonePackageUsedTypeIdList = [];
   List<String> get nonePackageUsedTypeIdList => _nonePackageUsedTypeIdList;
-  set nonePackageUsedTypeIdList(List<String> _value) {
-    _nonePackageUsedTypeIdList = _value;
+  set nonePackageUsedTypeIdList(List<String> value) {
+    _nonePackageUsedTypeIdList = value;
   }
 
-  void addToNonePackageUsedTypeIdList(String _value) {
-    _nonePackageUsedTypeIdList.add(_value);
+  void addToNonePackageUsedTypeIdList(String value) {
+    nonePackageUsedTypeIdList.add(value);
   }
 
-  void removeFromNonePackageUsedTypeIdList(String _value) {
-    _nonePackageUsedTypeIdList.remove(_value);
+  void removeFromNonePackageUsedTypeIdList(String value) {
+    nonePackageUsedTypeIdList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageUsedTypeIdList(int _index) {
-    _nonePackageUsedTypeIdList.removeAt(_index);
+  void removeAtIndexFromNonePackageUsedTypeIdList(int index) {
+    nonePackageUsedTypeIdList.removeAt(index);
   }
 
   void updateNonePackageUsedTypeIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageUsedTypeIdList[_index] =
-        updateFn(_nonePackageUsedTypeIdList[_index]);
+    nonePackageUsedTypeIdList[index] =
+        updateFn(_nonePackageUsedTypeIdList[index]);
   }
 
-  void insertAtIndexInNonePackageUsedTypeIdList(int _index, String _value) {
-    _nonePackageUsedTypeIdList.insert(_index, _value);
+  void insertAtIndexInNonePackageUsedTypeIdList(int index, String value) {
+    nonePackageUsedTypeIdList.insert(index, value);
   }
 
   List<String> _nonePackageUsedTypeCodeList = [];
   List<String> get nonePackageUsedTypeCodeList => _nonePackageUsedTypeCodeList;
-  set nonePackageUsedTypeCodeList(List<String> _value) {
-    _nonePackageUsedTypeCodeList = _value;
+  set nonePackageUsedTypeCodeList(List<String> value) {
+    _nonePackageUsedTypeCodeList = value;
   }
 
-  void addToNonePackageUsedTypeCodeList(String _value) {
-    _nonePackageUsedTypeCodeList.add(_value);
+  void addToNonePackageUsedTypeCodeList(String value) {
+    nonePackageUsedTypeCodeList.add(value);
   }
 
-  void removeFromNonePackageUsedTypeCodeList(String _value) {
-    _nonePackageUsedTypeCodeList.remove(_value);
+  void removeFromNonePackageUsedTypeCodeList(String value) {
+    nonePackageUsedTypeCodeList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageUsedTypeCodeList(int _index) {
-    _nonePackageUsedTypeCodeList.removeAt(_index);
+  void removeAtIndexFromNonePackageUsedTypeCodeList(int index) {
+    nonePackageUsedTypeCodeList.removeAt(index);
   }
 
   void updateNonePackageUsedTypeCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageUsedTypeCodeList[_index] =
-        updateFn(_nonePackageUsedTypeCodeList[_index]);
+    nonePackageUsedTypeCodeList[index] =
+        updateFn(_nonePackageUsedTypeCodeList[index]);
   }
 
-  void insertAtIndexInNonePackageUsedTypeCodeList(int _index, String _value) {
-    _nonePackageUsedTypeCodeList.insert(_index, _value);
+  void insertAtIndexInNonePackageUsedTypeCodeList(int index, String value) {
+    nonePackageUsedTypeCodeList.insert(index, value);
   }
 
   List<String> _nonePackageUsedTypeNameList = [];
   List<String> get nonePackageUsedTypeNameList => _nonePackageUsedTypeNameList;
-  set nonePackageUsedTypeNameList(List<String> _value) {
-    _nonePackageUsedTypeNameList = _value;
+  set nonePackageUsedTypeNameList(List<String> value) {
+    _nonePackageUsedTypeNameList = value;
   }
 
-  void addToNonePackageUsedTypeNameList(String _value) {
-    _nonePackageUsedTypeNameList.add(_value);
+  void addToNonePackageUsedTypeNameList(String value) {
+    nonePackageUsedTypeNameList.add(value);
   }
 
-  void removeFromNonePackageUsedTypeNameList(String _value) {
-    _nonePackageUsedTypeNameList.remove(_value);
+  void removeFromNonePackageUsedTypeNameList(String value) {
+    nonePackageUsedTypeNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageUsedTypeNameList(int _index) {
-    _nonePackageUsedTypeNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageUsedTypeNameList(int index) {
+    nonePackageUsedTypeNameList.removeAt(index);
   }
 
   void updateNonePackageUsedTypeNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageUsedTypeNameList[_index] =
-        updateFn(_nonePackageUsedTypeNameList[_index]);
+    nonePackageUsedTypeNameList[index] =
+        updateFn(_nonePackageUsedTypeNameList[index]);
   }
 
-  void insertAtIndexInNonePackageUsedTypeNameList(int _index, String _value) {
-    _nonePackageUsedTypeNameList.insert(_index, _value);
+  void insertAtIndexInNonePackageUsedTypeNameList(int index, String value) {
+    nonePackageUsedTypeNameList.insert(index, value);
   }
 
   List<String> _nonePackageUsedTypeTypeList = [];
   List<String> get nonePackageUsedTypeTypeList => _nonePackageUsedTypeTypeList;
-  set nonePackageUsedTypeTypeList(List<String> _value) {
-    _nonePackageUsedTypeTypeList = _value;
+  set nonePackageUsedTypeTypeList(List<String> value) {
+    _nonePackageUsedTypeTypeList = value;
   }
 
-  void addToNonePackageUsedTypeTypeList(String _value) {
-    _nonePackageUsedTypeTypeList.add(_value);
+  void addToNonePackageUsedTypeTypeList(String value) {
+    nonePackageUsedTypeTypeList.add(value);
   }
 
-  void removeFromNonePackageUsedTypeTypeList(String _value) {
-    _nonePackageUsedTypeTypeList.remove(_value);
+  void removeFromNonePackageUsedTypeTypeList(String value) {
+    nonePackageUsedTypeTypeList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageUsedTypeTypeList(int _index) {
-    _nonePackageUsedTypeTypeList.removeAt(_index);
+  void removeAtIndexFromNonePackageUsedTypeTypeList(int index) {
+    nonePackageUsedTypeTypeList.removeAt(index);
   }
 
   void updateNonePackageUsedTypeTypeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageUsedTypeTypeList[_index] =
-        updateFn(_nonePackageUsedTypeTypeList[_index]);
+    nonePackageUsedTypeTypeList[index] =
+        updateFn(_nonePackageUsedTypeTypeList[index]);
   }
 
-  void insertAtIndexInNonePackageUsedTypeTypeList(int _index, String _value) {
-    _nonePackageUsedTypeTypeList.insert(_index, _value);
+  void insertAtIndexInNonePackageUsedTypeTypeList(int index, String value) {
+    nonePackageUsedTypeTypeList.insert(index, value);
   }
 
   bool _nonePackageIsLoadedData = false;
   bool get nonePackageIsLoadedData => _nonePackageIsLoadedData;
-  set nonePackageIsLoadedData(bool _value) {
-    _nonePackageIsLoadedData = _value;
+  set nonePackageIsLoadedData(bool value) {
+    _nonePackageIsLoadedData = value;
   }
 
   List<String> _searchPackageId = [];
   List<String> get searchPackageId => _searchPackageId;
-  set searchPackageId(List<String> _value) {
-    _searchPackageId = _value;
+  set searchPackageId(List<String> value) {
+    _searchPackageId = value;
   }
 
-  void addToSearchPackageId(String _value) {
-    _searchPackageId.add(_value);
+  void addToSearchPackageId(String value) {
+    searchPackageId.add(value);
   }
 
-  void removeFromSearchPackageId(String _value) {
-    _searchPackageId.remove(_value);
+  void removeFromSearchPackageId(String value) {
+    searchPackageId.remove(value);
   }
 
-  void removeAtIndexFromSearchPackageId(int _index) {
-    _searchPackageId.removeAt(_index);
+  void removeAtIndexFromSearchPackageId(int index) {
+    searchPackageId.removeAt(index);
   }
 
   void updateSearchPackageIdAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchPackageId[_index] = updateFn(_searchPackageId[_index]);
+    searchPackageId[index] = updateFn(_searchPackageId[index]);
   }
 
-  void insertAtIndexInSearchPackageId(int _index, String _value) {
-    _searchPackageId.insert(_index, _value);
+  void insertAtIndexInSearchPackageId(int index, String value) {
+    searchPackageId.insert(index, value);
   }
 
   List<String> _serachPackageName = [];
   List<String> get serachPackageName => _serachPackageName;
-  set serachPackageName(List<String> _value) {
-    _serachPackageName = _value;
+  set serachPackageName(List<String> value) {
+    _serachPackageName = value;
   }
 
-  void addToSerachPackageName(String _value) {
-    _serachPackageName.add(_value);
+  void addToSerachPackageName(String value) {
+    serachPackageName.add(value);
   }
 
-  void removeFromSerachPackageName(String _value) {
-    _serachPackageName.remove(_value);
+  void removeFromSerachPackageName(String value) {
+    serachPackageName.remove(value);
   }
 
-  void removeAtIndexFromSerachPackageName(int _index) {
-    _serachPackageName.removeAt(_index);
+  void removeAtIndexFromSerachPackageName(int index) {
+    serachPackageName.removeAt(index);
   }
 
   void updateSerachPackageNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _serachPackageName[_index] = updateFn(_serachPackageName[_index]);
+    serachPackageName[index] = updateFn(_serachPackageName[index]);
   }
 
-  void insertAtIndexInSerachPackageName(int _index, String _value) {
-    _serachPackageName.insert(_index, _value);
+  void insertAtIndexInSerachPackageName(int index, String value) {
+    serachPackageName.insert(index, value);
   }
 
   List<String> _searchStamp = [];
   List<String> get searchStamp => _searchStamp;
-  set searchStamp(List<String> _value) {
-    _searchStamp = _value;
+  set searchStamp(List<String> value) {
+    _searchStamp = value;
   }
 
-  void addToSearchStamp(String _value) {
-    _searchStamp.add(_value);
+  void addToSearchStamp(String value) {
+    searchStamp.add(value);
   }
 
-  void removeFromSearchStamp(String _value) {
-    _searchStamp.remove(_value);
+  void removeFromSearchStamp(String value) {
+    searchStamp.remove(value);
   }
 
-  void removeAtIndexFromSearchStamp(int _index) {
-    _searchStamp.removeAt(_index);
+  void removeAtIndexFromSearchStamp(int index) {
+    searchStamp.removeAt(index);
   }
 
   void updateSearchStampAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchStamp[_index] = updateFn(_searchStamp[_index]);
+    searchStamp[index] = updateFn(_searchStamp[index]);
   }
 
-  void insertAtIndexInSearchStamp(int _index, String _value) {
-    _searchStamp.insert(_index, _value);
+  void insertAtIndexInSearchStamp(int index, String value) {
+    searchStamp.insert(index, value);
   }
 
   List<String> _searchVat = [];
   List<String> get searchVat => _searchVat;
-  set searchVat(List<String> _value) {
-    _searchVat = _value;
+  set searchVat(List<String> value) {
+    _searchVat = value;
   }
 
-  void addToSearchVat(String _value) {
-    _searchVat.add(_value);
+  void addToSearchVat(String value) {
+    searchVat.add(value);
   }
 
-  void removeFromSearchVat(String _value) {
-    _searchVat.remove(_value);
+  void removeFromSearchVat(String value) {
+    searchVat.remove(value);
   }
 
-  void removeAtIndexFromSearchVat(int _index) {
-    _searchVat.removeAt(_index);
+  void removeAtIndexFromSearchVat(int index) {
+    searchVat.removeAt(index);
   }
 
   void updateSearchVatAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchVat[_index] = updateFn(_searchVat[_index]);
+    searchVat[index] = updateFn(_searchVat[index]);
   }
 
-  void insertAtIndexInSearchVat(int _index, String _value) {
-    _searchVat.insert(_index, _value);
+  void insertAtIndexInSearchVat(int index, String value) {
+    searchVat.insert(index, value);
   }
 
   List<String> _searchNetPremium = [];
   List<String> get searchNetPremium => _searchNetPremium;
-  set searchNetPremium(List<String> _value) {
-    _searchNetPremium = _value;
+  set searchNetPremium(List<String> value) {
+    _searchNetPremium = value;
   }
 
-  void addToSearchNetPremium(String _value) {
-    _searchNetPremium.add(_value);
+  void addToSearchNetPremium(String value) {
+    searchNetPremium.add(value);
   }
 
-  void removeFromSearchNetPremium(String _value) {
-    _searchNetPremium.remove(_value);
+  void removeFromSearchNetPremium(String value) {
+    searchNetPremium.remove(value);
   }
 
-  void removeAtIndexFromSearchNetPremium(int _index) {
-    _searchNetPremium.removeAt(_index);
+  void removeAtIndexFromSearchNetPremium(int index) {
+    searchNetPremium.removeAt(index);
   }
 
   void updateSearchNetPremiumAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchNetPremium[_index] = updateFn(_searchNetPremium[_index]);
+    searchNetPremium[index] = updateFn(_searchNetPremium[index]);
   }
 
-  void insertAtIndexInSearchNetPremium(int _index, String _value) {
-    _searchNetPremium.insert(_index, _value);
+  void insertAtIndexInSearchNetPremium(int index, String value) {
+    searchNetPremium.insert(index, value);
   }
 
   List<String> _searchSeat = [];
   List<String> get searchSeat => _searchSeat;
-  set searchSeat(List<String> _value) {
-    _searchSeat = _value;
+  set searchSeat(List<String> value) {
+    _searchSeat = value;
   }
 
-  void addToSearchSeat(String _value) {
-    _searchSeat.add(_value);
+  void addToSearchSeat(String value) {
+    searchSeat.add(value);
   }
 
-  void removeFromSearchSeat(String _value) {
-    _searchSeat.remove(_value);
+  void removeFromSearchSeat(String value) {
+    searchSeat.remove(value);
   }
 
-  void removeAtIndexFromSearchSeat(int _index) {
-    _searchSeat.removeAt(_index);
+  void removeAtIndexFromSearchSeat(int index) {
+    searchSeat.removeAt(index);
   }
 
   void updateSearchSeatAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchSeat[_index] = updateFn(_searchSeat[_index]);
+    searchSeat[index] = updateFn(_searchSeat[index]);
   }
 
-  void insertAtIndexInSearchSeat(int _index, String _value) {
-    _searchSeat.insert(_index, _value);
+  void insertAtIndexInSearchSeat(int index, String value) {
+    searchSeat.insert(index, value);
   }
 
   List<String> _searchRoadsideAssistance = [];
   List<String> get searchRoadsideAssistance => _searchRoadsideAssistance;
-  set searchRoadsideAssistance(List<String> _value) {
-    _searchRoadsideAssistance = _value;
+  set searchRoadsideAssistance(List<String> value) {
+    _searchRoadsideAssistance = value;
   }
 
-  void addToSearchRoadsideAssistance(String _value) {
-    _searchRoadsideAssistance.add(_value);
+  void addToSearchRoadsideAssistance(String value) {
+    searchRoadsideAssistance.add(value);
   }
 
-  void removeFromSearchRoadsideAssistance(String _value) {
-    _searchRoadsideAssistance.remove(_value);
+  void removeFromSearchRoadsideAssistance(String value) {
+    searchRoadsideAssistance.remove(value);
   }
 
-  void removeAtIndexFromSearchRoadsideAssistance(int _index) {
-    _searchRoadsideAssistance.removeAt(_index);
+  void removeAtIndexFromSearchRoadsideAssistance(int index) {
+    searchRoadsideAssistance.removeAt(index);
   }
 
   void updateSearchRoadsideAssistanceAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchRoadsideAssistance[_index] =
-        updateFn(_searchRoadsideAssistance[_index]);
+    searchRoadsideAssistance[index] =
+        updateFn(_searchRoadsideAssistance[index]);
   }
 
-  void insertAtIndexInSearchRoadsideAssistance(int _index, String _value) {
-    _searchRoadsideAssistance.insert(_index, _value);
+  void insertAtIndexInSearchRoadsideAssistance(int index, String value) {
+    searchRoadsideAssistance.insert(index, value);
   }
 
   List<String> _searchbb = [];
   List<String> get searchbb => _searchbb;
-  set searchbb(List<String> _value) {
-    _searchbb = _value;
+  set searchbb(List<String> value) {
+    _searchbb = value;
   }
 
-  void addToSearchbb(String _value) {
-    _searchbb.add(_value);
+  void addToSearchbb(String value) {
+    searchbb.add(value);
   }
 
-  void removeFromSearchbb(String _value) {
-    _searchbb.remove(_value);
+  void removeFromSearchbb(String value) {
+    searchbb.remove(value);
   }
 
-  void removeAtIndexFromSearchbb(int _index) {
-    _searchbb.removeAt(_index);
+  void removeAtIndexFromSearchbb(int index) {
+    searchbb.removeAt(index);
   }
 
   void updateSearchbbAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchbb[_index] = updateFn(_searchbb[_index]);
+    searchbb[index] = updateFn(_searchbb[index]);
   }
 
-  void insertAtIndexInSearchbb(int _index, String _value) {
-    _searchbb.insert(_index, _value);
+  void insertAtIndexInSearchbb(int index, String value) {
+    searchbb.insert(index, value);
   }
 
   List<String> _searchme = [];
   List<String> get searchme => _searchme;
-  set searchme(List<String> _value) {
-    _searchme = _value;
+  set searchme(List<String> value) {
+    _searchme = value;
   }
 
-  void addToSearchme(String _value) {
-    _searchme.add(_value);
+  void addToSearchme(String value) {
+    searchme.add(value);
   }
 
-  void removeFromSearchme(String _value) {
-    _searchme.remove(_value);
+  void removeFromSearchme(String value) {
+    searchme.remove(value);
   }
 
-  void removeAtIndexFromSearchme(int _index) {
-    _searchme.removeAt(_index);
+  void removeAtIndexFromSearchme(int index) {
+    searchme.removeAt(index);
   }
 
   void updateSearchmeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchme[_index] = updateFn(_searchme[_index]);
+    searchme[index] = updateFn(_searchme[index]);
   }
 
-  void insertAtIndexInSearchme(int _index, String _value) {
-    _searchme.insert(_index, _value);
+  void insertAtIndexInSearchme(int index, String value) {
+    searchme.insert(index, value);
   }
 
   List<String> _searchFlood = [];
   List<String> get searchFlood => _searchFlood;
-  set searchFlood(List<String> _value) {
-    _searchFlood = _value;
+  set searchFlood(List<String> value) {
+    _searchFlood = value;
   }
 
-  void addToSearchFlood(String _value) {
-    _searchFlood.add(_value);
+  void addToSearchFlood(String value) {
+    searchFlood.add(value);
   }
 
-  void removeFromSearchFlood(String _value) {
-    _searchFlood.remove(_value);
+  void removeFromSearchFlood(String value) {
+    searchFlood.remove(value);
   }
 
-  void removeAtIndexFromSearchFlood(int _index) {
-    _searchFlood.removeAt(_index);
+  void removeAtIndexFromSearchFlood(int index) {
+    searchFlood.removeAt(index);
   }
 
   void updateSearchFloodAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchFlood[_index] = updateFn(_searchFlood[_index]);
+    searchFlood[index] = updateFn(_searchFlood[index]);
   }
 
-  void insertAtIndexInSearchFlood(int _index, String _value) {
-    _searchFlood.insert(_index, _value);
+  void insertAtIndexInSearchFlood(int index, String value) {
+    searchFlood.insert(index, value);
   }
 
   List<String> _searchDeductible = [];
   List<String> get searchDeductible => _searchDeductible;
-  set searchDeductible(List<String> _value) {
-    _searchDeductible = _value;
+  set searchDeductible(List<String> value) {
+    _searchDeductible = value;
   }
 
-  void addToSearchDeductible(String _value) {
-    _searchDeductible.add(_value);
+  void addToSearchDeductible(String value) {
+    searchDeductible.add(value);
   }
 
-  void removeFromSearchDeductible(String _value) {
-    _searchDeductible.remove(_value);
+  void removeFromSearchDeductible(String value) {
+    searchDeductible.remove(value);
   }
 
-  void removeAtIndexFromSearchDeductible(int _index) {
-    _searchDeductible.removeAt(_index);
+  void removeAtIndexFromSearchDeductible(int index) {
+    searchDeductible.removeAt(index);
   }
 
   void updateSearchDeductibleAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchDeductible[_index] = updateFn(_searchDeductible[_index]);
+    searchDeductible[index] = updateFn(_searchDeductible[index]);
   }
 
-  void insertAtIndexInSearchDeductible(int _index, String _value) {
-    _searchDeductible.insert(_index, _value);
+  void insertAtIndexInSearchDeductible(int index, String value) {
+    searchDeductible.insert(index, value);
   }
 
   List<String> _searchContractProcessstate = [];
   List<String> get searchContractProcessstate => _searchContractProcessstate;
-  set searchContractProcessstate(List<String> _value) {
-    _searchContractProcessstate = _value;
+  set searchContractProcessstate(List<String> value) {
+    _searchContractProcessstate = value;
   }
 
-  void addToSearchContractProcessstate(String _value) {
-    _searchContractProcessstate.add(_value);
+  void addToSearchContractProcessstate(String value) {
+    searchContractProcessstate.add(value);
   }
 
-  void removeFromSearchContractProcessstate(String _value) {
-    _searchContractProcessstate.remove(_value);
+  void removeFromSearchContractProcessstate(String value) {
+    searchContractProcessstate.remove(value);
   }
 
-  void removeAtIndexFromSearchContractProcessstate(int _index) {
-    _searchContractProcessstate.removeAt(_index);
+  void removeAtIndexFromSearchContractProcessstate(int index) {
+    searchContractProcessstate.removeAt(index);
   }
 
   void updateSearchContractProcessstateAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchContractProcessstate[_index] =
-        updateFn(_searchContractProcessstate[_index]);
+    searchContractProcessstate[index] =
+        updateFn(_searchContractProcessstate[index]);
   }
 
-  void insertAtIndexInSearchContractProcessstate(int _index, String _value) {
-    _searchContractProcessstate.insert(_index, _value);
+  void insertAtIndexInSearchContractProcessstate(int index, String value) {
+    searchContractProcessstate.insert(index, value);
   }
 
   List<int> _searchId = [];
   List<int> get searchId => _searchId;
-  set searchId(List<int> _value) {
-    _searchId = _value;
+  set searchId(List<int> value) {
+    _searchId = value;
   }
 
-  void addToSearchId(int _value) {
-    _searchId.add(_value);
+  void addToSearchId(int value) {
+    searchId.add(value);
   }
 
-  void removeFromSearchId(int _value) {
-    _searchId.remove(_value);
+  void removeFromSearchId(int value) {
+    searchId.remove(value);
   }
 
-  void removeAtIndexFromSearchId(int _index) {
-    _searchId.removeAt(_index);
+  void removeAtIndexFromSearchId(int index) {
+    searchId.removeAt(index);
   }
 
   void updateSearchIdAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _searchId[_index] = updateFn(_searchId[_index]);
+    searchId[index] = updateFn(_searchId[index]);
   }
 
-  void insertAtIndexInSearchId(int _index, int _value) {
-    _searchId.insert(_index, _value);
+  void insertAtIndexInSearchId(int index, int value) {
+    searchId.insert(index, value);
   }
 
   String _nonePackageCustomerType = '';
   String get nonePackageCustomerType => _nonePackageCustomerType;
-  set nonePackageCustomerType(String _value) {
-    _nonePackageCustomerType = _value;
+  set nonePackageCustomerType(String value) {
+    _nonePackageCustomerType = value;
   }
 
   List<String> _insuranceInfoFinance = [];
   List<String> get insuranceInfoFinance => _insuranceInfoFinance;
-  set insuranceInfoFinance(List<String> _value) {
-    _insuranceInfoFinance = _value;
+  set insuranceInfoFinance(List<String> value) {
+    _insuranceInfoFinance = value;
   }
 
-  void addToInsuranceInfoFinance(String _value) {
-    _insuranceInfoFinance.add(_value);
+  void addToInsuranceInfoFinance(String value) {
+    insuranceInfoFinance.add(value);
   }
 
-  void removeFromInsuranceInfoFinance(String _value) {
-    _insuranceInfoFinance.remove(_value);
+  void removeFromInsuranceInfoFinance(String value) {
+    insuranceInfoFinance.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoFinance(int _index) {
-    _insuranceInfoFinance.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoFinance(int index) {
+    insuranceInfoFinance.removeAt(index);
   }
 
   void updateInsuranceInfoFinanceAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoFinance[_index] = updateFn(_insuranceInfoFinance[_index]);
+    insuranceInfoFinance[index] = updateFn(_insuranceInfoFinance[index]);
   }
 
-  void insertAtIndexInInsuranceInfoFinance(int _index, String _value) {
-    _insuranceInfoFinance.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoFinance(int index, String value) {
+    insuranceInfoFinance.insert(index, value);
   }
 
   String _insuranceInfoBeneficiaryName = '';
   String get insuranceInfoBeneficiaryName => _insuranceInfoBeneficiaryName;
-  set insuranceInfoBeneficiaryName(String _value) {
-    _insuranceInfoBeneficiaryName = _value;
+  set insuranceInfoBeneficiaryName(String value) {
+    _insuranceInfoBeneficiaryName = value;
   }
 
   String _nonePackageInsurerDisplayNameOutput = '';
   String get nonePackageInsurerDisplayNameOutput =>
       _nonePackageInsurerDisplayNameOutput;
-  set nonePackageInsurerDisplayNameOutput(String _value) {
-    _nonePackageInsurerDisplayNameOutput = _value;
+  set nonePackageInsurerDisplayNameOutput(String value) {
+    _nonePackageInsurerDisplayNameOutput = value;
   }
 
   List<dynamic> _nonePackageImageOther = [];
   List<dynamic> get nonePackageImageOther => _nonePackageImageOther;
-  set nonePackageImageOther(List<dynamic> _value) {
-    _nonePackageImageOther = _value;
+  set nonePackageImageOther(List<dynamic> value) {
+    _nonePackageImageOther = value;
   }
 
-  void addToNonePackageImageOther(dynamic _value) {
-    _nonePackageImageOther.add(_value);
+  void addToNonePackageImageOther(dynamic value) {
+    nonePackageImageOther.add(value);
   }
 
-  void removeFromNonePackageImageOther(dynamic _value) {
-    _nonePackageImageOther.remove(_value);
+  void removeFromNonePackageImageOther(dynamic value) {
+    nonePackageImageOther.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageOther(int _index) {
-    _nonePackageImageOther.removeAt(_index);
+  void removeAtIndexFromNonePackageImageOther(int index) {
+    nonePackageImageOther.removeAt(index);
   }
 
   void updateNonePackageImageOtherAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _nonePackageImageOther[_index] = updateFn(_nonePackageImageOther[_index]);
+    nonePackageImageOther[index] = updateFn(_nonePackageImageOther[index]);
   }
 
-  void insertAtIndexInNonePackageImageOther(int _index, dynamic _value) {
-    _nonePackageImageOther.insert(_index, _value);
+  void insertAtIndexInNonePackageImageOther(int index, dynamic value) {
+    nonePackageImageOther.insert(index, value);
   }
 
   List<String> _nonePackageImageFront = [];
   List<String> get nonePackageImageFront => _nonePackageImageFront;
-  set nonePackageImageFront(List<String> _value) {
-    _nonePackageImageFront = _value;
+  set nonePackageImageFront(List<String> value) {
+    _nonePackageImageFront = value;
   }
 
-  void addToNonePackageImageFront(String _value) {
-    _nonePackageImageFront.add(_value);
+  void addToNonePackageImageFront(String value) {
+    nonePackageImageFront.add(value);
   }
 
-  void removeFromNonePackageImageFront(String _value) {
-    _nonePackageImageFront.remove(_value);
+  void removeFromNonePackageImageFront(String value) {
+    nonePackageImageFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageFront(int _index) {
-    _nonePackageImageFront.removeAt(_index);
+  void removeAtIndexFromNonePackageImageFront(int index) {
+    nonePackageImageFront.removeAt(index);
   }
 
   void updateNonePackageImageFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageFront[_index] = updateFn(_nonePackageImageFront[_index]);
+    nonePackageImageFront[index] = updateFn(_nonePackageImageFront[index]);
   }
 
-  void insertAtIndexInNonePackageImageFront(int _index, String _value) {
-    _nonePackageImageFront.insert(_index, _value);
+  void insertAtIndexInNonePackageImageFront(int index, String value) {
+    nonePackageImageFront.insert(index, value);
   }
 
   List<String> _nonePackageImageRightFront = [];
   List<String> get nonePackageImageRightFront => _nonePackageImageRightFront;
-  set nonePackageImageRightFront(List<String> _value) {
-    _nonePackageImageRightFront = _value;
+  set nonePackageImageRightFront(List<String> value) {
+    _nonePackageImageRightFront = value;
   }
 
-  void addToNonePackageImageRightFront(String _value) {
-    _nonePackageImageRightFront.add(_value);
+  void addToNonePackageImageRightFront(String value) {
+    nonePackageImageRightFront.add(value);
   }
 
-  void removeFromNonePackageImageRightFront(String _value) {
-    _nonePackageImageRightFront.remove(_value);
+  void removeFromNonePackageImageRightFront(String value) {
+    nonePackageImageRightFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageRightFront(int _index) {
-    _nonePackageImageRightFront.removeAt(_index);
+  void removeAtIndexFromNonePackageImageRightFront(int index) {
+    nonePackageImageRightFront.removeAt(index);
   }
 
   void updateNonePackageImageRightFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageRightFront[_index] =
-        updateFn(_nonePackageImageRightFront[_index]);
+    nonePackageImageRightFront[index] =
+        updateFn(_nonePackageImageRightFront[index]);
   }
 
-  void insertAtIndexInNonePackageImageRightFront(int _index, String _value) {
-    _nonePackageImageRightFront.insert(_index, _value);
+  void insertAtIndexInNonePackageImageRightFront(int index, String value) {
+    nonePackageImageRightFront.insert(index, value);
   }
 
   List<String> _nonePackageImageRight = [];
   List<String> get nonePackageImageRight => _nonePackageImageRight;
-  set nonePackageImageRight(List<String> _value) {
-    _nonePackageImageRight = _value;
+  set nonePackageImageRight(List<String> value) {
+    _nonePackageImageRight = value;
   }
 
-  void addToNonePackageImageRight(String _value) {
-    _nonePackageImageRight.add(_value);
+  void addToNonePackageImageRight(String value) {
+    nonePackageImageRight.add(value);
   }
 
-  void removeFromNonePackageImageRight(String _value) {
-    _nonePackageImageRight.remove(_value);
+  void removeFromNonePackageImageRight(String value) {
+    nonePackageImageRight.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageRight(int _index) {
-    _nonePackageImageRight.removeAt(_index);
+  void removeAtIndexFromNonePackageImageRight(int index) {
+    nonePackageImageRight.removeAt(index);
   }
 
   void updateNonePackageImageRightAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageRight[_index] = updateFn(_nonePackageImageRight[_index]);
+    nonePackageImageRight[index] = updateFn(_nonePackageImageRight[index]);
   }
 
-  void insertAtIndexInNonePackageImageRight(int _index, String _value) {
-    _nonePackageImageRight.insert(_index, _value);
+  void insertAtIndexInNonePackageImageRight(int index, String value) {
+    nonePackageImageRight.insert(index, value);
   }
 
   List<String> _nonePackageImageRightRear = [];
   List<String> get nonePackageImageRightRear => _nonePackageImageRightRear;
-  set nonePackageImageRightRear(List<String> _value) {
-    _nonePackageImageRightRear = _value;
+  set nonePackageImageRightRear(List<String> value) {
+    _nonePackageImageRightRear = value;
   }
 
-  void addToNonePackageImageRightRear(String _value) {
-    _nonePackageImageRightRear.add(_value);
+  void addToNonePackageImageRightRear(String value) {
+    nonePackageImageRightRear.add(value);
   }
 
-  void removeFromNonePackageImageRightRear(String _value) {
-    _nonePackageImageRightRear.remove(_value);
+  void removeFromNonePackageImageRightRear(String value) {
+    nonePackageImageRightRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageRightRear(int _index) {
-    _nonePackageImageRightRear.removeAt(_index);
+  void removeAtIndexFromNonePackageImageRightRear(int index) {
+    nonePackageImageRightRear.removeAt(index);
   }
 
   void updateNonePackageImageRightRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageRightRear[_index] =
-        updateFn(_nonePackageImageRightRear[_index]);
+    nonePackageImageRightRear[index] =
+        updateFn(_nonePackageImageRightRear[index]);
   }
 
-  void insertAtIndexInNonePackageImageRightRear(int _index, String _value) {
-    _nonePackageImageRightRear.insert(_index, _value);
+  void insertAtIndexInNonePackageImageRightRear(int index, String value) {
+    nonePackageImageRightRear.insert(index, value);
   }
 
   List<String> _nonePackageImageRear = [];
   List<String> get nonePackageImageRear => _nonePackageImageRear;
-  set nonePackageImageRear(List<String> _value) {
-    _nonePackageImageRear = _value;
+  set nonePackageImageRear(List<String> value) {
+    _nonePackageImageRear = value;
   }
 
-  void addToNonePackageImageRear(String _value) {
-    _nonePackageImageRear.add(_value);
+  void addToNonePackageImageRear(String value) {
+    nonePackageImageRear.add(value);
   }
 
-  void removeFromNonePackageImageRear(String _value) {
-    _nonePackageImageRear.remove(_value);
+  void removeFromNonePackageImageRear(String value) {
+    nonePackageImageRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageRear(int _index) {
-    _nonePackageImageRear.removeAt(_index);
+  void removeAtIndexFromNonePackageImageRear(int index) {
+    nonePackageImageRear.removeAt(index);
   }
 
   void updateNonePackageImageRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageRear[_index] = updateFn(_nonePackageImageRear[_index]);
+    nonePackageImageRear[index] = updateFn(_nonePackageImageRear[index]);
   }
 
-  void insertAtIndexInNonePackageImageRear(int _index, String _value) {
-    _nonePackageImageRear.insert(_index, _value);
+  void insertAtIndexInNonePackageImageRear(int index, String value) {
+    nonePackageImageRear.insert(index, value);
   }
 
   List<String> _nonePackageImageLeftRear = [];
   List<String> get nonePackageImageLeftRear => _nonePackageImageLeftRear;
-  set nonePackageImageLeftRear(List<String> _value) {
-    _nonePackageImageLeftRear = _value;
+  set nonePackageImageLeftRear(List<String> value) {
+    _nonePackageImageLeftRear = value;
   }
 
-  void addToNonePackageImageLeftRear(String _value) {
-    _nonePackageImageLeftRear.add(_value);
+  void addToNonePackageImageLeftRear(String value) {
+    nonePackageImageLeftRear.add(value);
   }
 
-  void removeFromNonePackageImageLeftRear(String _value) {
-    _nonePackageImageLeftRear.remove(_value);
+  void removeFromNonePackageImageLeftRear(String value) {
+    nonePackageImageLeftRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageLeftRear(int _index) {
-    _nonePackageImageLeftRear.removeAt(_index);
+  void removeAtIndexFromNonePackageImageLeftRear(int index) {
+    nonePackageImageLeftRear.removeAt(index);
   }
 
   void updateNonePackageImageLeftRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageLeftRear[_index] =
-        updateFn(_nonePackageImageLeftRear[_index]);
+    nonePackageImageLeftRear[index] =
+        updateFn(_nonePackageImageLeftRear[index]);
   }
 
-  void insertAtIndexInNonePackageImageLeftRear(int _index, String _value) {
-    _nonePackageImageLeftRear.insert(_index, _value);
+  void insertAtIndexInNonePackageImageLeftRear(int index, String value) {
+    nonePackageImageLeftRear.insert(index, value);
   }
 
   List<String> _nonePackageImageLeft = [];
   List<String> get nonePackageImageLeft => _nonePackageImageLeft;
-  set nonePackageImageLeft(List<String> _value) {
-    _nonePackageImageLeft = _value;
+  set nonePackageImageLeft(List<String> value) {
+    _nonePackageImageLeft = value;
   }
 
-  void addToNonePackageImageLeft(String _value) {
-    _nonePackageImageLeft.add(_value);
+  void addToNonePackageImageLeft(String value) {
+    nonePackageImageLeft.add(value);
   }
 
-  void removeFromNonePackageImageLeft(String _value) {
-    _nonePackageImageLeft.remove(_value);
+  void removeFromNonePackageImageLeft(String value) {
+    nonePackageImageLeft.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageLeft(int _index) {
-    _nonePackageImageLeft.removeAt(_index);
+  void removeAtIndexFromNonePackageImageLeft(int index) {
+    nonePackageImageLeft.removeAt(index);
   }
 
   void updateNonePackageImageLeftAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageLeft[_index] = updateFn(_nonePackageImageLeft[_index]);
+    nonePackageImageLeft[index] = updateFn(_nonePackageImageLeft[index]);
   }
 
-  void insertAtIndexInNonePackageImageLeft(int _index, String _value) {
-    _nonePackageImageLeft.insert(_index, _value);
+  void insertAtIndexInNonePackageImageLeft(int index, String value) {
+    nonePackageImageLeft.insert(index, value);
   }
 
   List<String> _nonePackageImageLeftFront = [];
   List<String> get nonePackageImageLeftFront => _nonePackageImageLeftFront;
-  set nonePackageImageLeftFront(List<String> _value) {
-    _nonePackageImageLeftFront = _value;
+  set nonePackageImageLeftFront(List<String> value) {
+    _nonePackageImageLeftFront = value;
   }
 
-  void addToNonePackageImageLeftFront(String _value) {
-    _nonePackageImageLeftFront.add(_value);
+  void addToNonePackageImageLeftFront(String value) {
+    nonePackageImageLeftFront.add(value);
   }
 
-  void removeFromNonePackageImageLeftFront(String _value) {
-    _nonePackageImageLeftFront.remove(_value);
+  void removeFromNonePackageImageLeftFront(String value) {
+    nonePackageImageLeftFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageLeftFront(int _index) {
-    _nonePackageImageLeftFront.removeAt(_index);
+  void removeAtIndexFromNonePackageImageLeftFront(int index) {
+    nonePackageImageLeftFront.removeAt(index);
   }
 
   void updateNonePackageImageLeftFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageLeftFront[_index] =
-        updateFn(_nonePackageImageLeftFront[_index]);
+    nonePackageImageLeftFront[index] =
+        updateFn(_nonePackageImageLeftFront[index]);
   }
 
-  void insertAtIndexInNonePackageImageLeftFront(int _index, String _value) {
-    _nonePackageImageLeftFront.insert(_index, _value);
+  void insertAtIndexInNonePackageImageLeftFront(int index, String value) {
+    nonePackageImageLeftFront.insert(index, value);
   }
 
   List<String> _nonePackageImageRoof = [];
   List<String> get nonePackageImageRoof => _nonePackageImageRoof;
-  set nonePackageImageRoof(List<String> _value) {
-    _nonePackageImageRoof = _value;
+  set nonePackageImageRoof(List<String> value) {
+    _nonePackageImageRoof = value;
   }
 
-  void addToNonePackageImageRoof(String _value) {
-    _nonePackageImageRoof.add(_value);
+  void addToNonePackageImageRoof(String value) {
+    nonePackageImageRoof.add(value);
   }
 
-  void removeFromNonePackageImageRoof(String _value) {
-    _nonePackageImageRoof.remove(_value);
+  void removeFromNonePackageImageRoof(String value) {
+    nonePackageImageRoof.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageRoof(int _index) {
-    _nonePackageImageRoof.removeAt(_index);
+  void removeAtIndexFromNonePackageImageRoof(int index) {
+    nonePackageImageRoof.removeAt(index);
   }
 
   void updateNonePackageImageRoofAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageRoof[_index] = updateFn(_nonePackageImageRoof[_index]);
+    nonePackageImageRoof[index] = updateFn(_nonePackageImageRoof[index]);
   }
 
-  void insertAtIndexInNonePackageImageRoof(int _index, String _value) {
-    _nonePackageImageRoof.insert(_index, _value);
+  void insertAtIndexInNonePackageImageRoof(int index, String value) {
+    nonePackageImageRoof.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageFront = [];
   List<String> get nonePackageTrailerImageFront =>
       _nonePackageTrailerImageFront;
-  set nonePackageTrailerImageFront(List<String> _value) {
-    _nonePackageTrailerImageFront = _value;
+  set nonePackageTrailerImageFront(List<String> value) {
+    _nonePackageTrailerImageFront = value;
   }
 
-  void addToNonePackageTrailerImageFront(String _value) {
-    _nonePackageTrailerImageFront.add(_value);
+  void addToNonePackageTrailerImageFront(String value) {
+    nonePackageTrailerImageFront.add(value);
   }
 
-  void removeFromNonePackageTrailerImageFront(String _value) {
-    _nonePackageTrailerImageFront.remove(_value);
+  void removeFromNonePackageTrailerImageFront(String value) {
+    nonePackageTrailerImageFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageFront(int _index) {
-    _nonePackageTrailerImageFront.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageFront(int index) {
+    nonePackageTrailerImageFront.removeAt(index);
   }
 
   void updateNonePackageTrailerImageFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageFront[_index] =
-        updateFn(_nonePackageTrailerImageFront[_index]);
+    nonePackageTrailerImageFront[index] =
+        updateFn(_nonePackageTrailerImageFront[index]);
   }
 
-  void insertAtIndexInNonePackageTrailerImageFront(int _index, String _value) {
-    _nonePackageTrailerImageFront.insert(_index, _value);
+  void insertAtIndexInNonePackageTrailerImageFront(int index, String value) {
+    nonePackageTrailerImageFront.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageRightFront = [];
   List<String> get nonePackageTrailerImageRightFront =>
       _nonePackageTrailerImageRightFront;
-  set nonePackageTrailerImageRightFront(List<String> _value) {
-    _nonePackageTrailerImageRightFront = _value;
+  set nonePackageTrailerImageRightFront(List<String> value) {
+    _nonePackageTrailerImageRightFront = value;
   }
 
-  void addToNonePackageTrailerImageRightFront(String _value) {
-    _nonePackageTrailerImageRightFront.add(_value);
+  void addToNonePackageTrailerImageRightFront(String value) {
+    nonePackageTrailerImageRightFront.add(value);
   }
 
-  void removeFromNonePackageTrailerImageRightFront(String _value) {
-    _nonePackageTrailerImageRightFront.remove(_value);
+  void removeFromNonePackageTrailerImageRightFront(String value) {
+    nonePackageTrailerImageRightFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageRightFront(int _index) {
-    _nonePackageTrailerImageRightFront.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageRightFront(int index) {
+    nonePackageTrailerImageRightFront.removeAt(index);
   }
 
   void updateNonePackageTrailerImageRightFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageRightFront[_index] =
-        updateFn(_nonePackageTrailerImageRightFront[_index]);
+    nonePackageTrailerImageRightFront[index] =
+        updateFn(_nonePackageTrailerImageRightFront[index]);
   }
 
   void insertAtIndexInNonePackageTrailerImageRightFront(
-      int _index, String _value) {
-    _nonePackageTrailerImageRightFront.insert(_index, _value);
+      int index, String value) {
+    nonePackageTrailerImageRightFront.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageRight = [];
   List<String> get nonePackageTrailerImageRight =>
       _nonePackageTrailerImageRight;
-  set nonePackageTrailerImageRight(List<String> _value) {
-    _nonePackageTrailerImageRight = _value;
+  set nonePackageTrailerImageRight(List<String> value) {
+    _nonePackageTrailerImageRight = value;
   }
 
-  void addToNonePackageTrailerImageRight(String _value) {
-    _nonePackageTrailerImageRight.add(_value);
+  void addToNonePackageTrailerImageRight(String value) {
+    nonePackageTrailerImageRight.add(value);
   }
 
-  void removeFromNonePackageTrailerImageRight(String _value) {
-    _nonePackageTrailerImageRight.remove(_value);
+  void removeFromNonePackageTrailerImageRight(String value) {
+    nonePackageTrailerImageRight.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageRight(int _index) {
-    _nonePackageTrailerImageRight.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageRight(int index) {
+    nonePackageTrailerImageRight.removeAt(index);
   }
 
   void updateNonePackageTrailerImageRightAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageRight[_index] =
-        updateFn(_nonePackageTrailerImageRight[_index]);
+    nonePackageTrailerImageRight[index] =
+        updateFn(_nonePackageTrailerImageRight[index]);
   }
 
-  void insertAtIndexInNonePackageTrailerImageRight(int _index, String _value) {
-    _nonePackageTrailerImageRight.insert(_index, _value);
+  void insertAtIndexInNonePackageTrailerImageRight(int index, String value) {
+    nonePackageTrailerImageRight.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageRightRear = [];
   List<String> get nonePackageTrailerImageRightRear =>
       _nonePackageTrailerImageRightRear;
-  set nonePackageTrailerImageRightRear(List<String> _value) {
-    _nonePackageTrailerImageRightRear = _value;
+  set nonePackageTrailerImageRightRear(List<String> value) {
+    _nonePackageTrailerImageRightRear = value;
   }
 
-  void addToNonePackageTrailerImageRightRear(String _value) {
-    _nonePackageTrailerImageRightRear.add(_value);
+  void addToNonePackageTrailerImageRightRear(String value) {
+    nonePackageTrailerImageRightRear.add(value);
   }
 
-  void removeFromNonePackageTrailerImageRightRear(String _value) {
-    _nonePackageTrailerImageRightRear.remove(_value);
+  void removeFromNonePackageTrailerImageRightRear(String value) {
+    nonePackageTrailerImageRightRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageRightRear(int _index) {
-    _nonePackageTrailerImageRightRear.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageRightRear(int index) {
+    nonePackageTrailerImageRightRear.removeAt(index);
   }
 
   void updateNonePackageTrailerImageRightRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageRightRear[_index] =
-        updateFn(_nonePackageTrailerImageRightRear[_index]);
+    nonePackageTrailerImageRightRear[index] =
+        updateFn(_nonePackageTrailerImageRightRear[index]);
   }
 
   void insertAtIndexInNonePackageTrailerImageRightRear(
-      int _index, String _value) {
-    _nonePackageTrailerImageRightRear.insert(_index, _value);
+      int index, String value) {
+    nonePackageTrailerImageRightRear.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageRear = [];
   List<String> get nonePackageTrailerImageRear => _nonePackageTrailerImageRear;
-  set nonePackageTrailerImageRear(List<String> _value) {
-    _nonePackageTrailerImageRear = _value;
+  set nonePackageTrailerImageRear(List<String> value) {
+    _nonePackageTrailerImageRear = value;
   }
 
-  void addToNonePackageTrailerImageRear(String _value) {
-    _nonePackageTrailerImageRear.add(_value);
+  void addToNonePackageTrailerImageRear(String value) {
+    nonePackageTrailerImageRear.add(value);
   }
 
-  void removeFromNonePackageTrailerImageRear(String _value) {
-    _nonePackageTrailerImageRear.remove(_value);
+  void removeFromNonePackageTrailerImageRear(String value) {
+    nonePackageTrailerImageRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageRear(int _index) {
-    _nonePackageTrailerImageRear.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageRear(int index) {
+    nonePackageTrailerImageRear.removeAt(index);
   }
 
   void updateNonePackageTrailerImageRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageRear[_index] =
-        updateFn(_nonePackageTrailerImageRear[_index]);
+    nonePackageTrailerImageRear[index] =
+        updateFn(_nonePackageTrailerImageRear[index]);
   }
 
-  void insertAtIndexInNonePackageTrailerImageRear(int _index, String _value) {
-    _nonePackageTrailerImageRear.insert(_index, _value);
+  void insertAtIndexInNonePackageTrailerImageRear(int index, String value) {
+    nonePackageTrailerImageRear.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageLeftRear = [];
   List<String> get nonePackageTrailerImageLeftRear =>
       _nonePackageTrailerImageLeftRear;
-  set nonePackageTrailerImageLeftRear(List<String> _value) {
-    _nonePackageTrailerImageLeftRear = _value;
+  set nonePackageTrailerImageLeftRear(List<String> value) {
+    _nonePackageTrailerImageLeftRear = value;
   }
 
-  void addToNonePackageTrailerImageLeftRear(String _value) {
-    _nonePackageTrailerImageLeftRear.add(_value);
+  void addToNonePackageTrailerImageLeftRear(String value) {
+    nonePackageTrailerImageLeftRear.add(value);
   }
 
-  void removeFromNonePackageTrailerImageLeftRear(String _value) {
-    _nonePackageTrailerImageLeftRear.remove(_value);
+  void removeFromNonePackageTrailerImageLeftRear(String value) {
+    nonePackageTrailerImageLeftRear.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageLeftRear(int _index) {
-    _nonePackageTrailerImageLeftRear.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageLeftRear(int index) {
+    nonePackageTrailerImageLeftRear.removeAt(index);
   }
 
   void updateNonePackageTrailerImageLeftRearAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageLeftRear[_index] =
-        updateFn(_nonePackageTrailerImageLeftRear[_index]);
+    nonePackageTrailerImageLeftRear[index] =
+        updateFn(_nonePackageTrailerImageLeftRear[index]);
   }
 
-  void insertAtIndexInNonePackageTrailerImageLeftRear(
-      int _index, String _value) {
-    _nonePackageTrailerImageLeftRear.insert(_index, _value);
+  void insertAtIndexInNonePackageTrailerImageLeftRear(int index, String value) {
+    nonePackageTrailerImageLeftRear.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageLeft = [];
   List<String> get nonePackageTrailerImageLeft => _nonePackageTrailerImageLeft;
-  set nonePackageTrailerImageLeft(List<String> _value) {
-    _nonePackageTrailerImageLeft = _value;
+  set nonePackageTrailerImageLeft(List<String> value) {
+    _nonePackageTrailerImageLeft = value;
   }
 
-  void addToNonePackageTrailerImageLeft(String _value) {
-    _nonePackageTrailerImageLeft.add(_value);
+  void addToNonePackageTrailerImageLeft(String value) {
+    nonePackageTrailerImageLeft.add(value);
   }
 
-  void removeFromNonePackageTrailerImageLeft(String _value) {
-    _nonePackageTrailerImageLeft.remove(_value);
+  void removeFromNonePackageTrailerImageLeft(String value) {
+    nonePackageTrailerImageLeft.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageLeft(int _index) {
-    _nonePackageTrailerImageLeft.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageLeft(int index) {
+    nonePackageTrailerImageLeft.removeAt(index);
   }
 
   void updateNonePackageTrailerImageLeftAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageLeft[_index] =
-        updateFn(_nonePackageTrailerImageLeft[_index]);
+    nonePackageTrailerImageLeft[index] =
+        updateFn(_nonePackageTrailerImageLeft[index]);
   }
 
-  void insertAtIndexInNonePackageTrailerImageLeft(int _index, String _value) {
-    _nonePackageTrailerImageLeft.insert(_index, _value);
+  void insertAtIndexInNonePackageTrailerImageLeft(int index, String value) {
+    nonePackageTrailerImageLeft.insert(index, value);
   }
 
   List<String> _nonePackageTrailerImageLeftFront = [];
   List<String> get nonePackageTrailerImageLeftFront =>
       _nonePackageTrailerImageLeftFront;
-  set nonePackageTrailerImageLeftFront(List<String> _value) {
-    _nonePackageTrailerImageLeftFront = _value;
+  set nonePackageTrailerImageLeftFront(List<String> value) {
+    _nonePackageTrailerImageLeftFront = value;
   }
 
-  void addToNonePackageTrailerImageLeftFront(String _value) {
-    _nonePackageTrailerImageLeftFront.add(_value);
+  void addToNonePackageTrailerImageLeftFront(String value) {
+    nonePackageTrailerImageLeftFront.add(value);
   }
 
-  void removeFromNonePackageTrailerImageLeftFront(String _value) {
-    _nonePackageTrailerImageLeftFront.remove(_value);
+  void removeFromNonePackageTrailerImageLeftFront(String value) {
+    nonePackageTrailerImageLeftFront.remove(value);
   }
 
-  void removeAtIndexFromNonePackageTrailerImageLeftFront(int _index) {
-    _nonePackageTrailerImageLeftFront.removeAt(_index);
+  void removeAtIndexFromNonePackageTrailerImageLeftFront(int index) {
+    nonePackageTrailerImageLeftFront.removeAt(index);
   }
 
   void updateNonePackageTrailerImageLeftFrontAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageTrailerImageLeftFront[_index] =
-        updateFn(_nonePackageTrailerImageLeftFront[_index]);
+    nonePackageTrailerImageLeftFront[index] =
+        updateFn(_nonePackageTrailerImageLeftFront[index]);
   }
 
   void insertAtIndexInNonePackageTrailerImageLeftFront(
-      int _index, String _value) {
-    _nonePackageTrailerImageLeftFront.insert(_index, _value);
+      int index, String value) {
+    nonePackageTrailerImageLeftFront.insert(index, value);
   }
 
   List<String> _insuranceInfoAddressType = ['REGISTER', 'CURRENT'];
   List<String> get insuranceInfoAddressType => _insuranceInfoAddressType;
-  set insuranceInfoAddressType(List<String> _value) {
-    _insuranceInfoAddressType = _value;
+  set insuranceInfoAddressType(List<String> value) {
+    _insuranceInfoAddressType = value;
   }
 
-  void addToInsuranceInfoAddressType(String _value) {
-    _insuranceInfoAddressType.add(_value);
+  void addToInsuranceInfoAddressType(String value) {
+    insuranceInfoAddressType.add(value);
   }
 
-  void removeFromInsuranceInfoAddressType(String _value) {
-    _insuranceInfoAddressType.remove(_value);
+  void removeFromInsuranceInfoAddressType(String value) {
+    insuranceInfoAddressType.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoAddressType(int _index) {
-    _insuranceInfoAddressType.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoAddressType(int index) {
+    insuranceInfoAddressType.removeAt(index);
   }
 
   void updateInsuranceInfoAddressTypeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoAddressType[_index] =
-        updateFn(_insuranceInfoAddressType[_index]);
+    insuranceInfoAddressType[index] =
+        updateFn(_insuranceInfoAddressType[index]);
   }
 
-  void insertAtIndexInInsuranceInfoAddressType(int _index, String _value) {
-    _insuranceInfoAddressType.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoAddressType(int index, String value) {
+    insuranceInfoAddressType.insert(index, value);
   }
 
   int _nonePackageInsurerOutputIndex = 0;
   int get nonePackageInsurerOutputIndex => _nonePackageInsurerOutputIndex;
-  set nonePackageInsurerOutputIndex(int _value) {
-    _nonePackageInsurerOutputIndex = _value;
+  set nonePackageInsurerOutputIndex(int value) {
+    _nonePackageInsurerOutputIndex = value;
   }
 
   String _nonePackageLeadId = '';
   String get nonePackageLeadId => _nonePackageLeadId;
-  set nonePackageLeadId(String _value) {
-    _nonePackageLeadId = _value;
+  set nonePackageLeadId(String value) {
+    _nonePackageLeadId = value;
   }
 
   String _nonePackageLeadNo = '';
   String get nonePackageLeadNo => _nonePackageLeadNo;
-  set nonePackageLeadNo(String _value) {
-    _nonePackageLeadNo = _value;
+  set nonePackageLeadNo(String value) {
+    _nonePackageLeadNo = value;
   }
 
   bool _insuranceInfoHaveLicenseBool = false;
   bool get insuranceInfoHaveLicenseBool => _insuranceInfoHaveLicenseBool;
-  set insuranceInfoHaveLicenseBool(bool _value) {
-    _insuranceInfoHaveLicenseBool = _value;
+  set insuranceInfoHaveLicenseBool(bool value) {
+    _insuranceInfoHaveLicenseBool = value;
   }
 
   List<String> _nonePackageCarImageUploadedList = [];
   List<String> get nonePackageCarImageUploadedList =>
       _nonePackageCarImageUploadedList;
-  set nonePackageCarImageUploadedList(List<String> _value) {
-    _nonePackageCarImageUploadedList = _value;
+  set nonePackageCarImageUploadedList(List<String> value) {
+    _nonePackageCarImageUploadedList = value;
   }
 
-  void addToNonePackageCarImageUploadedList(String _value) {
-    _nonePackageCarImageUploadedList.add(_value);
+  void addToNonePackageCarImageUploadedList(String value) {
+    nonePackageCarImageUploadedList.add(value);
   }
 
-  void removeFromNonePackageCarImageUploadedList(String _value) {
-    _nonePackageCarImageUploadedList.remove(_value);
+  void removeFromNonePackageCarImageUploadedList(String value) {
+    nonePackageCarImageUploadedList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageCarImageUploadedList(int _index) {
-    _nonePackageCarImageUploadedList.removeAt(_index);
+  void removeAtIndexFromNonePackageCarImageUploadedList(int index) {
+    nonePackageCarImageUploadedList.removeAt(index);
   }
 
   void updateNonePackageCarImageUploadedListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageCarImageUploadedList[_index] =
-        updateFn(_nonePackageCarImageUploadedList[_index]);
+    nonePackageCarImageUploadedList[index] =
+        updateFn(_nonePackageCarImageUploadedList[index]);
   }
 
-  void insertAtIndexInNonePackageCarImageUploadedList(
-      int _index, String _value) {
-    _nonePackageCarImageUploadedList.insert(_index, _value);
+  void insertAtIndexInNonePackageCarImageUploadedList(int index, String value) {
+    nonePackageCarImageUploadedList.insert(index, value);
   }
 
   String _searchQuotationStatus = '';
   String get searchQuotationStatus => _searchQuotationStatus;
-  set searchQuotationStatus(String _value) {
-    _searchQuotationStatus = _value;
+  set searchQuotationStatus(String value) {
+    _searchQuotationStatus = value;
   }
 
   List<String> _nonePackageImageOldVmi = [];
   List<String> get nonePackageImageOldVmi => _nonePackageImageOldVmi;
-  set nonePackageImageOldVmi(List<String> _value) {
-    _nonePackageImageOldVmi = _value;
+  set nonePackageImageOldVmi(List<String> value) {
+    _nonePackageImageOldVmi = value;
   }
 
-  void addToNonePackageImageOldVmi(String _value) {
-    _nonePackageImageOldVmi.add(_value);
+  void addToNonePackageImageOldVmi(String value) {
+    nonePackageImageOldVmi.add(value);
   }
 
-  void removeFromNonePackageImageOldVmi(String _value) {
-    _nonePackageImageOldVmi.remove(_value);
+  void removeFromNonePackageImageOldVmi(String value) {
+    nonePackageImageOldVmi.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageOldVmi(int _index) {
-    _nonePackageImageOldVmi.removeAt(_index);
+  void removeAtIndexFromNonePackageImageOldVmi(int index) {
+    nonePackageImageOldVmi.removeAt(index);
   }
 
   void updateNonePackageImageOldVmiAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageOldVmi[_index] = updateFn(_nonePackageImageOldVmi[_index]);
+    nonePackageImageOldVmi[index] = updateFn(_nonePackageImageOldVmi[index]);
   }
 
-  void insertAtIndexInNonePackageImageOldVmi(int _index, String _value) {
-    _nonePackageImageOldVmi.insert(_index, _value);
+  void insertAtIndexInNonePackageImageOldVmi(int index, String value) {
+    nonePackageImageOldVmi.insert(index, value);
   }
 
   List<String> _nonePackageImageCompanyBook = [];
   List<String> get nonePackageImageCompanyBook => _nonePackageImageCompanyBook;
-  set nonePackageImageCompanyBook(List<String> _value) {
-    _nonePackageImageCompanyBook = _value;
+  set nonePackageImageCompanyBook(List<String> value) {
+    _nonePackageImageCompanyBook = value;
   }
 
-  void addToNonePackageImageCompanyBook(String _value) {
-    _nonePackageImageCompanyBook.add(_value);
+  void addToNonePackageImageCompanyBook(String value) {
+    nonePackageImageCompanyBook.add(value);
   }
 
-  void removeFromNonePackageImageCompanyBook(String _value) {
-    _nonePackageImageCompanyBook.remove(_value);
+  void removeFromNonePackageImageCompanyBook(String value) {
+    nonePackageImageCompanyBook.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageCompanyBook(int _index) {
-    _nonePackageImageCompanyBook.removeAt(_index);
+  void removeAtIndexFromNonePackageImageCompanyBook(int index) {
+    nonePackageImageCompanyBook.removeAt(index);
   }
 
   void updateNonePackageImageCompanyBookAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageCompanyBook[_index] =
-        updateFn(_nonePackageImageCompanyBook[_index]);
+    nonePackageImageCompanyBook[index] =
+        updateFn(_nonePackageImageCompanyBook[index]);
   }
 
-  void insertAtIndexInNonePackageImageCompanyBook(int _index, String _value) {
-    _nonePackageImageCompanyBook.insert(_index, _value);
+  void insertAtIndexInNonePackageImageCompanyBook(int index, String value) {
+    nonePackageImageCompanyBook.insert(index, value);
   }
 
   List<String> _nonePackageImageIdCard = [];
   List<String> get nonePackageImageIdCard => _nonePackageImageIdCard;
-  set nonePackageImageIdCard(List<String> _value) {
-    _nonePackageImageIdCard = _value;
+  set nonePackageImageIdCard(List<String> value) {
+    _nonePackageImageIdCard = value;
   }
 
-  void addToNonePackageImageIdCard(String _value) {
-    _nonePackageImageIdCard.add(_value);
+  void addToNonePackageImageIdCard(String value) {
+    nonePackageImageIdCard.add(value);
   }
 
-  void removeFromNonePackageImageIdCard(String _value) {
-    _nonePackageImageIdCard.remove(_value);
+  void removeFromNonePackageImageIdCard(String value) {
+    nonePackageImageIdCard.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageIdCard(int _index) {
-    _nonePackageImageIdCard.removeAt(_index);
+  void removeAtIndexFromNonePackageImageIdCard(int index) {
+    nonePackageImageIdCard.removeAt(index);
   }
 
   void updateNonePackageImageIdCardAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageIdCard[_index] = updateFn(_nonePackageImageIdCard[_index]);
+    nonePackageImageIdCard[index] = updateFn(_nonePackageImageIdCard[index]);
   }
 
-  void insertAtIndexInNonePackageImageIdCard(int _index, String _value) {
-    _nonePackageImageIdCard.insert(_index, _value);
+  void insertAtIndexInNonePackageImageIdCard(int index, String value) {
+    nonePackageImageIdCard.insert(index, value);
   }
 
   List<String> _nonePackageImageBlueBook = [];
   List<String> get nonePackageImageBlueBook => _nonePackageImageBlueBook;
-  set nonePackageImageBlueBook(List<String> _value) {
-    _nonePackageImageBlueBook = _value;
+  set nonePackageImageBlueBook(List<String> value) {
+    _nonePackageImageBlueBook = value;
   }
 
-  void addToNonePackageImageBlueBook(String _value) {
-    _nonePackageImageBlueBook.add(_value);
+  void addToNonePackageImageBlueBook(String value) {
+    nonePackageImageBlueBook.add(value);
   }
 
-  void removeFromNonePackageImageBlueBook(String _value) {
-    _nonePackageImageBlueBook.remove(_value);
+  void removeFromNonePackageImageBlueBook(String value) {
+    nonePackageImageBlueBook.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageBlueBook(int _index) {
-    _nonePackageImageBlueBook.removeAt(_index);
+  void removeAtIndexFromNonePackageImageBlueBook(int index) {
+    nonePackageImageBlueBook.removeAt(index);
   }
 
   void updateNonePackageImageBlueBookAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageBlueBook[_index] =
-        updateFn(_nonePackageImageBlueBook[_index]);
+    nonePackageImageBlueBook[index] =
+        updateFn(_nonePackageImageBlueBook[index]);
   }
 
-  void insertAtIndexInNonePackageImageBlueBook(int _index, String _value) {
-    _nonePackageImageBlueBook.insert(_index, _value);
+  void insertAtIndexInNonePackageImageBlueBook(int index, String value) {
+    nonePackageImageBlueBook.insert(index, value);
   }
 
   List<String> _insuranceInfoOccupationCode = [];
   List<String> get insuranceInfoOccupationCode => _insuranceInfoOccupationCode;
-  set insuranceInfoOccupationCode(List<String> _value) {
-    _insuranceInfoOccupationCode = _value;
+  set insuranceInfoOccupationCode(List<String> value) {
+    _insuranceInfoOccupationCode = value;
   }
 
-  void addToInsuranceInfoOccupationCode(String _value) {
-    _insuranceInfoOccupationCode.add(_value);
+  void addToInsuranceInfoOccupationCode(String value) {
+    insuranceInfoOccupationCode.add(value);
   }
 
-  void removeFromInsuranceInfoOccupationCode(String _value) {
-    _insuranceInfoOccupationCode.remove(_value);
+  void removeFromInsuranceInfoOccupationCode(String value) {
+    insuranceInfoOccupationCode.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoOccupationCode(int _index) {
-    _insuranceInfoOccupationCode.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoOccupationCode(int index) {
+    insuranceInfoOccupationCode.removeAt(index);
   }
 
   void updateInsuranceInfoOccupationCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoOccupationCode[_index] =
-        updateFn(_insuranceInfoOccupationCode[_index]);
+    insuranceInfoOccupationCode[index] =
+        updateFn(_insuranceInfoOccupationCode[index]);
   }
 
-  void insertAtIndexInInsuranceInfoOccupationCode(int _index, String _value) {
-    _insuranceInfoOccupationCode.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoOccupationCode(int index, String value) {
+    insuranceInfoOccupationCode.insert(index, value);
   }
 
   List<String> _insuranceInfoOccupationName = [];
   List<String> get insuranceInfoOccupationName => _insuranceInfoOccupationName;
-  set insuranceInfoOccupationName(List<String> _value) {
-    _insuranceInfoOccupationName = _value;
+  set insuranceInfoOccupationName(List<String> value) {
+    _insuranceInfoOccupationName = value;
   }
 
-  void addToInsuranceInfoOccupationName(String _value) {
-    _insuranceInfoOccupationName.add(_value);
+  void addToInsuranceInfoOccupationName(String value) {
+    insuranceInfoOccupationName.add(value);
   }
 
-  void removeFromInsuranceInfoOccupationName(String _value) {
-    _insuranceInfoOccupationName.remove(_value);
+  void removeFromInsuranceInfoOccupationName(String value) {
+    insuranceInfoOccupationName.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoOccupationName(int _index) {
-    _insuranceInfoOccupationName.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoOccupationName(int index) {
+    insuranceInfoOccupationName.removeAt(index);
   }
 
   void updateInsuranceInfoOccupationNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoOccupationName[_index] =
-        updateFn(_insuranceInfoOccupationName[_index]);
+    insuranceInfoOccupationName[index] =
+        updateFn(_insuranceInfoOccupationName[index]);
   }
 
-  void insertAtIndexInInsuranceInfoOccupationName(int _index, String _value) {
-    _insuranceInfoOccupationName.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoOccupationName(int index, String value) {
+    insuranceInfoOccupationName.insert(index, value);
   }
 
   List<String> _insuranceInfoOccupationSubCode = [];
   List<String> get insuranceInfoOccupationSubCode =>
       _insuranceInfoOccupationSubCode;
-  set insuranceInfoOccupationSubCode(List<String> _value) {
-    _insuranceInfoOccupationSubCode = _value;
+  set insuranceInfoOccupationSubCode(List<String> value) {
+    _insuranceInfoOccupationSubCode = value;
   }
 
-  void addToInsuranceInfoOccupationSubCode(String _value) {
-    _insuranceInfoOccupationSubCode.add(_value);
+  void addToInsuranceInfoOccupationSubCode(String value) {
+    insuranceInfoOccupationSubCode.add(value);
   }
 
-  void removeFromInsuranceInfoOccupationSubCode(String _value) {
-    _insuranceInfoOccupationSubCode.remove(_value);
+  void removeFromInsuranceInfoOccupationSubCode(String value) {
+    insuranceInfoOccupationSubCode.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoOccupationSubCode(int _index) {
-    _insuranceInfoOccupationSubCode.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoOccupationSubCode(int index) {
+    insuranceInfoOccupationSubCode.removeAt(index);
   }
 
   void updateInsuranceInfoOccupationSubCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoOccupationSubCode[_index] =
-        updateFn(_insuranceInfoOccupationSubCode[_index]);
+    insuranceInfoOccupationSubCode[index] =
+        updateFn(_insuranceInfoOccupationSubCode[index]);
   }
 
-  void insertAtIndexInInsuranceInfoOccupationSubCode(
-      int _index, String _value) {
-    _insuranceInfoOccupationSubCode.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoOccupationSubCode(int index, String value) {
+    insuranceInfoOccupationSubCode.insert(index, value);
   }
 
   List<String> _insuranceInfoOccupationSubName = [];
   List<String> get insuranceInfoOccupationSubName =>
       _insuranceInfoOccupationSubName;
-  set insuranceInfoOccupationSubName(List<String> _value) {
-    _insuranceInfoOccupationSubName = _value;
+  set insuranceInfoOccupationSubName(List<String> value) {
+    _insuranceInfoOccupationSubName = value;
   }
 
-  void addToInsuranceInfoOccupationSubName(String _value) {
-    _insuranceInfoOccupationSubName.add(_value);
+  void addToInsuranceInfoOccupationSubName(String value) {
+    insuranceInfoOccupationSubName.add(value);
   }
 
-  void removeFromInsuranceInfoOccupationSubName(String _value) {
-    _insuranceInfoOccupationSubName.remove(_value);
+  void removeFromInsuranceInfoOccupationSubName(String value) {
+    insuranceInfoOccupationSubName.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoOccupationSubName(int _index) {
-    _insuranceInfoOccupationSubName.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoOccupationSubName(int index) {
+    insuranceInfoOccupationSubName.removeAt(index);
   }
 
   void updateInsuranceInfoOccupationSubNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoOccupationSubName[_index] =
-        updateFn(_insuranceInfoOccupationSubName[_index]);
+    insuranceInfoOccupationSubName[index] =
+        updateFn(_insuranceInfoOccupationSubName[index]);
   }
 
-  void insertAtIndexInInsuranceInfoOccupationSubName(
-      int _index, String _value) {
-    _insuranceInfoOccupationSubName.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoOccupationSubName(int index, String value) {
+    insuranceInfoOccupationSubName.insert(index, value);
   }
 
   String _insuranceInfoSelectOccupationCode = '';
   String get insuranceInfoSelectOccupationCode =>
       _insuranceInfoSelectOccupationCode;
-  set insuranceInfoSelectOccupationCode(String _value) {
-    _insuranceInfoSelectOccupationCode = _value;
+  set insuranceInfoSelectOccupationCode(String value) {
+    _insuranceInfoSelectOccupationCode = value;
   }
 
   String _insuranceInfoSelectOccupationName = '';
   String get insuranceInfoSelectOccupationName =>
       _insuranceInfoSelectOccupationName;
-  set insuranceInfoSelectOccupationName(String _value) {
-    _insuranceInfoSelectOccupationName = _value;
+  set insuranceInfoSelectOccupationName(String value) {
+    _insuranceInfoSelectOccupationName = value;
   }
 
   List<String> _insuranceInfoSelectOccupationSubCode = [];
   List<String> get insuranceInfoSelectOccupationSubCode =>
       _insuranceInfoSelectOccupationSubCode;
-  set insuranceInfoSelectOccupationSubCode(List<String> _value) {
-    _insuranceInfoSelectOccupationSubCode = _value;
+  set insuranceInfoSelectOccupationSubCode(List<String> value) {
+    _insuranceInfoSelectOccupationSubCode = value;
   }
 
-  void addToInsuranceInfoSelectOccupationSubCode(String _value) {
-    _insuranceInfoSelectOccupationSubCode.add(_value);
+  void addToInsuranceInfoSelectOccupationSubCode(String value) {
+    insuranceInfoSelectOccupationSubCode.add(value);
   }
 
-  void removeFromInsuranceInfoSelectOccupationSubCode(String _value) {
-    _insuranceInfoSelectOccupationSubCode.remove(_value);
+  void removeFromInsuranceInfoSelectOccupationSubCode(String value) {
+    insuranceInfoSelectOccupationSubCode.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoSelectOccupationSubCode(int _index) {
-    _insuranceInfoSelectOccupationSubCode.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoSelectOccupationSubCode(int index) {
+    insuranceInfoSelectOccupationSubCode.removeAt(index);
   }
 
   void updateInsuranceInfoSelectOccupationSubCodeAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoSelectOccupationSubCode[_index] =
-        updateFn(_insuranceInfoSelectOccupationSubCode[_index]);
+    insuranceInfoSelectOccupationSubCode[index] =
+        updateFn(_insuranceInfoSelectOccupationSubCode[index]);
   }
 
   void insertAtIndexInInsuranceInfoSelectOccupationSubCode(
-      int _index, String _value) {
-    _insuranceInfoSelectOccupationSubCode.insert(_index, _value);
+      int index, String value) {
+    insuranceInfoSelectOccupationSubCode.insert(index, value);
   }
 
   List<String> _insuranceInfoSelectOccupationSubName = [];
   List<String> get insuranceInfoSelectOccupationSubName =>
       _insuranceInfoSelectOccupationSubName;
-  set insuranceInfoSelectOccupationSubName(List<String> _value) {
-    _insuranceInfoSelectOccupationSubName = _value;
+  set insuranceInfoSelectOccupationSubName(List<String> value) {
+    _insuranceInfoSelectOccupationSubName = value;
   }
 
-  void addToInsuranceInfoSelectOccupationSubName(String _value) {
-    _insuranceInfoSelectOccupationSubName.add(_value);
+  void addToInsuranceInfoSelectOccupationSubName(String value) {
+    insuranceInfoSelectOccupationSubName.add(value);
   }
 
-  void removeFromInsuranceInfoSelectOccupationSubName(String _value) {
-    _insuranceInfoSelectOccupationSubName.remove(_value);
+  void removeFromInsuranceInfoSelectOccupationSubName(String value) {
+    insuranceInfoSelectOccupationSubName.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoSelectOccupationSubName(int _index) {
-    _insuranceInfoSelectOccupationSubName.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoSelectOccupationSubName(int index) {
+    insuranceInfoSelectOccupationSubName.removeAt(index);
   }
 
   void updateInsuranceInfoSelectOccupationSubNameAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoSelectOccupationSubName[_index] =
-        updateFn(_insuranceInfoSelectOccupationSubName[_index]);
+    insuranceInfoSelectOccupationSubName[index] =
+        updateFn(_insuranceInfoSelectOccupationSubName[index]);
   }
 
   void insertAtIndexInInsuranceInfoSelectOccupationSubName(
-      int _index, String _value) {
-    _insuranceInfoSelectOccupationSubName.insert(_index, _value);
+      int index, String value) {
+    insuranceInfoSelectOccupationSubName.insert(index, value);
   }
 
   bool _nonePackageCompanyBookImageUploadedCheck = false;
   bool get nonePackageCompanyBookImageUploadedCheck =>
       _nonePackageCompanyBookImageUploadedCheck;
-  set nonePackageCompanyBookImageUploadedCheck(bool _value) {
-    _nonePackageCompanyBookImageUploadedCheck = _value;
+  set nonePackageCompanyBookImageUploadedCheck(bool value) {
+    _nonePackageCompanyBookImageUploadedCheck = value;
   }
 
   String _nonePackageCompanyBookImageUrl = '';
   String get nonePackageCompanyBookImageUrl => _nonePackageCompanyBookImageUrl;
-  set nonePackageCompanyBookImageUrl(String _value) {
-    _nonePackageCompanyBookImageUrl = _value;
+  set nonePackageCompanyBookImageUrl(String value) {
+    _nonePackageCompanyBookImageUrl = value;
   }
 
   String _insuranceInfoImageApplication = '';
   String get insuranceInfoImageApplication => _insuranceInfoImageApplication;
-  set insuranceInfoImageApplication(String _value) {
-    _insuranceInfoImageApplication = _value;
+  set insuranceInfoImageApplication(String value) {
+    _insuranceInfoImageApplication = value;
   }
 
   String _insuranceInfoImageFileloanApplicationRegister = '';
   String get insuranceInfoImageFileloanApplicationRegister =>
       _insuranceInfoImageFileloanApplicationRegister;
-  set insuranceInfoImageFileloanApplicationRegister(String _value) {
-    _insuranceInfoImageFileloanApplicationRegister = _value;
+  set insuranceInfoImageFileloanApplicationRegister(String value) {
+    _insuranceInfoImageFileloanApplicationRegister = value;
   }
 
   String _nonePackageImageFrontUploaded = '';
   String get nonePackageImageFrontUploaded => _nonePackageImageFrontUploaded;
-  set nonePackageImageFrontUploaded(String _value) {
-    _nonePackageImageFrontUploaded = _value;
+  set nonePackageImageFrontUploaded(String value) {
+    _nonePackageImageFrontUploaded = value;
   }
 
   String _nonePackageImageRightFrontUploaded = '';
   String get nonePackageImageRightFrontUploaded =>
       _nonePackageImageRightFrontUploaded;
-  set nonePackageImageRightFrontUploaded(String _value) {
-    _nonePackageImageRightFrontUploaded = _value;
+  set nonePackageImageRightFrontUploaded(String value) {
+    _nonePackageImageRightFrontUploaded = value;
   }
 
   String _nonePackageImageRightUploaded = '';
   String get nonePackageImageRightUploaded => _nonePackageImageRightUploaded;
-  set nonePackageImageRightUploaded(String _value) {
-    _nonePackageImageRightUploaded = _value;
+  set nonePackageImageRightUploaded(String value) {
+    _nonePackageImageRightUploaded = value;
   }
 
   String _nonePackageImageRightRearUploaded = '';
   String get nonePackageImageRightRearUploaded =>
       _nonePackageImageRightRearUploaded;
-  set nonePackageImageRightRearUploaded(String _value) {
-    _nonePackageImageRightRearUploaded = _value;
+  set nonePackageImageRightRearUploaded(String value) {
+    _nonePackageImageRightRearUploaded = value;
   }
 
   String _nonePackageImageRearUploaded = '';
   String get nonePackageImageRearUploaded => _nonePackageImageRearUploaded;
-  set nonePackageImageRearUploaded(String _value) {
-    _nonePackageImageRearUploaded = _value;
+  set nonePackageImageRearUploaded(String value) {
+    _nonePackageImageRearUploaded = value;
   }
 
   String _nonePackageImageLeftRearUploaded = '';
   String get nonePackageImageLeftRearUploaded =>
       _nonePackageImageLeftRearUploaded;
-  set nonePackageImageLeftRearUploaded(String _value) {
-    _nonePackageImageLeftRearUploaded = _value;
+  set nonePackageImageLeftRearUploaded(String value) {
+    _nonePackageImageLeftRearUploaded = value;
   }
 
   String _nonePackageImageLeftUploaded = '';
   String get nonePackageImageLeftUploaded => _nonePackageImageLeftUploaded;
-  set nonePackageImageLeftUploaded(String _value) {
-    _nonePackageImageLeftUploaded = _value;
+  set nonePackageImageLeftUploaded(String value) {
+    _nonePackageImageLeftUploaded = value;
   }
 
   String _nonePackageImageLeftFrontUploaded = '';
   String get nonePackageImageLeftFrontUploaded =>
       _nonePackageImageLeftFrontUploaded;
-  set nonePackageImageLeftFrontUploaded(String _value) {
-    _nonePackageImageLeftFrontUploaded = _value;
+  set nonePackageImageLeftFrontUploaded(String value) {
+    _nonePackageImageLeftFrontUploaded = value;
   }
 
   String _nonePackageImageRoofUploaded = '';
   String get nonePackageImageRoofUploaded => _nonePackageImageRoofUploaded;
-  set nonePackageImageRoofUploaded(String _value) {
-    _nonePackageImageRoofUploaded = _value;
+  set nonePackageImageRoofUploaded(String value) {
+    _nonePackageImageRoofUploaded = value;
   }
 
   String _nonePackageTrailerImageFrontUploaded = '';
   String get nonePackageTrailerImageFrontUploaded =>
       _nonePackageTrailerImageFrontUploaded;
-  set nonePackageTrailerImageFrontUploaded(String _value) {
-    _nonePackageTrailerImageFrontUploaded = _value;
+  set nonePackageTrailerImageFrontUploaded(String value) {
+    _nonePackageTrailerImageFrontUploaded = value;
   }
 
   String _nonePackageTrailerImageRightFrontUploaded = '';
   String get nonePackageTrailerImageRightFrontUploaded =>
       _nonePackageTrailerImageRightFrontUploaded;
-  set nonePackageTrailerImageRightFrontUploaded(String _value) {
-    _nonePackageTrailerImageRightFrontUploaded = _value;
+  set nonePackageTrailerImageRightFrontUploaded(String value) {
+    _nonePackageTrailerImageRightFrontUploaded = value;
   }
 
   String _nonePackageTrailerImageRightUploaded = '';
   String get nonePackageTrailerImageRightUploaded =>
       _nonePackageTrailerImageRightUploaded;
-  set nonePackageTrailerImageRightUploaded(String _value) {
-    _nonePackageTrailerImageRightUploaded = _value;
+  set nonePackageTrailerImageRightUploaded(String value) {
+    _nonePackageTrailerImageRightUploaded = value;
   }
 
   String _nonePackageTrailerImageRightRearUploaded = '';
   String get nonePackageTrailerImageRightRearUploaded =>
       _nonePackageTrailerImageRightRearUploaded;
-  set nonePackageTrailerImageRightRearUploaded(String _value) {
-    _nonePackageTrailerImageRightRearUploaded = _value;
+  set nonePackageTrailerImageRightRearUploaded(String value) {
+    _nonePackageTrailerImageRightRearUploaded = value;
   }
 
   String _nonePackageTrailerImageRearUploaded = '';
   String get nonePackageTrailerImageRearUploaded =>
       _nonePackageTrailerImageRearUploaded;
-  set nonePackageTrailerImageRearUploaded(String _value) {
-    _nonePackageTrailerImageRearUploaded = _value;
+  set nonePackageTrailerImageRearUploaded(String value) {
+    _nonePackageTrailerImageRearUploaded = value;
   }
 
   String _nonePackageTrailerImageLeftRearUploaded = '';
   String get nonePackageTrailerImageLeftRearUploaded =>
       _nonePackageTrailerImageLeftRearUploaded;
-  set nonePackageTrailerImageLeftRearUploaded(String _value) {
-    _nonePackageTrailerImageLeftRearUploaded = _value;
+  set nonePackageTrailerImageLeftRearUploaded(String value) {
+    _nonePackageTrailerImageLeftRearUploaded = value;
   }
 
   String _nonePackageTrailerImageLeftUploaded = '';
   String get nonePackageTrailerImageLeftUploaded =>
       _nonePackageTrailerImageLeftUploaded;
-  set nonePackageTrailerImageLeftUploaded(String _value) {
-    _nonePackageTrailerImageLeftUploaded = _value;
+  set nonePackageTrailerImageLeftUploaded(String value) {
+    _nonePackageTrailerImageLeftUploaded = value;
   }
 
   String _nonePackageTrailerImageLeftFrontUploaded = '';
   String get nonePackageTrailerImageLeftFrontUploaded =>
       _nonePackageTrailerImageLeftFrontUploaded;
-  set nonePackageTrailerImageLeftFrontUploaded(String _value) {
-    _nonePackageTrailerImageLeftFrontUploaded = _value;
+  set nonePackageTrailerImageLeftFrontUploaded(String value) {
+    _nonePackageTrailerImageLeftFrontUploaded = value;
   }
 
   String _nonePackageImageBlueBookUploaded = '';
   String get nonePackageImageBlueBookUploaded =>
       _nonePackageImageBlueBookUploaded;
-  set nonePackageImageBlueBookUploaded(String _value) {
-    _nonePackageImageBlueBookUploaded = _value;
+  set nonePackageImageBlueBookUploaded(String value) {
+    _nonePackageImageBlueBookUploaded = value;
   }
 
   String _nonePackageImageOther1 = '';
   String get nonePackageImageOther1 => _nonePackageImageOther1;
-  set nonePackageImageOther1(String _value) {
-    _nonePackageImageOther1 = _value;
+  set nonePackageImageOther1(String value) {
+    _nonePackageImageOther1 = value;
   }
 
   String _nonePackageImageOther2 = '';
   String get nonePackageImageOther2 => _nonePackageImageOther2;
-  set nonePackageImageOther2(String _value) {
-    _nonePackageImageOther2 = _value;
+  set nonePackageImageOther2(String value) {
+    _nonePackageImageOther2 = value;
   }
 
   String _nonePackageImageOther3 = '';
   String get nonePackageImageOther3 => _nonePackageImageOther3;
-  set nonePackageImageOther3(String _value) {
-    _nonePackageImageOther3 = _value;
+  set nonePackageImageOther3(String value) {
+    _nonePackageImageOther3 = value;
   }
 
   String _nonePackageImageOther4 = '';
   String get nonePackageImageOther4 => _nonePackageImageOther4;
-  set nonePackageImageOther4(String _value) {
-    _nonePackageImageOther4 = _value;
+  set nonePackageImageOther4(String value) {
+    _nonePackageImageOther4 = value;
   }
 
   String _nonePackageImageOther5 = '';
   String get nonePackageImageOther5 => _nonePackageImageOther5;
-  set nonePackageImageOther5(String _value) {
-    _nonePackageImageOther5 = _value;
+  set nonePackageImageOther5(String value) {
+    _nonePackageImageOther5 = value;
   }
 
   List<String> _nonePackageImageOtherNameList = [];
   List<String> get nonePackageImageOtherNameList =>
       _nonePackageImageOtherNameList;
-  set nonePackageImageOtherNameList(List<String> _value) {
-    _nonePackageImageOtherNameList = _value;
+  set nonePackageImageOtherNameList(List<String> value) {
+    _nonePackageImageOtherNameList = value;
   }
 
-  void addToNonePackageImageOtherNameList(String _value) {
-    _nonePackageImageOtherNameList.add(_value);
+  void addToNonePackageImageOtherNameList(String value) {
+    nonePackageImageOtherNameList.add(value);
   }
 
-  void removeFromNonePackageImageOtherNameList(String _value) {
-    _nonePackageImageOtherNameList.remove(_value);
+  void removeFromNonePackageImageOtherNameList(String value) {
+    nonePackageImageOtherNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageImageOtherNameList(int _index) {
-    _nonePackageImageOtherNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageImageOtherNameList(int index) {
+    nonePackageImageOtherNameList.removeAt(index);
   }
 
   void updateNonePackageImageOtherNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageImageOtherNameList[_index] =
-        updateFn(_nonePackageImageOtherNameList[_index]);
+    nonePackageImageOtherNameList[index] =
+        updateFn(_nonePackageImageOtherNameList[index]);
   }
 
-  void insertAtIndexInNonePackageImageOtherNameList(int _index, String _value) {
-    _nonePackageImageOtherNameList.insert(_index, _value);
+  void insertAtIndexInNonePackageImageOtherNameList(int index, String value) {
+    nonePackageImageOtherNameList.insert(index, value);
   }
 
   String _paymentQrCodeGen = '';
   String get paymentQrCodeGen => _paymentQrCodeGen;
-  set paymentQrCodeGen(String _value) {
-    _paymentQrCodeGen = _value;
+  set paymentQrCodeGen(String value) {
+    _paymentQrCodeGen = value;
   }
 
   bool _insuranceInfoCardCheckBool = false;
   bool get insuranceInfoCardCheckBool => _insuranceInfoCardCheckBool;
-  set insuranceInfoCardCheckBool(bool _value) {
-    _insuranceInfoCardCheckBool = _value;
+  set insuranceInfoCardCheckBool(bool value) {
+    _insuranceInfoCardCheckBool = value;
   }
 
   String _insuranceInfoPage4PaymentChannel = '';
   String get insuranceInfoPage4PaymentChannel =>
       _insuranceInfoPage4PaymentChannel;
-  set insuranceInfoPage4PaymentChannel(String _value) {
-    _insuranceInfoPage4PaymentChannel = _value;
+  set insuranceInfoPage4PaymentChannel(String value) {
+    _insuranceInfoPage4PaymentChannel = value;
   }
 
   String _insuranceInfoPage4PaymentType = '';
   String get insuranceInfoPage4PaymentType => _insuranceInfoPage4PaymentType;
-  set insuranceInfoPage4PaymentType(String _value) {
-    _insuranceInfoPage4PaymentType = _value;
+  set insuranceInfoPage4PaymentType(String value) {
+    _insuranceInfoPage4PaymentType = value;
   }
 
   String _insuranceInfo4pagePaymentStatus = '';
   String get insuranceInfo4pagePaymentStatus =>
       _insuranceInfo4pagePaymentStatus;
-  set insuranceInfo4pagePaymentStatus(String _value) {
-    _insuranceInfo4pagePaymentStatus = _value;
+  set insuranceInfo4pagePaymentStatus(String value) {
+    _insuranceInfo4pagePaymentStatus = value;
   }
 
   String _insuranceInfo4pageStatus = '';
   String get insuranceInfo4pageStatus => _insuranceInfo4pageStatus;
-  set insuranceInfo4pageStatus(String _value) {
-    _insuranceInfo4pageStatus = _value;
+  set insuranceInfo4pageStatus(String value) {
+    _insuranceInfo4pageStatus = value;
   }
 
   String _insuranceInfoPage4SelectTenor = '';
   String get insuranceInfoPage4SelectTenor => _insuranceInfoPage4SelectTenor;
-  set insuranceInfoPage4SelectTenor(String _value) {
-    _insuranceInfoPage4SelectTenor = _value;
+  set insuranceInfoPage4SelectTenor(String value) {
+    _insuranceInfoPage4SelectTenor = value;
   }
 
   String _insuranceInfoPage4SelectInstallMentFirstDue = '';
   String get insuranceInfoPage4SelectInstallMentFirstDue =>
       _insuranceInfoPage4SelectInstallMentFirstDue;
-  set insuranceInfoPage4SelectInstallMentFirstDue(String _value) {
-    _insuranceInfoPage4SelectInstallMentFirstDue = _value;
+  set insuranceInfoPage4SelectInstallMentFirstDue(String value) {
+    _insuranceInfoPage4SelectInstallMentFirstDue = value;
   }
 
   String _insuranceInfoPage4SelectInstallMentLastDue = '';
   String get insuranceInfoPage4SelectInstallMentLastDue =>
       _insuranceInfoPage4SelectInstallMentLastDue;
-  set insuranceInfoPage4SelectInstallMentLastDue(String _value) {
-    _insuranceInfoPage4SelectInstallMentLastDue = _value;
+  set insuranceInfoPage4SelectInstallMentLastDue(String value) {
+    _insuranceInfoPage4SelectInstallMentLastDue = value;
   }
 
   String _profileInsuranceLicenseFullName = '';
   String get profileInsuranceLicenseFullName =>
       _profileInsuranceLicenseFullName;
-  set profileInsuranceLicenseFullName(String _value) {
-    _profileInsuranceLicenseFullName = _value;
+  set profileInsuranceLicenseFullName(String value) {
+    _profileInsuranceLicenseFullName = value;
   }
 
   String _profileInsuranceLicenseIdCard = '';
   String get profileInsuranceLicenseIdCard => _profileInsuranceLicenseIdCard;
-  set profileInsuranceLicenseIdCard(String _value) {
-    _profileInsuranceLicenseIdCard = _value;
+  set profileInsuranceLicenseIdCard(String value) {
+    _profileInsuranceLicenseIdCard = value;
   }
 
   String _profileInsuranceLicenseLicenseNo = '';
   String get profileInsuranceLicenseLicenseNo =>
       _profileInsuranceLicenseLicenseNo;
-  set profileInsuranceLicenseLicenseNo(String _value) {
-    _profileInsuranceLicenseLicenseNo = _value;
+  set profileInsuranceLicenseLicenseNo(String value) {
+    _profileInsuranceLicenseLicenseNo = value;
   }
 
   String _profileInsuranceLicenseStartDate = '';
   String get profileInsuranceLicenseStartDate =>
       _profileInsuranceLicenseStartDate;
-  set profileInsuranceLicenseStartDate(String _value) {
-    _profileInsuranceLicenseStartDate = _value;
+  set profileInsuranceLicenseStartDate(String value) {
+    _profileInsuranceLicenseStartDate = value;
   }
 
   String _profileInsuranceLicenseExpireDate = '';
   String get profileInsuranceLicenseExpireDate =>
       _profileInsuranceLicenseExpireDate;
-  set profileInsuranceLicenseExpireDate(String _value) {
-    _profileInsuranceLicenseExpireDate = _value;
+  set profileInsuranceLicenseExpireDate(String value) {
+    _profileInsuranceLicenseExpireDate = value;
   }
 
   String _fcmToken = 'fcm_token';
   String get fcmToken => _fcmToken;
-  set fcmToken(String _value) {
-    _fcmToken = _value;
-    secureStorage.setString('ff_fcmToken', _value);
+  set fcmToken(String value) {
+    _fcmToken = value;
+    secureStorage.setString('ff_fcmToken', value);
   }
 
   void deleteFcmToken() {
@@ -11443,1845 +11425,1841 @@ class FFAppState extends ChangeNotifier {
 
   bool _profileIsHaveInsuranceCard = false;
   bool get profileIsHaveInsuranceCard => _profileIsHaveInsuranceCard;
-  set profileIsHaveInsuranceCard(bool _value) {
-    _profileIsHaveInsuranceCard = _value;
+  set profileIsHaveInsuranceCard(bool value) {
+    _profileIsHaveInsuranceCard = value;
   }
 
   List<String> _insuranceInfoImgUrlInsurerList = [];
   List<String> get insuranceInfoImgUrlInsurerList =>
       _insuranceInfoImgUrlInsurerList;
-  set insuranceInfoImgUrlInsurerList(List<String> _value) {
-    _insuranceInfoImgUrlInsurerList = _value;
+  set insuranceInfoImgUrlInsurerList(List<String> value) {
+    _insuranceInfoImgUrlInsurerList = value;
   }
 
-  void addToInsuranceInfoImgUrlInsurerList(String _value) {
-    _insuranceInfoImgUrlInsurerList.add(_value);
+  void addToInsuranceInfoImgUrlInsurerList(String value) {
+    insuranceInfoImgUrlInsurerList.add(value);
   }
 
-  void removeFromInsuranceInfoImgUrlInsurerList(String _value) {
-    _insuranceInfoImgUrlInsurerList.remove(_value);
+  void removeFromInsuranceInfoImgUrlInsurerList(String value) {
+    insuranceInfoImgUrlInsurerList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoImgUrlInsurerList(int _index) {
-    _insuranceInfoImgUrlInsurerList.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoImgUrlInsurerList(int index) {
+    insuranceInfoImgUrlInsurerList.removeAt(index);
   }
 
   void updateInsuranceInfoImgUrlInsurerListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoImgUrlInsurerList[_index] =
-        updateFn(_insuranceInfoImgUrlInsurerList[_index]);
+    insuranceInfoImgUrlInsurerList[index] =
+        updateFn(_insuranceInfoImgUrlInsurerList[index]);
   }
 
-  void insertAtIndexInInsuranceInfoImgUrlInsurerList(
-      int _index, String _value) {
-    _insuranceInfoImgUrlInsurerList.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoImgUrlInsurerList(int index, String value) {
+    insuranceInfoImgUrlInsurerList.insert(index, value);
   }
 
   List<String> _insuranceInfoCompanyIdList = [];
   List<String> get insuranceInfoCompanyIdList => _insuranceInfoCompanyIdList;
-  set insuranceInfoCompanyIdList(List<String> _value) {
-    _insuranceInfoCompanyIdList = _value;
+  set insuranceInfoCompanyIdList(List<String> value) {
+    _insuranceInfoCompanyIdList = value;
   }
 
-  void addToInsuranceInfoCompanyIdList(String _value) {
-    _insuranceInfoCompanyIdList.add(_value);
+  void addToInsuranceInfoCompanyIdList(String value) {
+    insuranceInfoCompanyIdList.add(value);
   }
 
-  void removeFromInsuranceInfoCompanyIdList(String _value) {
-    _insuranceInfoCompanyIdList.remove(_value);
+  void removeFromInsuranceInfoCompanyIdList(String value) {
+    insuranceInfoCompanyIdList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoCompanyIdList(int _index) {
-    _insuranceInfoCompanyIdList.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoCompanyIdList(int index) {
+    insuranceInfoCompanyIdList.removeAt(index);
   }
 
   void updateInsuranceInfoCompanyIdListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoCompanyIdList[_index] =
-        updateFn(_insuranceInfoCompanyIdList[_index]);
+    insuranceInfoCompanyIdList[index] =
+        updateFn(_insuranceInfoCompanyIdList[index]);
   }
 
-  void insertAtIndexInInsuranceInfoCompanyIdList(int _index, String _value) {
-    _insuranceInfoCompanyIdList.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoCompanyIdList(int index, String value) {
+    insuranceInfoCompanyIdList.insert(index, value);
   }
 
   String _insuranceInfoCompayId = '';
   String get insuranceInfoCompayId => _insuranceInfoCompayId;
-  set insuranceInfoCompayId(String _value) {
-    _insuranceInfoCompayId = _value;
+  set insuranceInfoCompayId(String value) {
+    _insuranceInfoCompayId = value;
   }
 
   String _nonePackageSelectedInsurerShortName = '';
   String get nonePackageSelectedInsurerShortName =>
       _nonePackageSelectedInsurerShortName;
-  set nonePackageSelectedInsurerShortName(String _value) {
-    _nonePackageSelectedInsurerShortName = _value;
+  set nonePackageSelectedInsurerShortName(String value) {
+    _nonePackageSelectedInsurerShortName = value;
   }
 
   String _nonePackageSelectedInsurerName = '';
   String get nonePackageSelectedInsurerName => _nonePackageSelectedInsurerName;
-  set nonePackageSelectedInsurerName(String _value) {
-    _nonePackageSelectedInsurerName = _value;
+  set nonePackageSelectedInsurerName(String value) {
+    _nonePackageSelectedInsurerName = value;
   }
 
   List<String> _nonePackageSelectedInsurerShortNameList = [];
   List<String> get nonePackageSelectedInsurerShortNameList =>
       _nonePackageSelectedInsurerShortNameList;
-  set nonePackageSelectedInsurerShortNameList(List<String> _value) {
-    _nonePackageSelectedInsurerShortNameList = _value;
+  set nonePackageSelectedInsurerShortNameList(List<String> value) {
+    _nonePackageSelectedInsurerShortNameList = value;
   }
 
-  void addToNonePackageSelectedInsurerShortNameList(String _value) {
-    _nonePackageSelectedInsurerShortNameList.add(_value);
+  void addToNonePackageSelectedInsurerShortNameList(String value) {
+    nonePackageSelectedInsurerShortNameList.add(value);
   }
 
-  void removeFromNonePackageSelectedInsurerShortNameList(String _value) {
-    _nonePackageSelectedInsurerShortNameList.remove(_value);
+  void removeFromNonePackageSelectedInsurerShortNameList(String value) {
+    nonePackageSelectedInsurerShortNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageSelectedInsurerShortNameList(int _index) {
-    _nonePackageSelectedInsurerShortNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageSelectedInsurerShortNameList(int index) {
+    nonePackageSelectedInsurerShortNameList.removeAt(index);
   }
 
   void updateNonePackageSelectedInsurerShortNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageSelectedInsurerShortNameList[_index] =
-        updateFn(_nonePackageSelectedInsurerShortNameList[_index]);
+    nonePackageSelectedInsurerShortNameList[index] =
+        updateFn(_nonePackageSelectedInsurerShortNameList[index]);
   }
 
   void insertAtIndexInNonePackageSelectedInsurerShortNameList(
-      int _index, String _value) {
-    _nonePackageSelectedInsurerShortNameList.insert(_index, _value);
+      int index, String value) {
+    nonePackageSelectedInsurerShortNameList.insert(index, value);
   }
 
   List<String> _nonePackageSelectedInsurerNameList = [];
   List<String> get nonePackageSelectedInsurerNameList =>
       _nonePackageSelectedInsurerNameList;
-  set nonePackageSelectedInsurerNameList(List<String> _value) {
-    _nonePackageSelectedInsurerNameList = _value;
+  set nonePackageSelectedInsurerNameList(List<String> value) {
+    _nonePackageSelectedInsurerNameList = value;
   }
 
-  void addToNonePackageSelectedInsurerNameList(String _value) {
-    _nonePackageSelectedInsurerNameList.add(_value);
+  void addToNonePackageSelectedInsurerNameList(String value) {
+    nonePackageSelectedInsurerNameList.add(value);
   }
 
-  void removeFromNonePackageSelectedInsurerNameList(String _value) {
-    _nonePackageSelectedInsurerNameList.remove(_value);
+  void removeFromNonePackageSelectedInsurerNameList(String value) {
+    nonePackageSelectedInsurerNameList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageSelectedInsurerNameList(int _index) {
-    _nonePackageSelectedInsurerNameList.removeAt(_index);
+  void removeAtIndexFromNonePackageSelectedInsurerNameList(int index) {
+    nonePackageSelectedInsurerNameList.removeAt(index);
   }
 
   void updateNonePackageSelectedInsurerNameListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageSelectedInsurerNameList[_index] =
-        updateFn(_nonePackageSelectedInsurerNameList[_index]);
+    nonePackageSelectedInsurerNameList[index] =
+        updateFn(_nonePackageSelectedInsurerNameList[index]);
   }
 
   void insertAtIndexInNonePackageSelectedInsurerNameList(
-      int _index, String _value) {
-    _nonePackageSelectedInsurerNameList.insert(_index, _value);
+      int index, String value) {
+    nonePackageSelectedInsurerNameList.insert(index, value);
   }
 
   String _insuranceInfoLeadDetailId = '';
   String get insuranceInfoLeadDetailId => _insuranceInfoLeadDetailId;
-  set insuranceInfoLeadDetailId(String _value) {
-    _insuranceInfoLeadDetailId = _value;
+  set insuranceInfoLeadDetailId(String value) {
+    _insuranceInfoLeadDetailId = value;
   }
 
   String _insuranceInfoSelectOccupationSubNameChoose = '';
   String get insuranceInfoSelectOccupationSubNameChoose =>
       _insuranceInfoSelectOccupationSubNameChoose;
-  set insuranceInfoSelectOccupationSubNameChoose(String _value) {
-    _insuranceInfoSelectOccupationSubNameChoose = _value;
+  set insuranceInfoSelectOccupationSubNameChoose(String value) {
+    _insuranceInfoSelectOccupationSubNameChoose = value;
   }
 
   List<String> _addaddresslicensenBranch = [];
   List<String> get addaddresslicensenBranch => _addaddresslicensenBranch;
-  set addaddresslicensenBranch(List<String> _value) {
-    _addaddresslicensenBranch = _value;
+  set addaddresslicensenBranch(List<String> value) {
+    _addaddresslicensenBranch = value;
   }
 
-  void addToAddaddresslicensenBranch(String _value) {
-    _addaddresslicensenBranch.add(_value);
+  void addToAddaddresslicensenBranch(String value) {
+    addaddresslicensenBranch.add(value);
   }
 
-  void removeFromAddaddresslicensenBranch(String _value) {
-    _addaddresslicensenBranch.remove(_value);
+  void removeFromAddaddresslicensenBranch(String value) {
+    addaddresslicensenBranch.remove(value);
   }
 
-  void removeAtIndexFromAddaddresslicensenBranch(int _index) {
-    _addaddresslicensenBranch.removeAt(_index);
+  void removeAtIndexFromAddaddresslicensenBranch(int index) {
+    addaddresslicensenBranch.removeAt(index);
   }
 
   void updateAddaddresslicensenBranchAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _addaddresslicensenBranch[_index] =
-        updateFn(_addaddresslicensenBranch[_index]);
+    addaddresslicensenBranch[index] =
+        updateFn(_addaddresslicensenBranch[index]);
   }
 
-  void insertAtIndexInAddaddresslicensenBranch(int _index, String _value) {
-    _addaddresslicensenBranch.insert(_index, _value);
+  void insertAtIndexInAddaddresslicensenBranch(int index, String value) {
+    addaddresslicensenBranch.insert(index, value);
   }
 
   String _insuranceInfoLicenseBranch = '';
   String get insuranceInfoLicenseBranch => _insuranceInfoLicenseBranch;
-  set insuranceInfoLicenseBranch(String _value) {
-    _insuranceInfoLicenseBranch = _value;
+  set insuranceInfoLicenseBranch(String value) {
+    _insuranceInfoLicenseBranch = value;
   }
 
   String _insuranceInfoQuotationId = '';
   String get insuranceInfoQuotationId => _insuranceInfoQuotationId;
-  set insuranceInfoQuotationId(String _value) {
-    _insuranceInfoQuotationId = _value;
+  set insuranceInfoQuotationId(String value) {
+    _insuranceInfoQuotationId = value;
   }
 
   String _insuranceInfoQrcodeTaxId = '';
   String get insuranceInfoQrcodeTaxId => _insuranceInfoQrcodeTaxId;
-  set insuranceInfoQrcodeTaxId(String _value) {
-    _insuranceInfoQrcodeTaxId = _value;
+  set insuranceInfoQrcodeTaxId(String value) {
+    _insuranceInfoQrcodeTaxId = value;
   }
 
   String _insuranceInfoQrcodeSuffix = '';
   String get insuranceInfoQrcodeSuffix => _insuranceInfoQrcodeSuffix;
-  set insuranceInfoQrcodeSuffix(String _value) {
-    _insuranceInfoQrcodeSuffix = _value;
+  set insuranceInfoQrcodeSuffix(String value) {
+    _insuranceInfoQrcodeSuffix = value;
   }
 
   String _insuranceInfoQrcodeRef1 = '';
   String get insuranceInfoQrcodeRef1 => _insuranceInfoQrcodeRef1;
-  set insuranceInfoQrcodeRef1(String _value) {
-    _insuranceInfoQrcodeRef1 = _value;
+  set insuranceInfoQrcodeRef1(String value) {
+    _insuranceInfoQrcodeRef1 = value;
   }
 
   String _insuranceInfoQrcodeRef2 = '';
   String get insuranceInfoQrcodeRef2 => _insuranceInfoQrcodeRef2;
-  set insuranceInfoQrcodeRef2(String _value) {
-    _insuranceInfoQrcodeRef2 = _value;
+  set insuranceInfoQrcodeRef2(String value) {
+    _insuranceInfoQrcodeRef2 = value;
   }
 
   String _insuranceInfoQrcodeAmount = '';
   String get insuranceInfoQrcodeAmount => _insuranceInfoQrcodeAmount;
-  set insuranceInfoQrcodeAmount(String _value) {
-    _insuranceInfoQrcodeAmount = _value;
+  set insuranceInfoQrcodeAmount(String value) {
+    _insuranceInfoQrcodeAmount = value;
   }
 
   bool _insuranceInfoPage1SaveDataCheckBool = false;
   bool get insuranceInfoPage1SaveDataCheckBool =>
       _insuranceInfoPage1SaveDataCheckBool;
-  set insuranceInfoPage1SaveDataCheckBool(bool _value) {
-    _insuranceInfoPage1SaveDataCheckBool = _value;
+  set insuranceInfoPage1SaveDataCheckBool(bool value) {
+    _insuranceInfoPage1SaveDataCheckBool = value;
   }
 
   bool _insuranceInfoPage2SaveDataCheckBool = false;
   bool get insuranceInfoPage2SaveDataCheckBool =>
       _insuranceInfoPage2SaveDataCheckBool;
-  set insuranceInfoPage2SaveDataCheckBool(bool _value) {
-    _insuranceInfoPage2SaveDataCheckBool = _value;
+  set insuranceInfoPage2SaveDataCheckBool(bool value) {
+    _insuranceInfoPage2SaveDataCheckBool = value;
   }
 
   bool _insuranceInfoPage3SaveDataCheckBool = false;
   bool get insuranceInfoPage3SaveDataCheckBool =>
       _insuranceInfoPage3SaveDataCheckBool;
-  set insuranceInfoPage3SaveDataCheckBool(bool _value) {
-    _insuranceInfoPage3SaveDataCheckBool = _value;
+  set insuranceInfoPage3SaveDataCheckBool(bool value) {
+    _insuranceInfoPage3SaveDataCheckBool = value;
   }
 
   String _insuranceInfoVehicleCode = '';
   String get insuranceInfoVehicleCode => _insuranceInfoVehicleCode;
-  set insuranceInfoVehicleCode(String _value) {
-    _insuranceInfoVehicleCode = _value;
+  set insuranceInfoVehicleCode(String value) {
+    _insuranceInfoVehicleCode = value;
   }
 
   List<String> _followUpListSelected = ['manual', 'auto'];
   List<String> get followUpListSelected => _followUpListSelected;
-  set followUpListSelected(List<String> _value) {
-    _followUpListSelected = _value;
+  set followUpListSelected(List<String> value) {
+    _followUpListSelected = value;
   }
 
-  void addToFollowUpListSelected(String _value) {
-    _followUpListSelected.add(_value);
+  void addToFollowUpListSelected(String value) {
+    followUpListSelected.add(value);
   }
 
-  void removeFromFollowUpListSelected(String _value) {
-    _followUpListSelected.remove(_value);
+  void removeFromFollowUpListSelected(String value) {
+    followUpListSelected.remove(value);
   }
 
-  void removeAtIndexFromFollowUpListSelected(int _index) {
-    _followUpListSelected.removeAt(_index);
+  void removeAtIndexFromFollowUpListSelected(int index) {
+    followUpListSelected.removeAt(index);
   }
 
   void updateFollowUpListSelectedAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _followUpListSelected[_index] = updateFn(_followUpListSelected[_index]);
+    followUpListSelected[index] = updateFn(_followUpListSelected[index]);
   }
 
-  void insertAtIndexInFollowUpListSelected(int _index, String _value) {
-    _followUpListSelected.insert(_index, _value);
+  void insertAtIndexInFollowUpListSelected(int index, String value) {
+    followUpListSelected.insert(index, value);
   }
 
   List<String> _listForSearchFollowUp = ['เตรียมข้อมูล'];
   List<String> get listForSearchFollowUp => _listForSearchFollowUp;
-  set listForSearchFollowUp(List<String> _value) {
-    _listForSearchFollowUp = _value;
+  set listForSearchFollowUp(List<String> value) {
+    _listForSearchFollowUp = value;
   }
 
-  void addToListForSearchFollowUp(String _value) {
-    _listForSearchFollowUp.add(_value);
+  void addToListForSearchFollowUp(String value) {
+    listForSearchFollowUp.add(value);
   }
 
-  void removeFromListForSearchFollowUp(String _value) {
-    _listForSearchFollowUp.remove(_value);
+  void removeFromListForSearchFollowUp(String value) {
+    listForSearchFollowUp.remove(value);
   }
 
-  void removeAtIndexFromListForSearchFollowUp(int _index) {
-    _listForSearchFollowUp.removeAt(_index);
+  void removeAtIndexFromListForSearchFollowUp(int index) {
+    listForSearchFollowUp.removeAt(index);
   }
 
   void updateListForSearchFollowUpAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _listForSearchFollowUp[_index] = updateFn(_listForSearchFollowUp[_index]);
+    listForSearchFollowUp[index] = updateFn(_listForSearchFollowUp[index]);
   }
 
-  void insertAtIndexInListForSearchFollowUp(int _index, String _value) {
-    _listForSearchFollowUp.insert(_index, _value);
+  void insertAtIndexInListForSearchFollowUp(int index, String value) {
+    listForSearchFollowUp.insert(index, value);
   }
 
   dynamic _successStatusJson = jsonDecode('201');
   dynamic get successStatusJson => _successStatusJson;
-  set successStatusJson(dynamic _value) {
-    _successStatusJson = _value;
+  set successStatusJson(dynamic value) {
+    _successStatusJson = value;
   }
 
   List<String> _inputPinValue = [];
   List<String> get inputPinValue => _inputPinValue;
-  set inputPinValue(List<String> _value) {
-    _inputPinValue = _value;
+  set inputPinValue(List<String> value) {
+    _inputPinValue = value;
   }
 
-  void addToInputPinValue(String _value) {
-    _inputPinValue.add(_value);
+  void addToInputPinValue(String value) {
+    inputPinValue.add(value);
   }
 
-  void removeFromInputPinValue(String _value) {
-    _inputPinValue.remove(_value);
+  void removeFromInputPinValue(String value) {
+    inputPinValue.remove(value);
   }
 
-  void removeAtIndexFromInputPinValue(int _index) {
-    _inputPinValue.removeAt(_index);
+  void removeAtIndexFromInputPinValue(int index) {
+    inputPinValue.removeAt(index);
   }
 
   void updateInputPinValueAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _inputPinValue[_index] = updateFn(_inputPinValue[_index]);
+    inputPinValue[index] = updateFn(_inputPinValue[index]);
   }
 
-  void insertAtIndexInInputPinValue(int _index, String _value) {
-    _inputPinValue.insert(_index, _value);
+  void insertAtIndexInInputPinValue(int index, String value) {
+    inputPinValue.insert(index, value);
   }
 
   bool _printQuotation = false;
   bool get printQuotation => _printQuotation;
-  set printQuotation(bool _value) {
-    _printQuotation = _value;
+  set printQuotation(bool value) {
+    _printQuotation = value;
   }
 
   bool _printCompare = false;
   bool get printCompare => _printCompare;
-  set printCompare(bool _value) {
-    _printCompare = _value;
+  set printCompare(bool value) {
+    _printCompare = value;
   }
 
   List<String> _insuranceInfoRegistrationCodeList = [];
   List<String> get insuranceInfoRegistrationCodeList =>
       _insuranceInfoRegistrationCodeList;
-  set insuranceInfoRegistrationCodeList(List<String> _value) {
-    _insuranceInfoRegistrationCodeList = _value;
+  set insuranceInfoRegistrationCodeList(List<String> value) {
+    _insuranceInfoRegistrationCodeList = value;
   }
 
-  void addToInsuranceInfoRegistrationCodeList(String _value) {
-    _insuranceInfoRegistrationCodeList.add(_value);
+  void addToInsuranceInfoRegistrationCodeList(String value) {
+    insuranceInfoRegistrationCodeList.add(value);
   }
 
-  void removeFromInsuranceInfoRegistrationCodeList(String _value) {
-    _insuranceInfoRegistrationCodeList.remove(_value);
+  void removeFromInsuranceInfoRegistrationCodeList(String value) {
+    insuranceInfoRegistrationCodeList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoRegistrationCodeList(int _index) {
-    _insuranceInfoRegistrationCodeList.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoRegistrationCodeList(int index) {
+    insuranceInfoRegistrationCodeList.removeAt(index);
   }
 
   void updateInsuranceInfoRegistrationCodeListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoRegistrationCodeList[_index] =
-        updateFn(_insuranceInfoRegistrationCodeList[_index]);
+    insuranceInfoRegistrationCodeList[index] =
+        updateFn(_insuranceInfoRegistrationCodeList[index]);
   }
 
   void insertAtIndexInInsuranceInfoRegistrationCodeList(
-      int _index, String _value) {
-    _insuranceInfoRegistrationCodeList.insert(_index, _value);
+      int index, String value) {
+    insuranceInfoRegistrationCodeList.insert(index, value);
   }
 
   List<String> _insuranceInfoRegistrationprovinceList = [];
   List<String> get insuranceInfoRegistrationprovinceList =>
       _insuranceInfoRegistrationprovinceList;
-  set insuranceInfoRegistrationprovinceList(List<String> _value) {
-    _insuranceInfoRegistrationprovinceList = _value;
+  set insuranceInfoRegistrationprovinceList(List<String> value) {
+    _insuranceInfoRegistrationprovinceList = value;
   }
 
-  void addToInsuranceInfoRegistrationprovinceList(String _value) {
-    _insuranceInfoRegistrationprovinceList.add(_value);
+  void addToInsuranceInfoRegistrationprovinceList(String value) {
+    insuranceInfoRegistrationprovinceList.add(value);
   }
 
-  void removeFromInsuranceInfoRegistrationprovinceList(String _value) {
-    _insuranceInfoRegistrationprovinceList.remove(_value);
+  void removeFromInsuranceInfoRegistrationprovinceList(String value) {
+    insuranceInfoRegistrationprovinceList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoRegistrationprovinceList(int _index) {
-    _insuranceInfoRegistrationprovinceList.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoRegistrationprovinceList(int index) {
+    insuranceInfoRegistrationprovinceList.removeAt(index);
   }
 
   void updateInsuranceInfoRegistrationprovinceListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoRegistrationprovinceList[_index] =
-        updateFn(_insuranceInfoRegistrationprovinceList[_index]);
+    insuranceInfoRegistrationprovinceList[index] =
+        updateFn(_insuranceInfoRegistrationprovinceList[index]);
   }
 
   void insertAtIndexInInsuranceInfoRegistrationprovinceList(
-      int _index, String _value) {
-    _insuranceInfoRegistrationprovinceList.insert(_index, _value);
+      int index, String value) {
+    insuranceInfoRegistrationprovinceList.insert(index, value);
   }
 
   String _insuranceInfoRegistrationCodeSelect = '';
   String get insuranceInfoRegistrationCodeSelect =>
       _insuranceInfoRegistrationCodeSelect;
-  set insuranceInfoRegistrationCodeSelect(String _value) {
-    _insuranceInfoRegistrationCodeSelect = _value;
+  set insuranceInfoRegistrationCodeSelect(String value) {
+    _insuranceInfoRegistrationCodeSelect = value;
   }
 
   String _insuranceInfoRegistrationProvinceSelect = '';
   String get insuranceInfoRegistrationProvinceSelect =>
       _insuranceInfoRegistrationProvinceSelect;
-  set insuranceInfoRegistrationProvinceSelect(String _value) {
-    _insuranceInfoRegistrationProvinceSelect = _value;
+  set insuranceInfoRegistrationProvinceSelect(String value) {
+    _insuranceInfoRegistrationProvinceSelect = value;
   }
 
   dynamic _quotationTypeJson =
       jsonDecode('{\"auto\":\"auto\",\"manual\":\"manual\"}');
   dynamic get quotationTypeJson => _quotationTypeJson;
-  set quotationTypeJson(dynamic _value) {
-    _quotationTypeJson = _value;
+  set quotationTypeJson(dynamic value) {
+    _quotationTypeJson = value;
   }
 
   bool _maxCurrentSelected = false;
   bool get maxCurrentSelected => _maxCurrentSelected;
-  set maxCurrentSelected(bool _value) {
-    _maxCurrentSelected = _value;
+  set maxCurrentSelected(bool value) {
+    _maxCurrentSelected = value;
   }
 
   bool _installmentSelected = false;
   bool get installmentSelected => _installmentSelected;
-  set installmentSelected(bool _value) {
-    _installmentSelected = _value;
+  set installmentSelected(bool value) {
+    _installmentSelected = value;
   }
 
   String _AddCustomerPageFirstname = '';
   String get AddCustomerPageFirstname => _AddCustomerPageFirstname;
-  set AddCustomerPageFirstname(String _value) {
-    _AddCustomerPageFirstname = _value;
+  set AddCustomerPageFirstname(String value) {
+    _AddCustomerPageFirstname = value;
   }
 
   String _AddCustomerPageLastname = '';
   String get AddCustomerPageLastname => _AddCustomerPageLastname;
-  set AddCustomerPageLastname(String _value) {
-    _AddCustomerPageLastname = _value;
+  set AddCustomerPageLastname(String value) {
+    _AddCustomerPageLastname = value;
   }
 
   String _AddCustomerPagePhone = '';
   String get AddCustomerPagePhone => _AddCustomerPagePhone;
-  set AddCustomerPagePhone(String _value) {
-    _AddCustomerPagePhone = _value;
+  set AddCustomerPagePhone(String value) {
+    _AddCustomerPagePhone = value;
   }
 
   String _AddCustomerPageCarRegistration = '';
   String get AddCustomerPageCarRegistration => _AddCustomerPageCarRegistration;
-  set AddCustomerPageCarRegistration(String _value) {
-    _AddCustomerPageCarRegistration = _value;
+  set AddCustomerPageCarRegistration(String value) {
+    _AddCustomerPageCarRegistration = value;
   }
 
   bool _addCustomerQuotationSaveSuccess = false;
   bool get addCustomerQuotationSaveSuccess => _addCustomerQuotationSaveSuccess;
-  set addCustomerQuotationSaveSuccess(bool _value) {
-    _addCustomerQuotationSaveSuccess = _value;
+  set addCustomerQuotationSaveSuccess(bool value) {
+    _addCustomerQuotationSaveSuccess = value;
   }
 
   List<String> _insurarerQuotationPdf = [];
   List<String> get insurarerQuotationPdf => _insurarerQuotationPdf;
-  set insurarerQuotationPdf(List<String> _value) {
-    _insurarerQuotationPdf = _value;
+  set insurarerQuotationPdf(List<String> value) {
+    _insurarerQuotationPdf = value;
   }
 
-  void addToInsurarerQuotationPdf(String _value) {
-    _insurarerQuotationPdf.add(_value);
+  void addToInsurarerQuotationPdf(String value) {
+    insurarerQuotationPdf.add(value);
   }
 
-  void removeFromInsurarerQuotationPdf(String _value) {
-    _insurarerQuotationPdf.remove(_value);
+  void removeFromInsurarerQuotationPdf(String value) {
+    insurarerQuotationPdf.remove(value);
   }
 
-  void removeAtIndexFromInsurarerQuotationPdf(int _index) {
-    _insurarerQuotationPdf.removeAt(_index);
+  void removeAtIndexFromInsurarerQuotationPdf(int index) {
+    insurarerQuotationPdf.removeAt(index);
   }
 
   void updateInsurarerQuotationPdfAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insurarerQuotationPdf[_index] = updateFn(_insurarerQuotationPdf[_index]);
+    insurarerQuotationPdf[index] = updateFn(_insurarerQuotationPdf[index]);
   }
 
-  void insertAtIndexInInsurarerQuotationPdf(int _index, String _value) {
-    _insurarerQuotationPdf.insert(_index, _value);
+  void insertAtIndexInInsurarerQuotationPdf(int index, String value) {
+    insurarerQuotationPdf.insert(index, value);
   }
 
   String _page5QuotationStatus = '';
   String get page5QuotationStatus => _page5QuotationStatus;
-  set page5QuotationStatus(String _value) {
-    _page5QuotationStatus = _value;
+  set page5QuotationStatus(String value) {
+    _page5QuotationStatus = value;
   }
 
   String _page5CreatedDate = '';
   String get page5CreatedDate => _page5CreatedDate;
-  set page5CreatedDate(String _value) {
-    _page5CreatedDate = _value;
+  set page5CreatedDate(String value) {
+    _page5CreatedDate = value;
   }
 
   String _page5CompletedDate = '';
   String get page5CompletedDate => _page5CompletedDate;
-  set page5CompletedDate(String _value) {
-    _page5CompletedDate = _value;
+  set page5CompletedDate(String value) {
+    _page5CompletedDate = value;
   }
 
   String _page5ContractId = '';
   String get page5ContractId => _page5ContractId;
-  set page5ContractId(String _value) {
-    _page5ContractId = _value;
+  set page5ContractId(String value) {
+    _page5ContractId = value;
   }
 
   String _page5VmiPolicyNo = '';
   String get page5VmiPolicyNo => _page5VmiPolicyNo;
-  set page5VmiPolicyNo(String _value) {
-    _page5VmiPolicyNo = _value;
+  set page5VmiPolicyNo(String value) {
+    _page5VmiPolicyNo = value;
   }
 
   String _page5Reason = '';
   String get page5Reason => _page5Reason;
-  set page5Reason(String _value) {
-    _page5Reason = _value;
+  set page5Reason(String value) {
+    _page5Reason = value;
   }
 
   String _page5PaymentStatus = '';
   String get page5PaymentStatus => _page5PaymentStatus;
-  set page5PaymentStatus(String _value) {
-    _page5PaymentStatus = _value;
+  set page5PaymentStatus(String value) {
+    _page5PaymentStatus = value;
   }
 
   String _page5PaymentType = '';
   String get page5PaymentType => _page5PaymentType;
-  set page5PaymentType(String _value) {
-    _page5PaymentType = _value;
+  set page5PaymentType(String value) {
+    _page5PaymentType = value;
   }
 
   String _page5PaymentChannel = '';
   String get page5PaymentChannel => _page5PaymentChannel;
-  set page5PaymentChannel(String _value) {
-    _page5PaymentChannel = _value;
+  set page5PaymentChannel(String value) {
+    _page5PaymentChannel = value;
   }
 
   String _page5NetPremium = '';
   String get page5NetPremium => _page5NetPremium;
-  set page5NetPremium(String _value) {
-    _page5NetPremium = _value;
+  set page5NetPremium(String value) {
+    _page5NetPremium = value;
   }
 
   String _page5ActPrice = '';
   String get page5ActPrice => _page5ActPrice;
-  set page5ActPrice(String _value) {
-    _page5ActPrice = _value;
+  set page5ActPrice(String value) {
+    _page5ActPrice = value;
   }
 
   String _page5GrossTotalNet = '';
   String get page5GrossTotalNet => _page5GrossTotalNet;
-  set page5GrossTotalNet(String _value) {
-    _page5GrossTotalNet = _value;
+  set page5GrossTotalNet(String value) {
+    _page5GrossTotalNet = value;
   }
 
   String _page5FirstDue = '';
   String get page5FirstDue => _page5FirstDue;
-  set page5FirstDue(String _value) {
-    _page5FirstDue = _value;
+  set page5FirstDue(String value) {
+    _page5FirstDue = value;
   }
 
   String _page5LastDue = '';
   String get page5LastDue => _page5LastDue;
-  set page5LastDue(String _value) {
-    _page5LastDue = _value;
+  set page5LastDue(String value) {
+    _page5LastDue = value;
   }
 
   String _page5VloneContNo = '';
   String get page5VloneContNo => _page5VloneContNo;
-  set page5VloneContNo(String _value) {
-    _page5VloneContNo = _value;
+  set page5VloneContNo(String value) {
+    _page5VloneContNo = value;
   }
 
   String _page5CusIdCardNo = '';
   String get page5CusIdCardNo => _page5CusIdCardNo;
-  set page5CusIdCardNo(String _value) {
-    _page5CusIdCardNo = _value;
+  set page5CusIdCardNo(String value) {
+    _page5CusIdCardNo = value;
   }
 
   String _insuranceinfoPage3PdfFileapplication = '';
   String get insuranceinfoPage3PdfFileapplication =>
       _insuranceinfoPage3PdfFileapplication;
-  set insuranceinfoPage3PdfFileapplication(String _value) {
-    _insuranceinfoPage3PdfFileapplication = _value;
+  set insuranceinfoPage3PdfFileapplication(String value) {
+    _insuranceinfoPage3PdfFileapplication = value;
   }
 
   String _insuranceInfoApplicationType = '';
   String get insuranceInfoApplicationType => _insuranceInfoApplicationType;
-  set insuranceInfoApplicationType(String _value) {
-    _insuranceInfoApplicationType = _value;
+  set insuranceInfoApplicationType(String value) {
+    _insuranceInfoApplicationType = value;
   }
 
   List<String> _InsuranceInfoPage4PaymentFirst = [];
   List<String> get InsuranceInfoPage4PaymentFirst =>
       _InsuranceInfoPage4PaymentFirst;
-  set InsuranceInfoPage4PaymentFirst(List<String> _value) {
-    _InsuranceInfoPage4PaymentFirst = _value;
+  set InsuranceInfoPage4PaymentFirst(List<String> value) {
+    _InsuranceInfoPage4PaymentFirst = value;
   }
 
-  void addToInsuranceInfoPage4PaymentFirst(String _value) {
-    _InsuranceInfoPage4PaymentFirst.add(_value);
+  void addToInsuranceInfoPage4PaymentFirst(String value) {
+    InsuranceInfoPage4PaymentFirst.add(value);
   }
 
-  void removeFromInsuranceInfoPage4PaymentFirst(String _value) {
-    _InsuranceInfoPage4PaymentFirst.remove(_value);
+  void removeFromInsuranceInfoPage4PaymentFirst(String value) {
+    InsuranceInfoPage4PaymentFirst.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage4PaymentFirst(int _index) {
-    _InsuranceInfoPage4PaymentFirst.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage4PaymentFirst(int index) {
+    InsuranceInfoPage4PaymentFirst.removeAt(index);
   }
 
   void updateInsuranceInfoPage4PaymentFirstAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _InsuranceInfoPage4PaymentFirst[_index] =
-        updateFn(_InsuranceInfoPage4PaymentFirst[_index]);
+    InsuranceInfoPage4PaymentFirst[index] =
+        updateFn(_InsuranceInfoPage4PaymentFirst[index]);
   }
 
-  void insertAtIndexInInsuranceInfoPage4PaymentFirst(
-      int _index, String _value) {
-    _InsuranceInfoPage4PaymentFirst.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoPage4PaymentFirst(int index, String value) {
+    InsuranceInfoPage4PaymentFirst.insert(index, value);
   }
 
   List<String> _InsuranceInfoPage4InstallmentFirstDue = [];
   List<String> get InsuranceInfoPage4InstallmentFirstDue =>
       _InsuranceInfoPage4InstallmentFirstDue;
-  set InsuranceInfoPage4InstallmentFirstDue(List<String> _value) {
-    _InsuranceInfoPage4InstallmentFirstDue = _value;
+  set InsuranceInfoPage4InstallmentFirstDue(List<String> value) {
+    _InsuranceInfoPage4InstallmentFirstDue = value;
   }
 
-  void addToInsuranceInfoPage4InstallmentFirstDue(String _value) {
-    _InsuranceInfoPage4InstallmentFirstDue.add(_value);
+  void addToInsuranceInfoPage4InstallmentFirstDue(String value) {
+    InsuranceInfoPage4InstallmentFirstDue.add(value);
   }
 
-  void removeFromInsuranceInfoPage4InstallmentFirstDue(String _value) {
-    _InsuranceInfoPage4InstallmentFirstDue.remove(_value);
+  void removeFromInsuranceInfoPage4InstallmentFirstDue(String value) {
+    InsuranceInfoPage4InstallmentFirstDue.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage4InstallmentFirstDue(int _index) {
-    _InsuranceInfoPage4InstallmentFirstDue.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage4InstallmentFirstDue(int index) {
+    InsuranceInfoPage4InstallmentFirstDue.removeAt(index);
   }
 
   void updateInsuranceInfoPage4InstallmentFirstDueAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _InsuranceInfoPage4InstallmentFirstDue[_index] =
-        updateFn(_InsuranceInfoPage4InstallmentFirstDue[_index]);
+    InsuranceInfoPage4InstallmentFirstDue[index] =
+        updateFn(_InsuranceInfoPage4InstallmentFirstDue[index]);
   }
 
   void insertAtIndexInInsuranceInfoPage4InstallmentFirstDue(
-      int _index, String _value) {
-    _InsuranceInfoPage4InstallmentFirstDue.insert(_index, _value);
+      int index, String value) {
+    InsuranceInfoPage4InstallmentFirstDue.insert(index, value);
   }
 
   List<String> _InsuranceInfoPage4InstallmentLastDue = [];
   List<String> get InsuranceInfoPage4InstallmentLastDue =>
       _InsuranceInfoPage4InstallmentLastDue;
-  set InsuranceInfoPage4InstallmentLastDue(List<String> _value) {
-    _InsuranceInfoPage4InstallmentLastDue = _value;
+  set InsuranceInfoPage4InstallmentLastDue(List<String> value) {
+    _InsuranceInfoPage4InstallmentLastDue = value;
   }
 
-  void addToInsuranceInfoPage4InstallmentLastDue(String _value) {
-    _InsuranceInfoPage4InstallmentLastDue.add(_value);
+  void addToInsuranceInfoPage4InstallmentLastDue(String value) {
+    InsuranceInfoPage4InstallmentLastDue.add(value);
   }
 
-  void removeFromInsuranceInfoPage4InstallmentLastDue(String _value) {
-    _InsuranceInfoPage4InstallmentLastDue.remove(_value);
+  void removeFromInsuranceInfoPage4InstallmentLastDue(String value) {
+    InsuranceInfoPage4InstallmentLastDue.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage4InstallmentLastDue(int _index) {
-    _InsuranceInfoPage4InstallmentLastDue.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage4InstallmentLastDue(int index) {
+    InsuranceInfoPage4InstallmentLastDue.removeAt(index);
   }
 
   void updateInsuranceInfoPage4InstallmentLastDueAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _InsuranceInfoPage4InstallmentLastDue[_index] =
-        updateFn(_InsuranceInfoPage4InstallmentLastDue[_index]);
+    InsuranceInfoPage4InstallmentLastDue[index] =
+        updateFn(_InsuranceInfoPage4InstallmentLastDue[index]);
   }
 
   void insertAtIndexInInsuranceInfoPage4InstallmentLastDue(
-      int _index, String _value) {
-    _InsuranceInfoPage4InstallmentLastDue.insert(_index, _value);
+      int index, String value) {
+    InsuranceInfoPage4InstallmentLastDue.insert(index, value);
   }
 
   List<String> _InsuranceInfoPage4Tenor = [];
   List<String> get InsuranceInfoPage4Tenor => _InsuranceInfoPage4Tenor;
-  set InsuranceInfoPage4Tenor(List<String> _value) {
-    _InsuranceInfoPage4Tenor = _value;
+  set InsuranceInfoPage4Tenor(List<String> value) {
+    _InsuranceInfoPage4Tenor = value;
   }
 
-  void addToInsuranceInfoPage4Tenor(String _value) {
-    _InsuranceInfoPage4Tenor.add(_value);
+  void addToInsuranceInfoPage4Tenor(String value) {
+    InsuranceInfoPage4Tenor.add(value);
   }
 
-  void removeFromInsuranceInfoPage4Tenor(String _value) {
-    _InsuranceInfoPage4Tenor.remove(_value);
+  void removeFromInsuranceInfoPage4Tenor(String value) {
+    InsuranceInfoPage4Tenor.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage4Tenor(int _index) {
-    _InsuranceInfoPage4Tenor.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage4Tenor(int index) {
+    InsuranceInfoPage4Tenor.removeAt(index);
   }
 
   void updateInsuranceInfoPage4TenorAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _InsuranceInfoPage4Tenor[_index] =
-        updateFn(_InsuranceInfoPage4Tenor[_index]);
+    InsuranceInfoPage4Tenor[index] = updateFn(_InsuranceInfoPage4Tenor[index]);
   }
 
-  void insertAtIndexInInsuranceInfoPage4Tenor(int _index, String _value) {
-    _InsuranceInfoPage4Tenor.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoPage4Tenor(int index, String value) {
+    InsuranceInfoPage4Tenor.insert(index, value);
   }
 
   String _insuranceInfoPage4NetPremiumTotal = '';
   String get insuranceInfoPage4NetPremiumTotal =>
       _insuranceInfoPage4NetPremiumTotal;
-  set insuranceInfoPage4NetPremiumTotal(String _value) {
-    _insuranceInfoPage4NetPremiumTotal = _value;
+  set insuranceInfoPage4NetPremiumTotal(String value) {
+    _insuranceInfoPage4NetPremiumTotal = value;
   }
 
   String _insuranceInfoPage4GrossTotalNet = '';
   String get insuranceInfoPage4GrossTotalNet =>
       _insuranceInfoPage4GrossTotalNet;
-  set insuranceInfoPage4GrossTotalNet(String _value) {
-    _insuranceInfoPage4GrossTotalNet = _value;
+  set insuranceInfoPage4GrossTotalNet(String value) {
+    _insuranceInfoPage4GrossTotalNet = value;
   }
 
   String _insuranceInfoPage4ActTotal = '';
   String get insuranceInfoPage4ActTotal => _insuranceInfoPage4ActTotal;
-  set insuranceInfoPage4ActTotal(String _value) {
-    _insuranceInfoPage4ActTotal = _value;
+  set insuranceInfoPage4ActTotal(String value) {
+    _insuranceInfoPage4ActTotal = value;
   }
 
   String _insuranceInfoPage4FileLoanApplicationRegister = '';
   String get insuranceInfoPage4FileLoanApplicationRegister =>
       _insuranceInfoPage4FileLoanApplicationRegister;
-  set insuranceInfoPage4FileLoanApplicationRegister(String _value) {
-    _insuranceInfoPage4FileLoanApplicationRegister = _value;
+  set insuranceInfoPage4FileLoanApplicationRegister(String value) {
+    _insuranceInfoPage4FileLoanApplicationRegister = value;
   }
 
   String _insuranceInfoPage4ImageApplication = '';
   String get insuranceInfoPage4ImageApplication =>
       _insuranceInfoPage4ImageApplication;
-  set insuranceInfoPage4ImageApplication(String _value) {
-    _insuranceInfoPage4ImageApplication = _value;
+  set insuranceInfoPage4ImageApplication(String value) {
+    _insuranceInfoPage4ImageApplication = value;
   }
 
   String _insuranceInfoPage3ImageIdCard = '';
   String get insuranceInfoPage3ImageIdCard => _insuranceInfoPage3ImageIdCard;
-  set insuranceInfoPage3ImageIdCard(String _value) {
-    _insuranceInfoPage3ImageIdCard = _value;
+  set insuranceInfoPage3ImageIdCard(String value) {
+    _insuranceInfoPage3ImageIdCard = value;
   }
 
   String _insuranceInfoPage3ImageBluebook = '';
   String get insuranceInfoPage3ImageBluebook =>
       _insuranceInfoPage3ImageBluebook;
-  set insuranceInfoPage3ImageBluebook(String _value) {
-    _insuranceInfoPage3ImageBluebook = _value;
+  set insuranceInfoPage3ImageBluebook(String value) {
+    _insuranceInfoPage3ImageBluebook = value;
   }
 
   String _insuranceInfoPage3ImageExamination = '';
   String get insuranceInfoPage3ImageExamination =>
       _insuranceInfoPage3ImageExamination;
-  set insuranceInfoPage3ImageExamination(String _value) {
-    _insuranceInfoPage3ImageExamination = _value;
+  set insuranceInfoPage3ImageExamination(String value) {
+    _insuranceInfoPage3ImageExamination = value;
   }
 
   String _insuranceInfoPage3ImageFront = '';
   String get insuranceInfoPage3ImageFront => _insuranceInfoPage3ImageFront;
-  set insuranceInfoPage3ImageFront(String _value) {
-    _insuranceInfoPage3ImageFront = _value;
+  set insuranceInfoPage3ImageFront(String value) {
+    _insuranceInfoPage3ImageFront = value;
   }
 
   String _insuranceInfoPageImageRear = '';
   String get insuranceInfoPageImageRear => _insuranceInfoPageImageRear;
-  set insuranceInfoPageImageRear(String _value) {
-    _insuranceInfoPageImageRear = _value;
+  set insuranceInfoPageImageRear(String value) {
+    _insuranceInfoPageImageRear = value;
   }
 
   String _insuranceInfoPage3ImageLeft = '';
   String get insuranceInfoPage3ImageLeft => _insuranceInfoPage3ImageLeft;
-  set insuranceInfoPage3ImageLeft(String _value) {
-    _insuranceInfoPage3ImageLeft = _value;
+  set insuranceInfoPage3ImageLeft(String value) {
+    _insuranceInfoPage3ImageLeft = value;
   }
 
   String _insuranceInfoPage3ImageRight = '';
   String get insuranceInfoPage3ImageRight => _insuranceInfoPage3ImageRight;
-  set insuranceInfoPage3ImageRight(String _value) {
-    _insuranceInfoPage3ImageRight = _value;
+  set insuranceInfoPage3ImageRight(String value) {
+    _insuranceInfoPage3ImageRight = value;
   }
 
   String _insuranceInfoPage3ImageRightFront = '';
   String get insuranceInfoPage3ImageRightFront =>
       _insuranceInfoPage3ImageRightFront;
-  set insuranceInfoPage3ImageRightFront(String _value) {
-    _insuranceInfoPage3ImageRightFront = _value;
+  set insuranceInfoPage3ImageRightFront(String value) {
+    _insuranceInfoPage3ImageRightFront = value;
   }
 
   String _insuranceInfoPage3ImageRightRear = '';
   String get insuranceInfoPage3ImageRightRear =>
       _insuranceInfoPage3ImageRightRear;
-  set insuranceInfoPage3ImageRightRear(String _value) {
-    _insuranceInfoPage3ImageRightRear = _value;
+  set insuranceInfoPage3ImageRightRear(String value) {
+    _insuranceInfoPage3ImageRightRear = value;
   }
 
   String _insuranceInfoPage3ImageLeftFront = '';
   String get insuranceInfoPage3ImageLeftFront =>
       _insuranceInfoPage3ImageLeftFront;
-  set insuranceInfoPage3ImageLeftFront(String _value) {
-    _insuranceInfoPage3ImageLeftFront = _value;
+  set insuranceInfoPage3ImageLeftFront(String value) {
+    _insuranceInfoPage3ImageLeftFront = value;
   }
 
   String _insuranceInfoPage3ImageLeftRear = '';
   String get insuranceInfoPage3ImageLeftRear =>
       _insuranceInfoPage3ImageLeftRear;
-  set insuranceInfoPage3ImageLeftRear(String _value) {
-    _insuranceInfoPage3ImageLeftRear = _value;
+  set insuranceInfoPage3ImageLeftRear(String value) {
+    _insuranceInfoPage3ImageLeftRear = value;
   }
 
   String _insuranceInfoPage3ImageRoof = '';
   String get insuranceInfoPage3ImageRoof => _insuranceInfoPage3ImageRoof;
-  set insuranceInfoPage3ImageRoof(String _value) {
-    _insuranceInfoPage3ImageRoof = _value;
+  set insuranceInfoPage3ImageRoof(String value) {
+    _insuranceInfoPage3ImageRoof = value;
   }
 
   List<String> _insuranceInfoPage3ImageWound = [];
   List<String> get insuranceInfoPage3ImageWound =>
       _insuranceInfoPage3ImageWound;
-  set insuranceInfoPage3ImageWound(List<String> _value) {
-    _insuranceInfoPage3ImageWound = _value;
+  set insuranceInfoPage3ImageWound(List<String> value) {
+    _insuranceInfoPage3ImageWound = value;
   }
 
-  void addToInsuranceInfoPage3ImageWound(String _value) {
-    _insuranceInfoPage3ImageWound.add(_value);
+  void addToInsuranceInfoPage3ImageWound(String value) {
+    insuranceInfoPage3ImageWound.add(value);
   }
 
-  void removeFromInsuranceInfoPage3ImageWound(String _value) {
-    _insuranceInfoPage3ImageWound.remove(_value);
+  void removeFromInsuranceInfoPage3ImageWound(String value) {
+    insuranceInfoPage3ImageWound.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage3ImageWound(int _index) {
-    _insuranceInfoPage3ImageWound.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage3ImageWound(int index) {
+    insuranceInfoPage3ImageWound.removeAt(index);
   }
 
   void updateInsuranceInfoPage3ImageWoundAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoPage3ImageWound[_index] =
-        updateFn(_insuranceInfoPage3ImageWound[_index]);
+    insuranceInfoPage3ImageWound[index] =
+        updateFn(_insuranceInfoPage3ImageWound[index]);
   }
 
-  void insertAtIndexInInsuranceInfoPage3ImageWound(int _index, String _value) {
-    _insuranceInfoPage3ImageWound.insert(_index, _value);
+  void insertAtIndexInInsuranceInfoPage3ImageWound(int index, String value) {
+    insuranceInfoPage3ImageWound.insert(index, value);
   }
 
   List<String> _insuranceInfoPage3ImageAccessories = [];
   List<String> get insuranceInfoPage3ImageAccessories =>
       _insuranceInfoPage3ImageAccessories;
-  set insuranceInfoPage3ImageAccessories(List<String> _value) {
-    _insuranceInfoPage3ImageAccessories = _value;
+  set insuranceInfoPage3ImageAccessories(List<String> value) {
+    _insuranceInfoPage3ImageAccessories = value;
   }
 
-  void addToInsuranceInfoPage3ImageAccessories(String _value) {
-    _insuranceInfoPage3ImageAccessories.add(_value);
+  void addToInsuranceInfoPage3ImageAccessories(String value) {
+    insuranceInfoPage3ImageAccessories.add(value);
   }
 
-  void removeFromInsuranceInfoPage3ImageAccessories(String _value) {
-    _insuranceInfoPage3ImageAccessories.remove(_value);
+  void removeFromInsuranceInfoPage3ImageAccessories(String value) {
+    insuranceInfoPage3ImageAccessories.remove(value);
   }
 
-  void removeAtIndexFromInsuranceInfoPage3ImageAccessories(int _index) {
-    _insuranceInfoPage3ImageAccessories.removeAt(_index);
+  void removeAtIndexFromInsuranceInfoPage3ImageAccessories(int index) {
+    insuranceInfoPage3ImageAccessories.removeAt(index);
   }
 
   void updateInsuranceInfoPage3ImageAccessoriesAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceInfoPage3ImageAccessories[_index] =
-        updateFn(_insuranceInfoPage3ImageAccessories[_index]);
+    insuranceInfoPage3ImageAccessories[index] =
+        updateFn(_insuranceInfoPage3ImageAccessories[index]);
   }
 
   void insertAtIndexInInsuranceInfoPage3ImageAccessories(
-      int _index, String _value) {
-    _insuranceInfoPage3ImageAccessories.insert(_index, _value);
+      int index, String value) {
+    insuranceInfoPage3ImageAccessories.insert(index, value);
   }
 
   String _insuranceInfoPage3ImageOther = '';
   String get insuranceInfoPage3ImageOther => _insuranceInfoPage3ImageOther;
-  set insuranceInfoPage3ImageOther(String _value) {
-    _insuranceInfoPage3ImageOther = _value;
+  set insuranceInfoPage3ImageOther(String value) {
+    _insuranceInfoPage3ImageOther = value;
   }
 
   String _typeList = 'list';
   String get typeList => _typeList;
-  set typeList(String _value) {
-    _typeList = _value;
+  set typeList(String value) {
+    _typeList = value;
   }
 
   String _insuranceInfoPage4FirstPay = '';
   String get insuranceInfoPage4FirstPay => _insuranceInfoPage4FirstPay;
-  set insuranceInfoPage4FirstPay(String _value) {
-    _insuranceInfoPage4FirstPay = _value;
+  set insuranceInfoPage4FirstPay(String value) {
+    _insuranceInfoPage4FirstPay = value;
   }
 
   String _page5Tenor = '';
   String get page5Tenor => _page5Tenor;
-  set page5Tenor(String _value) {
-    _page5Tenor = _value;
+  set page5Tenor(String value) {
+    _page5Tenor = value;
   }
 
   String _insuranceInfoBrandId = '';
   String get insuranceInfoBrandId => _insuranceInfoBrandId;
-  set insuranceInfoBrandId(String _value) {
-    _insuranceInfoBrandId = _value;
+  set insuranceInfoBrandId(String value) {
+    _insuranceInfoBrandId = value;
   }
 
   String _insuarnceInfoModelId = '';
   String get insuarnceInfoModelId => _insuarnceInfoModelId;
-  set insuarnceInfoModelId(String _value) {
-    _insuarnceInfoModelId = _value;
+  set insuarnceInfoModelId(String value) {
+    _insuarnceInfoModelId = value;
   }
 
   String _insuranceInfoVehicleId = '';
   String get insuranceInfoVehicleId => _insuranceInfoVehicleId;
-  set insuranceInfoVehicleId(String _value) {
-    _insuranceInfoVehicleId = _value;
+  set insuranceInfoVehicleId(String value) {
+    _insuranceInfoVehicleId = value;
   }
 
   String _insuranceInfoVehicleName = '';
   String get insuranceInfoVehicleName => _insuranceInfoVehicleName;
-  set insuranceInfoVehicleName(String _value) {
-    _insuranceInfoVehicleName = _value;
+  set insuranceInfoVehicleName(String value) {
+    _insuranceInfoVehicleName = value;
   }
 
   bool _insuranceinfoFirstInAppStep1 = false;
   bool get insuranceinfoFirstInAppStep1 => _insuranceinfoFirstInAppStep1;
-  set insuranceinfoFirstInAppStep1(bool _value) {
-    _insuranceinfoFirstInAppStep1 = _value;
+  set insuranceinfoFirstInAppStep1(bool value) {
+    _insuranceinfoFirstInAppStep1 = value;
   }
 
   String _insuranceInfoPage5Document = '';
   String get insuranceInfoPage5Document => _insuranceInfoPage5Document;
-  set insuranceInfoPage5Document(String _value) {
-    _insuranceInfoPage5Document = _value;
+  set insuranceInfoPage5Document(String value) {
+    _insuranceInfoPage5Document = value;
   }
 
   String _searchList1 = '';
   String get searchList1 => _searchList1;
-  set searchList1(String _value) {
-    _searchList1 = _value;
+  set searchList1(String value) {
+    _searchList1 = value;
   }
 
   String _page5VloanCustomerNo = '';
   String get page5VloanCustomerNo => _page5VloanCustomerNo;
-  set page5VloanCustomerNo(String _value) {
-    _page5VloanCustomerNo = _value;
+  set page5VloanCustomerNo(String value) {
+    _page5VloanCustomerNo = value;
   }
 
   String _insuranceInfoGrosstotalNet = '';
   String get insuranceInfoGrosstotalNet => _insuranceInfoGrosstotalNet;
-  set insuranceInfoGrosstotalNet(String _value) {
-    _insuranceInfoGrosstotalNet = _value;
+  set insuranceInfoGrosstotalNet(String value) {
+    _insuranceInfoGrosstotalNet = value;
   }
 
   String _insuranceInfoActFlag = '';
   String get insuranceInfoActFlag => _insuranceInfoActFlag;
-  set insuranceInfoActFlag(String _value) {
-    _insuranceInfoActFlag = _value;
+  set insuranceInfoActFlag(String value) {
+    _insuranceInfoActFlag = value;
   }
 
   String _nonePackageFlagOldVmi = '';
   String get nonePackageFlagOldVmi => _nonePackageFlagOldVmi;
-  set nonePackageFlagOldVmi(String _value) {
-    _nonePackageFlagOldVmi = _value;
+  set nonePackageFlagOldVmi(String value) {
+    _nonePackageFlagOldVmi = value;
   }
 
   String _nonePackageWorkType = '';
   String get nonePackageWorkType => _nonePackageWorkType;
-  set nonePackageWorkType(String _value) {
-    _nonePackageWorkType = _value;
+  set nonePackageWorkType(String value) {
+    _nonePackageWorkType = value;
   }
 
   String _insuranceInfoEffectiveDateAct = '';
   String get insuranceInfoEffectiveDateAct => _insuranceInfoEffectiveDateAct;
-  set insuranceInfoEffectiveDateAct(String _value) {
-    _insuranceInfoEffectiveDateAct = _value;
+  set insuranceInfoEffectiveDateAct(String value) {
+    _insuranceInfoEffectiveDateAct = value;
   }
 
   String _insuranceInfoBranchCode = '';
   String get insuranceInfoBranchCode => _insuranceInfoBranchCode;
-  set insuranceInfoBranchCode(String _value) {
-    _insuranceInfoBranchCode = _value;
+  set insuranceInfoBranchCode(String value) {
+    _insuranceInfoBranchCode = value;
   }
 
   String _insuranceInfoBranchNameOutput = '';
   String get insuranceInfoBranchNameOutput => _insuranceInfoBranchNameOutput;
-  set insuranceInfoBranchNameOutput(String _value) {
-    _insuranceInfoBranchNameOutput = _value;
+  set insuranceInfoBranchNameOutput(String value) {
+    _insuranceInfoBranchNameOutput = value;
   }
 
   dynamic _coverTypeJson = jsonDecode('null');
   dynamic get coverTypeJson => _coverTypeJson;
-  set coverTypeJson(dynamic _value) {
-    _coverTypeJson = _value;
+  set coverTypeJson(dynamic value) {
+    _coverTypeJson = value;
   }
 
   String _insuranceinfoApplicationNo = '';
   String get insuranceinfoApplicationNo => _insuranceinfoApplicationNo;
-  set insuranceinfoApplicationNo(String _value) {
-    _insuranceinfoApplicationNo = _value;
+  set insuranceinfoApplicationNo(String value) {
+    _insuranceinfoApplicationNo = value;
   }
 
   String _page5DateNow = '';
   String get page5DateNow => _page5DateNow;
-  set page5DateNow(String _value) {
-    _page5DateNow = _value;
+  set page5DateNow(String value) {
+    _page5DateNow = value;
   }
 
   String _insuranceInfoEffectiveDateInsure = '';
   String get insuranceInfoEffectiveDateInsure =>
       _insuranceInfoEffectiveDateInsure;
-  set insuranceInfoEffectiveDateInsure(String _value) {
-    _insuranceInfoEffectiveDateInsure = _value;
+  set insuranceInfoEffectiveDateInsure(String value) {
+    _insuranceInfoEffectiveDateInsure = value;
   }
 
   String _nonePackageRemark = '';
   String get nonePackageRemark => _nonePackageRemark;
-  set nonePackageRemark(String _value) {
-    _nonePackageRemark = _value;
+  set nonePackageRemark(String value) {
+    _nonePackageRemark = value;
   }
 
   int _statusCodeUnSuccess = 500;
   int get statusCodeUnSuccess => _statusCodeUnSuccess;
-  set statusCodeUnSuccess(int _value) {
-    _statusCodeUnSuccess = _value;
+  set statusCodeUnSuccess(int value) {
+    _statusCodeUnSuccess = value;
   }
 
   dynamic _unsuccessStatusJson = jsonDecode('500');
   dynamic get unsuccessStatusJson => _unsuccessStatusJson;
-  set unsuccessStatusJson(dynamic _value) {
-    _unsuccessStatusJson = _value;
+  set unsuccessStatusJson(dynamic value) {
+    _unsuccessStatusJson = value;
   }
 
   String _nonePackageBranchCode = '';
   String get nonePackageBranchCode => _nonePackageBranchCode;
-  set nonePackageBranchCode(String _value) {
-    _nonePackageBranchCode = _value;
+  set nonePackageBranchCode(String value) {
+    _nonePackageBranchCode = value;
   }
 
   String _nonePackageBranchName = '';
   String get nonePackageBranchName => _nonePackageBranchName;
-  set nonePackageBranchName(String _value) {
-    _nonePackageBranchName = _value;
+  set nonePackageBranchName(String value) {
+    _nonePackageBranchName = value;
   }
 
   String _nonePackageImageQuotationPdfUploaded = '';
   String get nonePackageImageQuotationPdfUploaded =>
       _nonePackageImageQuotationPdfUploaded;
-  set nonePackageImageQuotationPdfUploaded(String _value) {
-    _nonePackageImageQuotationPdfUploaded = _value;
+  set nonePackageImageQuotationPdfUploaded(String value) {
+    _nonePackageImageQuotationPdfUploaded = value;
   }
 
   List<String> _nonePackageInsurerShortNameDupList = [];
   List<String> get nonePackageInsurerShortNameDupList =>
       _nonePackageInsurerShortNameDupList;
-  set nonePackageInsurerShortNameDupList(List<String> _value) {
-    _nonePackageInsurerShortNameDupList = _value;
+  set nonePackageInsurerShortNameDupList(List<String> value) {
+    _nonePackageInsurerShortNameDupList = value;
   }
 
-  void addToNonePackageInsurerShortNameDupList(String _value) {
-    _nonePackageInsurerShortNameDupList.add(_value);
+  void addToNonePackageInsurerShortNameDupList(String value) {
+    nonePackageInsurerShortNameDupList.add(value);
   }
 
-  void removeFromNonePackageInsurerShortNameDupList(String _value) {
-    _nonePackageInsurerShortNameDupList.remove(_value);
+  void removeFromNonePackageInsurerShortNameDupList(String value) {
+    nonePackageInsurerShortNameDupList.remove(value);
   }
 
-  void removeAtIndexFromNonePackageInsurerShortNameDupList(int _index) {
-    _nonePackageInsurerShortNameDupList.removeAt(_index);
+  void removeAtIndexFromNonePackageInsurerShortNameDupList(int index) {
+    nonePackageInsurerShortNameDupList.removeAt(index);
   }
 
   void updateNonePackageInsurerShortNameDupListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _nonePackageInsurerShortNameDupList[_index] =
-        updateFn(_nonePackageInsurerShortNameDupList[_index]);
+    nonePackageInsurerShortNameDupList[index] =
+        updateFn(_nonePackageInsurerShortNameDupList[index]);
   }
 
   void insertAtIndexInNonePackageInsurerShortNameDupList(
-      int _index, String _value) {
-    _nonePackageInsurerShortNameDupList.insert(_index, _value);
+      int index, String value) {
+    nonePackageInsurerShortNameDupList.insert(index, value);
   }
 
   String _insuranceInfoPage5CMIDocUrl = '';
   String get insuranceInfoPage5CMIDocUrl => _insuranceInfoPage5CMIDocUrl;
-  set insuranceInfoPage5CMIDocUrl(String _value) {
-    _insuranceInfoPage5CMIDocUrl = _value;
+  set insuranceInfoPage5CMIDocUrl(String value) {
+    _insuranceInfoPage5CMIDocUrl = value;
   }
 
   String _insuranceInfoInsuranceLogo = '';
   String get insuranceInfoInsuranceLogo => _insuranceInfoInsuranceLogo;
-  set insuranceInfoInsuranceLogo(String _value) {
-    _insuranceInfoInsuranceLogo = _value;
+  set insuranceInfoInsuranceLogo(String value) {
+    _insuranceInfoInsuranceLogo = value;
   }
 
   List<String> _listSelectionPdfQuotation = [];
   List<String> get listSelectionPdfQuotation => _listSelectionPdfQuotation;
-  set listSelectionPdfQuotation(List<String> _value) {
-    _listSelectionPdfQuotation = _value;
+  set listSelectionPdfQuotation(List<String> value) {
+    _listSelectionPdfQuotation = value;
   }
 
-  void addToListSelectionPdfQuotation(String _value) {
-    _listSelectionPdfQuotation.add(_value);
+  void addToListSelectionPdfQuotation(String value) {
+    listSelectionPdfQuotation.add(value);
   }
 
-  void removeFromListSelectionPdfQuotation(String _value) {
-    _listSelectionPdfQuotation.remove(_value);
+  void removeFromListSelectionPdfQuotation(String value) {
+    listSelectionPdfQuotation.remove(value);
   }
 
-  void removeAtIndexFromListSelectionPdfQuotation(int _index) {
-    _listSelectionPdfQuotation.removeAt(_index);
+  void removeAtIndexFromListSelectionPdfQuotation(int index) {
+    listSelectionPdfQuotation.removeAt(index);
   }
 
   void updateListSelectionPdfQuotationAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _listSelectionPdfQuotation[_index] =
-        updateFn(_listSelectionPdfQuotation[_index]);
+    listSelectionPdfQuotation[index] =
+        updateFn(_listSelectionPdfQuotation[index]);
   }
 
-  void insertAtIndexInListSelectionPdfQuotation(int _index, String _value) {
-    _listSelectionPdfQuotation.insert(_index, _value);
+  void insertAtIndexInListSelectionPdfQuotation(int index, String value) {
+    listSelectionPdfQuotation.insert(index, value);
   }
 
   List<int> _listValuePdfQuotation = [];
   List<int> get listValuePdfQuotation => _listValuePdfQuotation;
-  set listValuePdfQuotation(List<int> _value) {
-    _listValuePdfQuotation = _value;
+  set listValuePdfQuotation(List<int> value) {
+    _listValuePdfQuotation = value;
   }
 
-  void addToListValuePdfQuotation(int _value) {
-    _listValuePdfQuotation.add(_value);
+  void addToListValuePdfQuotation(int value) {
+    listValuePdfQuotation.add(value);
   }
 
-  void removeFromListValuePdfQuotation(int _value) {
-    _listValuePdfQuotation.remove(_value);
+  void removeFromListValuePdfQuotation(int value) {
+    listValuePdfQuotation.remove(value);
   }
 
-  void removeAtIndexFromListValuePdfQuotation(int _index) {
-    _listValuePdfQuotation.removeAt(_index);
+  void removeAtIndexFromListValuePdfQuotation(int index) {
+    listValuePdfQuotation.removeAt(index);
   }
 
   void updateListValuePdfQuotationAtIndex(
-    int _index,
+    int index,
     int Function(int) updateFn,
   ) {
-    _listValuePdfQuotation[_index] = updateFn(_listValuePdfQuotation[_index]);
+    listValuePdfQuotation[index] = updateFn(_listValuePdfQuotation[index]);
   }
 
-  void insertAtIndexInListValuePdfQuotation(int _index, int _value) {
-    _listValuePdfQuotation.insert(_index, _value);
+  void insertAtIndexInListValuePdfQuotation(int index, int value) {
+    listValuePdfQuotation.insert(index, value);
   }
 
   int _indexPdfQuotation = 0;
   int get indexPdfQuotation => _indexPdfQuotation;
-  set indexPdfQuotation(int _value) {
-    _indexPdfQuotation = _value;
+  set indexPdfQuotation(int value) {
+    _indexPdfQuotation = value;
   }
 
   int _lengthListPdfQuotation = 0;
   int get lengthListPdfQuotation => _lengthListPdfQuotation;
-  set lengthListPdfQuotation(int _value) {
-    _lengthListPdfQuotation = _value;
+  set lengthListPdfQuotation(int value) {
+    _lengthListPdfQuotation = value;
   }
 
   String _insuranceCarTypeDetailSelected = '';
   String get insuranceCarTypeDetailSelected => _insuranceCarTypeDetailSelected;
-  set insuranceCarTypeDetailSelected(String _value) {
-    _insuranceCarTypeDetailSelected = _value;
+  set insuranceCarTypeDetailSelected(String value) {
+    _insuranceCarTypeDetailSelected = value;
   }
 
   String _insuranceBasicOldVmiExpDate = '';
   String get insuranceBasicOldVmiExpDate => _insuranceBasicOldVmiExpDate;
-  set insuranceBasicOldVmiExpDate(String _value) {
-    _insuranceBasicOldVmiExpDate = _value;
+  set insuranceBasicOldVmiExpDate(String value) {
+    _insuranceBasicOldVmiExpDate = value;
   }
 
   String _nonepackagevehicletypeDetail = '';
   String get nonepackagevehicletypeDetail => _nonepackagevehicletypeDetail;
-  set nonepackagevehicletypeDetail(String _value) {
-    _nonepackagevehicletypeDetail = _value;
+  set nonepackagevehicletypeDetail(String value) {
+    _nonepackagevehicletypeDetail = value;
   }
 
   String _insuranceInfoCarTypeDetail = '';
   String get insuranceInfoCarTypeDetail => _insuranceInfoCarTypeDetail;
-  set insuranceInfoCarTypeDetail(String _value) {
-    _insuranceInfoCarTypeDetail = _value;
+  set insuranceInfoCarTypeDetail(String value) {
+    _insuranceInfoCarTypeDetail = value;
   }
 
   List<String> _insuranceBasicVehicleGroupList = [];
   List<String> get insuranceBasicVehicleGroupList =>
       _insuranceBasicVehicleGroupList;
-  set insuranceBasicVehicleGroupList(List<String> _value) {
-    _insuranceBasicVehicleGroupList = _value;
+  set insuranceBasicVehicleGroupList(List<String> value) {
+    _insuranceBasicVehicleGroupList = value;
   }
 
-  void addToInsuranceBasicVehicleGroupList(String _value) {
-    _insuranceBasicVehicleGroupList.add(_value);
+  void addToInsuranceBasicVehicleGroupList(String value) {
+    insuranceBasicVehicleGroupList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleGroupList(String _value) {
-    _insuranceBasicVehicleGroupList.remove(_value);
+  void removeFromInsuranceBasicVehicleGroupList(String value) {
+    insuranceBasicVehicleGroupList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleGroupList(int _index) {
-    _insuranceBasicVehicleGroupList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleGroupList(int index) {
+    insuranceBasicVehicleGroupList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleGroupListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleGroupList[_index] =
-        updateFn(_insuranceBasicVehicleGroupList[_index]);
+    insuranceBasicVehicleGroupList[index] =
+        updateFn(_insuranceBasicVehicleGroupList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicVehicleGroupList(
-      int _index, String _value) {
-    _insuranceBasicVehicleGroupList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicVehicleGroupList(int index, String value) {
+    insuranceBasicVehicleGroupList.insert(index, value);
   }
 
   String _insuranceBasicVehicleGroup = '';
   String get insuranceBasicVehicleGroup => _insuranceBasicVehicleGroup;
-  set insuranceBasicVehicleGroup(String _value) {
-    _insuranceBasicVehicleGroup = _value;
+  set insuranceBasicVehicleGroup(String value) {
+    _insuranceBasicVehicleGroup = value;
   }
 
   List<String> _searchInsurerCondition = [];
   List<String> get searchInsurerCondition => _searchInsurerCondition;
-  set searchInsurerCondition(List<String> _value) {
-    _searchInsurerCondition = _value;
+  set searchInsurerCondition(List<String> value) {
+    _searchInsurerCondition = value;
   }
 
-  void addToSearchInsurerCondition(String _value) {
-    _searchInsurerCondition.add(_value);
+  void addToSearchInsurerCondition(String value) {
+    searchInsurerCondition.add(value);
   }
 
-  void removeFromSearchInsurerCondition(String _value) {
-    _searchInsurerCondition.remove(_value);
+  void removeFromSearchInsurerCondition(String value) {
+    searchInsurerCondition.remove(value);
   }
 
-  void removeAtIndexFromSearchInsurerCondition(int _index) {
-    _searchInsurerCondition.removeAt(_index);
+  void removeAtIndexFromSearchInsurerCondition(int index) {
+    searchInsurerCondition.removeAt(index);
   }
 
   void updateSearchInsurerConditionAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchInsurerCondition[_index] = updateFn(_searchInsurerCondition[_index]);
+    searchInsurerCondition[index] = updateFn(_searchInsurerCondition[index]);
   }
 
-  void insertAtIndexInSearchInsurerCondition(int _index, String _value) {
-    _searchInsurerCondition.insert(_index, _value);
+  void insertAtIndexInSearchInsurerCondition(int index, String value) {
+    searchInsurerCondition.insert(index, value);
   }
 
   List<String> _insuranceBasicBrandNameListOriginal = [];
   List<String> get insuranceBasicBrandNameListOriginal =>
       _insuranceBasicBrandNameListOriginal;
-  set insuranceBasicBrandNameListOriginal(List<String> _value) {
-    _insuranceBasicBrandNameListOriginal = _value;
+  set insuranceBasicBrandNameListOriginal(List<String> value) {
+    _insuranceBasicBrandNameListOriginal = value;
   }
 
-  void addToInsuranceBasicBrandNameListOriginal(String _value) {
-    _insuranceBasicBrandNameListOriginal.add(_value);
+  void addToInsuranceBasicBrandNameListOriginal(String value) {
+    insuranceBasicBrandNameListOriginal.add(value);
   }
 
-  void removeFromInsuranceBasicBrandNameListOriginal(String _value) {
-    _insuranceBasicBrandNameListOriginal.remove(_value);
+  void removeFromInsuranceBasicBrandNameListOriginal(String value) {
+    insuranceBasicBrandNameListOriginal.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicBrandNameListOriginal(int _index) {
-    _insuranceBasicBrandNameListOriginal.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicBrandNameListOriginal(int index) {
+    insuranceBasicBrandNameListOriginal.removeAt(index);
   }
 
   void updateInsuranceBasicBrandNameListOriginalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicBrandNameListOriginal[_index] =
-        updateFn(_insuranceBasicBrandNameListOriginal[_index]);
+    insuranceBasicBrandNameListOriginal[index] =
+        updateFn(_insuranceBasicBrandNameListOriginal[index]);
   }
 
   void insertAtIndexInInsuranceBasicBrandNameListOriginal(
-      int _index, String _value) {
-    _insuranceBasicBrandNameListOriginal.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicBrandNameListOriginal.insert(index, value);
   }
 
   List<String> _insuranceBasicBrandIdListOriginal = [];
   List<String> get insuranceBasicBrandIdListOriginal =>
       _insuranceBasicBrandIdListOriginal;
-  set insuranceBasicBrandIdListOriginal(List<String> _value) {
-    _insuranceBasicBrandIdListOriginal = _value;
+  set insuranceBasicBrandIdListOriginal(List<String> value) {
+    _insuranceBasicBrandIdListOriginal = value;
   }
 
-  void addToInsuranceBasicBrandIdListOriginal(String _value) {
-    _insuranceBasicBrandIdListOriginal.add(_value);
+  void addToInsuranceBasicBrandIdListOriginal(String value) {
+    insuranceBasicBrandIdListOriginal.add(value);
   }
 
-  void removeFromInsuranceBasicBrandIdListOriginal(String _value) {
-    _insuranceBasicBrandIdListOriginal.remove(_value);
+  void removeFromInsuranceBasicBrandIdListOriginal(String value) {
+    insuranceBasicBrandIdListOriginal.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicBrandIdListOriginal(int _index) {
-    _insuranceBasicBrandIdListOriginal.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicBrandIdListOriginal(int index) {
+    insuranceBasicBrandIdListOriginal.removeAt(index);
   }
 
   void updateInsuranceBasicBrandIdListOriginalAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicBrandIdListOriginal[_index] =
-        updateFn(_insuranceBasicBrandIdListOriginal[_index]);
+    insuranceBasicBrandIdListOriginal[index] =
+        updateFn(_insuranceBasicBrandIdListOriginal[index]);
   }
 
   void insertAtIndexInInsuranceBasicBrandIdListOriginal(
-      int _index, String _value) {
-    _insuranceBasicBrandIdListOriginal.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicBrandIdListOriginal.insert(index, value);
   }
 
   List<String> _insuranceBasicVehicleGroupBrandList = [];
   List<String> get insuranceBasicVehicleGroupBrandList =>
       _insuranceBasicVehicleGroupBrandList;
-  set insuranceBasicVehicleGroupBrandList(List<String> _value) {
-    _insuranceBasicVehicleGroupBrandList = _value;
+  set insuranceBasicVehicleGroupBrandList(List<String> value) {
+    _insuranceBasicVehicleGroupBrandList = value;
   }
 
-  void addToInsuranceBasicVehicleGroupBrandList(String _value) {
-    _insuranceBasicVehicleGroupBrandList.add(_value);
+  void addToInsuranceBasicVehicleGroupBrandList(String value) {
+    insuranceBasicVehicleGroupBrandList.add(value);
   }
 
-  void removeFromInsuranceBasicVehicleGroupBrandList(String _value) {
-    _insuranceBasicVehicleGroupBrandList.remove(_value);
+  void removeFromInsuranceBasicVehicleGroupBrandList(String value) {
+    insuranceBasicVehicleGroupBrandList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicVehicleGroupBrandList(int _index) {
-    _insuranceBasicVehicleGroupBrandList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicVehicleGroupBrandList(int index) {
+    insuranceBasicVehicleGroupBrandList.removeAt(index);
   }
 
   void updateInsuranceBasicVehicleGroupBrandListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicVehicleGroupBrandList[_index] =
-        updateFn(_insuranceBasicVehicleGroupBrandList[_index]);
+    insuranceBasicVehicleGroupBrandList[index] =
+        updateFn(_insuranceBasicVehicleGroupBrandList[index]);
   }
 
   void insertAtIndexInInsuranceBasicVehicleGroupBrandList(
-      int _index, String _value) {
-    _insuranceBasicVehicleGroupBrandList.insert(_index, _value);
+      int index, String value) {
+    insuranceBasicVehicleGroupBrandList.insert(index, value);
   }
 
   String _insuranceInfoPage5QuotationType = '';
   String get insuranceInfoPage5QuotationType =>
       _insuranceInfoPage5QuotationType;
-  set insuranceInfoPage5QuotationType(String _value) {
-    _insuranceInfoPage5QuotationType = _value;
+  set insuranceInfoPage5QuotationType(String value) {
+    _insuranceInfoPage5QuotationType = value;
   }
 
   String _insuranceBasicCarTypeContain = '';
   String get insuranceBasicCarTypeContain => _insuranceBasicCarTypeContain;
-  set insuranceBasicCarTypeContain(String _value) {
-    _insuranceBasicCarTypeContain = _value;
+  set insuranceBasicCarTypeContain(String value) {
+    _insuranceBasicCarTypeContain = value;
   }
 
   List<String> _insuranceBasicCarGroupDetail = [];
   List<String> get insuranceBasicCarGroupDetail =>
       _insuranceBasicCarGroupDetail;
-  set insuranceBasicCarGroupDetail(List<String> _value) {
-    _insuranceBasicCarGroupDetail = _value;
+  set insuranceBasicCarGroupDetail(List<String> value) {
+    _insuranceBasicCarGroupDetail = value;
   }
 
-  void addToInsuranceBasicCarGroupDetail(String _value) {
-    _insuranceBasicCarGroupDetail.add(_value);
+  void addToInsuranceBasicCarGroupDetail(String value) {
+    insuranceBasicCarGroupDetail.add(value);
   }
 
-  void removeFromInsuranceBasicCarGroupDetail(String _value) {
-    _insuranceBasicCarGroupDetail.remove(_value);
+  void removeFromInsuranceBasicCarGroupDetail(String value) {
+    insuranceBasicCarGroupDetail.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCarGroupDetail(int _index) {
-    _insuranceBasicCarGroupDetail.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCarGroupDetail(int index) {
+    insuranceBasicCarGroupDetail.removeAt(index);
   }
 
   void updateInsuranceBasicCarGroupDetailAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCarGroupDetail[_index] =
-        updateFn(_insuranceBasicCarGroupDetail[_index]);
+    insuranceBasicCarGroupDetail[index] =
+        updateFn(_insuranceBasicCarGroupDetail[index]);
   }
 
-  void insertAtIndexInInsuranceBasicCarGroupDetail(int _index, String _value) {
-    _insuranceBasicCarGroupDetail.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicCarGroupDetail(int index, String value) {
+    insuranceBasicCarGroupDetail.insert(index, value);
   }
 
   List<String> _insuranceBasicCarDoorList = [];
   List<String> get insuranceBasicCarDoorList => _insuranceBasicCarDoorList;
-  set insuranceBasicCarDoorList(List<String> _value) {
-    _insuranceBasicCarDoorList = _value;
+  set insuranceBasicCarDoorList(List<String> value) {
+    _insuranceBasicCarDoorList = value;
   }
 
-  void addToInsuranceBasicCarDoorList(String _value) {
-    _insuranceBasicCarDoorList.add(_value);
+  void addToInsuranceBasicCarDoorList(String value) {
+    insuranceBasicCarDoorList.add(value);
   }
 
-  void removeFromInsuranceBasicCarDoorList(String _value) {
-    _insuranceBasicCarDoorList.remove(_value);
+  void removeFromInsuranceBasicCarDoorList(String value) {
+    insuranceBasicCarDoorList.remove(value);
   }
 
-  void removeAtIndexFromInsuranceBasicCarDoorList(int _index) {
-    _insuranceBasicCarDoorList.removeAt(_index);
+  void removeAtIndexFromInsuranceBasicCarDoorList(int index) {
+    insuranceBasicCarDoorList.removeAt(index);
   }
 
   void updateInsuranceBasicCarDoorListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _insuranceBasicCarDoorList[_index] =
-        updateFn(_insuranceBasicCarDoorList[_index]);
+    insuranceBasicCarDoorList[index] =
+        updateFn(_insuranceBasicCarDoorList[index]);
   }
 
-  void insertAtIndexInInsuranceBasicCarDoorList(int _index, String _value) {
-    _insuranceBasicCarDoorList.insert(_index, _value);
+  void insertAtIndexInInsuranceBasicCarDoorList(int index, String value) {
+    insuranceBasicCarDoorList.insert(index, value);
   }
 
   String _insuranceBasicCarTypeDoors = '';
   String get insuranceBasicCarTypeDoors => _insuranceBasicCarTypeDoors;
-  set insuranceBasicCarTypeDoors(String _value) {
-    _insuranceBasicCarTypeDoors = _value;
+  set insuranceBasicCarTypeDoors(String value) {
+    _insuranceBasicCarTypeDoors = value;
   }
 
   dynamic _jsonTemp;
   dynamic get jsonTemp => _jsonTemp;
-  set jsonTemp(dynamic _value) {
-    _jsonTemp = _value;
+  set jsonTemp(dynamic value) {
+    _jsonTemp = value;
   }
 
   bool _isProcessing = false;
   bool get isProcessing => _isProcessing;
-  set isProcessing(bool _value) {
-    _isProcessing = _value;
+  set isProcessing(bool value) {
+    _isProcessing = value;
   }
 
   bool _homeMenuIsExpanded = true;
   bool get homeMenuIsExpanded => _homeMenuIsExpanded;
-  set homeMenuIsExpanded(bool _value) {
-    _homeMenuIsExpanded = _value;
+  set homeMenuIsExpanded(bool value) {
+    _homeMenuIsExpanded = value;
   }
 
   bool _viewVmiButtonIsOldVmi = false;
   bool get viewVmiButtonIsOldVmi => _viewVmiButtonIsOldVmi;
-  set viewVmiButtonIsOldVmi(bool _value) {
-    _viewVmiButtonIsOldVmi = _value;
+  set viewVmiButtonIsOldVmi(bool value) {
+    _viewVmiButtonIsOldVmi = value;
   }
 
   bool _isTouchVmiButton = false;
   bool get isTouchVmiButton => _isTouchVmiButton;
-  set isTouchVmiButton(bool _value) {
-    _isTouchVmiButton = _value;
+  set isTouchVmiButton(bool value) {
+    _isTouchVmiButton = value;
   }
 
   String _renewPaymentType = '';
   String get renewPaymentType => _renewPaymentType;
-  set renewPaymentType(String _value) {
-    _renewPaymentType = _value;
+  set renewPaymentType(String value) {
+    _renewPaymentType = value;
   }
 
   String _renewBranchCode = '';
   String get renewBranchCode => _renewBranchCode;
-  set renewBranchCode(String _value) {
-    _renewBranchCode = _value;
+  set renewBranchCode(String value) {
+    _renewBranchCode = value;
   }
 
   String _renewBranchName = '';
   String get renewBranchName => _renewBranchName;
-  set renewBranchName(String _value) {
-    _renewBranchName = _value;
+  set renewBranchName(String value) {
+    _renewBranchName = value;
   }
 
   dynamic _jsonDataRenew;
   dynamic get jsonDataRenew => _jsonDataRenew;
-  set jsonDataRenew(dynamic _value) {
-    _jsonDataRenew = _value;
+  set jsonDataRenew(dynamic value) {
+    _jsonDataRenew = value;
   }
 
   String _flagRenew = '';
   String get flagRenew => _flagRenew;
-  set flagRenew(String _value) {
-    _flagRenew = _value;
+  set flagRenew(String value) {
+    _flagRenew = value;
   }
 
   bool _nonePackageOldVmiFlag = false;
   bool get nonePackageOldVmiFlag => _nonePackageOldVmiFlag;
-  set nonePackageOldVmiFlag(bool _value) {
-    _nonePackageOldVmiFlag = _value;
+  set nonePackageOldVmiFlag(bool value) {
+    _nonePackageOldVmiFlag = value;
   }
 
   String _insuranceinfoActType = 'NONECMI';
   String get insuranceinfoActType => _insuranceinfoActType;
-  set insuranceinfoActType(String _value) {
-    _insuranceinfoActType = _value;
+  set insuranceinfoActType(String value) {
+    _insuranceinfoActType = value;
   }
 
   String _actCarType = '';
   String get actCarType => _actCarType;
-  set actCarType(String _value) {
-    _actCarType = _value;
+  set actCarType(String value) {
+    _actCarType = value;
   }
 
   String _actCoverType = '';
   String get actCoverType => _actCoverType;
-  set actCoverType(String _value) {
-    _actCoverType = _value;
+  set actCoverType(String value) {
+    _actCoverType = value;
   }
 
   String _actActAmount = '';
   String get actActAmount => _actActAmount;
-  set actActAmount(String _value) {
-    _actActAmount = _value;
+  set actActAmount(String value) {
+    _actActAmount = value;
   }
 
   String _actCoverTypeName = '';
   String get actCoverTypeName => _actCoverTypeName;
-  set actCoverTypeName(String _value) {
-    _actCoverTypeName = _value;
+  set actCoverTypeName(String value) {
+    _actCoverTypeName = value;
   }
 
   bool _actSelected = false;
   bool get actSelected => _actSelected;
-  set actSelected(bool _value) {
-    _actSelected = _value;
+  set actSelected(bool value) {
+    _actSelected = value;
   }
 
   String _insuranceinfoActAmountNet = '';
   String get insuranceinfoActAmountNet => _insuranceinfoActAmountNet;
-  set insuranceinfoActAmountNet(String _value) {
-    _insuranceinfoActAmountNet = _value;
+  set insuranceinfoActAmountNet(String value) {
+    _insuranceinfoActAmountNet = value;
   }
 
   bool _insuranceRequestIsLoadDataMc = false;
   bool get insuranceRequestIsLoadDataMc => _insuranceRequestIsLoadDataMc;
-  set insuranceRequestIsLoadDataMc(bool _value) {
-    _insuranceRequestIsLoadDataMc = _value;
+  set insuranceRequestIsLoadDataMc(bool value) {
+    _insuranceRequestIsLoadDataMc = value;
   }
 
   String _searchPackageSubProduct = '';
   String get searchPackageSubProduct => _searchPackageSubProduct;
-  set searchPackageSubProduct(String _value) {
-    _searchPackageSubProduct = _value;
+  set searchPackageSubProduct(String value) {
+    _searchPackageSubProduct = value;
   }
 
   String _apiUrlCmiAppState = 'api_url_cmi';
   String get apiUrlCmiAppState => _apiUrlCmiAppState;
-  set apiUrlCmiAppState(String _value) {
-    _apiUrlCmiAppState = _value;
+  set apiUrlCmiAppState(String value) {
+    _apiUrlCmiAppState = value;
   }
 
   DocumentReference? _generaliContentDocRef =
       FirebaseFirestore.instance.doc('/hideInAppContent/n7wRJ5Xq8tuMSZYbfdfs');
   DocumentReference? get generaliContentDocRef => _generaliContentDocRef;
-  set generaliContentDocRef(DocumentReference? _value) {
-    _generaliContentDocRef = _value;
+  set generaliContentDocRef(DocumentReference? value) {
+    _generaliContentDocRef = value;
   }
 
   DocumentReference? _cmiContentDocRef =
       FirebaseFirestore.instance.doc('/hideInAppContent/dqncRBs7SdkCP4UetgIZ');
   DocumentReference? get cmiContentDocRef => _cmiContentDocRef;
-  set cmiContentDocRef(DocumentReference? _value) {
-    _cmiContentDocRef = _value;
+  set cmiContentDocRef(DocumentReference? value) {
+    _cmiContentDocRef = value;
   }
 
   List<String> _searchcc = [];
   List<String> get searchcc => _searchcc;
-  set searchcc(List<String> _value) {
-    _searchcc = _value;
+  set searchcc(List<String> value) {
+    _searchcc = value;
   }
 
-  void addToSearchcc(String _value) {
-    _searchcc.add(_value);
+  void addToSearchcc(String value) {
+    searchcc.add(value);
   }
 
-  void removeFromSearchcc(String _value) {
-    _searchcc.remove(_value);
+  void removeFromSearchcc(String value) {
+    searchcc.remove(value);
   }
 
-  void removeAtIndexFromSearchcc(int _index) {
-    _searchcc.removeAt(_index);
+  void removeAtIndexFromSearchcc(int index) {
+    searchcc.removeAt(index);
   }
 
   void updateSearchccAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _searchcc[_index] = updateFn(_searchcc[_index]);
+    searchcc[index] = updateFn(_searchcc[index]);
   }
 
-  void insertAtIndexInSearchcc(int _index, String _value) {
-    _searchcc.insert(_index, _value);
+  void insertAtIndexInSearchcc(int index, String value) {
+    searchcc.insert(index, value);
   }
 
   String _insuranceinfoQuotationTypeName = '';
   String get insuranceinfoQuotationTypeName => _insuranceinfoQuotationTypeName;
-  set insuranceinfoQuotationTypeName(String _value) {
-    _insuranceinfoQuotationTypeName = _value;
+  set insuranceinfoQuotationTypeName(String value) {
+    _insuranceinfoQuotationTypeName = value;
   }
 
   String _insuranceinfoQuotationTypeBakName = '';
   String get insuranceinfoQuotationTypeBakName =>
       _insuranceinfoQuotationTypeBakName;
-  set insuranceinfoQuotationTypeBakName(String _value) {
-    _insuranceinfoQuotationTypeBakName = _value;
+  set insuranceinfoQuotationTypeBakName(String value) {
+    _insuranceinfoQuotationTypeBakName = value;
   }
 
   String _insuranceinfoSubProductName = '';
   String get insuranceinfoSubProductName => _insuranceinfoSubProductName;
-  set insuranceinfoSubProductName(String _value) {
-    _insuranceinfoSubProductName = _value;
+  set insuranceinfoSubProductName(String value) {
+    _insuranceinfoSubProductName = value;
   }
 
   String _page5RefundRemark = '';
   String get page5RefundRemark => _page5RefundRemark;
-  set page5RefundRemark(String _value) {
-    _page5RefundRemark = _value;
+  set page5RefundRemark(String value) {
+    _page5RefundRemark = value;
   }
 
   String _insuranceInfoQuotationType = '';
   String get insuranceInfoQuotationType => _insuranceInfoQuotationType;
-  set insuranceInfoQuotationType(String _value) {
-    _insuranceInfoQuotationType = _value;
+  set insuranceInfoQuotationType(String value) {
+    _insuranceInfoQuotationType = value;
   }
 
   DocumentReference? _insurerConfig2InactiveInsurer =
       FirebaseFirestore.instance.doc('/InsurerConfig2/hvT7Gz16JBaY3J2HE4SW');
   DocumentReference? get insurerConfig2InactiveInsurer =>
       _insurerConfig2InactiveInsurer;
-  set insurerConfig2InactiveInsurer(DocumentReference? _value) {
-    _insurerConfig2InactiveInsurer = _value;
+  set insurerConfig2InactiveInsurer(DocumentReference? value) {
+    _insurerConfig2InactiveInsurer = value;
   }
 
   String _InsuranceInfoVedioCallUrl = '';
   String get InsuranceInfoVedioCallUrl => _InsuranceInfoVedioCallUrl;
-  set InsuranceInfoVedioCallUrl(String _value) {
-    _InsuranceInfoVedioCallUrl = _value;
+  set InsuranceInfoVedioCallUrl(String value) {
+    _InsuranceInfoVedioCallUrl = value;
   }
 
   String _InsuranceInfoVedioCallFile = '';
   String get InsuranceInfoVedioCallFile => _InsuranceInfoVedioCallFile;
-  set InsuranceInfoVedioCallFile(String _value) {
-    _InsuranceInfoVedioCallFile = _value;
+  set InsuranceInfoVedioCallFile(String value) {
+    _InsuranceInfoVedioCallFile = value;
   }
 
   String _licenseSelectBeforeStep1 = '';
   String get licenseSelectBeforeStep1 => _licenseSelectBeforeStep1;
-  set licenseSelectBeforeStep1(String _value) {
-    _licenseSelectBeforeStep1 = _value;
+  set licenseSelectBeforeStep1(String value) {
+    _licenseSelectBeforeStep1 = value;
   }
 
   bool _isShowVideoCall = false;
   bool get isShowVideoCall => _isShowVideoCall;
-  set isShowVideoCall(bool _value) {
-    _isShowVideoCall = _value;
+  set isShowVideoCall(bool value) {
+    _isShowVideoCall = value;
   }
 
   bool _isOpenAndroidTableauBrowser = true;
   bool get isOpenAndroidTableauBrowser => _isOpenAndroidTableauBrowser;
-  set isOpenAndroidTableauBrowser(bool _value) {
-    _isOpenAndroidTableauBrowser = _value;
+  set isOpenAndroidTableauBrowser(bool value) {
+    _isOpenAndroidTableauBrowser = value;
   }
 
   DocumentReference? _hideContentTableauDocRef =
       FirebaseFirestore.instance.doc('/hideInAppContent/nCJPSG8ZMj2bNB5CehIX');
   DocumentReference? get hideContentTableauDocRef => _hideContentTableauDocRef;
-  set hideContentTableauDocRef(DocumentReference? _value) {
-    _hideContentTableauDocRef = _value;
+  set hideContentTableauDocRef(DocumentReference? value) {
+    _hideContentTableauDocRef = value;
   }
 
   List<DriverDataStruct> _DriverList = [];
   List<DriverDataStruct> get DriverList => _DriverList;
-  set DriverList(List<DriverDataStruct> _value) {
-    _DriverList = _value;
+  set DriverList(List<DriverDataStruct> value) {
+    _DriverList = value;
   }
 
-  void addToDriverList(DriverDataStruct _value) {
-    _DriverList.add(_value);
+  void addToDriverList(DriverDataStruct value) {
+    DriverList.add(value);
   }
 
-  void removeFromDriverList(DriverDataStruct _value) {
-    _DriverList.remove(_value);
+  void removeFromDriverList(DriverDataStruct value) {
+    DriverList.remove(value);
   }
 
-  void removeAtIndexFromDriverList(int _index) {
-    _DriverList.removeAt(_index);
+  void removeAtIndexFromDriverList(int index) {
+    DriverList.removeAt(index);
   }
 
   void updateDriverListAtIndex(
-    int _index,
+    int index,
     DriverDataStruct Function(DriverDataStruct) updateFn,
   ) {
-    _DriverList[_index] = updateFn(_DriverList[_index]);
+    DriverList[index] = updateFn(_DriverList[index]);
   }
 
-  void insertAtIndexInDriverList(int _index, DriverDataStruct _value) {
-    _DriverList.insert(_index, _value);
+  void insertAtIndexInDriverList(int index, DriverDataStruct value) {
+    DriverList.insert(index, value);
   }
 
   bool _insuranceRequestisLoadDataEV = false;
   bool get insuranceRequestisLoadDataEV => _insuranceRequestisLoadDataEV;
-  set insuranceRequestisLoadDataEV(bool _value) {
-    _insuranceRequestisLoadDataEV = _value;
+  set insuranceRequestisLoadDataEV(bool value) {
+    _insuranceRequestisLoadDataEV = value;
   }
 
   String _insuranceInfoApplicationId = '';
   String get insuranceInfoApplicationId => _insuranceInfoApplicationId;
-  set insuranceInfoApplicationId(String _value) {
-    _insuranceInfoApplicationId = _value;
+  set insuranceInfoApplicationId(String value) {
+    _insuranceInfoApplicationId = value;
   }
 
   String _insuranceInfoEvFlag = '';
   String get insuranceInfoEvFlag => _insuranceInfoEvFlag;
-  set insuranceInfoEvFlag(String _value) {
-    _insuranceInfoEvFlag = _value;
+  set insuranceInfoEvFlag(String value) {
+    _insuranceInfoEvFlag = value;
   }
 
   int _loopCountTemp = 0;
   int get loopCountTemp => _loopCountTemp;
-  set loopCountTemp(int _value) {
-    _loopCountTemp = _value;
+  set loopCountTemp(int value) {
+    _loopCountTemp = value;
   }
 
   List<String> _titleDriverList = [];
   List<String> get titleDriverList => _titleDriverList;
-  set titleDriverList(List<String> _value) {
-    _titleDriverList = _value;
+  set titleDriverList(List<String> value) {
+    _titleDriverList = value;
   }
 
-  void addToTitleDriverList(String _value) {
-    _titleDriverList.add(_value);
+  void addToTitleDriverList(String value) {
+    titleDriverList.add(value);
   }
 
-  void removeFromTitleDriverList(String _value) {
-    _titleDriverList.remove(_value);
+  void removeFromTitleDriverList(String value) {
+    titleDriverList.remove(value);
   }
 
-  void removeAtIndexFromTitleDriverList(int _index) {
-    _titleDriverList.removeAt(_index);
+  void removeAtIndexFromTitleDriverList(int index) {
+    titleDriverList.removeAt(index);
   }
 
   void updateTitleDriverListAtIndex(
-    int _index,
+    int index,
     String Function(String) updateFn,
   ) {
-    _titleDriverList[_index] = updateFn(_titleDriverList[_index]);
+    titleDriverList[index] = updateFn(_titleDriverList[index]);
   }
 
-  void insertAtIndexInTitleDriverList(int _index, String _value) {
-    _titleDriverList.insert(_index, _value);
+  void insertAtIndexInTitleDriverList(int index, String value) {
+    titleDriverList.insert(index, value);
   }
 
   String _searchPackageEvFlag = '';
   String get searchPackageEvFlag => _searchPackageEvFlag;
-  set searchPackageEvFlag(String _value) {
-    _searchPackageEvFlag = _value;
+  set searchPackageEvFlag(String value) {
+    _searchPackageEvFlag = value;
   }
 
   String _insuranceInfoBatteryNumber1 = '';
   String get insuranceInfoBatteryNumber1 => _insuranceInfoBatteryNumber1;
-  set insuranceInfoBatteryNumber1(String _value) {
-    _insuranceInfoBatteryNumber1 = _value;
+  set insuranceInfoBatteryNumber1(String value) {
+    _insuranceInfoBatteryNumber1 = value;
   }
 
   String _insuranceInfoBatteryNumber2 = '';
   String get insuranceInfoBatteryNumber2 => _insuranceInfoBatteryNumber2;
-  set insuranceInfoBatteryNumber2(String _value) {
-    _insuranceInfoBatteryNumber2 = _value;
+  set insuranceInfoBatteryNumber2(String value) {
+    _insuranceInfoBatteryNumber2 = value;
   }
 
   String _insuranceInfoWallChargerNumber = '';
   String get insuranceInfoWallChargerNumber => _insuranceInfoWallChargerNumber;
-  set insuranceInfoWallChargerNumber(String _value) {
-    _insuranceInfoWallChargerNumber = _value;
+  set insuranceInfoWallChargerNumber(String value) {
+    _insuranceInfoWallChargerNumber = value;
   }
 }
 

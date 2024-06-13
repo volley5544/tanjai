@@ -55,114 +55,133 @@ class DriverDataStruct extends FFFirebaseStruct {
   String? _driverId;
   String get driverId => _driverId ?? '';
   set driverId(String? val) => _driverId = val;
+
   bool hasDriverId() => _driverId != null;
 
   // "driver_no" field.
   String? _driverNo;
   String get driverNo => _driverNo ?? '';
   set driverNo(String? val) => _driverNo = val;
+
   bool hasDriverNo() => _driverNo != null;
 
   // "application_id" field.
   String? _applicationId;
   String get applicationId => _applicationId ?? '';
   set applicationId(String? val) => _applicationId = val;
+
   bool hasApplicationId() => _applicationId != null;
 
   // "id_type_id" field.
   String? _idTypeId;
   String get idTypeId => _idTypeId ?? '';
   set idTypeId(String? val) => _idTypeId = val;
+
   bool hasIdTypeId() => _idTypeId != null;
 
   // "national_thai_id" field.
   String? _nationalThaiId;
   String get nationalThaiId => _nationalThaiId ?? '';
   set nationalThaiId(String? val) => _nationalThaiId = val;
+
   bool hasNationalThaiId() => _nationalThaiId != null;
 
   // "license_no" field.
   String? _licenseNo;
   String get licenseNo => _licenseNo ?? '';
   set licenseNo(String? val) => _licenseNo = val;
+
   bool hasLicenseNo() => _licenseNo != null;
 
   // "gender" field.
   String? _gender;
   String get gender => _gender ?? '';
   set gender(String? val) => _gender = val;
+
   bool hasGender() => _gender != null;
 
   // "title_th_id" field.
   String? _titleThId;
   String get titleThId => _titleThId ?? '';
   set titleThId(String? val) => _titleThId = val;
+
   bool hasTitleThId() => _titleThId != null;
 
   // "title_th" field.
   String? _titleTh;
   String get titleTh => _titleTh ?? '';
   set titleTh(String? val) => _titleTh = val;
+
   bool hasTitleTh() => _titleTh != null;
 
   // "first_name_th" field.
   String? _firstNameTh;
   String get firstNameTh => _firstNameTh ?? '';
   set firstNameTh(String? val) => _firstNameTh = val;
+
   bool hasFirstNameTh() => _firstNameTh != null;
 
   // "last_name_th" field.
   String? _lastNameTh;
   String get lastNameTh => _lastNameTh ?? '';
   set lastNameTh(String? val) => _lastNameTh = val;
+
   bool hasLastNameTh() => _lastNameTh != null;
 
   // "birth_day" field.
   String? _birthDay;
   String get birthDay => _birthDay ?? '';
   set birthDay(String? val) => _birthDay = val;
+
   bool hasBirthDay() => _birthDay != null;
 
   // "image_idcard" field.
   String? _imageIdcard;
   String get imageIdcard => _imageIdcard ?? '';
   set imageIdcard(String? val) => _imageIdcard = val;
+
   bool hasImageIdcard() => _imageIdcard != null;
 
   // "image_license_no" field.
   String? _imageLicenseNo;
   String get imageLicenseNo => _imageLicenseNo ?? '';
   set imageLicenseNo(String? val) => _imageLicenseNo = val;
+
   bool hasImageLicenseNo() => _imageLicenseNo != null;
 
   // "occupation_id" field.
   String? _occupationId;
   String get occupationId => _occupationId ?? '';
   set occupationId(String? val) => _occupationId = val;
+
   bool hasOccupationId() => _occupationId != null;
 
   // "occupation_code" field.
   String? _occupationCode;
   String get occupationCode => _occupationCode ?? '';
   set occupationCode(String? val) => _occupationCode = val;
+
   bool hasOccupationCode() => _occupationCode != null;
 
   // "occupation_name" field.
   String? _occupationName;
   String get occupationName => _occupationName ?? '';
   set occupationName(String? val) => _occupationName = val;
+
   bool hasOccupationName() => _occupationName != null;
 
   // "occupation_subcode" field.
   String? _occupationSubcode;
   String get occupationSubcode => _occupationSubcode ?? '';
   set occupationSubcode(String? val) => _occupationSubcode = val;
+
   bool hasOccupationSubcode() => _occupationSubcode != null;
 
   // "occupation_subname" field.
   String? _occupationSubname;
   String get occupationSubname => _occupationSubname ?? '';
   set occupationSubname(String? val) => _occupationSubname = val;
+
   bool hasOccupationSubname() => _occupationSubname != null;
 
   static DriverDataStruct fromMap(Map<String, dynamic> data) =>

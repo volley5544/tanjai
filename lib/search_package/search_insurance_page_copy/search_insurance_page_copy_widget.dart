@@ -235,7 +235,7 @@ class _SearchInsurancePageCopyWidgetState
                                               FFAppState()
                                                   .insuranceBasicVehicleTypeDropdownList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -388,7 +388,7 @@ class _SearchInsurancePageCopyWidgetState
                                             FFAppState()
                                                 .insuranceBasicBrandNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -534,7 +534,7 @@ class _SearchInsurancePageCopyWidgetState
                                               FFAppState()
                                                   .insuranceBasicModelNameList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -688,7 +688,7 @@ class _SearchInsurancePageCopyWidgetState
                                                 .ganerateYearList(2500, 2567)
                                                 ?.toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -839,7 +839,7 @@ class _SearchInsurancePageCopyWidgetState
                                                     .insuranceBasicVehicleUsedTypeNameList
                                                     .toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -1000,7 +1000,7 @@ class _SearchInsurancePageCopyWidgetState
                                             FFAppState()
                                                 .insuranceBasicCoverTypeNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -1154,7 +1154,7 @@ class _SearchInsurancePageCopyWidgetState
                                             FFAppState()
                                                 .insuranceBasicGarageTypeNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -1307,7 +1307,7 @@ class _SearchInsurancePageCopyWidgetState
                                               FFAppState()
                                                   .insuranceInfoRegistrationprovinceList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -1838,7 +1838,7 @@ class _SearchInsurancePageCopyWidgetState
                                     FFAppState()
                                         .insuranceBasicCoverTypeCodeOutputList,
                                     ParamType.String,
-                                    true,
+                                    isList: true,
                                   ),
                                   'garageType': serializeParam(
                                     functions.createGarageTypeCodeList(
@@ -1846,7 +1846,7 @@ class _SearchInsurancePageCopyWidgetState
                                             .insuranceBasicGarageTypeInPackage
                                             .toList()),
                                     ParamType.String,
-                                    true,
+                                    isList: true,
                                   ),
                                   'brandName': serializeParam(
                                     FFAppState().insuranceBasicBrandName,

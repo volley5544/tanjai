@@ -738,7 +738,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             FFAppState()
                                                 .insuranceBasicVehicleTypeDropdownList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -890,7 +890,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                             FFAppState()
                                                 .insuranceBasicBrandNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -1065,7 +1065,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                               FFAppState()
                                                   .insuranceBasicModelNameList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -1219,7 +1219,7 @@ class _InformationCustomer2WidgetState extends State<InformationCustomer2Widget>
                                                 .ganerateYearList(2500, 2567)
                                                 ?.toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,

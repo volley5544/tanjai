@@ -588,7 +588,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.quotation_type_name''',
-                                                                            )
+                                                                            ).toString()
                                                                         ? false
                                                                         : true)
                                                                       Row(
@@ -612,7 +612,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.sum_insured''',
-                                                                                    )
+                                                                                    ).toString()
                                                                                 ? getJsonField(
                                                                                     widget.list![leadListItemIndex],
                                                                                     r'''$.sum_insured''',
@@ -804,12 +804,12 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.pdf_quotation''',
-                                                                            )) &&
+                                                                            ).toString()) &&
                                                                         ('manual' ==
                                                                                 getJsonField(
                                                                                   widget.list?[leadListItemIndex],
                                                                                   r'''$.quotation_type''',
-                                                                                )
+                                                                                ).toString()
                                                                             ? ('ปฏิเสธ' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
                                                                                   widget.list?[leadListItemIndex],
@@ -849,7 +849,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                         .map<String>((s) => s.toString())
                                                                                         .toList(),
                                                                                     ParamType.String,
-                                                                                    true,
+                                                                                    isList: true,
                                                                                   ),
                                                                                 }.withoutNulls,
                                                                               );
@@ -885,7 +885,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           widget
                                                                               .list?[leadListItemIndex],
                                                                           r'''$.quotation_status''',
-                                                                        ))
+                                                                        ).toString())
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -1001,7 +1001,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           widget
                                                                               .list?[leadListItemIndex],
                                                                           r'''$.quotation_type''',
-                                                                        ))
+                                                                        ).toString())
                                                                       Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
@@ -1137,7 +1137,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.quotation_type''',
-                                                                            )) &&
+                                                                            ).toString()) &&
                                                                         (('-' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
                                                                                   widget.list?[leadListItemIndex],
@@ -1268,7 +1268,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.net_premium_total''',
-                                                                              )
+                                                                              ).toString()
                                                                           ? getJsonField(
                                                                               widget.list![leadListItemIndex],
                                                                               r'''$.net_premium_total''',

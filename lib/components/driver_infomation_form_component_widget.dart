@@ -250,7 +250,7 @@ class _DriverInfomationFormComponentWidgetState
                               'dataList': serializeParam(
                                 widget.firestoreDataConfigList?.gender,
                                 ParamType.String,
-                                true,
+                                isList: true,
                               ),
                               'multiSelect': serializeParam(
                                 false,
@@ -422,7 +422,7 @@ class _DriverInfomationFormComponentWidgetState
                                         : widget
                                             .firestoreDataConfigList?.title2,
                                     ParamType.String,
-                                    true,
+                                    isList: true,
                                   ),
                                   'multiSelect': serializeParam(
                                     false,
@@ -998,7 +998,7 @@ class _DriverInfomationFormComponentWidgetState
                                 'dataList': serializeParam(
                                   FFAppState().insuranceInfoOccupationSubName,
                                   ParamType.String,
-                                  true,
+                                  isList: true,
                                 ),
                                 'multiSelect': serializeParam(
                                   false,
@@ -1157,7 +1157,7 @@ class _DriverInfomationFormComponentWidgetState
                                 'dataList': serializeParam(
                                   FFAppState().addAddressKeyWord,
                                   ParamType.String,
-                                  true,
+                                  isList: true,
                                 ),
                                 'multiSelect': serializeParam(
                                   false,

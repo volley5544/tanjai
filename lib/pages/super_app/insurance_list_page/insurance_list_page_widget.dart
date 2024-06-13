@@ -4742,7 +4742,8 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                       ),
                                                                       ParamType
                                                                           .JSON,
-                                                                      true,
+                                                                      isList:
+                                                                          true,
                                                                     ),
                                                                     'checkPayment':
                                                                         serializeParam(

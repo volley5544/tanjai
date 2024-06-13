@@ -984,7 +984,7 @@ class _SearchableCarListPageWidgetState
                                                       FFAppState()
                                                           .insuranceBasicVehicleTypeDropdownList,
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'multiSelect':
                                                         serializeParam(
@@ -1067,7 +1067,7 @@ class _SearchableCarListPageWidgetState
                                                         FFAppState()
                                                             .insuranceBasicVehicleTypeDropdownList,
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'multiSelect':
                                                           serializeParam(
@@ -1126,7 +1126,7 @@ class _SearchableCarListPageWidgetState
                                                           FFAppState()
                                                               .insuranceBasicVehicleTypeDropdownList,
                                                           ParamType.String,
-                                                          true,
+                                                          isList: true,
                                                         ),
                                                         'multiSelect':
                                                             serializeParam(

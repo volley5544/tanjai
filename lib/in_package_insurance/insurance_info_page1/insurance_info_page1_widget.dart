@@ -1329,37 +1329,64 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
       setState(() {
         _model.idCardTextFieldTextController1?.text =
             FFAppState().insuranceInfoIdCard;
+        _model.idCardTextFieldTextController1?.selection =
+            TextSelection.collapsed(
+                offset: _model.idCardTextFieldTextController1!.text.length);
       });
       setState(() {
         _model.cusNameTextFieldTextController?.text =
             FFAppState().insuranceInfoFirstName;
+        _model.cusNameTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset: _model.cusNameTextFieldTextController!.text.length);
       });
       setState(() {
         _model.cusLastnameTextFieldTextController?.text =
             FFAppState().insuranceInfoLastName;
+        _model.cusLastnameTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset: _model.cusLastnameTextFieldTextController!.text.length);
       });
       setState(() {
         _model.cusOcputationTextFieldTextController?.text =
             FFAppState().insuranceInfoSelectOccupationSubNameChoose;
+        _model.cusOcputationTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset:
+                    _model.cusOcputationTextFieldTextController!.text.length);
       });
       setState(() {
         _model.cusPhoneTextFieldTextController?.text =
             FFAppState().insuranceInfoPhonenumber;
+        _model.cusPhoneTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset: _model.cusPhoneTextFieldTextController!.text.length);
       });
       setState(() {
         _model.cusPhoneOtherTextFieldTextController?.text =
             FFAppState().insuranceInfoOtherPhone;
+        _model.cusPhoneOtherTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset:
+                    _model.cusPhoneOtherTextFieldTextController!.text.length);
       });
       setState(() {
         _model.emailTextFieldTextController?.text =
             FFAppState().insuranceInfoEmail;
+        _model.emailTextFieldTextController?.selection =
+            TextSelection.collapsed(
+                offset: _model.emailTextFieldTextController!.text.length);
       });
       setState(() {
         _model.ageTextFieldTextController?.text = FFAppState().insuranceInfoAge;
+        _model.ageTextFieldTextController?.selection = TextSelection.collapsed(
+            offset: _model.ageTextFieldTextController!.text.length);
       });
       setState(() {
         _model.licenseCodeTextController?.text =
             FFAppState().insuranceInfoLicenseEmployeeId;
+        _model.licenseCodeTextController?.selection = TextSelection.collapsed(
+            offset: _model.licenseCodeTextController!.text.length);
       });
       if (FFAppState().insuranceInfoSelectOccupationName != null &&
           FFAppState().insuranceInfoSelectOccupationName != '') {
@@ -1513,6 +1540,8 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         setState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
+          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
+              offset: _model.licenseCodeTextController!.text.length);
         });
         Navigator.pop(context);
       }
@@ -2040,7 +2069,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               'dataList': serializeParam(
                                                 columnDataListRecord?.cardType,
                                                 ParamType.String,
-                                                true,
+                                                isList: true,
                                               ),
                                               'multiSelect': serializeParam(
                                                 false,
@@ -3356,7 +3385,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                               'dataList': serializeParam(
                                                 FFAppState().gender,
                                                 ParamType.String,
-                                                true,
+                                                isList: true,
                                               ),
                                               'multiSelect': serializeParam(
                                                 false,
@@ -3546,7 +3575,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                       : columnDataListRecord
                                                           ?.title2,
                                                   ParamType.String,
-                                                  true,
+                                                  isList: true,
                                                 ),
                                                 'multiSelect': serializeParam(
                                                   false,
@@ -4026,6 +4055,13 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                               _model
                                                                   .datePicked)!
                                                           .toString();
+                                                  _model.ageTextFieldTextController
+                                                          ?.selection =
+                                                      TextSelection.collapsed(
+                                                          offset: _model
+                                                              .ageTextFieldTextController!
+                                                              .text
+                                                              .length);
                                                 });
                                                 await actions
                                                     .hideKeyboardAction(
@@ -4383,7 +4419,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                         .insuranceInfoOccupationName
                                                         .toList()),
                                                 ParamType.String,
-                                                true,
+                                                isList: true,
                                               ),
                                               'multiSelect': serializeParam(
                                                 false,
@@ -4562,7 +4598,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                                                   FFAppState()
                                                       .insuranceInfoSelectOccupationSubName,
                                                   ParamType.String,
-                                                  true,
+                                                  isList: true,
                                                 ),
                                                 'multiSelect': serializeParam(
                                                   false,

@@ -300,7 +300,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                             ''),
                                       ),
                                       ParamType.JSON,
-                                      true,
+                                      isList: true,
                                     ),
                                     'checkPayment': serializeParam(
                                       '0',

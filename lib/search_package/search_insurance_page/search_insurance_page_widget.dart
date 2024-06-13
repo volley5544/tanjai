@@ -1493,7 +1493,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               FFAppState()
                                                   .insuranceBasicVehicleTypeDropdownList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -1646,7 +1646,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             FFAppState()
                                                 .insuranceBasicBrandNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -1792,7 +1792,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               FFAppState()
                                                   .insuranceBasicModelNameList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -1946,7 +1946,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                 .ganerateYearList(2500, 2567)
                                                 ?.toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -2097,7 +2097,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                                     .insuranceBasicVehicleUsedTypeNameList
                                                     .toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             false,
@@ -2258,7 +2258,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             FFAppState()
                                                 .insuranceBasicCoverTypeNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -2412,7 +2412,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             FFAppState()
                                                 .insuranceBasicGarageTypeNameList,
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -2565,7 +2565,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                               FFAppState()
                                                   .insuranceInfoRegistrationprovinceList,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,
@@ -3096,7 +3096,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     FFAppState()
                                         .insuranceBasicCoverTypeCodeOutputList,
                                     ParamType.String,
-                                    true,
+                                    isList: true,
                                   ),
                                   'garageType': serializeParam(
                                     functions.createGarageTypeCodeList(
@@ -3104,7 +3104,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                             .insuranceBasicGarageTypeInPackage
                                             .toList()),
                                     ParamType.String,
-                                    true,
+                                    isList: true,
                                   ),
                                   'brandName': serializeParam(
                                     FFAppState().insuranceBasicBrandName,

@@ -416,6 +416,8 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         setState(() {
           _model.licenseCodeTextController?.text =
               FFAppState().insuranceInfoLicenseEmployeeId;
+          _model.licenseCodeTextController?.selection = TextSelection.collapsed(
+              offset: _model.licenseCodeTextController!.text.length);
         });
         Navigator.pop(context);
       } else {

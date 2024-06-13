@@ -153,6 +153,8 @@ final parametersBuilderMap =
           'year': getParameter<String>(data, 'year'),
           'driverType': getParameter<String>(data, 'driverType'),
           'yearProduct': getParameter<String>(data, 'yearProduct'),
+          'insurerConfig2': await getDocumentParameter<InsurerConfig2Record>(
+              data, 'insurerConfig2', InsurerConfig2Record.fromSnapshot),
         },
       ),
   'insuranceListPage': (data) async => ParameterData(
@@ -231,6 +233,8 @@ final parametersBuilderMap =
               getParameter<String>(data, 'contractProcessstate'),
           'insurerCondition': getParameter<String>(data, 'insurerCondition'),
           'cc': getParameter<String>(data, 'cc'),
+          'insurerConfig': await getDocumentParameter<InsurerConfig2Record>(
+              data, 'insurerConfig', InsurerConfig2Record.fromSnapshot),
         },
       ),
   'NonePackageEditPage1': ParameterData.none(),
@@ -375,7 +379,6 @@ final parametersBuilderMap =
           'quotationId': getParameter<String>(data, 'quotationId'),
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
           'actFlag': getParameter<bool>(data, 'actFlag'),
-          'accessoryFlag': getParameter<bool>(data, 'accessoryFlag'),
         },
       ),
   'PaywithBarcode': ParameterData.none(),

@@ -303,7 +303,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                         'dataList': serializeParam(
                                           FFAppState().addAddressKeyWord,
                                           ParamType.String,
-                                          true,
+                                          isList: true,
                                         ),
                                         'multiSelect': serializeParam(
                                           false,
@@ -1111,7 +1111,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
                                             'dataList': serializeParam(
                                               FFAppState().addAddressKeyWord,
                                               ParamType.String,
-                                              true,
+                                              isList: true,
                                             ),
                                             'multiSelect': serializeParam(
                                               false,

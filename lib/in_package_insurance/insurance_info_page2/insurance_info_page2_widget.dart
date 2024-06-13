@@ -1057,7 +1057,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           FFAppState()
                                                               .insuranceBasicVehicleTypeDropdownList,
                                                           ParamType.String,
-                                                          true,
+                                                          isList: true,
                                                         ),
                                                         'multiSelect':
                                                             serializeParam(
@@ -3818,7 +3818,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                   2500, 2567)
                                                               ?.toList()),
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'multiSelect':
                                                         serializeParam(
@@ -4012,7 +4012,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                     1957, 2023)
                                                                 ?.toList()),
                                                         ParamType.String,
-                                                        true,
+                                                        isList: true,
                                                       ),
                                                       'multiSelect':
                                                           serializeParam(
@@ -4203,7 +4203,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       FFAppState()
                                                           .insuranceInfoRegistrationprovinceList,
                                                       ParamType.String,
-                                                      true,
+                                                      isList: true,
                                                     ),
                                                     'multiSelect':
                                                         serializeParam(
@@ -4463,7 +4463,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList()),
                                                     ParamType.String,
-                                                    true,
+                                                    isList: true,
                                                   ),
                                                   'multiSelect': serializeParam(
                                                     false,

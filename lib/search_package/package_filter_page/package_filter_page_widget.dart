@@ -239,7 +239,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     .searchSerialName
                                                     .toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -387,7 +387,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     .searchCoverType
                                                     .toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,
@@ -535,7 +535,7 @@ class _PackageFilterPageWidgetState extends State<PackageFilterPageWidget>
                                                     .searchGarageType
                                                     .toList()),
                                             ParamType.String,
-                                            true,
+                                            isList: true,
                                           ),
                                           'multiSelect': serializeParam(
                                             true,

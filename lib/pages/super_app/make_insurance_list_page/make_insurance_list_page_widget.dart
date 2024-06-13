@@ -589,7 +589,7 @@ class _MakeInsuranceListPageWidgetState
                                                               widget.list?[
                                                                   leadListItemIndex],
                                                               r'''$.payment_status''',
-                                                            ))),
+                                                            ).toString())),
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
@@ -803,7 +803,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           getJsonField(
                                                                             widget.list?[leadListItemIndex],
                                                                             r'''$.sub_product''',
-                                                                          ))
+                                                                          ).toString())
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -839,12 +839,12 @@ class _MakeInsuranceListPageWidgetState
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_type_name''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('CMI' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.sub_product''',
-                                                                                  ))
+                                                                                  ).toString())
                                                                           ? false
                                                                           : true)
                                                                         Row(
@@ -868,7 +868,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                       getJsonField(
                                                                                         widget.list?[leadListItemIndex],
                                                                                         r'''$.sum_insured''',
-                                                                                      )
+                                                                                      ).toString()
                                                                                   ? getJsonField(
                                                                                       widget.list![leadListItemIndex],
                                                                                       r'''$.sum_insured''',
@@ -887,7 +887,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           getJsonField(
                                                                             widget.list?[leadListItemIndex],
                                                                             r'''$.sub_product''',
-                                                                          ))
+                                                                          ).toString())
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -910,7 +910,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         getJsonField(
                                                                                           widget.list?[leadListItemIndex],
                                                                                           r'''$.act_total''',
-                                                                                        )
+                                                                                        ).toString()
                                                                                     ? functions.showNumberWithComma(getJsonField(
                                                                                         widget.list?[leadListItemIndex],
                                                                                         r'''$.act_total''',
@@ -931,7 +931,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           getJsonField(
                                                                             widget.list?[leadListItemIndex],
                                                                             r'''$.sub_product''',
-                                                                          ))
+                                                                          ).toString())
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -1175,12 +1175,12 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.pdf_quotation''',
-                                                                              )) &&
+                                                                              ).toString()) &&
                                                                           ('manual' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_type''',
-                                                                                  )
+                                                                                  ).toString()
                                                                               ? ('ปฏิเสธ' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
                                                                                     widget.list?[leadListItemIndex],
@@ -1191,7 +1191,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.sub_product''',
-                                                                              )))
+                                                                              ).toString()))
                                                                         Row(
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
@@ -1224,7 +1224,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                           .map<String>((s) => s.toString())
                                                                                           .toList(),
                                                                                       ParamType.String,
-                                                                                      true,
+                                                                                      isList: true,
                                                                                     ),
                                                                                   }.withoutNulls,
                                                                                 );
@@ -1257,12 +1257,12 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.quotation_status''',
-                                                                              )) &&
+                                                                              ).toString()) &&
                                                                           ('CMI' !=
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.sub_product''',
-                                                                              )))
+                                                                              ).toString()))
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
@@ -1429,12 +1429,12 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.quotation_status''',
-                                                                              )) &&
+                                                                              ).toString()) &&
                                                                           ('1' ==
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.flg_act''',
-                                                                              )))
+                                                                              ).toString()))
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
@@ -1549,7 +1549,7 @@ class _MakeInsuranceListPageWidgetState
                                                                           getJsonField(
                                                                             widget.list?[leadListItemIndex],
                                                                             r'''$.quotation_type''',
-                                                                          ))
+                                                                          ).toString())
                                                                         Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
@@ -1685,7 +1685,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.quotation_type''',
-                                                                              )) &&
+                                                                              ).toString()) &&
                                                                           (('-' !=
                                                                                   functions.checkNullValueAndReturn(getJsonField(
                                                                                     widget.list?[leadListItemIndex],
@@ -1786,7 +1786,7 @@ class _MakeInsuranceListPageWidgetState
                                                                       widget.list?[
                                                                           leadListItemIndex],
                                                                       r'''$.sub_product''',
-                                                                    ))
+                                                                    ).toString())
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -1818,7 +1818,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.net_premium_total''',
-                                                                                  )
+                                                                                  ).toString()
                                                                               ? getJsonField(
                                                                                   widget.list![leadListItemIndex],
                                                                                   r'''$.net_premium_total''',
@@ -1842,7 +1842,7 @@ class _MakeInsuranceListPageWidgetState
                                                                       widget.list?[
                                                                           leadListItemIndex],
                                                                       r'''$.sub_product''',
-                                                                    ))
+                                                                    ).toString())
                                                                   Container(
                                                                     width:
                                                                         100.0,
@@ -1855,12 +1855,12 @@ class _MakeInsuranceListPageWidgetState
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
-                                                                                    )
+                                                                                    ).toString()
                                                                                 ? (('' !=
                                                                                         getJsonField(
                                                                                           widget.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
-                                                                                        )) &&
+                                                                                        ).toString()) &&
                                                                                     (functions.checkNullValueAndReturn(getJsonField(
                                                                                           widget.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
@@ -1870,7 +1870,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                         getJsonField(
                                                                                           widget.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
-                                                                                        )) &&
+                                                                                        ).toString()) &&
                                                                                     (functions.checkNullValueAndReturn(getJsonField(
                                                                                           widget.list?[leadListItemIndex],
                                                                                           r'''$.pdf_quotation''',
@@ -1880,7 +1880,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_type''',
-                                                                                    )
+                                                                                    ).toString()
                                                                                 ? ('ปฏิเสธ' !=
                                                                                     functions.checkNullValueAndReturn(getJsonField(
                                                                                       widget.list?[leadListItemIndex],
@@ -1891,14 +1891,14 @@ class _MakeInsuranceListPageWidgetState
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.is_active''',
-                                                                                    )
+                                                                                    ).toString()
                                                                                 ? true
                                                                                 : false)) ||
                                                                         ('CMI' ==
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.sub_product''',
-                                                                            ))
+                                                                            ).toString())
                                                                     ? true
                                                                     : false)
                                                                   FFButtonWidget(
@@ -2180,52 +2180,52 @@ class _MakeInsuranceListPageWidgetState
                                                                                 getJsonField(
                                                                                   widget.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
-                                                                                )) &&
+                                                                                ).toString()) &&
                                                                             ('รอตัดสินใจ' !=
                                                                                 getJsonField(
                                                                                   widget.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
-                                                                                )) &&
+                                                                                ).toString()) &&
                                                                             ('ส่งเรื่องขอใบเสนอราคา' !=
                                                                                 getJsonField(
                                                                                   widget.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
-                                                                                ))) {
+                                                                                ).toString())) {
                                                                           if (('อยู่ระหว่างตรวจสอบสภาพรถ' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('อนุมัติ' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('ไม่อนุมัติ' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('ส่งเรื่องให้บริษัทประกันพิจารณา' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('ยกเลิก' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('ขอคืนเงิน' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  )) ||
+                                                                                  ).toString()) ||
                                                                               ('โยกเงิน' ==
                                                                                   getJsonField(
                                                                                     widget.list?[leadListItemIndex],
                                                                                     r'''$.quotation_status''',
-                                                                                  ))) {
+                                                                                  ).toString())) {
                                                                             context.pushNamed(
                                                                               'insuranceInfoPage5',
                                                                               queryParameters: {
@@ -2281,7 +2281,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.quotation_type''',
-                                                                              )) {
+                                                                              ).toString()) {
                                                                             context.pushNamed(
                                                                               'insuranceInfoPage1',
                                                                               queryParameters: {
@@ -2310,7 +2310,7 @@ class _MakeInsuranceListPageWidgetState
                                                                                 getJsonField(
                                                                                   widget.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
-                                                                                )) {
+                                                                                ).toString()) {
                                                                               FFAppState().insuranceInfoPage1SaveDataCheckBool = false;
                                                                               FFAppState().insuranceInfoPage2SaveDataCheckBool = false;
                                                                               FFAppState().insuranceInfoPage3SaveDataCheckBool = false;
@@ -2410,7 +2410,7 @@ class _MakeInsuranceListPageWidgetState
                                                                             getJsonField(
                                                                               widget.list?[leadListItemIndex],
                                                                               r'''$.sub_product''',
-                                                                            )) {
+                                                                            ).toString()) {
                                                                           context
                                                                               .pushNamed(
                                                                             'insuranceInfoPage5',
@@ -2441,7 +2441,7 @@ class _MakeInsuranceListPageWidgetState
                                                                               getJsonField(
                                                                                 widget.list?[leadListItemIndex],
                                                                                 r'''$.VMI_documentUrl''',
-                                                                              )) {
+                                                                              ).toString()) {
                                                                             _model.getFileVmi =
                                                                                 await GetFileVmiApiCall.call(
                                                                               apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -2545,29 +2545,29 @@ class _MakeInsuranceListPageWidgetState
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
-                                                                                    )) ||
+                                                                                    ).toString()) ||
                                                                                 ('โยกเงิน' ==
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
-                                                                                    )) ||
+                                                                                    ).toString()) ||
                                                                                 ('ขอคืนเงิน' ==
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
-                                                                                    )) ||
+                                                                                    ).toString()) ||
                                                                                 ('ไม่อนุมัติ' ==
                                                                                     getJsonField(
                                                                                       widget.list?[leadListItemIndex],
                                                                                       r'''$.quotation_status''',
-                                                                                    ))
+                                                                                    ).toString())
                                                                             ? 'ดูรายละเอียด'
                                                                             : 'ทำประกัน');
                                                                       } else if ('CMI' ==
                                                                           getJsonField(
                                                                             widget.list?[leadListItemIndex],
                                                                             r'''$.sub_product''',
-                                                                          )) {
+                                                                          ).toString()) {
                                                                         return 'ทำ พ.ร.บ';
                                                                       } else {
                                                                         return 'ดูกรมธรรม์';

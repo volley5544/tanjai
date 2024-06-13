@@ -70,7 +70,6 @@ class SuperAppPageModel extends FlutterFlowModel<SuperAppPageWidget> {
   HideInAppContentRecord? isShowVideoFirebaseBool;
   // State field(s) for Carousel widget.
   CarouselController? carouselController;
-
   int carouselCurrentIndex = 0;
 
   // State field(s) for PageView widget.
