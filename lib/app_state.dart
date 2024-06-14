@@ -3684,7 +3684,7 @@ class FFAppState extends ChangeNotifier {
     welfareKpiStatusTextColorList.insert(index, value);
   }
 
-  bool _isProduction = true;
+  bool _isProduction = false;
   bool get isProduction => _isProduction;
   set isProduction(bool value) {
     _isProduction = value;
@@ -13260,6 +13260,12 @@ class FFAppState extends ChangeNotifier {
   String get insuranceInfoWallChargerNumber => _insuranceInfoWallChargerNumber;
   set insuranceInfoWallChargerNumber(String value) {
     _insuranceInfoWallChargerNumber = value;
+  }
+
+  String _insuranceInfoHorsePower = '';
+  String get insuranceInfoHorsePower => _insuranceInfoHorsePower;
+  set insuranceInfoHorsePower(String value) {
+    _insuranceInfoHorsePower = value;
   }
 }
 

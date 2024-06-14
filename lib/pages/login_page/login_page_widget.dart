@@ -363,8 +363,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
-                                                                      context.pushNamed(
-                                                                          'GeminiPage');
+                                                                      await actions
+                                                                          .openTableauBrowserCopy2(
+                                                                        'https://vcall.swpfin.com:8888/self-room',
+                                                                      );
                                                                     },
                                                                     child: Text(
                                                                       'เข้าสู่ระบบ',
@@ -411,23 +413,40 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             6.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: Text(
-                                                                  'Username',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Noto Sans Thai',
-                                                                        color: Color(
-                                                                            0xFF7F8A8D),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await launchURL(
+                                                                        'https://vcall.swpfin.com:8888/self-room');
+                                                                  },
+                                                                  child: Text(
+                                                                    'Username',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Noto Sans Thai',
+                                                                          color:
+                                                                              Color(0xFF7F8A8D),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                        ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ],
@@ -588,23 +607,41 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             8.0,
                                                                             0.0,
                                                                             0.0),
-                                                                    child: Text(
-                                                                      'Password',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Noto Sans Thai',
-                                                                            color:
-                                                                                Color(0xFF7F8A8D),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                          ),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        await actions
+                                                                            .urlLauncherAction(
+                                                                          'https://vcall.swpfin.com:8888/self-room',
+                                                                          'android',
+                                                                        );
+                                                                      },
+                                                                      child:
+                                                                          Text(
+                                                                        'Password',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Noto Sans Thai',
+                                                                              color: Color(0xFF7F8A8D),
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w600,
+                                                                            ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ],

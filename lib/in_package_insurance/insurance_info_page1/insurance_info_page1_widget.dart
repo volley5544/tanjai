@@ -893,6 +893,10 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.wallChargerNumber(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
+      FFAppState().insuranceInfoHorsePower =
+          '${IbsApplicationsDetailCall.horsePower(
+        (_model.detailAPIOutput?.jsonBody ?? ''),
+      )}';
       setState(() {});
       FFAppState().DriverList = [];
       setState(() {});

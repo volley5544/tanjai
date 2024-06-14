@@ -51,6 +51,7 @@ export 'add_watermark.dart' show addWatermark;
 export 'open_link_in_browser.dart' show openLinkInBrowser;
 export 'enough_email.dart' show enoughEmail;
 export 'create_firebase.dart' show createFirebase;
+export 'open_tableau_browser_copy2.dart' show openTableauBrowserCopy2;
 export 'open_tableau_browser_copy.dart' show openTableauBrowserCopy;
 export 'delete_acc_firebase.dart' show deleteAccFirebase;
 export 'get_build_version1.dart' show getBuildVersion1;

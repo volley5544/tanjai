@@ -11976,11 +11976,13 @@ class IbsApplicationsSaveCall {
     String? batteryNumber = '',
     String? batteryNumber2 = '',
     String? wallChargerNumber = '',
+    String? horsepower = '',
   }) async {
     final address = _serializeJson(addressJson);
     final appDriver = _serializeJson(appDriverJson, true);
     final ffApiRequestBody = '''
 {
+  "horsepower": "${horsepower}",
   "battery_number": "${batteryNumber}",
   "battery_number_2": "${batteryNumber2}",
   "wall_charger_number": "${wallChargerNumber}",
@@ -13335,6 +13337,11 @@ class IbsApplicationsDetailCall {
       castToType<String>(getJsonField(
         response,
         r'''$.results.data.wall_charger_number''',
+      ));
+  static String? horsePower(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.horsepower''',
       ));
 }
 

@@ -237,12 +237,20 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
     _model.seatAmountTextFieldFocusNode ??= FocusNode();
 
     _model.sizeTextFieldTextController ??= TextEditingController(
-        text: (FFAppState().insuranceInfoSizeCar != null &&
-                    FFAppState().insuranceInfoSizeCar != '') &&
-                (FFAppState().insuranceInfoSizeCar != '') &&
-                (FFAppState().insuranceInfoSizeCar != '')
-            ? functions.removeDotInString(FFAppState().insuranceInfoSizeCar)
-            : FFAppState().insuranceInfoSizeCar);
+        text: FFAppState().insuranceInfoEvFlag == 'Y'
+            ? ((FFAppState().insuranceInfoHorsePower != null &&
+                        FFAppState().insuranceInfoHorsePower != '') &&
+                    (FFAppState().insuranceInfoHorsePower != '') &&
+                    (FFAppState().insuranceInfoHorsePower != '')
+                ? functions
+                    .removeDotInString(FFAppState().insuranceInfoHorsePower)
+                : FFAppState().insuranceInfoHorsePower)
+            : ((FFAppState().insuranceInfoSizeCar != null &&
+                        FFAppState().insuranceInfoSizeCar != '') &&
+                    (FFAppState().insuranceInfoSizeCar != '') &&
+                    (FFAppState().insuranceInfoSizeCar != '')
+                ? functions.removeDotInString(FFAppState().insuranceInfoSizeCar)
+                : FFAppState().insuranceInfoSizeCar));
     _model.sizeTextFieldFocusNode ??= FocusNode();
 
     _model.weightTextFieldTextController ??= TextEditingController(
@@ -5150,7 +5158,10 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Text(
-                                                  'cc',
+                                                  FFAppState().insuranceInfoEvFlag ==
+                                                          'Y'
+                                                      ? 'แรงม้า'
+                                                      : 'cc',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -5240,7 +5251,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                                     FontWeight
                                                                         .w500,
                                                               ),
-                                                      hintText: 'กรุณากรอกขนาด',
+                                                      hintText: FFAppState()
+                                                                  .insuranceInfoEvFlag ==
+                                                              'Y'
+                                                          ? 'กรุณากรอกแรงม้า'
+                                                          : 'กรุณากรอกขนาด',
                                                       hintStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -7075,62 +7090,102 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             .checkDoubleBool(_model
                                                                 .sizeTextFieldTextController
                                                                 .text)!) {
-                                                          if (!((((String
-                                                                      var1) {
-                                                                    return double.parse(
-                                                                            var1) <=
-                                                                        1.0;
-                                                                  }(_model
-                                                                      .sizeTextFieldTextController
-                                                                      .text)) &&
-                                                                  ((String
-                                                                      var1) {
-                                                                    return double.parse(
-                                                                            var1) >=
-                                                                        0.0;
-                                                                  }(_model
-                                                                      .sizeTextFieldTextController
-                                                                      .text))) ||
-                                                              (((String var1) {
-                                                                    return double.parse(
-                                                                            var1) >=
-                                                                        1000.0;
-                                                                  }(_model
-                                                                      .sizeTextFieldTextController
-                                                                      .text)) &&
-                                                                  ((String
-                                                                      var1) {
-                                                                    return double.parse(
-                                                                            var1) <=
-                                                                        99999.0;
-                                                                  }(_model
-                                                                      .sizeTextFieldTextController
-                                                                      .text))))) {
-                                                            await showDialog(
-                                                              context: context,
-                                                              builder:
-                                                                  (alertDialogContext) {
-                                                                return WebViewAware(
-                                                                  child:
-                                                                      AlertDialog(
-                                                                    content: Text(
-                                                                        'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
-                                                                    actions: [
-                                                                      TextButton(
-                                                                        onPressed:
-                                                                            () =>
-                                                                                Navigator.pop(alertDialogContext),
-                                                                        child: Text(
-                                                                            'Ok'),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                );
-                                                              },
-                                                            );
-                                                            if (_shouldSetState)
-                                                              setState(() {});
-                                                            return;
+                                                          if (FFAppState()
+                                                                  .insuranceInfoEvFlag ==
+                                                              'Y') {
+                                                            if (!((String
+                                                                var1) {
+                                                              return double.parse(
+                                                                      var1) >=
+                                                                  0.0;
+                                                            }(_model
+                                                                .sizeTextFieldTextController
+                                                                .text))) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'แรงม้า ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                setState(() {});
+                                                              return;
+                                                            }
+                                                          } else {
+                                                            if (!((((String
+                                                                        var1) {
+                                                                      return double.parse(
+                                                                              var1) <=
+                                                                          1.0;
+                                                                    }(_model
+                                                                        .sizeTextFieldTextController
+                                                                        .text)) &&
+                                                                    ((String
+                                                                        var1) {
+                                                                      return double.parse(
+                                                                              var1) >=
+                                                                          0.0;
+                                                                    }(_model
+                                                                        .sizeTextFieldTextController
+                                                                        .text))) ||
+                                                                (((String
+                                                                        var1) {
+                                                                      return double.parse(
+                                                                              var1) >=
+                                                                          1000.0;
+                                                                    }(_model
+                                                                        .sizeTextFieldTextController
+                                                                        .text)) &&
+                                                                    ((String
+                                                                        var1) {
+                                                                      return double.parse(
+                                                                              var1) <=
+                                                                          99999.0;
+                                                                    }(_model
+                                                                        .sizeTextFieldTextController
+                                                                        .text))))) {
+                                                              await showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (alertDialogContext) {
+                                                                  return WebViewAware(
+                                                                    child:
+                                                                        AlertDialog(
+                                                                      content: Text(
+                                                                          'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                      actions: [
+                                                                        TextButton(
+                                                                          onPressed: () =>
+                                                                              Navigator.pop(alertDialogContext),
+                                                                          child:
+                                                                              Text('Ok'),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  );
+                                                                },
+                                                              );
+                                                              if (_shouldSetState)
+                                                                setState(() {});
+                                                              return;
+                                                            }
                                                           }
                                                         } else {
                                                           await showDialog(
@@ -7140,8 +7195,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               return WebViewAware(
                                                                 child:
                                                                     AlertDialog(
-                                                                  content: Text(
-                                                                      'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
+                                                                  content: Text(FFAppState()
+                                                                              .insuranceInfoEvFlag ==
+                                                                          'Y'
+                                                                      ? 'แรงม้า ไม่ถูกต้องกรุณากรอกใหม่'
+                                                                      : 'สูบ (cc) ไม่ถูกต้องกรุณากรอกใหม่'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed:
@@ -7167,8 +7225,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             return WebViewAware(
                                                               child:
                                                                   AlertDialog(
-                                                                content: Text(
-                                                                    'บังคับกรอกขนาด'),
+                                                                content: Text(FFAppState()
+                                                                            .insuranceInfoEvFlag ==
+                                                                        'Y'
+                                                                    ? 'บังคับกรอกแรงม้า'
+                                                                    : 'บังคับกรอกขนาด'),
                                                                 actions: [
                                                                   TextButton(
                                                                     onPressed: () =>
@@ -8569,6 +8630,11 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                             .wallChargeTextFieldTextController
                                                             .text
                                                         : '';
+                                                FFAppState()
+                                                        .insuranceInfoHorsePower =
+                                                    _model
+                                                        .sizeTextFieldTextController
+                                                        .text;
                                                 setState(() {});
                                                 _model.ibsAppAPIOutput =
                                                     await IbsApplicationsSaveCall
@@ -8602,11 +8668,15 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   seat: FFAppState()
                                                       .insuranceInfoCarSeat,
                                                   cc: FFAppState()
-                                                              .insuranceInfoSizeCar ==
-                                                          ''
+                                                              .insuranceInfoEvFlag ==
+                                                          'Y'
                                                       ? '0'
-                                                      : FFAppState()
-                                                          .insuranceInfoSizeCar,
+                                                      : (FFAppState()
+                                                                  .insuranceInfoSizeCar ==
+                                                              ''
+                                                          ? '0'
+                                                          : FFAppState()
+                                                              .insuranceInfoSizeCar),
                                                   weight: FFAppState()
                                                       .insuranceInfoWeightCar,
                                                   driverType: '0',
@@ -8780,6 +8850,16 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                       ? FFAppState()
                                                           .insuranceInfoWallChargerNumber
                                                       : '',
+                                                  horsepower: FFAppState()
+                                                              .insuranceInfoEvFlag ==
+                                                          'Y'
+                                                      ? (FFAppState()
+                                                                  .insuranceInfoHorsePower ==
+                                                              ''
+                                                          ? '0'
+                                                          : FFAppState()
+                                                              .insuranceInfoHorsePower)
+                                                      : '0',
                                                 );
                                                 _shouldSetState = true;
                                                 if ((_model.ibsAppAPIOutput
