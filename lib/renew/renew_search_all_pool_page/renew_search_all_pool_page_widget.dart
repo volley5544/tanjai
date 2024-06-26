@@ -2863,6 +2863,7 @@ class _RenewSearchAllPoolPageWidgetState
                                         nationalThaiId:
                                             _model.textController2.text,
                                       );
+
                                       _shouldSetState = true;
                                       if ((_model.checkRenewAPIOutput
                                                   ?.statusCode ??

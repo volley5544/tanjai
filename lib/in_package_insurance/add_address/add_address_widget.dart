@@ -59,6 +59,7 @@ class _AddAddressWidgetState extends State<AddAddressWidget> {
         _model.getAddressMaster = await GetAddressMasterCall.call(
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getAddressMaster?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,

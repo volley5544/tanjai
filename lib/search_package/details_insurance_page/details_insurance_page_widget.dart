@@ -1401,6 +1401,7 @@ class _DetailsInsurancePageWidgetState
                                                 FFAppState().apiURLLocalState,
                                             token: FFAppState().accessToken,
                                           );
+
                                           _shouldSetState = true;
                                           if (((_model.getServerDateTime
                                                           ?.statusCode ??

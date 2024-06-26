@@ -68,6 +68,7 @@ class _NonePackageInsurerPageWidgetState
       _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.getInsurer?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -897,6 +898,44 @@ class _NonePackageInsurerPageWidgetState
                                             .toList()
                                             .cast<String>();
                                     setState(() {});
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            title: Text('พ.ศ.'),
+                                            content: Text(
+                                                FFAppState().nonePackageYear),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
+                                    await showDialog(
+                                      context: context,
+                                      builder: (alertDialogContext) {
+                                        return WebViewAware(
+                                          child: AlertDialog(
+                                            title: Text('ค.ศ.'),
+                                            content: Text(FFAppState()
+                                                .nonePackageYearChrist),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    );
                                     if (FFAppState().nonePackageFlagRenew) {
                                       _model.sendRenewApi =
                                           await InsuranceRequestSendEmailAPICall
@@ -933,11 +972,8 @@ class _NonePackageInsurerPageWidgetState
                                         idNumber: '',
                                         carRegistration:
                                             FFAppState().nonePackagePlate,
-                                        carRegistrationYear: (int.parse(
-                                                    FFAppState()
-                                                        .nonePackageYear) -
-                                                543)
-                                            .toString(),
+                                        carRegistrationYear:
+                                            FFAppState().nonePackageYearChrist,
                                         vehicleId:
                                             FFAppState().nonePackageUsedTypeId,
                                         vehicleCode: FFAppState()
@@ -1141,6 +1177,7 @@ class _NonePackageInsurerPageWidgetState
                                         imageOther5:
                                             FFAppState().nonePackageImageOther5,
                                       );
+
                                       _shouldSetState = true;
                                       if ((_model.sendRenewApi?.statusCode ??
                                               200) !=
@@ -1432,6 +1469,7 @@ class _NonePackageInsurerPageWidgetState
                                         FFAppState().nonePackageBranchName = '';
                                         FFAppState()
                                             .nonePackageInsurerShortNameDupList = [];
+                                        FFAppState().nonePackageYearChrist = '';
                                         setState(() {});
                                         FFAppState()
                                                 .insuranceVehicleTypeDropDown =
@@ -1574,11 +1612,8 @@ class _NonePackageInsurerPageWidgetState
                                         idNumber: '',
                                         carRegistration:
                                             FFAppState().nonePackagePlate,
-                                        carRegistrationYear: (int.parse(
-                                                    FFAppState()
-                                                        .nonePackageYear) -
-                                                543)
-                                            .toString(),
+                                        carRegistrationYear:
+                                            FFAppState().nonePackageYearChrist,
                                         vehicleId:
                                             FFAppState().nonePackageUsedTypeId,
                                         vehicleCode: FFAppState()
@@ -1830,6 +1865,7 @@ class _NonePackageInsurerPageWidgetState
                                             ? '1'
                                             : '0',
                                       );
+
                                       _shouldSetState = true;
                                       if ((_model.sendNonePackageApi
                                                   ?.statusCode ??
@@ -2115,6 +2151,8 @@ class _NonePackageInsurerPageWidgetState
                                               '';
                                           FFAppState()
                                               .nonePackageInsurerShortNameDupList = [];
+                                          FFAppState().nonePackageYearChrist =
+                                              '';
                                           setState(() {});
                                           FFAppState()
                                                   .insuranceVehicleTypeDropDown =
@@ -2451,6 +2489,7 @@ class _NonePackageInsurerPageWidgetState
                                     FFAppState().nonePackageBranchName = '';
                                     FFAppState()
                                         .nonePackageInsurerShortNameDupList = [];
+                                    FFAppState().nonePackageYearChrist = '';
                                     setState(() {});
                                     FFAppState().insuranceVehicleTypeDropDown =
                                         'เลือกประเภทรถ';

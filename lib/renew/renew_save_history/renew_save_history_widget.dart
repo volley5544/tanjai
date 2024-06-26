@@ -85,6 +85,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
       _model.masterAPIOutput = await RenewMasterGetCallStatusCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.masterAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -1400,6 +1401,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   branchName: FFAppState()
                                                       .profileUnitCodeName,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.callStatusSaveAPIOutput
                                                             ?.statusCode ??

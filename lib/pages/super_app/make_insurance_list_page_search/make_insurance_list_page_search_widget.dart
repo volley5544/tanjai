@@ -920,6 +920,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   ).toString(),
                                                                                   ownerId: FFAppState().employeeID,
                                                                                 );
+
                                                                                 _shouldSetState = true;
                                                                                 if ((_model.getFileVmiButton?.statusCode ?? 200) != 200) {
                                                                                   await showDialog(
@@ -1026,6 +1027,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   ).toString(),
                                                                                   apiUrl: FFAppState().apiUrlInsuranceAppState,
                                                                                 );
+
                                                                                 _shouldSetState = true;
                                                                                 if ((_model.getHistory?.statusCode ?? 200) != 200) {
                                                                                   await showDialog(

@@ -19,9 +19,13 @@ class NonePackageRenewPageWidget extends StatefulWidget {
   const NonePackageRenewPageWidget({
     super.key,
     required this.workType,
+    this.bodynumber,
+    this.effectivedate,
   });
 
   final String? workType;
+  final String? bodynumber;
+  final DateTime? effectivedate;
 
   @override
   State<NonePackageRenewPageWidget> createState() =>
@@ -202,7 +206,15 @@ class _NonePackageRenewPageWidgetState
                     ),
                   ),
                   title: Text(
-                    widget.workType == 'transfer' ? 'งานโอนโค้ด' : 'งานต่ออายุ',
+                    () {
+                      if (widget.workType == 'transfer') {
+                        return 'งานโอนโค้ด';
+                      } else if (widget.workType == 'CMI') {
+                        return 'งาน พ.ร.บ.';
+                      } else {
+                        return 'งานต่ออายุ';
+                      }
+                    }(),
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Noto Sans Thai',
@@ -512,16 +524,31 @@ class _NonePackageRenewPageWidgetState
                                       );
                                       return;
                                     }
-
-                                    context.pushNamed(
-                                      'NonePackageBasicPage',
-                                      queryParameters: {
-                                        'workType': serializeParam(
-                                          widget.workType,
-                                          ParamType.String,
-                                        ),
-                                      }.withoutNulls,
-                                    );
+                                    if (widget.workType == 'CMI') {
+                                      context.pushNamed(
+                                        'informationCustomer2',
+                                        queryParameters: {
+                                          'bodyNumber': serializeParam(
+                                            widget.bodynumber,
+                                            ParamType.String,
+                                          ),
+                                          'effectiveDateAct': serializeParam(
+                                            widget.effectivedate,
+                                            ParamType.DateTime,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    } else {
+                                      context.pushNamed(
+                                        'NonePackageBasicPage',
+                                        queryParameters: {
+                                          'workType': serializeParam(
+                                            widget.workType,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    }
                                   },
                                   text: 'ถัดไป',
                                   options: FFButtonOptions(

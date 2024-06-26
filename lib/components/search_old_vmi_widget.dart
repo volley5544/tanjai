@@ -226,6 +226,7 @@ class _SearchOldVmiWidgetState extends State<SearchOldVmiWidget> {
                                       _model
                                           .searchFirstnameTextController.text),
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.searchVmiOutput?.statusCode ??
                                         200) !=

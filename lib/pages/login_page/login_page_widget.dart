@@ -363,6 +363,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                             .transparent,
                                                                     onTap:
                                                                         () async {
+                                                                      await requestPermission(
+                                                                          cameraPermission);
+                                                                      await requestPermission(
+                                                                          microphonePermission);
                                                                       await actions
                                                                           .openTableauBrowserCopy2(
                                                                         'https://vcall.swpfin.com:8888/self-room',
@@ -1060,6 +1064,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       check:
                                                                           'Y',
                                                                     );
+
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.authernApiOutput?.statusCode ??
@@ -1182,6 +1187,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       apiUrl: FFAppState()
                                                                           .apiURLLocalState,
                                                                     );
+
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.getUserProfileApiOutput?.statusCode ??
@@ -1391,6 +1397,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                       apiUrl: FFAppState()
                                                                           .apiURLLocalState,
                                                                     );
+
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.getUserInsuranceLicense?.statusCode ??

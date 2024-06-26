@@ -878,6 +878,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                     FFLocalizations.of(context).languageCode,
                               ),
                             );
+
                             _shouldSetState = true;
                             if ((_model.cmiCheckAPIOutput?.statusCode ?? 200) !=
                                 200) {
@@ -1101,6 +1102,7 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                       FFLocalizations.of(context).languageCode,
                                 ),
                               );
+
                               _shouldSetState = true;
                               if ((_model.cmiCheckAPIOutput1?.statusCode ??
                                       200) !=
@@ -1163,13 +1165,17 @@ class _InformationActWidgetState extends State<InformationActWidget> {
                                   ) ==
                                   '0') {
                                 context.pushNamed(
-                                  'informationCustomer2',
+                                  'NonePackageRenewPage',
                                   queryParameters: {
-                                    'bodyNumber': serializeParam(
+                                    'workType': serializeParam(
+                                      'CMI',
+                                      ParamType.String,
+                                    ),
+                                    'bodynumber': serializeParam(
                                       _model.textController.text,
                                       ParamType.String,
                                     ),
-                                    'effectiveDateAct': serializeParam(
+                                    'effectivedate': serializeParam(
                                       _model.datePicked,
                                       ParamType.DateTime,
                                     ),

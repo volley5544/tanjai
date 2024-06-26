@@ -80,6 +80,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getInsurer?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -145,6 +146,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getAppDetailAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -248,6 +250,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
       _model.getLicenseAPIOutoutCopy = await GetLicenseListCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.getLicenseAPIOutoutCopy?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -346,6 +349,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
           employeeCode: FFAppState().employeeID,
           insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.profileImgOutputPage?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -2507,6 +2511,7 @@ class _RenewBasicInfoPageWidgetState extends State<RenewBasicInfoPageWidget>
                                                         insuranceUrl: FFAppState()
                                                             .apiUrlInsuranceAppState,
                                                       );
+
                                                       _shouldSetState = true;
                                                       if ((_model.profileImgOutput
                                                                   ?.statusCode ??

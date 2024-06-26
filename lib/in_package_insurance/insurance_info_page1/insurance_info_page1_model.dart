@@ -53,6 +53,15 @@ class InsuranceInfoPage1Model
       idCardTextFieldTextController1Validator;
   // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
   ApiCallResponse? checkBlackListOutput;
+  // State field(s) for TaxIDCardTextField widget.
+  FocusNode? taxIDCardTextFieldFocusNode;
+  TextEditingController? taxIDCardTextFieldTextController;
+  final taxIDCardTextFieldMask =
+      MaskTextInputFormatter(mask: '#-####-#####-##-#');
+  String? Function(BuildContext, String?)?
+      taxIDCardTextFieldTextControllerValidator;
+  // Stores action output result for [Backend Call - API (checkBlackList)] action in Container widget.
+  ApiCallResponse? checkBlackListOutput3;
   // State field(s) for IdCardTextField widget.
   FocusNode? idCardTextFieldFocusNode2;
   TextEditingController? idCardTextFieldTextController2;
@@ -128,6 +137,9 @@ class InsuranceInfoPage1Model
     infomationCustomerActModel.dispose();
     idCardTextFieldFocusNode1?.dispose();
     idCardTextFieldTextController1?.dispose();
+
+    taxIDCardTextFieldFocusNode?.dispose();
+    taxIDCardTextFieldTextController?.dispose();
 
     idCardTextFieldFocusNode2?.dispose();
     idCardTextFieldTextController2?.dispose();

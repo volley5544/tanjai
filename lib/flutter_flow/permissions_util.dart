@@ -14,6 +14,7 @@ final cameraPermission = Permission.camera;
 final photoLibraryPermission = Permission.photos;
 final notificationsPermission = Permission.notification;
 final contactsPermission = Permission.contacts;
+final microphonePermission = Permission.microphone;
 
 Future<bool> getPermissionStatus(Permission setting) async {
   final status = await setting.status;

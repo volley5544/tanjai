@@ -64,6 +64,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
         token: FFAppState().accessToken,
         apiUrl: FFAppState().apiURLLocalState,
       );
+
       if (((_model.getBranchSearched?.statusCode ?? 200) == 200) &&
           (GetlocationAPICall.statusLayer2(
                 (_model.getBranchSearched?.jsonBody ?? ''),
@@ -350,6 +351,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                       branch: _model.textController.text,
                                       apiUrl: FFAppState().apiURLLocalState,
                                     );
+
                                     _shouldSetState = true;
                                     if (((_model.getBranchSearched2
                                                     ?.statusCode ??

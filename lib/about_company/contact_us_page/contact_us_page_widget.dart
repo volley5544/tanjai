@@ -444,6 +444,7 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                       child: AutoSizeText(
                                         'callcenter.sawad@srisawadpower.com',
                                         textAlign: TextAlign.start,
+                                        minFontSize: 14.0,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -453,7 +454,6 @@ class _ContactUsPageWidgetState extends State<ContactUsPageWidget> {
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
-                                        minFontSize: 14.0,
                                       ),
                                     ),
                                   ],

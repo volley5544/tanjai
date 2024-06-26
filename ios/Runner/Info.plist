@@ -65,6 +65,8 @@
     <string>For get notification please enable notification permission</string>
 	<key>NSContactsUsageDescription</key>
     <string>Allow to access Contract</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>erre</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>fetch</string>

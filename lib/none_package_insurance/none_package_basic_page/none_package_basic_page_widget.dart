@@ -148,6 +148,7 @@ class _NonePackageBasicPageWidgetState
         _model.getProvince = await TeleGetProvinceAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getProvince?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -211,6 +212,7 @@ class _NonePackageBasicPageWidgetState
             await InsuranceRequestGetVehicleAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -291,6 +293,7 @@ class _NonePackageBasicPageWidgetState
         _model.getBrandAPI = await TeleGetBrandAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -370,6 +373,7 @@ class _NonePackageBasicPageWidgetState
         _model.getModelAPI = await TeleGetModelAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -455,6 +459,7 @@ class _NonePackageBasicPageWidgetState
         _model.getCoverTypeAPI = await TeleGetCoverTypeAPICall.call(
           apiUrl: FFAppState().apiUrlInsuranceAppState,
         );
+
         if ((_model.getCoverTypeAPI?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,

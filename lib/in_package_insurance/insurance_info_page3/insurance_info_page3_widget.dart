@@ -7096,6 +7096,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ? '1'
                                                         : '0',
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.ibsAppSaveAPIOutput2
                                                               ?.statusCode ??
@@ -7435,6 +7436,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                         ? '1'
                                                         : '0',
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.ibsAppSaveAPIOutputOther2
                                                               ?.statusCode ??
@@ -7767,6 +7769,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                             .insuranceInfoPage3ImageBluebook
                                                         : '',
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.ibsAppSaveAPIOutputOtherRenew
                                                               ?.statusCode ??
@@ -8002,6 +8005,7 @@ class _InsuranceInfoPage3WidgetState extends State<InsuranceInfoPage3Widget> {
                                                   subProduct: FFAppState()
                                                       .insuranceinfoActType,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.save4APIOutput
                                                             ?.statusCode ??

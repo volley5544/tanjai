@@ -13267,6 +13267,18 @@ class FFAppState extends ChangeNotifier {
   set insuranceInfoHorsePower(String value) {
     _insuranceInfoHorsePower = value;
   }
+
+  String _nonePackageYearChrist = '';
+  String get nonePackageYearChrist => _nonePackageYearChrist;
+  set nonePackageYearChrist(String value) {
+    _nonePackageYearChrist = value;
+  }
+
+  bool _isCorporate = false;
+  bool get isCorporate => _isCorporate;
+  set isCorporate(bool value) {
+    _isCorporate = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

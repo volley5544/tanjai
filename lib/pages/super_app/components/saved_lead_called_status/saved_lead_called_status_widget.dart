@@ -228,6 +228,7 @@ class _SavedLeadCalledStatusWidgetState
                                     callStatusId:
                                         _model.callStatusDropDownValue,
                                   );
+
                                   Navigator.pop(context);
 
                                   setState(() {});
@@ -456,6 +457,7 @@ class _SavedLeadCalledStatusWidgetState
                           reasonDetail:
                               _model.calledRemarkTextFieldTextController.text,
                         );
+
                         _shouldSetState = true;
                         if ((_model.saveCallOutput?.statusCode ?? 200) != 200) {
                           await showDialog(

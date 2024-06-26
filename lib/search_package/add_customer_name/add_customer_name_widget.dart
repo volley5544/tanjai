@@ -1216,6 +1216,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       FFAppState().searchPackageSubProduct,
                                   evFlag: FFAppState().searchPackageEvFlag,
                                 );
+
                                 _shouldSetState = true;
                                 if ((_model.aPIQuotationSaveOutput
                                             ?.statusCode ??

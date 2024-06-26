@@ -60,6 +60,7 @@ class _HomepageRequest23WidgetState extends State<HomepageRequest23Widget> {
       _model.getFinanceAPIOutput = await GetFinanceCall.call(
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.getFinanceAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

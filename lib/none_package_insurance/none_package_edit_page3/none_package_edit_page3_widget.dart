@@ -3548,6 +3548,7 @@ class _NonePackageEditPage3WidgetState
                                           ? FFAppState().profileUnitCodeName
                                           : FFAppState().nonePackageBranchName,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.insuranceEditOutput
                                                 ?.statusCode ??

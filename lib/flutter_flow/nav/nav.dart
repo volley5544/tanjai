@@ -909,6 +909,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'workType',
                   ParamType.String,
                 ),
+                bodynumber: params.getParam(
+                  'bodynumber',
+                  ParamType.String,
+                ),
+                effectivedate: params.getParam(
+                  'effectivedate',
+                  ParamType.DateTime,
+                ),
               ),
             ),
             FFRoute(
@@ -1834,6 +1842,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'GeminiPage',
               path: 'GeminiPage',
               builder: (context, params) => GeminiPageWidget(),
+            ),
+            FFRoute(
+              name: 'SelectOrdinary',
+              path: 'selectOrdinary',
+              builder: (context, params) => SelectOrdinaryWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

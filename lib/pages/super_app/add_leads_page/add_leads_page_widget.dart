@@ -773,6 +773,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                           addLeadsPageUrlLinkStorageRecord
                                               ?.urlLink,
                                     );
+
                                     _shouldSetState = true;
                                     if (GetTokenLeadManagementCall.statuslayer1(
                                           (_model.getToken?.jsonBody ?? ''),
@@ -850,6 +851,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                           addLeadsPageUrlLinkStorageRecord
                                               ?.urlLink,
                                     );
+
                                     _shouldSetState = true;
                                     if (LeadManagementCheckDuplicateCall
                                             .statuslayer1(
@@ -984,6 +986,7 @@ class _AddLeadsPageWidgetState extends State<AddLeadsPageWidget> {
                                           ? FFAppState().employeeID
                                           : '',
                                     );
+
                                     _shouldSetState = true;
                                     if (!((LeadManagementSaveCall.statuslayer1(
                                               (_model.saveLeadApi?.jsonBody ??

@@ -74,6 +74,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
       _model.getInsurer = await InsuranceRequestGetInsurerAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.getInsurer?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -141,6 +142,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.ibsDetailAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -449,6 +451,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
           token: FFAppState().accessToken,
           subProduct: FFAppState().insuranceinfoActType,
         );
+
         if ((_model.calInstallmentAPIOutput?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -683,6 +686,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     insuranceUrl: FFAppState().apiUrlInsuranceAppState,
                     token: FFAppState().accessToken,
                   );
+
                   if ((_model.ibsDetailAPIOutputCopy?.statusCode ?? 200) !=
                       200) {
                     await showDialog(
@@ -1287,6 +1291,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                       token: FFAppState()
                                                           .accessToken,
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.ibsDetailAPIOutputCopyRefresh
                                                                 ?.statusCode ??
@@ -2145,6 +2150,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                         token: FFAppState()
                                                             .accessToken,
                                                       );
+
                                                       _shouldSetState = true;
                                                       if ((_model.regenQRCodeOutput
                                                                   ?.statusCode ??
@@ -2827,6 +2833,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                           token: FFAppState()
                                                               .accessToken,
                                                         );
+
                                                         _shouldSetState = true;
                                                         if ((_model.regenQRCodeOutput2
                                                                     ?.statusCode ??
@@ -3445,6 +3452,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               token: FFAppState()
                                                                   .accessToken,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.paymentAPIOutpu
@@ -3552,6 +3560,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               token: FFAppState()
                                                                   .accessToken,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.ibsDetailAPIOutputSavebtn
@@ -3831,6 +3840,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               token: FFAppState()
                                                                   .accessToken,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.getServerTime
@@ -4065,6 +4075,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                             .insuranceInfoEffectiveDateAct
                                                                         : '',
                                                               );
+
                                                               _shouldSetState =
                                                                   true;
                                                               if ((_model.ibsApplicationEditOutput
@@ -4166,6 +4177,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   : FFAppState()
                                                                       .insuranceInfoQuotationId,
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.postPolicyAPIOutPut

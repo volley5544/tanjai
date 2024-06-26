@@ -717,6 +717,19 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                 true)];
                                                     setState(() {});
                                                     FFAppState()
+                                                            .nonePackageYearChrist =
+                                                        functions.reverseList(
+                                                            functions
+                                                                .ganerateYearList(
+                                                                    1957, 2024)
+                                                                ?.toList())[functions
+                                                            .getIndexOfBoolList(
+                                                                FFAppState()
+                                                                    .searchableListComponentSelectedList
+                                                                    .toList(),
+                                                                true)];
+                                                    setState(() {});
+                                                    FFAppState()
                                                         .updateSearchPackageCheckFilledAtIndex(
                                                       3,
                                                       (_) => true,
@@ -756,6 +769,19 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               .searchableListComponentSelectedList
                                                               .toList(),
                                                           true)];
+                                                  setState(() {});
+                                                  FFAppState()
+                                                          .nonePackageYearChrist =
+                                                      functions.reverseList(
+                                                          functions
+                                                              .ganerateYearList(
+                                                                  1957, 2024)
+                                                              ?.toList())[functions
+                                                          .getIndexOfBoolList(
+                                                              FFAppState()
+                                                                  .searchableListComponentSelectedList
+                                                                  .toList(),
+                                                              true)];
                                                   setState(() {});
                                                   context.safePop();
                                                   return;

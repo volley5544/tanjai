@@ -23,7 +23,7 @@ class BannerDataStruct extends FFFirebaseStruct {
   set pdfUrl(List<String>? val) => _pdfUrl = val;
 
   void updatePdfUrl(Function(List<String>) updateFn) {
-    updateFn(pdfUrl ??= []);
+    updateFn(_pdfUrl ??= []);
   }
 
   bool hasPdfUrl() => _pdfUrl != null;

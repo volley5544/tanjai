@@ -71,6 +71,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
       _model.getProvince = await TeleGetProvinceAPICall.call(
         apiUrl: FFAppState().apiUrlInsuranceAppState,
       );
+
       if ((_model.getProvince?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -136,6 +137,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
           apiUrl: FFAppState().apiUrlInsuranceAppState,
           vehicleCategory: 'manual',
         );
+
         if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -5821,26 +5823,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               FontWeight.w500,
                                                         ),
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      '(บังคับกรอก)',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Noto Sans Thai',
-                                                            color: Color(
-                                                                0xFFFB0606),
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
-                                                    ),
-                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -7640,38 +7622,6 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                           setState(() {});
                                                         return;
                                                       }
-                                                      if (!(_model.wallChargeTextFieldTextController
-                                                                  .text !=
-                                                              null &&
-                                                          _model.wallChargeTextFieldTextController
-                                                                  .text !=
-                                                              '')) {
-                                                        await showDialog(
-                                                          context: context,
-                                                          builder:
-                                                              (alertDialogContext) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  AlertDialog(
-                                                                content: Text(
-                                                                    'กรุณากรอกเลขที่ Wall Charge'),
-                                                                actions: [
-                                                                  TextButton(
-                                                                    onPressed: () =>
-                                                                        Navigator.pop(
-                                                                            alertDialogContext),
-                                                                    child: Text(
-                                                                        'Ok'),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                        if (_shouldSetState)
-                                                          setState(() {});
-                                                        return;
-                                                      }
                                                     }
                                                   } else {
                                                     if (!functions
@@ -8861,6 +8811,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                               .insuranceInfoHorsePower)
                                                       : '0',
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.ibsAppAPIOutput
                                                             ?.statusCode ??
@@ -8941,6 +8892,7 @@ class _InsuranceInfoPage2WidgetState extends State<InsuranceInfoPage2Widget> {
                                                   token:
                                                       FFAppState().accessToken,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.detailAPIOutput
                                                             ?.statusCode ??

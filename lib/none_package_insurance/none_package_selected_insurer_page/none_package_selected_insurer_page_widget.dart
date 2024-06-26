@@ -1439,6 +1439,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       leadId: widget.leadID,
                                       type: 'insurerShortName',
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.saveInirer?.statusCode ??
                                             200) !=

@@ -22,7 +22,7 @@ import 'package:http/http.dart' as http;
 Future openTableauBrowserCopy2(String? tableauURL) async {
   // Add your function code here!
   String browserUrl = '${tableauURL}';
-  String encodedUrl = Uri.encodeFull('${tableauURL}}');
+  String encodedUrl = Uri.encodeFull('${tableauURL!}');
   Map<String, String> headers = {'X-Application': 'ArunSawad'};
 
   if (Platform.isAndroid) {

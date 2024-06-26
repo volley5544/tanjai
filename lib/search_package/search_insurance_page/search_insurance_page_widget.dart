@@ -160,6 +160,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getBrandMCAPI = await TeleGetBrandMCAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getBrandMCAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -240,6 +241,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getModelMCAPI = await TeleGetModelMCAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getModelMCAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -327,6 +329,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             carType: 'MC',
           );
+
           if ((_model.getCoverTypeMCAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -398,6 +401,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             vehicleCategory: 'auto',
             carType: 'MC',
           );
+
           if ((_model.getVehicleUsedTypeMCAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -475,6 +479,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getProvinceMC = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getProvinceMC?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -549,6 +554,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getBrandAPI = await TeleGetBrandAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getBrandAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -629,6 +635,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getModelAPI = await TeleGetModelAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getModelAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -715,6 +722,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getCoverTypeAPI = await TeleGetCoverTypeAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getCoverTypeAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -785,6 +793,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleCategory: 'auto',
           );
+
           if ((_model.getVehicleUsedTypeAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -862,6 +871,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getProvince = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getProvince?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -936,6 +946,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleGroup: 'EV',
           );
+
           if ((_model.getBrandEVAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -1017,6 +1028,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleGroup: 'EV',
           );
+
           if ((_model.getModelEVAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -1103,6 +1115,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getCoverTypeEVAPI = await TeleGetCoverTypeAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getCoverTypeEVAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -1174,6 +1187,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
             apiUrl: FFAppState().apiUrlInsuranceAppState,
             vehicleCategory: 'auto',
           );
+
           if ((_model.getVehicleUsedTypeEVAPI?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,
@@ -1251,6 +1265,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
           _model.getProvince2 = await TeleGetProvinceAPICall.call(
             apiUrl: FFAppState().apiUrlInsuranceAppState,
           );
+
           if ((_model.getProvince2?.statusCode ?? 200) != 200) {
             await showDialog(
               context: context,

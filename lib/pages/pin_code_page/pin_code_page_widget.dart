@@ -1156,6 +1156,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                 token: FFAppState().accessToken,
                                                                                 apiUrl: FFAppState().apiURLLocalState,
                                                                               );
+
                                                                               _shouldSetState = true;
                                                                               if ((_model.getUserProfilePin?.statusCode ?? 200) == 200) {
                                                                                 FFAppState().userNickname = '${GetUserProfileAPICall.profileNickName(
@@ -1231,6 +1232,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                                   token: FFAppState().accessToken,
                                                                                   apiUrl: FFAppState().apiURLLocalState,
                                                                                 );
+
                                                                                 _shouldSetState = true;
                                                                                 if ((_model.getUserInsuranceLicensePin?.statusCode ?? 200) == 200) {
                                                                                   FFAppState().profileInsuranceLicenseFullName = GetUserInsuranceLicenseCall.statusLayer2(
@@ -1866,6 +1868,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                     apiUrl: FFAppState()
                                                                         .apiURLLocalState,
                                                                   );
+
                                                                   _shouldSetState =
                                                                       true;
                                                                   if ((_model.getUserProfileBio
@@ -2033,6 +2036,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                                       apiUrl: FFAppState()
                                                                           .apiURLLocalState,
                                                                     );
+
                                                                     _shouldSetState =
                                                                         true;
                                                                     if ((_model.getUserInsuranceLicenseBio?.statusCode ??

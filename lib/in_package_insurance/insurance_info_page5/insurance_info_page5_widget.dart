@@ -81,6 +81,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         apiUrl: FFAppState().apiURLLocalState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getDateTimeOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -136,6 +137,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
       );
+
       if ((_model.applicationDetailOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -287,6 +289,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
         token: FFAppState().accessToken,
         quotationId: widget.quotationId,
       );
+
       if ((_model.getPolicy?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -2232,6 +2235,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                   token:
                                                       FFAppState().accessToken,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.getDateTimeOutput2
                                                             ?.statusCode ??
@@ -2279,6 +2283,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                   quotationId:
                                                       widget.quotationId,
                                                 );
+
                                                 _shouldSetState = true;
                                                 if ((_model.getPolicyRefreshButton
                                                             ?.statusCode ??
@@ -4500,6 +4505,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                       ownerId: FFAppState()
                                                           .employeeID,
                                                     );
+
                                                     _shouldSetState = true;
                                                     if ((_model.getFileVmi
                                                                 ?.statusCode ??
@@ -4709,6 +4715,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     ownerId:
                                                         FFAppState().employeeID,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.getFileVmiCopyButton
                                                               ?.statusCode ??
@@ -4884,6 +4891,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     ownerId:
                                                         FFAppState().employeeID,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.cmiAPIOutput
                                                               ?.statusCode ??
@@ -5024,6 +5032,7 @@ class _InsuranceInfoPage5WidgetState extends State<InsuranceInfoPage5Widget>
                                                     ownerId:
                                                         FFAppState().employeeID,
                                                   );
+
                                                   _shouldSetState = true;
                                                   if ((_model.cmiAPIOutputCopyButton
                                                               ?.statusCode ??

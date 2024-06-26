@@ -246,6 +246,7 @@ class _InsuranceInfoPage5CancelWidgetState
                                         _model.textController.text,
                                     ownerId: FFAppState().employeeID,
                                   );
+
                                   _shouldSetState = true;
                                   if ((_model.cancelPolicyApi?.statusCode ??
                                           200) !=

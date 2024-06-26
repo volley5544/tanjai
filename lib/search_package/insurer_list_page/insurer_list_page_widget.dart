@@ -99,6 +99,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           coverTypeList: widget.coverType,
           garageTypeList: widget.garageType,
         );
+
         if ((_model.packageAPIMCOutput?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,
@@ -376,6 +377,7 @@ class _InsurerListPageWidgetState extends State<InsurerListPageWidget>
           garageTypeList: widget.garageType,
           province: widget.province,
         );
+
         if ((_model.packageAPIOutput?.statusCode ?? 200) != 200) {
           await showDialog(
             context: context,

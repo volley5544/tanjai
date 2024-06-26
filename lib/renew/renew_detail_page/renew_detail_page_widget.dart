@@ -69,6 +69,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
         refRenewId: widget.refRenewId,
         token: FFAppState().accessToken,
       );
+
       if ((_model.getDataRenewAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,
@@ -1253,6 +1254,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           FFAppState().profileUnitCodeName,
                                       empBranchCode: FFAppState().profileBranch,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.renewSaveAPIQuotationBtn
                                                 ?.statusCode ??
@@ -1448,6 +1450,7 @@ class _RenewDetailPageWidgetState extends State<RenewDetailPageWidget> {
                                           FFAppState().profileUnitCodeName,
                                       empBranchCode: FFAppState().profileBranch,
                                     );
+
                                     _shouldSetState = true;
                                     if ((_model.renewSaveAPIOutput
                                                 ?.statusCode ??

@@ -218,6 +218,7 @@ class _LicenseSelectComponentWidgetState
                                 token: FFAppState().accessToken,
                                 employeeCodeLicense: _model.textController.text,
                               );
+
                               _shouldSetState = true;
                               if ((_model.getLicenseAPIOutput?.statusCode ??
                                       200) !=
@@ -284,6 +285,7 @@ class _LicenseSelectComponentWidgetState
                                 quotationId: widget.quotationID,
                                 leadId: widget.leadID,
                               );
+
                               _shouldSetState = true;
                               if ((_model.saveLicenseAPIOutput?.statusCode ??
                                       200) !=
@@ -422,6 +424,7 @@ class _LicenseSelectComponentWidgetState
                                 quotationId: widget.quotationID,
                                 leadId: widget.leadID,
                               );
+
                               _shouldSetState = true;
                               if ((_model.cancelAPIOutput?.statusCode ?? 200) !=
                                   200) {

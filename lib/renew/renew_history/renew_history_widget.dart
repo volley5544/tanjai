@@ -66,6 +66,7 @@ class _RenewHistoryWidgetState extends State<RenewHistoryWidget> {
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         refRenewId: widget.refRenewId,
       );
+
       if ((_model.historyAPIOutput?.statusCode ?? 200) != 200) {
         await showDialog(
           context: context,

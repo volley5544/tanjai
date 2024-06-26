@@ -29,7 +29,7 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   set vmi1(List<String>? val) => _vmi1 = val;
 
   void updateVmi1(Function(List<String>) updateFn) {
-    updateFn(vmi1 ??= []);
+    updateFn(_vmi1 ??= []);
   }
 
   bool hasVmi1() => _vmi1 != null;
@@ -40,7 +40,7 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   set vmi2(List<String>? val) => _vmi2 = val;
 
   void updateVmi2(Function(List<String>) updateFn) {
-    updateFn(vmi2 ??= []);
+    updateFn(_vmi2 ??= []);
   }
 
   bool hasVmi2() => _vmi2 != null;
@@ -51,7 +51,7 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   set vmi25(List<String>? val) => _vmi25 = val;
 
   void updateVmi25(Function(List<String>) updateFn) {
-    updateFn(vmi25 ??= []);
+    updateFn(_vmi25 ??= []);
   }
 
   bool hasVmi25() => _vmi25 != null;
@@ -62,7 +62,7 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   set vmi3(List<String>? val) => _vmi3 = val;
 
   void updateVmi3(Function(List<String>) updateFn) {
-    updateFn(vmi3 ??= []);
+    updateFn(_vmi3 ??= []);
   }
 
   bool hasVmi3() => _vmi3 != null;
@@ -73,7 +73,7 @@ class InsurerShortNameMapStruct extends FFFirebaseStruct {
   set vmi35(List<String>? val) => _vmi35 = val;
 
   void updateVmi35(Function(List<String>) updateFn) {
-    updateFn(vmi35 ??= []);
+    updateFn(_vmi35 ??= []);
   }
 
   bool hasVmi35() => _vmi35 != null;

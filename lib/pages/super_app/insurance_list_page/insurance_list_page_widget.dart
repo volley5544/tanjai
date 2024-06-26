@@ -152,6 +152,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
         mode: 'arunsawad',
         list: 'quotation',
       );
+
       if ((_model.getRequestList?.statusCode ?? 200) != 200) {
         Navigator.pop(context);
         await showDialog(
@@ -2112,6 +2113,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             )?[listIndex])
                                                                     ?.toString(),
                                                           );
+
                                                           _shouldSetState =
                                                               true;
                                                           if (InsuranceRequestDetailAPICall
@@ -3229,6 +3231,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                             )?[listIndex])
                                                                     ?.toString(),
                                                           );
+
                                                           _shouldSetState =
                                                               true;
                                                           if (InsuranceRequestDetailAPICall
@@ -4644,6 +4647,7 @@ class _InsuranceListPageWidgetState extends State<InsuranceListPageWidget>
                                                                   .typeList,
                                                               mode: 'arunsawad',
                                                             );
+
                                                             _shouldSetState =
                                                                 true;
                                                             if ((_model.listFromDash

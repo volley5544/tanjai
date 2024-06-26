@@ -293,6 +293,8 @@ final parametersBuilderMap =
   'NonePackageRenewPage': (data) async => ParameterData(
         allParams: {
           'workType': getParameter<String>(data, 'workType'),
+          'bodynumber': getParameter<String>(data, 'bodynumber'),
+          'effectivedate': getParameter<DateTime>(data, 'effectivedate'),
         },
       ),
   'Search_7_Renew_1': ParameterData.none(),
@@ -532,6 +534,7 @@ final parametersBuilderMap =
         },
       ),
   'GeminiPage': ParameterData.none(),
+  'SelectOrdinary': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
