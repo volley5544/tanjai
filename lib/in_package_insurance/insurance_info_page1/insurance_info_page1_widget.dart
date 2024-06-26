@@ -370,6 +370,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         Navigator.pop(context);
         return;
       }
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('1'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().insuranceInfoCardType =
           '${IbsApplicationsDetailCall.idtypeid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -909,6 +925,22 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           ? true
           : false;
       setState(() {});
+      await showDialog(
+        context: context,
+        builder: (alertDialogContext) {
+          return WebViewAware(
+            child: AlertDialog(
+              content: Text('2'),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(alertDialogContext),
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        },
+      );
       FFAppState().DriverList = [];
       setState(() {});
       if (IbsApplicationsDetailCall.appdriver(
