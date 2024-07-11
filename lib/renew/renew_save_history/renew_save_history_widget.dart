@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -190,6 +192,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                   }
                   List<DataListRecord> columnDataListRecordList =
                       snapshot.data!;
+
                   final columnDataListRecord =
                       columnDataListRecordList.isNotEmpty
                           ? columnDataListRecordList.first
@@ -316,7 +319,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${widget.title} ${widget.name} ${widget.lastname}',
+                                                              '${widget!.title} ${widget!.name} ${widget!.lastname}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -401,7 +404,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${widget.carregis}',
+                                                              '${widget!.carregis}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -486,7 +489,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                   .secondaryBackground,
                                                             ),
                                                             child: Text(
-                                                              '${widget.brand}/${widget.model}',
+                                                              '${widget!.brand}/${widget!.model}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -573,7 +576,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                widget
+                                                                widget!
                                                                     .covertype,
                                                                 '-',
                                                               ),
@@ -663,7 +666,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
-                                                                widget
+                                                                widget!
                                                                     .garagetype,
                                                                 '-',
                                                               ),
@@ -755,7 +758,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                                   String>(
                                                                 functions
                                                                     .showDateBE(
-                                                                        widget
+                                                                        widget!
                                                                             .expDate),
                                                                 '-',
                                                               ),
@@ -844,7 +847,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                             ),
                                                             child: Text(
                                                               'SUCCESS' ==
-                                                                      widget
+                                                                      widget!
                                                                           .status
                                                                   ? 'อนุมัติ'
                                                                   : 'ปฏิเสธ',
@@ -887,7 +890,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                       queryParameters: {
                                                         'refRenewId':
                                                             serializeParam(
-                                                          widget.refRenewId,
+                                                          widget!.refRenewId,
                                                           ParamType.String,
                                                         ),
                                                       }.withoutNulls,
@@ -1375,7 +1378,8 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                       FFAppState().accessToken,
                                                   insuranceUrl: FFAppState()
                                                       .apiUrlInsuranceAppState,
-                                                  refRenewId: widget.refRenewId,
+                                                  refRenewId:
+                                                      widget!.refRenewId,
                                                   callStatus:
                                                       _model.dropDownMainValue,
                                                   callStatusDetails: _model
@@ -1497,7 +1501,7 @@ class _RenewSaveHistoryWidgetState extends State<RenewSaveHistoryWidget> {
                                                   queryParameters: {
                                                     'refRenewId':
                                                         serializeParam(
-                                                      widget.refRenewId,
+                                                      widget!.refRenewId,
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,

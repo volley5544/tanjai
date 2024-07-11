@@ -108,6 +108,7 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                 }
                 List<EffectiveDayConfigRecord>
                     columnEffectiveDayConfigRecordList = snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -362,12 +363,15 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                     ),
                                                     child: Checkbox(
                                                       value: _model
-                                                          .noSumValue ??= (FFAppState()
-                                                                  .insuranceInfoActOflLegislation !=
-                                                              'ราคารวม พ.ร.บ') &&
+                                                          .noSumValue ??= ((FFAppState()
+                                                                      .insuranceInfoActOflLegislation !=
+                                                                  'ราคารวม พ.ร.บ') &&
+                                                              (FFAppState()
+                                                                      .insuranceInfoActOflLegislation !=
+                                                                  '')) ||
                                                           (FFAppState()
-                                                                  .insuranceInfoActOflLegislation !=
-                                                              ''),
+                                                                  .insuranceInfoActFlag ==
+                                                              '0'),
                                                       onChanged:
                                                           (newValue) async {
                                                         setState(() =>
@@ -597,10 +601,13 @@ class _HomepageRequest22WidgetState extends State<HomepageRequest22Widget> {
                                                               .secondaryText,
                                                     ),
                                                     child: Checkbox(
-                                                      value: _model.sumValue ??=
-                                                          FFAppState()
+                                                      value: _model
+                                                          .sumValue ??= (FFAppState()
                                                                   .insuranceInfoActOflLegislation ==
-                                                              'ราคารวม พ.ร.บ',
+                                                              'ราคารวม พ.ร.บ') ||
+                                                          (FFAppState()
+                                                                  .insuranceInfoActFlag ==
+                                                              '1'),
                                                       onChanged:
                                                           (newValue) async {
                                                         setState(() =>

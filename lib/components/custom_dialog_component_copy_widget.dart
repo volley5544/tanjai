@@ -118,7 +118,7 @@ class _CustomDialogComponentCopyWidgetState
                         child: FFButtonWidget(
                           onPressed: () async {
                             await Clipboard.setData(
-                                ClipboardData(text: widget.linkUrl!));
+                                ClipboardData(text: widget!.linkUrl!));
                             ScaffoldMessenger.of(context).clearSnackBars();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -163,7 +163,7 @@ class _CustomDialogComponentCopyWidgetState
                         child: FFButtonWidget(
                           onPressed: () async {
                             await Clipboard.setData(
-                                ClipboardData(text: widget.linkUrl!));
+                                ClipboardData(text: widget!.linkUrl!));
                             ScaffoldMessenger.of(context).clearSnackBars();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
@@ -180,7 +180,7 @@ class _CustomDialogComponentCopyWidgetState
                               ),
                             );
                             await actions.urlLauncherAction(
-                              widget.linkUrl,
+                              widget!.linkUrl,
                               'ios',
                             );
                           },

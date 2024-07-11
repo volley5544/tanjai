@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -234,6 +236,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                 }
                 List<UrlLinkStorageRecord> columnfirstUrlLinkStorageRecordList =
                     snapshot.data!;
+
                 final columnfirstUrlLinkStorageRecord =
                     columnfirstUrlLinkStorageRecordList.isNotEmpty
                         ? columnfirstUrlLinkStorageRecordList.first
@@ -262,6 +265,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                         }
                         List<BuildVersionRecord>
                             columnsecBuildVersionRecordList = snapshot.data!;
+
                         // Return an empty Container when the item does not exist.
                         if (snapshot.data!.isEmpty) {
                           return Container();
@@ -299,6 +303,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                   List<KeyStorageRecord>
                                       columntriKeyStorageRecordList =
                                       snapshot.data!;
+
                                   final columntriKeyStorageRecord =
                                       columntriKeyStorageRecordList.isNotEmpty
                                           ? columntriKeyStorageRecordList.first
@@ -340,6 +345,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                           List<UserCustomRecord>
                                               columnfourUserCustomRecordList =
                                               snapshot.data!;
+
                                           final columnfourUserCustomRecord =
                                               columnfourUserCustomRecordList
                                                       .isNotEmpty
@@ -904,6 +910,7 @@ class _PinCodePageWidgetState extends State<PinCodePageWidget>
                                                   List<KeyStorage3Record>
                                                       containerKeyStorage3RecordList =
                                                       snapshot.data!;
+
                                                   final containerKeyStorage3Record =
                                                       containerKeyStorage3RecordList
                                                               .isNotEmpty

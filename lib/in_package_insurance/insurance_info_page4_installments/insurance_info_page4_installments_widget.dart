@@ -106,7 +106,8 @@ class _InsuranceInfoPage4InstallmentsWidgetState
                             decoration: BoxDecoration(),
                             child: Builder(
                               builder: (context) {
-                                final dataList = widget.dataList!.toList();
+                                final dataList = widget!.dataList!.toList();
+
                                 return ListView.builder(
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,

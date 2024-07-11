@@ -381,6 +381,7 @@ final parametersBuilderMap =
           'quotationId': getParameter<String>(data, 'quotationId'),
           'leadDtlId': getParameter<int>(data, 'leadDtlId'),
           'actFlag': getParameter<bool>(data, 'actFlag'),
+          'masterActAmount': getParameter<String>(data, 'masterActAmount'),
         },
       ),
   'PaywithBarcode': ParameterData.none(),
@@ -535,6 +536,7 @@ final parametersBuilderMap =
       ),
   'GeminiPage': ParameterData.none(),
   'SelectOrdinary': ParameterData.none(),
+  'testPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

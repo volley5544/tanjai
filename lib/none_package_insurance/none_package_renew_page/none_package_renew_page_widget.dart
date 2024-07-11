@@ -173,6 +173,7 @@ class _NonePackageRenewPageWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageRenewPageUrlLinkStorageRecordList = snapshot.data!;
+
         final nonePackageRenewPageUrlLinkStorageRecord =
             nonePackageRenewPageUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageRenewPageUrlLinkStorageRecordList.first
@@ -207,9 +208,9 @@ class _NonePackageRenewPageWidgetState
                   ),
                   title: Text(
                     () {
-                      if (widget.workType == 'transfer') {
+                      if (widget!.workType == 'transfer') {
                         return 'งานโอนโค้ด';
-                      } else if (widget.workType == 'CMI') {
+                      } else if (widget!.workType == 'CMI') {
                         return 'งาน พ.ร.บ.';
                       } else {
                         return 'งานต่ออายุ';
@@ -524,16 +525,16 @@ class _NonePackageRenewPageWidgetState
                                       );
                                       return;
                                     }
-                                    if (widget.workType == 'CMI') {
+                                    if (widget!.workType == 'CMI') {
                                       context.pushNamed(
                                         'informationCustomer2',
                                         queryParameters: {
                                           'bodyNumber': serializeParam(
-                                            widget.bodynumber,
+                                            widget!.bodynumber,
                                             ParamType.String,
                                           ),
                                           'effectiveDateAct': serializeParam(
-                                            widget.effectivedate,
+                                            widget!.effectivedate,
                                             ParamType.DateTime,
                                           ),
                                         }.withoutNulls,
@@ -543,7 +544,7 @@ class _NonePackageRenewPageWidgetState
                                         'NonePackageBasicPage',
                                         queryParameters: {
                                           'workType': serializeParam(
-                                            widget.workType,
+                                            widget!.workType,
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,

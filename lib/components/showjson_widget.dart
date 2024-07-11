@@ -54,7 +54,7 @@ class _ShowjsonWidgetState extends State<ShowjsonWidget> {
           children: [
             Text(
               valueOrDefault<String>(
-                widget.json,
+                widget!.json,
                 '-',
               ),
               style: FlutterFlowTheme.of(context).bodyMedium.override(

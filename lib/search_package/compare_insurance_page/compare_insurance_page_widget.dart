@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -209,6 +211,7 @@ class _CompareInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -237,10 +240,11 @@ class _CompareInsurancePageWidgetState
                         ),
                         child: Builder(
                           builder: (context) {
-                            final insurerListItem = widget.insurerFullName!
+                            final insurerListItem = widget!.insurerFullName!
                                 .toList()
                                 .take(3)
                                 .toList();
+
                             return ListView.separated(
                               padding: EdgeInsets.fromLTRB(
                                 10.0,
@@ -288,7 +292,7 @@ class _CompareInsurancePageWidgetState
                                         child: Image.network(
                                           valueOrDefault<String>(
                                             functions.stringToImgPath(
-                                                widget.insurerLogoUrl?[
+                                                widget!.insurerLogoUrl?[
                                                     insurerListItemIndex]),
                                             'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                           ),
@@ -341,7 +345,7 @@ class _CompareInsurancePageWidgetState
                                           child: Image.network(
                                             functions.stringToImgPath(
                                                 valueOrDefault<String>(
-                                              widget.insurerLogoUrl?[
+                                              widget!.insurerLogoUrl?[
                                                   _model.indexDataCompare!],
                                               'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                             ))!,
@@ -379,7 +383,7 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget.insurerFullName?[
+                                                                widget!.insurerFullName?[
                                                                     _model
                                                                         .indexDataCompare!],
                                                                 '-',
@@ -388,7 +392,7 @@ class _CompareInsurancePageWidgetState
                                                           ? '-'
                                                           : valueOrDefault<
                                                               String>(
-                                                              widget.insurerFullName?[
+                                                              widget!.insurerFullName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
@@ -409,9 +413,9 @@ class _CompareInsurancePageWidgetState
                                                     ),
                                                   ],
                                                 ),
-                                                if (widget.insurerConfig2
+                                                if (widget!.insurerConfig2
                                                         ?.insurerInstallment
-                                                        ?.contains(widget
+                                                        ?.contains(widget!
                                                                 .insurerShortName?[
                                                             _model
                                                                 .indexDataCompare!]) ??
@@ -475,7 +479,7 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget.coverTypeName?[
+                                                                widget!.coverTypeName?[
                                                                     _model
                                                                         .indexDataCompare!],
                                                                 '-',
@@ -484,7 +488,7 @@ class _CompareInsurancePageWidgetState
                                                           ? '-'
                                                           : valueOrDefault<
                                                               String>(
-                                                              widget.coverTypeName?[
+                                                              widget!.coverTypeName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
@@ -534,7 +538,7 @@ class _CompareInsurancePageWidgetState
                                                       functions.checkNullValueAndReturn(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                widget.garageTypeName?[
+                                                                widget!.garageTypeName?[
                                                                     _model
                                                                         .indexDataCompare!],
                                                                 '-',
@@ -543,7 +547,7 @@ class _CompareInsurancePageWidgetState
                                                           ? '-'
                                                           : valueOrDefault<
                                                               String>(
-                                                              widget.garageTypeName?[
+                                                              widget!.garageTypeName?[
                                                                   _model
                                                                       .indexDataCompare!],
                                                               '-',
@@ -605,11 +609,11 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         valueOrDefault<String>(
                                           functions.checkNullValueAndReturn(
-                                                      widget.currentDate) ==
+                                                      widget!.currentDate) ==
                                                   '-'
                                               ? '-'
                                               : functions.showDateBE(
-                                                  widget.currentDate),
+                                                  widget!.currentDate),
                                           '-',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -627,7 +631,7 @@ class _CompareInsurancePageWidgetState
                               ],
                             ),
                             if (valueOrDefault<String>(
-                                  widget.insurerCondition?[
+                                  widget!.insurerCondition?[
                                       _model.indexDataCompare!],
                                   '-',
                                 ) !=
@@ -637,7 +641,7 @@ class _CompareInsurancePageWidgetState
                                 color: Color(0xFFB9B9B9),
                               ),
                             if (valueOrDefault<String>(
-                                  widget.insurerCondition?[
+                                  widget!.insurerCondition?[
                                       _model.indexDataCompare!],
                                   '-',
                                 ) !=
@@ -685,7 +689,7 @@ class _CompareInsurancePageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         30.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      widget.insurerCondition![
+                                      widget!.insurerCondition![
                                           _model.indexDataCompare!],
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
@@ -764,10 +768,10 @@ class _CompareInsurancePageWidgetState
                                       ),
                                       Text(
                                         functions.checkNullValueAndReturn(
-                                                    widget.brandName) ==
+                                                    widget!.brandName) ==
                                                 '-'
                                             ? '-'
-                                            : widget.brandName,
+                                            : widget!.brandName,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -810,10 +814,10 @@ class _CompareInsurancePageWidgetState
                                       ),
                                       Text(
                                         functions.checkNullValueAndReturn(
-                                                    widget.modelName) ==
+                                                    widget!.modelName) ==
                                                 '-'
                                             ? '-'
-                                            : widget.modelName,
+                                            : widget!.modelName,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -857,10 +861,10 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         valueOrDefault<String>(
                                           functions.checkNullValueAndReturn(
-                                                      widget.year) ==
+                                                      widget!.year) ==
                                                   '-'
                                               ? '-'
-                                              : (int.parse((widget.year!)) +
+                                              : (int.parse((widget!.year!)) +
                                                       543)
                                                   .toString(),
                                           '-',
@@ -908,10 +912,10 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         valueOrDefault<String>(
                                           functions.checkNullValueAndReturn(
-                                                      widget.driverType) ==
+                                                      widget!.driverType) ==
                                                   '-'
                                               ? '-'
-                                              : widget.driverType,
+                                              : widget!.driverType,
                                           '-',
                                         ),
                                         style: FlutterFlowTheme.of(context)
@@ -957,7 +961,7 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget.grossTotal?[
+                                                  widget!.grossTotal?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )) ==
@@ -966,7 +970,7 @@ class _CompareInsurancePageWidgetState
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget.grossTotal?[
+                                                  widget!.grossTotal?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )),
@@ -1017,7 +1021,7 @@ class _CompareInsurancePageWidgetState
                                                     valueOrDefault<String>(
                                                   functions.showNumberWithComma(
                                                       valueOrDefault<String>(
-                                                    widget.sumInsured?[_model
+                                                    widget!.sumInsured?[_model
                                                         .indexDataCompare!],
                                                     '-',
                                                   )),
@@ -1028,7 +1032,7 @@ class _CompareInsurancePageWidgetState
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget.sumInsured?[
+                                                  widget!.sumInsured?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )),
@@ -1078,7 +1082,7 @@ class _CompareInsurancePageWidgetState
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
                                                   functions.showNumberWithComma(
-                                                      widget.deductible?[_model
+                                                      widget!.deductible?[_model
                                                           .indexDataCompare!]),
                                                   '-',
                                                 )) ==
@@ -1086,7 +1090,7 @@ class _CompareInsurancePageWidgetState
                                             ? '-'
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
-                                                    widget.deductible?[_model
+                                                    widget!.deductible?[_model
                                                         .indexDataCompare!]),
                                                 '-',
                                               ),
@@ -1135,7 +1139,7 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget.tpbiAccident?[
+                                                  widget!.tpbiAccident?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )) ==
@@ -1144,7 +1148,7 @@ class _CompareInsurancePageWidgetState
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget.tpbiAccident?[
+                                                  widget!.tpbiAccident?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )),
@@ -1192,13 +1196,13 @@ class _CompareInsurancePageWidgetState
                                       ),
                                       Text(
                                         functions.checkNullValueAndReturn(
-                                                    widget.pa?[_model
+                                                    widget!.pa?[_model
                                                         .indexDataCompare!]) ==
                                                 '-'
                                             ? '-'
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
-                                                    widget.pa?[_model
+                                                    widget!.pa?[_model
                                                         .indexDataCompare!]),
                                                 '-',
                                               ),
@@ -1245,7 +1249,7 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget.grossTotal?[
+                                                  widget!.grossTotal?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )) ==
@@ -1254,7 +1258,7 @@ class _CompareInsurancePageWidgetState
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     valueOrDefault<String>(
-                                                  widget.grossTotal?[
+                                                  widget!.grossTotal?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )),
@@ -1303,7 +1307,7 @@ class _CompareInsurancePageWidgetState
                                       Text(
                                         functions.checkNullValueAndReturn(
                                                     valueOrDefault<String>(
-                                                  widget.grossAct?[
+                                                  widget!.grossAct?[
                                                       _model.indexDataCompare!],
                                                   '-',
                                                 )) ==
@@ -1312,9 +1316,9 @@ class _CompareInsurancePageWidgetState
                                             : valueOrDefault<String>(
                                                 functions.showNumberWithComma(
                                                     functions.getGrossAct(
-                                                        widget.grossTotal?[_model
+                                                        widget!.grossTotal?[_model
                                                             .indexDataCompare!],
-                                                        widget.grossAct?[_model
+                                                        widget!.grossAct?[_model
                                                             .indexDataCompare!])),
                                                 '-',
                                               ),
@@ -1363,7 +1367,7 @@ class _CompareInsurancePageWidgetState
                                           valueOrDefault<String>(
                                             functions.checkNullValueAndReturn(
                                                         valueOrDefault<String>(
-                                                      widget.expireDate?[_model
+                                                      widget!.expireDate?[_model
                                                           .indexDataCompare!],
                                                       '-',
                                                     )) ==
@@ -1371,7 +1375,7 @@ class _CompareInsurancePageWidgetState
                                                 ? '-'
                                                 : functions.changeADToBD(
                                                     valueOrDefault<String>(
-                                                    widget.expireDate?[_model
+                                                    widget!.expireDate?[_model
                                                         .indexDataCompare!],
                                                     '-',
                                                   )),
@@ -1432,194 +1436,199 @@ class _CompareInsurancePageWidgetState
                                                           queryParameters: {
                                                             'insurerId':
                                                                 serializeParam(
-                                                              widget.insurerId,
+                                                              widget!.insurerId,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'insurerCode':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .insurerFullName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'insurerShortName':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .insurerShortName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'insurerName':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .insurerMaxName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'coverTypeId':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .coverTypeId,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'coverTypeCode':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .coverTypeCode,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'coverTypeName':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .coverTypeName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'garageTypeId':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .garageTypeId,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'garageTypeCode':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .garageTypeCode,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'garageTypeName':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .garageTypeName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'productId':
                                                                 serializeParam(
-                                                              widget.productId,
+                                                              widget!.productId,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'packageId':
                                                                 serializeParam(
-                                                              widget.packageId,
+                                                              widget!.packageId,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'packageName':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .packageName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'sumInsured':
                                                                 serializeParam(
-                                                              widget.sumInsured,
+                                                              widget!
+                                                                  .sumInsured,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'workType':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .insurerFullName,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'roadsideAssistance':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .roadsideAssis,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'tpbiPerson':
                                                                 serializeParam(
-                                                              widget.tpbiPerson,
+                                                              widget!
+                                                                  .tpbiPerson,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'tpbiAccident':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .tpbiAccident,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'tppd':
                                                                 serializeParam(
-                                                              widget.tppd,
+                                                              widget!.tppd,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'flood':
                                                                 serializeParam(
-                                                              widget.flood,
+                                                              widget!.flood,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'deductible':
                                                                 serializeParam(
-                                                              widget.deductible,
+                                                              widget!
+                                                                  .deductible,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'pa':
                                                                 serializeParam(
-                                                              widget.pa,
+                                                              widget!.pa,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'me':
                                                                 serializeParam(
-                                                              widget.me,
+                                                              widget!.me,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'bb':
                                                                 serializeParam(
-                                                              widget.bb,
+                                                              widget!.bb,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'assessory':
                                                                 serializeParam(
-                                                              widget.accessory,
+                                                              widget!.accessory,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'seat':
                                                                 serializeParam(
-                                                              widget.seat,
+                                                              widget!.seat,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'netPremium':
                                                                 serializeParam(
-                                                              widget.netPremium,
+                                                              widget!
+                                                                  .netPremium,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'vat':
                                                                 serializeParam(
-                                                              widget.vat,
+                                                              widget!.vat,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'stamp':
                                                                 serializeParam(
-                                                              widget.stamp,
+                                                              widget!.stamp,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
                                                             'grossTotal':
                                                                 serializeParam(
-                                                              widget.grossTotal,
+                                                              widget!
+                                                                  .grossTotal,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
@@ -1685,7 +1694,7 @@ class _CompareInsurancePageWidgetState
                                                             ),
                                                             'contractProcessstate':
                                                                 serializeParam(
-                                                              widget
+                                                              widget!
                                                                   .contractProcessstate,
                                                               ParamType.String,
                                                               isList: true,
@@ -1714,7 +1723,7 @@ class _CompareInsurancePageWidgetState
                                                             ),
                                                             'cc':
                                                                 serializeParam(
-                                                              widget.cc,
+                                                              widget!.cc,
                                                               ParamType.String,
                                                               isList: true,
                                                             ),
@@ -1876,7 +1885,7 @@ class _CompareInsurancePageWidgetState
                                                         if ((functions.checkNullValueAndReturn(
                                                                         valueOrDefault<
                                                                             String>(
-                                                                      widget.coverTypeName?[
+                                                                      widget!.coverTypeName?[
                                                                           _model
                                                                               .indexDataCompare!],
                                                                       '-',
@@ -1885,7 +1894,7 @@ class _CompareInsurancePageWidgetState
                                                                 ? '-'
                                                                 : valueOrDefault<
                                                                     String>(
-                                                                    widget.coverTypeName?[
+                                                                    widget!.coverTypeName?[
                                                                         _model
                                                                             .indexDataCompare!],
                                                                     '-',
@@ -1952,173 +1961,174 @@ class _CompareInsurancePageWidgetState
                                                     queryParameters: {
                                                       'insurerId':
                                                           serializeParam(
-                                                        widget.insurerId,
+                                                        widget!.insurerId,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'insurerCode':
                                                           serializeParam(
-                                                        widget.insurerFullName,
+                                                        widget!.insurerFullName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'insurerShortName':
                                                           serializeParam(
-                                                        widget.insurerShortName,
+                                                        widget!
+                                                            .insurerShortName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'insurerName':
                                                           serializeParam(
-                                                        widget.insurerMaxName,
+                                                        widget!.insurerMaxName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'coverTypeId':
                                                           serializeParam(
-                                                        widget.coverTypeId,
+                                                        widget!.coverTypeId,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'coverTypeCode':
                                                           serializeParam(
-                                                        widget.coverTypeCode,
+                                                        widget!.coverTypeCode,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'coverTypeName':
                                                           serializeParam(
-                                                        widget.coverTypeName,
+                                                        widget!.coverTypeName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'garageTypeId':
                                                           serializeParam(
-                                                        widget.garageTypeId,
+                                                        widget!.garageTypeId,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'garageTypeCode':
                                                           serializeParam(
-                                                        widget.garageTypeCode,
+                                                        widget!.garageTypeCode,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'garageTypeName':
                                                           serializeParam(
-                                                        widget.garageTypeName,
+                                                        widget!.garageTypeName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'productId':
                                                           serializeParam(
-                                                        widget.productId,
+                                                        widget!.productId,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'packageId':
                                                           serializeParam(
-                                                        widget.packageId,
+                                                        widget!.packageId,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'packageName':
                                                           serializeParam(
-                                                        widget.packageName,
+                                                        widget!.packageName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'sumInsured':
                                                           serializeParam(
-                                                        widget.sumInsured,
+                                                        widget!.sumInsured,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'workType':
                                                           serializeParam(
-                                                        widget.insurerFullName,
+                                                        widget!.insurerFullName,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'roadsideAssistance':
                                                           serializeParam(
-                                                        widget.roadsideAssis,
+                                                        widget!.roadsideAssis,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'tpbiPerson':
                                                           serializeParam(
-                                                        widget.tpbiPerson,
+                                                        widget!.tpbiPerson,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'tpbiAccident':
                                                           serializeParam(
-                                                        widget.tpbiAccident,
+                                                        widget!.tpbiAccident,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'tppd': serializeParam(
-                                                        widget.tppd,
+                                                        widget!.tppd,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'flood': serializeParam(
-                                                        widget.flood,
+                                                        widget!.flood,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'deductible':
                                                           serializeParam(
-                                                        widget.deductible,
+                                                        widget!.deductible,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'pa': serializeParam(
-                                                        widget.pa,
+                                                        widget!.pa,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'me': serializeParam(
-                                                        widget.me,
+                                                        widget!.me,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'bb': serializeParam(
-                                                        widget.bb,
+                                                        widget!.bb,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'assessory':
                                                           serializeParam(
-                                                        widget.accessory,
+                                                        widget!.accessory,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'seat': serializeParam(
-                                                        widget.seat,
+                                                        widget!.seat,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'netPremium':
                                                           serializeParam(
-                                                        widget.netPremium,
+                                                        widget!.netPremium,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'vat': serializeParam(
-                                                        widget.vat,
+                                                        widget!.vat,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'stamp': serializeParam(
-                                                        widget.stamp,
+                                                        widget!.stamp,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
                                                       'grossTotal':
                                                           serializeParam(
-                                                        widget.grossTotal,
+                                                        widget!.grossTotal,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),
@@ -2183,7 +2193,7 @@ class _CompareInsurancePageWidgetState
                                                       ),
                                                       'contractProcessstate':
                                                           serializeParam(
-                                                        widget
+                                                        widget!
                                                             .contractProcessstate,
                                                         ParamType.String,
                                                         isList: true,
@@ -2209,7 +2219,7 @@ class _CompareInsurancePageWidgetState
                                                         ParamType.String,
                                                       ),
                                                       'cc': serializeParam(
-                                                        widget.cc,
+                                                        widget!.cc,
                                                         ParamType.String,
                                                         isList: true,
                                                       ),

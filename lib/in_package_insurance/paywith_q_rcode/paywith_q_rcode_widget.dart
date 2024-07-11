@@ -95,6 +95,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
         }
         List<UrlLinkStorageRecord> paywithQRcodeUrlLinkStorageRecordList =
             snapshot.data!;
+
         final paywithQRcodeUrlLinkStorageRecord =
             paywithQRcodeUrlLinkStorageRecordList.isNotEmpty
                 ? paywithQRcodeUrlLinkStorageRecordList.first
@@ -333,11 +334,11 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                       child: BarcodeWidget(
                                                         data: functions
                                                             .genQRCodePayment(
-                                                                widget.suffix,
-                                                                widget.ref1,
-                                                                widget.ref2,
-                                                                widget.amount,
-                                                                widget.taxId)!,
+                                                                widget!.suffix,
+                                                                widget!.ref1,
+                                                                widget!.ref2,
+                                                                widget!.amount,
+                                                                widget!.taxId)!,
                                                         barcode:
                                                             Barcode.qrCode(),
                                                         width: 300.0,
@@ -379,11 +380,13 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         child: BarcodeWidget(
                                                           data: functions
                                                               .genQRCodePayment(
-                                                                  widget.suffix,
-                                                                  widget.ref1,
-                                                                  widget.ref2,
-                                                                  widget.amount,
-                                                                  widget
+                                                                  widget!
+                                                                      .suffix,
+                                                                  widget!.ref1,
+                                                                  widget!.ref2,
+                                                                  widget!
+                                                                      .amount,
+                                                                  widget!
                                                                       .taxId)!,
                                                           barcode:
                                                               Barcode.code128(),
@@ -419,7 +422,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        '฿ ${functions.showNumberWithComma(widget.amount)}',
+                                                        '฿ ${functions.showNumberWithComma(widget!.amount)}',
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -446,7 +449,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
-                                                      'R1: ${widget.ref1}',
+                                                      'R1: ${widget!.ref1}',
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodyMedium
@@ -462,7 +465,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                     ),
                                                   ),
                                                   Text(
-                                                    'R2: ${widget.ref2}',
+                                                    'R2: ${widget!.ref2}',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -489,7 +492,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                               FontWeight.normal,
                                                         ),
                                                   ),
-                                                  if ((widget.fromPage !=
+                                                  if ((widget!.fromPage !=
                                                           'VlonePayment') &&
                                                       (FFAppState()
                                                               .insuranceinfoActType !=
@@ -536,7 +539,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                  if ((widget.fromPage !=
+                                                  if ((widget!.fromPage !=
                                                           'VlonePayment') &&
                                                       (FFAppState()
                                                               .insuranceinfoActType ==
@@ -586,7 +589,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'VlonePayment')
                                                     Container(
                                                       width: double.infinity,
@@ -635,7 +638,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'VlonePayment')
                                                     Container(
                                                       width: double.infinity,
@@ -684,7 +687,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'VlonePayment')
                                                     Container(
                                                       width: double.infinity,
@@ -733,7 +736,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                         ],
                                                       ),
                                                     ),
-                                                  if ((widget.fromPage !=
+                                                  if ((widget!.fromPage !=
                                                           'VlonePayment') &&
                                                       (FFAppState()
                                                               .insuranceinfoActType !=
@@ -768,7 +771,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             ),
                                                       ),
                                                     ),
-                                                  if ((widget.fromPage !=
+                                                  if ((widget!.fromPage !=
                                                           'VlonePayment') &&
                                                       (FFAppState()
                                                               .insuranceinfoActType !=
@@ -802,7 +805,7 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
                                                             ),
                                                       ),
                                                     ),
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'VlonePayment')
                                                     Container(
                                                       width: double.infinity,
@@ -939,11 +942,11 @@ class _PaywithQRcodeWidgetState extends State<PaywithQRcodeWidget> {
 
                                     _model.cap = await actions.capQrCode(
                                       context,
-                                      widget.suffix,
-                                      widget.ref1,
-                                      widget.ref2,
-                                      widget.amount,
-                                      widget.taxId,
+                                      widget!.suffix,
+                                      widget!.ref1,
+                                      widget!.ref2,
+                                      widget!.amount,
+                                      widget!.taxId,
                                     );
                                     Navigator.pop(context);
                                     await showDialog(

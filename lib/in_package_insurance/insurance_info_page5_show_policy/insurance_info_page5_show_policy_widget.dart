@@ -108,7 +108,7 @@ class _InsuranceInfoPage5ShowPolicyWidgetState
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: FlutterFlowPdfViewer(
-                      networkPath: widget.vmiDocumentUrl!,
+                      networkPath: widget!.vmiDocumentUrl!,
                       height: 300.0,
                       horizontalScroll: false,
                     ),

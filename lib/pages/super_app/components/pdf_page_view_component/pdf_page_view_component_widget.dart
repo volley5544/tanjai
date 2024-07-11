@@ -97,7 +97,8 @@ class _PdfPageViewComponentWidgetState
                 child: Builder(
                   builder: (context) {
                     final pdfListItem =
-                        widget.pdfUrlList?.pdfUrl?.toList() ?? [];
+                        widget!.pdfUrlList?.pdfUrl?.toList() ?? [];
+
                     return Container(
                       width: double.infinity,
                       height: 500.0,
@@ -121,7 +122,7 @@ class _PdfPageViewComponentWidgetState
                                   height: 100.0,
                                   decoration: BoxDecoration(),
                                   child: FlutterFlowPdfViewer(
-                                    networkPath: widget
+                                    networkPath: widget!
                                         .pdfUrlList!.pdfUrl[pdfListItemIndex],
                                     height: 300.0,
                                     horizontalScroll: false,

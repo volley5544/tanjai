@@ -91,6 +91,7 @@ class _EffectiveDatePickerComponentWidgetState
               }
               List<EffectiveDayConfigRecord>
                   columnEffectiveDayConfigRecordList = snapshot.data!;
+
               // Return an empty Container when the item does not exist.
               if (snapshot.data!.isEmpty) {
                 return Container();
@@ -103,7 +104,7 @@ class _EffectiveDatePickerComponentWidgetState
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  if (!widget.effectiveDateInsurerFlag!)
+                  if (!widget!.effectiveDateInsurerFlag!)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 24.0),
@@ -133,9 +134,9 @@ class _EffectiveDatePickerComponentWidgetState
                                     });
                                   },
                                   currentTime: functions.parseStringToDatetime(
-                                      widget.currentDate)!,
+                                      widget!.currentDate)!,
                                   minTime: functions.parseStringToDatetime(
-                                      widget.currentDate)!,
+                                      widget!.currentDate)!,
                                   locale: LocaleType.values.firstWhere(
                                     (l) =>
                                         l.name ==
@@ -175,7 +176,7 @@ class _EffectiveDatePickerComponentWidgetState
                         ],
                       ),
                     ),
-                  if (widget.actFlag! ? !widget.effectiveDateActFlag! : false)
+                  if (widget!.actFlag! ? !widget!.effectiveDateActFlag! : false)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
@@ -205,9 +206,9 @@ class _EffectiveDatePickerComponentWidgetState
                                     });
                                   },
                                   currentTime: functions.parseStringToDatetime(
-                                      widget.currentDate)!,
+                                      widget!.currentDate)!,
                                   minTime: functions.parseStringToDatetime(
-                                      widget.currentDate)!,
+                                      widget!.currentDate)!,
                                   locale: LocaleType.values.firstWhere(
                                     (l) =>
                                         l.name ==
@@ -248,32 +249,33 @@ class _EffectiveDatePickerComponentWidgetState
                       ),
                     ),
                   if (() {
-                    if (!widget.effectiveDateInsurerFlag! && !widget.actFlag!) {
+                    if (!widget!.effectiveDateInsurerFlag! &&
+                        !widget!.actFlag!) {
                       return (_model.datePicked1 != null
                           ? (functions.checkCurrentDateIsBeforeInputDate(
-                                  widget.currentDate,
+                                  widget!.currentDate,
                                   functions.getDateFormat(_model.datePicked1))!
                               ? true
                               : false)
                           : false);
-                    } else if (widget.actFlag!
-                        ? (widget.effectiveDateInsurerFlag! &&
-                            !widget.effectiveDateActFlag!)
+                    } else if (widget!.actFlag!
+                        ? (widget!.effectiveDateInsurerFlag! &&
+                            !widget!.effectiveDateActFlag!)
                         : false) {
                       return (_model.datePicked2 != null
                           ? (functions.checkCurrentDateIsBeforeInputDate(
-                                  widget.currentDate,
+                                  widget!.currentDate,
                                   functions.getDateFormat(_model.datePicked2))!
                               ? true
                               : false)
                           : false);
-                    } else if (widget.actFlag!
-                        ? (!widget.effectiveDateInsurerFlag! &&
-                            widget.effectiveDateActFlag!)
+                    } else if (widget!.actFlag!
+                        ? (!widget!.effectiveDateInsurerFlag! &&
+                            widget!.effectiveDateActFlag!)
                         : false) {
                       return (_model.datePicked1 != null
                           ? (functions.checkCurrentDateIsBeforeInputDate(
-                                  widget.currentDate,
+                                  widget!.currentDate,
                                   functions.getDateFormat(_model.datePicked1))!
                               ? true
                               : false)
@@ -282,11 +284,11 @@ class _EffectiveDatePickerComponentWidgetState
                       return ((_model.datePicked1 != null) &&
                               (_model.datePicked2 != null)
                           ? (functions.checkCurrentDateIsBeforeInputDate(
-                                      widget.currentDate,
+                                      widget!.currentDate,
                                       functions.getDateFormat(
                                           _model.datePicked1))! &&
                                   functions.checkCurrentDateIsBeforeInputDate(
-                                      widget.currentDate,
+                                      widget!.currentDate,
                                       functions
                                           .getDateFormat(_model.datePicked2))!
                               ? true
@@ -307,8 +309,8 @@ class _EffectiveDatePickerComponentWidgetState
                               Expanded(
                                 child: FFButtonWidget(
                                   onPressed: () async {
-                                    if (!widget.effectiveDateInsurerFlag! &&
-                                        !widget.actFlag!) {
+                                    if (!widget!.effectiveDateInsurerFlag! &&
+                                        !widget!.actFlag!) {
                                       if (!(_model.datePicked1 != null)) {
                                         await showDialog(
                                           context: context,
@@ -333,7 +335,7 @@ class _EffectiveDatePickerComponentWidgetState
                                       }
                                       if (!functions
                                           .checkCurrentDateIsBeforeInputDate(
-                                              widget.currentDate,
+                                              widget!.currentDate,
                                               functions.getDateFormat(
                                                   _model.datePicked1))!) {
                                         await showDialog(
@@ -389,9 +391,9 @@ class _EffectiveDatePickerComponentWidgetState
                                                   _model.datePicked1
                                                       ?.toString()))!;
                                       setState(() {});
-                                    } else if (widget.actFlag!
-                                        ? (widget.effectiveDateInsurerFlag! &&
-                                            !widget.effectiveDateActFlag!)
+                                    } else if (widget!.actFlag!
+                                        ? (widget!.effectiveDateInsurerFlag! &&
+                                            !widget!.effectiveDateActFlag!)
                                         : false) {
                                       if (!(_model.datePicked2 != null)) {
                                         await showDialog(
@@ -417,7 +419,7 @@ class _EffectiveDatePickerComponentWidgetState
                                       }
                                       if (!functions
                                           .checkCurrentDateIsBeforeInputDate(
-                                              widget.currentDate,
+                                              widget!.currentDate,
                                               functions.getDateFormat(
                                                   _model.datePicked2))!) {
                                         await showDialog(
@@ -473,9 +475,9 @@ class _EffectiveDatePickerComponentWidgetState
                                                   _model.datePicked2
                                                       ?.toString()))!;
                                       setState(() {});
-                                    } else if (widget.actFlag!
-                                        ? (!widget.effectiveDateInsurerFlag! &&
-                                            widget.effectiveDateActFlag!)
+                                    } else if (widget!.actFlag!
+                                        ? (!widget!.effectiveDateInsurerFlag! &&
+                                            widget!.effectiveDateActFlag!)
                                         : false) {
                                       if (!(_model.datePicked1 != null)) {
                                         await showDialog(
@@ -501,7 +503,7 @@ class _EffectiveDatePickerComponentWidgetState
                                       }
                                       if (!functions
                                           .checkCurrentDateIsBeforeInputDate(
-                                              widget.currentDate,
+                                              widget!.currentDate,
                                               functions.getDateFormat(
                                                   _model.datePicked1))!) {
                                         await showDialog(
@@ -580,7 +582,7 @@ class _EffectiveDatePickerComponentWidgetState
                                       }
                                       if (!functions
                                           .checkCurrentDateIsBeforeInputDate(
-                                              widget.currentDate,
+                                              widget!.currentDate,
                                               functions.getDateFormat(
                                                   _model.datePicked1))!) {
                                         await showDialog(
@@ -628,7 +630,7 @@ class _EffectiveDatePickerComponentWidgetState
                                       }
                                       if (!functions
                                           .checkCurrentDateIsBeforeInputDate(
-                                              widget.currentDate,
+                                              widget!.currentDate,
                                               functions.getDateFormat(
                                                   _model.datePicked2))!) {
                                         await showDialog(

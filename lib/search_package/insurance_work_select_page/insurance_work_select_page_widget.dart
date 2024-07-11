@@ -287,6 +287,7 @@ class _InsuranceWorkSelectPageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
+
                 final columnHideInAppContentRecord =
                     columnHideInAppContentRecordList.isNotEmpty
                         ? columnHideInAppContentRecordList.first

@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -230,6 +232,7 @@ class _DetailsInsurancePageWidgetState
                 }
                 List<HideInAppContentRecord> columnHideInAppContentRecordList =
                     snapshot.data!;
+
                 // Return an empty Container when the item does not exist.
                 if (snapshot.data!.isEmpty) {
                   return Container();
@@ -258,7 +261,7 @@ class _DetailsInsurancePageWidgetState
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.network(
                                   valueOrDefault<String>(
-                                    functions.stringToImgPath(widget.logoUrl),
+                                    functions.stringToImgPath(widget!.logoUrl),
                                     'https://is-dev.swpfin.com/ssw_insurance_manual_api/storage/images/No_image_available.png?v=1692265949',
                                   ),
                                   width: 59.0,
@@ -280,7 +283,7 @@ class _DetailsInsurancePageWidgetState
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
-                                            widget.insurerFullName,
+                                            widget!.insurerFullName,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -293,10 +296,10 @@ class _DetailsInsurancePageWidgetState
                                           ),
                                         ],
                                       ),
-                                      if (widget
+                                      if (widget!
                                               .insurerConfig?.insurerInstallment
                                               ?.contains(
-                                                  widget.insurerShortName) ??
+                                                  widget!.insurerShortName) ??
                                           true)
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -339,7 +342,7 @@ class _DetailsInsurancePageWidgetState
                                           ),
                                           Text(
                                             functions.showCoverTypeThai(
-                                                widget.coverTypeCode),
+                                                widget!.coverTypeCode),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -371,7 +374,7 @@ class _DetailsInsurancePageWidgetState
                                           ),
                                           Text(
                                             functions.showGarageType(
-                                                widget.garageTypeName),
+                                                widget!.garageTypeName),
                                             textAlign: TextAlign.justify,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -422,7 +425,7 @@ class _DetailsInsurancePageWidgetState
                                 ),
                                 Text(
                                   valueOrDefault<String>(
-                                    functions.showDateBE(widget.currentDate),
+                                    functions.showDateBE(widget!.currentDate),
                                     '-',
                                   ),
                                   style: FlutterFlowTheme.of(context)
@@ -439,12 +442,12 @@ class _DetailsInsurancePageWidgetState
                           ),
                         ],
                       ),
-                      if (widget.insurerCondition != '')
+                      if (widget!.insurerCondition != '')
                         Divider(
                           thickness: 1.0,
                           color: Color(0xFFCBD8D8),
                         ),
-                      if (widget.insurerCondition != '')
+                      if (widget!.insurerCondition != '')
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -487,7 +490,7 @@ class _DetailsInsurancePageWidgetState
                                   30.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 valueOrDefault<String>(
-                                  widget.insurerCondition,
+                                  widget!.insurerCondition,
                                   '-',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -564,7 +567,7 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.brandName,
+                                  widget!.brandName,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -605,7 +608,7 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.modelName,
+                                  widget!.modelName,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -646,9 +649,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.year == '-'
+                                  widget!.year == '-'
                                       ? '-'
-                                      : (int.parse(widget.year) + 543)
+                                      : (int.parse(widget!.year) + 543)
                                           .toString(),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -690,7 +693,7 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.driverType,
+                                  widget!.driverType,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -731,9 +734,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.grossTotal == '-'
+                                  widget!.grossTotal == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.grossTotal)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.grossTotal)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -774,9 +777,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.sumInsured == '-'
+                                  widget!.sumInsured == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.sumInsured)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.sumInsured)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -817,9 +820,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.deductible == '-'
+                                  widget!.deductible == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.deductible)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.deductible)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -861,9 +864,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.tpbiAccident == '-'
+                                  widget!.tpbiAccident == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.tpbiAccident)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.tpbiAccident)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -904,9 +907,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.pa == '-'
+                                  widget!.pa == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.pa)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.pa)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -947,9 +950,9 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  widget.grossTotal == '-'
+                                  widget!.grossTotal == '-'
                                       ? '-'
-                                      : '${functions.showNumberWithComma(widget.grossTotal)} บาท',
+                                      : '${functions.showNumberWithComma(widget!.grossTotal)} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -990,12 +993,12 @@ class _DetailsInsurancePageWidgetState
                                       ),
                                 ),
                                 Text(
-                                  (widget.grossTotal == '-') ||
-                                          (widget.grossAct == '-') ||
-                                          (widget.grossTotal == '') ||
-                                          (widget.grossAct == '')
+                                  (widget!.grossTotal == '-') ||
+                                          (widget!.grossAct == '-') ||
+                                          (widget!.grossTotal == '') ||
+                                          (widget!.grossAct == '')
                                       ? '-'
-                                      : '${functions.showNumberWithComma(functions.getGrossAct(widget.grossTotal, widget.grossAct))} บาท',
+                                      : '${functions.showNumberWithComma(functions.getGrossAct(widget!.grossTotal, widget!.grossAct))} บาท',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -1039,10 +1042,10 @@ class _DetailsInsurancePageWidgetState
                                   ),
                                   Text(
                                     valueOrDefault<String>(
-                                      widget.expireDate == '-'
+                                      widget!.expireDate == '-'
                                           ? '-'
                                           : functions
-                                              .changeADToBD(widget.expireDate),
+                                              .changeADToBD(widget!.expireDate),
                                       '-',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -1084,25 +1087,25 @@ class _DetailsInsurancePageWidgetState
                                           queryParameters: {
                                             'insurerId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerId),
+                                                  widget!.insurerId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerFullName),
+                                                  widget!.insurerFullName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerShortName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerShortName),
+                                                  widget!.insurerShortName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerMaxName),
+                                                  widget!.insurerMaxName),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1110,14 +1113,14 @@ class _DetailsInsurancePageWidgetState
                                               functions.coverTypeCodeToId(
                                                   functions
                                                       .makeStringToList1(
-                                                          widget.coverTypeCode)
+                                                          widget!.coverTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'coverTypeCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.coverTypeCode),
+                                                  widget!.coverTypeCode),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1125,7 +1128,7 @@ class _DetailsInsurancePageWidgetState
                                               functions.coverTypeCodeToName(
                                                   functions
                                                       .makeStringToList1(
-                                                          widget.coverTypeCode)
+                                                          widget!.coverTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
@@ -1133,48 +1136,48 @@ class _DetailsInsurancePageWidgetState
                                             'garageTypeId': serializeParam(
                                               functions.garageTypeCodetoId(
                                                   functions
-                                                      .makeStringToList1(
-                                                          widget.garageTypeCode)
+                                                      .makeStringToList1(widget!
+                                                          .garageTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'garageTypeCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.garageTypeCode),
+                                                  widget!.garageTypeCode),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'garageTypeName': serializeParam(
                                               functions.garageTypeCodeToName(
                                                   functions
-                                                      .makeStringToList1(
-                                                          widget.garageTypeCode)
+                                                      .makeStringToList1(widget!
+                                                          .garageTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'productId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.productId),
+                                                  widget!.productId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'packageId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.packageId),
+                                                  widget!.packageId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'packageName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.packageName),
+                                                  widget!.packageName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'sumInsured': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.sumInsured),
+                                                  widget!.sumInsured),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1186,91 +1189,91 @@ class _DetailsInsurancePageWidgetState
                                             'roadsideAssistance':
                                                 serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.roadsideAssis),
+                                                  widget!.roadsideAssis),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tpbiPerson': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tpbiPerson),
+                                                  widget!.tpbiPerson),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tpbiAccident': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tpbiAccident),
+                                                  widget!.tpbiAccident),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tppd': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tppd),
+                                                  widget!.tppd),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'flood': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.flood),
+                                                  widget!.flood),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'deductible': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.deductible),
+                                                  widget!.deductible),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'pa': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.pa),
+                                              functions.makeStringToList1(
+                                                  widget!.pa),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'me': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.me),
+                                              functions.makeStringToList1(
+                                                  widget!.me),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'bb': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.bb),
+                                              functions.makeStringToList1(
+                                                  widget!.bb),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'assessory': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.accessory),
+                                                  widget!.accessory),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'seat': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.seat),
+                                                  widget!.seat),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'netPremium': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.netPremium),
+                                                  widget!.netPremium),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'vat': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.vat),
+                                                  widget!.vat),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'stamp': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.stamp),
+                                                  widget!.stamp),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'grossTotal': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.grossTotal),
+                                                  widget!.grossTotal),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1326,7 +1329,7 @@ class _DetailsInsurancePageWidgetState
                                             'contractProcessstate':
                                                 serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.contractProcessstate),
+                                                  widget!.contractProcessstate),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1348,8 +1351,8 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                             ),
                                             'cc': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.cc),
+                                              functions.makeStringToList1(
+                                                  widget!.cc),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1421,7 +1424,7 @@ class _DetailsInsurancePageWidgetState
                                                   ''),
                                             ))!) {
                                               if (functions.showCoverTypeThai(
-                                                      widget.coverTypeCode) ==
+                                                      widget!.coverTypeCode) ==
                                                   'ชั้น 1') {
                                                 await showDialog(
                                                   context: context,
@@ -1480,25 +1483,25 @@ class _DetailsInsurancePageWidgetState
                                           queryParameters: {
                                             'insurerId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerId),
+                                                  widget!.insurerId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerFullName),
+                                                  widget!.insurerFullName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerShortName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerShortName),
+                                                  widget!.insurerShortName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'insurerName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.insurerMaxName),
+                                                  widget!.insurerMaxName),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1506,14 +1509,14 @@ class _DetailsInsurancePageWidgetState
                                               functions.coverTypeCodeToId(
                                                   functions
                                                       .makeStringToList1(
-                                                          widget.coverTypeCode)
+                                                          widget!.coverTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'coverTypeCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.coverTypeCode),
+                                                  widget!.coverTypeCode),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1521,7 +1524,7 @@ class _DetailsInsurancePageWidgetState
                                               functions.coverTypeCodeToName(
                                                   functions
                                                       .makeStringToList1(
-                                                          widget.coverTypeCode)
+                                                          widget!.coverTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
@@ -1529,48 +1532,48 @@ class _DetailsInsurancePageWidgetState
                                             'garageTypeId': serializeParam(
                                               functions.garageTypeCodetoId(
                                                   functions
-                                                      .makeStringToList1(
-                                                          widget.garageTypeCode)
+                                                      .makeStringToList1(widget!
+                                                          .garageTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'garageTypeCode': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.garageTypeCode),
+                                                  widget!.garageTypeCode),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'garageTypeName': serializeParam(
                                               functions.garageTypeCodeToName(
                                                   functions
-                                                      .makeStringToList1(
-                                                          widget.garageTypeCode)
+                                                      .makeStringToList1(widget!
+                                                          .garageTypeCode)
                                                       ?.toList()),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'productId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.productId),
+                                                  widget!.productId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'packageId': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.packageId),
+                                                  widget!.packageId),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'packageName': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.packageName),
+                                                  widget!.packageName),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'sumInsured': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.sumInsured),
+                                                  widget!.sumInsured),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1582,91 +1585,91 @@ class _DetailsInsurancePageWidgetState
                                             'roadsideAssistance':
                                                 serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.roadsideAssis),
+                                                  widget!.roadsideAssis),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tpbiPerson': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tpbiPerson),
+                                                  widget!.tpbiPerson),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tpbiAccident': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tpbiAccident),
+                                                  widget!.tpbiAccident),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'tppd': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.tppd),
+                                                  widget!.tppd),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'flood': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.flood),
+                                                  widget!.flood),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'deductible': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.deductible),
+                                                  widget!.deductible),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'pa': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.pa),
+                                              functions.makeStringToList1(
+                                                  widget!.pa),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'me': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.me),
+                                              functions.makeStringToList1(
+                                                  widget!.me),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'bb': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.bb),
+                                              functions.makeStringToList1(
+                                                  widget!.bb),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'assessory': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.accessory),
+                                                  widget!.accessory),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'seat': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.seat),
+                                                  widget!.seat),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'netPremium': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.netPremium),
+                                                  widget!.netPremium),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'vat': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.vat),
+                                                  widget!.vat),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'stamp': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.stamp),
+                                                  widget!.stamp),
                                               ParamType.String,
                                               isList: true,
                                             ),
                                             'grossTotal': serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.grossTotal),
+                                                  widget!.grossTotal),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1722,7 +1725,7 @@ class _DetailsInsurancePageWidgetState
                                             'contractProcessstate':
                                                 serializeParam(
                                               functions.makeStringToList1(
-                                                  widget.contractProcessstate),
+                                                  widget!.contractProcessstate),
                                               ParamType.String,
                                               isList: true,
                                             ),
@@ -1744,8 +1747,8 @@ class _DetailsInsurancePageWidgetState
                                               ParamType.String,
                                             ),
                                             'cc': serializeParam(
-                                              functions
-                                                  .makeStringToList1(widget.cc),
+                                              functions.makeStringToList1(
+                                                  widget!.cc),
                                               ParamType.String,
                                               isList: true,
                                             ),

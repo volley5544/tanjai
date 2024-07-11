@@ -71,6 +71,7 @@ class _NonePackageEditPage2CopyWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageEditPage2CopyUrlLinkStorageRecordList = snapshot.data!;
+
         final nonePackageEditPage2CopyUrlLinkStorageRecord =
             nonePackageEditPage2CopyUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageEditPage2CopyUrlLinkStorageRecordList.first

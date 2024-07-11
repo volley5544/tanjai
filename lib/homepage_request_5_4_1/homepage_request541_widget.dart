@@ -1,10 +1,17 @@
+import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'homepage_request541_model.dart';
 export 'homepage_request541_model.dart';
 
@@ -28,6 +35,117 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Homepage_Request_5_4_1'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      showModalBottomSheet(
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        enableDrag: false,
+        context: context,
+        builder: (context) {
+          return WebViewAware(
+            child: GestureDetector(
+              onTap: () => _model.unfocusNode.canRequestFocus
+                  ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                  : FocusScope.of(context).unfocus(),
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: Container(
+                  height: double.infinity,
+                  child: LoadingSceneWidget(),
+                ),
+              ),
+            ),
+          );
+        },
+      ).then((value) => safeSetState(() {}));
+
+      _model.timerApiOutput = await TimerApiCall.call();
+      if (_model.timerApiOutput?.succeeded ?? true) {
+        _model.timerApiOutput?.streamedResponse?.stream
+            .transform(utf8.decoder)
+            .transform(const LineSplitter())
+            .transform(ServerSentEventLineTransformer())
+            .map((m) => ResponseStreamMessage(message: m))
+            .listen(
+          (onMessageInput) async {
+            FFAppState().tempVariable = TimerApiCall.time(
+              onMessageInput.serverSentEvent.jsonData,
+            )!;
+            setState(() {});
+            _model.eventJson = onMessageInput.serverSentEvent.jsonData;
+            _model.eventName = onMessageInput.serverSentEvent.event;
+            _model.isConnecting = true;
+            setState(() {});
+          },
+          onError: (onErrorInput) async {
+            _model.isConnecting = false;
+            setState(() {});
+            while (!_model.isConnecting) {
+              ScaffoldMessenger.of(context).clearSnackBars();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    '${onErrorInput}จะทำการเชื่อมต่อใหม่ใน 5 วินาที',
+                    style: GoogleFonts.getFont(
+                      'Roboto',
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  duration: Duration(milliseconds: 5000),
+                  backgroundColor: Colors.black,
+                ),
+              );
+              await Future.delayed(const Duration(milliseconds: 5000));
+              final streamingApiResult = await TimerApiCall.call();
+              if (streamingApiResult?.succeeded ?? true) {
+                streamingApiResult?.streamedResponse?.stream
+                    .transform(utf8.decoder)
+                    .transform(const LineSplitter())
+                    .transform(ServerSentEventLineTransformer())
+                    .map((m) => ResponseStreamMessage(message: m))
+                    .listen(
+                  (onMessageInput) async {
+                    FFAppState().tempVariable = TimerApiCall.time(
+                      onMessageInput.serverSentEvent.jsonData,
+                    )!;
+                    setState(() {});
+                    _model.eventJson = onMessageInput.serverSentEvent.jsonData;
+                    _model.eventName = onMessageInput.serverSentEvent.event;
+                    _model.isConnecting = true;
+                    setState(() {});
+                  },
+                  onError: (onErrorInput) async {},
+                  onDone: () async {},
+                );
+              }
+            }
+          },
+          onDone: () async {
+            await showDialog(
+              context: context,
+              builder: (alertDialogContext) {
+                return WebViewAware(
+                  child: AlertDialog(
+                    content: Text('tesrdcfg'),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(alertDialogContext),
+                        child: Text('Ok'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          },
+        );
+      }
+
+      Navigator.pop(context);
+    });
   }
 
   @override
@@ -39,6 +157,8 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -139,6 +259,102 @@ class _HomepageRequest541WidgetState extends State<HomepageRequest541Widget> {
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.network(
                         'https://picsum.photos/seed/985/600',
+                        width: 300.0,
+                        height: 200.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Event Name : ${_model.eventName}',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Message Text : ${FFAppState().tempVariable}',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('testPage');
+                    },
+                    child: Text(
+                      'Event Data : ',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Noto Sans Thai',
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Event ID : ',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Event Retry : ',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Event JSON1 : ${_model.eventJson?.toString()}',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  child: Text(
+                    'Event JSON2 : ',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Noto Sans Thai',
+                          letterSpacing: 0.0,
+                        ),
+                  ),
+                ),
+                ClipRect(
+                  child: ImageFiltered(
+                    imageFilter: ImageFilter.blur(
+                      sigmaX: 5.0,
+                      sigmaY: 5.0,
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/flut-flow-test.appspot.com/o/blank-profile-picture-gc19a78ed8_1280.png?alt=media&token=4189e142-826e-4b26-b278-914c39bfac74',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,

@@ -1,11 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
@@ -1139,24 +1141,24 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     await IbsQuotationsSaveCall.call(
                                   firstName:
                                       _model.firstnameTextController.text,
-                                  carType: widget.carType,
+                                  carType: widget!.carType,
                                   phoneNumber: functions.removeCommaFromNumText(
                                       _model.phonenumberTextController.text),
                                   carRegistration:
                                       functions.removeSpacialLetterFromText(
                                           _model.textFieldTextController.text),
-                                  driverType: widget.driverType,
+                                  driverType: widget!.driverType,
                                   carRegistrationYear: (int.parse(
-                                              (widget.carRegistrationYear!)) -
+                                              (widget!.carRegistrationYear!)) -
                                           543)
                                       .toString(),
-                                  carBrandId: widget.carBrandId,
-                                  carBrandName: widget.carBrandName,
-                                  carModelName: widget.carModelName,
-                                  carModelId: widget.carModelId,
-                                  vehicleId: widget.vehicleId,
-                                  vehicleCode: widget.vehicleCode,
-                                  vehicleName: widget.vehicleName,
+                                  carBrandId: widget!.carBrandId,
+                                  carBrandName: widget!.carBrandName,
+                                  carModelName: widget!.carModelName,
+                                  carModelId: widget!.carModelId,
+                                  vehicleId: widget!.vehicleId,
+                                  vehicleCode: widget!.vehicleCode,
+                                  vehicleName: widget!.vehicleName,
                                   ownerName:
                                       '${functions.replaceAllTabAndSpace(FFAppState().profileFirstName)} ${functions.replaceAllTabAndSpace(FFAppState().profileLastName)}',
                                   ownerPhone: functions.replaceAllTabAndSpace(
@@ -1167,37 +1169,37 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                       FFAppState().profileUnitCodeName),
                                   insurerPackageJson: getJsonField(
                                     functions.sendJsonData(
-                                        widget.insurerId?.toList(),
-                                        widget.insurerCode?.toList(),
-                                        widget.insurerShortName?.toList(),
-                                        widget.insurerName?.toList(),
-                                        widget.coverTypeId?.toList(),
-                                        widget.coverTypeCode?.toList(),
-                                        widget.coverTypeName?.toList(),
-                                        widget.garageTypeId?.toList(),
-                                        widget.garageTypeCode?.toList(),
-                                        widget.garageTypeName?.toList(),
-                                        widget.productId?.toList(),
-                                        widget.packageId?.toList(),
-                                        widget.packageName?.toList(),
-                                        widget.sumInsured?.toList(),
-                                        widget.roadsideAssistance?.toList(),
-                                        widget.tpbiPerson?.toList(),
-                                        widget.tpbiAccident?.toList(),
-                                        widget.tppd?.toList(),
-                                        widget.flood?.toList(),
-                                        widget.deductible?.toList(),
-                                        widget.pa?.toList(),
-                                        widget.me?.toList(),
-                                        widget.bb?.toList(),
-                                        widget.assessory?.toList(),
-                                        widget.seat?.toList(),
-                                        widget.netPremium?.toList(),
-                                        widget.vat?.toList(),
-                                        widget.stamp?.toList(),
-                                        widget.grossTotal?.toList(),
-                                        widget.contractProcessstate?.toList(),
-                                        widget.cc?.toList()),
+                                        widget!.insurerId?.toList(),
+                                        widget!.insurerCode?.toList(),
+                                        widget!.insurerShortName?.toList(),
+                                        widget!.insurerName?.toList(),
+                                        widget!.coverTypeId?.toList(),
+                                        widget!.coverTypeCode?.toList(),
+                                        widget!.coverTypeName?.toList(),
+                                        widget!.garageTypeId?.toList(),
+                                        widget!.garageTypeCode?.toList(),
+                                        widget!.garageTypeName?.toList(),
+                                        widget!.productId?.toList(),
+                                        widget!.packageId?.toList(),
+                                        widget!.packageName?.toList(),
+                                        widget!.sumInsured?.toList(),
+                                        widget!.roadsideAssistance?.toList(),
+                                        widget!.tpbiPerson?.toList(),
+                                        widget!.tpbiAccident?.toList(),
+                                        widget!.tppd?.toList(),
+                                        widget!.flood?.toList(),
+                                        widget!.deductible?.toList(),
+                                        widget!.pa?.toList(),
+                                        widget!.me?.toList(),
+                                        widget!.bb?.toList(),
+                                        widget!.assessory?.toList(),
+                                        widget!.seat?.toList(),
+                                        widget!.netPremium?.toList(),
+                                        widget!.vat?.toList(),
+                                        widget!.stamp?.toList(),
+                                        widget!.grossTotal?.toList(),
+                                        widget!.contractProcessstate?.toList(),
+                                        widget!.cc?.toList()),
                                     r'''$''',
                                   ),
                                   insuranceUrl:
@@ -1205,7 +1207,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                   lastName: _model.lastnameTextController.text,
                                   token: FFAppState().accessToken,
                                   ownerId: FFAppState().employeeID,
-                                  oldVMIExpriedDate: widget.oldVMIExpDate,
+                                  oldVMIExpriedDate: widget!.oldVMIExpDate,
                                   carTypeDetail: FFAppState()
                                       .insuranceCarTypeDetailSelected,
                                   carProvinceName: FFAppState()
@@ -1311,8 +1313,8 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                 ).then((s) => s.firstOrNull);
                                 _shouldSetState = true;
                                 Navigator.pop(context);
-                                if (widget.fromPage == 'compare') {
-                                  if (widget.fromBtn == 'saveBtn') {
+                                if (widget!.fromPage == 'compare') {
+                                  if (widget!.fromBtn == 'saveBtn') {
                                     if (_model.isShowVideoFirebaseBool!
                                             .isShowContent
                                         ? FFAppState()
@@ -1349,7 +1351,7 @@ class _AddCustomerNameWidgetState extends State<AddCustomerNameWidget> {
                                     context.pushNamed('Quotation');
                                   }
                                 } else {
-                                  if (widget.fromBtn == 'saveBtn') {
+                                  if (widget!.fromBtn == 'saveBtn') {
                                     if (_model.isShowVideoFirebaseBool!
                                             .isShowContent
                                         ? FFAppState()

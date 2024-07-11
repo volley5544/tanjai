@@ -1,9 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -201,7 +203,9 @@ class _NonePackageInsurerPageWidgetState
             ),
           );
         }
+
         final nonePackageInsurerPageInsurerConfig2Record = snapshot.data!;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -230,7 +234,7 @@ class _NonePackageInsurerPageWidgetState
                 ),
                 title: Text(
                   () {
-                    if (widget.workType == 'transfer') {
+                    if (widget!.workType == 'transfer') {
                       return 'งานโอนโค้ด';
                     } else if (FFAppState().nonePackageFlagRenew) {
                       return 'งานต่ออายุ';
@@ -428,6 +432,7 @@ class _NonePackageInsurerPageWidgetState
                                   List<InsurerConfigRecord>
                                       containerInsurerConfigRecordList =
                                       snapshot.data!;
+
                                   final containerInsurerConfigRecord =
                                       containerInsurerConfigRecordList
                                               .isNotEmpty
@@ -480,6 +485,7 @@ class _NonePackageInsurerPageWidgetState
                                           List<InsurerConfigRecord>
                                               listViewInsurerConfigRecordList =
                                               snapshot.data!;
+
                                           final listViewInsurerConfigRecord =
                                               listViewInsurerConfigRecordList
                                                       .isNotEmpty
@@ -491,6 +497,7 @@ class _NonePackageInsurerPageWidgetState
                                               final dataList = FFAppState()
                                                   .nonePackageInsurerNameList
                                                   .toList();
+
                                               return ListView.builder(
                                                 padding: EdgeInsets.zero,
                                                 shrinkWrap: true,
@@ -898,44 +905,6 @@ class _NonePackageInsurerPageWidgetState
                                             .toList()
                                             .cast<String>();
                                     setState(() {});
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            title: Text('พ.ศ.'),
-                                            content: Text(
-                                                FFAppState().nonePackageYear),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
-                                    await showDialog(
-                                      context: context,
-                                      builder: (alertDialogContext) {
-                                        return WebViewAware(
-                                          child: AlertDialog(
-                                            title: Text('ค.ศ.'),
-                                            content: Text(FFAppState()
-                                                .nonePackageYearChrist),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    );
                                     if (FFAppState().nonePackageFlagRenew) {
                                       _model.sendRenewApi =
                                           await InsuranceRequestSendEmailAPICall
@@ -1163,9 +1132,10 @@ class _NonePackageInsurerPageWidgetState
                                             .nonepackagevehicletypeDetail,
                                         imageBluebook: FFAppState()
                                             .nonePackageImageBlueBookUploaded,
-                                        oldVMIFlg: widget.workType == 'transfer'
-                                            ? '1'
-                                            : '0',
+                                        oldVMIFlg:
+                                            widget!.workType == 'transfer'
+                                                ? '1'
+                                                : '0',
                                         imageOther1:
                                             FFAppState().nonePackageImageOther1,
                                         imageOther2:
@@ -1861,9 +1831,10 @@ class _NonePackageInsurerPageWidgetState
                                         ownerName: FFAppState().profileFullName,
                                         carTypeDetail: FFAppState()
                                             .nonepackagevehicletypeDetail,
-                                        oldVMIFlg: widget.workType == 'transfer'
-                                            ? '1'
-                                            : '0',
+                                        oldVMIFlg:
+                                            widget!.workType == 'transfer'
+                                                ? '1'
+                                                : '0',
                                       );
 
                                       _shouldSetState = true;

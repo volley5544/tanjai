@@ -69,6 +69,7 @@ class _Outofrange3WidgetState extends State<Outofrange3Widget> {
         }
         List<UrlLinkStorageRecord> outofrange3UrlLinkStorageRecordList =
             snapshot.data!;
+
         final outofrange3UrlLinkStorageRecord =
             outofrange3UrlLinkStorageRecordList.isNotEmpty
                 ? outofrange3UrlLinkStorageRecordList.first

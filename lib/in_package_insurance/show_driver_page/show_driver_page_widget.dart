@@ -96,6 +96,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                   builder: (context) {
                     final driverListItem =
                         FFAppState().DriverList.toList().take(5).toList();
+
                     return ListView.builder(
                       padding: EdgeInsets.fromLTRB(
                         0,
@@ -156,7 +157,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                   'AddDriverPage',
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
-                                      widget.firestoreDataConfigList,
+                                      widget!.firestoreDataConfigList,
                                       ParamType.Document,
                                     ),
                                     'index': serializeParam(
@@ -170,7 +171,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
                                     'firestoreDataConfigList':
-                                        widget.firestoreDataConfigList,
+                                        widget!.firestoreDataConfigList,
                                   },
                                 );
                               },
@@ -828,7 +829,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                       queryParameters: {
                                         'firestoreDataConfigList':
                                             serializeParam(
-                                          widget.firestoreDataConfigList,
+                                          widget!.firestoreDataConfigList,
                                           ParamType.Document,
                                         ),
                                         'index': serializeParam(
@@ -842,7 +843,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                       }.withoutNulls,
                                       extra: <String, dynamic>{
                                         'firestoreDataConfigList':
-                                            widget.firestoreDataConfigList,
+                                            widget!.firestoreDataConfigList,
                                       },
                                     );
 
@@ -876,7 +877,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                   'AddDriverPage',
                                   queryParameters: {
                                     'firestoreDataConfigList': serializeParam(
-                                      widget.firestoreDataConfigList,
+                                      widget!.firestoreDataConfigList,
                                       ParamType.Document,
                                     ),
                                     'index': serializeParam(
@@ -890,7 +891,7 @@ class _ShowDriverPageWidgetState extends State<ShowDriverPageWidget> {
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
                                     'firestoreDataConfigList':
-                                        widget.firestoreDataConfigList,
+                                        widget!.firestoreDataConfigList,
                                   },
                                 );
                               },

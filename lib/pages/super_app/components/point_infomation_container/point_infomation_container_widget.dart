@@ -87,6 +87,7 @@ class _PointInfomationContainerWidgetState
                       }
                       List<UserCustomRecord> circleImageUserCustomRecordList =
                           snapshot.data!;
+
                       final circleImageUserCustomRecord =
                           circleImageUserCustomRecordList.isNotEmpty
                               ? circleImageUserCustomRecordList.first

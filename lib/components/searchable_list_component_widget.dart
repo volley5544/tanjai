@@ -90,7 +90,7 @@ class _SearchableListComponentWidgetState
                                     fontFamily: 'Noto Sans Thai',
                                     letterSpacing: 0.0,
                                   ),
-                          hintText: widget.hintSearchText,
+                          hintText: widget!.hintSearchText,
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Noto Sans Thai',
@@ -119,7 +119,8 @@ class _SearchableListComponentWidgetState
             Expanded(
               child: Builder(
                 builder: (context) {
-                  final dataList = widget.dataList!.toList();
+                  final dataList = widget!.dataList!.toList();
+
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     shrinkWrap: true,

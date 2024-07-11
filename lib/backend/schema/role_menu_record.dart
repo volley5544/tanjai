@@ -51,6 +51,11 @@ class RoleMenuRecord extends FirestoreRecord {
   List<String> get empAdmin => _empAdmin ?? const [];
   bool hasEmpAdmin() => _empAdmin != null;
 
+  // "adminRoleGroup" field.
+  List<AdminRoleMenuStruct>? _adminRoleGroup;
+  List<AdminRoleMenuStruct> get adminRoleGroup => _adminRoleGroup ?? const [];
+  bool hasAdminRoleGroup() => _adminRoleGroup != null;
+
   void _initializeFields() {
     _roleName = snapshotData['roleName'] as String?;
     _menuName = getDataList(snapshotData['menuName']);
@@ -59,6 +64,10 @@ class RoleMenuRecord extends FirestoreRecord {
     _menuVisibleArea = getDataList(snapshotData['menuVisibleArea']);
     _menuZone = getDataList(snapshotData['menuZone']);
     _empAdmin = getDataList(snapshotData['empAdmin']);
+    _adminRoleGroup = getStructList(
+      snapshotData['adminRoleGroup'],
+      AdminRoleMenuStruct.fromMap,
+    );
   }
 
   static CollectionReference get collection =>
@@ -119,7 +128,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         listEquality.equals(e1?.menuVisibleBranch, e2?.menuVisibleBranch) &&
         listEquality.equals(e1?.menuVisibleArea, e2?.menuVisibleArea) &&
         listEquality.equals(e1?.menuZone, e2?.menuZone) &&
-        listEquality.equals(e1?.empAdmin, e2?.empAdmin);
+        listEquality.equals(e1?.empAdmin, e2?.empAdmin) &&
+        listEquality.equals(e1?.adminRoleGroup, e2?.adminRoleGroup);
   }
 
   @override
@@ -130,7 +140,8 @@ class RoleMenuRecordDocumentEquality implements Equality<RoleMenuRecord> {
         e?.menuVisibleBranch,
         e?.menuVisibleArea,
         e?.menuZone,
-        e?.empAdmin
+        e?.empAdmin,
+        e?.adminRoleGroup
       ]);
 
   @override

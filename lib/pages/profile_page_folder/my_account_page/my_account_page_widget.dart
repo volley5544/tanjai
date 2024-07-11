@@ -150,8 +150,10 @@ class _MyAccountPageWidgetState extends State<MyAccountPageWidget> {
                                               ),
                                             );
                                           }
+
                                           final imageUserCustomRecord =
                                               snapshot.data!;
+
                                           return ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(50.0),

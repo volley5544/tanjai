@@ -5155,3 +5155,18 @@ List<String>? generateDriverTitleList(int? numberInDriverList) {
 String? showThaiIdNumberForm(String? thaiId) {
   return '${thaiId![0]}-${thaiId![1]}${thaiId![2]}${thaiId![3]}${thaiId![4]}-${thaiId![5]}${thaiId![6]}${thaiId![7]}${thaiId![8]}${thaiId![9]}-${thaiId![10]}${thaiId![11]}-${thaiId![12]}';
 }
+
+bool? containsValueInDataTypeList(
+  List<AdminRoleMenuStruct>? dataTypeList,
+  String? value,
+  String? menuName,
+) {
+  for (int i = 0; i < dataTypeList!.length; i++) {
+    if (dataTypeList![i].visibleMenuName.contains(menuName!)) {
+      if (dataTypeList![i].employeeId.contains(value!)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

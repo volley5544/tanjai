@@ -614,6 +614,7 @@ class _LifeInsuranceLicenseCardPageWidgetState
                                                     List<UserCustomRecord>
                                                         imageUserCustomRecordList =
                                                         snapshot.data!;
+
                                                     // Return an empty Container when the item does not exist.
                                                     if (snapshot
                                                         .data!.isEmpty) {

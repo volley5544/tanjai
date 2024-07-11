@@ -178,7 +178,8 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                               ),
                               child: Builder(
                                 builder: (context) {
-                                  final leavedoc = widget.leaveDoc!.toList();
+                                  final leavedoc = widget!.leaveDoc!.toList();
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     scrollDirection: Axis.vertical,
@@ -202,7 +203,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                       functions.showMatNameInList(
                                                           functions
                                                               .imgPathToString(
-                                                                  widget
+                                                                  widget!
                                                                       .leaveDoc
                                                                       ?.toList())
                                                               .toList(),
@@ -225,7 +226,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                             String>(
                                                           functions.showMatNameInList(
                                                               functions
-                                                                  .imgPathToString(widget
+                                                                  .imgPathToString(widget!
                                                                       .leaveDoc
                                                                       ?.toList())
                                                                   .toList(),
@@ -254,7 +255,7 @@ class _UrlLinkWidgetState extends State<UrlLinkWidget>
                                                       child: Container(
                                                         height: double.infinity,
                                                         child: ShowimgurlWidget(
-                                                          imgPath: widget
+                                                          imgPath: widget!
                                                                   .leaveDoc![
                                                               leavedocIndex],
                                                         ),

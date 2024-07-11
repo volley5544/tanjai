@@ -232,8 +232,10 @@ class _MyProfilePageWidgetState extends State<MyProfilePageWidget>
                                           ),
                                         );
                                       }
+
                                       final imageUserCustomRecord =
                                           snapshot.data!;
+
                                       return InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,

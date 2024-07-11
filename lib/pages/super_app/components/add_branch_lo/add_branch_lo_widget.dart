@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -42,13 +44,13 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
     super.initState();
     _model = createModel(context, () => AddBranchLoModel());
 
-    _model.textController1 ??= TextEditingController(text: widget.branchCode);
+    _model.textController1 ??= TextEditingController(text: widget!.branchCode);
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController(text: widget.lat);
+    _model.textController2 ??= TextEditingController(text: widget!.lat);
     _model.textFieldFocusNode2 ??= FocusNode();
 
-    _model.textController3 ??= TextEditingController(text: widget.lng);
+    _model.textController3 ??= TextEditingController(text: widget!.lng);
     _model.textFieldFocusNode3 ??= FocusNode();
 
     _model.textController4 ??= TextEditingController();
@@ -800,10 +802,10 @@ class _AddBranchLoWidgetState extends State<AddBranchLoWidget> {
                             if (confirmDialogResponse) {
                               _model.insertAPIOutput =
                                   await InsertLocationAPICall.call(
-                                branchCode: widget.branchCode,
-                                latitude: widget.lat,
-                                longitude: widget.lng,
-                                apiUrl: widget.apiUrl,
+                                branchCode: widget!.branchCode,
+                                latitude: widget!.lat,
+                                longitude: widget!.lng,
+                                apiUrl: widget!.apiUrl,
                                 token: FFAppState().accessToken,
                                 branchName: _model.textController4.text,
                                 groupCode: _model.textController5.text,

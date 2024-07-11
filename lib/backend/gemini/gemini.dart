@@ -67,7 +67,7 @@ Future<String?> geminiTextFromImage(
   );
 
   final model =
-      GenerativeModel(model: 'gemini-pro-vision', apiKey: _kGemeniApiKey);
+      GenerativeModel(model: 'gemini-1.5-flash', apiKey: _kGemeniApiKey);
   final imageBytes = uploadImageBytes != null
       ? uploadImageBytes.bytes
       : await loadImageBytesFromUrl(imageNetworkUrl!);

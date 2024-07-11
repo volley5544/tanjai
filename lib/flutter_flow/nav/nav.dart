@@ -1388,6 +1388,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   'actFlag',
                   ParamType.bool,
                 ),
+                masterActAmount: params.getParam(
+                  'masterActAmount',
+                  ParamType.String,
+                ),
               ),
             ),
             FFRoute(
@@ -1847,6 +1851,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'SelectOrdinary',
               path: 'selectOrdinary',
               builder: (context, params) => SelectOrdinaryWidget(),
+            ),
+            FFRoute(
+              name: 'testPage',
+              path: 'testPage',
+              builder: (context, params) => TestPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

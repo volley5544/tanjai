@@ -1,11 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -150,7 +152,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
       FFAppState().insuranceInfoRegistrationCodeSelect = '';
       FFAppState().insuranceInfoRegistrationProvinceSelect = '';
       setState(() {});
-      if (widget.fromIcon == 'MC') {
+      if (widget!.fromIcon == 'MC') {
         if (!false) {
           FFAppState().insuranceCarTypeDetailSelected = '';
           FFAppState().insuranceBasicVehicleGroup = '';
@@ -544,7 +546,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
         FFAppState().searchPackageSubProduct = 'MC';
         FFAppState().insuranceVehicleTypeDropDown = 'มอเตอร์ไซค์';
         setState(() {});
-      } else if (widget.fromIcon == 'motor') {
+      } else if (widget!.fromIcon == 'motor') {
         if (!false) {
           FFAppState().insuranceCarTypeDetailSelected = '';
           FFAppState().insuranceBasicVehicleGroup = '';
@@ -1408,9 +1410,9 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
               ),
             ),
             title: Text(
-              widget.fromIcon == 'MC'
+              widget!.fromIcon == 'MC'
                   ? 'ค้นหาประกันมอเตอร์ไซค์'
-                  : (widget.fromIcon == 'EV'
+                  : (widget!.fromIcon == 'EV'
                       ? 'EV ค้นหาประกันรถ'
                       : 'ค้นหาประกันรถ'),
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -1492,7 +1494,7 @@ class _SearchInsurancePageWidgetState extends State<SearchInsurancePageWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (widget.fromIcon != 'MC') {
+                                      if (widget!.fromIcon != 'MC') {
                                         context.pushNamed(
                                           'SearchableCarListPage',
                                           queryParameters: {

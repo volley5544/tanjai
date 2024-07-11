@@ -76,6 +76,7 @@ class _NonePackageEditDetailPageWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageEditDetailPageUrlLinkStorageRecordList = snapshot.data!;
+
         final nonePackageEditDetailPageUrlLinkStorageRecord =
             nonePackageEditDetailPageUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageEditDetailPageUrlLinkStorageRecordList.first

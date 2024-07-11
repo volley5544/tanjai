@@ -148,6 +148,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                                       List<InsuranceLicenseDataRecord>
                                           pinCodeInsuranceLicenseDataRecordList =
                                           snapshot.data!;
+
                                       final pinCodeInsuranceLicenseDataRecord =
                                           pinCodeInsuranceLicenseDataRecordList
                                                   .isNotEmpty
@@ -249,6 +250,7 @@ class _SetPinCodePageWidgetState extends State<SetPinCodePageWidget> {
                       }
                       List<UserCustomRecord> buttonUserCustomRecordList =
                           snapshot.data!;
+
                       final buttonUserCustomRecord =
                           buttonUserCustomRecordList.isNotEmpty
                               ? buttonUserCustomRecordList.first

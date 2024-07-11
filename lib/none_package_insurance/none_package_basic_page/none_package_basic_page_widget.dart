@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -533,11 +535,11 @@ class _NonePackageBasicPageWidgetState
     });
 
     _model.carryPurposeTextFieldTextController ??=
-        TextEditingController(text: widget.carrierPurpose);
+        TextEditingController(text: widget!.carrierPurpose);
     _model.carryPurposeTextFieldFocusNode ??= FocusNode();
 
     _model.currentPriceTextFieldTextController ??=
-        TextEditingController(text: widget.truckCurrentPrice);
+        TextEditingController(text: widget!.truckCurrentPrice);
     _model.currentPriceTextFieldFocusNode ??= FocusNode();
     _model.currentPriceTextFieldFocusNode!.addListener(
       () async {
@@ -571,7 +573,7 @@ class _NonePackageBasicPageWidgetState
       },
     );
     _model.carrierPriceTextFieldTextController ??=
-        TextEditingController(text: widget.carrierPrice);
+        TextEditingController(text: widget!.carrierPrice);
     _model.carrierPriceTextFieldFocusNode ??= FocusNode();
     _model.carrierPriceTextFieldFocusNode!.addListener(
       () async {
@@ -621,27 +623,27 @@ class _NonePackageBasicPageWidgetState
             : FFAppState().nonePackageModelName);
 
     _model.oldVmiTextFieldTextController ??=
-        TextEditingController(text: widget.oldVmi);
+        TextEditingController(text: widget!.oldVmi);
     _model.oldVmiTextFieldFocusNode ??= FocusNode();
 
     _model.cusNameTextFieldTextController ??=
-        TextEditingController(text: widget.cusName);
+        TextEditingController(text: widget!.cusName);
     _model.cusNameTextFieldFocusNode ??= FocusNode();
 
     _model.cusPhoneTextFieldTextController ??=
-        TextEditingController(text: widget.cusPhone);
+        TextEditingController(text: widget!.cusPhone);
     _model.cusPhoneTextFieldFocusNode ??= FocusNode();
 
     _model.plateTextFieldTextController ??=
-        TextEditingController(text: widget.plate);
+        TextEditingController(text: widget!.plate);
     _model.plateTextFieldFocusNode ??= FocusNode();
 
     _model.plateAdditionalTextFieldTextController ??=
-        TextEditingController(text: widget.plateAdditional);
+        TextEditingController(text: widget!.plateAdditional);
     _model.plateAdditionalTextFieldFocusNode ??= FocusNode();
 
     _model.sumInsuredTextFieldTextController ??=
-        TextEditingController(text: widget.sumInsured);
+        TextEditingController(text: widget!.sumInsured);
     _model.sumInsuredTextFieldFocusNode ??= FocusNode();
     _model.sumInsuredTextFieldFocusNode!.addListener(
       () async {
@@ -675,7 +677,7 @@ class _NonePackageBasicPageWidgetState
       },
     );
     _model.trailerSumInsuredTextFieldTextController ??=
-        TextEditingController(text: widget.trailerSumInsured);
+        TextEditingController(text: widget!.trailerSumInsured);
     _model.trailerSumInsuredTextFieldFocusNode ??= FocusNode();
     _model.trailerSumInsuredTextFieldFocusNode!.addListener(
       () async {
@@ -709,7 +711,7 @@ class _NonePackageBasicPageWidgetState
       },
     );
     _model.remarkTextFieldTextController ??=
-        TextEditingController(text: widget.remark);
+        TextEditingController(text: widget!.remark);
     _model.remarkTextFieldFocusNode ??= FocusNode();
   }
 
@@ -752,7 +754,7 @@ class _NonePackageBasicPageWidgetState
             ),
             title: Text(
               () {
-                if (widget.workType == 'transfer') {
+                if (widget!.workType == 'transfer') {
                   return 'งานโอนโค้ด';
                 } else if (FFAppState().nonePackageFlagRenew) {
                   return 'งานต่ออายุ';
@@ -3062,12 +3064,12 @@ class _NonePackageBasicPageWidgetState
                                                   FFAppState()
                                                       .nonePackageOldVmiExpDate);
                                             } else {
-                                              return (widget.oldVmiExpireDate !=
+                                              return (widget!.oldVmiExpireDate !=
                                                           null &&
-                                                      widget.oldVmiExpireDate !=
+                                                      widget!.oldVmiExpireDate !=
                                                           ''
                                                   ? functions.showDateBE(
-                                                      widget.oldVmiExpireDate)
+                                                      widget!.oldVmiExpireDate)
                                                   : 'กรุณาเลือกวันที่หมดอายุประกันเดิม');
                                             }
                                           }(),
@@ -4714,7 +4716,7 @@ class _NonePackageBasicPageWidgetState
                       ),
                     ),
                   ),
-                  if (widget.workType == 'transfer')
+                  if (widget!.workType == 'transfer')
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
@@ -6207,8 +6209,8 @@ class _NonePackageBasicPageWidgetState
                                       return;
                                     }
                                     if ((_model.datePicked == null) &&
-                                        (widget.oldVmiExpireDate == null ||
-                                            widget.oldVmiExpireDate == '')) {
+                                        (widget!.oldVmiExpireDate == null ||
+                                            widget!.oldVmiExpireDate == '')) {
                                       ScaffoldMessenger.of(context)
                                           .clearSnackBars();
                                       ScaffoldMessenger.of(context)
@@ -6405,7 +6407,7 @@ class _NonePackageBasicPageWidgetState
                                     }
                                   }
 
-                                  if (widget.workType == 'transfer') {
+                                  if (widget!.workType == 'transfer') {
                                     if (!(_model.uploadedFileUrl1 != null &&
                                         _model.uploadedFileUrl1 != '')) {
                                       await showDialog(
@@ -6561,7 +6563,7 @@ class _NonePackageBasicPageWidgetState
                                         _model.datePicked != null
                                             ? functions.getDateFormat(
                                                 _model.datePicked)!
-                                            : widget.oldVmiExpireDate!;
+                                            : widget!.oldVmiExpireDate!;
                                     FFAppState().nonePackageOldVmi = _model
                                         .oldVmiTextFieldTextController.text;
                                     setState(() {});
@@ -6591,7 +6593,7 @@ class _NonePackageBasicPageWidgetState
                                       'NonePackageBasicImage2Page',
                                       queryParameters: {
                                         'workType': serializeParam(
-                                          widget.workType,
+                                          widget!.workType,
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
@@ -6601,7 +6603,7 @@ class _NonePackageBasicPageWidgetState
                                       'NonePackageBasicImage1Page',
                                       queryParameters: {
                                         'workType': serializeParam(
-                                          widget.workType,
+                                          widget!.workType,
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,

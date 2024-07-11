@@ -1,10 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -115,6 +117,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                   }
                   List<InsurerConfig2Record> columnInsurerConfig2RecordList =
                       snapshot.data!;
+
                   // Return an empty Container when the item does not exist.
                   if (snapshot.data!.isEmpty) {
                     return Container();
@@ -445,7 +448,7 @@ class _HomepageRequest41WidgetState extends State<HomepageRequest41Widget> {
                                         if (_shouldSetState) setState(() {});
                                         return;
                                       }
-                                      if (widget.fromPage == 'RenewBasic') {
+                                      if (widget!.fromPage == 'RenewBasic') {
                                         FFAppState().renewPaymentType =
                                             FFAppState().maxCurrentSelected
                                                 ? 'จ่ายเต็ม'

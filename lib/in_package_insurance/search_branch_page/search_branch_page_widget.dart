@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -506,6 +508,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                                 ''),
                                           )?.toList() ??
                                           [];
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -546,7 +549,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if (widget.fromPage ==
+                                            if (widget!.fromPage ==
                                                 'RenewBasic') {
                                               FFAppState().renewBranchCode =
                                                   GetlocationAPICall.branchCode(
@@ -565,7 +568,7 @@ class _SearchBranchPageWidgetState extends State<SearchBranchPageWidget> {
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.fromPage ==
+                                            if (widget!.fromPage ==
                                                 'NonePackage') {
                                               FFAppState()
                                                       .nonePackageBranchCode =

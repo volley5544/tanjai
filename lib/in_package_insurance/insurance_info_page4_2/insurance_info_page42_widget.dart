@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/components/effective_date_picker_component_widget.dart';
 import '/components/infomation_customer_act_widget.dart';
 import '/components/infomation_customer_widget.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
@@ -135,10 +137,11 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
               .cast<String>();
       setState(() {});
       _model.ibsDetailAPIOutput = await IbsApplicationsDetailCall.call(
-        quotationId: (widget.quotationId != null && widget.quotationId != '') &&
-                (widget.quotationId != '')
-            ? widget.quotationId
-            : FFAppState().insuranceInfoQuotationId,
+        quotationId:
+            (widget!.quotationId != null && widget!.quotationId != '') &&
+                    (widget!.quotationId != '')
+                ? widget!.quotationId
+                : FFAppState().insuranceInfoQuotationId,
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
       );
@@ -202,7 +205,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )}';
       FFAppState().insuranceInfoQuotationId =
-          '${(widget.quotationId != null && widget.quotationId != '') && (widget.quotationId != '') ? widget.quotationId : FFAppState().insuranceInfoQuotationId}';
+          '${(widget!.quotationId != null && widget!.quotationId != '') && (widget!.quotationId != '') ? widget!.quotationId : FFAppState().insuranceInfoQuotationId}';
       FFAppState().insuranceInfoLeadDetailId =
           '${(IbsApplicationsDetailCall.leaddtlid(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -210,7 +213,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                 (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDetailId)])?.toString()}';
+              )).toList(), widget!.leadDetailId)])?.toString()}';
       FFAppState().insuranceInfoFirstName =
           IbsApplicationsDetailCall.firstnameth(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -241,7 +244,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     true,
                   ))
                   .toList(),
-              widget.leadDetailId)];
+              widget!.leadDetailId)];
       FFAppState().insuranceInfoGarageType =
           IbsApplicationsDetailCall.garagetypename(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -253,7 +256,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     true,
                   ))
                   .toList(),
-              widget.leadDetailId)];
+              widget!.leadDetailId)];
       FFAppState().insuranceInfoApplicationType =
           IbsApplicationsDetailCall.quotationtypebak(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -269,7 +272,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     true,
                   ))
                   .toList(),
-              widget.leadDetailId)];
+              widget!.leadDetailId)];
       FFAppState().insuranceInfoActFlag = IbsApplicationsDetailCall.actflg(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
       )!;
@@ -284,7 +287,7 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                     true,
                   ))
                   .toList(),
-              widget.leadDetailId)];
+              widget!.leadDetailId)];
       FFAppState().insuranceInfoEffectiveDateAct =
           IbsApplicationsDetailCall.effectiveDateAct(
         (_model.ibsDetailAPIOutput?.jsonBody ?? ''),
@@ -678,9 +681,9 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                   }
                   _model.ibsDetailAPIOutputCopy =
                       await IbsApplicationsDetailCall.call(
-                    quotationId: (widget.quotationId != null &&
-                                widget.quotationId != '') &&
-                            (widget.quotationId != '')
+                    quotationId: (widget!.quotationId != null &&
+                                widget!.quotationId != '') &&
+                            (widget!.quotationId != '')
                         ? FFAppState().insuranceInfoQuotationId
                         : FFAppState().insuranceInfoQuotationId,
                     insuranceUrl: FFAppState().apiUrlInsuranceAppState,
@@ -1277,13 +1280,14 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                     _model.ibsDetailAPIOutputCopyRefresh =
                                                         await IbsApplicationsDetailCall
                                                             .call(
-                                                      quotationId: (widget.quotationId !=
+                                                      quotationId: (widget!
+                                                                          .quotationId !=
                                                                       null &&
-                                                                  widget.quotationId !=
+                                                                  widget!.quotationId !=
                                                                       '') &&
-                                                              (widget.quotationId !=
+                                                              (widget!.quotationId !=
                                                                   '')
-                                                          ? widget.quotationId
+                                                          ? widget!.quotationId
                                                           : FFAppState()
                                                               .insuranceInfoQuotationId,
                                                       insuranceUrl: FFAppState()
@@ -2138,13 +2142,14 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               .call(
                                                         insuranceUrl: FFAppState()
                                                             .apiUrlInsuranceAppState,
-                                                        quotationId: (widget.quotationId !=
+                                                        quotationId: (widget!.quotationId !=
                                                                         null &&
-                                                                    widget.quotationId !=
+                                                                    widget!.quotationId !=
                                                                         '') &&
-                                                                (widget.quotationId !=
+                                                                (widget!.quotationId !=
                                                                     '')
-                                                            ? widget.quotationId
+                                                            ? widget!
+                                                                .quotationId
                                                             : FFAppState()
                                                                 .insuranceInfoQuotationId,
                                                         token: FFAppState()
@@ -2820,13 +2825,14 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 .call(
                                                           insuranceUrl: FFAppState()
                                                               .apiUrlInsuranceAppState,
-                                                          quotationId: (widget.quotationId !=
+                                                          quotationId: (widget!
+                                                                              .quotationId !=
                                                                           null &&
-                                                                      widget.quotationId !=
+                                                                      widget!.quotationId !=
                                                                           '') &&
-                                                                  (widget.quotationId !=
+                                                                  (widget!.quotationId !=
                                                                       '')
-                                                              ? widget
+                                                              ? widget!
                                                                   .quotationId
                                                               : FFAppState()
                                                                   .insuranceInfoQuotationId,
@@ -3399,20 +3405,20 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             _model.paymentAPIOutpu =
                                                                 await IbsApplicationsPaymentSaveCall
                                                                     .call(
-                                                              quotationId: (widget.quotationId !=
+                                                              quotationId: (widget!.quotationId !=
                                                                               null &&
-                                                                          widget.quotationId !=
+                                                                          widget!.quotationId !=
                                                                               '') &&
-                                                                      (widget.quotationId !=
+                                                                      (widget!.quotationId !=
                                                                           '')
-                                                                  ? widget
+                                                                  ? widget!
                                                                       .quotationId
                                                                   : FFAppState()
                                                                       .insuranceInfoQuotationId,
-                                                              leadDtlId: widget
+                                                              leadDtlId: widget!
                                                                           .leadDetailId !=
                                                                       null
-                                                                  ? widget
+                                                                  ? widget!
                                                                       .leadDetailId
                                                                       ?.toString()
                                                                   : FFAppState()
@@ -3544,13 +3550,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                             _model.ibsDetailAPIOutputSavebtn =
                                                                 await IbsApplicationsDetailCall
                                                                     .call(
-                                                              quotationId: (widget.quotationId !=
+                                                              quotationId: (widget!.quotationId !=
                                                                               null &&
-                                                                          widget.quotationId !=
+                                                                          widget!.quotationId !=
                                                                               '') &&
-                                                                      (widget.quotationId !=
+                                                                      (widget!.quotationId !=
                                                                           '')
-                                                                  ? widget
+                                                                  ? widget!
                                                                       .quotationId
                                                                   : FFAppState()
                                                                       .insuranceInfoQuotationId,
@@ -4166,13 +4172,13 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                   .apiUrlInsuranceAppState,
                                                               token: FFAppState()
                                                                   .accessToken,
-                                                              quotationId: (widget.quotationId !=
+                                                              quotationId: (widget!.quotationId !=
                                                                               null &&
-                                                                          widget.quotationId !=
+                                                                          widget!.quotationId !=
                                                                               '') &&
-                                                                      (widget.quotationId !=
+                                                                      (widget!.quotationId !=
                                                                           '')
-                                                                  ? widget
+                                                                  ? widget!
                                                                       .quotationId
                                                                   : FFAppState()
                                                                       .insuranceInfoQuotationId,
@@ -4265,13 +4271,12 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                               queryParameters: {
                                                                 'quotationId':
                                                                     serializeParam(
-                                                                  (widget.quotationId !=
-                                                                                  null &&
-                                                                              widget.quotationId !=
+                                                                  (widget!.quotationId != null &&
+                                                                              widget!.quotationId !=
                                                                                   '') &&
-                                                                          (widget.quotationId !=
+                                                                          (widget!.quotationId !=
                                                                               '')
-                                                                      ? widget
+                                                                      ? widget!
                                                                           .quotationId
                                                                       : FFAppState()
                                                                           .insuranceInfoQuotationId,
@@ -4280,9 +4285,8 @@ class _InsuranceInfoPage42WidgetState extends State<InsuranceInfoPage42Widget> {
                                                                 ),
                                                                 'leadDtlId':
                                                                     serializeParam(
-                                                                  widget.leadDetailId !=
-                                                                          null
-                                                                      ? widget
+                                                                  widget!.leadDetailId != null
+                                                                      ? widget!
                                                                           .leadDetailId
                                                                       : functions
                                                                           .parseStrToInt(

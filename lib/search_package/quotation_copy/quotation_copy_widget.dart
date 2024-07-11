@@ -65,7 +65,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
       ).then((value) => safeSetState(() {}));
 
       FFAppState().indexPdfQuotation = 0;
-      FFAppState().lengthListPdfQuotation = widget.quotation!.length;
+      FFAppState().lengthListPdfQuotation = widget!.quotation!.length;
       setState(() {});
       Navigator.pop(context);
     });
@@ -191,12 +191,12 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                         if (FFAppState().indexPdfQuotation == 0) Spacer(),
                         if (functions.containWordinStringUrl(
                                 'pdf',
-                                widget.quotation?[
+                                widget!.quotation?[
                                     FFAppState().indexPdfQuotation]) ??
                             true)
                           FFButtonWidget(
                             onPressed: () async {
-                              await launchURL(widget
+                              await launchURL(widget!
                                   .quotation![FFAppState().indexPdfQuotation]);
                             },
                             text: 'ดาวน์โหลด PDF',
@@ -283,7 +283,9 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                 ),
                 Builder(
                   builder: (context) {
-                    final listPdf = widget.quotation!.toList().take(1).toList();
+                    final listPdf =
+                        widget!.quotation!.toList().take(1).toList();
+
                     return Container(
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 1.0,
@@ -304,7 +306,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                 children: [
                                   if (functions.containWordinStringUrl(
                                           '.pdf',
-                                          widget.quotation?[FFAppState()
+                                          widget!.quotation?[FFAppState()
                                               .indexPdfQuotation]) ??
                                       true)
                                     InkWell(
@@ -330,7 +332,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 300.0),
                                           child: FlutterFlowPdfViewer(
-                                            networkPath: widget.quotation![
+                                            networkPath: widget!.quotation![
                                                 FFAppState().indexPdfQuotation],
                                             height: MediaQuery.sizeOf(context)
                                                     .height *
@@ -342,7 +344,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                     ),
                                   if (!functions.containWordinStringUrl(
                                       '.pdf',
-                                      widget.quotation?[
+                                      widget!.quotation?[
                                           FFAppState().indexPdfQuotation])!)
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -358,7 +360,7 @@ class _QuotationCopyWidgetState extends State<QuotationCopyWidget> {
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         child: Image.network(
-                                          functions.stringToImgPath(widget
+                                          functions.stringToImgPath(widget!
                                                   .quotation?[
                                               FFAppState().indexPdfQuotation])!,
                                           width:

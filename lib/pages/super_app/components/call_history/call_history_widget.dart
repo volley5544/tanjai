@@ -98,11 +98,12 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  if (widget.apiStatusCode != 404)
+                  if (widget!.apiStatusCode != 404)
                     Builder(
                       builder: (context) {
                         final callStatusListView =
-                            widget.callStatusList?.toList() ?? [];
+                            widget!.callStatusList?.toList() ?? [];
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -190,7 +191,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                     Text(
                                                       valueOrDefault<String>(
                                                         functions.showMatNameInList(
-                                                            widget
+                                                            widget!
                                                                 .callStatusList
                                                                 ?.toList(),
                                                             callStatusListViewIndex),
@@ -239,7 +240,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                 valueOrDefault<
                                                                     String>(
                                                                   functions.showMatNameInList(
-                                                                      widget
+                                                                      widget!
                                                                           .historyStatusList
                                                                           ?.toList(),
                                                                       callStatusListViewIndex),
@@ -269,7 +270,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     dateTimeFormat(
                                                                       'Hm',
                                                                       functions.showLeadCreatedTime(
-                                                                          widget
+                                                                          widget!
                                                                               .historyTimeCallList
                                                                               ?.toList(),
                                                                           callStatusListViewIndex),
@@ -295,7 +296,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                     dateTimeFormat(
                                                                       'd/M/y',
                                                                       functions.showLeadCreatedTime(
-                                                                          widget
+                                                                          widget!
                                                                               .historyTimeCallList
                                                                               ?.toList(),
                                                                           callStatusListViewIndex),
@@ -322,7 +323,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             ],
                                                           ),
                                                           Text(
-                                                            'รหัสพนักงาน: ${functions.showMatNameInList(widget.employeeIdList?.toList(), callStatusListViewIndex)}',
+                                                            'รหัสพนักงาน: ${functions.showMatNameInList(widget!.employeeIdList?.toList(), callStatusListViewIndex)}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -342,7 +343,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
-                                                              '${functions.showMatNameInList(widget.reasonNameList?.toList(), callStatusListViewIndex)}',
+                                                              '${functions.showMatNameInList(widget!.reasonNameList?.toList(), callStatusListViewIndex)}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -356,13 +357,13 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                           ),
                                                           if (functions.checkNullValueAndReturn(
                                                                   functions.showMatNameInList(
-                                                                      widget
+                                                                      widget!
                                                                           .note
                                                                           ?.toList(),
                                                                       callStatusListViewIndex)) !=
                                                               '-')
                                                             Text(
-                                                              '${functions.showMatNameInList(widget.note?.toList(), callStatusListViewIndex)}',
+                                                              '${functions.showMatNameInList(widget!.note?.toList(), callStatusListViewIndex)}',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyMedium
@@ -520,7 +521,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             Text(
                                                               dateTimeFormat(
                                                                 'Hm',
-                                                                widget
+                                                                widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
                                                                         context)
@@ -543,7 +544,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             Text(
                                                               dateTimeFormat(
                                                                 'd/M/y',
-                                                                widget
+                                                                widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
                                                                         context)
@@ -618,7 +619,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             Text(
                                                               dateTimeFormat(
                                                                 'Hm',
-                                                                widget
+                                                                widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
                                                                         context)
@@ -641,7 +642,7 @@ class _CallHistoryWidgetState extends State<CallHistoryWidget> {
                                                             Text(
                                                               dateTimeFormat(
                                                                 'd/M/y',
-                                                                widget
+                                                                widget!
                                                                     .leadCreatedTime,
                                                                 locale: FFLocalizations.of(
                                                                         context)

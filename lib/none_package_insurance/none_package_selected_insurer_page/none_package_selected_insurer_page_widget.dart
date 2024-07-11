@@ -1,14 +1,20 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
+import 'dart:math';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -26,6 +32,7 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
     required this.quotationId,
     required this.leadDtlId,
     required this.actFlag,
+    required this.masterActAmount,
   });
 
   final String? leadID;
@@ -36,6 +43,7 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
   final String? quotationId;
   final int? leadDtlId;
   final bool? actFlag;
+  final String? masterActAmount;
 
   @override
   State<NonePackageSelectedInsurerPageWidget> createState() =>
@@ -43,10 +51,13 @@ class NonePackageSelectedInsurerPageWidget extends StatefulWidget {
 }
 
 class _NonePackageSelectedInsurerPageWidgetState
-    extends State<NonePackageSelectedInsurerPageWidget> {
+    extends State<NonePackageSelectedInsurerPageWidget>
+    with TickerProviderStateMixin {
   late NonePackageSelectedInsurerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -56,7 +67,10 @@ class _NonePackageSelectedInsurerPageWidgetState
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NonePackageSelectedInsurerPage'});
     // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {});
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.flagActStateVariable = widget!.actFlag!;
+      setState(() {});
+    });
 
     _model.netPremiumTextController ??= TextEditingController();
     _model.netPremiumFocusNode ??= FocusNode();
@@ -88,7 +102,10 @@ class _NonePackageSelectedInsurerPageWidgetState
         }
       },
     );
-    _model.actAmountTextController ??= TextEditingController();
+    _model.actAmountTextController ??= TextEditingController(
+        text: widget!.masterActAmount == ''
+            ? ''
+            : functions.returnNumberWithComma2Decimal(widget!.masterActAmount));
     _model.actAmountFocusNode ??= FocusNode();
     _model.actAmountFocusNode!.addListener(
       () async {
@@ -147,6 +164,27 @@ class _NonePackageSelectedInsurerPageWidgetState
         }
       },
     );
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: Offset(0.0, -25.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -189,6 +227,7 @@ class _NonePackageSelectedInsurerPageWidgetState
         List<UrlLinkStorageRecord>
             nonePackageSelectedInsurerPageUrlLinkStorageRecordList =
             snapshot.data!;
+
         final nonePackageSelectedInsurerPageUrlLinkStorageRecord =
             nonePackageSelectedInsurerPageUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageSelectedInsurerPageUrlLinkStorageRecordList.first
@@ -355,7 +394,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        widget.insurerName!,
+                                                        widget!.insurerName!,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -483,7 +522,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        widget.coverTypeName!,
+                                                        widget!.coverTypeName!,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -611,7 +650,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        widget.garageTypeName!,
+                                                        widget!.garageTypeName!,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -838,7 +877,125 @@ class _NonePackageSelectedInsurerPageWidgetState
                                         ),
                                       ),
                                     ),
-                                    if (widget.actFlag ?? true)
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 5.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          if (_model.flagActStateVariable) {
+                                            _model.flagActStateVariable = false;
+                                            setState(() {});
+                                          } else {
+                                            _model.flagActStateVariable = true;
+                                            setState(() {});
+                                          }
+
+                                          await actions.hideKeyboardAction(
+                                            context,
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  1.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            border: Border.all(
+                                              color: Color(0xFFB3B3B3),
+                                            ),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'ขอเบี้ย พ.ร.บ. หรือไม่',
+                                                  style:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Noto Sans Thai',
+                                                            color: !FFAppState().nonePackageFlagAct
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText
+                                                                : Colors.black,
+                                                            fontSize: 15.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                ),
+                                              ),
+                                              if (!_model.flagActStateVariable)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Container(
+                                                    width: 25.0,
+                                                    height: 25.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      shape: BoxShape.circle,
+                                                      border: Border.all(
+                                                        color:
+                                                            Color(0xFF9F9F9F),
+                                                        width: 1.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (_model.flagActStateVariable)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Container(
+                                                    width: 25.0,
+                                                    height: 25.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .success,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Icon(
+                                                        Icons.check,
+                                                        color: Colors.white,
+                                                        size: 18.0,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    if (_model.flagActStateVariable)
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 5.0, 0.0, 0.0),
@@ -955,6 +1112,11 @@ class _NonePackageSelectedInsurerPageWidgetState
                                                                   () {}),
                                                             ),
                                                             autofocus: true,
+                                                            readOnly:
+                                                                widget!.masterActAmount ==
+                                                                        ''
+                                                                    ? false
+                                                                    : true,
                                                             obscureText: false,
                                                             decoration:
                                                                 InputDecoration(
@@ -1026,7 +1188,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               ),
                                             ],
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation']!),
                                       ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1271,7 +1434,7 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       if (_shouldSetState) setState(() {});
                                       return;
                                     }
-                                    if (widget.actFlag!) {
+                                    if (_model.flagActStateVariable) {
                                       if (!(_model.actAmountTextController
                                                   .text !=
                                               null &&
@@ -1393,7 +1556,8 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       apiUrl:
                                           FFAppState().apiUrlInsuranceAppState,
                                       token: FFAppState().accessToken,
-                                      insurerShortName: widget.insurerShortName,
+                                      insurerShortName:
+                                          widget!.insurerShortName,
                                       netPremium: _model
                                                       .netPremiumTextController
                                                       .text !=
@@ -1436,8 +1600,11 @@ class _NonePackageSelectedInsurerPageWidgetState
                                               .removeLetterShowonlyNumber(_model
                                                   .actAmountTextController.text)
                                           : '0',
-                                      leadId: widget.leadID,
+                                      leadId: widget!.leadID,
                                       type: 'insurerShortName',
+                                      flgAct: _model.flagActStateVariable
+                                          ? '1'
+                                          : '0',
                                     );
 
                                     _shouldSetState = true;
@@ -1505,11 +1672,11 @@ class _NonePackageSelectedInsurerPageWidgetState
                                       'insuranceInfoPage1',
                                       queryParameters: {
                                         'quotationId': serializeParam(
-                                          widget.quotationId,
+                                          widget!.quotationId,
                                           ParamType.String,
                                         ),
                                         'leadDtailId': serializeParam(
-                                          widget.leadDtlId,
+                                          widget!.leadDtlId,
                                           ParamType.int,
                                         ),
                                       }.withoutNulls,

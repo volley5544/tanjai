@@ -66,6 +66,7 @@ class _SampleIDcardWidgetState extends State<SampleIDcardWidget> {
         }
         List<UrlLinkStorageRecord> sampleIDcardUrlLinkStorageRecordList =
             snapshot.data!;
+
         final sampleIDcardUrlLinkStorageRecord =
             sampleIDcardUrlLinkStorageRecordList.isNotEmpty
                 ? sampleIDcardUrlLinkStorageRecordList.first

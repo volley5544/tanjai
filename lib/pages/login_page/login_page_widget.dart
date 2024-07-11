@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -112,6 +114,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                 }
                 List<KeyStorage3Record> columnKeyStorage3RecordList =
                     snapshot.data!;
+
                 final columnKeyStorage3Record =
                     columnKeyStorage3RecordList.isNotEmpty
                         ? columnKeyStorage3RecordList.first
@@ -141,6 +144,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           }
                           List<KeyStorageRecord> columnKeyStorageRecordList =
                               snapshot.data!;
+
                           final columnKeyStorageRecord =
                               columnKeyStorageRecordList.isNotEmpty
                                   ? columnKeyStorageRecordList.first
@@ -179,6 +183,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     List<UrlLinkStorageRecord>
                                         stackUrlLinkStorageRecordList =
                                         snapshot.data!;
+
                                     final stackUrlLinkStorageRecord =
                                         stackUrlLinkStorageRecordList.isNotEmpty
                                             ? stackUrlLinkStorageRecordList
@@ -362,16 +367,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                                                         Colors
                                                                             .transparent,
                                                                     onTap:
-                                                                        () async {
-                                                                      await requestPermission(
-                                                                          cameraPermission);
-                                                                      await requestPermission(
-                                                                          microphonePermission);
-                                                                      await actions
-                                                                          .openTableauBrowserCopy2(
-                                                                        'https://vcall.swpfin.com:8888/self-room',
-                                                                      );
-                                                                    },
+                                                                        () async {},
                                                                     child: Text(
                                                                       'เข้าสู่ระบบ',
                                                                       style: FlutterFlowTheme.of(

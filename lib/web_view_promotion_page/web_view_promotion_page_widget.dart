@@ -77,6 +77,7 @@ class _WebViewPromotionPageWidgetState
         }
         List<UrlLinkStorageRecord>
             webViewPromotionPageUrlLinkStorageRecordList = snapshot.data!;
+
         final webViewPromotionPageUrlLinkStorageRecord =
             webViewPromotionPageUrlLinkStorageRecordList.isNotEmpty
                 ? webViewPromotionPageUrlLinkStorageRecordList.first

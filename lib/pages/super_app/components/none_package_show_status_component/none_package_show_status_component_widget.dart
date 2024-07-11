@@ -94,16 +94,17 @@ class _NonePackageShowStatusComponentWidgetState
                 children: [
                   if (functions
                           .removeLastIndexList(
-                              widget.quotationStatusList?.toList())!
+                              widget!.quotationStatusList?.toList())!
                           .length >
                       0)
                     Builder(
                       builder: (context) {
                         final quotaionStatusListView = functions
                                 .removeLastIndexList(
-                                    widget.quotationStatusList?.toList())
+                                    widget!.quotationStatusList?.toList())
                                 ?.toList() ??
                             [];
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -192,7 +193,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                       valueOrDefault<String>(
                                                         functions.showMatNameInList(
                                                             functions
-                                                                .removeLastIndexList(widget
+                                                                .removeLastIndexList(widget!
                                                                     .quotationStatusList
                                                                     ?.toList())
                                                                 ?.toList(),
@@ -236,7 +237,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                     .spaceBetween,
                                                             children: [
                                                               Text(
-                                                                'โดย : ${widget.updaterList?[quotaionStatusListViewIndex]}',
+                                                                'โดย : ${widget!.updaterList?[quotaionStatusListViewIndex]}',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -260,7 +261,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                   Text(
                                                                     dateTimeFormat(
                                                                       'Hm',
-                                                                      functions.parseStringToDatetime(functions.removeLastIndexList(widget
+                                                                      functions.parseStringToDatetime(functions.removeLastIndexList(widget!
                                                                           .updateAtList
                                                                           ?.toList())?[quotaionStatusListViewIndex]),
                                                                       locale: FFLocalizations.of(
@@ -284,7 +285,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                   Text(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      functions.showDateBE(functions.removeLastIndexList(widget
+                                                                      functions.showDateBE(functions.removeLastIndexList(widget!
                                                                           .updateAtList
                                                                           ?.toList())?[quotaionStatusListViewIndex]),
                                                                       'date',
@@ -332,7 +333,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                               children: [
                                                                 Expanded(
                                                                   child: Text(
-                                                                    'เหตุผล : ${functions.removeLastIndexList(widget.reasonNameList?.toList())?[quotaionStatusListViewIndex]}',
+                                                                    'เหตุผล : ${functions.removeLastIndexList(widget!.reasonNameList?.toList())?[quotaionStatusListViewIndex]}',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
@@ -435,7 +436,8 @@ class _NonePackageShowStatusComponentWidgetState
                                                 child: ExpandablePanel(
                                                   header: Text(
                                                     valueOrDefault<String>(
-                                                      widget.quotationStatusList
+                                                      widget!
+                                                          .quotationStatusList
                                                           ?.last,
                                                       'status',
                                                     ),
@@ -476,7 +478,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'โดย : ${widget.updaterList?.last}',
+                                                            'โดย : ${widget!.updaterList?.last}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -503,7 +505,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                 functions.parseStringToDatetime(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                  widget
+                                                                  widget!
                                                                       .updateAtList
                                                                       ?.last,
                                                                   'time',
@@ -530,7 +532,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                               valueOrDefault<
                                                                   String>(
                                                                 functions.showDateBE(
-                                                                    widget
+                                                                    widget!
                                                                         .updateAtList
                                                                         ?.last),
                                                                 'date',
@@ -580,7 +582,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'โดย : ${widget.updaterList?.last}',
+                                                            'โดย : ${widget!.updaterList?.last}',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -605,7 +607,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                               dateTimeFormat(
                                                                 'Hm',
                                                                 functions.parseStringToDatetime(
-                                                                    widget
+                                                                    widget!
                                                                         .updateAtList
                                                                         ?.last),
                                                                 locale: FFLocalizations.of(
@@ -630,7 +632,7 @@ class _NonePackageShowStatusComponentWidgetState
                                                               valueOrDefault<
                                                                   String>(
                                                                 functions.showDateBE(
-                                                                    widget
+                                                                    widget!
                                                                         .updateAtList
                                                                         ?.last),
                                                                 'date',

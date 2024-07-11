@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
@@ -11,6 +12,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/pages/super_app/components/pdf_page_view_component/pdf_page_view_component_widget.dart';
 import '/pages/super_app/components/search_employee_component/search_employee_component_widget.dart';
+import 'dart:convert';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/permissions_util.dart';
@@ -588,6 +590,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                     List<NotificationRecord>
                                                         badgeNotificationRecordList =
                                                         snapshot.data!;
+
                                                     return InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -751,8 +754,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                             ),
                                                           );
                                                         }
+
                                                         final imageUserCustomRecord =
                                                             snapshot.data!;
+
                                                         return ClipRRect(
                                                           borderRadius:
                                                               BorderRadius
@@ -1489,9 +1494,11 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                   ),
                                                                 );
                                                               }
+
                                                               final wrapHideInAppContentRecord =
                                                                   snapshot
                                                                       .data!;
+
                                                               return Wrap(
                                                                 spacing: 12.0,
                                                                 runSpacing:
@@ -2655,7 +2662,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                  if (true)
+                                                                  if (false)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2826,7 +2833,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (true)
+                                                                  if (false)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2842,8 +2849,8 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        context.pushNamed(
-                                                                            'GeminiPage');
+                                                                        await launchURL(
+                                                                            'https://vcall.swpfin.com:8888/');
                                                                       },
                                                                       child:
                                                                           Container(
@@ -2900,6 +2907,64 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               ),
                                                                             ],
                                                                           ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  if (false)
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.28,
+                                                                      height:
+                                                                          100.0,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        color: Colors
+                                                                            .white,
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(15.0),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Column(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.center,
+                                                                          children: [
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                              child: Icon(
+                                                                                Icons.save_as_sharp,
+                                                                                color: Color(0xFFDB771A),
+                                                                                size: 30.0,
+                                                                              ),
+                                                                            ),
+                                                                            Container(
+                                                                              width: 100.0,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                child: Text(
+                                                                                  'บันทึก พ.ร.บ.',
+                                                                                  textAlign: TextAlign.center,
+                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                        fontFamily: 'Noto Sans Thai',
+                                                                                        color: Colors.black,
+                                                                                        fontSize: 14.0,
+                                                                                        letterSpacing: 0.0,
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                      ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
                                                                       ),
                                                                     ),
@@ -3023,6 +3088,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                           [])
                                       .take(5)
                                       .toList();
+
                                   return Container(
                                     width: double.infinity,
                                     child: Stack(
@@ -4129,6 +4195,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                       }
                       List<HideInAppContentRecord>
                           columnHideInAppContentRecordList = snapshot.data!;
+
                       final columnHideInAppContentRecord =
                           columnHideInAppContentRecordList.isNotEmpty
                               ? columnHideInAppContentRecordList.first
@@ -4426,6 +4493,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                             List<AuthorizationRecord>
                                 propiedasdesListAuthorizationRecordList =
                                 snapshot.data!;
+
                             final propiedasdesListAuthorizationRecord =
                                 propiedasdesListAuthorizationRecordList
                                         .isNotEmpty
@@ -4456,8 +4524,10 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       ),
                                     );
                                   }
+
                                   final rowHideInAppContentRecord =
                                       snapshot.data!;
+
                                   return Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -4497,6 +4567,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                             List<UrlLinkStorageRecord>
                                                 carouselUrlLinkStorageRecordList =
                                                 snapshot.data!;
+
                                             final carouselUrlLinkStorageRecord =
                                                 carouselUrlLinkStorageRecordList
                                                         .isNotEmpty
@@ -4572,6 +4643,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                     containerGenLinkUrlLinkStorageRecordList =
                                                                     snapshot
                                                                         .data!;
+
                                                                 final containerGenLinkUrlLinkStorageRecord =
                                                                     containerGenLinkUrlLinkStorageRecordList
                                                                             .isNotEmpty
@@ -4917,6 +4989,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                         List<UrlLinkStorageRecord>
                                                             containerUrlLinkStorageRecordList =
                                                             snapshot.data!;
+
                                                         final containerUrlLinkStorageRecord =
                                                             containerUrlLinkStorageRecordList
                                                                     .isNotEmpty
@@ -5190,6 +5263,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                               List<TanjaiBannerRecord>
                                   pageViewTanjaiBannerRecordList =
                                   snapshot.data!;
+
                               final pageViewTanjaiBannerRecord =
                                   pageViewTanjaiBannerRecordList.isNotEmpty
                                       ? pageViewTanjaiBannerRecordList.first
@@ -5200,6 +5274,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                       pageViewTanjaiBannerRecord?.imageUrl
                                               ?.toList() ??
                                           [];
+
                                   return Container(
                                     width: double.infinity,
                                     height: 220.0,

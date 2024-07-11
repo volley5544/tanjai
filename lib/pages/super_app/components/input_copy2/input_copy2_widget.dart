@@ -61,7 +61,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
           future: queryUserCustomRecordOnce(
             queryBuilder: (userCustomRecord) => userCustomRecord.where(
               'employee_id',
-              isEqualTo: widget.employeeID != '' ? widget.employeeID : null,
+              isEqualTo: widget!.employeeID != '' ? widget!.employeeID : null,
             ),
             singleRecord: true,
           ),
@@ -82,6 +82,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
             }
             List<UserCustomRecord> containerUserCustomRecordList =
                 snapshot.data!;
+
             final containerUserCustomRecord =
                 containerUserCustomRecordList.isNotEmpty
                     ? containerUserCustomRecordList.first
@@ -100,8 +101,8 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     queryBuilder: (fCMTokenRecord) => fCMTokenRecord
                         .where(
                           'employee_id',
-                          isEqualTo: widget.employeeID != ''
-                              ? widget.employeeID
+                          isEqualTo: widget!.employeeID != ''
+                              ? widget!.employeeID
                               : null,
                         )
                         .orderBy('created_at', descending: true),
@@ -124,6 +125,7 @@ class _InputCopy2WidgetState extends State<InputCopy2Widget> {
                     }
                     List<FCMTokenRecord> columnPlusFCMTokenRecordList =
                         snapshot.data!;
+
                     final columnPlusFCMTokenRecord =
                         columnPlusFCMTokenRecordList.isNotEmpty
                             ? columnPlusFCMTokenRecordList.first

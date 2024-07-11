@@ -55,9 +55,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().searchableListComponentData =
-          widget.dataList!.toList().cast<String>();
+          widget!.dataList!.toList().cast<String>();
       FFAppState().searchableListComponentSelectedList = functions
-          .createFalseListByItemNumber(false, widget.dataList?.length)!
+          .createFalseListByItemNumber(false, widget!.dataList?.length)!
           .toList()
           .cast<bool>();
       setState(() {});
@@ -105,7 +105,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
               ),
             ),
             title: Text(
-              widget.titleText,
+              widget!.titleText,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
@@ -128,7 +128,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (widget.multiSelect)
+                        if (widget!.multiSelect)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
@@ -136,8 +136,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  widget.multiSelect && (widget.maxSelected > 0)
-                                      ? 'สามารถเลือกได้สูงสุด ${widget.maxSelected.toString()} รายการ (${widget.multiSelect && (widget.maxSelected > 0) ? '${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()}/${widget.maxSelected.toString()}' : 'เลือกแล้ว ${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()} รายการ'}'
+                                  widget!.multiSelect &&
+                                          (widget!.maxSelected > 0)
+                                      ? 'สามารถเลือกได้สูงสุด ${widget!.maxSelected.toString()} รายการ (${widget!.multiSelect && (widget!.maxSelected > 0) ? '${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()}/${widget!.maxSelected.toString()}' : 'เลือกแล้ว ${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()} รายการ'}'
                                       : 'สามารถเลือกได้มากกว่า 1 รายการ',
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
@@ -152,7 +153,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                               ],
                             ),
                           ),
-                        if (widget.dataList!.length > 5)
+                        if (widget!.dataList!.length > 5)
                           Container(
                             width: double.infinity,
                             height: 50.0,
@@ -188,7 +189,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                               fontFamily: 'Noto Sans Thai',
                                               letterSpacing: 0.0,
                                             ),
-                                        hintText: widget.searchLabel,
+                                        hintText: widget!.searchLabel,
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -217,7 +218,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                               ],
                             ),
                           ),
-                        if (widget.titleText == 'ค้นหาที่อยู่'
+                        if (widget!.titleText == 'ค้นหาที่อยู่'
                             ? (_model.textController.text != null &&
                                 _model.textController.text != '')
                             : true)
@@ -227,7 +228,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                               decoration: BoxDecoration(),
                               child: Builder(
                                 builder: (context) {
-                                  final dataList = widget.dataList!.toList();
+                                  final dataList = widget!.dataList!.toList();
+
                                   return ListView.builder(
                                     padding: EdgeInsets.zero,
                                     shrinkWrap: true,
@@ -244,7 +246,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                             functions.containWordinStringUrl(
                                                 _model.textController.text
                                                     .toUpperCase(),
-                                                widget
+                                                widget!
                                                     .dataList?[dataListIndex])!,
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -252,8 +254,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if (widget.multiSelect) {
-                                              if (widget.maxSelected == 0) {
+                                            if (widget!.multiSelect) {
+                                              if (widget!.maxSelected == 0) {
                                                 FFAppState()
                                                     .updateSearchableListComponentSelectedListAtIndex(
                                                   dataListIndex,
@@ -270,7 +272,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
                                                             .toList())! >=
-                                                    widget.maxSelected) {
+                                                    widget!.maxSelected) {
                                                   FFAppState()
                                                       .updateSearchableListComponentSelectedListAtIndex(
                                                     dataListIndex,
@@ -299,7 +301,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           functions
                                                               .createFalseListByItemNumber(
                                                                   false,
-                                                                  widget
+                                                                  widget!
                                                                       .dataList
                                                                       ?.length)
                                                               ?.toList(),
@@ -307,17 +309,17 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                       .toList()
                                                       .cast<bool>();
                                               setState(() {});
-                                              if (((widget.titleText ==
+                                              if (((widget!.titleText ==
                                                           'เลือกประเภทรถ') &&
-                                                      (widget.fromPage ==
+                                                      (widget!.fromPage ==
                                                           'searchPackage')) ||
-                                                  ((widget.titleText ==
+                                                  ((widget!.titleText ==
                                                           'เลือกประเภทรถ') &&
-                                                      (widget.fromPage ==
+                                                      (widget!.fromPage ==
                                                           'NonePackage'))) {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'searchPackage') {
-                                                  if ((widget.dataList?[functions
+                                                  if ((widget!.dataList?[functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -329,7 +331,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
 
                                                     return;
                                                   } else {
-                                                    if ((widget.dataList?[functions
+                                                    if ((widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -345,7 +347,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
 
                                                   FFAppState()
                                                           .insuranceVehicleTypeDropDown =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -360,11 +362,11 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   context.safePop();
                                                   return;
                                                 } else {
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'NonePackage') {
                                                     FFAppState()
                                                             .nonePackageVehicleType =
-                                                        widget.dataList![functions
+                                                        widget!.dataList![functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -378,9 +380,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
 
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกยี่ห้อรถ') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   if (FFAppState()
                                                           .insuranceBasicVehicleGroup ==
@@ -466,7 +468,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                             .length >
                                                         0) {
                                                       FFAppState()
-                                                          .insuranceBasicBrandName = widget
+                                                          .insuranceBasicBrandName = widget!
                                                               .dataList![
                                                           functions
                                                               .getIndexOfBoolList(
@@ -580,7 +582,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                             .length >
                                                         0) {
                                                       FFAppState()
-                                                          .insuranceBasicBrandName = widget
+                                                          .insuranceBasicBrandName = widget!
                                                               .dataList![
                                                           functions
                                                               .getIndexOfBoolList(
@@ -636,7 +638,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 } else {
                                                   FFAppState()
                                                           .nonePackageBrandName =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -693,15 +695,15 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกปีจดทะเบียน') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
-                                                  if (widget.fromPage !=
+                                                  if (widget!.fromPage !=
                                                       'RenewStep2') {
                                                     FFAppState()
                                                             .insuranceBasicYear =
-                                                        widget.dataList![functions
+                                                        widget!.dataList![functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -709,7 +711,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                 true)];
                                                     FFAppState()
                                                             .insuranceInfoRegisYear =
-                                                        widget.dataList![functions
+                                                        widget!.dataList![functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -740,7 +742,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   }
                                                   FFAppState()
                                                           .insuranceInfoCarRegis =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -748,7 +750,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                               true)];
                                                   setState(() {});
                                                   FFAppState()
-                                                      .insuranceInfoRegisYear = (int.parse(widget
+                                                      .insuranceInfoRegisYear = (int.parse(widget!
                                                                   .dataList![
                                                               functions.getIndexOfBoolList(
                                                                   FFAppState()
@@ -762,7 +764,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 } else {
                                                   FFAppState()
-                                                      .nonePackageYear = widget
+                                                      .nonePackageYear = widget!
                                                           .dataList![
                                                       functions.getIndexOfBoolList(
                                                           FFAppState()
@@ -787,9 +789,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกลักษณะการใช้รถ') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   FFAppState()
                                                       .insuranceBasicVehicleUsedTypeId = FFAppState()
@@ -807,7 +809,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -829,7 +831,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -851,7 +853,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -873,7 +875,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -895,7 +897,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -917,7 +919,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .insuranceBasicVehicleUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -925,7 +927,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                   true)])];
                                                   FFAppState()
                                                           .insuranceInfoVehicleUsage =
-                                                      '${FFAppState().insuranceBasicVehicleUsedTypeCodeList[functions.getIndexOfSomethingList(functions.generateInsuranceVehicleTypeDropdown(FFAppState().insuranceBasicVehicleUsedTypeCodeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeTypeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeNameList.toList())?.toList(), widget.dataList?[functions.getIndexOfBoolList(FFAppState().searchableListComponentSelectedList.toList(), true)])]}  ${FFAppState().insuranceBasicVehicleUsedTypeNameList[functions.getIndexOfSomethingList(functions.generateInsuranceVehicleTypeDropdown(FFAppState().insuranceBasicVehicleUsedTypeCodeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeTypeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeNameList.toList())?.toList(), widget.dataList?[functions.getIndexOfBoolList(FFAppState().searchableListComponentSelectedList.toList(), true)])]}';
+                                                      '${FFAppState().insuranceBasicVehicleUsedTypeCodeList[functions.getIndexOfSomethingList(functions.generateInsuranceVehicleTypeDropdown(FFAppState().insuranceBasicVehicleUsedTypeCodeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeTypeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeNameList.toList())?.toList(), widget!.dataList?[functions.getIndexOfBoolList(FFAppState().searchableListComponentSelectedList.toList(), true)])]}  ${FFAppState().insuranceBasicVehicleUsedTypeNameList[functions.getIndexOfSomethingList(functions.generateInsuranceVehicleTypeDropdown(FFAppState().insuranceBasicVehicleUsedTypeCodeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeTypeList.toList(), FFAppState().insuranceBasicVehicleUsedTypeNameList.toList())?.toList(), widget!.dataList?[functions.getIndexOfBoolList(FFAppState().searchableListComponentSelectedList.toList(), true)])]}';
                                                   setState(() {});
                                                   FFAppState()
                                                       .updateSearchPackageCheckFilledAtIndex(
@@ -952,7 +954,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .nonePackageUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -974,7 +976,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .nonePackageUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -996,7 +998,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                       .nonePackageUsedTypeNameList
                                                                       .toList())
                                                               ?.toList(),
-                                                          widget.dataList?[functions
+                                                          widget!.dataList?[functions
                                                               .getIndexOfBoolList(
                                                                   FFAppState()
                                                                       .searchableListComponentSelectedList
@@ -1007,15 +1009,15 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกประเภทชั้นประกัน') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .insuranceBasicCoverTypeNameOutputList =
                                                       functions
                                                           .returnMappedListFromBoolList(
-                                                              widget.dataList
+                                                              widget!.dataList
                                                                   ?.toList(),
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1071,7 +1073,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           true)];
                                                   FFAppState()
                                                           .nonePackageCoverTypeName =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1082,9 +1084,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกประเภทการซ่อม') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .insuranceBasicGarageTypeInPackage =
@@ -1145,12 +1147,12 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                                 FFAppState().filterInsurerList =
                                                     functions
                                                         .returnMappedListFromBoolList(
-                                                            widget.dataList
+                                                            widget!.dataList
                                                                 ?.toList(),
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -1162,13 +1164,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'ค้นหาเปรียบเทียบชั้นประกัน') {
                                                 FFAppState()
                                                         .filterCoverTypeList =
                                                     functions
                                                         .returnMappedListFromBoolList(
-                                                            widget.dataList
+                                                            widget!.dataList
                                                                 ?.toList(),
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -1180,13 +1182,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                                 FFAppState()
                                                         .filterGarageTypeList =
                                                     functions
                                                         .returnMappedListFromBoolList(
-                                                            widget.dataList
+                                                            widget!.dataList
                                                                 ?.toList(),
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -1198,26 +1200,26 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'ประเภทบัตร') {
                                                 FFAppState()
-                                                    .insuranceInfoCardType = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceInfoCardType =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText == 'เพศ') {
-                                                if (widget.fromPage !=
+                                              if (widget!.titleText == 'เพศ') {
+                                                if (widget!.fromPage !=
                                                     'AddDriverPage') {
                                                   FFAppState()
                                                           .insuranceInfoGender =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1235,9 +1237,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                     'เลือกคำนำหน้าชื่อ';
                                                 FFAppState()
                                                     .updateDriverListAtIndex(
-                                                  widget.index!,
+                                                  widget!.index!,
                                                   (e) => e
-                                                    ..gender = (widget
+                                                    ..gender = (widget!
                                                                     .dataList?[
                                                                 functions.getIndexOfBoolList(
                                                                     FFAppState()
@@ -1252,13 +1254,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'คำนำหน้า') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'AddDriverPage') {
                                                   FFAppState()
                                                           .insuranceInfoTitle =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1270,10 +1272,10 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 }
                                                 FFAppState()
                                                     .updateDriverListAtIndex(
-                                                  widget.index!,
+                                                  widget!.index!,
                                                   (e) => e
                                                     ..titleThId = ''
-                                                    ..titleTh = widget
+                                                    ..titleTh = widget!
                                                             .dataList?[
                                                         functions
                                                             .getIndexOfBoolList(
@@ -1286,16 +1288,16 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'กลุ่มอาชีพ') {
                                                 FFAppState()
-                                                    .insuranceInfoOccupationGroup = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceInfoOccupationGroup =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 FFAppState()
                                                         .insuranceInfoSelectOccupationCode =
@@ -1309,13 +1311,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                                 .toList(),
                                                             true)];
                                                 FFAppState()
-                                                    .insuranceInfoSelectOccupationName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceInfoSelectOccupationName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 FFAppState().insuranceInfoSelectOccupationSubCode = functions
                                                     .returnMappedListFrom2List(
@@ -1348,9 +1350,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกจังหวัดจดทะเบียน') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   FFAppState()
                                                       .insuranceInfoRegistrationCodeSelect = FFAppState()
@@ -1382,7 +1384,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           true)];
                                                   FFAppState()
                                                           .nonePackageProvince =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1393,9 +1395,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'ค้นหาที่อยู่') {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'addAddressIdCard') {
                                                   FFAppState()
                                                       .addAddressSelectProvinceId = FFAppState()
@@ -1566,34 +1568,34 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกประเภทตู้เหล็ก') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   return;
                                                 }
 
                                                 FFAppState()
-                                                    .nonePackageCarrierType = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCarrierType =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกส่วนของรถบรรทุก') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   return;
                                                 }
 
                                                 FFAppState()
-                                                    .nonePackageTruckPart = widget
+                                                    .nonePackageTruckPart = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -1604,40 +1606,40 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกประเภทลูกค้า') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   return;
                                                 }
 
                                                 FFAppState()
-                                                    .nonePackageCusMembership = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCusMembership =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกปีที่ผลิต') {
                                                 FFAppState()
-                                                    .insuranceInfoProductYear = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceInfoProductYear =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'จำนวนงวด') {
                                                 FFAppState()
                                                     .insuranceInfoPage4SelectTenor = FFAppState()
@@ -1667,9 +1669,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกบริษัทประกัน') {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'NonePackageSelectedInsurer') {
                                                   FFAppState()
                                                       .nonePackageSelectedInsurerShortName = FFAppState()
@@ -1684,7 +1686,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกจังหวัดที่จดทะเบียน') {
                                                 FFAppState()
                                                     .insuranceInfoRegistrationCodeSelect = FFAppState()
@@ -1706,13 +1708,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 context.safePop();
                                                 return;
                                               }
-                                              if (widget.titleText ==
+                                              if (widget!.titleText ==
                                                   'เลือกรุ่นรถ') {
-                                                if (widget.fromPage !=
+                                                if (widget!.fromPage !=
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .insuranceBasicModelName =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1737,12 +1739,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   return;
                                                 }
                                               }
-                                              if (widget.titleText == 'อาชีพ') {
-                                                if (widget.fromPage !=
+                                              if (widget!.titleText ==
+                                                  'อาชีพ') {
+                                                if (widget!.fromPage !=
                                                     'AddDriverPage') {
                                                   FFAppState()
                                                           .insuranceInfoSelectOccupationSubNameChoose =
-                                                      widget.dataList![functions
+                                                      widget!.dataList![functions
                                                           .getIndexOfBoolList(
                                                               FFAppState()
                                                                   .searchableListComponentSelectedList
@@ -1754,7 +1757,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 }
                                                 FFAppState()
                                                     .updateDriverListAtIndex(
-                                                  widget.index!,
+                                                  widget!.index!,
                                                   (e) => e
                                                     ..occupationId = ''
                                                     ..occupationCode = FFAppState()
@@ -1823,22 +1826,22 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           valueOrDefault<
                                                               String>(
                                                             () {
-                                                              if (widget
+                                                              if (widget!
                                                                       .titleText ==
                                                                   'ค้นหาเปรียบเทียบชั้นประกัน') {
                                                                 return (functions
-                                                                    .coverTypeCodeToName(widget
+                                                                    .coverTypeCodeToName(widget!
                                                                         .dataList
                                                                         ?.toList())?[dataListIndex]);
-                                                              } else if (widget
+                                                              } else if (widget!
                                                                       .titleText ==
                                                                   'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                                                 return (functions
-                                                                    .garageTypeCodeToName(widget
+                                                                    .garageTypeCodeToName(widget!
                                                                         .dataList
                                                                         ?.toList())?[dataListIndex]);
                                                               } else {
-                                                                return (widget
+                                                                return (widget!
                                                                         .dataList?[
                                                                     dataListIndex]);
                                                               }
@@ -1901,7 +1904,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                           .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
-                  if (widget.multiSelect)
+                  if (widget!.multiSelect)
                     Expanded(
                       flex: 1,
                       child: Container(
@@ -1944,13 +1947,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     );
                                     return;
                                   }
-                                  if (((widget.titleText == 'เลือกประเภทรถ') &&
-                                          (widget.fromPage ==
+                                  if (((widget!.titleText == 'เลือกประเภทรถ') &&
+                                          (widget!.fromPage ==
                                               'searchPackage')) ||
-                                      ((widget.titleText == 'เลือกประเภทรถ') &&
-                                          (widget.fromPage == 'NonePackage'))) {
-                                    if (widget.fromPage == 'searchPackage') {
-                                      if ((widget.dataList?[
+                                      ((widget!.titleText == 'เลือกประเภทรถ') &&
+                                          (widget!.fromPage ==
+                                              'NonePackage'))) {
+                                    if (widget!.fromPage == 'searchPackage') {
+                                      if ((widget!.dataList?[
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
                                                       .searchableListComponentSelectedList
@@ -1962,7 +1966,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
 
                                         return;
                                       } else {
-                                        if ((widget.dataList?[
+                                        if ((widget!.dataList?[
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
                                                         .searchableListComponentSelectedList
@@ -1977,7 +1981,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       }
 
                                       FFAppState()
-                                          .insuranceVehicleTypeDropDown = widget
+                                          .insuranceVehicleTypeDropDown = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -1993,9 +1997,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       context.safePop();
                                       return;
                                     } else {
-                                      if (widget.fromPage == 'NonePackage') {
+                                      if (widget!.fromPage == 'NonePackage') {
                                         FFAppState()
-                                            .nonePackageVehicleType = widget
+                                            .nonePackageVehicleType = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -2010,10 +2014,10 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
 
                                     return;
                                   }
-                                  if (widget.titleText == 'เลือกยี่ห้อรถ') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                  if (widget!.titleText == 'เลือกยี่ห้อรถ') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       FFAppState()
-                                          .insuranceBasicBrandName = widget
+                                          .insuranceBasicBrandName = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -2075,7 +2079,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       context.safePop();
                                       return;
                                     } else {
-                                      FFAppState().nonePackageBrandName = widget
+                                      FFAppState()
+                                          .nonePackageBrandName = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -2132,9 +2137,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText == 'เลือกปีจดทะเบียน') {
-                                    if (widget.fromPage != 'NonePackage') {
-                                      FFAppState().insuranceBasicYear = widget
+                                  if (widget!.titleText == 'เลือกปีจดทะเบียน') {
+                                    if (widget!.fromPage != 'NonePackage') {
+                                      FFAppState().insuranceBasicYear = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -2151,7 +2156,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       context.safePop();
                                       return;
                                     } else {
-                                      FFAppState().nonePackageYear = widget
+                                      FFAppState().nonePackageYear = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -2163,9 +2168,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกลักษณะการใช้รถ') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       FFAppState()
                                           .insuranceBasicVehicleUsedTypeId = FFAppState()
                                               .insuranceBasicVehicleUsedTypeIdList[
@@ -2182,7 +2187,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2204,7 +2209,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2226,7 +2231,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2258,7 +2263,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2280,7 +2285,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2302,7 +2307,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                           .insuranceBasicVehicleUsedTypeNameList
                                                           .toList())
                                                   ?.toList(),
-                                              widget.dataList?[
+                                              widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -2313,14 +2318,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกประเภทชั้นประกัน') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       FFAppState()
                                               .insuranceBasicCoverTypeNameOutputList =
                                           functions
                                               .returnMappedListFromBoolList(
-                                                  widget.dataList?.toList(),
+                                                  widget!.dataList?.toList(),
                                                   FFAppState()
                                                       .searchableListComponentSelectedList
                                                       .toList(),
@@ -2374,7 +2379,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                   .toList(),
                                               true)];
                                       FFAppState()
-                                          .nonePackageCoverTypeName = widget
+                                          .nonePackageCoverTypeName = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -2386,9 +2391,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกประเภทการซ่อม') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       FFAppState()
                                               .insuranceBasicGarageTypeInPackage =
                                           functions
@@ -2448,11 +2453,11 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                     FFAppState().filterInsurerList = functions
                                         .returnMappedListFromBoolList(
-                                            widget.dataList?.toList(),
+                                            widget!.dataList?.toList(),
                                             FFAppState()
                                                 .searchableListComponentSelectedList
                                                 .toList(),
@@ -2463,11 +2468,11 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'ค้นหาเปรียบเทียบชั้นประกัน') {
                                     FFAppState().filterCoverTypeList = functions
                                         .returnMappedListFromBoolList(
-                                            widget.dataList?.toList(),
+                                            widget!.dataList?.toList(),
                                             FFAppState()
                                                 .searchableListComponentSelectedList
                                                 .toList(),
@@ -2478,11 +2483,11 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                     FFAppState().filterGarageTypeList = functions
                                         .returnMappedListFromBoolList(
-                                            widget.dataList?.toList(),
+                                            widget!.dataList?.toList(),
                                             FFAppState()
                                                 .searchableListComponentSelectedList
                                                 .toList(),
@@ -2493,8 +2498,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'ประเภทบัตร') {
-                                    FFAppState().insuranceInfoCardType = widget
+                                  if (widget!.titleText == 'ประเภทบัตร') {
+                                    FFAppState().insuranceInfoCardType = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2505,8 +2510,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'เพศ') {
-                                    FFAppState().insuranceInfoGender = widget
+                                  if (widget!.titleText == 'เพศ') {
+                                    FFAppState().insuranceInfoGender = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2517,8 +2522,8 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'คำนำหน้า') {
-                                    FFAppState().insuranceInfoTitle = widget
+                                  if (widget!.titleText == 'คำนำหน้า') {
+                                    FFAppState().insuranceInfoTitle = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2529,9 +2534,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'กลุ่มอาชีพ') {
+                                  if (widget!.titleText == 'กลุ่มอาชีพ') {
                                     FFAppState()
-                                        .insuranceInfoOccupationGroup = widget
+                                        .insuranceInfoOccupationGroup = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2542,9 +2547,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกจังหวัดจดทะเบียน') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       return;
                                     }
 
@@ -2556,7 +2561,7 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                                 .searchableListComponentSelectedList
                                                 .toList(),
                                             true)];
-                                    FFAppState().nonePackageProvince = widget
+                                    FFAppState().nonePackageProvince = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2567,8 +2572,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'ค้นหาที่อยู่') {
-                                    if (widget.fromPage == 'addAddressIdCard') {
+                                  if (widget!.titleText == 'ค้นหาที่อยู่') {
+                                    if (widget!.fromPage ==
+                                        'addAddressIdCard') {
                                       FFAppState().addAddressSelectProvinceId =
                                           FFAppState().addAddressProvinceId[
                                               functions.getIndexOfBoolList(
@@ -2728,13 +2734,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                       return;
                                     }
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกประเภทตู้เหล็ก') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       return;
                                     }
 
-                                    FFAppState().nonePackageCarrierType = widget
+                                    FFAppState()
+                                        .nonePackageCarrierType = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2745,13 +2752,13 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText ==
+                                  if (widget!.titleText ==
                                       'เลือกส่วนของรถบรรทุก') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       return;
                                     }
 
-                                    FFAppState().nonePackageTruckPart = widget
+                                    FFAppState().nonePackageTruckPart = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2762,13 +2769,14 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'เลือกประเภทลูกค้า') {
-                                    if (widget.fromPage != 'NonePackage') {
+                                  if (widget!.titleText ==
+                                      'เลือกประเภทลูกค้า') {
+                                    if (widget!.fromPage != 'NonePackage') {
                                       return;
                                     }
 
                                     FFAppState()
-                                        .nonePackageCusMembership = widget
+                                        .nonePackageCusMembership = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()
@@ -2779,9 +2787,9 @@ class _SearchableListPageWidgetState extends State<SearchableListPageWidget> {
                                     context.safePop();
                                     return;
                                   }
-                                  if (widget.titleText == 'เลือกปีที่ผลิต') {
+                                  if (widget!.titleText == 'เลือกปีที่ผลิต') {
                                     FFAppState()
-                                        .insuranceInfoProductYear = widget
+                                        .insuranceInfoProductYear = widget!
                                             .dataList![
                                         functions.getIndexOfBoolList(
                                             FFAppState()

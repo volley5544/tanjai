@@ -92,6 +92,7 @@ class _QuotationWidgetState extends State<QuotationWidget> {
             child: Builder(
               builder: (context) {
                 final pdfListItem = FFAppState().insurarerQuotationPdf.toList();
+
                 return Container(
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 0.85,

@@ -84,7 +84,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              if (!widget.isEditing!) {
+              if (!widget!.isEditing!) {
                 var confirmDialogResponse = await showDialog<bool>(
                       context: context,
                       builder: (alertDialogContext) {
@@ -110,7 +110,7 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                     ) ??
                     false;
                 if (confirmDialogResponse) {
-                  FFAppState().removeAtIndexFromDriverList(widget.index!);
+                  FFAppState().removeAtIndexFromDriverList(widget!.index!);
                   setState(() {});
                 } else {
                   return;
@@ -155,9 +155,9 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                         updateCallback: () => setState(() {}),
                         updateOnChange: true,
                         child: DriverInfomationFormComponentWidget(
-                          index: widget.index!,
+                          index: widget!.index!,
                           firestoreDataConfigList:
-                              widget.firestoreDataConfigList!,
+                              widget!.firestoreDataConfigList!,
                           clearFormTextfield: () async {},
                         ),
                       ),
@@ -194,24 +194,23 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                               .address4LastnameTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (FFAppState().DriverList[widget.index!].birthDay !=
+                                  (FFAppState().DriverList[widget!.index!].birthDay !=
                                       '') &&
-                                  ((_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != null &&
-                                          _model
-                                                  .driverInfomationFormComponentModel
-                                                  .thaiIdTextfieldTextController
-                                                  .text !=
-                                              '') &&
+                                  ((_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != null && _model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text != '') &&
                                       (functions.checkStringLength(functions.removeCommaFromNumText(_model.driverInfomationFormComponentModel.thaiIdTextfieldTextController.text)).toString() ==
                                           '13')) &&
-                                  (_model.driverInfomationFormComponentModel.driverLicenseTextfieldTextController.text != null &&
+                                  (_model
+                                              .driverInfomationFormComponentModel
+                                              .driverLicenseTextfieldTextController
+                                              .text !=
+                                          null &&
                                       _model
                                               .driverInfomationFormComponentModel
                                               .driverLicenseTextfieldTextController
                                               .text !=
                                           '') &&
-                                  (FFAppState().DriverList[widget.index!].imageIdcard != '') &&
-                                  (FFAppState().DriverList[widget.index!].imageLicenseNo != ''))) {
+                                  (FFAppState().DriverList[widget!.index!].imageIdcard != '') &&
+                                  (FFAppState().DriverList[widget!.index!].imageLicenseNo != ''))) {
                                 await showDialog(
                                   context: context,
                                   builder: (alertDialogContext) {
@@ -232,10 +231,10 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                 return;
                               }
                               FFAppState().updateDriverListAtIndex(
-                                widget.index!,
+                                widget!.index!,
                                 (e) => e
                                   ..driverId = ''
-                                  ..driverNo = ((widget.index!) + 1).toString()
+                                  ..driverNo = ((widget!.index!) + 1).toString()
                                   ..applicationId =
                                       FFAppState().insuranceInfoApplicationId
                                   ..idTypeId = '1'
@@ -249,11 +248,11 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                       .driverLicenseTextfieldTextController
                                       .text
                                   ..gender = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .gender
                                   ..titleThId = ''
                                   ..titleTh = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .titleTh
                                   ..firstNameTh = _model
                                       .driverInfomationFormComponentModel
@@ -264,24 +263,24 @@ class _AddDriverPageWidgetState extends State<AddDriverPageWidget> {
                                       .address4LastnameTextfieldTextController
                                       .text
                                   ..birthDay = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .birthDay
                                   ..imageIdcard = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .imageIdcard
                                   ..imageLicenseNo = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .imageLicenseNo
                                   ..occupationId = ''
                                   ..occupationCode = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .occupationCode
                                   ..occupationName = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .occupationName
                                   ..occupationSubcode = ''
                                   ..occupationSubname = FFAppState()
-                                      .DriverList[widget.index!]
+                                      .DriverList[widget!.index!]
                                       .occupationSubname,
                               );
                               setState(() {});

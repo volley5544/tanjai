@@ -70,6 +70,7 @@ class _PaywithBarcodeWidgetState extends State<PaywithBarcodeWidget> {
         }
         List<UrlLinkStorageRecord> paywithBarcodeUrlLinkStorageRecordList =
             snapshot.data!;
+
         final paywithBarcodeUrlLinkStorageRecord =
             paywithBarcodeUrlLinkStorageRecordList.isNotEmpty
                 ? paywithBarcodeUrlLinkStorageRecordList.first

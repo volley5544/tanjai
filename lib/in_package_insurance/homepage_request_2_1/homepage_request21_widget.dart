@@ -643,7 +643,7 @@ class _HomepageRequest21WidgetState extends State<HomepageRequest21Widget> {
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             _model.protectValue!
-                                                ? '${functions.showNumberWithComma(widget.accessory)} บาท'
+                                                ? '${functions.showNumberWithComma(widget!.accessory)} บาท'
                                                 : '',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium

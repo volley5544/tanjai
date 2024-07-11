@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import '/pages/super_app/components/make_insurance_type_color/make_insurance_type_color_widget.dart';
 import '/pages/super_app/components/none_package_show_status_component/none_package_show_status_component_widget.dart';
+import 'dart:convert';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -138,6 +140,7 @@ class _MakeInsuranceListPageSearchWidgetState
         List<UrlLinkStorageRecord>
             makeInsuranceListPageSearchUrlLinkStorageRecordList =
             snapshot.data!;
+
         final makeInsuranceListPageSearchUrlLinkStorageRecord =
             makeInsuranceListPageSearchUrlLinkStorageRecordList.isNotEmpty
                 ? makeInsuranceListPageSearchUrlLinkStorageRecordList.first
@@ -166,7 +169,7 @@ class _MakeInsuranceListPageSearchWidgetState
                     size: 30.0,
                   ),
                   onPressed: () async {
-                    if (widget.fromPage == 'FollowUpPage') {
+                    if (widget!.fromPage == 'FollowUpPage') {
                       context.goNamed('LeadFollowUpPage');
 
                       return;
@@ -175,7 +178,7 @@ class _MakeInsuranceListPageSearchWidgetState
                   },
                 ),
                 title: Text(
-                  widget.checkVMI == '0' ? 'รายการ' : 'รายการกรมธรรม์',
+                  widget!.checkVMI == '0' ? 'รายการ' : 'รายการกรมธรรม์',
                   style: FlutterFlowTheme.of(context).headlineSmall.override(
                         fontFamily: 'Noto Sans Thai',
                         color: Color(0xFF003063),
@@ -186,7 +189,7 @@ class _MakeInsuranceListPageSearchWidgetState
                 ),
                 actions: [
                   Visibility(
-                    visible: widget.checkPayment == '1',
+                    visible: widget!.checkPayment == '1',
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
@@ -253,7 +256,7 @@ class _MakeInsuranceListPageSearchWidgetState
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 12.0, 5.0),
                             child: Text(
-                              'เลขทะเบียนรถลูกค้า ${widget.carRegistration}',
+                              'เลขทะเบียนรถลูกค้า ${widget!.carRegistration}',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -293,6 +296,7 @@ class _MakeInsuranceListPageSearchWidgetState
                           }
                           List<HideInAppContentRecord>
                               columnHideInAppContentRecordList = snapshot.data!;
+
                           final columnHideInAppContentRecord =
                               columnHideInAppContentRecordList.isNotEmpty
                                   ? columnHideInAppContentRecordList.first
@@ -300,7 +304,7 @@ class _MakeInsuranceListPageSearchWidgetState
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              if (widget.checkTotal != 0 ? true : false)
+                              if (widget!.checkTotal != 0 ? true : false)
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -317,7 +321,8 @@ class _MakeInsuranceListPageSearchWidgetState
                                       child: Builder(
                                         builder: (context) {
                                           final leadListItem =
-                                              widget.list!.toList();
+                                              widget!.list!.toList();
+
                                           return ListView.builder(
                                             padding: EdgeInsets.fromLTRB(
                                               0,
@@ -345,20 +350,20 @@ class _MakeInsuranceListPageSearchWidgetState
                                                     decoration: BoxDecoration(
                                                       color: () {
                                                         if (getJsonField(
-                                                              widget.list![
+                                                              widget!.list![
                                                                   leadListItemIndex],
                                                               r'''$.payment_status_check''',
                                                             ) &&
-                                                            (widget.checkPayment ==
+                                                            (widget!.checkPayment ==
                                                                 '1')) {
                                                           return Color(
                                                               0xFFFFE090);
                                                         } else if (getJsonField(
-                                                              widget.list![
+                                                              widget!.list![
                                                                   leadListItemIndex],
                                                               r'''$.payment_status_check_sec''',
                                                             ) &&
-                                                            (widget.checkPayment ==
+                                                            (widget!.checkPayment ==
                                                                 '1')) {
                                                           return Color(
                                                               0xFFCCEBE2);
@@ -374,21 +379,21 @@ class _MakeInsuranceListPageSearchWidgetState
                                                       border: Border.all(
                                                         color: () {
                                                           if (getJsonField(
-                                                                widget.list![
+                                                                widget!.list![
                                                                     leadListItemIndex],
                                                                 r'''$.payment_status_check''',
                                                               ) &&
-                                                              (widget.checkPayment ==
+                                                              (widget!.checkPayment ==
                                                                   '1')) {
                                                             return FlutterFlowTheme
                                                                     .of(context)
                                                                 .warning;
                                                           } else if (getJsonField(
-                                                                widget.list![
+                                                                widget!.list![
                                                                     leadListItemIndex],
                                                                 r'''$.payment_status_check_sec''',
                                                               ) &&
-                                                              (widget.checkPayment ==
+                                                              (widget!.checkPayment ==
                                                                   '1')) {
                                                             return FlutterFlowTheme
                                                                     .of(context)
@@ -460,7 +465,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           child:
                                                                               Image.network(
                                                                             getJsonField(
-                                                                              widget.list![leadListItemIndex],
+                                                                              widget!.list![leadListItemIndex],
                                                                               r'''$.image''',
                                                                             ).toString(),
                                                                             width:
@@ -487,7 +492,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                   children: [
                                                                     Text(
                                                                       getJsonField(
-                                                                        widget.list![
+                                                                        widget!.list![
                                                                             leadListItemIndex],
                                                                         r'''$.insurer_name''',
                                                                       ).toString(),
@@ -528,10 +533,10 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                         ),
                                                                         Text(
                                                                           '${getJsonField(
-                                                                            widget.list?[leadListItemIndex],
+                                                                            widget!.list?[leadListItemIndex],
                                                                             r'''$.first_name''',
                                                                           ).toString()} ${getJsonField(
-                                                                            widget.list?[leadListItemIndex],
+                                                                            widget!.list?[leadListItemIndex],
                                                                             r'''$.last_name''',
                                                                           ).toString()}',
                                                                           maxLines:
@@ -569,7 +574,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                         ),
                                                                         Text(
                                                                           getJsonField(
-                                                                            widget.list![leadListItemIndex],
+                                                                            widget!.list![leadListItemIndex],
                                                                             r'''$.cover_type_name''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
@@ -586,7 +591,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                     ),
                                                                     if ('งานนอกเรท' ==
                                                                             getJsonField(
-                                                                              widget.list?[leadListItemIndex],
+                                                                              widget!.list?[leadListItemIndex],
                                                                               r'''$.quotation_type_name''',
                                                                             ).toString()
                                                                         ? false
@@ -610,11 +615,11 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           Text(
                                                                             '' !=
                                                                                     getJsonField(
-                                                                                      widget.list?[leadListItemIndex],
+                                                                                      widget!.list?[leadListItemIndex],
                                                                                       r'''$.sum_insured''',
                                                                                     ).toString()
                                                                                 ? getJsonField(
-                                                                                    widget.list![leadListItemIndex],
+                                                                                    widget!.list![leadListItemIndex],
                                                                                     r'''$.sum_insured''',
                                                                                   ).toString()
                                                                                 : '-',
@@ -648,7 +653,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                         ),
                                                                         Text(
                                                                           getJsonField(
-                                                                            widget.list![leadListItemIndex],
+                                                                            widget!.list![leadListItemIndex],
                                                                             r'''$.garage_type_name''',
                                                                           ).toString(),
                                                                           style: FlutterFlowTheme.of(context)
@@ -693,15 +698,15 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 Text(
                                                                               'ปฏิเสธ' !=
                                                                                       functions.checkNullValueAndReturn(getJsonField(
-                                                                                        widget.list?[leadListItemIndex],
+                                                                                        widget!.list?[leadListItemIndex],
                                                                                         r'''$.insurer_status''',
                                                                                       ).toString())
                                                                                   ? getJsonField(
-                                                                                      widget.list![leadListItemIndex],
+                                                                                      widget!.list![leadListItemIndex],
                                                                                       r'''$.quotation_status''',
                                                                                     ).toString()
                                                                                   : functions.checkNullValueAndReturn(getJsonField(
-                                                                                      widget.list?[leadListItemIndex],
+                                                                                      widget!.list?[leadListItemIndex],
                                                                                       r'''$.insurer_status''',
                                                                                     ).toString()),
                                                                               textAlign: TextAlign.end,
@@ -710,7 +715,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                     fontFamily: 'Noto Sans Thai',
                                                                                     color: 'ปฏิเสธ' !=
                                                                                             functions.checkNullValueAndReturn(getJsonField(
-                                                                                              widget.list?[leadListItemIndex],
+                                                                                              widget!.list?[leadListItemIndex],
                                                                                               r'''$.insurer_status''',
                                                                                             ).toString())
                                                                                         ? FlutterFlowTheme.of(context).primaryText
@@ -723,11 +728,11 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                         ),
                                                                       ],
                                                                     ),
-                                                                    if (widget.checkPayment ==
+                                                                    if (widget!.checkPayment ==
                                                                             '1'
                                                                         ? true
                                                                         : ('${getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                                  widget!.list?[leadListItemIndex],
                                                                                   r'''$.quotation_status''',
                                                                                 ).toString()}' ==
                                                                                 'ขอคืนเงิน'
@@ -750,7 +755,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           ),
                                                                           Text(
                                                                             getJsonField(
-                                                                              widget.list![leadListItemIndex],
+                                                                              widget!.list![leadListItemIndex],
                                                                               r'''$.payment_status''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -786,7 +791,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           ),
                                                                           Text(
                                                                             getJsonField(
-                                                                              widget.list![leadListItemIndex],
+                                                                              widget!.list![leadListItemIndex],
                                                                               r'''$.quotation_type_name''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -802,17 +807,17 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                     ),
                                                                     if (('' !=
                                                                             getJsonField(
-                                                                              widget.list?[leadListItemIndex],
+                                                                              widget!.list?[leadListItemIndex],
                                                                               r'''$.pdf_quotation''',
                                                                             ).toString()) &&
                                                                         ('manual' ==
                                                                                 getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                                  widget!.list?[leadListItemIndex],
                                                                                   r'''$.quotation_type''',
                                                                                 ).toString()
                                                                             ? ('ปฏิเสธ' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                                  widget!.list?[leadListItemIndex],
                                                                                   r'''$.insurer_status''',
                                                                                 ).toString()))
                                                                             : true))
@@ -834,7 +839,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                           FFButtonWidget(
                                                                             onPressed:
                                                                                 () async {
-                                                                              FFAppState().jsonTemp = widget.list![leadListItemIndex];
+                                                                              FFAppState().jsonTemp = widget!.list![leadListItemIndex];
                                                                               setState(() {});
 
                                                                               context.pushNamed(
@@ -882,7 +887,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                       ),
                                                                     if ('อนุมัติ' ==
                                                                         getJsonField(
-                                                                          widget
+                                                                          widget!
                                                                               .list?[leadListItemIndex],
                                                                           r'''$.quotation_status''',
                                                                         ).toString())
@@ -915,7 +920,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                   apiUrl: FFAppState().apiUrlInsuranceAppState,
                                                                                   token: FFAppState().accessToken,
                                                                                   quotationId: getJsonField(
-                                                                                    widget.list?[leadListItemIndex],
+                                                                                    widget!.list?[leadListItemIndex],
                                                                                     r'''$.quotation_id''',
                                                                                   ).toString(),
                                                                                   ownerId: FFAppState().employeeID,
@@ -999,7 +1004,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                       ),
                                                                     if ('manual' ==
                                                                         getJsonField(
-                                                                          widget
+                                                                          widget!
                                                                               .list?[leadListItemIndex],
                                                                           r'''$.quotation_type''',
                                                                         ).toString())
@@ -1022,7 +1027,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                 _model.getHistory = await GetNonePackageHistoryAPICall.call(
                                                                                   token: FFAppState().accessToken,
                                                                                   quotationId: getJsonField(
-                                                                                    widget.list?[leadListItemIndex],
+                                                                                    widget!.list?[leadListItemIndex],
                                                                                     r'''$.quotation_id''',
                                                                                   ).toString(),
                                                                                   apiUrl: FFAppState().apiUrlInsuranceAppState,
@@ -1137,17 +1142,17 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                       ),
                                                                     if (('manual' ==
                                                                             getJsonField(
-                                                                              widget.list?[leadListItemIndex],
+                                                                              widget!.list?[leadListItemIndex],
                                                                               r'''$.quotation_type''',
                                                                             ).toString()) &&
                                                                         (('-' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                                  widget!.list?[leadListItemIndex],
                                                                                   r'''$.insurer_remark''',
                                                                                 ).toString())) &&
                                                                             ('' !=
                                                                                 functions.checkNullValueAndReturn(getJsonField(
-                                                                                  widget.list?[leadListItemIndex],
+                                                                                  widget!.list?[leadListItemIndex],
                                                                                   r'''$.insurer_remark''',
                                                                                 ).toString()))))
                                                                       Padding(
@@ -1171,7 +1176,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                                     return WebViewAware(
                                                                                       child: AlertDialog(
                                                                                         content: Text(functions.checkNullValueAndReturn(getJsonField(
-                                                                                          widget.list?[leadListItemIndex],
+                                                                                          widget!.list?[leadListItemIndex],
                                                                                           r'''$.insurer_remark''',
                                                                                         ).toString())),
                                                                                         actions: [
@@ -1268,11 +1273,11 @@ class _MakeInsuranceListPageSearchWidgetState
                                                                     Text(
                                                                       '' !=
                                                                               getJsonField(
-                                                                                widget.list?[leadListItemIndex],
+                                                                                widget!.list?[leadListItemIndex],
                                                                                 r'''$.net_premium_total''',
                                                                               ).toString()
                                                                           ? getJsonField(
-                                                                              widget.list![leadListItemIndex],
+                                                                              widget!.list![leadListItemIndex],
                                                                               r'''$.net_premium_total''',
                                                                             ).toString()
                                                                           : '-',
@@ -1310,7 +1315,7 @@ class _MakeInsuranceListPageSearchWidgetState
                                     ),
                                   ),
                                 ),
-                              if (widget.checkTotal == 0 ? true : false)
+                              if (widget!.checkTotal == 0 ? true : false)
                                 Expanded(
                                   child: Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),

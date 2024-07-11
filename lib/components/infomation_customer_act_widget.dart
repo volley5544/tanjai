@@ -398,6 +398,7 @@ class _InfomationCustomerActWidgetState
                                 ),
                               ),
                               Container(
+                                width: MediaQuery.sizeOf(context).width * 0.3,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,

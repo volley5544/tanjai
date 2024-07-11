@@ -52,12 +52,12 @@ class _SearchablePickUpListPageWidgetState
         parameters: {'screen_name': 'SearchablePickUpListPage'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (widget.titleText == 'เลือกประเภทชั้นประกัน') {
-        if (widget.fromPage != 'NonePackage') {
+      if (widget!.titleText == 'เลือกประเภทชั้นประกัน') {
+        if (widget!.fromPage != 'NonePackage') {
           FFAppState().searchableListComponentData =
-              widget.dataList!.toList().cast<String>();
+              widget!.dataList!.toList().cast<String>();
           FFAppState().searchableListComponentSelectedList = functions
-              .createFalseListByItemNumber(true, widget.dataList?.length)!
+              .createFalseListByItemNumber(true, widget!.dataList?.length)!
               .toList()
               .cast<bool>();
           setState(() {});
@@ -65,9 +65,9 @@ class _SearchablePickUpListPageWidgetState
         }
       }
       FFAppState().searchableListComponentData =
-          widget.dataList!.toList().cast<String>();
+          widget!.dataList!.toList().cast<String>();
       FFAppState().searchableListComponentSelectedList = functions
-          .createFalseListByItemNumber(false, widget.dataList?.length)!
+          .createFalseListByItemNumber(false, widget!.dataList?.length)!
           .toList()
           .cast<bool>();
       setState(() {});
@@ -115,7 +115,7 @@ class _SearchablePickUpListPageWidgetState
               ),
             ),
             title: Text(
-              widget.titleText,
+              widget!.titleText,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
@@ -138,7 +138,7 @@ class _SearchablePickUpListPageWidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        if (widget.multiSelect)
+                        if (widget!.multiSelect)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
@@ -146,8 +146,9 @@ class _SearchablePickUpListPageWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Text(
-                                  widget.multiSelect && (widget.maxSelected > 0)
-                                      ? 'สามารถเลือกได้สูงสุด ${widget.maxSelected.toString()} รายการ (${widget.multiSelect && (widget.maxSelected > 0) ? '${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()}/${widget.maxSelected.toString()}' : 'เลือกแล้ว ${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()} รายการ'}'
+                                  widget!.multiSelect &&
+                                          (widget!.maxSelected > 0)
+                                      ? 'สามารถเลือกได้สูงสุด ${widget!.maxSelected.toString()} รายการ (${widget!.multiSelect && (widget!.maxSelected > 0) ? '${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()}/${widget!.maxSelected.toString()}' : 'เลือกแล้ว ${functions.countTrueInBoolList(FFAppState().searchableListComponentSelectedList.toList()).toString()} รายการ'}'
                                       : 'สามารถเลือกได้มากกว่า 1 รายการ',
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
@@ -162,7 +163,7 @@ class _SearchablePickUpListPageWidgetState
                               ],
                             ),
                           ),
-                        if (widget.dataList!.length > 5)
+                        if (widget!.dataList!.length > 5)
                           Container(
                             width: double.infinity,
                             height: 50.0,
@@ -198,7 +199,7 @@ class _SearchablePickUpListPageWidgetState
                                               fontFamily: 'Noto Sans Thai',
                                               letterSpacing: 0.0,
                                             ),
-                                        hintText: widget.searchLabel,
+                                        hintText: widget!.searchLabel,
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -227,7 +228,7 @@ class _SearchablePickUpListPageWidgetState
                               ],
                             ),
                           ),
-                        if (widget.titleText == 'ค้นหาที่อยู่'
+                        if (widget!.titleText == 'ค้นหาที่อยู่'
                             ? (_model.textController.text != null &&
                                 _model.textController.text != '')
                             : true)
@@ -255,29 +256,29 @@ class _SearchablePickUpListPageWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          if (widget.multiSelect) {
-                                            if (widget.maxSelected == 0) {
+                                          if (widget!.multiSelect) {
+                                            if (widget!.maxSelected == 0) {
                                             } else {
                                               if (functions.countTrueInBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList())! >=
-                                                  widget.maxSelected) {}
+                                                  widget!.maxSelected) {}
                                             }
                                           } else {
-                                            if (((widget.titleText ==
+                                            if (((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'searchPackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'NonePackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'RenewStep2'))) {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'searchPackage') {
                                                 FFAppState()
                                                         .insuranceVehicleTypeDropDown =
@@ -311,7 +312,7 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .nonePackageVehicleType =
@@ -333,7 +334,7 @@ class _SearchablePickUpListPageWidgetState
                                                   context.safePop();
                                                   return;
                                                 } else {
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'RenewStep2') {
                                                     FFAppState()
                                                             .insuranceCarTypeDetailSelected =
@@ -360,18 +361,18 @@ class _SearchablePickUpListPageWidgetState
 
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกยี่ห้อรถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicBrandName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
@@ -464,7 +465,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget
+                                                    .nonePackageBrandName = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -620,29 +621,29 @@ class _SearchablePickUpListPageWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          if (widget.multiSelect) {
-                                            if (widget.maxSelected == 0) {
+                                          if (widget!.multiSelect) {
+                                            if (widget!.maxSelected == 0) {
                                             } else {
                                               if (functions.countTrueInBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList())! >=
-                                                  widget.maxSelected) {}
+                                                  widget!.maxSelected) {}
                                             }
                                           } else {
-                                            if (((widget.titleText ==
+                                            if (((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'searchPackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'NonePackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'RenewStep2'))) {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'searchPackage') {
                                                 FFAppState()
                                                         .insuranceVehicleTypeDropDown =
@@ -676,7 +677,7 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .nonePackageVehicleType =
@@ -698,7 +699,7 @@ class _SearchablePickUpListPageWidgetState
                                                   context.safePop();
                                                   return;
                                                 } else {
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'RenewStep2') {
                                                     FFAppState()
                                                             .insuranceCarTypeDetailSelected =
@@ -725,18 +726,18 @@ class _SearchablePickUpListPageWidgetState
 
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกยี่ห้อรถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicBrandName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
@@ -829,7 +830,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget
+                                                    .nonePackageBrandName = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -887,12 +888,12 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกปีจดทะเบียน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicYear = widget
+                                                    .insuranceBasicYear = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -910,7 +911,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageYear = widget
+                                                    .nonePackageYear = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -922,9 +923,9 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกลักษณะการใช้รถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
                                                     .insuranceBasicVehicleUsedTypeId = FFAppState()
@@ -942,7 +943,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -964,7 +965,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -986,7 +987,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -1018,7 +1019,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -1040,7 +1041,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -1062,7 +1063,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -1073,14 +1074,15 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทชั้นประกัน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
-                                                FFAppState().insuranceBasicCoverTypeNameOutputList =
+                                                FFAppState()
+                                                        .insuranceBasicCoverTypeNameOutputList =
                                                     functions
                                                         .returnMappedListFromBoolList(
-                                                            widget.dataList
+                                                            widget!.dataList
                                                                 ?.toList(),
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -1135,21 +1137,21 @@ class _SearchablePickUpListPageWidgetState
                                                             .toList(),
                                                         true)];
                                                 FFAppState()
-                                                    .nonePackageCoverTypeName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทการซ่อม') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicGarageTypeInPackage =
@@ -1210,11 +1212,12 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                               FFAppState().filterInsurerList = functions
                                                   .returnMappedListFromBoolList(
-                                                      widget.dataList?.toList(),
+                                                      widget!.dataList
+                                                          ?.toList(),
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
@@ -1225,12 +1228,12 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบชั้นประกัน') {
                                               FFAppState().filterCoverTypeList =
                                                   functions
                                                       .returnMappedListFromBoolList(
-                                                          widget.dataList
+                                                          widget!.dataList
                                                               ?.toList(),
                                                           FFAppState()
                                                               .searchableListComponentSelectedList
@@ -1242,13 +1245,13 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                               FFAppState()
                                                       .filterGarageTypeList =
                                                   functions
                                                       .returnMappedListFromBoolList(
-                                                          widget.dataList
+                                                          widget!.dataList
                                                               ?.toList(),
                                                           FFAppState()
                                                               .searchableListComponentSelectedList
@@ -1260,10 +1263,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ประเภทบัตร') {
                                               FFAppState()
-                                                  .insuranceInfoCardType = widget
+                                                  .insuranceInfoCardType = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1274,9 +1277,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText == 'เพศ') {
+                                            if (widget!.titleText == 'เพศ') {
                                               FFAppState()
-                                                  .insuranceInfoGender = widget
+                                                  .insuranceInfoGender = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1289,10 +1292,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'คำนำหน้า') {
                                               FFAppState()
-                                                  .insuranceInfoTitle = widget
+                                                  .insuranceInfoTitle = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1303,10 +1306,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'กลุ่มอาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoOccupationGroup = widget
+                                                  .insuranceInfoOccupationGroup = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1326,7 +1329,7 @@ class _SearchablePickUpListPageWidgetState
                                                               .toList(),
                                                           true)];
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationName = widget
+                                                  .insuranceInfoSelectOccupationName = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1369,9 +1372,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกจังหวัดจดทะเบียน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
@@ -1385,7 +1388,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .toList(),
                                                       true)];
                                               FFAppState()
-                                                  .nonePackageProvince = widget
+                                                  .nonePackageProvince = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1396,9 +1399,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาที่อยู่') {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'addAddressIdCard') {
                                                 FFAppState()
                                                     .addAddressSelectProvinceId = FFAppState()
@@ -1569,15 +1572,15 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทตู้เหล็ก') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCarrierType = widget
+                                                  .nonePackageCarrierType = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1588,15 +1591,15 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกส่วนของรถบรรทุก') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageTruckPart = widget
+                                                  .nonePackageTruckPart = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1607,15 +1610,15 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทลูกค้า') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCusMembership = widget
+                                                  .nonePackageCusMembership = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1626,10 +1629,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกปีที่ผลิต') {
                                               FFAppState()
-                                                  .insuranceInfoProductYear = widget
+                                                  .insuranceInfoProductYear = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1640,7 +1643,7 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'จำนวนงวด') {
                                               FFAppState()
                                                   .insuranceInfoPage4SelectTenor = FFAppState()
@@ -1670,9 +1673,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกบริษัทประกัน') {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'NonePackageSelectedInsurer') {
                                                 FFAppState()
                                                     .nonePackageSelectedInsurerShortName = FFAppState()
@@ -1687,7 +1690,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกจังหวัดที่จดทะเบียน') {
                                               FFAppState()
                                                   .insuranceInfoRegistrationCodeSelect = FFAppState()
@@ -1709,18 +1712,18 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกรุ่นรถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicModelName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicModelName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 FFAppState()
                                                     .insuranceBasicModelId = FFAppState()
                                                         .insuranceBasicModelIdList[
@@ -1740,9 +1743,9 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText == 'อาชีพ') {
+                                            if (widget!.titleText == 'อาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationSubNameChoose = widget
+                                                  .insuranceInfoSelectOccupationSubNameChoose = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -1842,29 +1845,29 @@ class _SearchablePickUpListPageWidgetState
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          if (widget.multiSelect) {
-                                            if (widget.maxSelected == 0) {
+                                          if (widget!.multiSelect) {
+                                            if (widget!.maxSelected == 0) {
                                             } else {
                                               if (functions.countTrueInBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList())! >=
-                                                  widget.maxSelected) {}
+                                                  widget!.maxSelected) {}
                                             }
                                           } else {
-                                            if (((widget.titleText ==
+                                            if (((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'searchPackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'NonePackage')) ||
-                                                ((widget.titleText ==
+                                                ((widget!.titleText ==
                                                         'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                    (widget.fromPage ==
+                                                    (widget!.fromPage ==
                                                         'RenewStep2'))) {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'searchPackage') {
                                                 FFAppState()
                                                         .insuranceVehicleTypeDropDown =
@@ -1898,7 +1901,7 @@ class _SearchablePickUpListPageWidgetState
                                                 context.safePop();
                                                 return;
                                               } else {
-                                                if (widget.fromPage ==
+                                                if (widget!.fromPage ==
                                                     'NonePackage') {
                                                   FFAppState()
                                                           .nonePackageVehicleType =
@@ -1920,7 +1923,7 @@ class _SearchablePickUpListPageWidgetState
                                                   context.safePop();
                                                   return;
                                                 } else {
-                                                  if (widget.fromPage ==
+                                                  if (widget!.fromPage ==
                                                       'RenewStep2') {
                                                     FFAppState()
                                                             .insuranceCarTypeDetailSelected =
@@ -1947,18 +1950,18 @@ class _SearchablePickUpListPageWidgetState
 
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกยี่ห้อรถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicBrandName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicBrandName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 FFAppState()
                                                         .isSelectBrandInPackage =
                                                     true;
@@ -2051,7 +2054,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageBrandName = widget
+                                                    .nonePackageBrandName = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -2109,12 +2112,12 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกปีจดทะเบียน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicYear = widget
+                                                    .insuranceBasicYear = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -2132,7 +2135,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               } else {
                                                 FFAppState()
-                                                    .nonePackageYear = widget
+                                                    .nonePackageYear = widget!
                                                         .dataList![
                                                     functions.getIndexOfBoolList(
                                                         FFAppState()
@@ -2144,9 +2147,9 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกลักษณะการใช้รถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
                                                     .insuranceBasicVehicleUsedTypeId = FFAppState()
@@ -2164,7 +2167,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2186,7 +2189,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2208,7 +2211,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .insuranceBasicVehicleUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2240,7 +2243,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2262,7 +2265,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2284,7 +2287,7 @@ class _SearchablePickUpListPageWidgetState
                                                                     .nonePackageUsedTypeNameList
                                                                     .toList())
                                                             ?.toList(),
-                                                        widget.dataList?[functions
+                                                        widget!.dataList?[functions
                                                             .getIndexOfBoolList(
                                                                 FFAppState()
                                                                     .searchableListComponentSelectedList
@@ -2295,14 +2298,15 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทชั้นประกัน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
-                                                FFAppState().insuranceBasicCoverTypeNameOutputList =
+                                                FFAppState()
+                                                        .insuranceBasicCoverTypeNameOutputList =
                                                     functions
                                                         .returnMappedListFromBoolList(
-                                                            widget.dataList
+                                                            widget!.dataList
                                                                 ?.toList(),
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -2357,21 +2361,21 @@ class _SearchablePickUpListPageWidgetState
                                                             .toList(),
                                                         true)];
                                                 FFAppState()
-                                                    .nonePackageCoverTypeName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .nonePackageCoverTypeName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 setState(() {});
                                                 context.safePop();
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทการซ่อม') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceBasicGarageTypeInPackage =
@@ -2432,11 +2436,12 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                               FFAppState().filterInsurerList = functions
                                                   .returnMappedListFromBoolList(
-                                                      widget.dataList?.toList(),
+                                                      widget!.dataList
+                                                          ?.toList(),
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
@@ -2447,12 +2452,12 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบชั้นประกัน') {
                                               FFAppState().filterCoverTypeList =
                                                   functions
                                                       .returnMappedListFromBoolList(
-                                                          widget.dataList
+                                                          widget!.dataList
                                                               ?.toList(),
                                                           FFAppState()
                                                               .searchableListComponentSelectedList
@@ -2464,13 +2469,13 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                               FFAppState()
                                                       .filterGarageTypeList =
                                                   functions
                                                       .returnMappedListFromBoolList(
-                                                          widget.dataList
+                                                          widget!.dataList
                                                               ?.toList(),
                                                           FFAppState()
                                                               .searchableListComponentSelectedList
@@ -2482,10 +2487,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ประเภทบัตร') {
                                               FFAppState()
-                                                  .insuranceInfoCardType = widget
+                                                  .insuranceInfoCardType = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2496,9 +2501,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText == 'เพศ') {
+                                            if (widget!.titleText == 'เพศ') {
                                               FFAppState()
-                                                  .insuranceInfoGender = widget
+                                                  .insuranceInfoGender = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2511,10 +2516,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'คำนำหน้า') {
                                               FFAppState()
-                                                  .insuranceInfoTitle = widget
+                                                  .insuranceInfoTitle = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2525,10 +2530,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'กลุ่มอาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoOccupationGroup = widget
+                                                  .insuranceInfoOccupationGroup = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2548,7 +2553,7 @@ class _SearchablePickUpListPageWidgetState
                                                               .toList(),
                                                           true)];
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationName = widget
+                                                  .insuranceInfoSelectOccupationName = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2591,9 +2596,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกจังหวัดจดทะเบียน') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
@@ -2607,7 +2612,7 @@ class _SearchablePickUpListPageWidgetState
                                                           .toList(),
                                                       true)];
                                               FFAppState()
-                                                  .nonePackageProvince = widget
+                                                  .nonePackageProvince = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2618,9 +2623,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'ค้นหาที่อยู่') {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'addAddressIdCard') {
                                                 FFAppState()
                                                     .addAddressSelectProvinceId = FFAppState()
@@ -2791,15 +2796,15 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทตู้เหล็ก') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCarrierType = widget
+                                                  .nonePackageCarrierType = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2810,15 +2815,15 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกส่วนของรถบรรทุก') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageTruckPart = widget
+                                                  .nonePackageTruckPart = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2829,15 +2834,15 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกประเภทลูกค้า') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 return;
                                               }
 
                                               FFAppState()
-                                                  .nonePackageCusMembership = widget
+                                                  .nonePackageCusMembership = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2848,10 +2853,10 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกปีที่ผลิต') {
                                               FFAppState()
-                                                  .insuranceInfoProductYear = widget
+                                                  .insuranceInfoProductYear = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -2862,7 +2867,7 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'จำนวนงวด') {
                                               FFAppState()
                                                   .insuranceInfoPage4SelectTenor = FFAppState()
@@ -2892,9 +2897,9 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกบริษัทประกัน') {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'NonePackageSelectedInsurer') {
                                                 FFAppState()
                                                     .nonePackageSelectedInsurerShortName = FFAppState()
@@ -2909,7 +2914,7 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกจังหวัดที่จดทะเบียน') {
                                               FFAppState()
                                                   .insuranceInfoRegistrationCodeSelect = FFAppState()
@@ -2931,18 +2936,18 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             }
-                                            if (widget.titleText ==
+                                            if (widget!.titleText ==
                                                 'เลือกรุ่นรถ') {
-                                              if (widget.fromPage !=
+                                              if (widget!.fromPage !=
                                                   'NonePackage') {
                                                 FFAppState()
-                                                    .insuranceBasicModelName = widget
-                                                        .dataList![
-                                                    functions.getIndexOfBoolList(
-                                                        FFAppState()
-                                                            .searchableListComponentSelectedList
-                                                            .toList(),
-                                                        true)];
+                                                        .insuranceBasicModelName =
+                                                    widget!.dataList![functions
+                                                        .getIndexOfBoolList(
+                                                            FFAppState()
+                                                                .searchableListComponentSelectedList
+                                                                .toList(),
+                                                            true)];
                                                 FFAppState()
                                                     .insuranceBasicModelId = FFAppState()
                                                         .insuranceBasicModelIdList[
@@ -2962,9 +2967,9 @@ class _SearchablePickUpListPageWidgetState
                                                 return;
                                               }
                                             }
-                                            if (widget.titleText == 'อาชีพ') {
+                                            if (widget!.titleText == 'อาชีพ') {
                                               FFAppState()
-                                                  .insuranceInfoSelectOccupationSubNameChoose = widget
+                                                  .insuranceInfoSelectOccupationSubNameChoose = widget!
                                                       .dataList![
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
@@ -3055,29 +3060,29 @@ class _SearchablePickUpListPageWidgetState
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (widget.multiSelect) {
-                                        if (widget.maxSelected == 0) {
+                                      if (widget!.multiSelect) {
+                                        if (widget!.maxSelected == 0) {
                                         } else {
                                           if (functions.countTrueInBoolList(
                                                   FFAppState()
                                                       .searchableListComponentSelectedList
                                                       .toList())! >=
-                                              widget.maxSelected) {}
+                                              widget!.maxSelected) {}
                                         }
                                       } else {
-                                        if (((widget.titleText ==
+                                        if (((widget!.titleText ==
                                                     'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                (widget.fromPage ==
+                                                (widget!.fromPage ==
                                                     'searchPackage')) ||
-                                            ((widget.titleText ==
+                                            ((widget!.titleText ==
                                                     'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                (widget.fromPage ==
+                                                (widget!.fromPage ==
                                                     'NonePackage')) ||
-                                            ((widget.titleText ==
+                                            ((widget!.titleText ==
                                                     'เลือกประเภทรถกระบะ 2 ประตู') &&
-                                                (widget.fromPage ==
+                                                (widget!.fromPage ==
                                                     'RenewStep2'))) {
-                                          if (widget.fromPage ==
+                                          if (widget!.fromPage ==
                                               'searchPackage') {
                                             FFAppState()
                                                     .insuranceVehicleTypeDropDown =
@@ -3111,7 +3116,7 @@ class _SearchablePickUpListPageWidgetState
                                             context.safePop();
                                             return;
                                           } else {
-                                            if (widget.fromPage ==
+                                            if (widget!.fromPage ==
                                                 'NonePackage') {
                                               FFAppState()
                                                       .nonePackageVehicleType =
@@ -3133,7 +3138,7 @@ class _SearchablePickUpListPageWidgetState
                                               context.safePop();
                                               return;
                                             } else {
-                                              if (widget.fromPage ==
+                                              if (widget!.fromPage ==
                                                   'NonePackage') {
                                                 FFAppState()
                                                         .insuranceCarTypeDetailSelected =
@@ -3160,12 +3165,12 @@ class _SearchablePickUpListPageWidgetState
 
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกยี่ห้อรถ') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
-                                                .insuranceBasicBrandName = widget
+                                                .insuranceBasicBrandName = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -3264,7 +3269,7 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           } else {
                                             FFAppState()
-                                                .nonePackageBrandName = widget
+                                                .nonePackageBrandName = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -3324,12 +3329,12 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกปีจดทะเบียน') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
-                                                .insuranceBasicYear = widget
+                                                .insuranceBasicYear = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -3347,7 +3352,7 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           } else {
                                             FFAppState()
-                                                .nonePackageYear = widget
+                                                .nonePackageYear = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -3359,9 +3364,9 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกลักษณะการใช้รถ') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState().insuranceBasicVehicleUsedTypeId = FFAppState()
                                                     .insuranceBasicVehicleUsedTypeIdList[
@@ -3378,7 +3383,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3399,7 +3404,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3420,7 +3425,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .insuranceBasicVehicleUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3452,7 +3457,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3473,7 +3478,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3494,7 +3499,7 @@ class _SearchablePickUpListPageWidgetState
                                                                 .nonePackageUsedTypeNameList
                                                                 .toList())
                                                         ?.toList(),
-                                                    widget.dataList?[functions
+                                                    widget!.dataList?[functions
                                                         .getIndexOfBoolList(
                                                             FFAppState()
                                                                 .searchableListComponentSelectedList
@@ -3505,15 +3510,15 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกประเภทชั้นประกัน') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
                                                     .insuranceBasicCoverTypeNameOutputList =
                                                 functions
                                                     .returnMappedListFromBoolList(
-                                                        widget.dataList
+                                                        widget!.dataList
                                                             ?.toList(),
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -3568,7 +3573,7 @@ class _SearchablePickUpListPageWidgetState
                                                         .toList(),
                                                     true)];
                                             FFAppState()
-                                                .nonePackageCoverTypeName = widget
+                                                .nonePackageCoverTypeName = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -3580,9 +3585,9 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกประเภทการซ่อม') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
                                                     .insuranceBasicGarageTypeInPackage =
@@ -3643,11 +3648,11 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                           FFAppState().filterInsurerList = functions
                                               .returnMappedListFromBoolList(
-                                                  widget.dataList?.toList(),
+                                                  widget!.dataList?.toList(),
                                                   FFAppState()
                                                       .searchableListComponentSelectedList
                                                       .toList(),
@@ -3658,12 +3663,13 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'ค้นหาเปรียบเทียบชั้นประกัน') {
                                           FFAppState().filterCoverTypeList =
                                               functions
                                                   .returnMappedListFromBoolList(
-                                                      widget.dataList?.toList(),
+                                                      widget!.dataList
+                                                          ?.toList(),
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
@@ -3674,12 +3680,13 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                           FFAppState().filterGarageTypeList =
                                               functions
                                                   .returnMappedListFromBoolList(
-                                                      widget.dataList?.toList(),
+                                                      widget!.dataList
+                                                          ?.toList(),
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
                                                           .toList(),
@@ -3690,9 +3697,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'ประเภทบัตร') {
+                                        if (widget!.titleText == 'ประเภทบัตร') {
                                           FFAppState()
-                                              .insuranceInfoCardType = widget
+                                              .insuranceInfoCardType = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -3703,9 +3710,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'เพศ') {
+                                        if (widget!.titleText == 'เพศ') {
                                           FFAppState()
-                                              .insuranceInfoGender = widget
+                                              .insuranceInfoGender = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -3718,9 +3725,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'คำนำหน้า') {
+                                        if (widget!.titleText == 'คำนำหน้า') {
                                           FFAppState()
-                                              .insuranceInfoTitle = widget
+                                              .insuranceInfoTitle = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -3731,15 +3738,15 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'กลุ่มอาชีพ') {
+                                        if (widget!.titleText == 'กลุ่มอาชีพ') {
                                           FFAppState()
-                                              .insuranceInfoOccupationGroup = widget
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                                  .insuranceInfoOccupationGroup =
+                                              widget!.dataList![
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)];
                                           setState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationCode =
@@ -3753,13 +3760,13 @@ class _SearchablePickUpListPageWidgetState
                                                           .toList(),
                                                       true)];
                                           FFAppState()
-                                              .insuranceInfoSelectOccupationName = widget
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                                  .insuranceInfoSelectOccupationName =
+                                              widget!.dataList![
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)];
                                           setState(() {});
                                           FFAppState()
                                                   .insuranceInfoSelectOccupationSubCode =
@@ -3796,9 +3803,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกจังหวัดจดทะเบียน') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             return;
                                           }
@@ -3812,7 +3819,7 @@ class _SearchablePickUpListPageWidgetState
                                                       .toList(),
                                                   true)];
                                           FFAppState()
-                                              .nonePackageProvince = widget
+                                              .nonePackageProvince = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -3823,9 +3830,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'ค้นหาที่อยู่') {
-                                          if (widget.fromPage ==
+                                          if (widget!.fromPage ==
                                               'addAddressIdCard') {
                                             FFAppState()
                                                     .addAddressSelectProvinceId =
@@ -3998,15 +4005,15 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกประเภทตู้เหล็ก') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             return;
                                           }
 
                                           FFAppState()
-                                              .nonePackageCarrierType = widget
+                                              .nonePackageCarrierType = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -4017,15 +4024,15 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกส่วนของรถบรรทุก') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             return;
                                           }
 
                                           FFAppState()
-                                              .nonePackageTruckPart = widget
+                                              .nonePackageTruckPart = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -4036,15 +4043,15 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกประเภทลูกค้า') {
-                                          if (widget.fromPage !=
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             return;
                                           }
 
                                           FFAppState()
-                                              .nonePackageCusMembership = widget
+                                              .nonePackageCusMembership = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -4055,10 +4062,10 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกปีที่ผลิต') {
                                           FFAppState()
-                                              .insuranceInfoProductYear = widget
+                                              .insuranceInfoProductYear = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -4069,7 +4076,7 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'จำนวนงวด') {
+                                        if (widget!.titleText == 'จำนวนงวด') {
                                           FFAppState()
                                                   .insuranceInfoPage4SelectTenor =
                                               FFAppState()
@@ -4101,9 +4108,9 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกบริษัทประกัน') {
-                                          if (widget.fromPage ==
+                                          if (widget!.fromPage ==
                                               'NonePackageSelectedInsurer') {
                                             FFAppState()
                                                 .nonePackageSelectedInsurerShortName = FFAppState()
@@ -4118,7 +4125,7 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText ==
+                                        if (widget!.titleText ==
                                             'เลือกจังหวัดที่จดทะเบียน') {
                                           FFAppState()
                                                   .insuranceInfoRegistrationCodeSelect =
@@ -4142,11 +4149,12 @@ class _SearchablePickUpListPageWidgetState
                                           context.safePop();
                                           return;
                                         }
-                                        if (widget.titleText == 'เลือกรุ่นรถ') {
-                                          if (widget.fromPage !=
+                                        if (widget!.titleText ==
+                                            'เลือกรุ่นรถ') {
+                                          if (widget!.fromPage !=
                                               'NonePackage') {
                                             FFAppState()
-                                                .insuranceBasicModelName = widget
+                                                .insuranceBasicModelName = widget!
                                                     .dataList![
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
@@ -4172,15 +4180,15 @@ class _SearchablePickUpListPageWidgetState
                                             return;
                                           }
                                         }
-                                        if (widget.titleText == 'อาชีพ') {
+                                        if (widget!.titleText == 'อาชีพ') {
                                           FFAppState()
-                                              .insuranceInfoSelectOccupationSubNameChoose = widget
-                                                  .dataList![
-                                              functions.getIndexOfBoolList(
-                                                  FFAppState()
-                                                      .searchableListComponentSelectedList
-                                                      .toList(),
-                                                  true)];
+                                                  .insuranceInfoSelectOccupationSubNameChoose =
+                                              widget!.dataList![
+                                                  functions.getIndexOfBoolList(
+                                                      FFAppState()
+                                                          .searchableListComponentSelectedList
+                                                          .toList(),
+                                                      true)];
                                           setState(() {});
                                           context.safePop();
                                           return;
@@ -4265,7 +4273,7 @@ class _SearchablePickUpListPageWidgetState
                           .addToEnd(SizedBox(height: 24.0)),
                     ),
                   ),
-                  if (widget.multiSelect)
+                  if (widget!.multiSelect)
                     Expanded(
                       flex: 1,
                       child: Container(
@@ -4310,16 +4318,16 @@ class _SearchablePickUpListPageWidgetState
                                       );
                                       return;
                                     }
-                                    if (((widget.titleText ==
+                                    if (((widget!.titleText ==
                                                 'เลือกประเภทรถ') &&
-                                            (widget.fromPage ==
+                                            (widget!.fromPage ==
                                                 'searchPackage')) ||
-                                        ((widget.titleText ==
+                                        ((widget!.titleText ==
                                                 'เลือกประเภทรถ') &&
-                                            (widget.fromPage ==
+                                            (widget!.fromPage ==
                                                 'NonePackage'))) {
-                                      if (widget.fromPage == 'searchPackage') {
-                                        if ((widget.dataList?[
+                                      if (widget!.fromPage == 'searchPackage') {
+                                        if ((widget!.dataList?[
                                                 functions.getIndexOfBoolList(
                                                     FFAppState()
                                                         .searchableListComponentSelectedList
@@ -4331,7 +4339,7 @@ class _SearchablePickUpListPageWidgetState
 
                                           return;
                                         } else {
-                                          if ((widget.dataList?[
+                                          if ((widget!.dataList?[
                                                   functions.getIndexOfBoolList(
                                                       FFAppState()
                                                           .searchableListComponentSelectedList
@@ -4346,7 +4354,7 @@ class _SearchablePickUpListPageWidgetState
                                         }
 
                                         FFAppState()
-                                            .insuranceVehicleTypeDropDown = widget
+                                            .insuranceVehicleTypeDropDown = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4362,9 +4370,9 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        if (widget.fromPage == 'NonePackage') {
+                                        if (widget!.fromPage == 'NonePackage') {
                                           FFAppState()
-                                              .nonePackageVehicleType = widget
+                                              .nonePackageVehicleType = widget!
                                                   .dataList![
                                               functions.getIndexOfBoolList(
                                                   FFAppState()
@@ -4379,10 +4387,10 @@ class _SearchablePickUpListPageWidgetState
 
                                       return;
                                     }
-                                    if (widget.titleText == 'เลือกยี่ห้อรถ') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                    if (widget!.titleText == 'เลือกยี่ห้อรถ') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         FFAppState()
-                                            .insuranceBasicBrandName = widget
+                                            .insuranceBasicBrandName = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4445,7 +4453,7 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       } else {
                                         FFAppState()
-                                            .nonePackageBrandName = widget
+                                            .nonePackageBrandName = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4502,10 +4510,11 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกปีจดทะเบียน') {
-                                      if (widget.fromPage != 'NonePackage') {
-                                        FFAppState().insuranceBasicYear = widget
+                                      if (widget!.fromPage != 'NonePackage') {
+                                        FFAppState()
+                                            .insuranceBasicYear = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4522,7 +4531,7 @@ class _SearchablePickUpListPageWidgetState
                                         context.safePop();
                                         return;
                                       } else {
-                                        FFAppState().nonePackageYear = widget
+                                        FFAppState().nonePackageYear = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4534,9 +4543,9 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกลักษณะการใช้รถ') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         FFAppState()
                                             .insuranceBasicVehicleUsedTypeId = FFAppState()
                                                 .insuranceBasicVehicleUsedTypeIdList[
@@ -4553,7 +4562,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4575,7 +4584,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4597,7 +4606,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4629,7 +4638,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4651,7 +4660,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4673,7 +4682,7 @@ class _SearchablePickUpListPageWidgetState
                                                             .insuranceBasicVehicleUsedTypeNameList
                                                             .toList())
                                                     ?.toList(),
-                                                widget.dataList?[functions
+                                                widget!.dataList?[functions
                                                     .getIndexOfBoolList(
                                                         FFAppState()
                                                             .searchableListComponentSelectedList
@@ -4684,14 +4693,14 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกประเภทชั้นประกัน') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         FFAppState()
                                                 .insuranceBasicCoverTypeNameOutputList =
                                             functions
                                                 .returnMappedListFromBoolList(
-                                                    widget.dataList?.toList(),
+                                                    widget!.dataList?.toList(),
                                                     FFAppState()
                                                         .searchableListComponentSelectedList
                                                         .toList(),
@@ -4745,7 +4754,7 @@ class _SearchablePickUpListPageWidgetState
                                                     .toList(),
                                                 true)];
                                         FFAppState()
-                                            .nonePackageCoverTypeName = widget
+                                            .nonePackageCoverTypeName = widget!
                                                 .dataList![
                                             functions.getIndexOfBoolList(
                                                 FFAppState()
@@ -4757,9 +4766,9 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกประเภทการซ่อม') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         FFAppState()
                                                 .insuranceBasicGarageTypeInPackage =
                                             functions
@@ -4819,11 +4828,11 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'ค้นหาเปรียบเทียบบริษัทประกัน') {
                                       FFAppState().filterInsurerList = functions
                                           .returnMappedListFromBoolList(
-                                              widget.dataList?.toList(),
+                                              widget!.dataList?.toList(),
                                               FFAppState()
                                                   .searchableListComponentSelectedList
                                                   .toList(),
@@ -4834,11 +4843,11 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'ค้นหาเปรียบเทียบชั้นประกัน') {
                                       FFAppState().filterCoverTypeList = functions
                                           .returnMappedListFromBoolList(
-                                              widget.dataList?.toList(),
+                                              widget!.dataList?.toList(),
                                               FFAppState()
                                                   .searchableListComponentSelectedList
                                                   .toList(),
@@ -4849,11 +4858,11 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'ค้นหาเปรียบเทียบประเภทการซ่อม') {
                                       FFAppState().filterGarageTypeList = functions
                                           .returnMappedListFromBoolList(
-                                              widget.dataList?.toList(),
+                                              widget!.dataList?.toList(),
                                               FFAppState()
                                                   .searchableListComponentSelectedList
                                                   .toList(),
@@ -4864,9 +4873,9 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'ประเภทบัตร') {
+                                    if (widget!.titleText == 'ประเภทบัตร') {
                                       FFAppState()
-                                          .insuranceInfoCardType = widget
+                                          .insuranceInfoCardType = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -4877,8 +4886,8 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'เพศ') {
-                                      FFAppState().insuranceInfoGender = widget
+                                    if (widget!.titleText == 'เพศ') {
+                                      FFAppState().insuranceInfoGender = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -4889,8 +4898,8 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'คำนำหน้า') {
-                                      FFAppState().insuranceInfoTitle = widget
+                                    if (widget!.titleText == 'คำนำหน้า') {
+                                      FFAppState().insuranceInfoTitle = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -4901,9 +4910,9 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'กลุ่มอาชีพ') {
+                                    if (widget!.titleText == 'กลุ่มอาชีพ') {
                                       FFAppState()
-                                          .insuranceInfoOccupationGroup = widget
+                                          .insuranceInfoOccupationGroup = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -4914,9 +4923,9 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกจังหวัดจดทะเบียน') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         return;
                                       }
 
@@ -4928,7 +4937,7 @@ class _SearchablePickUpListPageWidgetState
                                                   .searchableListComponentSelectedList
                                                   .toList(),
                                               true)];
-                                      FFAppState().nonePackageProvince = widget
+                                      FFAppState().nonePackageProvince = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -4939,8 +4948,8 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'ค้นหาที่อยู่') {
-                                      if (widget.fromPage ==
+                                    if (widget!.titleText == 'ค้นหาที่อยู่') {
+                                      if (widget!.fromPage ==
                                           'addAddressIdCard') {
                                         FFAppState()
                                                 .addAddressSelectProvinceId =
@@ -5105,14 +5114,14 @@ class _SearchablePickUpListPageWidgetState
                                         return;
                                       }
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกประเภทตู้เหล็ก') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         return;
                                       }
 
                                       FFAppState()
-                                          .nonePackageCarrierType = widget
+                                          .nonePackageCarrierType = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -5123,13 +5132,14 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกส่วนของรถบรรทุก') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         return;
                                       }
 
-                                      FFAppState().nonePackageTruckPart = widget
+                                      FFAppState()
+                                          .nonePackageTruckPart = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -5140,14 +5150,14 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText ==
+                                    if (widget!.titleText ==
                                         'เลือกประเภทลูกค้า') {
-                                      if (widget.fromPage != 'NonePackage') {
+                                      if (widget!.fromPage != 'NonePackage') {
                                         return;
                                       }
 
                                       FFAppState()
-                                          .nonePackageCusMembership = widget
+                                          .nonePackageCusMembership = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()
@@ -5158,9 +5168,9 @@ class _SearchablePickUpListPageWidgetState
                                       context.safePop();
                                       return;
                                     }
-                                    if (widget.titleText == 'เลือกปีที่ผลิต') {
+                                    if (widget!.titleText == 'เลือกปีที่ผลิต') {
                                       FFAppState()
-                                          .insuranceInfoProductYear = widget
+                                          .insuranceInfoProductYear = widget!
                                               .dataList![
                                           functions.getIndexOfBoolList(
                                               FFAppState()

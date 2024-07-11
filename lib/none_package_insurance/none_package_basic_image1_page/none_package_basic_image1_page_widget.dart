@@ -79,6 +79,7 @@ class _NonePackageBasicImage1PageWidgetState
         }
         List<UrlLinkStorageRecord>
             nonePackageBasicImage1PageUrlLinkStorageRecordList = snapshot.data!;
+
         final nonePackageBasicImage1PageUrlLinkStorageRecord =
             nonePackageBasicImage1PageUrlLinkStorageRecordList.isNotEmpty
                 ? nonePackageBasicImage1PageUrlLinkStorageRecordList.first
@@ -111,9 +112,9 @@ class _NonePackageBasicImage1PageWidgetState
                 ),
                 title: Text(
                   () {
-                    if (widget.workType == 'transfer') {
+                    if (widget!.workType == 'transfer') {
                       return 'งานโอนโค้ด';
-                    } else if (widget.workType == 'renew') {
+                    } else if (widget!.workType == 'renew') {
                       return 'งานต่ออายุ';
                     } else {
                       return 'งานนอกเรท';
@@ -5405,7 +5406,7 @@ class _NonePackageBasicImage1PageWidgetState
                                   'NonePackageBasicImage2Page',
                                   queryParameters: {
                                     'workType': serializeParam(
-                                      widget.workType,
+                                      widget!.workType,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

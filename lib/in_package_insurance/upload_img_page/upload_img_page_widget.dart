@@ -86,7 +86,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
               ),
             ),
             title: Text(
-              widget.titleText,
+              widget!.titleText,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Noto Sans Thai',
                     color: Color(0xFF123063),
@@ -122,7 +122,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Text(
-                                      widget.searchLabel!,
+                                      widget!.searchLabel!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -1827,7 +1827,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                         (_model.uploadedLocalFile5.bytes
                                                 ?.isNotEmpty ??
                                             false)) &&
-                                    (widget.titleText != 'รูปเอกสารอื่นๆ'))
+                                    (widget!.titleText != 'รูปเอกสารอื่นๆ'))
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 5.0, 0.0, 0.0),
@@ -2262,7 +2262,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   }
                                 }
 
-                                if (widget.titleText == 'รูปเอกสารอื่นๆ') {
+                                if (widget!.titleText == 'รูปเอกสารอื่นๆ') {
                                   FFAppState().insuranceInfoUploadImgOther =
                                       _model.uploadedFileUrls7
                                           .toList()
@@ -2274,7 +2274,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   context.safePop();
                                   return;
                                 }
-                                if (widget.titleText == 'รูปอุปกรณ์เสริม') {
+                                if (widget!.titleText == 'รูปอุปกรณ์เสริม') {
                                   FFAppState().insuranceInfoUploadImgAccessory =
                                       _model.uploadedFileUrls7
                                           .toList()
@@ -2288,7 +2288,7 @@ class _UploadImgPageWidgetState extends State<UploadImgPageWidget> {
                                   context.safePop();
                                   return;
                                 }
-                                if (widget.titleText == 'รูปรอยแผล') {
+                                if (widget!.titleText == 'รูปรอยแผล') {
                                   FFAppState().insuranceInfoUploadImgScar =
                                       _model.uploadedFileUrls7
                                           .toList()

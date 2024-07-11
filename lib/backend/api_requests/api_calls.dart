@@ -10329,9 +10329,11 @@ class SaveInsurerAPICall {
     String? actAmount = '',
     String? leadId = '',
     String? type = '',
+    String? flgAct = '',
   }) async {
     final ffApiRequestBody = '''
 {
+  "flg_act": "${flgAct}",
   "insurer_short_name": "${insurerShortName}",
   "net_premium": "${netPremium}",
   "accessory_total": "${accessoryTotal}",
@@ -13449,6 +13451,30 @@ class IbsApplicationsDetailCall {
         response,
         r'''$.results.data.leads[0].customer_type''',
       ));
+  static String? flgactinlead(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.leads[0].flg_act''',
+      ));
+  static List<String>? actamountleaddetail(dynamic response) => (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].act_amount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? grosstotalnetleaddetail(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.results.data.leads_detail[:].gross_total_net''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class IbsApplicationsPaymentSaveCall {
@@ -16742,6 +16768,77 @@ class VloanBarcodeGenCall {
       ));
 }
 
+class ApiCmiSaveContractCall {
+  static Future<ApiCallResponse> call({
+    String? insuranceUrl = '',
+    String? quotationId = '',
+    String? contractNo = '',
+    String? accessToken = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "insurance_url": "${insuranceUrl}",
+  "quotation_id": "${quotationId}",
+  "contract_no": "${contractNo}",
+  "access_token": "${accessToken}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'apiCmiSaveContract',
+      apiUrl: '${insuranceUrl}/api/cmi/save-contract',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${accessToken}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statuslayer1(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.code''',
+      ));
+  static String? message(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.message''',
+      ));
+  static int? applicationid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.application_id''',
+      ));
+  static int? quotationid(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.results.data.quotation_id''',
+      ));
+  static String? quotationstatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.quotation_status''',
+      ));
+  static String? vloanbookflag(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.vloan_book_flag''',
+      ));
+  static String? vloanbookdate(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.vloan_book_date''',
+      ));
+  static String? vloanbookstatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.results.data.vloan_book_status''',
+      ));
+}
+
 class DownloadVmiThanachatCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
@@ -16759,6 +16856,29 @@ class DownloadVmiThanachatCall {
       alwaysAllowBody: false,
     );
   }
+}
+
+class TimerApiCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'timerApi',
+      apiUrl: 'https://2dfd-49-231-1-82.ngrok-free.app/time',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: true,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? time(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.time''',
+      ));
 }
 
 class ApiPagingParams {

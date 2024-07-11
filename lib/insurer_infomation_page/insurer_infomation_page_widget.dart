@@ -68,6 +68,7 @@ class _InsurerInfomationPageWidgetState
         }
         List<InsurerDataRecord> insurerInfomationPageInsurerDataRecordList =
             snapshot.data!;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -221,6 +222,7 @@ class _InsurerInfomationPageWidgetState
                       builder: (context) {
                         final insurerDatalist =
                             insurerInfomationPageInsurerDataRecordList.toList();
+
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,

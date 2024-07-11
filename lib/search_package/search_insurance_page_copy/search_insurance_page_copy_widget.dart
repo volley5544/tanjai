@@ -219,7 +219,7 @@ class _SearchInsurancePageCopyWidgetState
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (widget.fromIcon != 'MC') {
+                                      if (widget!.fromIcon != 'MC') {
                                         context.pushNamed(
                                           'SearchableCarListPage',
                                           queryParameters: {

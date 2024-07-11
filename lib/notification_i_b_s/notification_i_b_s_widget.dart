@@ -170,6 +170,7 @@ class _NotificationIBSWidgetState extends State<NotificationIBSWidget> {
                     }
                     List<NotificationRecord> listViewNotificationRecordList =
                         snapshot.data!;
+
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,

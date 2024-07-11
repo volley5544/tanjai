@@ -77,9 +77,9 @@ class _NonePackageBasicImage2PageWidgetState
             ),
             title: Text(
               () {
-                if (widget.workType == 'transfer') {
+                if (widget!.workType == 'transfer') {
                   return 'งานโอนโค้ด';
-                } else if (widget.workType == 'renew') {
+                } else if (widget!.workType == 'renew') {
                   return 'งานต่ออายุ';
                 } else {
                   return 'งานนอกเรท';
@@ -2217,7 +2217,7 @@ class _NonePackageBasicImage2PageWidgetState
                                   'NonePackageInsurerPage',
                                   queryParameters: {
                                     'workType': serializeParam(
-                                      widget.workType,
+                                      widget!.workType,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

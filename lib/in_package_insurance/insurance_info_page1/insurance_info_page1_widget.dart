@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/infomation_customer_act_widget.dart';
@@ -9,6 +10,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -319,7 +321,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
               .cast<String>();
       setState(() {});
       _model.detailAPIOutput = await IbsApplicationsDetailCall.call(
-        quotationId: widget.quotationId,
+        quotationId: widget!.quotationId,
         insuranceUrl: FFAppState().apiUrlInsuranceAppState,
         token: FFAppState().accessToken,
       );
@@ -370,22 +372,6 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
         Navigator.pop(context);
         return;
       }
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('1'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
       FFAppState().insuranceInfoCardType =
           '${IbsApplicationsDetailCall.idtypeid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -512,7 +498,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfocoverType =
           '${IbsApplicationsDetailCall.covertypename(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -520,7 +506,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfoGrossTotal =
           '${IbsApplicationsDetailCall.grosstotalnetList(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -528,7 +514,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfoVehicleType =
           '${IbsApplicationsDetailCall.quotationtype(
                 (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -590,7 +576,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
             (_model.detailAPIOutput?.jsonBody ?? ''),
             r'''$.results.data.leads_detail[:].lead_dtl_id''',
             true,
-          )).toList(), widget.leadDtailId)])}';
+          )).toList(), widget!.leadDtailId)])}';
       FFAppState().insuranceInfoWeightCar = '${IbsApplicationsDetailCall.weight(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -729,7 +715,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfoLeadDetailId =
           '${(IbsApplicationsDetailCall.leaddtlid(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -737,7 +723,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)])?.toString()}';
+              )).toList(), widget!.leadDtailId)])?.toString()}';
       FFAppState().insuranceInfoSelectOccupationSubNameChoose =
           '${IbsApplicationsDetailCall.occupationsubname(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -754,7 +740,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           '${IbsApplicationsDetailCall.employeephonenumberlicense(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
-      FFAppState().insuranceInfoQuotationId = '${widget.quotationId}';
+      FFAppState().insuranceInfoQuotationId = '${widget!.quotationId}';
       FFAppState().insuranceInfoLicenseEmployeeId =
           '${IbsApplicationsDetailCall.employeecodelicense(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -798,7 +784,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfoApplicationType =
           '${IbsApplicationsDetailCall.quotationtypebak(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -840,7 +826,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}'}';
+              )).toList(), widget!.leadDtailId)]}'}';
       FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
         (_model.detailAPIOutput?.jsonBody ?? ''),
       )}';
@@ -867,7 +853,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                 (_model.detailAPIOutput?.jsonBody ?? ''),
                 r'''$.results.data.leads_detail[:].lead_dtl_id''',
                 true,
-              )).toList(), widget.leadDtailId)]}';
+              )).toList(), widget!.leadDtailId)]}';
       FFAppState().insuranceInfoCarTypeDetail =
           '${IbsApplicationsDetailCall.cartypedetail(
         (_model.detailAPIOutput?.jsonBody ?? ''),
@@ -925,22 +911,40 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
           ? true
           : false;
       setState(() {});
-      await showDialog(
-        context: context,
-        builder: (alertDialogContext) {
-          return WebViewAware(
-            child: AlertDialog(
-              content: Text('2'),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(alertDialogContext),
-                  child: Text('Ok'),
-                ),
-              ],
-            ),
-          );
-        },
-      );
+      if (FFAppState().insuranceInfoApplicationType != 'auto') {
+        FFAppState().insuranceInfoActFlag = '${IbsApplicationsDetailCall.actflg(
+              (_model.detailAPIOutput?.jsonBody ?? ''),
+            ) == '' ? IbsApplicationsDetailCall.flgactinlead(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          ) : IbsApplicationsDetailCall.actflg(
+            (_model.detailAPIOutput?.jsonBody ?? ''),
+          )}';
+        FFAppState().insuranceInfoActAmount =
+            IbsApplicationsDetailCall.actamountleaddetail(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )![functions.getIndexOfIntList(
+                functions
+                    .convertDynamicListToIntList(getJsonField(
+                      (_model.detailAPIOutput?.jsonBody ?? ''),
+                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                      true,
+                    ))
+                    .toList(),
+                widget!.leadDtailId)];
+        FFAppState().insuranceInfoGrosstotalNet =
+            IbsApplicationsDetailCall.grosstotalnetleaddetail(
+          (_model.detailAPIOutput?.jsonBody ?? ''),
+        )![functions.getIndexOfIntList(
+                functions
+                    .convertDynamicListToIntList(getJsonField(
+                      (_model.detailAPIOutput?.jsonBody ?? ''),
+                      r'''$.results.data.leads_detail[:].lead_dtl_id''',
+                      true,
+                    ))
+                    .toList(),
+                widget!.leadDtailId)];
+        setState(() {});
+      }
       FFAppState().DriverList = [];
       setState(() {});
       if (IbsApplicationsDetailCall.appdriver(
@@ -1724,6 +1728,7 @@ class _InsuranceInfoPage1WidgetState extends State<InsuranceInfoPage1Widget>
                   }
                   List<DataListRecord> columnDataListRecordList =
                       snapshot.data!;
+
                   final columnDataListRecord =
                       columnDataListRecordList.isNotEmpty
                           ? columnDataListRecordList.first

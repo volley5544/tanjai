@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -152,7 +154,7 @@ class _SavedLeadCalledStatusWidgetState
                                 0.0, 4.0, 0.0, 0.0),
                             child: Text(
                               valueOrDefault<String>(
-                                'กรุณากรอกสถานะการโทรของ ${widget.leadChannel} Lead ID ${widget.leadId}',
+                                'กรุณากรอกสถานะการโทรของ ${widget!.leadChannel} Lead ID ${widget!.leadId}',
                                 'กรุณากรอกสถานะการโทรของ',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -194,8 +196,8 @@ class _SavedLeadCalledStatusWidgetState
                                   _model.callStatusDropDownValue ??= '',
                                 ),
                                 options:
-                                    List<String>.from(widget.callStatusId!),
-                                optionLabels: widget.callStatussName!,
+                                    List<String>.from(widget!.callStatusId!),
+                                optionLabels: widget!.callStatussName!,
                                 onChanged: (val) async {
                                   setState(() =>
                                       _model.callStatusDropDownValue = val);
@@ -451,7 +453,7 @@ class _SavedLeadCalledStatusWidgetState
                             await SaveCallStatusAPICall.call(
                           apiUrl: FFAppState().apiURLLocalState,
                           token: FFAppState().accessToken,
-                          leadID: widget.leadId,
+                          leadID: widget!.leadId,
                           statusCallID: _model.callStatusDropDownValue,
                           reasonID: _model.reasonDropDownValue,
                           reasonDetail:
@@ -530,7 +532,7 @@ class _SavedLeadCalledStatusWidgetState
                         FFAppState().leadCalledStatusReason = functions
                             .changeValueAtIndexSomethingList(
                                 FFAppState().leadCalledStatusReason.toList(),
-                                widget.leadIndex,
+                                widget!.leadIndex,
                                 SaveCallStatusAPICall.callStatusReason(
                                   (_model.saveCallOutput?.jsonBody ?? ''),
                                 ))!
@@ -539,7 +541,7 @@ class _SavedLeadCalledStatusWidgetState
                         FFAppState().leadCallStatus = functions
                             .changeValueAtIndexSomethingList(
                                 FFAppState().leadCallStatus.toList(),
-                                widget.leadIndex,
+                                widget!.leadIndex,
                                 SaveCallStatusAPICall.callStatus(
                                   (_model.saveCallOutput?.jsonBody ?? ''),
                                 ))!

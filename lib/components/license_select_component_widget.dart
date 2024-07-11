@@ -1,8 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/api_requests/api_streaming.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -282,8 +284,8 @@ class _LicenseSelectComponentWidgetState
                                     FFAppState().apiUrlInsuranceAppState,
                                 token: FFAppState().accessToken,
                                 employeeCodeLicense: _model.textController.text,
-                                quotationId: widget.quotationID,
-                                leadId: widget.leadID,
+                                quotationId: widget!.quotationID,
+                                leadId: widget!.leadID,
                               );
 
                               _shouldSetState = true;
@@ -421,8 +423,8 @@ class _LicenseSelectComponentWidgetState
                                 token: FFAppState().accessToken,
                                 employeeCodeLicense:
                                     FFAppState().licenseSelectBeforeStep1,
-                                quotationId: widget.quotationID,
-                                leadId: widget.leadID,
+                                quotationId: widget!.quotationID,
+                                leadId: widget!.leadID,
                               );
 
                               _shouldSetState = true;
