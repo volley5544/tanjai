@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'custom_dialog_component_copy_copy_model.dart';
-export 'custom_dialog_component_copy_copy_model.dart';
+import 'open_chrome_component_model.dart';
+export 'open_chrome_component_model.dart';
 
-class CustomDialogComponentCopyCopyWidget extends StatefulWidget {
-  const CustomDialogComponentCopyCopyWidget({
+class OpenChromeComponentWidget extends StatefulWidget {
+  const OpenChromeComponentWidget({
     super.key,
     required this.linkUrl,
   });
@@ -18,13 +18,12 @@ class CustomDialogComponentCopyCopyWidget extends StatefulWidget {
   final String? linkUrl;
 
   @override
-  State<CustomDialogComponentCopyCopyWidget> createState() =>
-      _CustomDialogComponentCopyCopyWidgetState();
+  State<OpenChromeComponentWidget> createState() =>
+      _OpenChromeComponentWidgetState();
 }
 
-class _CustomDialogComponentCopyCopyWidgetState
-    extends State<CustomDialogComponentCopyCopyWidget> {
-  late CustomDialogComponentCopyCopyModel _model;
+class _OpenChromeComponentWidgetState extends State<OpenChromeComponentWidget> {
+  late OpenChromeComponentModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +34,7 @@ class _CustomDialogComponentCopyCopyWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CustomDialogComponentCopyCopyModel());
+    _model = createModel(context, () => OpenChromeComponentModel());
   }
 
   @override
@@ -95,7 +94,7 @@ class _CustomDialogComponentCopyCopyWidgetState
                           child: Align(
                             alignment: AlignmentDirectional(0.0, -1.0),
                             child: Text(
-                              'กรุณาเปิดดูกรมธรรม์ในแอพ Chrome เท่านั้น',
+                              'กรุณาเปิดในแอพ Chrome เท่านั้น',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(

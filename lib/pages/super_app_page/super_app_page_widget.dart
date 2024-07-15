@@ -4,6 +4,7 @@ import '/backend/api_requests/api_streaming.dart';
 import '/backend/backend.dart';
 import '/components/custom_dialog_component_widget.dart';
 import '/components/license_select_component_widget.dart';
+import '/components/open_chrome_component_widget.dart';
 import '/components/search_old_vmi_widget.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -2834,89 +2835,99 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                       ),
                                                                     ),
                                                                   if (true)
-                                                                    InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        if (isAndroid) {
-                                                                          await actions
-                                                                              .urlLauncherAction(
-                                                                            'https://vcall.swpfin.com:8888/',
-                                                                            'android',
-                                                                          );
-                                                                        } else {
-                                                                          await actions
-                                                                              .urlLauncherAction(
-                                                                            'https://vcall.swpfin.com:8888/',
-                                                                            'ios',
-                                                                          );
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.28,
-                                                                        height:
-                                                                            100.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              Colors.white,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(15.0),
-                                                                        ),
+                                                                    Builder(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          if (isAndroid) {
+                                                                            await actions.urlLauncherAction(
+                                                                              'https://vcall.swpfin.com:8888/',
+                                                                              'android',
+                                                                            );
+                                                                          } else {
+                                                                            await showDialog(
+                                                                              context: context,
+                                                                              builder: (dialogContext) {
+                                                                                return Dialog(
+                                                                                  elevation: 0,
+                                                                                  insetPadding: EdgeInsets.zero,
+                                                                                  backgroundColor: Colors.transparent,
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                  child: WebViewAware(
+                                                                                    child: GestureDetector(
+                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                      child: OpenChromeComponentWidget(
+                                                                                        linkUrl: '',
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                );
+                                                                              },
+                                                                            ).then((value) =>
+                                                                                setState(() {}));
+                                                                          }
+                                                                        },
                                                                         child:
-                                                                            Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                            Container(
+                                                                          width:
+                                                                              MediaQuery.sizeOf(context).width * 0.28,
+                                                                          height:
+                                                                              100.0,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            color:
+                                                                                Colors.white,
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(15.0),
+                                                                          ),
                                                                           child:
-                                                                              Column(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.center,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.center,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
-                                                                                child: Icon(
-                                                                                  Icons.videocam_sharp,
-                                                                                  color: Color(0xFFDB771A),
-                                                                                  size: 30.0,
-                                                                                ),
-                                                                              ),
-                                                                              Container(
-                                                                                width: 100.0,
-                                                                                decoration: BoxDecoration(),
-                                                                                child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
-                                                                                  child: Text(
-                                                                                    'วีดิโอลูกค้า',
-                                                                                    textAlign: TextAlign.center,
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Noto Sans Thai',
-                                                                                          color: Colors.black,
-                                                                                          fontSize: 14.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                          fontWeight: FontWeight.w600,
-                                                                                        ),
+                                                                              Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.center,
+                                                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                                                              children: [
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 6.0, 0.0, 0.0),
+                                                                                  child: Icon(
+                                                                                    Icons.videocam_sharp,
+                                                                                    color: Color(0xFFDB771A),
+                                                                                    size: 30.0,
                                                                                   ),
                                                                                 ),
-                                                                              ),
-                                                                            ],
+                                                                                Container(
+                                                                                  width: 100.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 7.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      'วีดิโอลูกค้า',
+                                                                                      textAlign: TextAlign.center,
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Noto Sans Thai',
+                                                                                            color: Colors.black,
+                                                                                            fontSize: 14.0,
+                                                                                            letterSpacing: 0.0,
+                                                                                            fontWeight: FontWeight.w600,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
