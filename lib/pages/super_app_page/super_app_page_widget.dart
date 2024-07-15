@@ -2833,7 +2833,7 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  if (false)
+                                                                  if (true)
                                                                     InkWell(
                                                                       splashColor:
                                                                           Colors
@@ -2849,8 +2849,19 @@ class _SuperAppPageWidgetState extends State<SuperAppPageWidget> {
                                                                               .transparent,
                                                                       onTap:
                                                                           () async {
-                                                                        await launchURL(
-                                                                            'https://vcall.swpfin.com:8888/');
+                                                                        if (isAndroid) {
+                                                                          await actions
+                                                                              .urlLauncherAction(
+                                                                            'https://vcall.swpfin.com:8888/',
+                                                                            'android',
+                                                                          );
+                                                                        } else {
+                                                                          await actions
+                                                                              .urlLauncherAction(
+                                                                            'https://vcall.swpfin.com:8888/',
+                                                                            'ios',
+                                                                          );
+                                                                        }
                                                                       },
                                                                       child:
                                                                           Container(
