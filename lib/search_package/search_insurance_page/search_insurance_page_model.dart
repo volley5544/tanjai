@@ -10,6 +10,7 @@ import '/pages/super_app/components/loading_scene/loading_scene_widget.dart';
 import 'dart:convert';
 import 'dart:math';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'search_insurance_page_widget.dart' show SearchInsurancePageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
